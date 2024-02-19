@@ -1,0 +1,418 @@
+---
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+```{r s07a, echo=FALSE}
+rm(list=ls())
+source("../src/main-functions.R")
+source("../src/main.R")
+source(src_("intro.R"))
+
+```
+
+
+## La VC di Bernoulli
+
+La VC di Bernoulli codifica ogni bipartizione di $\Omega$ nei numeri zero e uno. 
+Sia $A$ un evento qualunque la VC di Bernoulli assegna $X=1$ se $A$ è vero e $X=0$ se $A$ è falso.
+Se per esempio estraggo a caso uno studente da un'aula codifico con 1 il fatto che sia maschio e con 0 che
+sia femmina. La VC $X$ ha come supporto
+
+$S_X=\{0,1\}$
+
+Definiamo con $\pi$ la probabilità che $X=1$ e dunque
+\[\begin{cases} X=1, &\text{con probabilità }  \pi\\
+X=0, &\text{con probabilità }  1-\pi
+\end{cases}\]
+
+La precedente può essere scritta in modo più compatto
+\[
+f(x)=P(X=x)=\pi^x(1-\pi)^{1-x}, ~~~x\in\{0,1\}
+\]
+
+infatti
+
+\begin{eqnarray*}
+f(1) &=& P(X=1) = \pi^1(1-\pi)^{1-1}=\pi \\
+f(0) &=& P(X=0) = \pi^0(1-\pi)^{1-0}=1-\pi 
+\end{eqnarray*}
+
+Diremo che $X$ è distribuita come una Bernoulli di parametro $\pi$ e si scrive $X\sim\text{Ber}(\pi)$.
+Lo spazio dei parametri in questo caso è $\pi\in[0,1]$, cioè $\pi$ essendo un probabilità non può
+essere scelto più piccolo di zero o più grande di uno.
+
+__Esempio.__ 
+Un lancio di una moneta perfetta è descritto da una Bernoulli di paramento $\pi=\frac 1 2$
+
+__Esempio.__ 
+L'estrazione da un'urna che contiene 1 sfera vincente e 9 perdenti è descritto da una Bernoulli $\pi=\frac 1 {10}$
+
+### Valore Atteso e Varianza
+
+Se $X\sim\text{Ber}(\pi)$, allora
+
+\begin{eqnarray*}
+E(X) &=& \sum_{x\in S_X} xf(x)\\
+ &=& 1\cdot\pi+0\cdot(1-\pi)\\
+ &=& \pi
+\end{eqnarray*}
+
+\begin{eqnarray*}
+V(X) &=& \sum_{x\in S_X} (x-E(X))^2f(x)\\
+ &=& (1-\pi)^2\cdot\pi+(0-\pi)^2\cdot(1-\pi)\\
+ &=& (1-\pi)^2\cdot\pi+\pi^2\cdot(1-\pi)\\
+ &=& \pi((1-\pi)^2+\pi(1-\pi))\\
+ &=& \pi(1-\pi)(1-\pi+\pi)\\
+ &=& \pi(1-\pi)
+\end{eqnarray*}
+
+### In Sintesi
+
+:::: {.info data-latex=""}
+Se $X$ è distribuita come una Bernoulli di parametro $\pi$, allora
+\begin{align*}
+\text{Notazione} & & X&\sim\text{\rm Ber}(\pi)\\
+\text{Supporto} & & S_X &=\{0,1\}\\
+\text{Funzione di probabilità} & & f(x)&=\pi^x(1-\pi)^{1-x}\\
+\text{Spazio dei parametri} & & \pi&\in[0,1]\\
+\text{Valore Atteso} & & E(X)&=\pi\\
+\text{Varianza} & & V(X)&=\pi(1-\pi)
+\end{align*}
+::::
+
+## La VC Binomiale
+
+La VC Binomiale consente di calcolare la probabilità di avere un certo numero di successi
+in un certo numero di prove indipendenti le une dalle altre.
+Se per esempio lanciamo una moneta perfetta 15 volte potremmo chiederci con quale probabilità
+otterremmo 8 volte testa su 15 lanci.
+
+### La VC Binomiale attraverso un esempio
+
+Si consideri un'urna che contiene 1 bussolotto rosso e 2 bianchi, estraiamo 5 volte
+con reintroduzione, vogliamo calcolare la probabilità di avere 3 bianchi (e quindi 2 rossi),
+su 5 estrazioni.
+\[
+E =\text{3 bianchi su 5 estrazioni}
+\]
+Chi sono gli eventi che realizzano $E$?
+
+\begin{eqnarray*}
+E =\{E_1 &=&(B_1\cap B_2\cap B_3\cap R_4\cap R_5)\cup\\
+E_2 &=&(B_1\cap B_2\cap R_3\cap B_4\cap R_5)\cup\\
+E_3 &=&(B_1\cap R_2\cap B_3\cap B_4\cap R_5)\cup\\
+...\}
+\end{eqnarray*}
+
+Osserviamo che ogni estrazione dall'urna è descritta da una Bernoulli $X_1,...,X_{5}$, ovvero
+che la VC che conta 1 se esce Bianco e 0 se esce Rosso è:
+\[
+X_i\sim\text{Ber}(\pi=2/3),~~~ i=1,...,5
+\]
+Le 5 Bernoulli che rappresentano le 5 estrazioni dall'urna sono tutte tra di loro **Indipendenti**
+e **Identicamente Distribuite**, sono **IID**.
+
+Osserviamo pure che l'evento $E$ è vero se e solo se $X=X_1,...,X_{5}=3$.
+E dunque la probabilità dell'evento $E_1$ sarà
+ 
+\begin{eqnarray*}
+P(E_1)&=&P(X_1=1\cap  X_2=1\cap  X_3=1\cap  X_4 =0\cap  X_5=0)\\
+      &=&P(X_1=1)P(X_2=1)P(X_3=1)P(X_4=0)P(X_5=0),~~~\text{in virtù della indipendenza}\\
+      &=&\frac2 3\cdot\frac2 3\cdot\frac2 3\cdot \frac 1 3 \cdot \frac 1 3\\
+      &=&\left(\frac 2 3\right)^3\left(\frac 1 3\right)^2\\
+      &=& `r (2/3)^3*(1/3)^2`
+\end{eqnarray*}
+
+Notiamo che $1+1+1+0+0=3$. 
+E dunque la probabilità dell'evento $E_2$ sarà
+
+\begin{eqnarray*}
+P(E_2)&=&P(X_1=1\cap  X_2=1\cap  X_3=0\cap  X_4 =1\cap  X_5=0)\\
+      &=&P(X_1=1)P(X_2=1)P(X_3=0)P(X_4=1)P(X_5=0),~~~\text{in virtù della indipendenza}\\
+      &=&\frac2 3\cdot\frac2 3\cdot\frac1 3\cdot \frac 2 3 \cdot \frac 1 3\\
+      &=&\left(\frac 2 3\right)^3\left(\frac 1 3\right)^2\\
+      &=& `r (2/3)^3*(1/3)^2`
+\end{eqnarray*}
+
+Anche stavolta notiamo che $1+1+0+1+0=3$. E dunque la probabilità dell'evento $E_3$ sarà
+
+\begin{eqnarray*}
+P(E_3)&=&P(X_1=1\cap  X_2=0\cap  X_3=1\cap  X_4 =1\cap  X_5=0)\\
+      &=&P(X_1=1)P(X_2=0)P(X_3=1)P(X_4=1)P(X_5=0),~~~\text{in virtù della indipendenza}\\
+      &=&\frac2 3\cdot\frac1 3\cdot\frac2 3\cdot \frac 2 3 \cdot \frac 1 3\\
+      &=&\left(\frac 2 3\right)^3\left(\frac 1 3\right)^2\\
+      &=& `r (2/3)^3*(1/3)^2`
+\end{eqnarray*}
+
+
+Tutti gli eventi $E_i$ hanno la stessa probabilità e dunque
+\[
+P(E_i)=\left(\frac 2 3\right)^3\left(\frac 1 3\right)^2 = `r (2/3)^3*(1/3)^2`
+\]
+
+E dunque
+
+\begin{eqnarray*}
+P(E)&=&P(E_1\cup E_2\cup E_3\cup...)\\
+      &=&P(E_1)+P(E_2)+P(E_3)+...,~~~\text{per via della incompatibilità}\\
+      &=&\left(\frac 2 3\right)^3\left(\frac 1 3\right)^2+\left(\frac 2 3\right)^3\left(\frac 1 3\right)^2+\left(\frac 2 3\right)^3\left(\frac 1 3\right)^2+~...\\
+      &=& \#\{\text{di modi in cui posso disporre 3B su 5}\}\cdot`r (2/3)^3*(1/3)^2`
+\end{eqnarray*}
+
+In quanti modi posso disporre 3 successi nelle 5 prove?
+
+```{r}
+x <- c("1,1,1,0,0",
+       "1,1,0,1,0",
+       "1,1,0,0,1",
+       "1,0,1,1,0",
+       "1,0,1,0,1",
+       "1,0,0,1,1",
+       "0,1,1,1,0",
+       "0,1,1,0,1",
+       "0,1,0,1,1",
+       "0,0,1,1,1"
+)
+kable(data.frame(sequenze=x,conteggio =1:10),booktab=T,escape = F, linesep = "")
+```
+
+In 10 modi diversi, per cui:
+\[
+P(E)=10\cdot`r (2/3)^3*(1/3)^2`=`r 10*(2/3)^3*(1/3)^2`
+\]
+Il _Coefficiente Binomiale_ calcola il numero di possibili combinazioni senza doverle scrivere tutte (in quanti modi posso riempire n scatole numerate con k palline indistinguibili).
+
+
+Nel nostro caso:
+\[\binom{5}{ 3}=\frac{5!}{3!(5-3)!}=\frac{5\cdot 4 \cdot 3\cdot 2\cdot 1}{(3\cdot 2\cdot 1)(2\cdot 1)}=10\]
+
+
+### Il modello 
+
+Siano $X_1,...,X_n$ $n$ VC IID, tutte di Bernoulli
+\[
+X_i\sim\text{Ber}(\pi), ~~\pi\in{[0,1]}
+\]
+Sia 
+\[
+X=X_1+...+X_n
+\]
+allora $X$ è chiamata VC **Binomiale** 
+\[X\sim\text{Binom}(n;\pi)
+\]
+è la VC che conta _il numero di successi in $n$ prove_ indipendenti e identicamente distribuite di Bernoulli, ogni prova ha probabilità $\pi$ di avere _successo_.
+
+
+Il supporto di $X$ è
+\[S_X=\{0,1,2,...,n\}\]
+
+Lo spazio dei parametri è
+\[0\leq\pi\leq 1 \rightarrow \pi\in[0,1]\]
+
+La funzione di probabilità di $X$ è 
+\[f(x)=P(X=x)=\binom{n}{ x}\pi^x(1-\pi)^{n-x} \]
+
+Il valore atteso e la varianza sono, rispettivamente
+\[E(X)=n\pi\qquad V(X)=n\pi(1-\pi)\]
+
+__Esempi ($n=1$ e $n=5$)__
+
+```{r}
+fig.def(2)
+
+```
+
+```{r,echo=F}
+par(mfrow=c(1,2),cex=cex)
+pp <- 0.5
+n  <- 1
+plot(0:n,dbinom(0:n,n,pp),main = paste("n =", n,"p =", pp),type="n",lwd=2,axes = F,xlab = "x",ylab="f(x)" ,ylim=c(0,1),xlim = c(-.6,1.6))
+rect((0:n)-.5,0,(0:n)+.5,dbinom(0:n,n,pp),col=ablue)
+axis(1,0:n)
+axis(2,c(0,pp,1-pp,1))
+pp <- .1
+n  <- 1
+plot(0:n,dbinom(0:n,n,pp),main = paste("n =", n,"p =", pp),type="n",lwd=2,col=iblue,axes = F,xlab = "x",ylab="f(x)" ,ylim=c(0,1),xlim = c(-.6,1.6))
+rect((0:n)-.5,0,(0:n)+.5,dbinom(0:n,n,pp),col=ablue)
+axis(1,0:n)
+axis(2,c(pp,1-pp))
+```
+
+```{r,echo=F}
+par(mfrow=c(1,2),cex=cex)
+
+pp <- 0.5
+n  <- 5
+plot(0:n,dbinom(0:n,n,pp),main = paste("n =", n,"p =", pp),type="n",lwd=2,col=iblue,axes = F,xlab = "x",ylab="f(x)" ,xlim = c(-.6,n+.6))
+rect((0:n)-.5,0,(0:n)+.5,dbinom(0:n,n,pp),col=ablue)
+axis(1,0:n)
+axis(2)
+pp <- .1
+n  <- 5
+plot(0:n,dbinom(0:n,n,pp),main = paste("n =", n,"p =", pp),type="n",lwd=2,col=iblue,axes = F,xlab = "x",ylab="f(x)" ,xlim = c(-.6,n+.6))
+rect((0:n)-.5,0,(0:n)+.5,dbinom(0:n,n,pp),col=ablue)
+axis(1,0:n)
+axis(2)
+par(cex=cex)
+
+
+```
+
+__Esempi ($n=10$ e $n=50$)__
+
+```{r,echo=F}
+
+
+par(mfrow=c(1,2),cex=cex)
+pp <- 0.5
+n  <- 10
+plot(0:n,dbinom(0:n,n,pp),main = paste("n =", n,"p =", pp),type="n",lwd=2,col=iblue,axes = F,xlab = "x",ylab="f(x)" )
+rect((0:n)-.5,0,(0:n)+.5,dbinom(0:n,n,pp),col=ablue)
+axis(1,0:n)
+axis(2)
+pp <- .1
+plot(0:n,dbinom(0:n,n,pp),main = paste("n =", n,"p =", pp),type="n",lwd=2,col=iblue,axes = F,xlab = "x",ylab="f(x)" )
+rect((0:n)-.5,0,(0:n)+.5,dbinom(0:n,n,pp),col=ablue)
+axis(1,0:n)
+axis(2)
+```
+
+```{r,echo=F}
+
+
+par(mfrow=c(1,2),cex=cex)
+pp <- 0.5
+n  <- 50
+plot(0:n,dbinom(0:n,n,pp),main = paste("n =", n,"p =", pp),type="n",lwd=2,col=iblue,axes = F,xlab = "x",ylab="f(x)" )
+rect((0:n)-.5,0,(0:n)+.5,dbinom(0:n,n,pp),col=ablue)
+axis(1,seq(0,n,by=5))
+axis(2)
+pp <- .1
+plot(0:n,dbinom(0:n,n,pp),main = paste("n =", n,"p =", pp),type="n",lwd=2,col=iblue,axes = F,xlab = "x",ylab="f(x)" )
+rect((0:n)-.5,0,(0:n)+.5,dbinom(0:n,n,pp),col=ablue)
+axis(1,seq(0,n,by=5))
+axis(2)
+par(cex=cex)
+
+fig.def(2.4)
+```
+
+
+### Dimostrazione del Valore atteso e della Varianza
+
+se $X\sim\text{Binom}(n;\pi)$ allora è la somma di $n$ prove di Bernoulli IID
+$X_i\sim\text{Ber}(\pi)$:
+\[X=X_1+...+X_n\]
+e sappiamo che 
+\[E(X_i)=\pi,\qquad V(X_i)=\pi(1-\pi),~\forall i=1,...,n\]
+quindi
+
+\begin{eqnarray*}
+E(X) &=& E(X_1+...+X_n)\\
+     &=& E(X_1)+...+E(X_n)\\
+     &=& \pi +...+\pi\\
+     &=& n\pi \\
+V(X) &=& V(X_1+...+X_n)\\
+&=& V(X_1)+...+V(X_n),~~\text{in virtù dell'indipendenza}\\
+     &=& \pi(1-\pi) +...+\pi(1-\pi)\\
+     &=& n\pi(1-\pi) 
+\end{eqnarray*}
+
+
+
+### Esempio
+
+
+Si lancia un dado a sei facce non truccato $n=5$ volte, si vince se si ottiene un punteggio strettamente maggiore di 4.
+
+1. Calcolare la probabilità non vincere nessuna volta in $n=5$ tentativi.
+
+__Soluzione.__ 
+La variabile casuale che conta il numero di vittorie in $n=5$ lanci è la Binomiale, la probabilità di vittoria nel singolo lancio si calcola facilmente:
+\[\pi=P(\text{Dado}> 4)=P( \text{Dado}= 5\cup \text{Dado}= 6)=\frac 1 6 +\frac 1 6 =\frac 1 3\]
+
+La probabilità di non vincere in nessuno degli $n$ tentativi equivale a calcolare la probabilità che $X$ sia uguale a zero
+
+\[P(X=0)=\binom{n}{ x}\pi^x(1-\pi)^{n-x}=\binom{5}{3}\frac 1 3^0\left(1-\frac 1 3\right)^{5-0}=1\cdot\left({\frac 2 3}\right)^5=`r 5*2/3^5`\]
+
+
+2. Calcolare la probabilità vincere _al massimo_ due volte in $n=5$ tentativi.
+
+__Soluzione.__ 
+La probabilità di vincere al massimo due volte su $n$ tentativi equivale a calcolare la probabilità che $X$ sia minore o uguale due
+
+\begin{eqnarray*}
+P(X\leq 2) &=& P(X=0\cup X=1 \cup X=2)\\
+           &=& P(X=0)+P(X=1)+P(X=2)\\
+           &=& \binom{5}{ 0}\left(\frac 1 3\right)^0\left(1-\frac 1 3\right)^{5-0}+
+               \binom{5}{ 1}\left(\frac 1 3\right)^1\left(1-\frac 1 3\right)^{5-1}+
+               \binom{5}{ 2}\left(\frac 1 3\right)^2\left(1-\frac 1 3\right)^{5-2}\\
+           &=& 1\cdot\left({\frac 2 3}\right)^5+5\cdot\left({\frac 1 3}\right)^1\left({\frac 2 3}\right)^4
+             +10\cdot\left({\frac 1 3}\right)^2\left({\frac 2 3}\right)^3\\
+           &=& `r sum(dbinom(0:2,5,1/3))`
+\end{eqnarray*}
+
+3. Calcolare la probabilità vincere _almeno_ due volte in $n=5$ tentativi.
+   
+__Soluzione.__
+La probabilità di vincere almeno due volte su $n$ tentativi equivale a calcolare la probabilità che $X$ sia maggiore o uguale due
+
+\begin{eqnarray*}
+P(X\geq 2) &=& P(X=2 \cup X=3 \cup X=4 \cup X=5)\\
+           &=& 1-P(X<2)\\
+           &=& 1-(P(X=0)+P(X=1))\\
+           &=& 1-\left(1\cdot \left(\frac 1 3\right)^0\left(1-\frac 1 3\right)^{5-0} +5\cdot \left(\frac 1 3\right)^1\left(1-\frac 1 3\right)^{5-1} \right)\\
+           &=& `r sum(dbinom(2:5,5,1/3))`
+\end{eqnarray*}
+
+### Proprietà
+
+::: {.proposition name="Variabile Casuale Binomiale"}
+Sia $X\sim\text{\rm Binom}(n;\pi)$, allora:
+
+1. $E(X)$ e $V(X)$ crescono al crescere di $n$
+2. La distribuzione di $X$ è perfettamente simmetrica se $\pi=0.5$
+3. La distribuzione di $X$ è tende a diventare simmetrica se $n\to\infty$, per ogni valore di $0<\pi<1$
+4. **Proprietà riproduttiva:** 
+   Siano $X_1,X_2,...,X_m$ $m$ VC indipendenti, ognuna $X\sim\text{\rm Binom}(n_i,\pi), i =1,...,m$, allora
+\[X_1+...+X_m\sim\text{\rm Binom}(n_1+...+n_m;\pi)\]
+:::
+
+:::: {.nota}
+Si osservi che una Binomiale per $n=1$ e $\pi$ equivale ad una Bernoulli di 
+parametro $\pi$
+
+\[
+X\sim\text{Binom}(1,\pi)\sim\text{Ber}(\pi)
+\]
+
+e quindi dalla proprietà riproduttiva abbiamo che se $X_1,X_2,...,X_n$ sono $n$ VC indipendenti, ognuna $X\sim\text{Binom}(1,\pi), i =1,...,m$, allora
+
+\[X_1+...+X_m\sim\text{Binom}(n;\pi)\]
+
+Lanciare 5 volte la stessa moneta e contare il numero di teste equivale, dal punto di vista probabilistico, a lanciare 5 monete identiche e contare il numero di teste.
+::::
+
+\clearpage
+
+### In Sintesi
+
+:::: {.info2 data-latex=""}
+Se $X$ è distribuita come una Binomiale di parametro $\pi$, allora
+
+\begin{align*}
+\text{Notazione} & & X&\sim\text{Binom}(n,\pi) \\
+\text{Supporto} & & S_X &=\{0,1,2,...,n\} \\
+\text{Funzione di probabilità} & & f(x)&=\binom{n}{x}\pi^x(1-\pi)^{n-x}\\
+\text{Spazio dei parametri} & & \pi&\in[0,1], n\in\{0,1,2,3,...\}\\
+\text{Valore Atteso} & & E(X)&=n\pi\\
+\text{Varianza} & & V(X)&=n\pi(1-\pi)\\
+\end{align*}
+
+**Proprietà riproduttiva:** 
+Siano $X_1,X_2,...,X_m$ $m$ VC indipendenti, ognuna $X\sim\text{Binom}(n_i,\pi), i =1,...,m$, allora
+
+\[X_1+...+X_m\sim\text{Binom}(n_1+...+n_m;\pi)\]
+
+::::
