@@ -4,9 +4,9 @@ editor_options:
   chunk_output_type: console
 ---
 ```{r s01, echo=FALSE}
-source("../src/main.R")
-source("../src/main-functions.R")
-source(src_("intro.R"))
+
+
+source("intro.R")
 
 ```
 
@@ -366,14 +366,14 @@ mentre a destra vediamo che il numero delle classi e la loro ampiezza variabile 
 ```{r classi,echo=FALSE}
 brk  <- c(0,5,20)
 k <- length(brk)-1
-source("../src/stat-base.R")
+ls2e(stat_base(samp,brk))
 dat3$`$f_{j\\%}$` <- dat3$`$f_j$`*100
 
 poche <- dat3[1:(k+1),c(1:2,12)]
 
 brk  <- seq(0,20,by=2.5)
 k <- length(brk)-1
-source("../src/stat-base.R")
+ls2e(stat_base(samp,brk))
 dat3$`$f_{j\\%}$` <- dat3$`$f_j$`*100
 
 # kable((dat3[1:(k+1),c(1:4,12)]),digits = 2) %>%
@@ -387,7 +387,7 @@ troppe <- dat3[1:(k+1),c(1:2,12)]
 
 brk  <- c(0,3,5,10,20)
 k <- length(brk)-1
-source("../src/stat-base.R")
+ls2e(stat_base(samp,brk))
 dat3$`$f_{j\\%}$` <- dat3$`$f_j$`*100
 
 giuste <- dat3[1:(k+1),c(1:2,12)]
@@ -434,7 +434,7 @@ $\phantom{.}$
 ```{r classi2}
 brk  <- c(0,3,5,10,20)
 k <- length(brk)-1
-source("../src/stat-base.R")
+ls2e(stat_base(samp,brk))
 dat3$`$f_{j\\%}$` <- dat3$`$f_j$`*100
 kbl((dat3[1:(k+1),c(1:2,4,7)]),digits = 2,booktabs = T, escape = F) %>%
     kable_styling(full_width = F, latex_options = "HOLD_position")
@@ -479,7 +479,7 @@ La tabella \@ref(tab:conti) mostra passo, passo lo sviluppo del calcolo. La figu
 
 brk  <- c(0,3,5,10,20)
 k <- length(brk)-1
-source("../src/stat-base.R")
+ls2e(stat_base(samp,brk))
 dat3$`$f_{j\\%}$` <- dat3$`$f_j$`*100
 if (!html) par(cex=.5)
 histp(axes = T)

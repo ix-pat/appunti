@@ -6,12 +6,16 @@ library(bookdownplus)
 library(plotrix)
 library(colorspace)
 library(haven)
+library(rgl)
+library(mvtnorm)
 library(pat.book)
 
 options(digits=4,knitr.kable.NA = '',scipen = 8,big.mark=" ")
 opts_knit$set(global.par = TRUE,warning = FALSE, message = FALSE, fig.align = "center",fig.pos = "H", out.extra = "",results = 'asis',echo=FALSE)
 
-
+ls2e <- function(x){
+  invisible(list2env(x,envir = globalenv()))
+}
 # Colors
 
 iblue <- darken(rgb(0.024,0.282,0.478),amount = .4)

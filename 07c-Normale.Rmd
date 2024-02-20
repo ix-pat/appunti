@@ -4,10 +4,8 @@ editor_options:
   chunk_output_type: console
 ---
 ```{r setupnorm, include=FALSE}
-rm(list = ls())
-par(mfrow=c(1,1))
-source("../src/main-functions.R")
-source(src_("intro.R"))
+
+source("intro.R")
 ```
 
 ## La VC Normale

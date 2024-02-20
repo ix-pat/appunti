@@ -1,0 +1,45 @@
+---
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+```{r s07, echo=FALSE}
+source("intro.R")
+
+```
+
+# Variabili Casuali di particolare interesse
+
+Le VC sono i mattoncini elementari su cui statistici e probabilisti
+costruiscono un _modello statistico_. Alcune VC rivestono sono 
+particolarmente adatte per descrivere ampie classi di problemi statistici e probabilistici. 
+Queste VC sono di particolare interesse e vengono nominate con un nome convenzionale.
+Si tratta di modelli probabilistici che sono completamente noti a meno di un _numero finito_ di parametri 
+numerici da fissare.
+
+Se $X$ è una VC nominata dalla sigla convenzionale $\mathscr{L}$ che dipende dal parametro $\theta$ che può variare in $\Theta$ e scriveremo:
+\[
+X\sim\mathscr{L}(\theta)
+\]
+che si legge:
+
+> _$X$ è distribuita come una VC $\mathscr{L}$ di parametro $\theta$_
+
+L'insieme $\Theta$ è chiamato lo _spazio dei parametri_ ed è l'insieme numerico
+per cui $\theta$ ha senso probabilistico.
+
+```{r,results='asis',echo=FALSE}
+cat(knit_child("07a-Binomiale.Rmd",envir = environment(),quiet=T))
+```
+
+```{r,results='asis',echo=FALSE}
+cat(knit_child("07b-Poisson.Rmd",envir = environment(),quiet=T))
+```
+
+```{r,results='asis',echo=FALSE}
+cat(knit_child("07c-Normale.Rmd",envir = environment(),quiet=T))
+```
+
+```{r,results='asis',echo=FALSE}
+cat(knit_child("07d-Esercizi-Normale.Rmd",envir = environment(),quiet=T))
+```

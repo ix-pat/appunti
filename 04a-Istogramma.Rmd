@@ -7,9 +7,9 @@ editor_options:
 
 ```{r,echo=FALSE}
 #rm(list = ls())
-source("../src/main-functions.R")
-source(src_("main.R"))
-source(src_("intro.R"))
+
+
+source("intro.R")
 
 
 opts_knit$set(echo=F)
@@ -31,13 +31,14 @@ Attraverso il seguente esempio osserveremo meglio il legame tra i due concetti.
 n <- 4700
 brk <- c(0,10,20,50,90)
 f    <- c(0.18,0.30,0.42,0.10)
+k <- length(brk)-1
 
 nnn <- f*n
 nomex <- "Reddito"
 brk <- c(0,10,20,50,90)
 
 samp <- genera_dati(brk = brk,n = n,nnn = nnn,rand = F)
-source(src_("stat-base.R"))
+ls2e(stat_base(samp,brk))
 ```
 
 :::: {.example}
@@ -65,7 +66,7 @@ Se al posto delle $h$ usiamo le $f$ disegniamo l'istogramma _sbagliato_, . Notia
 viene sovra rappresentata. Infatti è vero che il 45% delle famiglie si trova in quella classe, ma è anche vero che l'ampiezza della classe molto grande e l'istogramma non rappresenta i dati.
 
 ```{r, echo=FALSE}
-source(src_("intro.R"))
+source("intro.R")
 barplot(dat2$fj,diff(brk),space = 0,main = "istogramma sbagliato, le f sono usate al posto delle h",col = "white")
 lines(c(0,90),c(0,0.4),col=ared,lwd=4)
 lines(c(0,90),c(0.4,0.0),col=ared,lwd=4)
@@ -78,7 +79,7 @@ Per disegnare un istogramma di densità in modo corretto si devono rispettare le
 tra le basi
 
 ```{r, echo=FALSE}
-source(src_("intro.R"))
+source("intro.R")
 #barplot(dat2$h,diff(brk),space = 0,main = "istogramma corretto")
 plot(c(0,4),c(0,max(dat2$hj)),type="n" ,axes=F,xlab="x",ylab="Densità") 
 rect(0:3,0,1:4,dat2$hj)
@@ -138,7 +139,7 @@ kable((ddd),booktabs = T, escape = F,linesep = "", digits = 4)
 * mettere a grafico i punti (0,$x_0$), (0.10,$x_{0.10}$),...,(1,$x_{1}$)) e ($x_0$,0), ($x_{0.10}$,0.10),...,($x_{1}$,1))
 
 ```{r decili-g1, echo=FALSE, results="asis"}
-source(src_("intro.R"))
+source("intro.R")
 dec <- paste("$x_{",(0:10)/10,"}$")
 ddd <- (percentili = c(round(Q.int((0:9)/10),4),90))
 plot((0:10)/10,ddd,type="p",pch=16,xlab = "p",ylab = "p-esimo percentile",axes = F)
@@ -147,7 +148,7 @@ axis(2)
 ```
 
 ```{r , echo=FALSE, results="asis"}
-source(src_("intro.R"))
+source("intro.R")
 plot(ddd,(0:10)/10,type="n",ylab = "p",pch=16,xlab = "p-esimo percentile",axes = F)
 points(ddd,(0:10)/10,pch=16,col="grey")
 axis(1,brk)

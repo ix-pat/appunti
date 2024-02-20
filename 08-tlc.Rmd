@@ -7,10 +7,10 @@ editor_options:
 ---
 
 ```{r setuptlc, include=FALSE}
-rm(list=ls())
-source("../src/main.R")
-source("../src/main-functions.R")
-source(src_("intro.R"))
+
+
+
+source("intro.R")
 
 ```
 

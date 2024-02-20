@@ -6,9 +6,9 @@ editor_options:
 
 ```{r, echo=FALSE}
 rm(list = ls())
-source("../src/main-functions.R")
-source(src_("main.R"))
-source(src_("intro.R"))
+
+
+source("intro.R")
 opts_knit$set(echo=T,results = "markup")
 virg <- "`"
 options(digits = 4,nsmall=4) # quanti decimali stampo
@@ -116,8 +116,7 @@ R restituisce il risultato.
 R è anzitutto una calcolatrice
 
 ```{r setup}
-library(knitr)
-library(kableExtra)
+source("intro.R")
 opts_knit$set(echo=T,results = "markup")
 options(digits = 5,nsmall=5) # quanti decimali stampo
 ```

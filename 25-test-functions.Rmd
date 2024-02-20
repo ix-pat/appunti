@@ -13,9 +13,9 @@ di automazione, dalla creazione dei data set alla soluzione di alcuni problemi.
 ```{r, include=FALSE}
 
 rm(list = ls())
-source("../src/main-functions.R")
-source(src_("main.R"))
-source(src_("intro.R"))
+
+
+source("intro.R")
 
 i1 <- 1
 i2 <- 0
@@ -47,7 +47,7 @@ virg <- "`"
 ##
 ##  x        oggetto da stampare in tabella
 ##
-## source(src_("stat-base.R"))   crea diversi oggetti
+## ls2e(stat_base(samp,brk))   crea diversi oggetti
 ##  dat2     tabella con intestazioni semplici
 ##  dat3     tabella con intestazioni da stampa
 ##  H.int(x) densità percentuale
@@ -70,7 +70,7 @@ nomex <- "Nome della X"          # nome della X
 samp <- genera_dati(
   brk = brk,hhh = hhh,n = n)     # genera i dati dall'istogramma
 
-source(src_("stat-base.R"))      # crea il data set e la tabella dat3
+ls2e(stat_base(samp,brk))      # crea il data set e la tabella dat3
 
 tabl(dat3)
 
@@ -192,7 +192,7 @@ set.seed(12)                 # ripete le stesse generazioni casuali
 n <- 100                     # fisso n
 x <- rnorm(n,10)             # genero x
 y <- x+rnorm(n,0,1)          # genero y
-attach(regr(x = x,y = y))    # produco le statistiche di base
+ls2e(regr(x = x,y = y))    # produco le statistiche di base
 
 calcolo_beta()
 calcolo_beta(semplice = T)
@@ -220,7 +220,7 @@ hhh  <- c( 20,120,100, 50,10)       # aspetto presunto istogramma
 nomex <- "Spesa"
 samp <- genera_dati(brk = brk,hhh = hhh,n = n)
 
-source(src_("stat-base.R"))        # crea il data set e la tabella dat3
+ls2e(stat_base(samp,brk))        # crea il data set e la tabella dat3
 ```
 
 Su un campione di $`r virg`r n`$ famiglie della provincia di Modena è stato 
@@ -265,7 +265,7 @@ hhh  <- c( 20,120,100, 50,10)       # aspetto presunto istogramma
 nomex <- "Spesa"
 samp <- genera_dati(brk = brk,hhh = hhh,n = n)
 
-source(src_("stat-base.R"))        # crea il data set e la tabella dat3
+ls2e(stat_base(samp,brk))        # crea il data set e la tabella dat3
 i1 <- 1
 i2 <- 0
 

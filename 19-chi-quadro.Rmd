@@ -1,0 +1,1003 @@
+
+
+```{r setupchi, include=FALSE}
+rm(list = ls())
+
+source(src_("main.R"))
+source("intro.R")
+  
+mumax <- 5
+za2 <- round(qnorm(.975),2)
+```
+
+# Il Test Chi-Quadro 
+
+## Test di Significatività pura
+
+I test che abbiamo visto fin'ora prevedono l'ipotesi su un parametro
+$\theta$. Ovvero tutti i test che abbiamo visto fin'ora sono del tipo
+
+\[
+\begin{cases}
+H_0:\theta=\theta_0\\
+H_1:\theta\in\Theta_1
+\end{cases}
+\]
+
+I test di significatività pura rispondono a domande diverse, come per esempio testare se
+due variabili, alla luce dei dati, sono o non sono indipendenti o se la distribuzione osservata
+di una variabile è compatibile con un modello probabilistico. In un test di 
+significatività pure solo l'ipotesi $H_0$ viene elicitata, mentre l'ipotesi $H_1$ non ha molto senso. 
+Il test del $\chi^2$ consente di risolvere diversi test di significatività pura
+
+## Associazione tra due variabili
+
+ Abbiamo visto nel modello di regressione le statistiche che misurano
+_l'associazione lineare_ tra due variabili quantitative. 
+Abbiamo osservato che l'associazione lineare **non** l'unico tipo di associazione
+osservabile tra $x$ ed $y$. 
+Il modello di regressione lineare funziona solo se $x$ e $y$ sono quantitative.
+Come misurare l'associazione tra $x$ e $y$ se sono entrambe categoriali?
+
+### Le tavole di contingenza
+
+Sono tabelle che consentono di vedere le _frequenze congiunte_ delle osservazioni a coppie
+
+:::: {.example}
+100 individui dalla città $A$, 100 dalla città $B$ e 100 dalla città $C$. 
+Abbiamo misurato $X=$ Genere ($M$, $F$), $Y=$ abbonamento allo stadio (Sì, No).
+In tutte e tre le città abbiamo osservato 50 $M$ e 50 $F$, e abbiamo osservato 50 abbonati
+e 50 non abbonati.
+\[\tiny
+\begin{array}{c|rr|r}
+ & \text{Città A} & &\\ \hline
+ &\text{Abbonato} &\text{Non Abbonato} &\bf\text{Tot}\\
+  \hline
+   M & 50 & 0 & \bf 50\\ 
+   F & 0 & 50  &\bf 50\\ \hline
+  \bf\text{Tot} &\bf 50 &\bf 50 &\bf 100\\ 
+\end{array}
+\qquad
+\begin{array}{c|rr|r}
+ & \text{Città B} & &\\ \hline
+ &\text{Abbonato} &\text{Non Abbonato} &\bf\text{Tot}\\
+  \hline
+  M & 35 & 15 & \bf50\\ 
+  F & 15 & 35  &\bf50\\ \hline
+  \bf\text{Tot} &\bf 50 &\bf 50 &\bf 100\\ 
+\end{array}
+\qquad
+\begin{array}{c|rr|r}
+ & \text{Città C} & &\\ \hline
+ &\text{Abbonato} &\text{Non Abbonato} &\bf\text{Tot}\\
+  \hline
+  M & 25 & 25 & \bf50\\ 
+  F & 25 & 25  &\bf50\\ \hline
+  \bf\text{Tot} &\bf 50 &\bf 50 &\bf 100\\ 
+\end{array}
+\]
+
+ Nella città $A$ solo i maschi hanno l'abbonamento allo stadio 
+ **perfetta** associazione tra Genere e Abbonamento. 
+ Nella città $B$ molti maschi hanno l'abbonamento allo stadio ma non solo 
+ c'è associazione tra Genere e Abbonamento. 
+ Nella città $C$ non c'è distinzione tra genere e passione per il pallone 
+  **Non** c'è associazione tra Genere e Abbonamento.
+
+Ma, come vedremo nel prossimo esempio, non è sempre facile individuare dove non c'è associazione.
+::::
+
+:::: {.example name="Popolazione finita, estrazioni SR (Efficienza)"}
+
+100 individui dalla città $A$, 100 dalla città $B$ e 100 dalla città $C$. 
+Abbiamo misurato $X=$ Genere ($M$, $F$), $Y=$ abbonamento allo stadio (Sì, No).
+In tutte e tre le città abbiamo osservato 60 $M$ e 40 $F$, e abbiamo osservato 60 abbonati
+e 40 non abbonati.
+\[\tiny
+\begin{array}{c|rr|r}
+ & \text{Città A} & &\\ \hline
+ &\text{Abbonato} &\text{Non Abbonato} &\bf\text{Tot}\\
+  \hline
+   M & 60 & 0 & \bf 60\\ 
+   F & 0 & 40  &\bf 40\\ \hline
+  \bf\text{Tot} &\bf 60 &\bf 40 &\bf 100\\ 
+\end{array}
+\qquad
+\begin{array}{c|rr|r}
+ & \text{Città B} & &\\ \hline
+ &\text{Abbonato} &\text{Non Abbonato} &\bf\text{Tot}\\
+  \hline
+  M & 40 & 20 & \bf60\\ 
+  F & 20 & 20  &\bf50\\ \hline
+  \bf\text{Tot} &\bf 60 &\bf 40 &\bf 100\\ 
+\end{array}
+\qquad
+\begin{array}{c|rr|r}
+ & \text{Città C} & &\\ \hline
+ &\text{Abbonato} &\text{Non Abbonato} &\bf\text{Tot}\\
+  \hline
+  M & 36 & 24 & \bf60\\ 
+  F & 24 & 16  &\bf40\\ \hline
+  \bf\text{Tot} &\bf 60 &\bf 40 &\bf 100\\ 
+\end{array}
+\]
+
+ Nella città $A$ solo i maschi hanno l'abbonamento allo stadio **perfetta** associazione tra Genere e Abbonamento. Nella città $B$ molti maschi hanno l'abbonamento allo stadio ma non solo,  
+ c'è associazione tra Genere e Abbonamento.
+ Nella città $C$ non c'è distinzione tra genere e passione per il pallone 
+  **non** c'è associazione tra Genere e Abbonamento ma non è evidente da vedere.
+::::
+
+### Un passo indietro: il concetto di indipendenza
+
+ Se $X$ e $Y$ sono due VC **INDIPENDENTI** allora
+\[P(X=x~\cap~Y=y)=P(X=x)P(Y=y)\]
+
+ Se per esempio 
+\[S_X=\{0,1\},\qquad S_Y=\{0,1\}\]
+
+ e
+\[P(X=1)=\pi_X\qquad P(Y=1)=\pi_y\]
+
+ Sotto regime di indipendenza
+\[
+\begin{array}{c|ll|r}
+ &Y=0 &Y=1 &\\
+  \hline
+  X=0 & \pi_{11}=P(X=0\cap Y=0) = (1-\pi_X)(1-\pi_Y)& 
+  \pi_{12}=P(X=0\cap Y=1) =(1-\pi_X)\pi_Y & 1-\pi_X\\ 
+  X=1 & \pi_{21}=P(X=1\cap Y=0)= \pi_X(1-\pi_Y)& 
+  \pi_{22}=P(X=1\cap Y=1) =\pi_X\pi_Y & \pi_X\\ \hline
+   & 1-\pi_Y & \pi_Y & 1\\ 
+\end{array}
+\]
+
+
+
+ Sia $X$ la VC che registra testa nel lancio di una moneta perfetta e $Y$ una VC che 
+registra la faccia numero 6 dal lancio di un dado perfetto
+
+ e
+\[P(X=1)=\frac 1 2\qquad P(Y=1)=\frac 1 6\]
+
+ Sotto regime di indipendenza
+\[
+\begin{array}{c|ll|r}
+ &Y=0 &Y=1 &\\
+  \hline
+  X=0 & `r .5*5/6` & `r .5*1/6` & \frac12\\ 
+  X=1 & `r .5*5/6` & `r .5*1/6` & \frac12\\ 
+\hline
+   & \frac 56 &\frac16 & 1\\ 
+\end{array}
+\]
+
+ L'indipendenza è imposta dal meccanismo di generazione di casualità
+ Ovvero, se io lancio 100 volte il dado e la moneta mi aspetto, in media
+di osservare 41.7 volte $X=0$ e $Y=0$, 41.7 volte $X=1$ e $Y=0$, 8.3 volte
+$X=0$ e $Y=1$ e 8.3 volte $X=1$ e $Y=1$.
+ Se dopo 100 lanci le frequenze osservate sono molto diverse dalle frequenze 
+teoriche in regime di indipendenza, potrei dubitare dell'ipotesi di indipendenza
+
+### Estensione a più di due modalità
+
+ Se abbiamo due VC categoriali $X$ e $Y$ con supporto
+\[S_X=\{x_1,...,x_I\} \qquad S_Y= \{y_1,...,y_J\}\] definiamo
+le **probabilità congiunte**
+\[\pi_{ij}=\text{la probabilità che $X=x_i$ e $Y=y_j$}\]
+
+ La distribuzione di probabilità doppia è
+\[
+\begin{array}{c|cccccc|c}
+ &y_1 &y_2 &\ldots &y_j &\ldots &y_J &\\
+  \hline
+  x_1 & \pi_{11} & \pi_{12} & \ldots &\pi_{1j} &\ldots &\pi_{1J} & \pi_{1\bullet}\\
+  x_2 & \pi_{21} & \pi_{22} & \ldots &\pi_{2j} &\ldots &\pi_{2J} & \pi_{2\bullet}\\
+\vdots& \vdots & \vdots &\ddots &\vdots & &\vdots &\vdots \\
+  x_i & \pi_{i1} & \pi_{i2} & \ldots &\pi_{ij} &\ldots & \pi_{iJ}& \pi_{i\bullet}\\
+\vdots& \vdots & \vdots & &\vdots &\ddots &\vdots &\vdots \\
+  x_I & \pi_{I1} & \pi_{I2} & \ldots &\pi_{Ij} &\ldots &\pi_{IJ} &\pi_{I\bullet}\\
+\hline
+   & \pi_{\bullet 1}& \pi_{\bullet 2}& \ldots& \pi_{\bullet j}& \ldots& \pi_{\bullet J}& 1\\ 
+\end{array}
+\]
+
+ Le **probabilità marginali** sono
+\[\pi_{i\bullet}=\pi_{i1}+\ldots+\pi_{iJ},\qquad \pi_{\bullet j}=\pi_{1j}+\ldots+\pi_{Ij} \]
+
+
+### Esempio
+
+```{r}
+px <- c(.6,.4)
+py <- c(.3,.5,.2)
+
+pxy <- outer(px,py,"*")
+
+n <- 150
+
+nxy <- pxy*n
+```
+
+ Nella città $A$ ci sono `r nxy[1,1]` individui occupati con la licenza media , `r nxy[1,2]` individui occupati con la licenza superiore, `r nxy[1,3]` individui occupati laureati, `r nxy[1,3]` individui disoccupati con la licenza media , `r nxy[2,2]` individui disoccupati con la licenza superiore e `r nxy[2,3]` laureati
+\[
+\begin{array}{c|ccc|r}
+         &M             &   S              &L  & \\   \hline
+Occupato    & `r nxy[1,1]`     & `r nxy[1,2]`     & `r nxy[1,3]`     & `r sum(nxy[1,])`\\
+Disoccupato & `r nxy[2,1]`     & `r nxy[2,2]`     & `r nxy[2,3]`     & `r sum(nxy[2,])`\\ \hline
+         & `r sum(nxy[,1])` & `r sum(nxy[,2])` & `r sum(nxy[,3])` & `r n`
+\end{array}
+\]
+
+ Qual è la probabilità di estrarre un soggetto che abbia un dato titolo di studio e una data condizione occupazionale?
+\[
+\begin{array}{c|ccc|c}
+         &M & S &L  & \\   \hline
+Occupato    & \pi_{11}=\frac {`r nxy[1,1]`}{`r n`}=`r pxy[1,1]`    
+         & \pi_{12}=\frac{`r nxy[1,2]`}{`r n`}=`r pxy[1,2]`    
+         & \pi_{13}=\frac{`r nxy[1,3]`}{`r n`}=`r pxy[1,3]` 
+         & \pi_{1\bullet}=\frac{`r sum(nxy[1,])`}{`r n`}=`r sum(pxy[1,])`\\
+Disoccupato & \pi_{21}=\frac {`r nxy[2,1]`}{`r n`}=`r pxy[2,1]`    
+         & \pi_{22}=\frac{`r nxy[2,2]`}{`r n`}=`r pxy[2,2]`    
+         & \pi_{23}=\frac{`r nxy[2,3]`}{`r n`}=`r pxy[2,3]` 
+         & \pi_{2\bullet}=\frac{`r sum(nxy[2,])`}{`r n`}=`r sum(pxy[2,])`\\ \hline
+         & \pi_{\bullet1}=\frac{`r sum(nxy[,1])`}{`r n`}=`r sum(pxy[,1])`    
+         & \pi_{\bullet2}=\frac{`r sum(nxy[,2])`}{`r n`}=`r sum(pxy[,2])` 
+         & \pi_{\bullet3}=\frac{`r sum(nxy[,3])`}{`r n`}=`r sum(pxy[,3])`
+         & \frac {`r n`}{`r n`}=1.0
+\end{array}
+\]
+
+ Titolo di studio e occupazione sono **indipendenti**?
+
+ Sì, in quanto
+\[\pi_{ij}=\pi_{i\bullet}\pi_{\bullet j},~\forall i,j\]
+
+ Ad esempio
+\[\pi_{11}=`r pxy[1,1]`=`r sum(pxy[1,])`\times`r sum(pxy[,1])`=\pi_{1\bullet}\pi_{\bullet 1}\]
+
+
+ Ad esempio
+\[\pi_{23}=`r pxy[2,3]`=`r sum(pxy[2,])`\times`r sum(pxy[,3])`=\pi_{2\bullet}\pi_{\bullet 3}\]
+
+
+
+
+```{r}
+px <- c(.6,.4)
+py <- c(.3,.5,.2)
+
+
+n <- 150
+
+
+nxy <- matrix(c(0,45,60,15,30,0),2)
+# nxy <- cbind(nxy,rowSums(nxy))
+# nxy <- rbind(nxy,colSums(nxy))
+
+pxy <- nxy/n
+```
+
+ Nella città $B$ osserviamo
+\[
+\begin{array}{c|ccc|r}
+         &M &S &L  & \\   \hline
+Occupato    & `r nxy[1,1]`     & `r nxy[1,2]`     & `r nxy[1,3]`     & `r sum(nxy[1,])`\\
+Disoccupato & `r nxy[2,1]`     & `r nxy[2,2]`     & `r nxy[2,3]`     & `r sum(nxy[2,])`\\ \hline
+         & `r sum(nxy[,1])` & `r sum(nxy[,2])` & `r sum(nxy[,3])` & `r n`
+\end{array}
+\]
+
+ Qual è la probabilità di estrarre un oggetto che abbia un dato titolo di studio e una data condizione occupazionale?
+\[
+\begin{array}{c|ccc|c}
+         &M &S &L  & \\   \hline
+Occupato    & \pi_{11}=\frac {`r nxy[1,1]`}{`r n`}=`r pxy[1,1]`    
+         & \pi_{12}=\frac{`r nxy[1,2]`}{`r n`}=`r pxy[1,2]`    
+         & \pi_{13}=\frac{`r nxy[1,3]`}{`r n`}=`r pxy[1,3]` 
+         & \pi_{1\bullet}=\frac{`r sum(nxy[1,])`}{`r n`}=`r sum(pxy[1,])`\\
+Disoccupato & \pi_{21}=\frac {`r nxy[2,1]`}{`r n`}=`r pxy[2,1]`    
+         & \pi_{22}=\frac{`r nxy[2,2]`}{`r n`}=`r pxy[2,2]`    
+         & \pi_{23}=\frac{`r nxy[2,3]`}{`r n`}=`r pxy[2,3]` 
+         & \pi_{2\bullet}=\frac{`r sum(nxy[2,])`}{`r n`}=`r sum(pxy[2,])`\\ \hline
+         & \pi_{\bullet1}=\frac{`r sum(nxy[,1])`}{`r n`}=`r sum(pxy[,1])`    
+         & \pi_{\bullet2}=\frac{`r sum(nxy[,2])`}{`r n`}=`r sum(pxy[,2])` 
+         & \pi_{\bullet3}=\frac{`r sum(nxy[,3])`}{`r n`}=`r sum(pxy[,3])`
+         & \frac {`r n`}{`r n`}=1.0
+\end{array}
+\]
+
+
+ Titolo di studio e occupazione sono **indipendenti**?
+
+ No, in quanto
+\[\pi_{ij}\neq\pi_{i\bullet}\pi_{\bullet j}\]
+
+ Ad esempio
+\[\pi_{11}=`r pxy[1,1]`\neq`r sum(pxy[1,])`\times`r sum(pxy[,1])`=\pi_{1\bullet}\pi_{\bullet 1}\]
+
+
+ Ad esempio
+\[\pi_{23}=`r pxy[2,3]`\neq`r sum(pxy[2,])`\times`r sum(pxy[,3])`=\pi_{2\bullet}\pi_{\bullet 3}\]
+
+
+### Dalla popolazione al campione
+
+Abbiamo usato le due città come se fossero l'intera popolazione.
+ Non sempre possiamo valutare l'intera popolazione. 
+ Spesso abbiamo l'osservazione di $n$ coppie di VC categoriali estratte dalla 
+popolazione di riferimento.
+ Da una popolazione dove $X$ ed $Y$ sono indipendenti, ci aspettiamo che $n$
+loro realizzazioni fotografino l'indipendenza che c'è in popolazione.
+
+
+### Notazione formale per le tavole di contingenza
+
+ Se abbiamo due variabili categoriali $X$ e $Y$ con supporto
+\[S_X=\{x_1,...,x_k\} \qquad S_Y= \{y_1,...,y_J\}\] definiamo
+le **frequenze assolute congiunte**
+\[n_{ij}=\text{il numero di volte che $X=x_i$ e $Y=y_j$}\]
+
+ La tabella di contingenza si presenta
+\[
+\begin{array}{c|cccccc|c}
+ &y_1 &y_2 &\ldots &y_j &\ldots &y_J &\\
+  \hline
+  x_1 & n_{11} & n_{12} & \ldots &n_{1j} &\ldots &n_{1J} & n_{1\bullet}\\
+  x_2 & n_{21} & n_{22} & \ldots &n_{2j} &\ldots &n_{2J} & n_{2\bullet}\\
+\vdots& \vdots & \vdots &\ddots &\vdots & &\vdots &\vdots \\
+  x_i & n_{i1} & n_{i2} & \ldots &n_{ij} &\ldots & n_{iJ}& n_{i\bullet}\\
+\vdots& \vdots & \vdots & &\vdots &\ddots &\vdots &\vdots \\
+  x_I & n_{I1} & n_{I2} & \ldots &n_{Ij} &\ldots &n_{IJ} &n_{I\bullet}\\
+\hline
+   & n_{\bullet 1}& n_{\bullet 2}& \ldots& n_{\bullet j}& \ldots& n_{\bullet J}& n\\ 
+\end{array}
+\]
+
+
+ Le **frequenze assolute marginali** sono
+\[n_{i \bullet}=n_{i1}+\ldots+n_{iJ}\] 
+\[n_{\bullet j}=n_{1j}+\ldots+n_{Ij}\]
+
+
+Definiamo le **frequenze relative congiunte**
+\[\hat\pi_{ij}=\frac{n_{ij}}n\]
+
+
+
+\[
+\begin{array}{c|cccccc|c}
+ &y_1 &y_2 &\ldots &y_j &\ldots &y_J &\\
+  \hline
+  x_1 & \hat\pi_{11}=\frac{n_{11}}{n} & \hat\pi_{12}=\frac{n_{12}}{n} & \ldots &\hat\pi_{1j}=\frac{n_{1j}}{n} &\ldots &\hat\pi_{1J}=\frac{n_{1J}}{n} & \hat\pi_{1\bullet}=\frac{n_{1\bullet}}{n}\\
+  x_2 & \hat\pi_{21}=\frac{n_{21}}{n} & \hat\pi_{22}=\frac{n_{22}}{n} & \ldots &\hat\pi_{2j}=\frac{n_{2j}}{n} &\ldots &\hat\pi_{2J}=\frac{n_{2J}}{n} & \hat\pi_{2\bullet}=\frac{n_{2\bullet}}{n}\\
+\vdots& \vdots & \vdots &\ddots &\vdots & &\vdots &\vdots \\
+  x_i & \hat\pi_{i1}=\frac{n_{i1}}{n} & \hat\pi_{i2}=\frac{n_{i2}}{n} & \ldots &\hat\pi_{ij}=\frac{n_{ij}}{n} &\ldots & \hat\pi_{iJ}=\frac{n_{iJ}}{n}& \hat\pi_{i\bullet}=\frac{n_{i\bullet}}{n}\\
+\vdots& \vdots & \vdots & &\vdots &\ddots &\vdots &\vdots \\
+  x_I & \hat\pi_{I1}=\frac{n_{I1}}{n} & \hat\pi_{I2}=\frac{n_{I2}}{n} & \ldots &\hat\pi_{Ij}=\frac{n_{Ij}}{n} &\ldots &\hat\pi_{IJ}=\frac{n_{IJ}}{n} &\hat\pi_{I\bullet}=\frac{n_{I\bullet}}{n}\\
+\hline
+   & \hat\pi_{\bullet 1}=\frac{n_{\bullet 1}}{n}& \hat\pi_{\bullet 2}=\frac{n_{\bullet 2}}{n}& \ldots& \hat\pi_{\bullet j}=\frac{n_{\bullet j}}{n}& \ldots& \hat\pi_{\bullet J}=\frac{n_{\bullet J}}{n}& 1\\ 
+\end{array}
+\]
+
+ Le **frequenze relative marginali** sono
+\[\hat\pi_{i\bullet}=\hat\pi_{i1}+\ldots+\hat\pi_{iJ}\]
+\[\hat\pi_{\bullet j}=\hat\pi_{1j}+\ldots+\hat\pi_{Ij}\]
+
+
+### Le frequenze sono stime dei $\pi$
+
+\[\hat\pi_{ij}=\frac{n_{ij}}n, \qquad \hat\pi_{i\bullet}=\frac{n_{i\bullet}}n,\qquad \hat\pi_{\bullet j}=\frac{n_{\bullet j}}n\]
+
+ $\hat\pi_{ij}$ è stima di $\pi_{ij}$, $\forall i,j$ 
+
+ $\hat\pi_{i\bullet}$ è stima di $\pi_{i\bullet}$, $\forall i$
+
+ $\hat\pi_{\bullet j}$ è stima di $\pi_{\bullet j}$, $\forall j$
+
+ Se in popolazione $x$ ed $y$ sono indipendenti, allora
+\[\pi_{ij}=\pi_{i\bullet}\pi_{\bullet j}\]
+
+ E quindi, mi aspetterei
+\[\hat\pi_{ij}\approx\hat\pi_{i\bullet}\hat\pi_{\bullet j}\]
+
+Ovvero
+\begin{eqnarray*}
+n\hat\pi_{ij}&\approx&n~\hat\pi_{i\bullet}\hat\pi_{\bullet j}\\
+n_{ij}  &\approx& n \frac{n_{i\bullet}}{n}\frac{n_{\bullet j}}{n}\\
+        &\approx& \frac{n_{i\bullet}n_{\bullet j}}{n}\\
+        &\approx& n_{ij}^*
+\end{eqnarray*}
+$n^*_{ij}$ è la frequenza assolute attese in caso di indipendenza. 
+La domanda è: quanto si discostano le frequenze assolute osservate $n_{ij}$ dalle 
+frequenze attese $n_{ij}^*$?
+
+
+
+
+### Esempio (continua)
+
+Ripartiamo dall'esempio di partenza, immaginando che nelle tre città quei 100 
+individui siano un campione
+\[\tiny
+\begin{array}{c|rr|r}
+ & \text{Città A} & &\\ \hline
+ &\text{Abbonato} &\text{Non Abbonato} &\bf\text{Tot}\\
+  \hline
+   M & 60 & 0 & \bf 60\\ 
+   F & 0 & 40  &\bf 40\\ \hline
+  \bf\text{Tot} &\bf 60 &\bf 40 &\bf 100\\ 
+\end{array}
+\qquad
+\begin{array}{c|rr|r}
+ & \text{Città B} & &\\ \hline
+ &\text{Abbonato} &\text{Non Abbonato} &\bf\text{Tot}\\
+  \hline
+  M & 40 & 20 & \bf60\\ 
+  F & 20 & 20  &\bf50\\ \hline
+  \bf\text{Tot} &\bf 60 &\bf 40 &\bf 100\\ 
+\end{array}
+\qquad
+\begin{array}{c|rr|r}
+ & \text{Città C} & &\\ \hline
+ &\text{Abbonato} &\text{Non Abbonato} &\bf\text{Tot}\\
+  \hline
+  M & 36 & 24 & \bf60\\ 
+  F & 24 & 16  &\bf40\\ \hline
+  \bf\text{Tot} &\bf 60 &\bf 40 &\bf 100\\ 
+\end{array}
+\]
+
+Costruiamo le $n_{ij}^*$ 
+\[\begin{array}{c|rr|r}
+ & \text{Freq. th} & &\\ \hline
+ &\text{Abbonato} &\text{Non Abbonato} &\bf\text{Tot}\\
+  \hline
+  M & \frac{60 \cdot 60}{100}=36 & \frac{60 \cdot 40}{100}=24 & \bf60\\ 
+  F & \frac{40 \cdot 60}{100}=24 & \frac{40 \cdot 40}{100}=16  &\bf40\\ \hline
+  \bf\text{Tot} &\bf 60 &\bf 40 &\bf 100\\ 
+\end{array}\]
+
+ Nella città $C$ le frequenza osservate coincidono con quelle attese, **non** c'è
+associazione tra genere e abbonamento allo stadio. 
+ Quanto si discostano le città $A$ e $B$ dalla situazione di indipendenza?
+
+## L'indice $\chi^2$
+
+```{r}
+th <- outer(c(.6,.4),c(.6,.4))*100
+t1 <- matrix(c(60,0,0,40),2)
+t2 <- matrix(c(40,20,20,20),2)
+
+chi1 <- (t1-th)^2/th
+chi2 <- (t2-th)^2/th
+```
+ Il $\chi^2_\text{obs}$, che abbiamo già incontrato, è utilizzato qui per nominare un misura di distanza
+\[\chi^2_\text{obs}=\sum_{i=1}^I\sum_{j=1}^J \frac{\left(n_{ij}-n_{ij}^*\right)^2}{n_{ij}^*}\]
+
+\[\tiny
+\begin{array}{c|rr|r}
+ & \text{Città A} & &\\ \hline
+ &\text{Abbonato} &\text{Non Abbonato} &\bf\text{Tot}\\
+  \hline
+   M & \frac{(60 - 36)^2}{36} = `r (60-24)^2/36` & \frac{(0  - 24)^2}{24} = `r (0-24)^2/24` & `r sum(chi1[1,])`\\ 
+   F & \frac{(0  - 24)^2}{24} = `r (0 -24)^2/24` & \frac{(40 - 16)^2}{16} = `r (40-16)^2/16`& `r sum(chi1[2,])`\\ \hline
+    \bf\text{Tot} & `r sum(chi1[,1])`& `r sum(chi1[,2])` &\chi^2_{\text{obs},A}=`r sum(chi1)`\\ 
+\end{array}
+\qquad
+\begin{array}{c|rr|r}
+ & \text{Città B} & &\\ \hline
+ &\text{Abbonato} &\text{Non Abbonato} &\bf\text{Tot}\\
+  \hline
+  M & \frac{(40 - 36)^2}{36} = `r (40-36)^2/36` & \frac{(20 - 24)^2}{24} = `r (20-24)^2/24` &`r sum(chi2[1,])`\\ 
+  F & \frac{(20 - 24)^2}{24} = `r (20-24)^2/24` & \frac{(20 - 16)^2}{16} = `r (20-16)^2/16` &`r sum(chi2[2,])` \\ \hline
+    \bf\text{Tot} &`r sum(chi2[,1])` &`r sum(chi2[,2])` &\chi^2_{\text{obs},B}=`r sum(chi2)`\\ 
+\end{array}
+\]
+
+ Ovviamente per la città $C$:
+\[
+\begin{array}{c|rr|r}
+ & \text{Città C} & &\\ \hline
+ &\text{Abbonato} &\text{Non Abbonato} &\bf\text{Tot}\\
+  \hline
+  M & \frac{(36 - 36)^2}{36} = `r (36-36)^2/36` & \frac{(24 - 24)^2}{24} = `r (24-24)^2/24` & 0\\ 
+  F & \frac{(24 - 24)^2}{24} = `r (24-24)^2/24` & \frac{(16 - 16)^2}{16} = `r (16-16)^2/16`  & 0\\ \hline
+    \bf\text{Tot} &0 &0 &\chi^2_{\text{obs},C}=0\\ 
+\end{array}
+\]
+
+Nella città $A$ c'è una evidente associazione tra genere e abbonamento. 
+ Nella città $C$ c'è evidente indipendenza tra genere e abbonamento.
+ Nella città $B$ lo scostamento dalla situazione di indipendenza, è dovuto al caso
+oppure effettivamente nella città $B$ c'è associazione?
+
+## Test per l'ipotesi di indipendenza
+
+ Chiedersi se $x$ e $y$ sono indipendenti significa fare un test in cui è facile scrivere
+$H_0$ ma è **superfluo scrivere** $H_1$. 
+ Se $H_0$ prescrive l'indipendenza, allora
+\[H_0:\pi_{ij}=\pi_{i\bullet}\pi_{\bullet j}, \forall i,j\]
+
+ $H_1$ non la scriviamo perché non può altro che essere la negazione di $H_0$. 
+ Questi sono _Test di significatività pura_.
+
+### La statistica test $\chi^2$
+
+Se $H_0$ prescrive l'indipendenza, allora
+\[H_0:\pi_{ij}=\pi_{i\bullet}\pi_{\bullet j}, \forall i,j\]
+
+Si dimostra che, sotto $H_0$, prima di osservare i dati, l'indicatore $\chi^2$
+vista come VC è:
+\[\chi_{{VC}}^2\sim\chi^2_{gdl}\]
+
+ I gradi di libertà sono
+\[gdl=(I-1)\times(J-1)\]
+
+ Si fissa $\alpha$ e si cerca
+\[\chi_{gdl;\alpha}^2:P(\chi_{gdl}^2>\chi_{gdl;\alpha}^2)=\alpha\]
+
+
+ Esempio $\alpha=0.05$, nell'esempio genere/abbonamento i $gdl$ sono
+\[gdl=(2-1)\times(2-1)=1\]
+
+ \[\chi_{1;0.05}^2= 3.8415\]
+
+
+ \[\begin{aligned}
+\chi^2_{\text{obs};A}&=`r sum(chi1)`> 3.8415; &\chi^2_{\text{obs};B}&=`r sum(chi2)`< 3.8415; &\chi^2_{\text{obs};C}&=0< 3.8415\\
+&\text{Rifiuto }H_0 & & \text{non Rifiuto} H_0 & & \text{non Rifiuto}  H_0
+\end{aligned}\]
+
+
+
+### Esempio
+
+```{r}
+px <- c(.6,.4)
+py <- c(.3,.5,.2)
+
+n <- 150
+
+rw <- c(90,60)
+cl <- c(45,75,30)
+n12 <- c(20,50)
+n123 <- c(n12,90-sum(n12))
+m123 <- cl - n123
+
+nxy <- rbind(n123,m123)
+
+# nxy <- cbind(nxy,rowSums(nxy))
+# nxy <- rbind(nxy,colSums(nxy))
+# chisq.test(nxy)
+pxy <- nxy/n
+nth <- n*(outer(px,py))
+nds <- (nxy-nth)^2/nth
+```
+
+ In una città sono stati estratti `r nxy[1,1]` individui occupati con la licenza media , `r nxy[1,2]` individui occupati con la licenza superiore, `r nxy[1,3]` individui occupati laureati, `r nxy[1,3]` individui disoccupati con la licenza media , `r nxy[2,2]` individui disoccupati con la licenza superiore e `r nxy[2,3]` laureati
+\[
+\begin{array}{c|ccc|r}
+         &M &S &L  & \\   \hline
+Occupato    & `r nxy[1,1]`     & `r nxy[1,2]`     & `r nxy[1,3]`     & `r sum(nxy[1,])`\\
+Disoccupato & `r nxy[2,1]`     & `r nxy[2,2]`     & `r nxy[2,3]`     & `r sum(nxy[2,])`\\ \hline
+         & `r sum(nxy[,1])` & `r sum(nxy[,2])` & `r sum(nxy[,3])` & `r n`
+\end{array}
+\]
+
+ Vogliamo testare 
+\[H_0:\pi_{ij}=\pi_{i\bullet}\pi_{\bullet j}\]
+
+ Per vari livelli di $\alpha$
+ Costruiamo i valori attesi sotto $H_0$
+\[n_{ij}^*=\frac{n_{i\bullet}n_{\bullet j}}{n}\]
+e quindi
+\[
+\begin{array}{c|ccc|r}
+\bf\text{Osservati}         &M &S &L  & \\   \hline
+Occupato    & `r nxy[1,1]`     & `r nxy[1,2]`     & `r nxy[1,3]`     & `r sum(nxy[1,])`\\
+Disoccupato & `r nxy[2,1]`     & `r nxy[2,2]`     & `r nxy[2,3]`     & `r sum(nxy[2,])`\\ \hline
+         & `r sum(nxy[,1])` & `r sum(nxy[,2])` & `r sum(nxy[,3])` & `r n`
+\end{array}
+\qquad
+\begin{array}{c|ccc|r}
+\bf\text{Teorici}         &M &S &L  & \\   \hline
+Occupato    & `r nth[1,1]`     & `r nth[1,2]`     & `r nth[1,3]`     & `r sum(nth[1,])`\\
+Disoccupato & `r nth[2,1]`     & `r nth[2,2]`     & `r nth[2,3]`     & `r sum(nth[2,])`\\ \hline
+         & `r sum(nth[,1])` & `r sum(nth[,2])` & `r sum(nth[,3])` & `r n`
+\end{array}\]
+
+Costruiamo le distanze
+
+\[\frac{\left(n_{ij}-n_{ij}^*\right)^2}{n_{ij}^*}\]
+
+e quindi
+
+\[\begin{array}{c|ccc|r}
+         &M &S &L  & \\   \hline
+Occupato    & `r nds[1,1]`     & `r nds[1,2]`     & `r nds[1,3]`     & `r sum(nds[1,])`\\
+Disoccupato & `r nds[2,1]`     & `r nds[2,2]`     & `r nds[2,3]`     & `r sum(nds[2,])`\\ \hline
+         & `r sum(nds[,1])` & `r sum(nds[,2])` & `r sum(nds[,3])` & `r sum(nds)`
+\end{array}\]
+
+ $gdl=(2-1)\times(3-1)=2$
+
+ Dalle tavole
+\[\chi_{2;0.05}^2=`r qchisq(1-0.05,2)`,\qquad \chi_{2;0.01}^2=`r qchisq(1-0.01,2)`\]
+
+ E osserviamo che $\chi_{\text{obs}}^2=`r sum(nds)`>\chi_{2;0.05}^2=`r qchisq(1-0.05,2)`$ e quindi rifiuto $H_0$ al 5% e che $\chi_{\text{obs}}^2=`r sum(nds)`<\chi_{2;0.01}^2=`r qchisq(1-0.01,2)`$ e quindi non rifiuto $H_0$ al 1%.
+
+
+### I gradi di libertà
+
+:::: {.example name="Tabella $2\times 2$"}
+
+ Supponiamo di voler riempire la tabella di contingenza coi totali fissati
+\[
+\begin{array}{c|cc|r}
+         &Abbonato &Non~Abbonato   & \\   \hline
+M    & n_{11}     & n_{12}    & 60\\
+F & n_{21}     & n_{22}     & 40\\ \hline
+         & 60 & 40 & 100
+\end{array}
+\]
+abbiamo $gdl=(2-1)\times(2-1)=1$. Ho molte scelte per il valore $n_{11}$, per esempio
+\[n_{11}=35\]
+ho usato il mio unico grado di libertà, tutti gli altri $n_{ij}$ sono vincolati
+\[
+\begin{array}{c|cc|r}
+         &Abbonato &Non~Abbonato   & \\   \hline
+M    & 35     & 25    & 60\\
+F & 25     & 15     & 40\\ \hline
+         & 60 & 40 & 100
+\end{array}
+\]
+::::
+
+:::: {.example name="Tabella $2\times 3$"}
+
+
+ Se la tabella è
+\[
+\begin{array}{c|ccc|r}
+         &M &S &L  & \\   \hline
+Occupato    & n_{11}     & n_{12}     & n_{13}     & `r sum(nxy[1,])`\\
+Disoccupato & n_{21}     & n_{22}     & n_{23}     & `r sum(nxy[2,])`\\ \hline
+         & `r sum(nxy[,1])` & `r sum(nxy[,2])` & `r sum(nxy[,3])` & `r n`
+\end{array}
+\]
+abbiamo $gdl=(2-1)\times(3-1)=2$
+
+ Ho molte scelte per il valore $n_{11}$, per esempio
+\[n_{11}=30\]
+ho usato il primo grado di libertà, $n_{21}=15$ è obbligato
+
+ \[
+\begin{array}{c|ccc|r}
+         &M &S &L  & \\   \hline
+Occupato    & 30     & n_{12}     & n_{13}     & `r sum(nxy[1,])`\\
+Disoccupato & 15     & n_{22}     & n_{23}     & `r sum(nxy[2,])`\\ \hline
+         & `r sum(nxy[,1])` & `r sum(nxy[,2])` & `r sum(nxy[,3])` & `r n`
+\end{array}
+\]
+
+ Fisso arbitrariamente $n_{12}$, per esempio
+\[n_{12}=40\]
+e ho usato il secondo grado di libertà, tutti gli altri valori sono vincolati
+\[
+\begin{array}{c|ccc|r}
+         &M &S &L  & \\   \hline
+Occupato    & 30     & 40     & 20     & `r sum(nxy[1,])`\\
+Disoccupato & 15     & 35     & 10     & `r sum(nxy[2,])`\\ \hline
+         & `r sum(nxy[,1])` & `r sum(nxy[,2])` & `r sum(nxy[,3])` & `r n`
+\end{array}
+\]
+::::
+
+## Misure di Conformità
+
+Spesso, abbiamo assunto che $X\sim\mathscr{L}(\theta)$, senza questionare la scelta di
+$\mathscr{L}$. Ad esempio quando assumiamo $X\sim\text{Pois}(\lambda)$, sappiamo fare inferenza su 
+  $\lambda$, ma tutti i risultati sono validi se l'assunzione di partenza è valida.
+  Oppure quando assumiamo $X\sim N(\mu,\sigma^2)$, sappiamo fare inferenza su 
+  $\mu,\sigma^2$, ma tutti i risultati sono validi se l'assunzione di partenza è valida.
+
+IL $\chi^2$ misura la _conformità_ dei dati al modello scelto. 
+Supponiamo, le $X_i$, $i=1,...,n$ VC categoriale con supporto 
+\[S_X=\{x_1,...,x_K\}\]
+
+La $\mathscr{L}(\pi_1,...,\pi_K)$ tale che
+\[P(X_i=x_j)=\pi_j,~~~i=1,...,n~~~~j=1,...,K\]
+
+Se estraggo un campione da IID da $\mathscr{L}(\pi_1,...,\pi_K)$, ovvero 
+estraggo $n$ volte $X$ IID ottengo:
+
+modalità   | freq. assoluta | freq. relativa
+-----------|----------------|---------------
+$x_1$      | $n_2$          | $\hat\pi_1=n_1/n$
+$x_2$      | $n_2$          | $\hat\pi_2=n_2/n$
+$\vdots$   | $\vdots$       | $\vdots$  
+$x_K$      | $n_K$          | $\hat\pi_K=n_K/n$
+
+Le $\hat\pi_j$ sono stime delle $\pi_j$. 
+Se $\mathscr{L}(\pi_1,...,\pi_K)$ è vera mi aspetto
+\[\hat\pi_j\approx\pi_j\]
+
+Ovvero
+\begin{eqnarray*}
+  n\cdot\hat\pi_j &\approx& n\cdot\pi_j\\
+ n_j &\approx& n_j^*
+\end{eqnarray*}
+
+Dove le $n_j^*$ sono le frequenze attese 
+
+:::: {.example}
+
+Lanciamo un dado 100 volte e otteniamo 
+
+```{r}
+dd <- c(16,15,18,20,14,17)
+f <- dd/100
+prn <- data.frame(as.character(c(dd,100)),c(f,1))
+rownames(prn) <-c(1:6,"tot.")
+names(prn) <- c("$n_j$","$\\hat\\pi_j$")
+kable(t(prn),booktabs = T, escape = F,linesep = "", digits = 4)
+```
+
+Se $X$ è un dado perfetto, allora
+\[P(X_i=j)=\frac 1 6,~j=1,...,6\]
+
+Da un dado perfetto mi aspetterei, in media
+\[\begin{aligned}
+\hat\pi_j&\approx \frac 1 6 & n\cdot\hat\pi_j &\approx n\cdot\frac 1 6\\
+&= 0.1667 & n_j &\approx 100\frac 1 6\\
+     &&&\approx 16.67
+\end{aligned}
+\]
+
+E quindi
+
+```{r}
+dd <- c(16,15,18,20,14,17)
+f <- dd/100
+fs <- (1:6*0+1)*1/6
+ns <- round(100*fs,3)
+prn <- data.frame(as.character(c(dd,100)),c(f,1),c(fs,1),as.character(c(ns,100)))
+rownames(prn) <-c(1:6,"tot.")
+names(prn) <- c("$n_j$","$\\hat\\pi_j$","$\\hat\\pi_j^*$","$n_j^*$")
+kable(t(prn),booktabs = T, escape = F,linesep = "", digits = 4)
+```
+::::
+
+:::: {.example}
+
+Faccio lanciare il dado a un'altra persona e osservo su 100 lanci 
+
+```{r}
+dd <- c(1,2,2,5,40,50)
+f <- dd/100
+fs <- (1:6*0+1)*1/6
+ns <- round(100*fs,3)
+prn <- data.frame(as.character(c(dd,100)),c(f,1),c(fs,1),as.character(c(ns,100)))
+rownames(prn) <-c(1:6,"tot.")
+names(prn) <- c("$n_j$","$\\hat\\pi_j$","$\\hat\\pi_j^*$","$n_j^*$")
+kable(t(prn),booktabs = T, escape = F,linesep = "", digits = 4)
+```
+
+Che è molto diversa da quella di prima
+
+```{r}
+dd <- c(16,15,18,20,14,17)
+f <- dd/100
+fs <- (1:6*0+1)*1/6
+ns <- round(100*fs,3)
+prn <- data.frame(as.character(c(dd,100)),c(f,1),c(fs,1),as.character(c(ns,100)))
+rownames(prn) <-c(1:6,"tot.")
+names(prn) <- c("$n_j$","$\\hat\\pi_j$","$\\hat\\pi_j^*$","$n_j^*$")
+kable(t(prn),booktabs = T, escape = F,linesep = "", digits = 4)
+```
+::::
+
+## Il $\chi^2$ come misura di conformità
+
+Misuriamo la distanza tra le frequenze attese con quelle osservate con la misura del chi-quadro
+\[\chi^2_\text{obs}=\sum_{j=1}^K\frac{\big(n_{ij}-n_{ij}^*\big)^2}{n_{ij}^*}\]
+
+
+Nel primo caso
+
+```{r}
+dd <- c(16,15,18,20,14,17)
+n <- sum(dd)
+f <- dd/n
+
+fs <- (1:6*0+1)*1/6
+ns <- (n*fs)
+nc <- round((dd-ns)^2/ns,3)
+ns <- round(n*fs,3)
+dd <- as.factor(c(dd,n))
+ns <- as.factor(c(ns,n))
+nc <- c(nc,sum(nc))
+
+prn <- data.frame(dd,ns,nc)
+rownames(prn) <-c(1:6,"tot.")
+names(prn) <- c("$n_j$","$n_j^*$","$\\frac {(n_j-n_j^*)^2}{n_j^*}$")
+kable(t(prn),booktabs = T, escape = F,linesep = "", digits = 4)
+```
+
+\[\chi_\text{obs}^2=`r nc[7]`\]
+
+Nel secondo caso
+
+```{r}
+dd <- c(1,2,2,5,40,50)
+n <- sum(dd)
+f <- dd/n
+
+fs <- (1:6*0+1)*1/6
+ns <- (n*fs)
+nc <- round((dd-ns)^2/ns,3)
+ns <- round(n*fs,3)
+dd <- as.factor(c(dd,n))
+ns <- as.factor(c(ns,n))
+nc <- c(nc,sum(nc))
+
+prn <- data.frame(dd,ns,nc)
+rownames(prn) <-c(1:6,"tot.")
+names(prn) <- c("$n_j$","$n_j^*$","$\\frac {(n_j-n_j^*)^2}{n_j^*}$")
+kable(t(prn),booktabs = T, escape = F,linesep = "", digits = 4) 
+```
+
+\[\chi_\text{obs}^2=`r nc[7]`\]
+
+
+Ci chiediamo se il modello che stiamo usando sia supportato dai dati
+\[H_0:X\sim\mathscr{L}\]
+
+Se $X$ è discreta
+\[H_0:\pi_j=\pi_{j0}, \forall j\]
+
+Sotto $H_0$, prima di osservare i dati, l'indice di conformità $\chi^2_{VC}$,
+visto come VC è distribuito come
+\[\chi_{VC}^2\sim\chi^2_{K-1}\]
+
+
+Osservo i dati e calcolo
+\[\chi^2_\text{obs}=\sum_{j=1}^K\frac{\big(n_{ij}-n_{ij}^*\big)^2}{n_{ij}^*}\]
+
+Scelgo $\alpha$, trovo $\chi_{K-1;\alpha}^2$ sulle tavole del chi-quadro e lo confronto
+con $\chi^2_\text{obs}$
+
+  - se $\chi^2_\text{obs}>\chi_{K-1;\alpha}^2$ **rifiuto** $H_0$ al lds $\alpha$
+  - se $\chi^2_\text{obs}<\chi_{K-1;\alpha}^2$ **non rifiuto** $H_0$ al lds $\alpha$
+
+
+
+### Esempio: Scostamento da una uniforme
+
+Lanciamo un dado 60 volte
+
+```{r}
+dd <- c(5,14,6,17,13,5)
+n <- sum(dd)
+f <- dd/n
+
+fs <- (1:6*0+1)*1/6
+ns <- (n*fs)
+nc <- round((dd-ns)^2/ns,3)
+ns <- round(n*fs,3)
+dd <- as.factor(c(dd,n))
+ns <- as.factor(c(ns,n))
+nc <- c(nc,sum(nc))
+#qchisq(1-.01,5)
+prn <- data.frame(dd,ns,nc)
+rownames(prn) <-c(1:6,"tot.")
+names(prn) <- c("$n_j$","$n_j^*$","$\\frac {(n_j-n_j^*)^2}{n_j^*}$")
+kable(t(prn),booktabs = T, escape = F,linesep = "", digits = 4)
+```
+
+\[H_0:\pi_j=\frac 1 6, j=1,...,6\]
+
+
+
+ \[\chi_\text{obs}^2=`r nc[7]`\]
+
+Se $\alpha=0.05$, $\chi_{6-1;0.05}^2=`r qchisq(1-.05,5)`$,
+allora $\chi^2_\text{obs}=`r nc[7]`>`r qchisq(1-.05,5)`=\chi_{6-1;0.05}^2$ **rifiuto** $H_0$ al 5%
+Se $\alpha=0.01$, $\chi_{6-1;0.01}^2=`r qchisq(1-.01,5)`$,
+allora $\chi^2_\text{obs}=`r nc[7]`<`r qchisq(1-.01,5)`=\chi_{6-1;0.01}^2$ **non rifiuto** $H_0$ al 1%
+
+### Esempio: Scostamento da una popolazione
+
+```{r}
+x <- c(15,9,24,2)
+n <- sum(x)
+
+fc <-x/sum(x)
+fh <- c(.3,.3,.3,.1)
+```
+L'hotel $A$ ha a servizio `r n` addetti: `r x[1]` addetti alle pulizie, `r x[2]` receptionist, `r x[3]` personale di sala e `r x[4]` cuochi. L'hotel fa parte di
+una catena alberghiera. Al controllo di gestione del personale il gruppo registra che nei loro hotel il 30% sono addetti alle pulizie,
+il 30% sono receptionist, il 30% personale di sala e il 10% cuochi.
+L'hotel $A$ ha una gestione del personale conforme a quella del gruppo, al lds del 5%?
+\[H_0:\pi_{jA}=\pi_{jG}\]
+
+Costruiamo le tabelle
+```{r}
+
+f <- fc
+dd <- x
+
+fs <- fh
+ns <- (n*fs)
+nc <- round((dd-ns)^2/ns,3)
+ns <- round(n*fs,3)
+dd <- as.factor(c(dd,n))
+ns <- as.factor(c(ns,n))
+nc <- c(nc,sum(nc))
+#qchisq(1-.01,5)
+prn <- data.frame(dd,c(fs,1),ns,nc)
+rownames(prn) <-c(c("A","R","S","C"),"tot.")
+names(prn) <- c("$n_j$","$\\pi_j^*$","$n_j^*=n\\pi_j^*$","$\\frac {(n_j-n_j^*)^2}{n_j^*}$")
+kable(t(prn),booktabs = T, escape = F,linesep = "", digits = 4)
+```
+
+Se $\alpha=0.05$, $\chi_{4-1;0.05}^2=`r qchisq(1-.05,3)`$, allora $\chi^2_\text{obs}=`r nc[5]`>`r qchisq(1-.05,3)`=\chi_{4-1;0.05}^2$ **rifiuto** $H_0$ al 5%
+
+### Esempio: scostamento da una Poisson
+
+Si sono registrati i clienti in coda presso la cassa di un negozio in 200 occasioni
+scelte a caso in vari momenti del giorno per un mese e si sono ottenuti i risultati riportati
+in tabella.
+
+```{r}
+x <-c(70,85,30,15)
+cod <- c(0,1,2,">2")
+prn=data.frame(cod,x)
+names(prn) <- c("Clienti in coda", "volte")
+kable(t(prn),booktabs = T, escape = F,linesep = "", digits = 4)
+
+```
+ 
+Si presume che i clienti in coda presso la cassa del negozio sia una Poisson(1). Verificare, al livello di significatività del 5%, se i dati osservati sono coerenti con l'ipotesi.
+
+\[H_0:X\sim\text{Pois}(1)\]
+
+Sotto $H_0$
+\[\pi_j^*=P(X_i=x_j)=\frac \lambda{x_j!}e^{-\lambda},\]
+
+\begin{eqnarray*}
+   \pi_1^*=P(X_i=0)&=&\frac{1}{0!}e^{-1}=`r dpois(0,1)`\\
+   \pi_2^*=P(X_i=1)&=&\frac{1}{1!}e^{-1}=`r dpois(1,1)`\\
+   \pi_3^*=P(X_i=2)&=&\frac{1}{2!}e^{-1}=`r dpois(2,1)`\\
+   \pi_4^*=P(X_i>2)&=&1-(\pi_1^*+\pi_2^*+\pi_3^*)=`r 1-sum(dpois(0:2,1))`\\
+\end{eqnarray*}
+
+
+Le frequenze attese
+
+\[n_j^*=n\pi_j^*\]
+
+ 
+```{r}
+x <-c(70,85,30,15)
+n <- sum(x)
+cod <- c(0,1,2,">2","Tot")
+ps <- dpois(0:2,1)
+ps <- c(ps,1-sum(ps))
+ns <- ps*n
+nc <- (x-ns)^2/ns
+prn <- cbind(x,ps,ns,nc)
+prn <- rbind(prn,colSums(prn))
+prn <- data.frame(cod,prn)
+
+
+names(prn) <- c("Clienti in coda","volte","$\\pi_j^*$","$n_j^*=n\\pi_j^*$","$\\frac {(n_j-n_j^*)^2}{n_j^*}$")
+kable(t(prn),booktabs = T, escape = F,linesep = "", digits = 4)
+
+```
+
+$\alpha=0.05$, quindi $\chi_{4-1;0.05}^2=`r qchisq(1-.05,3)`$
+
+allora $\chi^2_\text{obs}=`r sum(nc)`<`r qchisq(1-.05,3)`=\chi_{4-1;0.05}^2$ 
+**non rifiuto** $H_0$ al 5%.

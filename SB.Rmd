@@ -9,7 +9,7 @@ editor_options:
 # Sand Box
 
 ```{r, include=FALSE}
-source(src_("intro.R"))
+source("intro.R")
 ```
 
 ## Section
