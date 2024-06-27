@@ -116,7 +116,10 @@ dove $m$ è l'indicatore della classe mediana, $x_{\inf;m}$ e $x_{\sup;m}$ sono,
 :::: {.example}
 Nell'esempio precedente l'intervallo mediano è [15,20) otterremo:
 
-\[x_{0.5}=x_{\inf;3}+\frac{0.5-F_{2}}{f_3}\cdot \left(x_{\sup;3}-x_{\inf;3} \right)=`r X$xj_inf[3]` + \frac{0.5-`r X$Fj[2]`}{`r X$fj[3]`}\cdot \left(`r X$xj_sup[3]`-`r X$xj_inf[3]` \right) =`r round(Q.int(.5),3)`\]
+```{r}
+percentile()
+```
+
 ::::
 
 :::: {.nota data-latex=""}

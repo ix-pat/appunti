@@ -8,7 +8,6 @@ editor_options:
 ```{r }
 rm(list = ls())
 
-source(src_("main.R"))
 source("intro.R")
 acex <- 1.5
 ```

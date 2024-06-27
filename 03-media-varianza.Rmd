@@ -259,15 +259,15 @@ d)^{2} \quad \forall d \ne \bar{x}
 
 4. Invarianza per trasformazioni lineari: se $y_i=a+bx_i$ allora $\bar{y} = a + b \bar{x}$
 
-5. Associatività. Sia una popolazione, $\mathcal{P}$, formata da $K$
+5. Associatività. Sia una popolazione, $\mathscr{P}$, formata da $K$
 gruppi con medie e numerosità: ($\bar{x}_{1};\ n_{1}$),
 ($\bar{x}_{2};\ n_{2}$), $\ldots$, ($\bar{x}_{K};\ n_{K}$). Allora,
-la media totale $\bar{x}_{T}$ di $\mathcal{P}=$ è data da
+la media totale $\bar{x}_{T}$ di $\mathscr{P}=$ è data da
 
 \[
   \bar{x}_{T}
-= \frac{\mbox{Tot}{ \{\mathcal{P}}_1\} +  \cdots +
-        \mbox{Tot}{ \{\mathcal{P}}_K\}} {n_{1} + \cdots + n_{K}}
+= \frac{\mbox{Tot}{ \{\mathscr{P}}_1\} +  \cdots +
+        \mbox{Tot}{ \{\mathscr{P}}_K\}} {n_{1} + \cdots + n_{K}}
 = \frac{n_{1}\ \bar{x}_{1} + \cdots + n_{K}\ \bar{x}_{K}}
        {n_{1} + \cdots + n_{K}}
 \]
@@ -318,7 +318,7 @@ se $y_i=a+bx_i$ allora
   &=& a+b\bar x.
 \end{eqnarray*}
 
-5. Associatività. Sia una popolazione, $\mathcal{P}$, formata da $K$
+5. Associatività. Sia una popolazione, $\mathscr{P}$, formata da $K$
 gruppi con medie e numerosità: ($\bar{x}_{1};\ n_{1}$),
 ($\bar{x}_{2};\ n_{2}$), $\ldots$, ($\bar{x}_{K};\ n_{K}$). Allora,
 il totale di tutte le popolazioni è $Tot=n_1\bar x_1+...+n_1\bar x_K$, mentre
@@ -327,8 +327,8 @@ E quindi la media
 
 \[
   \bar{x}_{T}
-= \frac{\mbox{Tot}{ \{\mathcal{P}}_1\} +  \cdots +
-        \mbox{Tot}{ \{\mathcal{P}}_K\}} {n_{1} + \cdots + n_{K}}
+= \frac{\mbox{Tot}{ \{\mathscr{P}}_1\} +  \cdots +
+        \mbox{Tot}{ \{\mathscr{P}}_K\}} {n_{1} + \cdots + n_{K}}
 = \frac{n_{1}\ \bar{x}_{1} + \cdots + n_{K}\ \bar{x}_{K}}
        {n_{1} + \cdots + n_{K}}
 \]

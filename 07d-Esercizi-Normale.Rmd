@@ -79,14 +79,14 @@ cat(norm_int(x1 = x1,x2 = x2,verso = NULL,mm = mx,ss = ssx,mu = "\\mu_X",sigma =
 
 
 ```{r, results='asis'}
-cat(norm_int(x1 = x1,verso = ">",mm = mx,ss = ssx,mu = "\\mu_X",sigma = "\\sigma_X"))
+cat(norm_int(x1 = x0,verso = ">",mm = mx,ss = ssx,mu = "\\mu_X",sigma = "\\sigma_X"))
 ```
 
 alternativamente possiamo osservare che 
 \[A=\{X>0.9\}=\{0.9< X\leq +\infty \}\]
 
 ```{r, results='asis'}
-cat(norm_int(x1 = x1,x2=Inf,verso = NULL,mm = mx,ss = ssx,mu = "\\mu_X",sigma = "\\sigma_X"))
+cat(norm_int(x1 = x0,x2=Inf,verso = NULL,mm = mx,ss = ssx,mu = "\\mu_X",sigma = "\\sigma_X"))
 ```
 
 3. Calcolare $P(C)$.
