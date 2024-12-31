@@ -1,0 +1,382 @@
+---
+editor_options: 
+  chunk_output_type: console
+  markdown: 
+    wrap: 72
+---
+
+# Funzioni usate nel libro
+
+Presento le funzioni che sono state create da me per risolvere vari problemi
+di automazione, dalla creazione dei data set alla soluzione di alcuni problemi.
+
+```{r, include=FALSE}
+
+rm(list = ls())
+
+
+source("intro.R")
+
+i1 <- 1
+i2 <- 0
+item <- function(){
+it <- (paste(i1,".",letters[i2],sep = ""))
+return(it)}
+fih <- ifelse(html,4,3)
+knitr::opts_chunk$set(echo = TRUE,warning = FALSE, message = FALSE,fig.height = fih,results='asis')
+opts_knit$set(echo=T,results='asis')
+virg <- "`"
+```
+
+## Istogramma 
+
+```{r,results='asis'}
+#############################################################################
+#############################################################################
+## Funzioni per generare i dati dell'esercizio 1
+##
+## genera_dati(brk,hhh=NULL,n,nnn=NULL,rand = T)
+##
+##  brk      intervalli (breaks)
+##  hhh      aspetto presunto
+##  n        numero totale individui
+##  nnn      alternativo ad hhh, frequenza da riportare ad n
+##  rand     i numeri sono casuali?
+##
+## tabl(x,...)                   shortcut personalizzato a kable
+##
+##  x        oggetto da stampare in tabella
+##
+## ls2e(stat_base(samp,brk))   crea diversi oggetti
+##  dat2     tabella con intestazioni semplici
+##  dat3     tabella con intestazioni da stampa
+##  H.int(x) densità percentuale
+##  F.int(x) Funzione di ripartizione
+##  Q.int(p) Inversa della FdR
+##    x      vettore di valori
+##    p      vettore di frequenze 
+##  histp(axes=T,...) istogramma
+##  h.int(x1,x2,...)  evidenzia istogramma
+##    x1     limite inferiore
+##    x2     limite superiore
+
+set.seed(2)                      # per ottenere sempre la stessa simulazione
+n <- 60                          # ampiezza campionaria
+
+brk  <- c(0,1.5,3,5,7.5,15)      # intervalli (breaks)
+hhh  <- c( 2,11,10, 2,1)         # aspetto presunto istogramma
+
+nomex <- "Nome della X"          # nome della X
+samp <- genera_dati(
+  brk = brk,hhh = hhh,n = n)     # genera i dati dall'istogramma
+
+ls2e(stat_base(samp,brk))      # crea il data set e la tabella dat3
+
+tabl(dat3)
+
+H.int(2:3)            # Calcolo della Densità percentuale
+F.int(2:3)            # Calcolo della Ripartizione
+Q.int((0:4)/4)        # Inverse della Ripartizione
+histp(axes=T)         # Istogramma
+h.int(2,8,col=ared,   # Aree selezionate
+      density = 25)   
+```
+```{r,results='asis'}
+percentile(p = 0.45)       # Calcolo percentile
+F_print(2,"<")             # calcolo della prop inferiore a 2
+F_print(2,">")             # calcolo della prop superiore a 2
+F_print(8,">")
+F_print(x = 2,verso = "",x2 = 8) # intervallo 2-8
+media_(1:4)                     # media dei dati 1,2,3,4
+var_(1:4)                       # varianza dei dati 1,2,3,4
+stat_(1:4)                      # media e varianza insieme (new)
+stat_(1:4,p = c(2,4,5,1))       # vettore dei pesi p
+stat_(rep(1:4,times=c(2,4,5,1)),semp = T) # in frazione
+
+```
+
+
+## Probabilità
+
+### Tavole della somma
+```{r, results='asis'}
+# Somma di due dadi
+c1 <- 6
+c2 <- 6
+re1 <- (two_way(S_1 = 1:c1,S_2 = 1:c2,
+                num1 = rep(1,times=c1),num2 = rep(1,times=c2),
+                size = "\\footnotesize"))
+
+# Differenza di due dadi
+res<-two_way(S_1 = 1:c1,S_2 = 1:c2,size = "\\footnotesize",
+             num1 = numeric(c1)+1,num2 = numeric(c2)+1,op = `-`)
+res[[1]]
+names(res)
+
+
+```
+
+### Binomiale
+```{r, results='asis'}
+bin_dis(x1 = 2,n = 5,pp = 0.34)
+bin_dis(x1 = 4,n = 5,pp = 0.34,verso = "\\geq")
+bin_dis(x1 = 2,n = 5,pp = 0.34,comp = T)
+bin_dis(x1 = 2,n = 5,pp = 0.34,sing = T)
+```
+
+### Poisson
+```{r, results='asis'}
+pois_dis(x1 = 2,ll = 1.5)
+pois_dis(x1 = 2,ll = 1.5,verso = "\\geq")
+pois_dis(x1 = 2,ll = 1.5,sing = T)
+
+```
+
+### Normale
+```{r, results='asis'}
+norm_int(x1 = 1,verso = "<",mm = 3,ss = 2.2,vnam = "\\theta",
+             mu = "\\mu_\\theta",sigma = "\\sigma_\\theta")
+norm_int(x1 = 4,verso = "<",mm = 3,ss = 2.2,vnam = "X",
+             mu = "\\psi",sigma = "\\tau")
+norm_int(x1 = 1,verso = ">",mm = 3,ss = 2.2,vnam = "Y",
+             mu = "\\mu_Y",sigma = "\\sigma_Y")
+norm_int(x1 = 4,verso = ">",mm = 3,ss = 2.2,)
+norm_int(x1 = 1,verso = ">",mm = -3,ss = 2.2)
+norm_int(x1 = 1,x2=2,mm = 3,ss = 2.2,verso = NULL)
+norm_int(x1 = 1,x2=2,mm = -3,ss = 2.2,verso = NULL)
+norm_int(x1 = -1,x2=2,mm = -3,ss = 2.2,verso = NULL)
+```
+
+### TLC
+
+```{r,results='asis'}
+tlc(tipo = "somma",x1 = 90,x2 = 110,verso = NULL,mu = 1,s2 = 1,n = 100)
+tlc(tipo = "media",x1 = 9,x2 = 11,verso = NULL,mu = 10,s2 = 1,n = 100)
+tlc(tipo = "prop",x1 = .1,verso = ">",mu = .2,n = 50)
+```
+
+## Inferenza
+
+### Intervalli di Confidenza
+```{r, results='asis'}
+idc(xm = 10,sd = 1.1,alpha = .05,n = 15,dist_ = "z")
+idc(xm = 10,sd = 1.1,alpha = .05,n = 15,dist_ = "t")
+idc(xm = 10,alpha = .05,n = 15,dist_ = "z")
+idc(xm = 7.4,sd = sqrt(7.4),alpha = .05,n = 75,dist_ = "z",mus = "\\lambda",
+        ss = "\\sqrt\\lambda")
+```
+
+
+### Test
+```{r, results='asis'}
+ztest_mu(muh = 0,s = 1,10,mu0 = 1,h1 = "\\neq",alpha = 0.05)
+ztest_mu(muh = 0,s = 1,10,mu0 = 1,h1 = "\\neq")
+ztest_mu(muh = 0,s = 1,10,mu0 = 1,h1 = "\\neq",pv_only = T)
+ttest_mu(muh = 0,sh = 1,n = 10,mu0 = 1,h1 = "<",alpha = 0.01)
+ttest_mu(muh = 0,sh = 1,n = 10,mu0 = 1,h1 = "<")
+ttest_mu(muh = 0,sh = 1,n = 10,mu0 = 1,h1 = "<",pv_only = T,um="cm")
+ztest_pi(sn = 60,n = 100,p0 = .5,h1 = ">",alpha = 0.05)
+test_2c(mu1 = 11,mu2 = 12,s1h = 1.1,s2h = 1.2,n1 = 10,n2 = 12,
+            h1 = "\\neq",et = T)
+test_2c(mu1 = 11,mu2 = 12,s1h = 1.1,s2h = 1.2,n1 = 10,n2 = 12,
+            h1 = "\\neq",alpha = .05,et = F)
+test_2c(mu1 = 11,mu2 = 12,s1h = F,s2h = NULL,n1 = 50,n2 = 60,
+            h1 = "\\neq",alpha = .05,et = T)
+ttest_2c_et(mu1 = 11,mu2 = 12,s1h = 1.1,s2h = 1.2,n1 = 10,n2 = 12,
+                h1 = "\\neq",alpha = .05)
+ttest_2c_om(mu1 = 11,mu2 = 12,s1h = 1.1,s2h = 1.2,n1 = 10,n2 = 12,
+                h1 = "\\neq",rbow = T)
+ztest_2c_pi(s1 = 120,s2 = 130,n1 = 250,n2 = 260,h1 = "<",alpha = .01)
+```
+
+
+### Regressione
+```{r,results='asis'}
+set.seed(12)                 # ripete le stesse generazioni casuali
+n <- 100                     # fisso n
+x <- rnorm(n,10)             # genero x
+y <- x+rnorm(n,0,1)          # genero y
+ls2e(regr(x = x,y = y))    # produco le statistiche di base
+
+calcolo_beta()
+calcolo_beta(semplice = T)
+residuo(x[12],y[12])
+se_beta0()
+se_beta1()
+ttest_beta(cof = 0,bj0 = 0,h1 = "<",alpha = 0.01)
+ttest_beta(cof = 1,bj0 = 0,h1 = "\\neq",alpha = 0.01)
+```
+
+## Esempi
+
+
+#### Esercizio 1
+
+
+````.markdown
+```{r, echo=FALSE}`r ' '`
+set.seed(1)                      # per ottenere sempre la stessa simulazione
+n <- 250                         # ampiezza campionaria
+
+brk  <- c(0,15,30,50,100,250)          # intervalli (breaks)
+hhh  <- c( 20,120,100, 50,10)       # aspetto presunto istogramma
+
+nomex <- "Spesa"
+samp <- genera_dati(brk = brk,hhh = hhh,n = n)
+
+ls2e(stat_base(samp,brk))        # crea il data set e la tabella dat3
+```
+
+Su un campione di $`r virg`r n`$ famiglie della provincia di Modena è stato 
+rilevata la spesa mensile in telecomunicazioni (in euro), qui di seguito la 
+distribuzione delle frequenze relative:
+
+```{r, echo=FALSE}`r ' '`
+kable(dat3[,c(1,2,4)]) %>%
+  kable_styling(full_width = F)
+```
+
+`r i2 <- i2+1;item()` (**Punti 14**) Disegnare l'istogramma di densità 
+percentuale.
+
+**Soluzione**
+
+```{r, echo=FALSE}`r ' '`
+kable(dat3) %>%            # Stampa la tabella
+  kable_styling(full_width = F)
+histp(axes = T)
+h.int(60,250,density=20)
+```
+
+`r i2 <- i2+1;item()` (**Punti 3**) Qual è la percentuale di famiglie con 
+spesa superiore a 60 euro?
+
+**Soluzione**
+
+```{r, echo=FALSE}`r ' '`
+F_print(60,verso=">")
+```
+````
+_________________________________________________________
+
+```{r,echo=FALSE}
+set.seed(1)                      # per ottenere sempre la stessa simulazione
+n <- 250                         # ampiezza campionaria
+
+brk  <- c(0,15,30,50,100,250)          # intervalli (breaks)
+hhh  <- c( 20,120,100, 50,10)       # aspetto presunto istogramma
+
+nomex <- "Spesa"
+samp <- genera_dati(brk = brk,hhh = hhh,n = n)
+
+ls2e(stat_base(samp,brk))        # crea il data set e la tabella dat3
+i1 <- 1
+i2 <- 0
+
+```
+\newpage
+Su un campione di $`r n`$ famiglie della provincia di Modena è stato rilevata la spesa mensile in telecomunicazioni (in euro), qui di seguito 
+la distribuzione delle frequenze relative:
+
+```{r,echo=FALSE,}
+kable(dat3[,c(1,2,4)],booktab=T,            # Stampa la tabella  
+      escape = F,linesep = "") %>%            
+  kable_styling(full_width = F,latex_options = "HOLD_position")
+```
+
+`r i2 <- i2+1;item()` (**Punti 14**) Disegnare l'istogramma di densità percentuale.
+
+**Soluzione**
+
+```{r,echo=FALSE}
+kable(dat3[,c(1:7,12)],booktab=T,            # Stampa la tabella  
+      escape = F,linesep = "") %>%            
+  kable_styling(full_width = F,latex_options = "HOLD_position")
+histp(axes = T)
+h.int(60,250,density=20)
+```
+
+`r i2 <- i2+1;item()` (**Punti 3**) Qual è la percentuale di famiglie con spesa superiore a 60 euro?
+
+**Soluzione**
+
+```{r,results='asis',echo=FALSE}
+F_print(60,verso=">")
+```
+
+
+```{r,echo=FALSE}
+# preparo i parametri
+s1 <- 27
+n1 <- 37
+s2 <- 30
+n2 <- 45
+alpha <- 0.05
+h1 <- "\\neq"
+i1 <- 5
+i2 <- 0
+```
+
+_________________________________________________________
+
+````.markdown
+```{r, echo=FALSE}`r ' '`
+# preparo i parametri
+s1 <- 27
+n1 <- 37
+s2 <- 30
+n2 <- 45
+alpha <- 0.05
+h1 <- "\\neq"
+```
+
+`r virg`r i2 <- i2+1;item()` Sono stati intervistati `r virg`r n1` uomini 
+e `r virg`r n2` donne, `r virg`r s1` su `r virg`r n1` uomini si sono 
+dichiarati favorevoli, mentre sono favorevoli `r virg`r s2` su `r virg`r n2` 
+donne. Testare al livello di significatività del 5% l'ipotesi che uomini e 
+donna abbiano lo stesso parare contro l'alternativa che siano diversi.
+
+**Soluzione**
+
+```{r,results='asis', echo=FALSE}`r ' '`
+ztest_2c_pi(s1 = s1,s2 = s2,n1 = n1,n2 = n2,
+                h1 = h1,alpha = alpha,a = "U",b = "D")
+```
+
+`r virg`r i2 <- i2+1;item()` Costruire un intervallo di confidenza al 95% per 
+la proporzione di uomini favorevoli
+
+**Soluzione**
+
+```{r,results='asis', echo=FALSE}`r ' '`
+idc(xm = s1,alpha = .95,n = n1 ,dist_ = "z")
+```
+````
+
+_________________________________
+
+`r i2 <- i2+1;item()` Sono stati intervistati `r n1` uomini e `r n2` donne, 
+`r s1` su `r n1` uomini si sono dichiarati favorevoli, mentre sono favorevoli 
+`r s2` su `r n2` donne. Testare al livello di significatività del 5% l'ipotesi 
+che uomini e donna abbiano lo stesso parare contro l'alternativa che siano 
+diversi. 
+
+
+**Soluzione**
+
+```{r,results='asis',echo=FALSE}
+ztest_2c_pi(s1 = s1,s2 = s2,n1 = n1,n2 = n2,
+                h1 = h1,alpha = alpha,a = "U",b = "D")
+```
+
+`r i2 <- i2+1;item()` Costruire un intervallo di confidenza al 95% per la proporzione di uomini 
+favorevoli 
+
+**Soluzione**
+
+```{r,results='asis',echo=FALSE}
+idc(xm = s1,alpha = .95,n = n1 ,dist_ = "z")
+```
+
+_______________________________
+

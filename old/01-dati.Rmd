@@ -1,0 +1,218 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+editor_options: 
+  chunk_output_type: console
+  markdown: 
+    wrap: sentence
+---
+
+```{r setup01,echo=FALSE}
+#rm(list = ls())
+
+
+source("intro.R")
+```
+
+\part{Statistica Descrittiva}
+
+# I Fenomeni Collettivi
+
+Scrivono Agresti, e Franklin, (2007), nel loro celebre libro:
+
+>"Statistics is the art and science of designing studies and analyzing the data that those studies produce. Its ultimate goal is translating data into knowledge and understanding of the world around us. In short, **statistics is the art and science of learning from data**".
+
+> La statistica è l'arte e la scienza di pianificare la raccolta e l'analisi dei dati che tali ricerche producono. Il suo fine è di trasformare i dati in conoscenza e comprensione del mondo circostante. In sintesi: **La statistica è l'arte e la scienza di imparare dai dati**.
+
+> *Agresti, A., and Franklin, C. (2007), Statistics: the Art and Science of Learning from Data, Upper Saddle River, Pearson Prentice Hall.*
+
+La **Statistica Descrittiva** si occupa di analizzare in modo meramente descrittivo, senza tentare di spiegare quale meccanismo
+li abbia generati. Di quello si occupa la Statistica Inferenziale nella terza parte del libro.
+
+Definiremo dapprima cosa sono i dati, quindi \@ref(dati), come si classificano \@ref(var-stat) e come si raccolgono \@ref(riv). 
+
+## I Dati {#dati}
+
+In latino *datum* significa un fatto, quindi i *dati* sono collezioni di fatti.
+La Statistica ha come oggetto di studio i dati dalla loro definizione fino alla sintesi della conclusioni. 
+Ovvero la statistica si occupa di definire i dati di interesse, di organizzarne la raccolta, di elaborarli e di sintetizzare le conclusioni.
+
+I dati vengono raccolti su individui (__unità statistiche__), che sono accomunate per alcuni aspetti e presentano _variabilità_ su altri, creando così un *fenomeno collettivo*.
+La Statistica è dunque la scienza che studia i dati che definiscono i fenomeni collettivi e che presentano forme di variabilità.
+La Statistica individua: concetti, metodi, e strumenti per la loro analisi.
+
+Esempi di fenomeni collettivi che presentano variabilità:
+
+-   Reddito,
+-   Titolo di studio,
+-   Durata ricerca di occupazione,
+-   Preferenze di un consumatore,
+-   Durata di una malattia,
+-   Durata di una apparecchiatura
+
+Il fenomeno è definito da concetti: caratteri o variabili (sinonimi).
+l'unita statistica è l'elemento su cui si osservano i caratteri oggetto di studio.
+una popolazione statistica o collettivo statistico e un insieme di unita statistiche omogenee rispetto a una o più caratteristiche o caratteri.
+
+__Esempio.__ Variabile = genere (M, F)
+
+-   Unità statistica = il singolo individuo in quest'aula
+-   Popolazione = gli studenti di quest'aula.
+
+__Esempio.__ Variabile = stato (difettoso, non difettoso)
+
+-   Unità = pezzo prodotto
+-   Popolazione = tutti i pezzi prodotti da settembre 2019
+
+__Esempio.__ Variabile = numero giorni di degenza
+
+-   Unità = individuo ricoverato
+-   Popolazione = tutti i ricoverati dell'ospedale XXX dal 2012 al 2020
+
+__Esempio.__ Variabile = kg di produzione
+
+-   Unità = ettaro coltivato a XXX
+-   Popolazione = tutti i possibili ettari coltivati a XXX
+
+## Variabili Statistiche {#var-stat}
+
+Ogni variabile statistica è caratterizzata dal numero e dal tipo di **modalità** che questa può assumere.
+
+**Esempi.**
+
+-   Variabile genere: due sole possibili modalità {M, F}
+-   Variabile colore dei capelli: {Biondo, Castano, Rosso}
+-   Variabile titolo di studio: {Elementari, Medie, Superiori, Laurea, Post Laurea}
+-   Variabile numero di interventi: {0, 1, 2, 3, ...}
+
+Le variabili possono essere **Qualitative** o **Quantitative**.
+
+- Le variabili **qualitative**: 
+    - possono essere *sconnesse* (o con scala nominale): le modalità possono essere solo uguali o diverse (né ordinate e né ordinabili). Ad esempio il genere, il tipo di titolo di studio, lo stato civile, la regione di provenienza, ecc-
+    - Oppure *ordinate* (o con scala ordinale): le modalità sono ordinabili. Come per esempio: il titolo di studio, il livello di qualifica, le preferenze, ecc.
+- Le variabili **quantitative** possono essere:
+    - **Discrete**: le modalità possono avere una corrispondenza biunivoca con un sottoinsieme dei numeri interi.
+*Esempio*: numero di figli, eta , voto di laurea.
+    - **Continue**: le modalità possono avere una corrispondenza biunivoca con un sottoinsieme dei numeri reali.
+*Esempio*: reddito, consumo, risparmio, altezza.
+    - **Trasferibili**: se l'unità statistica può cedere tutto o parte del carattere posseduto a un'altra in modo sensato.
+
+## Popolazioni Statistiche
+
+La **Popolazione Statistica** è l'insieme di tutte le unità che rispondono alla definizione.
+Una popolazione si dice 
+
+- **Finita** se si conosce il numero esatto delle sue unità 
+- **Infinita** se non si conosce il numero delle sue unità
+
+*Esempi di popolazione finita:* 
+
+- Gli aventi diritto al voto 
+- Le imprese iscritte alla camera di commercio di Modena
+
+*Esempi di popolazione infinita:* 
+
+- I consumatori della marca X 
+- Le aziende che hanno un gestionale con più di 5 anni
+
+## Le rilevazioni Statistiche {#riv}
+
+Si distinguono in due tipologie:
+
+- **Sperimentali** utilizzate, in contesti scientifici, come Fisica, Medicina, Chimica e prevedono
+  -   Ipotesi di lavoro
+  -   Possibilità di controllo
+- **Osservazionali** come le indagini di mercato, i sondaggi, ecc.
+nei quali non si ha possibilità di controllo.
+
+L'obiettivo principale di un'indagine statistica è la **conoscenza di una popolazione obiettivo** o di riferimento ($\mathscr{P}$) intesa come insieme di unità elementari su cui si manifesta il fenomeno oggetto di studio.
+L'indagine è svolta quasi sempre su un campione, che è un sottoinsieme di $\mathscr{P}$, diversamente si avrebbe il **censimento**.
+
+Per estrarre un campione occorre la **lista** di $\mathscr{P}$.
+La lista è l'elenco degli elementi appartenenti a $\mathscr{P}$ e rappresenta lo strumento principale per la scelta delle unità statistiche campionarie.
+
+-   **Censimento**: è una indagine completa perché esamina tutte le unità statistiche che compongono la popolazione oggetto di studio, $\mathscr{P}$.
+-   **Campionamento**: è una indagine parziale perché esamina solo un sottoinsieme, detto "campione", della popolazione oggetto di studio, $\mathscr{P}$.
+
+### Fasi dell'indagine
+
+-   definizione degli obiettivi,
+-   definizione delle unità e delle variabili da rilevare,
+-   scelta del periodo di riferimento.
+-   individuazione della popolazione e della lista delle unità statistiche.
+-   piano di campionamento
+-   raccolta dei dati,
+  -   scelta della tecnica di rilevazione,
+  -   formulazione del questionario e pretest,
+  -   rilevazione sul campo.
+-   registrazione dei dati:
+-   controllo e correzione.
+-   elaborazione e analisi dei dati.
+
+| $\phantom{a}$                   | Cens     | Camp              |
+|---------------------------------|----------|-------------------|
+| Accuratezza delle Stime         | Pro      | Contro            |
+| su livelli territoriali piccoli | perfetta | alto rischio      |
+|                                 |          | di non campionare |
+| Esaustività                     | Pro      | Contro            |
+|                                 | sì       | no                |
+| Costi                           | Contro   | Pro               |
+|                                 | Alti     | Contenuti         |
+| Tempi di elaborazione           | Contro   | Pro               |
+|                                 | Alti     | Contenuti         |
+| Qualità dei dati                | Contro   | Pro               |
+|                                 | Bassa    | Alta              |
+| Quantità dei variabili          | Contro   | Pro               |
+|                                 | Bassa    | Alta              |
+
+## La matrice dei dati
+
+La matrice dei dati è una tabella che consente di raccogliere in modo efficiente molti tipi diversi di dati.
+
+```{r,echo=FALSE}
+j <- c(1:3,"$n$")
+età <- sample(18:80,size = 4,replace = T)
+Sesso <- sample(c("M","F"),size = 4,replace = T)
+StatoCivile <- sample(c("Sposato","Non sposato"),size = 4,replace = T)
+Titolo <- sample(c("Elementari","Medie","Superiori","Laurea"),size = 4,replace = T)
+Reddito <- round(rnorm(4,10),2)
+Statura <- round(rnorm(4,170,20),2)
+
+
+
+dat <- matrix(nrow = 5,ncol = 7)
+dat[1:3,] <- cbind(j,età,Sesso,StatoCivile,Titolo,Reddito,Statura)[1:3,]
+dat[4,] <- "$\\vdots$"
+dat[5,] <- cbind(j,età,Sesso,StatoCivile,Titolo,Reddito,Statura)[4,]
+
+kable(dat,booktabs = T, escape = F,linesep = "", digits = 4,col.names = c("$i$","Età","Sesso","Stato Civile","Titolo di Studio","Reddito x 1000€","Statura cm"))
+```
+
+Sulle RIGHE le UNITÀ STATISTICHE: si leggono le determinazioni dei caratteri oggetto di studio associati a una specifica unità statistica.
+Sulle COLONNE i CARATTERI: si leggono le modalità delle unità statistiche associate a uno specifico carattere.
+
+\clearpage
+
+## Riepilogo sulle Variabili
+
+:::: {.info data-latex=""}
+-   **Qualitativa**, la variabile è espressa attraverso etichette qualitative
+    -   *Qualitative sconnesse*: le caratteristiche che la VS può assumere hanno un ordinamento soggettivo;
+        -   genere,
+        -   stato civile,
+        -   settore di occupazione,
+        -   generi musicali.
+    -   *Qualitative ordinate*: le caratteristiche che la VS può assumere hanno un ordinamento oggettivo
+        -   titolo di studio,
+        -   preferenze,
+        -   giudizi.
+-   **Quantitativa**, la variabile è espressa attraverso una scala numerica.
+    -   *Quantitative Discrete*: le caratteristiche che la VS può assumere sono in numero finito al più numerabile $\rightarrow$ corrispondenza con i numeri interi;
+        -   numero di incidenti,
+        -   voto di laurea.
+    -   *Quantitative Continue*: le caratteristiche che la VS può assumere sono in numero infinito non numerabile.
+        -   misure di lunghezza, capienza e peso,
+        -   temperature,
+        -   reddito.
+::::

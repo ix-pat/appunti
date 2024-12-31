@@ -1,0 +1,65 @@
+---
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+```{r s07, echo=FALSE}
+source("intro.R")
+
+```
+
+# Variabili Casuali di particolare interesse
+
+<!-- Le VC sono i mattoncini elementari su cui statistici e probabilisti -->
+<!-- costruiscono un _modello statistico_. Alcune VC rivestono sono  -->
+<!-- particolarmente adatte per descrivere ampie classi di problemi statistici e probabilistici.  -->
+<!-- Queste VC sono di particolare interesse e vengono nominate con un nome convenzionale. -->
+<!-- Si tratta di modelli probabilistici che sono completamente noti a meno di un _numero finito_ di parametri  -->
+<!-- numerici da fissare. -->
+
+<!-- Se $X$ è una VC nominata dalla sigla convenzionale $\mathscr{L}$ che dipende dal parametro $\theta$ che può variare in $\Theta$ e scriveremo: -->
+<!-- \[ -->
+<!-- X\sim\mathscr{L}(\theta) -->
+<!-- \] -->
+<!-- che si legge: -->
+
+<!-- > _$X$ è distribuita come una VC $\mathscr{L}$ di parametro $\theta$_ -->
+
+<!-- L'insieme $\Theta$ è chiamato lo _spazio dei parametri_ ed è l'insieme numerico -->
+<!-- per cui $\theta$ ha senso probabilistico. -->
+
+Le variabili casuali rappresentano i mattoncini fondamentali con cui si costruiscono i modelli probabilistici e statistici. Alcune variabili casuali, in particolare, emergono come strumenti privilegiati per descrivere classi molto ampie di problemi. La loro importanza deriva dalla semplicità e generalità con cui riescono a rappresentare fenomeni complessi, rendendole elementi centrali in numerose applicazioni.
+
+Queste variabili casuali, che chiamiamo **di particolare interesse**, sono caratterizzate da una distribuzione nota e convenzionalmente identificata da un nome. Esse non sono semplicemente funzioni generiche, ma rappresentano **modelli probabilistici** completamente definiti, a eccezione di un **numero finito di parametri** che devono essere specificati. Questi parametri controllano aspetti fondamentali della distribuzione, come il centro, la dispersione o la forma.
+
+Per rappresentare formalmente questa idea, adottiamo la seguente notazione: se \( X \) è una variabile casuale con distribuzione identificata dalla sigla \(\mathscr{L}\) e parametrizzata da un vettore di parametri \(\theta\), scriviamo:
+
+\[
+X \sim \mathscr{L}(\theta)
+\]
+
+Questa espressione si legge:
+
+> _$X$ è distribuita come una variabile casuale di tipo \(\mathscr{L}\) con parametro \(\theta\)_.
+
+La scelta del simbolo \(\theta\) è intenzionalmente astratta. In questo libro, useremo \(\theta\) esclusivamente per rappresentare un **parametro generico** o un vettore di parametri. Nessun modello specifico che vedremo avrà mai un parametro chiamato \(\theta\): i parametri dei modelli saranno sempre identificati da simboli più specifici, come \(\mu, \sigma^2, \lambda\), che rifletteranno il significato del parametro nel contesto della distribuzione. Questa scelta è importante per mantenere il rigore formale e per distinguere il livello generale della teoria da quello specifico delle applicazioni.
+
+In ogni caso, l'insieme dei valori possibili per \(\theta\), chiamato **spazio dei parametri** e indicato con \(\Theta\), definisce il dominio di validità della distribuzione. È l'insieme dei valori per cui la distribuzione ha senso probabilistico. 
+
+Questa notazione, benché astratta, è fondamentale per costruire un linguaggio che sia universale, sintetico e adattabile a contesti diversi. Essa ci permette di comunicare non solo che \( X \) segue una certa distribuzione, ma anche di precisare come i parametri controllano il comportamento della distribuzione stessa. Sarà utile sia nel contesto probabilistico, dove i parametri sono spesso fissati a priori, sia in quello statistico, dove i parametri devono essere stimati dai dati osservati.
+
+```{r 07-vc-importanti-1,,results='asis',echo=FALSE}
+cat(knit_child("07a-Binomiale.Rmd",envir = environment(),quiet=T))
+```
+
+```{r 07-vc-importanti-2,,results='asis',echo=FALSE}
+cat(knit_child("07b-Poisson.Rmd",envir = environment(),quiet=T))
+```
+
+```{r 07-vc-importanti-3,,results='asis',echo=FALSE}
+cat(knit_child("07c-Normale.Rmd",envir = environment(),quiet=T))
+```
+
+```{r 07-vc-importanti-4,,results='asis',echo=FALSE}
+cat(knit_child("07d-Esercizi-Normale.Rmd",envir = environment(),quiet=T))
+```

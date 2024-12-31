@@ -1,0 +1,375 @@
+---
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+
+```{r setup09, include=FALSE}
+
+
+
+source("intro.R")
+
+```
+
+# Statistiche campionarie
+
+## Risultati preliminari
+
+Consideriamo $n$ variabili casuali, $X_1,...,X_n$, IID, con valore atteso e varianza, rispettivamente, $\mu$ e $\sigma^2$. Sono dati che stiamo per osservare e quindi sono casuali.
+
+
+:::: {.info data-latex=""}
+::: {.definition}
+Una **statistica campionaria**, $S$, è una funzione dei dati $X_1,...,X_n$
+\[S(X_1,...,X_n)=s\in\mathbb{R}\]
+:::
+::::
+
+Come funzione di VC $S=S(X_1,...,X_n)$ è una VC. Ad esempio la _media_ dei dati è una statistica, il _25-esimo percentile_ è una statistica,
+la _mediana_ dei dati, la _varianza_, ecc.
+Ci possiamo porre alcune domande, per esmepio:
+
+- come si distribuisce una media campionaria di valori casuali?
+\[\hat \mu=\bar X \operatorname*{\sim}_a N\left(\mu,\frac{\sigma^2}n\right)\]
+dove, $E(\hat\mu)=\mu$, $V(\hat\mu)=\frac{\sigma^2}n$
+- Come si distribuisce la varianza campionaria di valori casuali?
+\[\hat\sigma^2=\frac 1 n \sum_{i=1}^n (X_i-\hat \mu)^2 \sim ?\]
+
+<!-- - Come si distribuisce la _standardizzazione_ di $\bar X$ dati rispetto a $\mu$? -->
+<!-- \[\frac{\hat \mu-\mu}{{\hat\sigma}/{\sqrt{n-1}}}\sim ? \] -->
+
+## La distribuzione Chi-quadro $\chi^2$
+
+:::: {.info data-latex=""}
+::: {.definition}
+Siano $Z_1,...,Z_n$, $n$ VC, IID, $Z_i\sim N(0,1)$, posto,
+\[Y=Z_1^2+...+Z_n^2, \qquad \text{allora} \qquad Y\sim \chi^2_n\]
+La distribuzione della somma del quadrato di $n$ normali standard è distribuita come un chi-quadro con $n$ _gradi di libertà_
+:::
+::::
+
+::: {.info data-latex=""}
+La VC ha come supporto tutta la retta reale positiva:
+\[S_Y=\{y>0\}=\mathbb{R}^+\]
+Lo spazio dei parametri non ha interesse statistico
+\[n\in\mathbb{Z}^+\]
+:::
+
+Funzione di probabilista o densità:
+\[
+f(x)=\dfrac {x^{{\frac {n}{2}}-1}e^{-{\frac {x}{2}}}}{2^{\frac {n}{2}}\Gamma \left({\frac {n}{2}}\right)}
+\]
+dove
+\[
+\Gamma(t)=\int_0^{+\infty}x^{t-1}e^{-x}dx
+\]
+
+::: {.info data-latex=""}
+
+  - per $n = 1$ ha una forma iperbolica;
+  - per $n>2$ e a forma campanulare con un'asimmetria positiva (coda lunga a dx);
+  - in virtù del TLC se $n$ diverge allora $Y\stackrel{\sim}{a}N(n,2n)$.
+\[E(Y)=n,\qquad V(Y)=2n\]
+:::
+
+In figura \@ref(fig:chi-quadro1) e \@ref(fig:chi-quadro1) la forma della densità al variare di $n$.
+
+```{r chi-quadro1, echo=FALSE, results='asis',fig.cap="La densità della VC Chi-quadro per diversi valori di $n$"}
+dof <- c(1,5,10,50)
+par(mfrow=c(1,2),cex=cex)
+for(i in dof[1:2]){
+curve(dchisq(x,i),0,qchisq(.999,i),main=paste("Chi-quadro, gdl=",i),xlab=expression(chi^2),ylab=expression(f(chi^2)),axes=F)
+  axis(1)
+  axis(2)
+}
+```
+```{r chi-quadro2, echo=FALSE, results='asis',fig.cap="La densità della VC Chi-quadro per diversi valori di $n$"}
+dof <- c(1,5,10,50)
+par(mfrow=c(1,2),cex=cex)
+for(i in dof[3:4]){
+curve(dchisq(x,i),0,qchisq(.999,i),main=paste("Chi-quadro, gdl=",i),xlab=expression(chi^2),ylab=expression(f(chi^2)),axes=F)
+  axis(1)
+  axis(2)
+}
+```
+
+
+### Le tavole del $\chi^2$
+
+Non c'è una sola distribuzione $\chi^2$ ma tante quante sono i possibili gradi di libertà.
+Per comodità editoriale vengono mostrati solo alcuni valori delle code, per alcuni gradi di libertà.
+Offrono il percentile della $\chi^2$ per diversi gradi di libertà e diversi valori di 
+$\alpha$, ovvero
+\[P(\chi^2_n>\chi^2_{n;\alpha})=\alpha\]
+per alcuni valori di $n$ e di $\alpha$.
+Le tavole si presentano in forma tabellare dove ogni riga è indicizzata dal grado di libertà e ogni colonna dal valore di probabilità $\alpha$.
+
+```{r}
+par(mfrow=c(1,2),cex=cex)
+alp <- 0.1
+gdl <- 1
+curve(dchisq(x,gdl),0,13,axes=F,ylab=expression(f(chi^2)),xlab = expression(chi^2))
+axis(1)
+axis(2)
+draw_dist(function(x)dchisq(x,gdl),qchisq(1-alp,gdl),30,col=ablue)
+axis(1,qchisq(1-alp,gdl),expression(chi[0.1]^2))
+title(paste("gdl=",gdl,", alpha=",alp))
+
+alp <- 0.05
+gdl <- 3
+curve(dchisq(x,gdl),0,18,axes=F,ylab=expression(f(chi^2)),xlab = expression(chi^2))
+axis(1)
+axis(2)
+draw_dist(function(x)dchisq(x,gdl),qchisq(1-alp,gdl),30,col=ablue)
+axis(1,qchisq(1-alp,gdl),expression(chi[0.05]^2))
+title(paste("gdl=",gdl,", alpha=",alp))
+```
+```{r}
+par(mfrow=c(1,2),cex=cex)
+alp <- 0.025
+gdl <- 10
+curve(dchisq(x,gdl),0,32,axes=F,ylab=expression(f(chi^2)),xlab = expression(chi^2))
+axis(1,c(0,5,10,15,25,30))
+axis(2)
+#curve(dchisq(x,gdl),qchisq(1-alp,gdl),type="h",add=T,col=ablue,n = 501)
+draw_dist(function(x)dchisq(x,gdl),qchisq(1-alp,gdl),30,col=ablue)
+axis(1,qchisq(1-alp,gdl),expression(chi[0.025]^2))
+title(paste("gdl=",gdl,", alpha=",alp))
+alp <- 0.95
+gdl <- 30
+curve(dchisq(x,gdl),0,63,axes=F,ylab=expression(f(chi^2)),xlab = expression(chi^2))
+axis(1,c(0,10,30,40,50,60))
+axis(2)
+draw_dist(function(x)dchisq(x,gdl),qchisq(1-alp,gdl),100,col=ablue)
+axis(1,qchisq(1-alp,gdl),expression(chi[0.95]^2))
+title(paste("gdl=",gdl,", alpha=",alp))
+par(mfrow=c(1,1),cex=cex)
+
+```
+
+```{r chi1}
+alp <- c(0.9995 , 0.999 , 0.995 , 0.99 , 0.975 , 0.95 , 0.9 , 0.1 , 0.05 , 0.025 , 0.01 , 0.005 , 0.001 , 0.0005)
+gdl <- 1:8
+GdL <- gdl
+
+tab <- format(round(outer(gdl,alp, function(x,y)qchisq(1-y,x)),5),digits = 4,nsmall = 4,scipen=1e10)
+tab <- cbind(gdl,tab)
+colnames(tab)<- c("GdL",paste("$\\alpha=$",format(alp,digits = 5,nsmall = 5)))
+rownames(tab)<- gdl
+kable(tab[,1:8],booktabs=T,escape=F,caption = "Prime 8 righe delle tavole del $\\chi^2$ (1/2)",linesep="",row.names=F,align="r") %>%
+  kable_styling(font_size = 7)
+```
+
+
+```{r chi2}
+kable(cbind(GdL,tab[,9:15]),booktabs=T,escape=F,linesep="",caption = "Prime 8 righe delle tavole $\\chi^2$ (2/2)",row.names=F,align='r') %>%
+  kable_styling(font_size = 7)
+```
+
+
+Quindi per esempio se sono interessato a sapere quale valore del $\chi_3^2$ lascia alla sua destra 
+lo 0.05 dell'area dovrò cercare sulla terza riga in corrispondenza della colonna 0.05
+e quindi
+\[
+\chi_{3;0.05}^2=`r qchisq(.95,3)`
+\]
+
+## La distribuzione $t$-di Student
+
+:::: {.info data-latex=""}
+::: {.definition}
+Siano $Z\sim N(0,1)$ e $Y\sim\chi^2_n$, $Z$ e $Y$ indipendenti, posto,
+\[T=\frac Z{\sqrt{Y/n}} \qquad \text{allora} \qquad T\sim t_n\]
+Il rapporto tra una normale standard e un la radice di un chi-quadro diviso per i suoi gradi di libertà è distribuito come una $t$-Student con $n$ _gradi di libertà_
+:::
+::::
+
+:::: {.info data-latex=""}
+La VC ha come supporto tutta la retta reale:
+\[S_T=\mathbb{R}\]
+Lo spazio dei parametri non ha interesse statistico
+\[n\in\mathbb{Z}^+\]
+
+Funzione di probabilista o densità.
+
+  - è a forma campanulare
+  - è simmetrica rispetto a zero
+  - all'aumentare di $n$ le code si abbassano
+  - Se $n\to\infty$, allora $t_n\to N(0,1)$
+
+\[E(Y)=0,\qquad V(Y)=\frac{n}{n-2}\]
+::::
+
+In figura \@ref(fig:t-student1) e \@ref(fig:t-student2) il confronto tra la $t$-di Student e la normale standard, per diversi valori di $n$.
+
+```{r t-student1, echo=FALSE, results='asis',fig.cap="confronto tra la $t$-di student e la normale standard, per diversi valori di $n$"}
+dof <- c(1,5,10,40)
+par(mfrow=c(1,2),cex=cex*.5)
+for(i in dof[1:2]){
+curve(dt(x,i),-6,6,main=paste("t-student, gdl=",i),xlab=expression(t),ylab=expression(f(t)),ylim=c(0,.41),lwd=2)
+curve(dnorm(x),col=ared,add=T)
+}
+```
+
+```{r t-student2, echo=FALSE, results='asis',fig.cap="confronto tra la $t$-di student e la normale standard, per diversi valori di $n$"}
+dof <- c(1,5,10,40)
+par(mfrow=c(1,2),cex=cex*.5)
+for(i in dof[3:4]){
+curve(dt(x,i),-6,6,main=paste("t-student, gdl=",i),xlab=expression(t),ylab=expression(f(t)),ylim=c(0,.41),lwd=2)
+curve(dnorm(x),col=ared,add=T)
+}
+```
+
+### Le tavole della $t$
+
+Non c'è una sola distribuzione $t$ ma tante quante sono i possibili gradi di libertà.
+Per comodità editoriale vengono mostrati solo alcuni valori delle code, per alcuni gradi di libertà.
+Sulle tavole leggiamo:
+\[P(T>t_{n;\alpha})=\alpha\]
+per alcuni valori di $n$ e di $\alpha$.
+Le tavole si presentano in forma tabellare dove ogni riga è indicizzata dal grado di libertà e ogni colonna dal valore di probabilità $\alpha$.
+Per conoscere quale valore $t_{6;0.025}$ della $t_6$ con 6 gradi di libertà, tale che
+\[P(T>t_{6;0.025})=0.025\]
+
+```{r}
+options(digits = 5)
+
+alp <- c(0.1,0.05,0.025,0.01,0.005,0.001,0.0005)
+gdl <- c(1:50,60,70,80,90,100,+Inf)
+nam <- c("GdL",paste("$\\alpha=",alp,"$",sep=""))
+zap <- format(qnorm(1-alp),digits = 5)
+pap <- 1-alp
+
+# r1 <- paste(nam[1],paste(alp,collapse = " & ",sep="& "),sep=" & ")
+# r2 <- paste(nam[2],paste(zap,collapse = " & ",sep="& "),sep=" & ")
+# r3 <- paste(nam[3],paste(pap,collapse = " & ",sep="& "),sep=" & ")
+# xx <- seq(0,.09,by=0.01)
+# XX <- seq(0,4,by=0.1)
+continua <- rep("...",times=length(alp)+1)
+tab <- format(outer(gdl,alp,function(x,y)qt(1-y,x)))
+tab <- cbind(gdl,tab)
+dimnames(tab)[[2]] <- nam
+kable(rbind(tab[1:10,],continua),row.names = F,booktabs = T, escape = F,linesep = "", digits = 5,align='r',caption = "$\\alpha=0.025$, con 6 gradi di libertà")%>%
+  column_spec(4,color = ared,border_left = T,border_right = T)%>%
+  row_spec(6,color = ared,hline_after = T)%>%
+  row_spec(5,hline_after = T)%>%
+  kable_styling(font_size = 7)
+
+
+options(digits = 5)
+```
+
+<!-- ![](img/tavt1.png) -->
+
+Dunque $t_{6;0.025}=`r qt(1-.025,6)`$
+
+```{r,fig.align='center'}
+curve(dt(x,6),-5,5, axes = F, xlab='t',ylab='f(t)')
+axis(1,c(-5,0,round(qt(.975,6),4),5))
+axis(2)
+curve(dt(x,6),round(qt(.975,6),4),5,n = 501, add=T,type='h',col='grey')
+text(0,.1,0.975)
+text(3.5,.025,0.025)
+```
+
+Per conoscere quale valore $t_{15;0.005}$ della $t_{15}$ con 15 gradi di libertà, tale che
+\[P(T>t_{15;0.005})=0.005\]
+
+Dunque $t_{15;0.005}=`r qt(1-.005,15)`$
+
+```{r}
+kable(rbind(continua,tab[13:17,],continua),row.names = F,booktabs = T, escape = F,linesep = "", digits = 5,align='r',caption = "$\\alpha=0.005$, con 15 gradi di libertà")%>%
+  column_spec(6,color = ared,border_left = T,border_right = T)%>%
+  row_spec(4,color = ared,hline_after = T)%>%
+  row_spec(3,hline_after = T)%>%
+  kable_styling(font_size = 7)
+```
+
+
+```{r,fig.align='center'}
+curve(dt(x,15),-5,5, axes = F, xlab='t',ylab='f(t)')
+axis(1,c(-5,0,round(qt(.995,15),4),5))
+axis(2)
+curve(dt(x,15),round(qt(.995,15),4),5,n = 501, add=T,type='h',col='grey')
+text(0,.1,0.995)
+text(4,.015,0.005)
+```
+
+Per conoscere quale valore $t_{49;0.0005}$ della $t_{49}$ con 49 gradi di libertà, tale che
+\[P(T>t_{49;0.001})=0.001\]
+
+```{r}
+kable(rbind(continua,tab[46:50,],continua),row.names = F,booktabs = T, escape = F,linesep = "", digits = 5,align='r',caption = "$\\alpha=0.0005$, con 49 gradi di libertà")%>%
+  column_spec(7,color = ared,border_left = T,border_right = T)%>%
+  row_spec(5,color = ared,hline_after = T)%>%
+  row_spec(4,hline_after = T)%>%
+  kable_styling(font_size = 7)
+options(digits = 4)
+```
+
+Dunque $t_{49;0.001}=`r qt(1-.001,49)`$
+
+
+:::: {.nota data-latex=""}
+L'ultima riga della $t$, per un numero infinito di GdL, coincide con la tabella aggiuntiva della $Z$. Infatti
+\scriptsize\vspace{10 pt}
+
+::: {.center data-latex=""}
+```{r}
+options(digits = 4)
+nam <- c("\\alpha","z_\\alpha","\\Phi(z_\\alpha)=1-\\alpha")
+alp <- c(0.1,0.05,0.025,0.01,0.005,0.001,0.0005)
+zap <- format(qnorm(1-alp),digits = 5)
+pap <- 1-alp
+
+r1 <- paste(nam[1],paste(alp,collapse = " & ",sep="& "),sep=" & ")
+r2 <- paste(nam[2],paste(paste("& \\color{red}{",paste(zap,collapse = "} &\\color{red}{",sep="& ")),sep=" & "),"}")
+r3 <- paste(nam[3],paste(pap,collapse = " & ",sep="& "),sep=" & ")
+tab[56,1]<- "$\\infty$"
+tabl(tab[53:56,]) %>%
+  row_spec(4,color = ared)%>%
+  kable_styling(font_size = 12)
+```
+:::
+\vspace{10 pt}
+\normalsize
+La tabella dei percentili della normale è
+\scriptsize
+
+\[\begin{array}{lrrrrrrr}
+\hline
+`r r1` \\ 
+`r r2` \\ 
+`r r3` \\
+\hline
+\end{array}\]
+
+::::
+
+\normalsize
+## La distribuzione di $\hat\sigma^2$
+
+Siano $X_1,...,X_n$, $n$ VC IID, replicazioni della stessa $X\sim N(\mu,\sigma^2)$.
+La si definisce la varianza campionaria
+
+\[\hat\sigma^2=\frac 1 n \sum_{i=1}^n(X_i-\hat \mu)^2, \qquad \hat \mu=\bar X=\frac 1 n \sum_{i=1}^nX_i\]
+
+allora
+
+\[ \hat\sigma^2\sim\frac{\sigma^2}n\chi^2_{n-1}.\]
+
+Osserviamo:
+
+\begin{eqnarray*}
+E(\hat\sigma^2) &=& \frac {\sigma^2}n E(\chi^2_{n-1})\\
+                &=& \frac{n-1}n \sigma^2
+\end{eqnarray*}
+
+## La distribuzione della statistica standardizzata
+
+Siano $X_1,...,X_n$, $n$ VC, IID, $X_i\sim N(\mu,\sigma^2)$. Si definisce _standardizzazione_ di $\bar X$ dati rispetto a $\mu$:
+\[T=\frac{\hat \mu-\mu}{{\hat\sigma}/{\sqrt{n-1}}}\]
+Allora
+\[T\sim t_{n-1}. \]

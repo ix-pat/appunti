@@ -1,0 +1,596 @@
+---
+output: html_document
+editor_options: 
+  chunk_output_type: console
+  markdown: 
+    wrap: 72
+---
+
+```{r setuptlc, include=FALSE}
+
+
+
+source("intro.R")
+
+```
+
+# Il Teorema del Limite Centrale
+
+## Successioni di VC
+
+Una successione di variabili casuali è espressa da un numero infinito di
+variabili casuali $\{X_1,X_2,...,X_n,...\}$.
+
+::: example
+Sia \begin{eqnarray*}
+  X_1 &\sim& N\left(0,1\right)\\
+  X_2 &\sim& N\left(0,\frac 12\right)\\
+  X_3 &\sim& N\left(0,\frac 13\right)\\  
+  ...\\
+  X_n &\sim& N\left(0,\frac 1n\right)\\
+  ...
+\end{eqnarray*}
+:::
+
+::: example
+Sia \begin{eqnarray*}
+  X_1 &\sim& \text{Binom}\left(1,\pi\right)\\
+  X_2 &\sim& \text{Binom}\left(2,\pi\right)\\
+  ...\\
+  X_n &\sim& \text{Binom}\left(n,\pi\right)\\
+  ...
+\end{eqnarray*}
+:::
+
+Siamo interessati a sapere se la successione converge ad una VC $X$. Ma
+essendo VC e non numeri il concetto di convergenza è più complesso.
+Esistono diversi tipi di convergenza e non entreremo nella trattazione
+sistematica del tema. Mostreremo solo le convergenze che ci interessano
+per sviluppare il resto della teoria.
+
+::: {.definition name="Convergenza in Distribuzione"}
+Si dice che la successione $\{X_1,X_2,...,X_n,...\}$ converge in
+distribuzione alla VC X se e solo se
+$$\lim_{n\to\infty}F_n(x)=F(x),~\forall x\in S_X$$ dove $F_n$ e $F$
+rappresentano la funzione di ripartizione di $X_n$ e di $X$,
+rispettivamente. E si scrive $$X_n\operatorname*{\rightarrow}_{d} X$$
+:::
+
+::: {.definition name="Convergenza in Probabilità"}
+Si dice che la successione $\{X_1,X_2,...,X_n,...\}$ converge in
+probabilità alla VC X se e solo se
+$$\lim_{n\to\infty}P(|X_n-X|<\varepsilon)=1$$e si scrive
+$$X_n\operatorname*{\rightarrow}_{P} X$$
+:::
+
+::: {.definition name="Convergenza in Media Quadratica"}
+Si dice che la successione $\{X_1,X_2,...,X_n,...\}$ converge in media
+quadratica alla VC X se e solo se
+$$\lim_{n\to\infty}E\big((X_n-X)^2\big)=0$$e si scrive
+$$X_n\operatorname*{\rightarrow}_{L^2} X$$
+:::
+
+## Somme e Medie di VC
+
+Siano $X_1,...,X_n$ $n$ VC IID, tali che $E(X_i)=\mu$ e
+$V(X_i)=\sigma^2$. Chiamiamo $S_n$ la somma delle $X_i$
+$$S_n =X_1+...+X_n=\sum_{i=1}^nX_i$$ Dalle proprietà del valore atteso e
+della varianza otteniamo \begin{eqnarray*}
+   E(S_n) &=&  E(X_1+...+X_n)\\
+   &=& E(X_1)+...+E(X_n)\\
+   &=& \mu+...+\mu\\
+   &=& n\mu\\
+   V(S_n) &=&  V(X_1+...+X_n)\\
+   &=& V(X_1)+...+V(X_n)\\
+   &=& \sigma^2+...+\sigma^2\\
+   &=& n\sigma^2
+\end{eqnarray*}
+
+Chiamiamo $\bar X$ la media delle $X_i$
+$$\bar X= \frac{S_n}n =\frac{X_1+...+X_n}n=\frac 1n\sum_{i=1}^nX_i$$
+Dalle proprietà del valore atteso e della varianza otteniamo
+\begin{eqnarray*}
+   E(\bar X) &=&  E\left(\frac{S_n}{n}\right)\\
+   &=& \frac 1n E(S_n)\\
+   &=& \mu\\
+   V\left(\bar X\right) &=&  V\left(\frac{S_n}{n}\right)\\
+   &=& \frac 1{n^2}V(S_n)\\
+   &=& \frac {\sigma^2}n 
+\end{eqnarray*}
+
+::: {.att data-latex=""}
+Le VC $X_1,...,X_n$ sono VC qualunque non necessariamente normali, il
+fatto che chiamiamo $E(X_i)=\mu$ e $V(X_i)=\sigma^2$ è solo una
+convenzione e non deve fare pensare ai parametri della normale.
+:::
+
+::: {.theorem name="Legge dei Grandi Numeri"}
+Siano $X_1,...,X_n$ $n$ VC IID, tali che $E(X_i)=\mu$ e
+$V(X_i)=\sigma^2$. Posto
+$$\bar X= \frac{S_n}n =\frac{X_1+...+X_n}n=\frac 1n\sum_{i=1}^nX_i$$
+allora $\bar X$ converge in media quadratica alla VC $X$ che assume il
+valore $\mu$ con probabilità 1.
+:::
+
+::: proof
+Dalla definizione di convergenza in media quadratica, dobbiamo studiare
+il limite $$\lim_{n\to\infty}E\big((\bar X-X)^2\big)$$ Siccome $X$ è
+tale che $P(X=\mu)=1$ allora
+$$\lim_{n\to\infty}E\big((\bar X-\mu)^2\big)$$ ma essendo
+$E\big((\bar X-\mu)^2\big)=V(\bar X)=\sigma^2/n$ otteniamo
+$$\lim_{n\to\infty}\frac {\sigma^2}n=0$$
+:::
+
+Quindi la media di VC converge alla media dell'urna se il numero di VC
+aumenta all'infinito. Ma mentre converge al punto della media, cosa
+succede? A questa domanda rispondono i teoremi centrali del limite.
+
+## Teoremi del Limite Centrale
+
+I *Teoremi del Limite Centrale* (TLC), central limit theorems, sono una
+famiglia di teoremi sul limite delle somme di VC. Occupano un posto
+centrale nella teoria della probabilità e dell'inferenza statistica.
+Esistono molti enunciati a seconda delle ipotesi di partenza. In questo
+corso mostriamo il teorema più noto e lo decliniamo in tre casi
+particolari.
+
+I TLC riguardano la convergenza in distribuzione di una successione di
+somme di una VC. La potenza del teorema è che, non importa quale sia la
+distribuzione di partenza delle $X_i$, la loro somma, per $n$ abbastanza
+grande, è approssimabile con una distribuzione normale. Enunciamo qui
+tre diversi teoremi che in realtà sono tre diverse declinazioni dello
+stesso. Iniziamo dal primo e più famoso.
+
+::: {.info data-latex=""}
+::: {.theorem name="TLC per la Somma"}
+Siano $X_1....,X_n$, $n$ Variabili Casuali (VC) Indipendenti e
+Identicamente Distribuite (IID), tali che $E(X_i)=\mu$,
+$V(X_i)=\sigma^2$, $\forall i=1....,n$. Posto $$S_n=X_1+...+X_n,$$
+allora $$S_n\operatorname*{\sim}_{a} N\left(n\mu,n\sigma^2\right)$$
+:::
+:::
+
+Il TLC per la somma asserisce che la somma di VC IID, se il numero di
+addendi è sufficientemente grande, si può approssimare con una normale
+semplificando notevolmente il calcolo.
+
+Siccome una media non è altro che una somma diviso $n$, valore atteso e
+varianza le abbiamo già ricavate, otteniamo
+
+::: {.info data-latex=""}
+::: {.theorem name="TLC per la Media"}
+Siano $X_1....,X_n$, $n$ Variabili Casuali (VC) Indipendenti e
+Identicamente Distribuite (IID), tali che $E(X_i)=\mu$,
+$V(X_i)=\sigma^2$, $\forall i=1....,n$. Posto
+$$\bar X =\frac {S_n} n = \frac{X_1+...+X_n}n,$$ allora
+$$\bar X\operatorname*{\sim}_{a} N\left(\mu,\frac{\sigma^2}n\right)$$
+:::
+:::
+
+Il TLC per la media asserisce che la media di VC IID, se il numero di
+elementi che la contengono è sufficientemente grande, si può
+approssimare con una normale semplificando notevolmente il calcolo. La
+varianza di questa normale $\sigma^2/n$ va a zero per $n$ che diverge, e
+ci riporta alla legge dei grandi numeri.
+
+Se consideriamo le $X_i$ tutte Bernoulli di parametro $\pi$ sappiamo che
+$E(X_i)=\pi$ e $V(X_i)=\pi(1-\pi)$. Dedichiamo alla media di Bernoulli
+un simbolo speciale che sarà più chiaro più avanti.
+$$\hat \pi=\frac{X_1+...+X_n}{n}$$ sostituendo valore atteso e varianza
+nel TLC della media otteniamo:
+
+::: {.info data-latex=""}
+::: {.theorem name="TLC per la Proporzione"}
+Siano $X_1....,X_n$, $n$ Variabili Casuali (VC) Indipendenti e
+Identicamente Distribuite (IID), tali che $X_i\sim\text{\rm Ber}(\pi)$,
+$\forall i=1....,n$. Posto
+$$\hat\pi =\frac {S_n} n = \frac{X_1+...+X_n}n,$$ allora
+$$\hat\pi\operatorname*{\sim}_{a} N\left(\pi,\frac{\pi(1-\pi)}n\right)$$
+:::
+:::
+
+Il TLC per la proporzione è sempre il TLC per la media ma per VC di
+Bernoulli. Ci dice che la proporzione osservata su un campione di $n$ VC
+di Bernoulli è normale con media $\pi$ e varianza che va a zero con $n$
+che diverge.
+
+::: {.nota data-latex=""}
+La notazione $\operatorname*{\sim}_{a}$ non è una notazione standard ma
+è diventata una prassi con i miei studenti per semplificare la notazione
+completa che sarebbe più elaborata. Per esempio nel caso del TLC della
+somma anziché scrivere $$
+S_n\operatorname*{\sim}_{a} N(n\mu,n\sigma^2)
+$$ avremmo dovuto scrivere $$
+S_n\operatorname*{\rightarrow}_{d} X,~~~~ X\sim N(n\mu,n\sigma^2)
+$$ che complica troppo la trattazione.
+:::
+
+### Esempio Somma
+
+Siano $X_1, X_2,...,X_n$ $n$ VC IID con supporto $S_X=\{-1,0,+1\}$ e con
+funzione di probabilità $$
+\begin{cases}
+P(X=-1)&=\frac 13\\
+P(X=\phantom{-}0)&=\frac 13\\
+P(X=+1)&=\frac 13
+\end{cases}
+$$ Consideriamo $$
+S_2=X_1+X_2
+$$ il supporto di $S_2$ sarà $$S_{S_2}=\{-2,-1,0,+1,+2 \} $$ $S_2=-2$ se
+sia $X_1=-1$ e $X_2=-1$, $S_2=-1$ se sia $X_1+X_2=-1$ ecc. mettiamo in
+tabella
+
+```{r,results='asis'}
+S_1 <- (-1):1
+S_2 <- (-1):1
+num1 <- rep(1,times=3)
+num2 <- rep(1,times=3)
+res <- two_way(S_1=S_1,S_2=S_2,num1=num1,num2=num2,EV = F,vnam="S_2")
+S_3 <- res$S_3
+num3 <- res$num3
+```
+
+
+
+Se siamo interessati ad $S_3$ 
+$$
+S_3=X_1+X_2+X_3=S_2+X_3
+$$ 
+
+lavoriamo come prima facendo la somma tra $S_2$ e $X_1$
+
+```{r,results='asis'}
+res <- two_way(S_1=S_1,S_2=S_3,num1=num1,num2=num3,EV = F,vnam="S_3")
+S_4 <- res$S_3
+num4 <- res$num3
+```
+
+
+Iteriamo il ragionamento per $S_4$ 
+
+$$
+S_4=S_3+X_4
+$$
+
+```{r,results='asis'}
+res <- two_way(S_1=S_1,S_2=S_4,num1=num1,num2=num4,EV = F,vnam="S_4")
+S_5 <- res$S_3
+num5 <- res$num3
+```
+
+Osserviamo i grafici per $n=1,...,4$
+
+```{r}
+p1 <- 1/3
+p2 <- num3/sum(num3)
+p3 <- num4/sum(num4)
+p4 <- num5/sum(num5)
+
+par(mfrow=c(1,2),cex=cex)
+n <- 1
+S <- (-n):n
+k <- length(S)
+plot(c(S[1]-.6,S[3]+.6),
+     c(0,1/3+.1),
+     type="n",
+     xlab=expression(S[1]),
+     ylab=expression(P(S[1])),
+     axes=F)
+rect(xleft = S[]-.5,ybottom = 0,xright = S[]+.5,ytop = p1,col=ablue)
+axis(1,S)
+axis(2,c(0,1/3),c(0,"1/3"),las=2)
+title("Variabile di Partenza")
+
+n <- 2
+S <- (-n):n
+k <- length(S)
+plot(c(S[1]-.6,S[5]+.6),
+     c(0,1/3),
+     type="n",
+     xlab=expression(S[2]),
+     ylab=expression(P(S[2])),
+     axes=F)
+rect(xleft = S[]-.5,ybottom = 0,xright = S[]+.5,ytop = p2,col=ablue)
+axis(1,S)
+axis(2,c(0,p2),c(0,round(p2,3)),las=2)
+title("Distribuzione di S2")
+
+```
+
+```{r}
+par(mfrow=c(1,2),cex=cex)
+n <- 3
+S <- (-n):n
+k <- length(S)
+plot(c(S[1]-.6,S[k]+.6),
+     c(0,1/3),
+     type="n",
+     xlab=expression(S[3]),
+     ylab=expression(P(S[3])),
+     axes=F)
+rect(xleft = S[]-.5,ybottom = 0,xright = S[]+.5,ytop = p3,col=ablue)
+axis(1,S)
+axis(2,c(0,p3),c(0,round(p3,3)),las=2)
+title("Distribuzione di S3")
+
+n <- 4
+S <- (-n):n
+k <- length(S)
+plot(c(S[1]-.6,S[k]+.6),
+     c(0,1/3),
+     type="n",
+     xlab=expression(S[4]),
+     ylab=expression(P(S[4])),
+     axes=F)
+rect(xleft = S[]-.5,ybottom = 0,xright = S[]+.5,ytop = p4,col=ablue)
+axis(1,S)
+axis(2,c(0,p4),c(0,round(p4,3)),las=2)
+title("Distribuzione di S4")
+par(mfrow=c(1,1),cex=cex)
+```
+
+Calcolare $S_n$ se $n$ è un numero elevato è difficoltoso. Il TLC ci
+viene incontro. Possiamo calcolare valore atteso e varianza della VC
+della VC che ha generato il sistema.
+
+```{=tex}
+\begin{eqnarray*}
+  E(X) &=&  -1 \frac 13+0\frac 13+1 \frac 13=0\\
+  V(X) &=&  (-1)^2\frac 13 +0^2\frac 13+1^2\frac 13-0^2=\frac 23
+\end{eqnarray*}
+```
+e quindi in virtù del TLC per la somma $$
+S_n\operatorname*{\sim}_a N(n\cdot 0, n\cdot 2/3)
+$$ Se per esempio $n=50$ $$
+S_{50}\operatorname*{\sim}_a N(0,50\cdot 2/3)
+$$ e quindi se volessi calcolare la probabilità che $S_{50}<3$ useremmo
+la distribuzione normale
+
+```{r}
+### Calcola la probabilità di una Normale qualunque su un intervallo
+##  Input
+##  x1 limite inferiore
+##  verso (">" o "<")
+##  mm media
+##  ss varianza
+##  vnam nome X
+##  mu nome media
+##  sigma nome varianza
+x1 <- 3
+verso <- "<"
+mm <- 0
+ss <- 100/3
+mu <- "E(S_n)"
+sigma <- "V(S_n)"
+vnam <- "S_n"
+```
+
+```{r, results='asis'}
+cat(norm_int(x1 = x1,verso = "<",mm = mm,ss = ss,vnam = vnam,sigma = sigma))
+```
+
+### Roulette
+
+```{r}
+mumax <- 5
+za2 <- round(qnorm(.975),2)
+pg <- format(18/37,digits=4,nsmall=4)
+xg <- format(-1+2*18/37,digits=4,nsmall=4)
+xn <- -1+2*18/37
+pn <- 18/37
+vn <- 4*18/37*19/37
+```
+
+**Il gioco.** Una giocata dalla roulette equivale ad estrarre da un'urna
+che contiene 37 bussolotti numerati da 0 a 36.
+
+```{r }
+include_graphics("img/tavolo-roulette.png")
+```
+
+Si può puntare su diverse combinazioni: pari o dispari, rosso o nero, da
+1 a 18 o da 19 a 36,... e altre combinazioni. Se puntiamo 1€, per
+esempio, su Rosso la vincita/perdita sarà: $$
+\begin{cases}
++1€, &\text{se esce Rosso}\\
+-1€, &\text{se non esce Rosso}
+\end{cases}
+$$ Giocheremo, sempre puntando un euro alla volta, per $n$ volte. La VC
+$R_i$ che descrive l'evento Rosso o non Rosso, nella giocata $i$, è una
+Bernoulli di parametro $$
+\pi=\frac{18}{37}=`r format(18/37,digits=4,nsmall=4)`
+$$ Sia la VC $X_i$ che descrive la vincita/perdita $$X_i=-1+2R_i$$ Se
+$R_i=1$ allora $X_i=-1+2\times 1=+1$, mentre se $R_i=0$ allora
+$X_i=-1+2\times 0=-1$ La VC
+$R_i\sim\text{Ber}(\pi=`r format(18/37,digits=4,nsmall=4)`)$ e quindi
+\begin{eqnarray*}
+E(R_i) &=& `r format(18/37,digits=4,nsmall=4)`\\
+V(R_i) &=& `r format(18/37,digits=4,nsmall=4)`\times(1-`r format(18/37,digits=4,nsmall=4)`)
+\end{eqnarray*} E quindi \begin{eqnarray*}
+E(X_i) &=& -1+2\times `r format(18/37,digits=4,nsmall=4)`\\
+&=&`r format(-1+2*18/37,digits=4,nsmall=4)`\\
+V(X_i) &=& 2^2\times `r format(18/37,digits=4,nsmall=4)`\times(1-`r format(18/37,digits=4,nsmall=4)`)\\
+&=& `r format(4*18/37*19/37,digits=4,nsmall=4)`
+\end{eqnarray*} Le $X_i$ sono tutte tra di loro Indipendenti e
+Identicamente Distribuite (IID). Se quindi giochiamo $n$ volte la VC che
+conta il numero di euro vinti/persi è $$
+S_n = X_1+...+X_n
+$$ Riscrivendo in termini di $R_i$ \begin{eqnarray*}
+S_n &=& -1 + 2R_1 -1 + 2R_2 +...+(-1)+2R_n\\
+    &=& -n + 2(R_1+...+R_n)\\
+    &=& -n + 2R
+\end{eqnarray*}
+$R=R_1+...+R_n\sim \text{Bin}(n;\pi=`r format(18/37,digits=4,nsmall=4)`)$
+Se per esempio gioco due ($n=2$) volte $$
+S_2 = X_1+X_2
+$$ il supporto di $S_2$ è l'insieme $\{-2,0,+2\}$. \begin{eqnarray*}
+P(S_2=-2)&=&P(R_1+R_2=0)= \binom{2}{0}`r pg`^0(1-`r pg`)^2=`r dbinom(0,2,18/37)`\\
+P(S_2=0)&=&P(R_1+R_2=1)= \binom{2}{1}`r pg`^1(1-`r pg`)^1=`r dbinom(1,2,18/37)`\\
+P(S_2=+2)&=&P(R_1+R_2=2)= \binom{2}{0}`r pg`^2(1-`r pg`)^0=`r dbinom(2,2,18/37)`
+\end{eqnarray*}
+
+```{r}
+# n <- 2
+# plot(c(-n-.6,n+.6),c(0,.5),type="n",axes=F,xlab="x",ylab="f(x)")
+# rect(-n+2*(0:2)-.5,0,-n+2*(0:2)+.5,dbinom(0:2,n,pn))
+# axis(1,-n+2*(0:2))
+# axis(2)
+```
+
+Se per esempio gioco tre ($n=3$) volte $$
+S_2 = X_1+X_2+X_3=S_2+X_3
+$$ il supporto di $S_3$ è l'insieme $\{-3,-1,+1,+3\}$. \begin{eqnarray*}
+P(S_3=-3)&=&P(R_1+R_2+R_3=0)= \binom{3}{0}`r pg`^0(1-`r pg`)^3=`r dbinom(0,3,18/37)`\\
+P(S_3=-1)&=&P(R_1+R_2+R_3=1)= \binom{3}{1}`r pg`^1(1-`r pg`)^2=`r dbinom(1,3,18/37)`\\
+P(S_3=+1)&=&P(R_1+R_2+R_3=2)= \binom{3}{2}`r pg`^2(1-`r pg`)^1=`r dbinom(2,3,18/37)`\\
+P(S_3=+3)&=&P(R_1+R_2+R_3=3)= \binom{3}{3}`r pg`^3(1-`r pg`)^0=`r dbinom(3,3,18/37)`
+\end{eqnarray*}
+
+<!-- ```{r} -->
+<!-- n <- 3 -->
+<!-- plot(c(-n-.6,n+.6),c(0,.5),type="n",axes=F,xlab="x",ylab="f(x)") -->
+<!-- rect(-n+2*(0:n)-.5,0,-n+2*(0:n)+.5,dbinom(0:n,n,pn)) -->
+<!-- axis(1,-n+2*(0:n)) -->
+<!-- axis(2) -->
+<!-- ``` -->
+
+Se per esempio gioco tre ($n=10$) volte 
+$$
+S_{10} = S_9+X_{10}
+$$
+
+Se per esempio gioco tre ($n=100$) volte 
+$$
+S_{100} = S_{99}+X_{100}
+$$ 
+La probabilità di non perdere è data da. 
+
+\begin{eqnarray*}
+P(S_{100}>0)&=& P(-100+2R>0)\\
+ &=& P(R>100/2)\\
+&=&P(R>50)\\
+&=&P(R=51)+P(R=52)+...+P(R=100)\\
+&=&\binom{100}{51}`r pg`^{51}(1-`r pg`)^{49}+\binom{100}{52}`r pg`^{52}(1-`r pg`)^{48}+...\\
+&+& \binom{100}{100}`r pg`^{100}(1-`r pg`)^{0}\\
+&=& `r sum(dbinom(51:100,100,pn))`
+\end{eqnarray*}
+
+```{r}
+par(mfrow=c(1,2),cex=cex)
+n <- 2
+plot(c(-n-1.1,n+1.1),c(0,.25),type="n",axes=F,xlab="x",ylab="f(x)",main = "n = 2")
+rect(-n+2*(0:2)-1,0,-n+2*(0:2)+1,dbinom(0:2,n,pn)/2,col=ablue)
+axis(1,-n+2*(0:2))
+axis(2)
+
+n <- 3
+plot(c(-n-1.1,n+1.1),c(0,.25),type="n",axes=F,xlab="x",ylab="f(x)",main = "n = 3")
+rect(-n+2*(0:n)-1,0,-n+2*(0:n)+1,dbinom(0:n,n,pn)/2,col=ablue)
+axis(1,-n+2*(0:n))
+axis(2)
+```
+
+```{r}
+par(mfrow=c(1,2),cex=cex)
+n <- 10
+plot(c(-n-1.1,n+1.1),c(0,.15),type="n",axes=F,xlab="x",ylab="f(x)",main = "n = 10")
+rect(-n+2*(0:n)-1,0,-n+2*(0:n)+1,dbinom(0:n,n,pn)/2,col=ablue)
+axis(1,-n+2*(0:n))
+axis(2)
+
+n <- 100
+plot(c(-n-.6,n+.6),c(0,.045),type="n",axes=F,xlab="x",ylab="f(x)",main = "n = 100")
+rect(-n+2*(0:n)-1,0,-n+2*(0:n)+1,dbinom(0:n,n,pn)/2,col=ablue,border = ablue)
+axis(1)
+axis(2)
+par(mfrow=c(1,1),cex=cex)
+```
+
+**Approssimazione normale** 
+
+\begin{eqnarray*}
+\mu &=& E(X_i)\\
+&=& -1+2\times `r pg`\\
+&=&`r format(-1+2*18/37,digits=4,nsmall=4)`\\
+\sigma^2 &=& V(X_i) \\
+&=& 2^2\times `r format(18/37,digits=4,nsmall=4)`\times(1-`r format(18/37,digits=4,nsmall=4)`)\\
+&=& `r format(4*18/37*19/37,digits=4,nsmall=4)`
+\end{eqnarray*}
+
+`r vg <- format(4*18/37*19/37,digits=4,nsmall=4)`
+`r vx <- 4*18/37*19/37` posto 
+$$
+S_n = X_1+...+X_n
+$$ 
+e dunque
+
+\begin{eqnarray*}
+E(S_n) &=& E(X_1+...+X_n)\\
+       &=& E(X_1)+...+E(X_n)\\
+       &=& \mu+...+\mu\\
+       &=& n\mu\\
+       &=& `r n*xn`\\
+V(S_n) &=& V(X_1+...+X_n)\\
+       &=& V(X_1)+...+V(X_n)\\
+       &=&\sigma^2+...+\sigma^2\\
+       &=& n\sigma^2\\
+       &=& n\times `r vg`
+\end{eqnarray*}
+
+Per $n=100$
+
+\begin{eqnarray*}
+E(S_n) &=& 100\times (`r xg`)\\
+       &=& `r 100*xn`\\
+V(S_n) &=& 100\times `r vg`\\
+       &=& `r 100*vx`
+\end{eqnarray*}
+
+In virtù del teorema del limite centrale
+
+\begin{eqnarray*}
+S_{100}&&\operatorname*{\sim}_{a} N(100\times(`r xg`),100\times`r vg`)\\
+&& \operatorname*{\sim}_{a}  N(`r 100*xn`,`r 100*vx`)
+\end{eqnarray*}
+
+E quindi
+
+```{r,results='asis'}
+vnam<-"S_n"
+mm <- round(100*xn,4)
+ss <- 100*vn
+x0 <- 0
+x1 <- 0
+cat(norm_int(x1 = x1,verso = ">",mm = mm,ss = ss,vnam = vnam,mu = "E(S_n)",sigma = "\\sqrt{V(S_n)}"))
+```
+
+```{r}
+curve(dnorm(x,mm,sqrt(ss)),mm-4*ss^.5,+4*ss^.5,axes=F,ylab=expression(f(S[n])),xlab = expression(S[n]))
+curve(dnorm(x,mm,sqrt(ss)),1,+4*ss^.5,add=T,type="h",n=1001,col="gray")
+n <- 100
+rect(-n+2*(0:n)-1,0,-n+2*(0:n)+1,dbinom(0:n,n,pn)/2)
+axis(1,-n+2*(0:n))
+axis(2)
+
+papp <- 1-pnorm(0,mm,sqrt(ss))
+pexx <- sum(dbinom(51:100,100,pn))
+```
+
+::: {.nota data-latex=""}
+I due valori di probabilità esatta `r pexx` e quello approssimato
+`r papp` sono diversi nella seconda cifra decimale. Questo è dovuto al
+fatto che la normale calcola anche parte dell'istogramma della binomiale
+in zero. Per ovviare e migliorare l'approssimazione basta spostare sulla
+fine del rettangolo dello zero il calcolo della normale. Senza entrare
+nel dettaglio si ricava che il rettangolo finisce per $S_n=1$ e dunque
+
+```{r, results='asis'}
+vnam<-"S_n"
+mm <- round(100*xn,4)
+ss <- 100*vn
+x1 <- 1
+cat(norm_int(x1 = x1,verso = ">",mm = mm,ss = ss,vnam = vnam,mu = "E(S_n)",sigma = "\\sqrt{V(S_n)}"))
+```
+
+:::
+

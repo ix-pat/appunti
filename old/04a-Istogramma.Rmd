@@ -1,0 +1,406 @@
+---
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+
+```{r,echo=FALSE}
+#rm(list = ls())
+
+
+source("intro.R")
+
+
+opts_knit$set(echo=F)
+
+s2 <- 0
+```
+
+## Istogramma e Percentili
+
+
+ 
+
+La relazione tra istogramma di densità e percentili è evidente, i percentile di ordine $p$ indica per quale 
+valore di $x_p$ l'area dell'istogramma fino misurano l'area dell'istogramma fino ad $x_p$ vale $p$.
+
+Attraverso il seguente esempio osserveremo meglio il legame tra i due concetti.
+
+```{r}
+n <- 4700
+brk <- c(0,10,20,50,90)
+f    <- c(0.18,0.30,0.42,0.10)
+k <- length(brk)-1
+
+nnn <- f*n
+nomex <- "Reddito"
+brk <- c(0,10,20,50,90)
+
+samp <- genera_dati(brk = brk,n = n,nnn = nnn,rand = F)
+ls2e(stat_base(samp,brk))
+```
+
+:::: {.example}
+Il reddito di $n=$ 4700 famiglie (dati inventati)
+è rappresentato nella tabella di frequenza qui di seguito
+
+```{r reddito, echo=FALSE, results="asis"}
+kable(dat3[,c(1,2,4)],booktabs = T, escape = F,linesep = "", digits = 4)
+```
+
+Per prima cosa calcoliamo tutta la tabella: la colonna delle frequenza assolute e cumulate, delle densità, ecc.
+
+```{r risult, echo=FALSE, results="asis"}
+kable(dat3,booktabs = T, escape = F,linesep = "", digits = 4)
+```
+
+Quindi disegniamo l'istogramma di densità percentuale, dove le $h$ sono usate come altezze e le $f_{\%}$ sono le aree dei rettangoli. 
+
+```{r, echo=FALSE}
+histp(T)
+```
+
+:::: {.att data-latex=""}
+Se al posto delle $h$ usiamo le $f$ disegniamo l'istogramma _sbagliato_, . Notiamo che la classe $[20,50)$
+viene sovra rappresentata. Infatti è vero che il 45% delle famiglie si trova in quella classe, ma è anche vero che l'ampiezza della classe molto grande e l'istogramma non rappresenta i dati.
+
+```{r, echo=FALSE}
+source("intro.R")
+barplot(dat2$fj,diff(brk),space = 0,main = "istogramma sbagliato, le f sono usate al posto delle h",col = "white")
+lines(c(0,90),c(0,0.4),col=ared,lwd=4)
+lines(c(0,90),c(0.4,0.0),col=ared,lwd=4)
+axis(side = 1,at = brk,labels = brk)
+```
+::::
+
+:::: {.att data-latex=""}
+Per disegnare un istogramma di densità in modo corretto si devono rispettare le proporzioni
+tra le basi
+
+```{r, echo=FALSE}
+source("intro.R")
+#barplot(dat2$h,diff(brk),space = 0,main = "istogramma corretto")
+plot(c(0,4),c(0,max(dat2$hj)),type="n" ,axes=F,xlab="x",ylab="Densità") 
+rect(0:3,0,1:4,dat2$hj)
+axis(side = 1,at = 0:4,labels = brk)
+axis(2,c(0,dat2$hj),las=2)
+title("Isogramma Sbagliato: le x sono disegnate male")
+lines(c(0,4),c(0,3),col=ared,lwd=4)
+lines(c(0,4),c(3,0.0),col=ared,lwd=4)
+```
+::::
+
+Una volta che abbiamo ricostruito tutta la tabella e realizzato il grafico possiamo
+rispondere a tante domande sulla distribuzione dei dati, quali, per esempio:
+
+* Individuare la classe modale 
+
+La classe modale è la classe [10,20) non la classe 20-50. Infatti la classe modale è la classe con densità maggiore, non la classe con frequenza maggiore.
+
+* Individuare la classe che contiene la mediana 
+
+La classe mediana è la terza classe [20,50), infatti $F_3=0.90$ è il primo degli $F_j$ che
+super $0.50$.
+
+* Calcolare $x_0, x_{0.10}, x_{0.20},..., x_{0.90}, x_1$
+
+\[x_p           = x_{\text{inf};j_p} + \frac {p - F_{j_p - 1}} {f_{j_p}} b_{j_p}\]
+
+\[x_0 = 0, ~~~\text{il più piccol dei dati}\] 
+`r p=0.1`
+```{r,results='asis'}
+cat(percentile(p = 0.1))
+```
+`r p=0.2`
+```{r,results='asis'}
+cat(percentile(p = 0.2))
+```
+\[\vdots\]
+`r p=0.9`
+```{r,results='asis'}
+cat(percentile(p = 0.9))
+```
+\[x_{1.0} = 90, ~~~\text{il più grande dei dati}\] 
+
+Riassumendo in tabella otteniamo:
+
+```{r decili, echo=FALSE, results="asis"}
+
+dec <- paste("$x_{",(0:10)/10,"}$")
+ddd <- matrix(nrow = 1,ncol = length(dec))
+ddd[1,] <- c(round(Q.int((0:9)/10),4),max(brk))
+colnames(ddd) <- dec
+#ddd <- data.frame(percentili = c(round(Q.int((0:9)/10),4),max(brk)))
+rownames(ddd)<-"Percentili"
+kable((ddd),booktabs = T, escape = F,linesep = "", digits = 4)
+```
+
+* mettere a grafico i punti (0,$x_0$), (0.10,$x_{0.10}$),...,(1,$x_{1}$)) e ($x_0$,0), ($x_{0.10}$,0.10),...,($x_{1}$,1))
+
+```{r decili-g1, echo=FALSE, results="asis"}
+source("intro.R")
+dec <- paste("$x_{",(0:10)/10,"}$")
+ddd <- (percentili = c(round(Q.int((0:9)/10),4),90))
+plot((0:10)/10,ddd,type="p",pch=16,xlab = "p",ylab = "p-esimo percentile",axes = F)
+axis(1,(0:10)/10)
+axis(2)
+```
+
+```{r , echo=FALSE, results="asis"}
+source("intro.R")
+plot(ddd,(0:10)/10,type="n",ylab = "p",pch=16,xlab = "p-esimo percentile",axes = F)
+points(ddd,(0:10)/10,pch=16,col="grey")
+axis(1,brk)
+axis(2,round(c(0,dat2$Fj),4),las=2)
+points(brk,c(0,dat2$Fj))
+segments(dat2$xinf,c(0,dat2$Fj[-(k)]),dat2$xsup,dat2$Fj,col=ared,lwd=2)
+segments(dat2$xsup,0,dat2$xsup,dat2$Fj,col="grey",lwd=1,lty=2)
+segments(0,dat2$Fj,dat2$xsup,dat2$Fj,col="grey",lwd=1,lty=2)
+segments(-4,.6,Q.int(.6),.6,col=4,lwd=1,lty=2)
+segments(Q.int(.6),.6,Q.int(.6),0,col=4,lwd=1,lty=2)
+axis(2,.6,las=2)
+axis(1,round(Q.int(.6),4))
+```
+
+* calcolare la percentuale di individui con reddito inferiore a 50
+
+`r dat2$Fj[3]*100 `% è la percentuale di individui con reddito minore di 50
+
+
+* calcolare la percentuale di individui con reddito superiore a 20
+
+  - `r dat2$Fj[2]*100`% è la percentuale di individui con reddito minore di 20 
+  - `r (1-dat2$Fj[2])*100`% è la percentuale di individui con reddito maggiore di 20
+
+* calcolare la percentuale approssimata di individui con reddito inferiore a 14
+
+Per calcolare $\%(X<14)$ abbiamo diversi modi, anzi tutto notiamo che la percentuale di $dat2$ minori di 
+14 è, approssimativamente, l'area dell'istogramma da zero a 14. E quindi, direttamente:
+
+\begin{eqnarray*}
+   \%(X<14) &=&  f_1\times 100+(14-10)\times h_2\\
+   &=& `r dat2$fj[1]`\times 100 + 4\times `r dat2$hj[2]`\\
+   &=& `r (dat2$fj[1]+ 4* dat2$hj[2]/100)*100`\%
+\end{eqnarray*}
+
+In modo del tutto analogo con la funzione di ripartizione $F$
+  
+\begin{eqnarray*}
+   \%(X<14) &=&  100\times F(14)\\
+   &=& 100\times(f_1+(14-10)\times h_2/100)\\
+   &=& 100\times(`r dat2$fj[1]` + 4\times `r dat2$hj[2]`/100)\\
+   &=& `r (dat2$fj[1]+ 4* dat2$hj[2]/100)*100`\%
+\end{eqnarray*}
+
+Ma anche notando che $x_{0.30}=14$, significa che $F(x_{0.30})=0.30$ e
+$\%(X<14)=100\times F(x_{0.30})=30\%$.
+
+* Calcolare la percentuale approssimata di individui con reddito superiore a 28.57
+
+Notiamo che  $x_{0.60}$ = 28.57 e quindi $F(x_{0.60})=0.60$, quindi
+$\%(X<28.57)=0.60\times 100=60\%$ e quindi $\%(X>28.57)=40\%$
+
+* Calcolare la percentuale approssimata di individui con reddito inferiore a 35
+
+Si tratta di calcolare l'area in blu:
+
+```{r decili-g2, echo=FALSE, results="asis"}
+histp(T)
+h.int(0,35,density=20,col=4)
+axis(side = 1,at = 35)
+```
+
+e osservare che la sua area misura `r (dat2$Fj[2] + (35-20)*dat2$hj[3]/100)*100`. Infatti l'area 
+è data dalla somma di 
+\begin{eqnarray*}
+\%(X\leq 35) &=& f_1\times 100+f_2\times 100+(35-20)\times h_3 \\
+&=& `r dat2$fj[1]*100`+`r dat2$fj[2]*100`+15\times `r dat2$hj[3]`\\
+&=& `r F.int(35)*100`
+\end{eqnarray*}   
+              
+              
+* calcolare la percentuale approssimata di individui con reddito superiore a 16
+
+Si tratta di calcolare l'area in blu:
+
+```{r decili-g3, echo=FALSE, results="asis"}
+histp(T)
+h.int(16,90,density=20,col=4)
+axis(side = 1,at = 16)
+```
+
+e osservare che la sua area misura `r 100-(dat2$Fj[1] + (16-10)*dat2$hj[2]/100)*100`.
+Infatti l'area si può vedere o direttamente calcolandola da 16 a 100 oppure si 
+può valutarla come complemento:
+              \[\%(X>16)=100\%-\%(X\leq 16)\]
+e quindi:
+              \[\%(X\leq 16)=f_1\times 100+(16-10)\times h_2=`r F.int(16)*100`\] 
+Quindi $\%(X>16)=100-`r F.int(16)*100`=`r 100-F.int(16)*100`$
+              
+
+* Individuare la media approssimata, la varianza approssimata, e i quartili approssimati
+
+La media:
+\[\bar x = \frac 1 n \sum_j x_{jc} n_j = \frac 1{`r n`}`r sum(dat2$xn)`=`r sum(dat2$xn)/n` \]
+
+La varianza:
+\[Var(X)=\frac {\sum_j x_{jc}^2 n_j }{n}-\bar x^2=\frac 1{`r n`}`r sum(dat2$x2n)`-(`r sum(dat2$xn)/n`)^2=`r sum(dat2$x2n)/n-(sum(dat2$xn)/n)^2`\]
+
+$\bar x=$ `r sum(dat2$xn)/n`, $Var=$ `r sum(dat2$x2n)/n-(sum(dat2$xn)/n)^2`, $(x_{0.25},x_{0.50},x_{0.75})=$ (`r Q.int((1:3)/4)`)
+
+* Calcolare la percentuale di dati compresi tra il 25-esimo e il 75-esimo percentile
+
+```{r decili-g4, echo=FALSE, results="asis"}
+histp(T)
+h.int(Q.int(.25),Q.int(.75),density=20,col=4)
+axis(side = 1,at = Q.int(c(.25,.75)),labels = round(Q.int(c(.25,.75)),2),las=2)
+```
+
+* calcolare $x_{0.025}$ e $x_{0.975}$ 
+
+i valori sono $(x_{0.025}, x_{0.975})=$(`r Q.int(c(.025,.975))`)
+
+
+
+* Rappresentare graficamente e calcolare la percentuale di famiglie con reddito: 
+  + compreso tra `r Q.int(.025)` e `r Q.int(.975)`
+  + compreso tra 0 e `r Q.int(.025)` 
+  + compreso tra `r Q.int(.025)` e `r Q.int(.5)`
+  + compreso tra `r Q.int(.5)` e `r Q.int(.975)`
+  + compreso tra `r Q.int(.975)` e 100
+  + minore di `r Q.int(.025)` o maggiore di `r Q.int(.975)`
+::::
+
+
+<!-- :::: {.example name="Temperature (C°)"} -->
+
+<!-- ```{r setup2, include=FALSE} -->
+<!-- n <- 1000 -->
+
+<!-- brk <- seq(-3.75,3.75,by=1.5) -->
+<!-- k <- length(brk) -->
+
+<!-- f    <- pnorm(brk[-1],0,1)-pnorm(brk[-k],0,1) -->
+<!-- f    <- round(f/sum(f),3) -->
+<!-- f    <- round(f/sum(f),3) -->
+
+<!-- h    <- f/diff(brk)*100 -->
+
+
+<!-- X <- data.frame(xinf=brk[-6],xsup = brk[-1],nj = f*n,fj = f,Fj = cumsum(f),bj = diff(brk),hj = h) -->
+<!-- dat2$xc <- .5*(dat2$xinf+dat2$xsup) -->
+<!-- dat2$xn <- dat2$xc*dat2$nj -->
+<!-- dat2$x2 <- dat2$xc^2*dat2$nj -->
+
+<!-- Y <- X -->
+<!-- names(Y) <- c("$x_{j}$","$x_{j+1}$","$n_j$","$f_j$","$F_j$","$b_j$","$h_j$","$x_{jc}$","$x_{jc} n_j$","$x_{jc}^2 n_j$") -->
+<!-- ``` -->
+
+<!-- La temperatura in una cella frigorifera è stata monitorata per 1000 -->
+<!-- giorni. I dati sono stati riassunti nella seguente distribuzione -->
+
+<!-- ```{r , echo=FALSE, results="asis"} -->
+<!-- kable(Y[,c(1,2,4)],booktabs = T, escape = F,linesep = "", digits = 4) -->
+<!-- ``` -->
+
+<!-- * Disegnare l'istogramma _sbagliato_ -->
+
+<!-- ```{r, echo=FALSE} -->
+<!-- plot(c(brk[1],brk),c(0,dat2$fj,0),type="s",axes = FALSE,xlab="Temperature (C°)",ylab="fj",main = "istogramma sbagliato") -->
+<!-- segments(dat2$xsup,0,dat2$xsup,dat2$fj,lty=2) -->
+<!-- axis(side = 1,at = brk,labels = brk) -->
+<!-- axis(2,at=round(dat2$fj,4)) -->
+<!-- ``` -->
+
+<!-- * Disegnare l'istogramma corretto -->
+
+<!-- ```{r, echo=FALSE} -->
+<!-- plot(c(brk[1],brk),c(0,dat2$hj,0),type="s",axes = FALSE,xlab="Temperature (C°)",ylab="hj",main = "istogramma corretto") -->
+<!-- segments(dat2$xsup,0,dat2$xsup,dat2$hj,lty=2) -->
+<!-- axis(side = 1,at = brk,labels = brk) -->
+<!-- axis(2,at=round(dat2$hj,4)) -->
+<!-- ``` -->
+
+<!-- * Perché i due istogrammi hanno la stessa leggibilità in questo caso? -->
+
+<!-- * Calcolare le frequenza assolute e cumulate, le densità, ecc. -->
+
+<!-- ```{r , echo=FALSE, results="asis"} -->
+
+<!-- kable(Y,booktabs = T, escape = F,linesep = "", digits = 4) -->
+<!-- ``` -->
+
+<!-- * Individuare la classe modale -->
+<!-- * Individuare la media senza fare i calcoli -->
+<!-- * Individuare la mediana senza fare i calcoli -->
+
+<!-- * Calcolare $x_0, x_{0.10}, x_{0.20},..., x_{0.90}, x_1$ -->
+
+<!-- ```{r , echo=FALSE, results="asis"} -->
+
+<!-- dec <- paste("$x_{",(0:10)/10,"}$") -->
+<!-- ddd <- matrix(nrow = 1,ncol = length(dec)) -->
+<!-- ddd[1,] <- c(round(Q.int((0:9)/10),4),max(brk)) -->
+<!-- colnames(ddd) <- dec -->
+<!-- #ddd <- data.frame(percentili = c(round(Q.int((0:9)/10),4),max(brk))) -->
+<!-- rownames(ddd)<-"Percentili" -->
+<!-- kable((ddd),booktabs = T, escape = F,linesep = "", digits = 4) -->
+<!-- ``` -->
+
+<!-- * mettere a grafico i punti (0,$x_0$), (0.10,$x_{0.10}$),...,(1,$x_{1}$)) e ($x_0$,0), ($x_{0.10}$,0.10),...,($x_{1}$,1)) -->
+
+<!-- ```{r , echo=FALSE, results="asis"} -->
+
+<!-- dec <- paste("$x_{",(0:10)/10,"}$") -->
+<!-- ddd <- (percentili = c(round(Q.int((0:9)/10),4),max(brk))) -->
+<!-- plot((0:10)/10,ddd,type="p",pch=16,xlab = "p",ylab = "p-esimo percentile",axes = F) -->
+<!-- axis(1,(0:10)/10) -->
+<!-- axis(2) -->
+<!-- ``` -->
+
+<!-- ```{r , echo=FALSE, results="asis"} -->
+<!-- plot(ddd,(0:10)/10,type="p",ylab = "p",pch=16,xlab = "p-esimo percentile",axes = F) -->
+<!-- axis(1,brk) -->
+<!-- axis(2,round(c(0,dat2$Fj),4)) -->
+<!-- segments(dat2$xinf,c(0,dat2$Fj[-(k-1)]),dat2$xsup,dat2$Fj,col=ared,lwd=2) -->
+<!-- segments(dat2$xsup,0,dat2$xsup,dat2$Fj,col="grey",lwd=1,lty=2) -->
+<!-- segments(-4,dat2$Fj,dat2$xsup,dat2$Fj,col="grey",lwd=1,lty=2) -->
+<!-- segments(-4,.6,Q.int(.6),.6,col=4,lwd=1,lty=2) -->
+<!-- segments(Q.int(.6),.6,Q.int(.6),0,col=4,lwd=1,lty=2) -->
+<!-- axis(2,.6) -->
+<!-- ``` -->
+
+<!-- * calcolare la percentuale approssimata di giorni con temperatura inferiore -1 -->
+
+<!-- %(giorni con $T < -1$) = `r F.int(-1)*100`% -->
+
+<!-- * Conversione in Fahrenheit -->
+
+<!-- \[ -->
+<!-- T_F= 32 + 1.8 \cdot T_C  -->
+<!-- \] -->
+
+<!-- ```{r , echo=FALSE, results="asis"} -->
+
+<!-- YF <- Y -->
+<!-- YF[,1:2]<-Y[,1:2]*1.8+32 -->
+<!-- YF$`$b_j$`<-YF$`$x_{j+1}$`-YF$`$x_{j}$` -->
+<!-- YF$`$h_j$`<- Y$`$f_j$`/YF$`$b_j$`*100 -->
+<!-- YF$`$x_{jc}$` <- YF$`$x_{j}$`+YF$`$b_j$`/2 -->
+
+<!-- plot(c(YF[c(1,1:5),1],YF[5,2]),c(0,YF$`$h_j$`,0),type="s",axes = FALSE,xlab="Temperature (F°)",ylab="hj",main = "Gradi F°") -->
+<!-- segments(YF$`$x_{j}$`,0,YF$`$x_{j}$`,YF$`$h_j$`,lty=2) -->
+<!-- axis(side = 1,at = c(YF$`$x_{j}$`,YF$`$x_{j+1}$`[5])) -->
+<!-- axis(2,at=round(YF$`$h_j$`,4)) -->
+
+<!-- ``` -->
+
+<!-- ```{r , echo=FALSE, results="asis"} -->
+
+<!-- kable(YF[,1:7],booktabs = T, escape = F,linesep = "", digits = 4) -->
+
+
+<!-- ``` -->
+<!-- :::: -->
+

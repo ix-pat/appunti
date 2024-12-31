@@ -1,0 +1,2133 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capitolo 17 Regressione Lineare | Appunti di Statistica</title>
+  <meta name="description" content="Appunti sparsi" />
+  <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Capitolo 17 Regressione Lineare | Appunti di Statistica" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="Appunti sparsi" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capitolo 17 Regressione Lineare | Appunti di Statistica" />
+  
+  <meta name="twitter:description" content="Appunti sparsi" />
+  
+
+<meta name="author" content="Patrizio Frederic" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="confronto-tra-due-popolazioni.html"/>
+<link rel="next" href="inferenza-e-diagnostica-sul-modello-di-regressione-lineare.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="http://frederic.economia.unimore.it/">Statistica Home</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Appunti di Statistica</a></li>
+<li class="chapter" data-level="" data-path="avvertenza.html"><a href="avvertenza.html"><i class="fa fa-check"></i>Avvertenza</a></li>
+<li class="chapter" data-level="" data-path="introduzione.html"><a href="introduzione.html"><i class="fa fa-check"></i>Introduzione</a></li>
+<li class="chapter" data-level="1" data-path="i-fenomeni-collettivi.html"><a href="i-fenomeni-collettivi.html"><i class="fa fa-check"></i><b>1</b> I Fenomeni Collettivi</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="i-fenomeni-collettivi.html"><a href="i-fenomeni-collettivi.html#dati"><i class="fa fa-check"></i><b>1.1</b> I Dati</a></li>
+<li class="chapter" data-level="1.2" data-path="i-fenomeni-collettivi.html"><a href="i-fenomeni-collettivi.html#var-stat"><i class="fa fa-check"></i><b>1.2</b> Variabili Statistiche</a></li>
+<li class="chapter" data-level="1.3" data-path="i-fenomeni-collettivi.html"><a href="i-fenomeni-collettivi.html#popolazioni-statistiche"><i class="fa fa-check"></i><b>1.3</b> Popolazioni Statistiche</a></li>
+<li class="chapter" data-level="1.4" data-path="i-fenomeni-collettivi.html"><a href="i-fenomeni-collettivi.html#riv"><i class="fa fa-check"></i><b>1.4</b> Le rilevazioni Statistiche</a>
+<ul>
+<li class="chapter" data-level="1.4.1" data-path="i-fenomeni-collettivi.html"><a href="i-fenomeni-collettivi.html#fasi-dellindagine"><i class="fa fa-check"></i><b>1.4.1</b> Fasi dell’indagine</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="i-fenomeni-collettivi.html"><a href="i-fenomeni-collettivi.html#la-matrice-dei-dati"><i class="fa fa-check"></i><b>1.5</b> La matrice dei dati</a></li>
+<li class="chapter" data-level="1.6" data-path="i-fenomeni-collettivi.html"><a href="i-fenomeni-collettivi.html#riepilogo-sulle-variabili"><i class="fa fa-check"></i><b>1.6</b> Riepilogo sulle Variabili</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="variabili-statistiche-e-distribuzioni-di-frequenza.html"><a href="variabili-statistiche-e-distribuzioni-di-frequenza.html"><i class="fa fa-check"></i><b>2</b> Variabili Statistiche e Distribuzioni di Frequenza</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="variabili-statistiche-e-distribuzioni-di-frequenza.html"><a href="variabili-statistiche-e-distribuzioni-di-frequenza.html#variabili-statistiche"><i class="fa fa-check"></i><b>2.1</b> Variabili Statistiche</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="variabili-statistiche-e-distribuzioni-di-frequenza.html"><a href="variabili-statistiche-e-distribuzioni-di-frequenza.html#notazione-di-base"><i class="fa fa-check"></i><b>2.1.1</b> Notazione di Base</a></li>
+<li class="chapter" data-level="2.1.2" data-path="variabili-statistiche-e-distribuzioni-di-frequenza.html"><a href="variabili-statistiche-e-distribuzioni-di-frequenza.html#ordinamento-e-conteggio"><i class="fa fa-check"></i><b>2.1.2</b> Ordinamento e conteggio</a></li>
+<li class="chapter" data-level="2.1.3" data-path="variabili-statistiche-e-distribuzioni-di-frequenza.html"><a href="variabili-statistiche-e-distribuzioni-di-frequenza.html#le-unità-di-misura"><i class="fa fa-check"></i><b>2.1.3</b> Le unità di misura</a></li>
+<li class="chapter" data-level="2.1.4" data-path="variabili-statistiche-e-distribuzioni-di-frequenza.html"><a href="variabili-statistiche-e-distribuzioni-di-frequenza.html#trasformazioni-lineari"><i class="fa fa-check"></i><b>2.1.4</b> Trasformazioni lineari</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="variabili-statistiche-e-distribuzioni-di-frequenza.html"><a href="variabili-statistiche-e-distribuzioni-di-frequenza.html#distribuzione-di-frequenza"><i class="fa fa-check"></i><b>2.2</b> Distribuzione di Frequenza</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="variabili-statistiche-e-distribuzioni-di-frequenza.html"><a href="variabili-statistiche-e-distribuzioni-di-frequenza.html#dati-quantitativi-continui"><i class="fa fa-check"></i><b>2.2.1</b> Dati quantitativi continui</a></li>
+<li class="chapter" data-level="2.2.2" data-path="variabili-statistiche-e-distribuzioni-di-frequenza.html"><a href="variabili-statistiche-e-distribuzioni-di-frequenza.html#raggruppamenti-in-classi"><i class="fa fa-check"></i><b>2.2.2</b> Raggruppamenti in Classi</a></li>
+<li class="chapter" data-level="2.2.3" data-path="variabili-statistiche-e-distribuzioni-di-frequenza.html"><a href="variabili-statistiche-e-distribuzioni-di-frequenza.html#frequenze-cumulate"><i class="fa fa-check"></i><b>2.2.3</b> Frequenze Cumulate</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="variabili-statistiche-e-distribuzioni-di-frequenza.html"><a href="variabili-statistiche-e-distribuzioni-di-frequenza.html#istogramma-di-densità"><i class="fa fa-check"></i><b>2.3</b> Istogramma di Densità</a></li>
+<li class="chapter" data-level="2.4" data-path="variabili-statistiche-e-distribuzioni-di-frequenza.html"><a href="variabili-statistiche-e-distribuzioni-di-frequenza.html#la-funzione-di-ripartizione"><i class="fa fa-check"></i><b>2.4</b> La Funzione di Ripartizione</a></li>
+<li class="chapter" data-level="2.5" data-path="variabili-statistiche-e-distribuzioni-di-frequenza.html"><a href="variabili-statistiche-e-distribuzioni-di-frequenza.html#linversa-della-funzione-di-ripartizione"><i class="fa fa-check"></i><b>2.5</b> L’inversa della Funzione di Ripartizione</a></li>
+<li class="chapter" data-level="2.6" data-path="variabili-statistiche-e-distribuzioni-di-frequenza.html"><a href="variabili-statistiche-e-distribuzioni-di-frequenza.html#indicatori-sintetici-di-centralità-e-di-variabilità"><i class="fa fa-check"></i><b>2.6</b> Indicatori Sintetici di Centralità e di Variabilità</a></li>
+<li class="chapter" data-level="2.7" data-path="variabili-statistiche-e-distribuzioni-di-frequenza.html"><a href="variabili-statistiche-e-distribuzioni-di-frequenza.html#riepilogo"><i class="fa fa-check"></i><b>2.7</b> Riepilogo</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="media-aritmetica-varianza-e-standard-deviation.html"><a href="media-aritmetica-varianza-e-standard-deviation.html"><i class="fa fa-check"></i><b>3</b> Media Aritmetica, Varianza e Standard Deviation</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="media-aritmetica-varianza-e-standard-deviation.html"><a href="media-aritmetica-varianza-e-standard-deviation.html#media"><i class="fa fa-check"></i><b>3.1</b> Media Aritmetica</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="media-aritmetica-varianza-e-standard-deviation.html"><a href="media-aritmetica-varianza-e-standard-deviation.html#la-media-aritmetica-come-baricentro-dellistogramma"><i class="fa fa-check"></i><b>3.1.1</b> La Media Aritmetica come Baricentro dell’Istogramma</a></li>
+<li class="chapter" data-level="3.1.2" data-path="media-aritmetica-varianza-e-standard-deviation.html"><a href="media-aritmetica-varianza-e-standard-deviation.html#calcolo-per-distribuzioni-di-frequenza"><i class="fa fa-check"></i><b>3.1.2</b> Calcolo per Distribuzioni di Frequenza</a></li>
+<li class="chapter" data-level="3.1.3" data-path="media-aritmetica-varianza-e-standard-deviation.html"><a href="media-aritmetica-varianza-e-standard-deviation.html#proprietà-della-media-aritmetica"><i class="fa fa-check"></i><b>3.1.3</b> Proprietà della Media Aritmetica</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="media-aritmetica-varianza-e-standard-deviation.html"><a href="media-aritmetica-varianza-e-standard-deviation.html#var"><i class="fa fa-check"></i><b>3.2</b> La varianza</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="media-aritmetica-varianza-e-standard-deviation.html"><a href="media-aritmetica-varianza-e-standard-deviation.html#calcolo-per-distribuzioni-di-frequenza-1"><i class="fa fa-check"></i><b>3.2.1</b> Calcolo per Distribuzioni di Frequenza</a></li>
+<li class="chapter" data-level="3.2.2" data-path="media-aritmetica-varianza-e-standard-deviation.html"><a href="media-aritmetica-varianza-e-standard-deviation.html#proprietà-della-varianza"><i class="fa fa-check"></i><b>3.2.2</b> Proprietà della Varianza</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="media-aritmetica-varianza-e-standard-deviation.html"><a href="media-aritmetica-varianza-e-standard-deviation.html#sd"><i class="fa fa-check"></i><b>3.3</b> La Standard Deviation</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="media-aritmetica-varianza-e-standard-deviation.html"><a href="media-aritmetica-varianza-e-standard-deviation.html#proprietà-della-standard-deviation"><i class="fa fa-check"></i><b>3.3.1</b> Proprietà della Standard Deviation</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="media-aritmetica-varianza-e-standard-deviation.html"><a href="media-aritmetica-varianza-e-standard-deviation.html#esempi"><i class="fa fa-check"></i><b>3.4</b> Esempi</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="mediana-percentili-e-moda.html"><a href="mediana-percentili-e-moda.html"><i class="fa fa-check"></i><b>4</b> Mediana, Percentili e Moda</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="mediana-percentili-e-moda.html"><a href="mediana-percentili-e-moda.html#mediana"><i class="fa fa-check"></i><b>4.1</b> La Mediana</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="mediana-percentili-e-moda.html"><a href="mediana-percentili-e-moda.html#dati-espressi-in-distribuzione-di-frequenza"><i class="fa fa-check"></i><b>4.1.1</b> Dati espressi in distribuzione di frequenza</a></li>
+<li class="chapter" data-level="4.1.2" data-path="mediana-percentili-e-moda.html"><a href="mediana-percentili-e-moda.html#dati-espressi-in-classi"><i class="fa fa-check"></i><b>4.1.2</b> Dati espressi in classi</a></li>
+<li class="chapter" data-level="4.1.3" data-path="mediana-percentili-e-moda.html"><a href="mediana-percentili-e-moda.html#proprietà-della-mediana"><i class="fa fa-check"></i><b>4.1.3</b> Proprietà della Mediana</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="mediana-percentili-e-moda.html"><a href="mediana-percentili-e-moda.html#i-percentili"><i class="fa fa-check"></i><b>4.2</b> I Percentili</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="mediana-percentili-e-moda.html"><a href="mediana-percentili-e-moda.html#dati-espressi-in-distribuzione-di-frequenza-1"><i class="fa fa-check"></i><b>4.2.1</b> Dati espressi in distribuzione di frequenza</a></li>
+<li class="chapter" data-level="4.2.2" data-path="mediana-percentili-e-moda.html"><a href="mediana-percentili-e-moda.html#dati-espressi-in-classi-1"><i class="fa fa-check"></i><b>4.2.2</b> Dati espressi in classi</a></li>
+<li class="chapter" data-level="4.2.3" data-path="mediana-percentili-e-moda.html"><a href="mediana-percentili-e-moda.html#i-quartili"><i class="fa fa-check"></i><b>4.2.3</b> I Quartili</a></li>
+<li class="chapter" data-level="4.2.4" data-path="mediana-percentili-e-moda.html"><a href="mediana-percentili-e-moda.html#percentili-e-funzione-di-ripartizione"><i class="fa fa-check"></i><b>4.2.4</b> Percentili e Funzione di Ripartizione</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="mediana-percentili-e-moda.html"><a href="mediana-percentili-e-moda.html#sqi"><i class="fa fa-check"></i><b>4.3</b> Lo Scarto Interquartile</a></li>
+<li class="chapter" data-level="4.4" data-path="mediana-percentili-e-moda.html"><a href="mediana-percentili-e-moda.html#moda"><i class="fa fa-check"></i><b>4.4</b> La Moda</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="mediana-percentili-e-moda.html"><a href="mediana-percentili-e-moda.html#la-moda-per-dati-raccolti-in-classi"><i class="fa fa-check"></i><b>4.4.1</b> La Moda per dati raccolti in classi</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="mediana-percentili-e-moda.html"><a href="mediana-percentili-e-moda.html#relazione-tra-media-moda-e-mediana"><i class="fa fa-check"></i><b>4.5</b> Relazione tra Media, Moda e Mediana</a></li>
+<li class="chapter" data-level="4.6" data-path="mediana-percentili-e-moda.html"><a href="mediana-percentili-e-moda.html#istogramma-e-percentili"><i class="fa fa-check"></i><b>4.6</b> Istogramma e Percentili</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="cenni-di-teoria-della-probabilità.html"><a href="cenni-di-teoria-della-probabilità.html"><i class="fa fa-check"></i><b>5</b> Cenni di Teoria della probabilità</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="cenni-di-teoria-della-probabilità.html"><a href="cenni-di-teoria-della-probabilità.html#concetti-di-base"><i class="fa fa-check"></i><b>5.1</b> Concetti di base</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="cenni-di-teoria-della-probabilità.html"><a href="cenni-di-teoria-della-probabilità.html#eventi"><i class="fa fa-check"></i><b>5.1.1</b> Eventi</a></li>
+<li class="chapter" data-level="5.1.2" data-path="cenni-di-teoria-della-probabilità.html"><a href="cenni-di-teoria-della-probabilità.html#algebra-degli-eventi"><i class="fa fa-check"></i><b>5.1.2</b> Algebra degli eventi</a></li>
+<li class="chapter" data-level="5.1.3" data-path="cenni-di-teoria-della-probabilità.html"><a href="cenni-di-teoria-della-probabilità.html#operazioni-su-insieme"><i class="fa fa-check"></i><b>5.1.3</b> Operazioni su insieme</a></li>
+<li class="chapter" data-level="5.1.4" data-path="cenni-di-teoria-della-probabilità.html"><a href="cenni-di-teoria-della-probabilità.html#la-probabilità-è-una-funzione"><i class="fa fa-check"></i><b>5.1.4</b> La probabilità è una funzione</a></li>
+<li class="chapter" data-level="5.1.5" data-path="cenni-di-teoria-della-probabilità.html"><a href="cenni-di-teoria-della-probabilità.html#definizioni-di-probabilità"><i class="fa fa-check"></i><b>5.1.5</b> Definizioni di probabilità</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="cenni-di-teoria-della-probabilità.html"><a href="cenni-di-teoria-della-probabilità.html#teoria-di-kolmogorov"><i class="fa fa-check"></i><b>5.2</b> Teoria di Kolmogorov</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="cenni-di-teoria-della-probabilità.html"><a href="cenni-di-teoria-della-probabilità.html#algebra-degli-eventi-1"><i class="fa fa-check"></i><b>5.2.1</b> Algebra degli Eventi</a></li>
+<li class="chapter" data-level="5.2.2" data-path="cenni-di-teoria-della-probabilità.html"><a href="cenni-di-teoria-della-probabilità.html#assiomi-di-kolmogorov"><i class="fa fa-check"></i><b>5.2.2</b> Assiomi di Kolmogorov</a></li>
+<li class="chapter" data-level="5.2.3" data-path="cenni-di-teoria-della-probabilità.html"><a href="cenni-di-teoria-della-probabilità.html#proprietà-di-p"><i class="fa fa-check"></i><b>5.2.3</b> Proprietà di <span class="math inline">\(P\)</span></a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="cenni-di-teoria-della-probabilità.html"><a href="cenni-di-teoria-della-probabilità.html#probabilità-condizionata"><i class="fa fa-check"></i><b>5.3</b> Probabilità Condizionata</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="cenni-di-teoria-della-probabilità.html"><a href="cenni-di-teoria-della-probabilità.html#indipendenza-tra-eventi"><i class="fa fa-check"></i><b>5.3.1</b> Indipendenza tra Eventi</a></li>
+<li class="chapter" data-level="5.3.2" data-path="cenni-di-teoria-della-probabilità.html"><a href="cenni-di-teoria-della-probabilità.html#indipendenza-e-incompatibilità"><i class="fa fa-check"></i><b>5.3.2</b> Indipendenza e Incompatibilità</a></li>
+<li class="chapter" data-level="5.3.3" data-path="cenni-di-teoria-della-probabilità.html"><a href="cenni-di-teoria-della-probabilità.html#partizioni-di-omega"><i class="fa fa-check"></i><b>5.3.3</b> Partizioni di <span class="math inline">\(\Omega\)</span></a></li>
+<li class="chapter" data-level="5.3.4" data-path="cenni-di-teoria-della-probabilità.html"><a href="cenni-di-teoria-della-probabilità.html#teorema-delle-probabilità-totali"><i class="fa fa-check"></i><b>5.3.4</b> Teorema delle probabilità totali</a></li>
+<li class="chapter" data-level="5.3.5" data-path="cenni-di-teoria-della-probabilità.html"><a href="cenni-di-teoria-della-probabilità.html#il-teorema-di-bayes"><i class="fa fa-check"></i><b>5.3.5</b> Il Teorema di Bayes</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="cenni-di-teoria-della-probabilità.html"><a href="cenni-di-teoria-della-probabilità.html#specchietto-finale-utile-per-gli-esercizi-elementari"><i class="fa fa-check"></i><b>5.4</b> Specchietto finale utile per gli esercizi elementari</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="variabili-casuali.html"><a href="variabili-casuali.html"><i class="fa fa-check"></i><b>6</b> Variabili Casuali</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="variabili-casuali.html"><a href="variabili-casuali.html#definizione-formale-di-una-vc-discreta"><i class="fa fa-check"></i><b>6.1</b> Definizione formale di una VC discreta</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="variabili-casuali.html"><a href="variabili-casuali.html#descrizione-di-una-vc"><i class="fa fa-check"></i><b>6.1.1</b> Descrizione di una VC</a></li>
+<li class="chapter" data-level="6.1.2" data-path="variabili-casuali.html"><a href="variabili-casuali.html#operazioni-tra-vc"><i class="fa fa-check"></i><b>6.1.2</b> Operazioni tra VC</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="variabili-casuali.html"><a href="variabili-casuali.html#valore-atteso-e-varianza-di-una-vc"><i class="fa fa-check"></i><b>6.2</b> Valore Atteso, e Varianza di una VC</a></li>
+<li class="chapter" data-level="6.3" data-path="variabili-casuali.html"><a href="variabili-casuali.html#indipendenza-tra-vc"><i class="fa fa-check"></i><b>6.3</b> Indipendenza tra VC</a></li>
+<li class="chapter" data-level="6.4" data-path="variabili-casuali.html"><a href="variabili-casuali.html#vc-condizionate-complementi"><i class="fa fa-check"></i><b>6.4</b> VC condizionate (complementi)</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="variabili-casuali.html"><a href="variabili-casuali.html#valore-atteso-e-varianza-condizionata-complementi"><i class="fa fa-check"></i><b>6.4.1</b> Valore atteso e varianza condizionata (complementi)</a></li>
+<li class="chapter" data-level="6.4.2" data-path="variabili-casuali.html"><a href="variabili-casuali.html#esempio-di-indipendenza-tra-vc"><i class="fa fa-check"></i><b>6.4.2</b> Esempio di indipendenza tra VC</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="variabili-casuali.html"><a href="variabili-casuali.html#specchietto-finale-per-le-vc-discrete"><i class="fa fa-check"></i><b>6.5</b> Specchietto finale per le VC discrete</a></li>
+<li class="chapter" data-level="6.6" data-path="variabili-casuali.html"><a href="variabili-casuali.html#le-vc-continue"><i class="fa fa-check"></i><b>6.6</b> Le VC continue</a>
+<ul>
+<li class="chapter" data-level="6.6.1" data-path="variabili-casuali.html"><a href="variabili-casuali.html#valore-atesso-e-varianza-di-una-vc-continua"><i class="fa fa-check"></i><b>6.6.1</b> Valore Atesso e Varianza di una VC continua</a></li>
+<li class="chapter" data-level="6.6.2" data-path="variabili-casuali.html"><a href="variabili-casuali.html#la-vc-uniforme"><i class="fa fa-check"></i><b>6.6.2</b> La VC uniforme</a></li>
+</ul></li>
+<li class="chapter" data-level="6.7" data-path="variabili-casuali.html"><a href="variabili-casuali.html#operazioni-sulle-vc"><i class="fa fa-check"></i><b>6.7</b> Operazioni sulle VC</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="variabili-casuali-di-particolare-interesse.html"><a href="variabili-casuali-di-particolare-interesse.html"><i class="fa fa-check"></i><b>7</b> Variabili Casuali di particolare interesse</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="variabili-casuali-di-particolare-interesse.html"><a href="variabili-casuali-di-particolare-interesse.html#la-vc-di-bernoulli"><i class="fa fa-check"></i><b>7.1</b> La VC di Bernoulli</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="variabili-casuali-di-particolare-interesse.html"><a href="variabili-casuali-di-particolare-interesse.html#valore-atteso-e-varianza"><i class="fa fa-check"></i><b>7.1.1</b> Valore Atteso e Varianza</a></li>
+<li class="chapter" data-level="7.1.2" data-path="variabili-casuali-di-particolare-interesse.html"><a href="variabili-casuali-di-particolare-interesse.html#in-sintesi"><i class="fa fa-check"></i><b>7.1.2</b> In Sintesi</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="variabili-casuali-di-particolare-interesse.html"><a href="variabili-casuali-di-particolare-interesse.html#la-vc-binomiale"><i class="fa fa-check"></i><b>7.2</b> La VC Binomiale</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="variabili-casuali-di-particolare-interesse.html"><a href="variabili-casuali-di-particolare-interesse.html#la-vc-binomiale-attraverso-un-esempio"><i class="fa fa-check"></i><b>7.2.1</b> La VC Binomiale attraverso un esempio</a></li>
+<li class="chapter" data-level="7.2.2" data-path="variabili-casuali-di-particolare-interesse.html"><a href="variabili-casuali-di-particolare-interesse.html#il-modello"><i class="fa fa-check"></i><b>7.2.2</b> Il modello</a></li>
+<li class="chapter" data-level="7.2.3" data-path="variabili-casuali-di-particolare-interesse.html"><a href="variabili-casuali-di-particolare-interesse.html#dimostrazione-del-valore-atteso-e-della-varianza"><i class="fa fa-check"></i><b>7.2.3</b> Dimostrazione del Valore atteso e della Varianza</a></li>
+<li class="chapter" data-level="7.2.4" data-path="variabili-casuali-di-particolare-interesse.html"><a href="variabili-casuali-di-particolare-interesse.html#esempio"><i class="fa fa-check"></i><b>7.2.4</b> Esempio</a></li>
+<li class="chapter" data-level="7.2.5" data-path="variabili-casuali-di-particolare-interesse.html"><a href="variabili-casuali-di-particolare-interesse.html#proprietà"><i class="fa fa-check"></i><b>7.2.5</b> Proprietà</a></li>
+<li class="chapter" data-level="7.2.6" data-path="variabili-casuali-di-particolare-interesse.html"><a href="variabili-casuali-di-particolare-interesse.html#in-sintesi-1"><i class="fa fa-check"></i><b>7.2.6</b> In Sintesi</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="variabili-casuali-di-particolare-interesse.html"><a href="variabili-casuali-di-particolare-interesse.html#la-vc-di-poisson"><i class="fa fa-check"></i><b>7.3</b> La VC di Poisson</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="variabili-casuali-di-particolare-interesse.html"><a href="variabili-casuali-di-particolare-interesse.html#obiettivo"><i class="fa fa-check"></i><b>7.3.1</b> Obiettivo</a></li>
+<li class="chapter" data-level="7.3.2" data-path="variabili-casuali-di-particolare-interesse.html"><a href="variabili-casuali-di-particolare-interesse.html#storia"><i class="fa fa-check"></i><b>7.3.2</b> Storia</a></li>
+<li class="chapter" data-level="7.3.3" data-path="variabili-casuali-di-particolare-interesse.html"><a href="variabili-casuali-di-particolare-interesse.html#il-modello-1"><i class="fa fa-check"></i><b>7.3.3</b> Il modello</a></li>
+<li class="chapter" data-level="7.3.4" data-path="variabili-casuali-di-particolare-interesse.html"><a href="variabili-casuali-di-particolare-interesse.html#dimostrazione-del-valore-atteso-e-della-varianza-della-poisson"><i class="fa fa-check"></i><b>7.3.4</b> Dimostrazione del Valore atteso e della Varianza della Poisson</a></li>
+<li class="chapter" data-level="7.3.5" data-path="variabili-casuali-di-particolare-interesse.html"><a href="variabili-casuali-di-particolare-interesse.html#esempio-1"><i class="fa fa-check"></i><b>7.3.5</b> Esempio</a></li>
+<li class="chapter" data-level="7.3.6" data-path="variabili-casuali-di-particolare-interesse.html"><a href="variabili-casuali-di-particolare-interesse.html#proprietà-della-poisson"><i class="fa fa-check"></i><b>7.3.6</b> Proprietà della Poisson</a></li>
+<li class="chapter" data-level="7.3.7" data-path="variabili-casuali-di-particolare-interesse.html"><a href="variabili-casuali-di-particolare-interesse.html#in-sintesi-2"><i class="fa fa-check"></i><b>7.3.7</b> In Sintesi</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="variabili-casuali-di-particolare-interesse.html"><a href="variabili-casuali-di-particolare-interesse.html#la-vc-normale"><i class="fa fa-check"></i><b>7.4</b> La VC Normale</a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="variabili-casuali-di-particolare-interesse.html"><a href="variabili-casuali-di-particolare-interesse.html#obiettivo-1"><i class="fa fa-check"></i><b>7.4.1</b> Obiettivo</a></li>
+<li class="chapter" data-level="7.4.2" data-path="variabili-casuali-di-particolare-interesse.html"><a href="variabili-casuali-di-particolare-interesse.html#storia-1"><i class="fa fa-check"></i><b>7.4.2</b> Storia</a></li>
+<li class="chapter" data-level="7.4.3" data-path="variabili-casuali-di-particolare-interesse.html"><a href="variabili-casuali-di-particolare-interesse.html#il-modello-2"><i class="fa fa-check"></i><b>7.4.3</b> Il modello</a></li>
+<li class="chapter" data-level="7.4.4" data-path="variabili-casuali-di-particolare-interesse.html"><a href="variabili-casuali-di-particolare-interesse.html#proprietà-della-normale"><i class="fa fa-check"></i><b>7.4.4</b> Proprietà della Normale</a></li>
+<li class="chapter" data-level="7.4.5" data-path="variabili-casuali-di-particolare-interesse.html"><a href="variabili-casuali-di-particolare-interesse.html#la-normale-standard"><i class="fa fa-check"></i><b>7.4.5</b> La normale standard</a></li>
+<li class="chapter" data-level="7.4.6" data-path="variabili-casuali-di-particolare-interesse.html"><a href="variabili-casuali-di-particolare-interesse.html#la-funzione-di-ripartizione-della-normale-standard"><i class="fa fa-check"></i><b>7.4.6</b> La Funzione di Ripartizione della Normale Standard</a></li>
+<li class="chapter" data-level="7.4.7" data-path="variabili-casuali-di-particolare-interesse.html"><a href="variabili-casuali-di-particolare-interesse.html#la-tavole-statistiche-della-z"><i class="fa fa-check"></i><b>7.4.7</b> La tavole Statistiche della <span class="math inline">\(Z\)</span></a></li>
+<li class="chapter" data-level="7.4.8" data-path="variabili-casuali-di-particolare-interesse.html"><a href="variabili-casuali-di-particolare-interesse.html#in-sintesi-3"><i class="fa fa-check"></i><b>7.4.8</b> In Sintesi</a></li>
+<li class="chapter" data-level="7.4.9" data-path="variabili-casuali-di-particolare-interesse.html"><a href="variabili-casuali-di-particolare-interesse.html#esempio-2"><i class="fa fa-check"></i><b>7.4.9</b> Esempio</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="il-teorema-del-limite-centrale.html"><a href="il-teorema-del-limite-centrale.html"><i class="fa fa-check"></i><b>8</b> Il Teorema del Limite Centrale</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="il-teorema-del-limite-centrale.html"><a href="il-teorema-del-limite-centrale.html#successioni-di-vc"><i class="fa fa-check"></i><b>8.1</b> Successioni di VC</a></li>
+<li class="chapter" data-level="8.2" data-path="il-teorema-del-limite-centrale.html"><a href="il-teorema-del-limite-centrale.html#somme-e-medie-di-vc"><i class="fa fa-check"></i><b>8.2</b> Somme e Medie di VC</a></li>
+<li class="chapter" data-level="8.3" data-path="il-teorema-del-limite-centrale.html"><a href="il-teorema-del-limite-centrale.html#teoremi-del-limite-centrale"><i class="fa fa-check"></i><b>8.3</b> Teoremi del Limite Centrale</a>
+<ul>
+<li class="chapter" data-level="8.3.1" data-path="il-teorema-del-limite-centrale.html"><a href="il-teorema-del-limite-centrale.html#esempio-somma"><i class="fa fa-check"></i><b>8.3.1</b> Esempio Somma</a></li>
+<li class="chapter" data-level="8.3.2" data-path="il-teorema-del-limite-centrale.html"><a href="il-teorema-del-limite-centrale.html#roulette"><i class="fa fa-check"></i><b>8.3.2</b> Roulette</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="statistiche-campionarie.html"><a href="statistiche-campionarie.html"><i class="fa fa-check"></i><b>9</b> Statistiche campionarie</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="statistiche-campionarie.html"><a href="statistiche-campionarie.html#risultati-preliminari"><i class="fa fa-check"></i><b>9.1</b> Risultati preliminari</a></li>
+<li class="chapter" data-level="9.2" data-path="statistiche-campionarie.html"><a href="statistiche-campionarie.html#la-distribuzione-chi-quadro-chi2"><i class="fa fa-check"></i><b>9.2</b> La distribuzione Chi-quadro <span class="math inline">\(\chi^2\)</span></a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="statistiche-campionarie.html"><a href="statistiche-campionarie.html#le-tavole-del-chi2"><i class="fa fa-check"></i><b>9.2.1</b> Le tavole del <span class="math inline">\(\chi^2\)</span></a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="statistiche-campionarie.html"><a href="statistiche-campionarie.html#la-distribuzione-t-di-student"><i class="fa fa-check"></i><b>9.3</b> La distribuzione <span class="math inline">\(t\)</span>-di Student</a>
+<ul>
+<li class="chapter" data-level="9.3.1" data-path="statistiche-campionarie.html"><a href="statistiche-campionarie.html#le-tavole-della-t"><i class="fa fa-check"></i><b>9.3.1</b> Le tavole della <span class="math inline">\(t\)</span></a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="statistiche-campionarie.html"><a href="statistiche-campionarie.html#la-distribuzione-di-hatsigma2"><i class="fa fa-check"></i><b>9.4</b> La distribuzione di <span class="math inline">\(\hat\sigma^2\)</span></a></li>
+<li class="chapter" data-level="9.5" data-path="statistiche-campionarie.html"><a href="statistiche-campionarie.html#la-distribuzione-della-statistica-standardizzata"><i class="fa fa-check"></i><b>9.5</b> La distribuzione della statistica standardizzata</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="inferenza-concetti-introduttivi.html"><a href="inferenza-concetti-introduttivi.html"><i class="fa fa-check"></i><b>10</b> Inferenza: concetti introduttivi</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="inferenza-concetti-introduttivi.html"><a href="inferenza-concetti-introduttivi.html#inferenza-da-popolazioni-finite"><i class="fa fa-check"></i><b>10.1</b> Inferenza da popolazioni finite</a></li>
+<li class="chapter" data-level="10.2" data-path="inferenza-concetti-introduttivi.html"><a href="inferenza-concetti-introduttivi.html#inferenza-da-popolazioni-infinite"><i class="fa fa-check"></i><b>10.2</b> Inferenza da popolazioni infinite</a></li>
+<li class="chapter" data-level="10.3" data-path="inferenza-concetti-introduttivi.html"><a href="inferenza-concetti-introduttivi.html#inferenza-distribution-free-e-da-modello"><i class="fa fa-check"></i><b>10.3</b> Inferenza distribution-free e da modello</a></li>
+<li class="chapter" data-level="10.4" data-path="inferenza-concetti-introduttivi.html"><a href="inferenza-concetti-introduttivi.html#sintesi-dei-contesti"><i class="fa fa-check"></i><b>10.4</b> Sintesi dei contesti</a>
+<ul>
+<li class="chapter" data-level="10.4.1" data-path="inferenza-concetti-introduttivi.html"><a href="inferenza-concetti-introduttivi.html#binomiale-da-urna-con-dimensione-nota-e-estrazione-senza-reinserimento-popolazioni-finite"><i class="fa fa-check"></i><b>10.4.1</b> 1. Binomiale da urna con dimensione nota e estrazione senza reinserimento (popolazioni finite)</a></li>
+<li class="chapter" data-level="10.4.2" data-path="inferenza-concetti-introduttivi.html"><a href="inferenza-concetti-introduttivi.html#binomiale-da-urna-con-dimensione-incognita-popolazioni-infinite"><i class="fa fa-check"></i><b>10.4.2</b> 2. Binomiale da urna con dimensione incognita (popolazioni infinite)</a></li>
+<li class="chapter" data-level="10.4.3" data-path="inferenza-concetti-introduttivi.html"><a href="inferenza-concetti-introduttivi.html#urna-con-palline-numerate-in-numero-finito-con-distribuzione-incognita-popolazioni-finite-inferenza-distribution-free"><i class="fa fa-check"></i><b>10.4.3</b> 3. Urna con palline numerate, in numero finito, con distribuzione incognita (popolazioni finite, inferenza distribution free)</a></li>
+<li class="chapter" data-level="10.4.4" data-path="inferenza-concetti-introduttivi.html"><a href="inferenza-concetti-introduttivi.html#urna-con-infinite-palline-numerate-negli-interi-con-distribuzione-poisson-legata-a-lambda-popolazioni-infinite-inferenza-da-modello"><i class="fa fa-check"></i><b>10.4.4</b> 4. Urna con infinite palline numerate negli interi, con distribuzione Poisson, legata a <span class="math inline">\(\lambda\)</span> (popolazioni infinite, inferenza da modello)</a></li>
+<li class="chapter" data-level="10.4.5" data-path="inferenza-concetti-introduttivi.html"><a href="inferenza-concetti-introduttivi.html#urna-con-infinite-palline-nel-reale-con-distribuzione-normale-legata-a-mu-sigma2-popolazioni-infinite-inferenza-da-modello"><i class="fa fa-check"></i><b>10.4.5</b> 5. Urna con infinite palline nel reale, con distribuzione normale, legata a <span class="math inline">\(\mu, \sigma^2\)</span> (popolazioni infinite, inferenza da modello)</a></li>
+</ul></li>
+<li class="chapter" data-level="10.5" data-path="inferenza-concetti-introduttivi.html"><a href="inferenza-concetti-introduttivi.html#statistica-classica"><i class="fa fa-check"></i><b>10.5</b> Statistica Classica</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="elementi-di-teoria-della-stima.html"><a href="elementi-di-teoria-della-stima.html"><i class="fa fa-check"></i><b>11</b> Elementi di Teoria della Stima</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="elementi-di-teoria-della-stima.html"><a href="elementi-di-teoria-della-stima.html#campionamento"><i class="fa fa-check"></i><b>11.1</b> Campionamento</a>
+<ul>
+<li class="chapter" data-level="11.1.1" data-path="elementi-di-teoria-della-stima.html"><a href="elementi-di-teoria-della-stima.html#lessico"><i class="fa fa-check"></i><b>11.1.1</b> Lessico</a></li>
+<li class="chapter" data-level="11.1.2" data-path="elementi-di-teoria-della-stima.html"><a href="elementi-di-teoria-della-stima.html#esempio-al-finito"><i class="fa fa-check"></i><b>11.1.2</b> Esempio al finito</a></li>
+<li class="chapter" data-level="11.1.3" data-path="elementi-di-teoria-della-stima.html"><a href="elementi-di-teoria-della-stima.html#lessico-1"><i class="fa fa-check"></i><b>11.1.3</b> Lessico</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="elementi-di-teoria-della-stima.html"><a href="elementi-di-teoria-della-stima.html#gli-stimatori"><i class="fa fa-check"></i><b>11.2</b> Gli stimatori</a>
+<ul>
+<li class="chapter" data-level="11.2.1" data-path="elementi-di-teoria-della-stima.html"><a href="elementi-di-teoria-della-stima.html#stimatori-e-stime"><i class="fa fa-check"></i><b>11.2.1</b> Stimatori e Stime</a></li>
+<li class="chapter" data-level="11.2.2" data-path="elementi-di-teoria-della-stima.html"><a href="elementi-di-teoria-della-stima.html#come-scegliere-uno-stimatore"><i class="fa fa-check"></i><b>11.2.2</b> Come scegliere uno stimatore</a></li>
+<li class="chapter" data-level="11.2.3" data-path="elementi-di-teoria-della-stima.html"><a href="elementi-di-teoria-della-stima.html#proprietà-auspicabili-di-uno-stimatore-per-n-finito"><i class="fa fa-check"></i><b>11.2.3</b> Proprietà Auspicabili di uno stimatore (per <span class="math inline">\(n\)</span> finito)</a></li>
+<li class="chapter" data-level="11.2.4" data-path="elementi-di-teoria-della-stima.html"><a href="elementi-di-teoria-della-stima.html#media-aritmetica-e-varianza-campionaria-caso-iid"><i class="fa fa-check"></i><b>11.2.4</b> Media aritmetica e varianza campionaria caso IID</a></li>
+<li class="chapter" data-level="11.2.5" data-path="elementi-di-teoria-della-stima.html"><a href="elementi-di-teoria-della-stima.html#media-aritmetica-campionamento-sr-popolazioni-finite"><i class="fa fa-check"></i><b>11.2.5</b> Media aritmetica campionamento SR (popolazioni finite)</a></li>
+<li class="chapter" data-level="11.2.6" data-path="elementi-di-teoria-della-stima.html"><a href="elementi-di-teoria-della-stima.html#esempi-1"><i class="fa fa-check"></i><b>11.2.6</b> Esempi</a></li>
+<li class="chapter" data-level="11.2.7" data-path="elementi-di-teoria-della-stima.html"><a href="elementi-di-teoria-della-stima.html#distribuzione-delle-statistiche"><i class="fa fa-check"></i><b>11.2.7</b> Distribuzione delle statistiche</a></li>
+<li class="chapter" data-level="11.2.8" data-path="elementi-di-teoria-della-stima.html"><a href="elementi-di-teoria-della-stima.html#proprietà-auspicabili-di-uno-stimatore-per-ntoinfty"><i class="fa fa-check"></i><b>11.2.8</b> Proprietà Auspicabili di uno stimatore (per <span class="math inline">\(n\to\infty\)</span>)</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="elementi-di-teoria-della-stima.html"><a href="elementi-di-teoria-della-stima.html#la-sd-e-lo-se"><i class="fa fa-check"></i><b>11.3</b> La <span class="math inline">\(SD\)</span> e lo <span class="math inline">\(SE\)</span></a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="teoria-della-verosimiglianza.html"><a href="teoria-della-verosimiglianza.html"><i class="fa fa-check"></i><b>12</b> Teoria della Verosimiglianza</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="teoria-della-verosimiglianza.html"><a href="teoria-della-verosimiglianza.html#il-modello-statistico"><i class="fa fa-check"></i><b>12.1</b> Il Modello Statistico</a>
+<ul>
+<li class="chapter" data-level="12.1.1" data-path="teoria-della-verosimiglianza.html"><a href="teoria-della-verosimiglianza.html#esiste-lo-stimatore-più-efficiente"><i class="fa fa-check"></i><b>12.1.1</b> Esiste lo stimatore più efficiente?</a></li>
+</ul></li>
+<li class="chapter" data-level="12.2" data-path="teoria-della-verosimiglianza.html"><a href="teoria-della-verosimiglianza.html#la-verosimiglianza"><i class="fa fa-check"></i><b>12.2</b> La Verosimiglianza</a>
+<ul>
+<li class="chapter" data-level="12.2.1" data-path="teoria-della-verosimiglianza.html"><a href="teoria-della-verosimiglianza.html#la-verosimiglianza-attraverso-un-esempio"><i class="fa fa-check"></i><b>12.2.1</b> La Verosimiglianza attraverso un esempio</a></li>
+<li class="chapter" data-level="12.2.2" data-path="teoria-della-verosimiglianza.html"><a href="teoria-della-verosimiglianza.html#se-pi-fosse"><i class="fa fa-check"></i><b>12.2.2</b> Se <span class="math inline">\(\pi\)</span> fosse…</a></li>
+<li class="chapter" data-level="12.2.3" data-path="teoria-della-verosimiglianza.html"><a href="teoria-della-verosimiglianza.html#la-verosimiglianza-non-è-una-probabilità"><i class="fa fa-check"></i><b>12.2.3</b> La verosimiglianza non è una probabilità</a></li>
+<li class="chapter" data-level="12.2.4" data-path="teoria-della-verosimiglianza.html"><a href="teoria-della-verosimiglianza.html#la-stima-di-massima-verosimiglianza"><i class="fa fa-check"></i><b>12.2.4</b> La stima di massima verosimiglianza</a></li>
+<li class="chapter" data-level="12.2.5" data-path="teoria-della-verosimiglianza.html"><a href="teoria-della-verosimiglianza.html#esempio-iid-da-popolazione-finita-parte-due"><i class="fa fa-check"></i><b>12.2.5</b> Esempio IID da popolazione finita (parte due)</a></li>
+<li class="chapter" data-level="12.2.6" data-path="teoria-della-verosimiglianza.html"><a href="teoria-della-verosimiglianza.html#abbiamo-trovato-il-vero-pi"><i class="fa fa-check"></i><b>12.2.6</b> Abbiamo trovato il vero <span class="math inline">\(\pi\)</span>?</a></li>
+<li class="chapter" data-level="12.2.7" data-path="teoria-della-verosimiglianza.html"><a href="teoria-della-verosimiglianza.html#muoviamo-anche-s_n"><i class="fa fa-check"></i><b>12.2.7</b> Muoviamo anche <span class="math inline">\(S_n\)</span></a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="teoria-della-verosimiglianza.html"><a href="teoria-della-verosimiglianza.html#la-funzione-di-verosimiglianza"><i class="fa fa-check"></i><b>12.3</b> La Funzione di Verosimiglianza</a></li>
+<li class="chapter" data-level="12.4" data-path="teoria-della-verosimiglianza.html"><a href="teoria-della-verosimiglianza.html#la-stimatore-di-massima-verosimiglianza"><i class="fa fa-check"></i><b>12.4</b> La Stimatore di massima Verosimiglianza</a></li>
+<li class="chapter" data-level="12.5" data-path="teoria-della-verosimiglianza.html"><a href="teoria-della-verosimiglianza.html#il-principio-di-verosimiglianza"><i class="fa fa-check"></i><b>12.5</b> Il Principio di Verosimiglianza</a></li>
+<li class="chapter" data-level="12.6" data-path="teoria-della-verosimiglianza.html"><a href="teoria-della-verosimiglianza.html#verosimiglianza-e-statistiche-sufficienti"><i class="fa fa-check"></i><b>12.6</b> Verosimiglianza e Statistiche Sufficienti</a></li>
+<li class="chapter" data-level="12.7" data-path="teoria-della-verosimiglianza.html"><a href="teoria-della-verosimiglianza.html#caso-bernoulli-urna-infinita."><i class="fa fa-check"></i><b>12.7</b> Caso Bernoulli urna infinita.</a>
+<ul>
+<li class="chapter" data-level="12.7.1" data-path="teoria-della-verosimiglianza.html"><a href="teoria-della-verosimiglianza.html#calcolo-delle-proprietà-di-hatpi"><i class="fa fa-check"></i><b>12.7.1</b> Calcolo delle proprietà di <span class="math inline">\(\hat\pi\)</span></a></li>
+<li class="chapter" data-level="12.7.2" data-path="teoria-della-verosimiglianza.html"><a href="teoria-della-verosimiglianza.html#se-n-aumenta-e-hatpi0.6"><i class="fa fa-check"></i><b>12.7.2</b> Se <span class="math inline">\(n\)</span> aumenta e <span class="math inline">\(\hat\pi=0.6\)</span></a></li>
+<li class="chapter" data-level="12.7.3" data-path="teoria-della-verosimiglianza.html"><a href="teoria-della-verosimiglianza.html#lipotesi-pi0.5"><i class="fa fa-check"></i><b>12.7.3</b> L’ipotesi <span class="math inline">\(\pi=0.5\)</span></a></li>
+</ul></li>
+<li class="chapter" data-level="12.8" data-path="teoria-della-verosimiglianza.html"><a href="teoria-della-verosimiglianza.html#il-modello-poisson"><i class="fa fa-check"></i><b>12.8</b> Il modello Poisson</a>
+<ul>
+<li class="chapter" data-level="12.8.1" data-path="teoria-della-verosimiglianza.html"><a href="teoria-della-verosimiglianza.html#la-log-verosimiglianza-della-poisson"><i class="fa fa-check"></i><b>12.8.1</b> La log-verosimiglianza della Poisson</a></li>
+<li class="chapter" data-level="12.8.2" data-path="teoria-della-verosimiglianza.html"><a href="teoria-della-verosimiglianza.html#la-stima-di-massima-verosimiglianza-della-poisson"><i class="fa fa-check"></i><b>12.8.2</b> La stima di massima verosimiglianza della Poisson</a></li>
+<li class="chapter" data-level="12.8.3" data-path="teoria-della-verosimiglianza.html"><a href="teoria-della-verosimiglianza.html#proprietà-dello-stimatore-di-massima-verosimiglianza-della-poisson-hatlambda"><i class="fa fa-check"></i><b>12.8.3</b> Proprietà dello stimatore di massima verosimiglianza della Poisson <span class="math inline">\(\hat\lambda\)</span></a></li>
+<li class="chapter" data-level="12.8.4" data-path="teoria-della-verosimiglianza.html"><a href="teoria-della-verosimiglianza.html#esempio-n5"><i class="fa fa-check"></i><b>12.8.4</b> Esempio <span class="math inline">\(n=5\)</span></a></li>
+<li class="chapter" data-level="12.8.5" data-path="teoria-della-verosimiglianza.html"><a href="teoria-della-verosimiglianza.html#esempio-n50"><i class="fa fa-check"></i><b>12.8.5</b> Esempio <span class="math inline">\(n=50\)</span></a></li>
+</ul></li>
+<li class="chapter" data-level="12.9" data-path="teoria-della-verosimiglianza.html"><a href="teoria-della-verosimiglianza.html#il-modello-normale"><i class="fa fa-check"></i><b>12.9</b> Il modello Normale</a>
+<ul>
+<li class="chapter" data-level="12.9.1" data-path="teoria-della-verosimiglianza.html"><a href="teoria-della-verosimiglianza.html#verosimiglianza-e-log-verosimiglianza-della-normale"><i class="fa fa-check"></i><b>12.9.1</b> Verosimiglianza e log-verosimiglianza della Normale</a></li>
+<li class="chapter" data-level="12.9.2" data-path="teoria-della-verosimiglianza.html"><a href="teoria-della-verosimiglianza.html#le-stime-di-massima-verosimiglianza-della-normale"><i class="fa fa-check"></i><b>12.9.2</b> Le stime di massima verosimiglianza della Normale</a></li>
+<li class="chapter" data-level="12.9.3" data-path="teoria-della-verosimiglianza.html"><a href="teoria-della-verosimiglianza.html#proprietà-di-hatmu"><i class="fa fa-check"></i><b>12.9.3</b> Proprietà di <span class="math inline">\(\hat\mu\)</span></a></li>
+<li class="chapter" data-level="12.9.4" data-path="teoria-della-verosimiglianza.html"><a href="teoria-della-verosimiglianza.html#vnorm"><i class="fa fa-check"></i><b>12.9.4</b> Proprietà di <span class="math inline">\(\hat\sigma^2\)</span></a></li>
+<li class="chapter" data-level="12.9.5" data-path="teoria-della-verosimiglianza.html"><a href="teoria-della-verosimiglianza.html#ssem"><i class="fa fa-check"></i><b>12.9.5</b> Lo <span class="math inline">\(SE\)</span> di <span class="math inline">\(\hat\mu\)</span></a></li>
+<li class="chapter" data-level="12.9.6" data-path="teoria-della-verosimiglianza.html"><a href="teoria-della-verosimiglianza.html#esempio-n10"><i class="fa fa-check"></i><b>12.9.6</b> Esempio <span class="math inline">\(n=10\)</span></a></li>
+<li class="chapter" data-level="12.9.7" data-path="teoria-della-verosimiglianza.html"><a href="teoria-della-verosimiglianza.html#esempio-n100"><i class="fa fa-check"></i><b>12.9.7</b> Esempio <span class="math inline">\(n=100\)</span></a></li>
+<li class="chapter" data-level="12.9.8" data-path="teoria-della-verosimiglianza.html"><a href="teoria-della-verosimiglianza.html#perché-n-1"><i class="fa fa-check"></i><b>12.9.8</b> Perché <span class="math inline">\(n-1\)</span></a></li>
+</ul></li>
+<li class="chapter" data-level="12.10" data-path="teoria-della-verosimiglianza.html"><a href="teoria-della-verosimiglianza.html#proprietà-degli-stimatori-di-massima-verosimiglianza"><i class="fa fa-check"></i><b>12.10</b> Proprietà degli stimatori di massima verosimiglianza</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="stima-intervallare.html"><a href="stima-intervallare.html"><i class="fa fa-check"></i><b>13</b> Stima Intervallare</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="stima-intervallare.html"><a href="stima-intervallare.html#obiettivo-2"><i class="fa fa-check"></i><b>13.1</b> Obiettivo</a></li>
+<li class="chapter" data-level="13.2" data-path="stima-intervallare.html"><a href="stima-intervallare.html#il-contesto-probabilistico"><i class="fa fa-check"></i><b>13.2</b> Il Contesto Probabilistico</a>
+<ul>
+<li class="chapter" data-level="13.2.1" data-path="stima-intervallare.html"><a href="stima-intervallare.html#un-intervallo-per-hat-mu"><i class="fa fa-check"></i><b>13.2.1</b> Un intervallo per <span class="math inline">\(\hat \mu\)</span></a></li>
+<li class="chapter" data-level="13.2.2" data-path="stima-intervallare.html"><a href="stima-intervallare.html#n-e-sigma2-rimangono-fissi-cambiamo-mu"><i class="fa fa-check"></i><b>13.2.2</b> <span class="math inline">\(n\)</span> e <span class="math inline">\(\sigma^2\)</span> rimangono fissi, cambiamo <span class="math inline">\(\mu\)</span></a></li>
+<li class="chapter" data-level="13.2.3" data-path="stima-intervallare.html"><a href="stima-intervallare.html#n-e-sigma2-rimangono-fissi-e-noti-mu-incognita-hat-mu2.6"><i class="fa fa-check"></i><b>13.2.3</b> <span class="math inline">\(n\)</span> e <span class="math inline">\(\sigma^2\)</span> rimangono fissi e noti, <span class="math inline">\(\mu\)</span> incognita <span class="math inline">\(\hat \mu=2.6\)</span></a></li>
+</ul></li>
+<li class="chapter" data-level="13.3" data-path="stima-intervallare.html"><a href="stima-intervallare.html#intervalli-casuali"><i class="fa fa-check"></i><b>13.3</b> Intervalli casuali</a></li>
+<li class="chapter" data-level="13.4" data-path="stima-intervallare.html"><a href="stima-intervallare.html#intervallo-di-confidenza-per-mu-al-95-n5-e-sigma22.25."><i class="fa fa-check"></i><b>13.4</b> Intervallo di confidenza per <span class="math inline">\(\mu\)</span> al 95%, <span class="math inline">\(n=5\)</span> e <span class="math inline">\(\sigma^2=2.25\)</span>.</a></li>
+<li class="chapter" data-level="13.5" data-path="stima-intervallare.html"><a href="stima-intervallare.html#stimatori-e-intervalli-di-confidenza"><i class="fa fa-check"></i><b>13.5</b> Stimatori e intervalli di confidenza</a></li>
+<li class="chapter" data-level="13.6" data-path="stima-intervallare.html"><a href="stima-intervallare.html#massima-verosimiglianza-e-intervalli-di-confidenza"><i class="fa fa-check"></i><b>13.6</b> Massima Verosimiglianza e intervalli di confidenza</a></li>
+<li class="chapter" data-level="13.7" data-path="stima-intervallare.html"><a href="stima-intervallare.html#intervalli-di-confidenza-per-mu-al-livello-1-alphatimes-100-sigma2-nota"><i class="fa fa-check"></i><b>13.7</b> Intervalli di Confidenza per <span class="math inline">\(\mu\)</span> al livello <span class="math inline">\((1-\alpha)\times 100\)</span>, <span class="math inline">\(\sigma^2\)</span> nota</a></li>
+<li class="chapter" data-level="13.8" data-path="stima-intervallare.html"><a href="stima-intervallare.html#intervalli-di-confidenza-per-mu-al-livello-1-alphatimes-100-sigma2-incognita"><i class="fa fa-check"></i><b>13.8</b> Intervalli di Confidenza per <span class="math inline">\(\mu\)</span> al livello <span class="math inline">\((1-\alpha)\times 100\)</span>, <span class="math inline">\(\sigma^2\)</span> incognita</a>
+<ul>
+<li class="chapter" data-level="13.8.1" data-path="stima-intervallare.html"><a href="stima-intervallare.html#sigma-nota-e-sigma-incognita"><i class="fa fa-check"></i><b>13.8.1</b> <span class="math inline">\(\sigma\)</span> nota e <span class="math inline">\(\sigma\)</span> incognita</a></li>
+</ul></li>
+<li class="chapter" data-level="13.9" data-path="stima-intervallare.html"><a href="stima-intervallare.html#idc-per-la-proporzione"><i class="fa fa-check"></i><b>13.9</b> IDC per la proporzione</a>
+<ul>
+<li class="chapter" data-level="13.9.1" data-path="stima-intervallare.html"><a href="stima-intervallare.html#idc-per-pi-per-alpha-ed-n-fissati"><i class="fa fa-check"></i><b>13.9.1</b> IdC per <span class="math inline">\(\pi\)</span> per <span class="math inline">\(\alpha\)</span> ed <span class="math inline">\(n\)</span> fissati</a></li>
+</ul></li>
+<li class="chapter" data-level="13.10" data-path="stima-intervallare.html"><a href="stima-intervallare.html#specchietto-finale-per-gli-idc"><i class="fa fa-check"></i><b>13.10</b> Specchietto Finale per gli IdC</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="teoria-dei-test.html"><a href="teoria-dei-test.html"><i class="fa fa-check"></i><b>14</b> Teoria dei test</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="teoria-dei-test.html"><a href="teoria-dei-test.html#le-ipotesi"><i class="fa fa-check"></i><b>14.1</b> Le Ipotesi</a>
+<ul>
+<li class="chapter" data-level="14.1.1" data-path="teoria-dei-test.html"><a href="teoria-dei-test.html#esempi-di-ipotesi"><i class="fa fa-check"></i><b>14.1.1</b> Esempi di ipotesi</a></li>
+</ul></li>
+<li class="chapter" data-level="14.2" data-path="teoria-dei-test.html"><a href="teoria-dei-test.html#la-decisione"><i class="fa fa-check"></i><b>14.2</b> La Decisione</a></li>
+<li class="chapter" data-level="14.3" data-path="teoria-dei-test.html"><a href="teoria-dei-test.html#la-tavola-della-verità"><i class="fa fa-check"></i><b>14.3</b> La tavola della verità</a></li>
+<li class="chapter" data-level="14.4" data-path="teoria-dei-test.html"><a href="teoria-dei-test.html#esempio-scegliere-tra-due-ipotesi-semplici"><i class="fa fa-check"></i><b>14.4</b> Esempio: Scegliere tra due ipotesi semplici</a>
+<ul>
+<li class="chapter" data-level="14.4.1" data-path="teoria-dei-test.html"><a href="teoria-dei-test.html#tre-diversi-test-a-confronto"><i class="fa fa-check"></i><b>14.4.1</b> Tre diversi Test a confronto</a></li>
+<li class="chapter" data-level="14.4.2" data-path="teoria-dei-test.html"><a href="teoria-dei-test.html#gli-errori-della-decisione-a"><i class="fa fa-check"></i><b>14.4.2</b> Gli errori della decisione A</a></li>
+<li class="chapter" data-level="14.4.3" data-path="teoria-dei-test.html"><a href="teoria-dei-test.html#gli-errori-della-decisione-b"><i class="fa fa-check"></i><b>14.4.3</b> Gli errori della decisione B</a></li>
+<li class="chapter" data-level="14.4.4" data-path="teoria-dei-test.html"><a href="teoria-dei-test.html#gli-errori-della-decisione-c"><i class="fa fa-check"></i><b>14.4.4</b> Gli errori della decisione C</a></li>
+<li class="chapter" data-level="14.4.5" data-path="teoria-dei-test.html"><a href="teoria-dei-test.html#confronto"><i class="fa fa-check"></i><b>14.4.5</b> Confronto</a></li>
+</ul></li>
+<li class="chapter" data-level="14.5" data-path="teoria-dei-test.html"><a href="teoria-dei-test.html#ipotesi-nulla-e-ipotesi-alternativa"><i class="fa fa-check"></i><b>14.5</b> Ipotesi Nulla e Ipotesi Alternativa</a></li>
+<li class="chapter" data-level="14.6" data-path="teoria-dei-test.html"><a href="teoria-dei-test.html#rifiutare-o-non-rifiutare-h_0"><i class="fa fa-check"></i><b>14.6</b> Rifiutare o non rifiutare <span class="math inline">\(H_0\)</span></a></li>
+<li class="chapter" data-level="14.7" data-path="teoria-dei-test.html"><a href="teoria-dei-test.html#test-per-mu-due-ipotesi-semplici-sigma2-nota"><i class="fa fa-check"></i><b>14.7</b> Test per <span class="math inline">\(\mu\)</span>: due ipotesi semplici, <span class="math inline">\(\sigma^2\)</span> nota</a>
+<ul>
+<li class="chapter" data-level="14.7.1" data-path="teoria-dei-test.html"><a href="teoria-dei-test.html#test-per-mu-scegliere-il-punto-critico"><i class="fa fa-check"></i><b>14.7.1</b> Test per <span class="math inline">\(\mu\)</span>: scegliere il punto critico</a></li>
+<li class="chapter" data-level="14.7.2" data-path="teoria-dei-test.html"><a href="teoria-dei-test.html#probabilità-di-errore-di-primo-e-di-secondo-tipo"><i class="fa fa-check"></i><b>14.7.2</b> Probabilità di errore di primo e di secondo tipo</a></li>
+<li class="chapter" data-level="14.7.3" data-path="teoria-dei-test.html"><a href="teoria-dei-test.html#test-per-alpha-fissato-alpha0.05"><i class="fa fa-check"></i><b>14.7.3</b> Test per <span class="math inline">\(\alpha\)</span> fissato, <span class="math inline">\(\alpha=0.05\)</span></a></li>
+<li class="chapter" data-level="14.7.4" data-path="teoria-dei-test.html"><a href="teoria-dei-test.html#la-regola-di-decisione-alpha0.05"><i class="fa fa-check"></i><b>14.7.4</b> La regola di decisione, <span class="math inline">\(\alpha=0.05\)</span></a></li>
+<li class="chapter" data-level="14.7.5" data-path="teoria-dei-test.html"><a href="teoria-dei-test.html#test-per-alpha-fissato-alpha0.01"><i class="fa fa-check"></i><b>14.7.5</b> Test per <span class="math inline">\(\alpha\)</span> fissato, <span class="math inline">\(\alpha=0.01\)</span></a></li>
+<li class="chapter" data-level="14.7.6" data-path="teoria-dei-test.html"><a href="teoria-dei-test.html#la-regola-di-decisione-alpha0.01"><i class="fa fa-check"></i><b>14.7.6</b> La regola di decisione, <span class="math inline">\(\alpha=0.01\)</span></a></li>
+</ul></li>
+<li class="chapter" data-level="14.8" data-path="teoria-dei-test.html"><a href="teoria-dei-test.html#h_0-semplice-e-h_1-composta"><i class="fa fa-check"></i><b>14.8</b> <span class="math inline">\(H_0\)</span> semplice e <span class="math inline">\(H_1\)</span> composta</a></li>
+<li class="chapter" data-level="14.9" data-path="teoria-dei-test.html"><a href="teoria-dei-test.html#la-statistica-test"><i class="fa fa-check"></i><b>14.9</b> La Statistica Test</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="test-per-una-media-e-una-proporzione.html"><a href="test-per-una-media-e-una-proporzione.html"><i class="fa fa-check"></i><b>15</b> Test per una media e una proporzione</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="test-per-una-media-e-una-proporzione.html"><a href="test-per-una-media-e-una-proporzione.html#test-sulla-media-sigma2-noto"><i class="fa fa-check"></i><b>15.1</b> Test sulla media, <span class="math inline">\(\sigma^2\)</span> noto</a>
+<ul>
+<li class="chapter" data-level="15.1.1" data-path="test-per-una-media-e-una-proporzione.html"><a href="test-per-una-media-e-una-proporzione.html#test-sulla-media-ipotesi-unilaterale-destra-sigma2-noto"><i class="fa fa-check"></i><b>15.1.1</b> Test sulla media, ipotesi unilaterale destra, <span class="math inline">\(\sigma^2\)</span> noto</a></li>
+<li class="chapter" data-level="15.1.2" data-path="test-per-una-media-e-una-proporzione.html"><a href="test-per-una-media-e-una-proporzione.html#test-sulla-media-sigma2-noto-vari-livelli-di-alpha"><i class="fa fa-check"></i><b>15.1.2</b> Test sulla media, <span class="math inline">\(\sigma^2\)</span> noto, vari livelli di <span class="math inline">\(\alpha\)</span></a></li>
+<li class="chapter" data-level="15.1.3" data-path="test-per-una-media-e-una-proporzione.html"><a href="test-per-una-media-e-una-proporzione.html#la-probabilità-di-significatività-osservata-il-p_textvalue"><i class="fa fa-check"></i><b>15.1.3</b> La probabilità di significatività osservata il <span class="math inline">\(p_\text{value}\)</span></a></li>
+<li class="chapter" data-level="15.1.4" data-path="test-per-una-media-e-una-proporzione.html"><a href="test-per-una-media-e-una-proporzione.html#lettura-del-p_textvalue"><i class="fa fa-check"></i><b>15.1.4</b> Lettura del <span class="math inline">\(p_\text{value}\)</span></a></li>
+<li class="chapter" data-level="15.1.5" data-path="test-per-una-media-e-una-proporzione.html"><a href="test-per-una-media-e-una-proporzione.html#test-sulla-media-ipotesi-unilaterale-sinistra-sigma2-noto"><i class="fa fa-check"></i><b>15.1.5</b> Test sulla media, ipotesi unilaterale sinistra, <span class="math inline">\(\sigma^2\)</span> noto</a></li>
+<li class="chapter" data-level="15.1.6" data-path="test-per-una-media-e-una-proporzione.html"><a href="test-per-una-media-e-una-proporzione.html#test-sulla-media-ipotesi-bilaterale-sigma2-noto"><i class="fa fa-check"></i><b>15.1.6</b> Test sulla media, ipotesi bilaterale, <span class="math inline">\(\sigma^2\)</span> noto</a></li>
+</ul></li>
+<li class="chapter" data-level="15.2" data-path="test-per-una-media-e-una-proporzione.html"><a href="test-per-una-media-e-una-proporzione.html#significatività-non-fissata"><i class="fa fa-check"></i><b>15.2</b> Significatività non fissata</a></li>
+<li class="chapter" data-level="15.3" data-path="test-per-una-media-e-una-proporzione.html"><a href="test-per-una-media-e-una-proporzione.html#test-per-mu-sigma-incognita"><i class="fa fa-check"></i><b>15.3</b> Test per <span class="math inline">\(\mu\)</span>, <span class="math inline">\(\sigma\)</span> incognita</a>
+<ul>
+<li class="chapter" data-level="15.3.1" data-path="test-per-una-media-e-una-proporzione.html"><a href="test-per-una-media-e-una-proporzione.html#test-sulla-media-ipotesi-unilaterale-destra-sigma2-incognito"><i class="fa fa-check"></i><b>15.3.1</b> Test sulla media, ipotesi unilaterale destra, <span class="math inline">\(\sigma^2\)</span> incognito</a></li>
+<li class="chapter" data-level="15.3.2" data-path="test-per-una-media-e-una-proporzione.html"><a href="test-per-una-media-e-una-proporzione.html#test-sulla-media-ipotesi-unilaterale-sinistra-sigma2-incognito"><i class="fa fa-check"></i><b>15.3.2</b> Test sulla media, ipotesi unilaterale sinistra, <span class="math inline">\(\sigma^2\)</span> incognito</a></li>
+<li class="chapter" data-level="15.3.3" data-path="test-per-una-media-e-una-proporzione.html"><a href="test-per-una-media-e-una-proporzione.html#test-sulla-media-ipotesi-bilaterale-sigma2-incognito"><i class="fa fa-check"></i><b>15.3.3</b> Test sulla media, ipotesi bilaterale, <span class="math inline">\(\sigma^2\)</span> incognito</a></li>
+<li class="chapter" data-level="15.3.4" data-path="test-per-una-media-e-una-proporzione.html"><a href="test-per-una-media-e-una-proporzione.html#significatività-non-fissata-1"><i class="fa fa-check"></i><b>15.3.4</b> Significatività non fissata</a></li>
+</ul></li>
+<li class="chapter" data-level="15.4" data-path="test-per-una-media-e-una-proporzione.html"><a href="test-per-una-media-e-una-proporzione.html#massima-verosimiglianza-e-test"><i class="fa fa-check"></i><b>15.4</b> Massima verosimiglianza e test</a></li>
+<li class="chapter" data-level="15.5" data-path="test-per-una-media-e-una-proporzione.html"><a href="test-per-una-media-e-una-proporzione.html#test-per-pi"><i class="fa fa-check"></i><b>15.5</b> Test per <span class="math inline">\(\pi\)</span></a></li>
+<li class="chapter" data-level="15.6" data-path="test-per-una-media-e-una-proporzione.html"><a href="test-per-una-media-e-una-proporzione.html#specchietto-finale-per-i-test-ad-un-campione"><i class="fa fa-check"></i><b>15.6</b> Specchietto Finale per i Test ad un Campione</a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="confronto-tra-due-popolazioni.html"><a href="confronto-tra-due-popolazioni.html"><i class="fa fa-check"></i><b>16</b> Confronto tra due Popolazioni</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="confronto-tra-due-popolazioni.html"><a href="confronto-tra-due-popolazioni.html#test-per-due-medie"><i class="fa fa-check"></i><b>16.1</b> Test per due medie</a>
+<ul>
+<li class="chapter" data-level="16.1.1" data-path="confronto-tra-due-popolazioni.html"><a href="confronto-tra-due-popolazioni.html#il-contesto-probabilistico-1"><i class="fa fa-check"></i><b>16.1.1</b> il contesto probabilistico</a></li>
+<li class="chapter" data-level="16.1.2" data-path="confronto-tra-due-popolazioni.html"><a href="confronto-tra-due-popolazioni.html#derivazione-della-statistica-test"><i class="fa fa-check"></i><b>16.1.2</b> Derivazione della statistica test</a></li>
+<li class="chapter" data-level="16.1.3" data-path="confronto-tra-due-popolazioni.html"><a href="confronto-tra-due-popolazioni.html#stima-di-sigma_a-e-sigma_b"><i class="fa fa-check"></i><b>16.1.3</b> Stima di <span class="math inline">\(\sigma_A\)</span> e <span class="math inline">\(\sigma_B\)</span></a></li>
+<li class="chapter" data-level="16.1.4" data-path="confronto-tra-due-popolazioni.html"><a href="confronto-tra-due-popolazioni.html#ipotesi-1-omogeneità"><i class="fa fa-check"></i><b>16.1.4</b> Ipotesi 1: omogeneità</a></li>
+<li class="chapter" data-level="16.1.5" data-path="confronto-tra-due-popolazioni.html"><a href="confronto-tra-due-popolazioni.html#ipotesi-2-eterogeneità"><i class="fa fa-check"></i><b>16.1.5</b> Ipotesi 2: eterogeneità</a></li>
+<li class="chapter" data-level="16.1.6" data-path="confronto-tra-due-popolazioni.html"><a href="confronto-tra-due-popolazioni.html#esempio-3"><i class="fa fa-check"></i><b>16.1.6</b> Esempio</a></li>
+<li class="chapter" data-level="16.1.7" data-path="confronto-tra-due-popolazioni.html"><a href="confronto-tra-due-popolazioni.html#esempio-4"><i class="fa fa-check"></i><b>16.1.7</b> Esempio</a></li>
+</ul></li>
+<li class="chapter" data-level="16.2" data-path="confronto-tra-due-popolazioni.html"><a href="confronto-tra-due-popolazioni.html#test-per-due-proporzioni"><i class="fa fa-check"></i><b>16.2</b> Test per due proporzioni</a>
+<ul>
+<li class="chapter" data-level="16.2.1" data-path="confronto-tra-due-popolazioni.html"><a href="confronto-tra-due-popolazioni.html#il-contesto-probabilistico-2"><i class="fa fa-check"></i><b>16.2.1</b> Il contesto probabilistico</a></li>
+<li class="chapter" data-level="16.2.2" data-path="confronto-tra-due-popolazioni.html"><a href="confronto-tra-due-popolazioni.html#derivazione-della-statistica-test-1"><i class="fa fa-check"></i><b>16.2.2</b> Derivazione della statistica test</a></li>
+<li class="chapter" data-level="16.2.3" data-path="confronto-tra-due-popolazioni.html"><a href="confronto-tra-due-popolazioni.html#esempio-5"><i class="fa fa-check"></i><b>16.2.3</b> Esempio</a></li>
+</ul></li>
+<li class="chapter" data-level="16.3" data-path="confronto-tra-due-popolazioni.html"><a href="confronto-tra-due-popolazioni.html#specchietto-finale-per-i-test-ad-due-campioni"><i class="fa fa-check"></i><b>16.3</b> Specchietto Finale per i Test ad Due Campioni</a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="regressione-lineare.html"><a href="regressione-lineare.html"><i class="fa fa-check"></i><b>17</b> Regressione Lineare</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="regressione-lineare.html"><a href="regressione-lineare.html#il-modello-derrore"><i class="fa fa-check"></i><b>17.1</b> Il modello d’errore</a>
+<ul>
+<li class="chapter" data-level="17.1.1" data-path="regressione-lineare.html"><a href="regressione-lineare.html#esempi-2"><i class="fa fa-check"></i><b>17.1.1</b> Esempi</a></li>
+</ul></li>
+<li class="chapter" data-level="17.2" data-path="regressione-lineare.html"><a href="regressione-lineare.html#il-modello-di-regressione"><i class="fa fa-check"></i><b>17.2</b> Il modello di regressione</a></li>
+<li class="chapter" data-level="17.3" data-path="regressione-lineare.html"><a href="regressione-lineare.html#la-regressione-lineare"><i class="fa fa-check"></i><b>17.3</b> La Regressione Lineare</a>
+<ul>
+<li class="chapter" data-level="17.3.1" data-path="regressione-lineare.html"><a href="regressione-lineare.html#il-modello-di-regressione-lineare-semplice"><i class="fa fa-check"></i><b>17.3.1</b> Il modello di regressione lineare semplice</a></li>
+<li class="chapter" data-level="17.3.2" data-path="regressione-lineare.html"><a href="regressione-lineare.html#la-storia-del-metodo"><i class="fa fa-check"></i><b>17.3.2</b> La Storia del Metodo</a></li>
+<li class="chapter" data-level="17.3.3" data-path="regressione-lineare.html"><a href="regressione-lineare.html#gli-assunti-del-modello-di-regressione"><i class="fa fa-check"></i><b>17.3.3</b> Gli assunti del modello di regressione</a></li>
+<li class="chapter" data-level="17.3.4" data-path="regressione-lineare.html"><a href="regressione-lineare.html#il-metodo-dei-minimi-quadrati"><i class="fa fa-check"></i><b>17.3.4</b> Il metodo dei minimi quadrati</a></li>
+<li class="chapter" data-level="17.3.5" data-path="regressione-lineare.html"><a href="regressione-lineare.html#la-distanza-di-una-retta-dai-punti-il-metodo-dei-minimi-quadrati"><i class="fa fa-check"></i><b>17.3.5</b> La distanza di una retta dai punti (il metodo dei minimi quadrati)</a></li>
+<li class="chapter" data-level="17.3.6" data-path="regressione-lineare.html"><a href="regressione-lineare.html#soluzioni-dei-minimi-quadrati"><i class="fa fa-check"></i><b>17.3.6</b> Soluzioni dei minimi quadrati</a></li>
+</ul></li>
+<li class="chapter" data-level="17.4" data-path="regressione-lineare.html"><a href="regressione-lineare.html#la-covarianza"><i class="fa fa-check"></i><b>17.4</b> La covarianza</a>
+<ul>
+<li class="chapter" data-level="17.4.1" data-path="regressione-lineare.html"><a href="regressione-lineare.html#calcolo-della-covarianza"><i class="fa fa-check"></i><b>17.4.1</b> Calcolo della covarianza</a></li>
+<li class="chapter" data-level="17.4.2" data-path="regressione-lineare.html"><a href="regressione-lineare.html#interpretazione-della-covarianza"><i class="fa fa-check"></i><b>17.4.2</b> Interpretazione della Covarianza</a></li>
+<li class="chapter" data-level="17.4.3" data-path="regressione-lineare.html"><a href="regressione-lineare.html#altre-proprietà-della-covarianza"><i class="fa fa-check"></i><b>17.4.3</b> Altre proprietà della covarianza</a></li>
+<li class="chapter" data-level="17.4.4" data-path="regressione-lineare.html"><a href="regressione-lineare.html#campo-di-variazione-della-covarianza"><i class="fa fa-check"></i><b>17.4.4</b> Campo di variazione della covarianza</a></li>
+<li class="chapter" data-level="17.4.5" data-path="regressione-lineare.html"><a href="regressione-lineare.html#calcolo-in-colonna"><i class="fa fa-check"></i><b>17.4.5</b> Calcolo in colonna</a></li>
+<li class="chapter" data-level="17.4.6" data-path="regressione-lineare.html"><a href="regressione-lineare.html#calcolo-di-hatbeta_0-e-hatbeta_1"><i class="fa fa-check"></i><b>17.4.6</b> Calcolo di <span class="math inline">\(\hat\beta_0\)</span> e <span class="math inline">\(\hat\beta_1\)</span></a></li>
+</ul></li>
+<li class="chapter" data-level="17.5" data-path="regressione-lineare.html"><a href="regressione-lineare.html#proprietà-della-retta-dei-minimi-quadrati"><i class="fa fa-check"></i><b>17.5</b> Proprietà della retta dei minimi quadrati</a>
+<ul>
+<li class="chapter" data-level="17.5.1" data-path="regressione-lineare.html"><a href="regressione-lineare.html#calcolo-di-hat-y_i-e-hatvarepsilon_i"><i class="fa fa-check"></i><b>17.5.1</b> Calcolo di <span class="math inline">\(\hat y_i\)</span> e <span class="math inline">\(\hat\varepsilon_i\)</span></a></li>
+</ul></li>
+<li class="chapter" data-level="17.6" data-path="regressione-lineare.html"><a href="regressione-lineare.html#il-coefficiente-di-correlazione"><i class="fa fa-check"></i><b>17.6</b> Il coefficiente di Correlazione</a>
+<ul>
+<li class="chapter" data-level="17.6.1" data-path="regressione-lineare.html"><a href="regressione-lineare.html#proprietà-di-r"><i class="fa fa-check"></i><b>17.6.1</b> Proprietà di <span class="math inline">\(r\)</span></a></li>
+</ul></li>
+<li class="chapter" data-level="17.7" data-path="regressione-lineare.html"><a href="regressione-lineare.html#scomposizione-della-varianza"><i class="fa fa-check"></i><b>17.7</b> Scomposizione della varianza</a></li>
+<li class="chapter" data-level="17.8" data-path="regressione-lineare.html"><a href="regressione-lineare.html#il-coefficiente-di-determinazione-lineare-r2"><i class="fa fa-check"></i><b>17.8</b> Il coefficiente di determinazione lineare <span class="math inline">\(R^2\)</span></a>
+<ul>
+<li class="chapter" data-level="17.8.1" data-path="regressione-lineare.html"><a href="regressione-lineare.html#interpretazione-di-r2"><i class="fa fa-check"></i><b>17.8.1</b> Interpretazione di <span class="math inline">\(r^2\)</span></a></li>
+<li class="chapter" data-level="17.8.2" data-path="regressione-lineare.html"><a href="regressione-lineare.html#scomposizione-della-varianza-sui-dati-di-esempio"><i class="fa fa-check"></i><b>17.8.2</b> Scomposizione della varianza sui dati di esempio</a></li>
+</ul></li>
+<li class="chapter" data-level="17.9" data-path="regressione-lineare.html"><a href="regressione-lineare.html#stima-di-sigma_varepsilon2"><i class="fa fa-check"></i><b>17.9</b> Stima di <span class="math inline">\(\sigma_\varepsilon^2\)</span></a></li>
+<li class="chapter" data-level="17.10" data-path="regressione-lineare.html"><a href="regressione-lineare.html#statistiche-sufficienti-del-modello-di-reegressione"><i class="fa fa-check"></i><b>17.10</b> Statistiche Sufficienti del Modello di Reegressione</a></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="inferenza-e-diagnostica-sul-modello-di-regressione-lineare.html"><a href="inferenza-e-diagnostica-sul-modello-di-regressione-lineare.html"><i class="fa fa-check"></i><b>18</b> Inferenza e Diagnostica sul Modello di Regressione Lineare</a>
+<ul>
+<li class="chapter" data-level="18.1" data-path="inferenza-e-diagnostica-sul-modello-di-regressione-lineare.html"><a href="inferenza-e-diagnostica-sul-modello-di-regressione-lineare.html#teorema-di-gauss-markov"><i class="fa fa-check"></i><b>18.1</b> Teorema di Gauss-Markov</a></li>
+<li class="chapter" data-level="18.2" data-path="inferenza-e-diagnostica-sul-modello-di-regressione-lineare.html"><a href="inferenza-e-diagnostica-sul-modello-di-regressione-lineare.html#la-previsione-hat-y"><i class="fa fa-check"></i><b>18.2</b> La previsione <span class="math inline">\(\hat Y\)</span></a></li>
+<li class="chapter" data-level="18.3" data-path="inferenza-e-diagnostica-sul-modello-di-regressione-lineare.html"><a href="inferenza-e-diagnostica-sul-modello-di-regressione-lineare.html#standard-errors-e-stima-degli-se"><i class="fa fa-check"></i><b>18.3</b> Standard Errors e Stima degli SE</a></li>
+<li class="chapter" data-level="18.4" data-path="inferenza-e-diagnostica-sul-modello-di-regressione-lineare.html"><a href="inferenza-e-diagnostica-sul-modello-di-regressione-lineare.html#inferenza-su-beta_0-e-beta_1-e-su-hat-y"><i class="fa fa-check"></i><b>18.4</b> Inferenza su <span class="math inline">\(\beta_0\)</span> e <span class="math inline">\(\beta_1\)</span> e su <span class="math inline">\(\hat Y\)</span></a>
+<ul>
+<li class="chapter" data-level="18.4.1" data-path="inferenza-e-diagnostica-sul-modello-di-regressione-lineare.html"><a href="inferenza-e-diagnostica-sul-modello-di-regressione-lineare.html#interpolazione-e-estrapolazione"><i class="fa fa-check"></i><b>18.4.1</b> Interpolazione e Estrapolazione</a></li>
+<li class="chapter" data-level="18.4.2" data-path="inferenza-e-diagnostica-sul-modello-di-regressione-lineare.html"><a href="inferenza-e-diagnostica-sul-modello-di-regressione-lineare.html#intervalli-di-confidenza-per-beta_0-beta_1-e-hat-y"><i class="fa fa-check"></i><b>18.4.2</b> Intervalli di Confidenza per <span class="math inline">\(\beta_0\)</span>, <span class="math inline">\(\beta_1\)</span> e <span class="math inline">\(\hat Y\)</span></a></li>
+<li class="chapter" data-level="18.4.3" data-path="inferenza-e-diagnostica-sul-modello-di-regressione-lineare.html"><a href="inferenza-e-diagnostica-sul-modello-di-regressione-lineare.html#test-per-beta_0-e-beta_1"><i class="fa fa-check"></i><b>18.4.3</b> Test per <span class="math inline">\(\beta_0\)</span>, e <span class="math inline">\(\beta_1\)</span></a></li>
+<li class="chapter" data-level="18.4.4" data-path="inferenza-e-diagnostica-sul-modello-di-regressione-lineare.html"><a href="inferenza-e-diagnostica-sul-modello-di-regressione-lineare.html#esempio-sui-4-punti"><i class="fa fa-check"></i><b>18.4.4</b> Esempio sui 4 punti</a></li>
+<li class="chapter" data-level="18.4.5" data-path="inferenza-e-diagnostica-sul-modello-di-regressione-lineare.html"><a href="inferenza-e-diagnostica-sul-modello-di-regressione-lineare.html#calcolo-dei-valori-osservati-e-dei-valori-critici"><i class="fa fa-check"></i><b>18.4.5</b> Calcolo dei valori osservati e dei valori critici</a></li>
+<li class="chapter" data-level="18.4.6" data-path="inferenza-e-diagnostica-sul-modello-di-regressione-lineare.html"><a href="inferenza-e-diagnostica-sul-modello-di-regressione-lineare.html#se-n10"><i class="fa fa-check"></i><b>18.4.6</b> Se <span class="math inline">\(n=10\)</span></a></li>
+</ul></li>
+<li class="chapter" data-level="18.5" data-path="inferenza-e-diagnostica-sul-modello-di-regressione-lineare.html"><a href="inferenza-e-diagnostica-sul-modello-di-regressione-lineare.html#il-modello-di-regressione-lineare-multiplo"><i class="fa fa-check"></i><b>18.5</b> Il modello di regressione lineare multiplo</a></li>
+<li class="chapter" data-level="18.6" data-path="inferenza-e-diagnostica-sul-modello-di-regressione-lineare.html"><a href="inferenza-e-diagnostica-sul-modello-di-regressione-lineare.html#analisi-dei-residui"><i class="fa fa-check"></i><b>18.6</b> Analisi dei Residui</a>
+<ul>
+<li class="chapter" data-level="18.6.1" data-path="inferenza-e-diagnostica-sul-modello-di-regressione-lineare.html"><a href="inferenza-e-diagnostica-sul-modello-di-regressione-lineare.html#diagramma-dei-residui-e-retta-dei-residui"><i class="fa fa-check"></i><b>18.6.1</b> Diagramma dei residui e retta dei residui</a></li>
+<li class="chapter" data-level="18.6.2" data-path="inferenza-e-diagnostica-sul-modello-di-regressione-lineare.html"><a href="inferenza-e-diagnostica-sul-modello-di-regressione-lineare.html#lettura-del-diagramma-dei-residui"><i class="fa fa-check"></i><b>18.6.2</b> Lettura del Diagramma dei residui</a></li>
+<li class="chapter" data-level="18.6.3" data-path="inferenza-e-diagnostica-sul-modello-di-regressione-lineare.html"><a href="inferenza-e-diagnostica-sul-modello-di-regressione-lineare.html#normal-qq-plot"><i class="fa fa-check"></i><b>18.6.3</b> Normal QQ plot</a></li>
+</ul></li>
+<li class="chapter" data-level="18.7" data-path="inferenza-e-diagnostica-sul-modello-di-regressione-lineare.html"><a href="inferenza-e-diagnostica-sul-modello-di-regressione-lineare.html#punti-di-leva-outliers-e-punti-influenti"><i class="fa fa-check"></i><b>18.7</b> Punti di leva, Outliers e punti influenti</a>
+<ul>
+<li class="chapter" data-level="18.7.1" data-path="inferenza-e-diagnostica-sul-modello-di-regressione-lineare.html"><a href="inferenza-e-diagnostica-sul-modello-di-regressione-lineare.html#punti-di-leva"><i class="fa fa-check"></i><b>18.7.1</b> Punti di leva</a></li>
+<li class="chapter" data-level="18.7.2" data-path="inferenza-e-diagnostica-sul-modello-di-regressione-lineare.html"><a href="inferenza-e-diagnostica-sul-modello-di-regressione-lineare.html#i-residui-studentizzati"><i class="fa fa-check"></i><b>18.7.2</b> I residui Studentizzati</a></li>
+</ul></li>
+<li class="chapter" data-level="18.8" data-path="inferenza-e-diagnostica-sul-modello-di-regressione-lineare.html"><a href="inferenza-e-diagnostica-sul-modello-di-regressione-lineare.html#relazione-tra-yx-e-xy"><i class="fa fa-check"></i><b>18.8</b> Relazione tra <span class="math inline">\(Y|X\)</span> e <span class="math inline">\(X|Y\)</span></a>
+<ul>
+<li class="chapter" data-level="18.8.1" data-path="inferenza-e-diagnostica-sul-modello-di-regressione-lineare.html"><a href="inferenza-e-diagnostica-sul-modello-di-regressione-lineare.html#relazione-tra-gli-alpha-i-beta-ed-r"><i class="fa fa-check"></i><b>18.8.1</b> Relazione tra gli <span class="math inline">\(\alpha\)</span> i <span class="math inline">\(\beta\)</span> ed <span class="math inline">\(r\)</span></a></li>
+<li class="chapter" data-level="18.8.2" data-path="inferenza-e-diagnostica-sul-modello-di-regressione-lineare.html"><a href="inferenza-e-diagnostica-sul-modello-di-regressione-lineare.html#regressione-sulle-variabili-standardizzate"><i class="fa fa-check"></i><b>18.8.2</b> Regressione sulle variabili standardizzate</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="19" data-path="il-test-chi-quadro.html"><a href="il-test-chi-quadro.html"><i class="fa fa-check"></i><b>19</b> Il Test Chi-Quadro</a>
+<ul>
+<li class="chapter" data-level="19.1" data-path="il-test-chi-quadro.html"><a href="il-test-chi-quadro.html#test-di-significatività-pura"><i class="fa fa-check"></i><b>19.1</b> Test di Significatività pura</a></li>
+<li class="chapter" data-level="19.2" data-path="il-test-chi-quadro.html"><a href="il-test-chi-quadro.html#associazione-tra-due-variabili"><i class="fa fa-check"></i><b>19.2</b> Associazione tra due variabili</a>
+<ul>
+<li class="chapter" data-level="19.2.1" data-path="il-test-chi-quadro.html"><a href="il-test-chi-quadro.html#le-tavole-di-contingenza"><i class="fa fa-check"></i><b>19.2.1</b> Le tavole di contingenza</a></li>
+<li class="chapter" data-level="19.2.2" data-path="il-test-chi-quadro.html"><a href="il-test-chi-quadro.html#un-passo-indietro-il-concetto-di-indipendenza"><i class="fa fa-check"></i><b>19.2.2</b> Un passo indietro: il concetto di indipendenza</a></li>
+<li class="chapter" data-level="19.2.3" data-path="il-test-chi-quadro.html"><a href="il-test-chi-quadro.html#estensione-a-più-di-due-modalità"><i class="fa fa-check"></i><b>19.2.3</b> Estensione a più di due modalità</a></li>
+<li class="chapter" data-level="19.2.4" data-path="il-test-chi-quadro.html"><a href="il-test-chi-quadro.html#esempio-6"><i class="fa fa-check"></i><b>19.2.4</b> Esempio</a></li>
+<li class="chapter" data-level="19.2.5" data-path="il-test-chi-quadro.html"><a href="il-test-chi-quadro.html#dalla-popolazione-al-campione"><i class="fa fa-check"></i><b>19.2.5</b> Dalla popolazione al campione</a></li>
+<li class="chapter" data-level="19.2.6" data-path="il-test-chi-quadro.html"><a href="il-test-chi-quadro.html#notazione-formale-per-le-tavole-di-contingenza"><i class="fa fa-check"></i><b>19.2.6</b> Notazione formale per le tavole di contingenza</a></li>
+<li class="chapter" data-level="19.2.7" data-path="il-test-chi-quadro.html"><a href="il-test-chi-quadro.html#le-frequenze-sono-stime-dei-pi"><i class="fa fa-check"></i><b>19.2.7</b> Le frequenze sono stime dei <span class="math inline">\(\pi\)</span></a></li>
+<li class="chapter" data-level="19.2.8" data-path="il-test-chi-quadro.html"><a href="il-test-chi-quadro.html#esempio-continua"><i class="fa fa-check"></i><b>19.2.8</b> Esempio (continua)</a></li>
+</ul></li>
+<li class="chapter" data-level="19.3" data-path="il-test-chi-quadro.html"><a href="il-test-chi-quadro.html#lindice-chi2"><i class="fa fa-check"></i><b>19.3</b> L’indice <span class="math inline">\(\chi^2\)</span></a></li>
+<li class="chapter" data-level="19.4" data-path="il-test-chi-quadro.html"><a href="il-test-chi-quadro.html#test-per-lipotesi-di-indipendenza"><i class="fa fa-check"></i><b>19.4</b> Test per l’ipotesi di indipendenza</a>
+<ul>
+<li class="chapter" data-level="19.4.1" data-path="il-test-chi-quadro.html"><a href="il-test-chi-quadro.html#la-statistica-test-chi2"><i class="fa fa-check"></i><b>19.4.1</b> La statistica test <span class="math inline">\(\chi^2\)</span></a></li>
+<li class="chapter" data-level="19.4.2" data-path="il-test-chi-quadro.html"><a href="il-test-chi-quadro.html#esempio-7"><i class="fa fa-check"></i><b>19.4.2</b> Esempio</a></li>
+<li class="chapter" data-level="19.4.3" data-path="il-test-chi-quadro.html"><a href="il-test-chi-quadro.html#i-gradi-di-libertà"><i class="fa fa-check"></i><b>19.4.3</b> I gradi di libertà</a></li>
+</ul></li>
+<li class="chapter" data-level="19.5" data-path="il-test-chi-quadro.html"><a href="il-test-chi-quadro.html#misure-di-conformità"><i class="fa fa-check"></i><b>19.5</b> Misure di Conformità</a></li>
+<li class="chapter" data-level="19.6" data-path="il-test-chi-quadro.html"><a href="il-test-chi-quadro.html#il-chi2-come-misura-di-conformità"><i class="fa fa-check"></i><b>19.6</b> Il <span class="math inline">\(\chi^2\)</span> come misura di conformità</a>
+<ul>
+<li class="chapter" data-level="19.6.1" data-path="il-test-chi-quadro.html"><a href="il-test-chi-quadro.html#esempio-scostamento-da-una-uniforme"><i class="fa fa-check"></i><b>19.6.1</b> Esempio: Scostamento da una uniforme</a></li>
+<li class="chapter" data-level="19.6.2" data-path="il-test-chi-quadro.html"><a href="il-test-chi-quadro.html#esempio-scostamento-da-una-popolazione"><i class="fa fa-check"></i><b>19.6.2</b> Esempio: Scostamento da una popolazione</a></li>
+<li class="chapter" data-level="19.6.3" data-path="il-test-chi-quadro.html"><a href="il-test-chi-quadro.html#esempio-scostamento-da-una-poisson"><i class="fa fa-check"></i><b>19.6.3</b> Esempio: scostamento da una Poisson</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="20" data-path="richiami-sugli-operatori-sommatoria-e-produttorio.html"><a href="richiami-sugli-operatori-sommatoria-e-produttorio.html"><i class="fa fa-check"></i><b>20</b> Richiami sugli Operatori Sommatoria e Produttorio</a>
+<ul>
+<li class="chapter" data-level="20.1" data-path="richiami-sugli-operatori-sommatoria-e-produttorio.html"><a href="richiami-sugli-operatori-sommatoria-e-produttorio.html#operatore-sommatoria"><i class="fa fa-check"></i><b>20.1</b> Operatore Sommatoria</a></li>
+<li class="chapter" data-level="20.2" data-path="richiami-sugli-operatori-sommatoria-e-produttorio.html"><a href="richiami-sugli-operatori-sommatoria-e-produttorio.html#operatore-produttorio"><i class="fa fa-check"></i><b>20.2</b> Operatore Produttorio</a></li>
+</ul></li>
+<li class="chapter" data-level="21" data-path="richiami-di-calcolo-combinatorio.html"><a href="richiami-di-calcolo-combinatorio.html"><i class="fa fa-check"></i><b>21</b> Richiami di Calcolo Combinatorio</a>
+<ul>
+<li class="chapter" data-level="21.1" data-path="richiami-di-calcolo-combinatorio.html"><a href="richiami-di-calcolo-combinatorio.html#il-coefficiente-binomiale"><i class="fa fa-check"></i><b>21.1</b> Il coefficiente binomiale</a></li>
+</ul></li>
+<li class="chapter" data-level="22" data-path="richiami-di-matematica.html"><a href="richiami-di-matematica.html"><i class="fa fa-check"></i><b>22</b> Richiami di Matematica</a>
+<ul>
+<li class="chapter" data-level="22.1" data-path="richiami-di-matematica.html"><a href="richiami-di-matematica.html#richiami-sui-logaritmi"><i class="fa fa-check"></i><b>22.1</b> Richiami sui logaritmi</a></li>
+<li class="chapter" data-level="22.2" data-path="richiami-di-matematica.html"><a href="richiami-di-matematica.html#richiami-di-analisi"><i class="fa fa-check"></i><b>22.2</b> Richiami di Analisi</a>
+<ul>
+<li class="chapter" data-level="22.2.1" data-path="richiami-di-matematica.html"><a href="richiami-di-matematica.html#note-sulla-cardinalità-degli-insiemi"><i class="fa fa-check"></i><b>22.2.1</b> Note sulla cardinalità degli insiemi</a></li>
+<li class="chapter" data-level="22.2.2" data-path="richiami-di-matematica.html"><a href="richiami-di-matematica.html#funzioni-reali-e-loro-derivate"><i class="fa fa-check"></i><b>22.2.2</b> Funzioni Reali e loro derivate</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="23" data-path="comè-realizzato-il-libro.html"><a href="comè-realizzato-il-libro.html"><i class="fa fa-check"></i><b>23</b> Com’è Realizzato il Libro</a>
+<ul>
+<li class="chapter" data-level="23.1" data-path="comè-realizzato-il-libro.html"><a href="comè-realizzato-il-libro.html#r-a-language-and-environment-for-statistical-computing"><i class="fa fa-check"></i><b>23.1</b> R: A Language and Environment for Statistical Computing</a>
+<ul>
+<li class="chapter" data-level="23.1.1" data-path="comè-realizzato-il-libro.html"><a href="comè-realizzato-il-libro.html#r-come-calcolatrice"><i class="fa fa-check"></i><b>23.1.1</b> R come calcolatrice</a></li>
+<li class="chapter" data-level="23.1.2" data-path="comè-realizzato-il-libro.html"><a href="comè-realizzato-il-libro.html#operatori-speciali"><i class="fa fa-check"></i><b>23.1.2</b> Operatori Speciali</a></li>
+<li class="chapter" data-level="23.1.3" data-path="comè-realizzato-il-libro.html"><a href="comè-realizzato-il-libro.html#vettori-e-matrici"><i class="fa fa-check"></i><b>23.1.3</b> Vettori e matrici</a></li>
+<li class="chapter" data-level="23.1.4" data-path="comè-realizzato-il-libro.html"><a href="comè-realizzato-il-libro.html#liste-e-dataframe"><i class="fa fa-check"></i><b>23.1.4</b> Liste e dataframe</a></li>
+<li class="chapter" data-level="23.1.5" data-path="comè-realizzato-il-libro.html"><a href="comè-realizzato-il-libro.html#classi-e-oggetti"><i class="fa fa-check"></i><b>23.1.5</b> Classi e Oggetti</a></li>
+<li class="chapter" data-level="23.1.6" data-path="comè-realizzato-il-libro.html"><a href="comè-realizzato-il-libro.html#i-grafici"><i class="fa fa-check"></i><b>23.1.6</b> I grafici</a></li>
+<li class="chapter" data-level="23.1.7" data-path="comè-realizzato-il-libro.html"><a href="comè-realizzato-il-libro.html#le-funzioni-in-r"><i class="fa fa-check"></i><b>23.1.7</b> Le Funzioni in R</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="24" data-path="funzioni-usate-nel-libro.html"><a href="funzioni-usate-nel-libro.html"><i class="fa fa-check"></i><b>24</b> Funzioni usate nel libro</a>
+<ul>
+<li class="chapter" data-level="24.1" data-path="funzioni-usate-nel-libro.html"><a href="funzioni-usate-nel-libro.html#istogramma"><i class="fa fa-check"></i><b>24.1</b> Istogramma</a></li>
+<li class="chapter" data-level="24.2" data-path="funzioni-usate-nel-libro.html"><a href="funzioni-usate-nel-libro.html#probabilità"><i class="fa fa-check"></i><b>24.2</b> Probabilità</a>
+<ul>
+<li class="chapter" data-level="24.2.1" data-path="funzioni-usate-nel-libro.html"><a href="funzioni-usate-nel-libro.html#tavole-della-somma"><i class="fa fa-check"></i><b>24.2.1</b> Tavole della somma</a></li>
+<li class="chapter" data-level="24.2.2" data-path="funzioni-usate-nel-libro.html"><a href="funzioni-usate-nel-libro.html#binomiale"><i class="fa fa-check"></i><b>24.2.2</b> Binomiale</a></li>
+<li class="chapter" data-level="24.2.3" data-path="funzioni-usate-nel-libro.html"><a href="funzioni-usate-nel-libro.html#poisson"><i class="fa fa-check"></i><b>24.2.3</b> Poisson</a></li>
+<li class="chapter" data-level="24.2.4" data-path="funzioni-usate-nel-libro.html"><a href="funzioni-usate-nel-libro.html#normale"><i class="fa fa-check"></i><b>24.2.4</b> Normale</a></li>
+<li class="chapter" data-level="24.2.5" data-path="funzioni-usate-nel-libro.html"><a href="funzioni-usate-nel-libro.html#tlc"><i class="fa fa-check"></i><b>24.2.5</b> TLC</a></li>
+</ul></li>
+<li class="chapter" data-level="24.3" data-path="funzioni-usate-nel-libro.html"><a href="funzioni-usate-nel-libro.html#inferenza"><i class="fa fa-check"></i><b>24.3</b> Inferenza</a>
+<ul>
+<li class="chapter" data-level="24.3.1" data-path="funzioni-usate-nel-libro.html"><a href="funzioni-usate-nel-libro.html#intervalli-di-confidenza"><i class="fa fa-check"></i><b>24.3.1</b> Intervalli di Confidenza</a></li>
+<li class="chapter" data-level="24.3.2" data-path="funzioni-usate-nel-libro.html"><a href="funzioni-usate-nel-libro.html#test"><i class="fa fa-check"></i><b>24.3.2</b> Test</a></li>
+<li class="chapter" data-level="24.3.3" data-path="funzioni-usate-nel-libro.html"><a href="funzioni-usate-nel-libro.html#regressione"><i class="fa fa-check"></i><b>24.3.3</b> Regressione</a></li>
+</ul></li>
+<li class="chapter" data-level="24.4" data-path="funzioni-usate-nel-libro.html"><a href="funzioni-usate-nel-libro.html#esempi-3"><i class="fa fa-check"></i><b>24.4</b> Esempi</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Appunti di Statistica</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="regressione-lineare" class="section level1 hasAnchor" number="17">
+<h1><span class="header-section-number">Capitolo 17</span> Regressione Lineare<a href="regressione-lineare.html#regressione-lineare" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="il-modello-derrore" class="section level2 hasAnchor" number="17.1">
+<h2><span class="header-section-number">17.1</span> Il modello d’errore<a href="regressione-lineare.html#il-modello-derrore" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Siano <span class="math inline">\(Y_1,...,Y_n\)</span> <span class="math inline">\(n\)</span> VC IID, replicazioni tc <span class="math inline">\(Y_i\sim N(\mu,\sigma_\varepsilon^2)\)</span>, dalle proprietà della normale possiamo riscrivere:
+<span class="math display">\[Y_i=\mu+\varepsilon_i\qquad\varepsilon_i\sim N(0,\sigma_\varepsilon^2)\]</span></p>
+<p><img src="Appunti_di_Statistica_2025_files/figure-html/17-regressione-I-6-1.png" width="672" /></p>
+<p><span class="math display">\[Y_i\sim N(\mu,\sigma_\varepsilon^2)~~\text{ è equivalente a dire }~~Y_i=\mu+\varepsilon_i,~~\varepsilon_i\sim N(0,\sigma_\varepsilon^2)\]</span></p>
+<div id="esempi-2" class="section level3 hasAnchor" number="17.1.1">
+<h3><span class="header-section-number">17.1.1</span> Esempi<a href="regressione-lineare.html#esempi-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="example">
+<p><span id="exm:unlabeled-div-203" class="example"><strong>Esempio 17.1  </strong></span>Stiamo studiando la produttività media di un ettaro coltivato ad una certa varietà di riso:
+per prima cosa piantiamo 10 ettari <strong>non</strong> trattati con fertilizzante (<span class="math inline">\(X=0\)</span>) con questa varietà e calcoliamo i quintali per ettaro, otteniamo (28.22, 27.46, 28.89, 28.6, 29.64, 28.69, 26.72, 27.79, 29.9, 29.78)</p>
+<p><span class="math display">\[Y_i=\mu_{(X=0)}+\varepsilon_i\qquad\varepsilon_i\sim N(0,\sigma_\varepsilon^2)\]</span></p>
+<p>Stimiamo
+<span class="math display">\[\hat\mu_{(X=0)}=\frac 1 n\sum_{i=1}^n y_i=28.569\]</span>
+e
+<span class="math display">\[\begin{eqnarray*}
+\hat\sigma_\varepsilon^2&amp;=&amp;\frac 1 n\sum_{i=1}^n y_i^2-\hat\mu_{(X=0)}^2\\
+&amp;=&amp;\frac 1 {10}(28.22^2+27.46^2+28.89^2 +...+ 29.9^2+29.78^2)-28.569^2\\
+&amp;=&amp;0.9881\\
+\hat\sigma_\varepsilon &amp;=&amp; 0.994
+\end{eqnarray*}\]</span></p>
+<p>Costruiamo dapprima un intervallo di confidenza sui dati
+Correggiamo <span class="math inline">\(\hat\sigma_\varepsilon^2\)</span></p>
+<p><span class="math display">\[\begin{eqnarray*}
+S_{(X=0)}^2&amp;=&amp;\frac{n}{n-1}\hat\sigma_{(X=0)}^2\\
+&amp;=&amp;\frac{10}{10-1}\cdot0.9881\\
+&amp;=&amp;1.0983\\
+S_{(X=0)}&amp;=&amp;1.048
+\end{eqnarray*}\]</span></p>
+<p>L’intervallo di confidenza al 95% per <span class="math inline">\(\mu_{(X=0)}\)</span> è
+<span class="math display">\[\hat\mu_{(X=0)}\pm t_{n-1;\alpha/2}\frac S{\sqrt n}=28.569\pm 2.2622\frac{1.048}{10}=
+(27.8193;29.3187)\]</span></p>
+<p><img src="Appunti_di_Statistica_2025_files/figure-html/17-regressione-I-8-1.png" width="672" /></p>
+<p>E quindi potremmo proporre la <strong>previsione</strong>:
+quanta produzione ci aspetteremo sul prossimo ettaro che pianteremo con quella varietà di riso?
+<span class="math display">\[\begin{eqnarray*}
+E(\hat Y_{11})&amp;=&amp;E(\hat\mu_{(X=0)}+\varepsilon_{11})\\
+&amp;=&amp;28.569+E(\varepsilon_{11})\\
+&amp;=&amp;28.569\qquad \text{poiché }
+\varepsilon_{11}\sim N\left(0,\sigma_\varepsilon^2\right)
+\end{eqnarray*}\]</span></p>
+<p>È una <em>previsione</em> corretta?
+<span class="math display">\[E(\hat Y_{11})=E(\hat\mu+\varepsilon_{11})=E(\hat\mu)+E(\varepsilon_{11})=\mu+0=\mu\]</span></p>
+<p>L’errore di previsione stimato è <span class="math inline">\(S_{(X=0)}=1.048\)</span>.</p>
+</div>
+<div class="example">
+<p><span id="exm:unlabeled-div-204" class="example"><strong>Esempio 17.2  </strong></span>Supponiamo di aver piantato altri 10 ettari di questa varietà ma su terreni trattati con 1.13 hg (<span class="math inline">\(X=1.13\)</span>)
+di concime azotato per ettaro e osserviamo (28.16, 30.38, 27.74, 29.07, 30.71, 28.4, 28.53, 28.36, 28.71, 29.14)
+<span class="math display">\[Y_i=\mu_{(X=1.13)}+\varepsilon_i\qquad\varepsilon_i\sim N(0,\sigma_\varepsilon^2)\]</span></p>
+<p>Stimiamo
+<span class="math display">\[\hat\mu_{(X=1.13)}=\frac 1 n\sum_{i=1}^n y_i=28.92\]</span>
+e
+<span class="math display">\[\begin{eqnarray*}
+\hat\sigma_\varepsilon^2&amp;=&amp;\frac 1 n\sum_{i=1}^n y_i^2-\hat\mu_{(X=0)}^2\\
+&amp;=&amp;\frac 1 {10}(28.16^2+30.38^2+27.74^2 +...+ 28.71^2+29.14^2)-28.92^2\\
+&amp;=&amp;0.8157\\
+\hat\sigma_\varepsilon &amp;=&amp; 0.9032
+\end{eqnarray*}\]</span></p>
+<p>Correggiamo <span class="math inline">\(\hat\sigma_\varepsilon^2\)</span></p>
+<p><span class="math display">\[\begin{eqnarray*}
+S_{(X=1.13)}^2&amp;=&amp;\frac{n}{n-1}\hat\sigma_{(X=0)}^2\\
+&amp;=&amp;\frac{10}{10-1}\cdot0.8157\\
+&amp;=&amp;0.9063\\
+S_{(X=1.3)}&amp;=&amp;0.952
+\end{eqnarray*}\]</span></p>
+<p>L’intervallo di confidenza al 95% per <span class="math inline">\(\mu_{(X=1.13)}\)</span> è
+<span class="math display">\[\hat\mu_{(X=1.13)}\pm t_{n-1;\alpha/2}\frac S{\sqrt n}=28.92\pm 2.2622\frac{0.952}{10}=
+(28.239;29.601)\]</span></p>
+<p><img src="Appunti_di_Statistica_2025_files/figure-html/17-regressione-I-10-1.png" width="672" /></p>
+<p>Se mettiamo a test, otteniamo</p>
+<p><strong>Test <span class="math inline">\(T\)</span> per due medie, (omogeneità)</strong></p>
+<p><span class="math inline">\(\fbox{A}\)</span> FORMULAZIONE DELLE IPOTESI</p>
+<p><span class="math display">\[\begin{cases}
+   H_0: \mu_\text{$(X=1.13)$} = \mu_\text{$(X=0)$} \\
+   H_1: \mu_\text{$(X=1.13)$} &gt; \mu_\text{$(X=0)$}
+   \end{cases}\]</span></p>
+<p><span class="math inline">\(\fbox{B}\)</span> SCELTA E CALCOLO STATISTICA-TEST, <span class="math inline">\(T\)</span></p>
+<p>L’ipotesi è di omogeneità e quindi calcoliamo:<span class="math display">\[
+   S_p^2=\frac{n_\text{ $(X=1.13)$ }\hat\sigma^2_\text{ $(X=1.13)$ }+n_\text{ $(X=0)$ }\hat\sigma^2_\text{ $(X=0)$ }}{n_\text{ $(X=1.13)$ }+n_\text{ $(X=0)$ }-2} =
+   \frac{ 10 \cdot 0.9032 ^2+ 10 \cdot 0.994 ^2}{ 10 + 10 -2}= 1.002
+  \]</span></p>
+<p><span class="math display">\[\begin{eqnarray*}
+  \frac{\hat\mu_\text{ $(X=1.13)$ } - \hat\mu_\text{ $(X=0)$ }}
+  {\sqrt{\frac {S^2_p}{n_\text{ $(X=1.13)$ }}+\frac {S^2_p}{n_\text{ $(X=0)$ }}}}&amp;\sim&amp;t_{n_\text{ $(X=1.13)$ }+n_\text{ $(X=0)$ }-2}\\
+  t_{\text{obs}}
+  &amp;=&amp; \frac{ ( 28.92 -  28.57 )} {\sqrt{\frac{ 0.9064 }{ 10 }+\frac{ 1.098 }{ 10 }}}
+  =   0.784 \, .
+  \end{eqnarray*}\]</span></p>
+<p><span class="math inline">\(\fbox{C}\)</span> CONCLUSIONE</p>
+<p>La siginficatitività è <span class="math inline">\(\alpha=0.05\)</span>, dalle tavole osserviamo <span class="math inline">\(t_{20-2;0.05}=1.7341\)</span>.</p>
+<p>Essendo <span class="math inline">\(t_\text{obs}=0.784&lt;t_{20-2;0.05}=1.7341\)</span> allora <strong>non</strong> rifiuto <span class="math inline">\(H_0\)</span> al 5%.</p>
+<p><img src="Appunti_di_Statistica_2025_files/figure-html/17-regressione-I-1,-1.png" width="672" /></p>
+<p>Il <span class="math inline">\(p_{\text{value}}\)</span> è</p>
+<p><span class="math display">\[ p_{\text{value}} = P(T_{20-2}&gt;0.78)=0.221609 \]</span></p>
+<p>Attenzione il calcolo del <span class="math inline">\(p_\text{value}\)</span> con la <span class="math inline">\(T\)</span> è puramente illustrativo e non può essere riprodotto senza una calcolatrice statistica adeguata.<span class="math display">\[
+0.1 &lt; p_\text{value}= 0.221609 \leq 1
+\]</span></p>
+</div>
+<div class="example">
+<p><span id="exm:unlabeled-div-205" class="example"><strong>Esempio 17.3  </strong></span>Supponiamo di aver piantato altri 10 ettari di questa varietà ma su terreni trattati con 2.84 hg (<span class="math inline">\(X=2.84\)</span>)
+di concime azotato per ettaro e osserviamo (29.03, 32.09, 29.56, 29.59, 28.52, 30.24, 30.2, 29.89, 30.41, 30.94)
+<span class="math display">\[Y_i=\mu_{(X=2.84)}+\varepsilon_i\qquad\varepsilon_i\sim N(0,\sigma_\varepsilon^2)\]</span></p>
+<p>Stimiamo
+<span class="math display">\[\hat\mu_{(X=2.84)}=\frac 1 n\sum_{i=1}^n y_i=30.047\]</span>
+e
+<span class="math display">\[\begin{eqnarray*}
+\hat\sigma_{(X=2.84)}^2&amp;=&amp;\frac 1 n\sum_{i=1}^n y_i^2-\hat\mu_{(X=2.84)}^2\\
+&amp;=&amp;\frac 1 {10}(29.03^2+32.09^2+29.56^2 +...+ 30.41^2+30.94^2)-30.047^2\\
+&amp;=&amp;0.9\\
+\hat\sigma_{(X=2.84)} &amp;=&amp; 0.9487
+\end{eqnarray*}\]</span>
+infine</p>
+<p><span class="math display">\[\begin{eqnarray*}
+S_{(X=2.84)}^2&amp;=&amp;\frac{n}{n-1}\hat\sigma_{(X=2.84)}^2\\
+&amp;=&amp;\frac{10}{10-1}\cdot0.9\\
+&amp;=&amp;1\\
+S_{(X=2.84)}&amp;=&amp;1
+\end{eqnarray*}\]</span></p>
+<p><img src="Appunti_di_Statistica_2025_files/figure-html/17-regressione-I-12-1.png" width="672" /></p>
+<p><strong>problema 1:</strong> abbiamo tre stime di <span class="math inline">\(\mu\)</span> e tre stime di <span class="math inline">\(\sigma\)</span> ottenute come se i campioni fossero separati.
+Non abbiamo tenuto conto della natura metrica della <span class="math inline">\(X\)</span>.</p>
+<p><img src="Appunti_di_Statistica_2025_files/figure-html/17-regressione-I-13-1.png" width="672" /></p>
+<p><strong>problema 2:</strong> alla luce di questi dati cosa possiamo dire sulla produzione media se usassimo 1.9 hg di concime per ettaro?
+Potremmo proporre di congiungere le medie con una spezzata</p>
+<p><img src="Appunti_di_Statistica_2025_files/figure-html/17-regressione-I-14-1.png" width="672" /></p>
+</div>
+<div class="example">
+<p><span id="exm:unlabeled-div-206" class="example"><strong>Esempio 17.4  </strong></span><strong>problema 3:</strong> Dobbiamo studiare un nuova varietà di riso, ma il budget è inferiore.
+osserviamo 10 ettari</p>
+<table>
+<colgroup>
+<col width="21%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td align="left"><span class="math inline">\(X=\)</span> Fertilizzante</td>
+<td align="right">0.00</td>
+<td align="right">0.226</td>
+<td align="right">0.452</td>
+<td align="right">0.678</td>
+<td align="right">0.904</td>
+<td align="right">1.13</td>
+<td align="right">1.356</td>
+<td align="right">1.582</td>
+<td align="right">1.808</td>
+<td align="right">2.034</td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(Y=\)</span> Raccolto</td>
+<td align="right">26.87</td>
+<td align="right">27.869</td>
+<td align="right">27.035</td>
+<td align="right">29.651</td>
+<td align="right">28.571</td>
+<td align="right">27.61</td>
+<td align="right">29.099</td>
+<td align="right">29.536</td>
+<td align="right">29.558</td>
+<td align="right">28.863</td>
+</tr>
+</tbody>
+</table>
+<p><img src="Appunti_di_Statistica_2025_files/figure-html/17-regressione-I-15-1.png" width="672" /></p>
+<p>La previsione sembra più difficile,
+la suggestione di prima non sembra funzionare</p>
+<p><img src="Appunti_di_Statistica_2025_files/figure-html/17-regressione-I-2,-1.png" width="672" /></p>
+</div>
+</div>
+</div>
+<div id="il-modello-di-regressione" class="section level2 hasAnchor" number="17.2">
+<h2><span class="header-section-number">17.2</span> Il modello di regressione<a href="regressione-lineare.html#il-modello-di-regressione" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Vogliamo modellare la linea delle medie. Ci aspetteremmo una linea che passi tra i punti che
+che sia, per ogni <span class="math inline">\(x\)</span> dato, il valore atteso di <span class="math inline">\(Y\)</span> condizionato a quella <span class="math inline">\(x\)</span>.
+Cioè abbiamo bisogno di un modello per la media di <span class="math inline">\(Y\)</span> per un dato <span class="math inline">\(X\)</span>
+<span class="math display">\[E(Y_i|X=x_i)=f(x_i)\]</span></p>
+<p>E si legge che <span class="math inline">\(Y\)</span>, in media, condizionato ad <span class="math inline">\(X=x\)</span> vale <span class="math inline">\(f(x)\)</span>, dove <span class="math inline">\(f\)</span> è una funzione da scegliere.
+L’idea di base è che
+<span class="math display">\[y_i=f(x_i)+\varepsilon_i\]</span>
+la <span class="math inline">\(y\)</span> osservata in corrispondenza della <span class="math inline">\(x\)</span> è pari ad <span class="math inline">\(f(x)\)</span> a meno di un errore casuale.
+Dove si assume che l’errore abbia media zero
+<span class="math display">\[E(\varepsilon_i)=0\]</span></p>
+<p>e varianza costante
+<span class="math display">\[V(\varepsilon_i)=\sigma^2_{\varepsilon}, ~\forall i\]</span></p>
+<p>Qui di seguito un paio di esempi grafici</p>
+<p><img src="Appunti_di_Statistica_2025_files/figure-html/17-regressione-I-3,-1.png" width="672" /></p>
+<!-- ```{r 17-regressione-I-4,,results='asis'} -->
+<!-- plot(x*2.5,y,pch=16,cex=.8,xlab="x",xlim = c(2,4),ylim = c(35,48)) -->
+<!-- lines(x*2.5,15*sin(x)+28,col=ared) -->
+<!-- points(x*2.5,15*sin(x)+28,col=1,pch=4,cex=.5) -->
+<!-- segments(x*2.5,15*sin(x)+28,x*2.5,y,lty=2,col="grey") -->
+<!-- ``` -->
+</div>
+<div id="la-regressione-lineare" class="section level2 hasAnchor" number="17.3">
+<h2><span class="header-section-number">17.3</span> La Regressione Lineare<a href="regressione-lineare.html#la-regressione-lineare" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Tra le tante <span class="math inline">\(f\)</span> limitiamo l’attenzione alle funzioni lineari
+<span class="math display">\[y_i=\beta_0+\beta_1x_i+\varepsilon_i\]</span></p>
+<p><img src="Appunti_di_Statistica_2025_files/figure-html/17-regressione-I-5,-1.png" width="672" /></p>
+<div id="il-modello-di-regressione-lineare-semplice" class="section level3 hasAnchor" number="17.3.1">
+<h3><span class="header-section-number">17.3.1</span> Il modello di regressione lineare semplice<a href="regressione-lineare.html#il-modello-di-regressione-lineare-semplice" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Il modello di regressione (lineare semplice) è
+<span class="math display">\[y_i=\beta_0+\beta_1x_i+\varepsilon_i,\qquad E(\varepsilon_i)=0,~V(\varepsilon_i)=\sigma^2_{\varepsilon_i}\]</span></p>
+<div class="nota">
+<p>Le variabili sono chiamate:</p>
+<ul>
+<li><span class="math inline">\(y\)</span> dipendente, endogena, risposta, ecc.</li>
+<li><span class="math inline">\(x\)</span> indipendente, esogena, stimolo, ecc.</li>
+<li><span class="math inline">\(\varepsilon\)</span> è chiamato, residuo, o errore</li>
+</ul>
+<p>I parametri di popolazione sono <strong>3</strong>: <span class="math inline">\(\beta_0\)</span>, <span class="math inline">\(\beta_1\)</span> e <span class="math inline">\(\sigma^2_\varepsilon\)</span></p>
+<ul>
+<li><span class="math inline">\(\beta_0\)</span> è l’intercetta della retta. <span class="math inline">\(\beta_0\)</span> rappresenta la media di <span class="math inline">\(y\)</span> quando <span class="math inline">\(x=0\)</span>, non sempre ha significato fenomenico</li>
+<li><span class="math inline">\(\beta_1\)</span> è il coefficiente angolare. <span class="math inline">\(\beta_1\)</span> rappresenta quanto la media di <span class="math inline">\(y\)</span> aumenta all’aumentare unitario della <span class="math inline">\(x\)</span>.</li>
+<li><span class="math inline">\(\sigma^2_\varepsilon\)</span> è la varianza dell’errore <span class="math inline">\(\varepsilon\)</span>. <span class="math inline">\(\sigma^2_\varepsilon\)</span> rappresenta la variabilità dei punti intorno alla retta.</li>
+</ul>
+<p><img src="Appunti_di_Statistica_2025_files/figure-html/17-regressione-I-17-1.png" width="672" /></p>
+</div>
+</div>
+<div id="la-storia-del-metodo" class="section level3 hasAnchor" number="17.3.2">
+<h3><span class="header-section-number">17.3.2</span> La Storia del Metodo<a href="regressione-lineare.html#la-storia-del-metodo" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><a href="https://en.wikipedia.org/wiki/Regression_toward_the_mean" class="uri">https://en.wikipedia.org/wiki/Regression_toward_the_mean</a></p>
+<p><img src="Appunti_di_Statistica_2025_files/figure-html/17-regressione-I-18-1.png" width="672" /></p>
+<p>L’ipotesi di Galton:
+<span class="math display">\[
+y_i = x_i +\varepsilon_i
+\]</span>
+fu smentita dai dati
+<span class="math display">\[
+y_i = 97.18+0.45\cdot x_i +\varepsilon_i
+\]</span></p>
+</div>
+<div id="gli-assunti-del-modello-di-regressione" class="section level3 hasAnchor" number="17.3.3">
+<h3><span class="header-section-number">17.3.3</span> Gli assunti del modello di regressione<a href="regressione-lineare.html#gli-assunti-del-modello-di-regressione" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="info">
+<ol start="0" style="list-style-type: decimal">
+<li>Dati <span class="math inline">\((x_1,y_1),...,(x_n,y_n)\)</span>, <span class="math inline">\(n\)</span> coppie di punti, si assume che
+<span class="math display">\[y_i=\beta_0+\beta_1x_i+\varepsilon_i\]</span></li>
+<li>Il valore atteso dell’errore è nullo
+<span class="math display">\[E(\varepsilon_i)=0\]</span></li>
+<li>Omoschedasticità
+<span class="math display">\[V(\varepsilon_{i}) = \sigma_\varepsilon^2,\qquad \text{costante }\forall i\]</span></li>
+<li>Indipendenza dei residui
+<span class="math display">\[\varepsilon_i\text{ è indipendente da }\varepsilon_j~~\forall i\neq j\]</span></li>
+<li>Indipendenza tra i residui e la <span class="math inline">\(X\)</span>
+<span class="math display">\[X_i\text{ è indipendente da }\varepsilon_i~~\forall i\]</span></li>
+<li><em>Esogeneità</em> della <span class="math inline">\(X\)</span>: la distribuzione su <span class="math inline">\(X\)</span> non è oggetto di inferenza</li>
+<li>Normalità dei residui
+<span class="math display">\[\varepsilon_i\sim N(0,\sigma^2_\varepsilon)\]</span></li>
+</ol>
+</div>
+<p><strong>Assunto 0</strong>
+Dati <span class="math inline">\((x_1,y_1),...,(x_n,y_n)\)</span>, <span class="math inline">\(n\)</span> coppie di punti, si assume che
+<span class="math display">\[y_i=\beta_0+\beta_1x_i+\varepsilon_i\]</span></p>
+<p>Situazioni in cui l’assunto 0 è violato</p>
+<p><img src="Appunti_di_Statistica_2025_files/figure-html/17-regressione-I-20-1.png" width="672" /><img src="Appunti_di_Statistica_2025_files/figure-html/17-regressione-I-20-2.png" width="672" /></p>
+<p><strong>Assunto 1, il valore atteso dell’errore è nullo</strong></p>
+<p><span class="math display">\[E(\varepsilon_i)=0\]</span></p>
+<p>Inverificabile, se per esempio
+<span class="math display">\[E(\varepsilon_i)=+1,~~\forall i,~ E(Y_i|x_i)=\beta_0+\beta_1x_i+E(\varepsilon_i)=\beta_0+\beta_1x_i+1\]</span></p>
+<p><img src="Appunti_di_Statistica_2025_files/figure-html/17-regressione-I-21-1.png" width="672" /></p>
+<p><strong>Assunti 3. e 6. Omoschedasticità e Indipendenza tra i residui e la <span class="math inline">\(X\)</span></strong></p>
+<p><span class="math display">\[V(\varepsilon_{i}) = \sigma_\varepsilon^2,\qquad \text{costante }\forall i\]</span>
+<span class="math display">\[X_i\text{ è indipendente da }\varepsilon_i~~\forall i\]</span></p>
+<p>La varianza non cambia con le osservazioni</p>
+<p><img src="Appunti_di_Statistica_2025_files/figure-html/17-regressione-I-23-1.png" width="672" />
+<img src="Appunti_di_Statistica_2025_files/figure-html/17-regressione-I-24-1.png" width="672" /></p>
+<p><strong>4. Indipendenza dei residui</strong></p>
+<p><span class="math display">\[\varepsilon_i\text{ è indipendente da }\varepsilon_j~~\forall i\neq j\]</span></p>
+<p>L’assunto vine tipicamente violato nelle serie temporali</p>
+<p><img src="Appunti_di_Statistica_2025_files/figure-html/17-regressione-I-26-1.png" width="672" /></p>
+<p><strong>5. Esogeneità della <span class="math inline">\(X\)</span>: la distribuzione su <span class="math inline">\(X\)</span> non è oggetto di inferenza.</strong>
+In contesto di sperimentazione la <span class="math inline">\(X\)</span> viene fissata dal ricercatore.
+In un contesto di dati sul campo la <span class="math inline">\(X\)</span> non può essere fissata, ma viene usata
+<em>come se fosse</em> fissata.
+L’obiettivo di ricerca rimane la <span class="math inline">\(Y\)</span> e la relazione tra <span class="math inline">\(X\)</span> ed <span class="math inline">\(Y\)</span>, <strong>non</strong>
+la distribuzione di <span class="math inline">\(X\)</span>.</p>
+<p><strong>6. Normalità dei residui</strong>
+Gli errori sono normalmente distribuiti
+<span class="math display">\[\varepsilon_i\sim N\left(0,\sigma_\varepsilon^2\right)\]</span></p>
+<p>Essendo
+<span class="math display">\[Y_i = \beta_0+\beta_1x_i+\varepsilon_i, ~~\varepsilon_i\sim N\left(0,\sigma_\varepsilon^2\right)\]</span></p>
+<p>allora, dalle proprietà delle normali
+<span class="math display">\[Y_i\sim  N\left(\beta_0+\beta_1x_i,\sigma_\varepsilon^2\right)\]</span></p>
+<p><span class="math inline">\(Y_i\)</span> è normale con media <span class="math inline">\(\beta_0+\beta_1x_i\)</span> e varianza <span class="math inline">\(\sigma_\varepsilon^2\)</span></p>
+<p><img src="Appunti_di_Statistica_2025_files/figure-html/17-regressione-I-28-1.png" width="672" /></p>
+</div>
+<div id="il-metodo-dei-minimi-quadrati" class="section level3 hasAnchor" number="17.3.4">
+<h3><span class="header-section-number">17.3.4</span> Il metodo dei minimi quadrati<a href="regressione-lineare.html#il-metodo-dei-minimi-quadrati" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>È un metodo di stima per <span class="math inline">\(\beta_0\)</span> e <span class="math inline">\(\beta_1\)</span>, si può dimostrare che, in virtù
+dell’assunto 6. (la normalità dei residui) il metodo dei minimi quadrati produce le
+stime di massima verosimiglianza. Svilupperemo la teoria attraverso un esempio su 4 punti.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="right"><span class="math inline">\(i\)</span></th>
+<th align="right"><span class="math inline">\(x_i\)</span></th>
+<th align="right"><span class="math inline">\(y_i\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="right">2.0</td>
+</tr>
+<tr class="even">
+<td align="right">2</td>
+<td align="right">1</td>
+<td align="right">3.5</td>
+</tr>
+<tr class="odd">
+<td align="right">3</td>
+<td align="right">2</td>
+<td align="right">2.5</td>
+</tr>
+<tr class="even">
+<td align="right">4</td>
+<td align="right">3</td>
+<td align="right">4.0</td>
+</tr>
+</tbody>
+</table>
+<p><img src="Appunti_di_Statistica_2025_files/figure-html/17-regressione-I-30-1.png" width="672" /></p>
+</div>
+<div id="la-distanza-di-una-retta-dai-punti-il-metodo-dei-minimi-quadrati" class="section level3 hasAnchor" number="17.3.5">
+<h3><span class="header-section-number">17.3.5</span> La distanza di una retta dai punti (il metodo dei minimi quadrati)<a href="regressione-lineare.html#la-distanza-di-una-retta-dai-punti-il-metodo-dei-minimi-quadrati" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Si tratta di cercare la retta che rende minima la somma dei quadrati delle distanza
+della retta misurate nella scala di misura della <span class="math inline">\(y\)</span>.
+Per ogni retta candidata <span class="math inline">\((\beta_0^*,\beta_1^*)\)</span>, costruiamo la previsione
+<span class="math display">\[\hat y_i^*=\beta_0^*+\beta_1^*x_i\]</span>
+e quindi i residui
+<span class="math display">\[\hat\varepsilon_i^*=y_i-\hat y_i\]</span></p>
+<p>Il criterio dei <strong>minimi quadrati</strong> è
+<span class="math display">\[G(\beta_0^*,\beta_1^*)=\sum_{i=1}^n ({\hat\varepsilon_i^*})^{2} =\sum_{i=1}^n(y_i-\hat y_i^*)^2=\sum_{i=1}^n(y_i-(\beta_0^*+\beta_1^*x_i))^2\]</span></p>
+<p>La retta dei minimi quadrati è quella coppia di <span class="math inline">\(\hat\beta_0\)</span> e <span class="math inline">\(\hat\beta_1\)</span> tali che
+<span class="math display">\[G(\hat\beta_0,\hat\beta_1)&lt;G(\beta_0^*,\beta_1^*),~~\forall(\beta_0^*,\beta_1^*)\neq(\hat\beta_0,\hat\beta_1)\]</span></p>
+<p>Se, per esempio, scegliessimo <span class="math inline">\(\beta_0^*=2.2,~\beta_1^*=0.36\)</span>, otterremmo</p>
+<table>
+<colgroup>
+<col width="3%" />
+<col width="5%" />
+<col width="5%" />
+<col width="31%" />
+<col width="30%" />
+<col width="24%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="right"><span class="math inline">\(i\)</span></th>
+<th align="right"><span class="math inline">\(x_i\)</span></th>
+<th align="right"><span class="math inline">\(y_i\)</span></th>
+<th align="right"><span class="math inline">\(\hat y_i^*=\beta_0^*+\beta_1^*x_i\)</span></th>
+<th align="right"><span class="math inline">\(\hat\varepsilon_i^*=y_i-\hat y^*\)</span></th>
+<th align="right"><span class="math inline">\(({\hat\varepsilon_i^*})^2\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="right">2.0</td>
+<td align="right">2.20</td>
+<td align="right">-0.20</td>
+<td align="right">0.0400</td>
+</tr>
+<tr class="even">
+<td align="right">2</td>
+<td align="right">1</td>
+<td align="right">3.5</td>
+<td align="right">2.56</td>
+<td align="right">0.94</td>
+<td align="right">0.8836</td>
+</tr>
+<tr class="odd">
+<td align="right">3</td>
+<td align="right">2</td>
+<td align="right">2.5</td>
+<td align="right">2.92</td>
+<td align="right">-0.42</td>
+<td align="right">0.1764</td>
+</tr>
+<tr class="even">
+<td align="right">4</td>
+<td align="right">3</td>
+<td align="right">4.0</td>
+<td align="right">3.28</td>
+<td align="right">0.72</td>
+<td align="right">0.5184</td>
+</tr>
+</tbody>
+</table>
+<p><img src="Appunti_di_Statistica_2025_files/figure-html/17-regressione-I-32-1.png" width="672" /></p>
+<table>
+<colgroup>
+<col width="3%" />
+<col width="5%" />
+<col width="5%" />
+<col width="31%" />
+<col width="30%" />
+<col width="24%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="right"><span class="math inline">\(i\)</span></th>
+<th align="right"><span class="math inline">\(x_i\)</span></th>
+<th align="right"><span class="math inline">\(y_i\)</span></th>
+<th align="right"><span class="math inline">\(\hat y_i^*=\beta_0^*+\beta_1^*x_i\)</span></th>
+<th align="right"><span class="math inline">\(\hat\varepsilon_i^*=y_i-\hat y^*\)</span></th>
+<th align="right"><span class="math inline">\(({\hat\varepsilon_i^*})^2\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="right">2.0</td>
+<td align="right">3.20</td>
+<td align="right">-1.20</td>
+<td align="right">1.4400</td>
+</tr>
+<tr class="even">
+<td align="right">2</td>
+<td align="right">1</td>
+<td align="right">3.5</td>
+<td align="right">3.05</td>
+<td align="right">0.45</td>
+<td align="right">0.2025</td>
+</tr>
+<tr class="odd">
+<td align="right">3</td>
+<td align="right">2</td>
+<td align="right">2.5</td>
+<td align="right">2.90</td>
+<td align="right">-0.40</td>
+<td align="right">0.1600</td>
+</tr>
+<tr class="even">
+<td align="right">4</td>
+<td align="right">3</td>
+<td align="right">4.0</td>
+<td align="right">2.75</td>
+<td align="right">1.25</td>
+<td align="right">1.5625</td>
+</tr>
+</tbody>
+</table>
+<p><span class="math display">\[G(2.2,0.36)=3.365\]</span></p>
+<p>Se invece scegliessimo <span class="math inline">\(\beta_0^*=3.2,~\beta_1^*=-1.5\)</span>, otterremmo</p>
+<p><span class="math display">\[G(3.2,-1.15)=3.365\]</span></p>
+<p>Siccome
+<span class="math display">\[G(2.2,0.36)=1.6184&lt;G(3.2,-1.15)=3.365\]</span>
+allora diremo che la retta <span class="math inline">\(\beta_0^*=2.2,~\beta_1^*=0.36\)</span> è <em>più vicina</em>, nel senso dei minimi quadrati, della retta <span class="math inline">\(\beta_0^*=3.2,~\beta_1^*=-1.5\)</span>.</p>
+</div>
+<div id="soluzioni-dei-minimi-quadrati" class="section level3 hasAnchor" number="17.3.6">
+<h3><span class="header-section-number">17.3.6</span> Soluzioni dei minimi quadrati<a href="regressione-lineare.html#soluzioni-dei-minimi-quadrati" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>La retta dei minimi quadrati è quella coppia di <span class="math inline">\(\hat\beta_0\)</span> e <span class="math inline">\(\hat\beta_1\)</span> tali che
+<span class="math display">\[G(\hat\beta_0,\hat\beta_1)&lt;G(\beta_0,\beta_1),~~\forall(\beta_0,\beta_1)\neq(\hat\beta_0,\hat\beta_1)\]</span>
+ovvero
+<span class="math display">\[\begin{eqnarray*}
+(\hat\beta_0,\hat\beta_1)=\operatorname*{argmin}_{(\beta_0,\beta_1)\in\mathbb{R}^2}G(\beta_0,\beta_1)
+\end{eqnarray*}\]</span></p>
+<div class="info">
+<div class="proposition">
+<p><span id="prp:unlabeled-div-207" class="proposition"><strong>Proprietà 17.1  (Stimatori dei Minimi Quadrati) </strong></span>Gli stimatori dei minimi quadrati <span class="math inline">\(\hat\beta_0\)</span> e <span class="math inline">\(\hat\beta_1\)</span> sono
+<span class="math display">\[\begin{eqnarray*}
+\hat\beta_1 &amp;=&amp; \frac{\frac 1 n\sum_{i=1}^n{(x_i-\bar x)(y_i-\bar y)}}{\frac 1 n\sum_{i=1}^n(x_i-\bar x)^2}=\frac{\text{ cov}(x,y)}{\hat\sigma^2_X}\\
+\hat\beta_0 &amp;=&amp;\bar y -\hat\beta_1\bar x
+\end{eqnarray*}\]</span>
+dove
+<span class="math display">\[\bar y = \frac 1 n\sum_{i=1}^n y_i,\qquad \bar x=\frac 1 n \sum_{i=1}^n x_i\]</span>
+e
+<span class="math display">\[
+\text{ cov}(x,y) = \frac 1 n\sum_{i=1}^n(x_i-\bar x)(y_i-\bar y)
+\]</span></p>
+</div>
+</div>
+<div class="proof">
+<p><span id="unlabeled-div-208" class="proof"><em>Dimostrazione</em>. </span><span class="math display">\[\begin{eqnarray*}
+  G(\beta_{0}, \beta_{1}) &amp;=&amp; \frac 1n \sum_{i=1}^{n} \left( y_{i} - (\beta_{0} + \beta_{1} x_{i})   \right)^2\\
+  \frac{\partial G(\beta_{0}, \beta_{1})} {\partial \beta_{0}}
+&amp;=&amp; -\frac{2} {n} \sum_{i=1}^n  \left( y_{i} - (\beta_{0} + \beta_{1} x_{i})
+    \right)\\
+&amp;=&amp; -\frac{2} n\left(\sum_{i=1}^ny_i-\sum_{i=1}^n\beta_0-\sum_{i=1}^n\beta_1 x_i\right) \\
+&amp;=&amp;-\frac{2} n\left(n\bar y-n\beta_0-n\beta_1\bar x\right) \\
+&amp;=&amp;-2\left(\bar y-\beta_0-\beta_1\bar x\right) \\
+    \frac{\partial G(\beta_{0}, \beta_{1})}  {\partial \beta_{1}}
+&amp;=&amp; -\frac{2} {n} \sum_{i=1}^n  x_i\left( y_{i} - (\beta_{0} + \beta_{1} x_{i})
+    \right)\\
+&amp;=&amp; -\frac{2} {n} \left(\sum_{i=1}^n  x_i y_{i}\right) - \left(\sum_{i=1}^n\beta_{0}x_i\right)
+- \left(\sum_{i=1}^n\beta_{1} x_{i}^2\right)\\
+&amp;=&amp; -2 \left(\left(\frac 1n\sum_{i=1}^n  x_i y_{i}\right) - \beta_{0}\bar x
+- \beta_{1}\left(\frac 1n\sum_{i=1}^n x^2_{i}\right)\right)\\
+\end{eqnarray*}\]</span></p>
+<p>E otteniamo il <strong>sistema di equazioni normali</strong></p>
+<p><span class="math display">\[
+\left\{
+\begin{array}{rl}
+\frac{\partial G(\beta_{0}, \beta_{1})} {\partial \beta_{0}} &amp;= 0  \\
+  \frac{\partial G(\beta_{0}, \beta_{1})} {\partial \beta_{1}} &amp;= 0
+\end{array}\right.
+\]</span></p>
+<p>Dividendo per 2 e cambiando di segno, si ha
+<span class="math display">\[
+\left\{
+\begin{array}{rl}
+\left(\bar y-\beta_0-\beta_1\bar x\right)  &amp;= 0\\
+\left(\frac 1n\sum_{i=1}^n  x_i y_{i}\right) - \beta_{0}\bar x
+- \beta_{1}\left(\frac 1n\sum_{i=1}^n x^2_{i}\right) &amp;= 0
+\end{array}\right.
+\]</span>
+da cui
+<span class="math display">\[
+    \hat\beta_0 = \bar y- \beta_{1} \bar{x}                  
+\]</span></p>
+<p>E sostituiamo</p>
+<p><span class="math display">\[\begin{eqnarray*}
+\left(\frac 1n\sum_{i=1}^n  x_i y_{i}\right) - (\bar y - \beta_1\bar x)\bar x
+- \beta_{1}\left(\frac 1n\sum_{i=1}^n x^2_{i}\right) &amp;=&amp; 0\\
+\beta_1\left(\frac 1n\sum_{i=1}^n x^2_{i}-\bar x^2\right) &amp;=&amp;
+\frac 1n\sum_{i=1}^n x_i y_{i} - \bar x\cdot\bar y\\
+\hat\beta_1 &amp;=&amp; \frac{\frac 1n\sum_{i=1}^n x_i y_{i} - \bar x\cdot\bar y}{\frac 1n\sum_{i=1}^n x^2_{i}-\bar x^2}
+\end{eqnarray*}\]</span></p>
+<p>Siccome
+<span class="math display">\[\begin{eqnarray*}
+   \text{ cov}(x,y) &amp;=&amp; \frac 1 n\sum_{i=1}^n(x_i-\bar x)(y_i-\bar y)\\
+   &amp;=&amp; \frac 1 n\sum_{i=1}^n(x_i~y_i - y_i~\bar x - x_i~\bar y + \bar x\bar y)\\
+   &amp;=&amp; \frac 1 n\sum_{i=1}^n x_i~y_i - \frac {\bar x} n\sum_{i=1}^n y_i - \frac {\bar y} n\sum_{i=1}^nx_i + \frac 1 n\sum_{i=1}^n\bar x\bar y\\
+   &amp;=&amp; \frac 1 n\sum_{i=1}^n x_i~y_i-\bar x\bar y-\bar x\bar y+-\bar x\bar y\\
+   &amp;=&amp; \frac 1 n\sum_{i=1}^n x_i~y_i-\bar x\bar y
+\end{eqnarray*}\]</span></p>
+<p>Concludendo la prova.</p>
+</div>
+</div>
+</div>
+<div id="la-covarianza" class="section level2 hasAnchor" number="17.4">
+<h2><span class="header-section-number">17.4</span> La covarianza<a href="regressione-lineare.html#la-covarianza" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="info">
+<div class="definition">
+<p><span id="def:unlabeled-div-209" class="definition"><strong>Definizione 17.1  </strong></span>La Covarianza <span class="math inline">\(\text{cov}(x,y)\)</span> tra due variabili <span class="math inline">\(x\)</span> e <span class="math inline">\(y\)</span> è una misura della loro <em>covariazione</em>
+<span class="math display">\[\text{cov}(x,y)=\frac 1 n\sum_{i=1}^n{(x_i-\bar x)(y_i-\bar y)}\]</span></p>
+</div>
+</div>
+<p>La covarianza è la <em>media degli scarti incrociati dalla media</em>
+Come per la varianza esiste una formula semplificata:</p>
+<div class="info">
+<div class="proposition">
+<p><span id="prp:unlabeled-div-210" class="proposition"><strong>Proprietà 17.2  </strong></span><span class="math display">\[\text{cov}(x,y)=\frac 1 n\sum_{i=1}^nx_i~y_i-\bar x\bar y\]</span></p>
+</div>
+</div>
+<div class="nota">
+<p>La covarianza è <em>la media dei prodotti degli scarti dalla media</em> può essere riletta come <em>la media dei prodotti</em> meno <em>il prodotto delle medie</em>.</p>
+</div>
+<div id="calcolo-della-covarianza" class="section level3 hasAnchor" number="17.4.1">
+<h3><span class="header-section-number">17.4.1</span> Calcolo della covarianza<a href="regressione-lineare.html#calcolo-della-covarianza" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Nel caso in esame
+<span class="math display">\[\bar x=\frac 1 4(0+1+2+3)=\frac{6}{4}=1.5\]</span>
+<span class="math display">\[\bar y=\frac 1 4(2+3.5+2.5+4)=\frac{12}{4}=3\]</span></p>
+<p>Per la covarianza:
+<span class="math display">\[\begin{eqnarray*}
+\text{cov}(x,y)&amp;=&amp;\frac 1 4\Big(( 0-1.5 ) ( 2-3 )+( 1-1.5 ) ( 3.5-3 )+( 2-1.5 ) ( 2.5-3 )+( 3-1.5 ) ( 4-3 )\Big)\\
+&amp;=&amp; \frac 1 4(0 \times 2+1 \times 3.5+2 \times 2.5+3 \times 4)-1.5\times3\\
+&amp;=&amp; \frac 1 4(20.5)-4.5\\
+&amp;=&amp; 0.625
+\end{eqnarray*}\]</span></p>
+</div>
+<div id="interpretazione-della-covarianza" class="section level3 hasAnchor" number="17.4.2">
+<h3><span class="header-section-number">17.4.2</span> Interpretazione della Covarianza<a href="regressione-lineare.html#interpretazione-della-covarianza" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>La covarianza non è direttamente leggibile perché ha un’unità di misura mista,
+prodotto della unità di misura della <span class="math inline">\(x\)</span> e quella della <span class="math inline">\(y\)</span>.</p>
+<p>È interessante il segno della covarianza perché indica la pendenza della retta se la covarianza è positiva c’è <strong>concordanza dei segni</strong>, ad <span class="math inline">\(x\)</span> maggiori del loro baricentro (<span class="math inline">\((x_i-\bar x)&gt;0\)</span>) corrispondo, <em>in media</em>, <span class="math inline">\(y\)</span> maggiori del loro baricentro <span class="math inline">\((y_i-\bar y)&gt;0\)</span>. Mentre ad <span class="math inline">\(x\)</span> minori del loro baricentro (<span class="math inline">\((x_i-\bar x)&lt;0\)</span>) corrispondo, <em>in media</em>, <span class="math inline">\(y\)</span> minori del loro baricentro <span class="math inline">\((y_i-\bar y)&lt;0\)</span>. Se invece la covarianza è negativa c’è <strong>discordanza dei segni</strong>, cioè ad <span class="math inline">\(x\)</span> maggiori del loro baricentro (<span class="math inline">\((x_i-\bar x)&gt;0\)</span>) corrispondo, <em>in media</em>, <span class="math inline">\(y\)</span> minori del loro baricentro <span class="math inline">\((y_i-\bar y)&lt;0\)</span>. Mentre ad <span class="math inline">\(x\)</span> minori del loro baricentro (<span class="math inline">\((x_i-\bar x)&lt;0\)</span>) corrispondo, <em>in media</em>, <span class="math inline">\(y\)</span> maggiori del loro baricentro <span class="math inline">\((y_i-\bar y)&gt;0\)</span>.</p>
+<p><img src="Appunti_di_Statistica_2025_files/figure-html/17-regressione-I-34-1.png" width="672" />
+<img src="Appunti_di_Statistica_2025_files/figure-html/17-regressione-I-35-1.png" width="672" /></p>
+</div>
+<div id="altre-proprietà-della-covarianza" class="section level3 hasAnchor" number="17.4.3">
+<h3><span class="header-section-number">17.4.3</span> Altre proprietà della covarianza<a href="regressione-lineare.html#altre-proprietà-della-covarianza" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Simmetria
+<span class="math display">\[\text{cov}(x,y)=\text{cov}(y,x)\]</span>
+la dimostrazione è immediata
+<span class="math display">\[\text{cov}(x,y)=\frac 1 n\sum_{i=1}^n{(x_i-\bar x)(y_i-\bar y)}=\frac 1 n\sum_{i=1}^n{(y_i-\bar y)(x_i-\bar x)}=\text{cov}(y,x)\]</span></p>
+<p>Caso particolare
+<span class="math display">\[\text{cov}(x,x)=\frac 1 n\sum_{i=1}^n{(x_i-\bar x)(x_i-\bar x)}=\frac 1 n\sum_{i=1}^n{(x_i-\bar x)^2}=\hat\sigma^2_X\]</span>
+la covarianza di una variabile con se stessa è la varianza.
+La covarianza estende il concetto di varianza quando le variabili sono due.</p>
+</div>
+<div id="campo-di-variazione-della-covarianza" class="section level3 hasAnchor" number="17.4.4">
+<h3><span class="header-section-number">17.4.4</span> Campo di variazione della covarianza<a href="regressione-lineare.html#campo-di-variazione-della-covarianza" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><span class="math display">\[-\hat\sigma_X\hat\sigma_Y\leq\text{cov}(x,y)\leq + \hat\sigma_X\hat\sigma_Y\]</span></p>
+<p><img src="Appunti_di_Statistica_2025_files/figure-html/17-regressione-I-36-1.png" width="672" /></p>
+<p><img src="Appunti_di_Statistica_2025_files/figure-html/17-regressione-I-37-1.png" width="672" /></p>
+<p>Stimiamo di <span class="math inline">\(\sigma_X\)</span> e <span class="math inline">\(\sigma_Y\)</span></p>
+<p>Calcolo di <span class="math inline">\(\hat\sigma_X^2\)</span>
+<span class="math display">\[\begin{eqnarray*}
+\hat\sigma_X^2&amp;=&amp;\frac 1 n\sum_{i=1}^n x_i^2-\hat\mu_X^2\\
+&amp;=&amp;\frac 1 {4}(0^2+1^2+2^2+3^2)-1.5^2\\
+&amp;=&amp;1.25\\
+\hat\sigma_X &amp;=&amp; 1.118
+\end{eqnarray*}\]</span></p>
+<p>Calcolo di <span class="math inline">\(\hat\sigma_X^2\)</span>
+<span class="math display">\[\begin{eqnarray*}
+\hat\sigma_Y^2&amp;=&amp;\frac 1 n\sum_{i=1}^n y_i^2-\hat\mu_Y^2\\
+&amp;=&amp;\frac 1 {4}(2^2+3.5^2+2.5^2+4^2)-3^2\\
+&amp;=&amp;0.625\\
+\hat\sigma_Y &amp;=&amp; 0.7906
+\end{eqnarray*}\]</span></p>
+</div>
+<div id="calcolo-in-colonna" class="section level3 hasAnchor" number="17.4.5">
+<h3><span class="header-section-number">17.4.5</span> Calcolo in colonna<a href="regressione-lineare.html#calcolo-in-colonna" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="nota">
+<p>Molto più comodamente in colonna</p>
+<p><span class="math display">\[\begin{eqnarray*}
+\hat\sigma_X^2&amp;=&amp;\frac 1 n\sum_{i=1}^nx_i^2-\bar x^2=3.5-1.5^2=1.25\\
+\hat\sigma_Y^2&amp;=&amp;\frac 1 n\sum_{i=1}^ny_i^2-\bar y^2=9.625-3^2=0.625\\
+\text{cov}(x,y)&amp;=&amp;\frac 1 n\sum_{i=1}^nx_i~y_i-\bar x\bar y=5.125-1.5\cdot3=0.625
+\end{eqnarray*}\]</span></p>
+</div>
+</div>
+<div id="calcolo-di-hatbeta_0-e-hatbeta_1" class="section level3 hasAnchor" number="17.4.6">
+<h3><span class="header-section-number">17.4.6</span> Calcolo di <span class="math inline">\(\hat\beta_0\)</span> e <span class="math inline">\(\hat\beta_1\)</span><a href="regressione-lineare.html#calcolo-di-hatbeta_0-e-hatbeta_1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>La stima del coefficiente angolare è
+<span class="math display">\[\hat\beta_1 =\frac{\text{cov}(x,y)}{\hat\sigma_X^2}=\frac{0.625}{1.25}=0.5\]</span></p>
+<p>La stima dell’intercetta è
+<span class="math display">\[\hat\beta_0=\bar y-\hat\beta_1\bar x=3-0.5\cdot1.5=2.25\]</span></p>
+<p>La retta stimata</p>
+<p><img src="Appunti_di_Statistica_2025_files/figure-html/17-regressione-I-42-1.png" width="672" /></p>
+</div>
+</div>
+<div id="proprietà-della-retta-dei-minimi-quadrati" class="section level2 hasAnchor" number="17.5">
+<h2><span class="header-section-number">17.5</span> Proprietà della retta dei minimi quadrati<a href="regressione-lineare.html#proprietà-della-retta-dei-minimi-quadrati" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>La retta dei minimi quadrati passa per il baricentro di (<span class="math inline">\(x\)</span>,<span class="math inline">\(y\)</span>) che è (<span class="math inline">\(\bar x\)</span>, <span class="math inline">\(\bar y\)</span>)
+<span class="math display">\[\begin{eqnarray*}
+\hat\beta_0+\hat\beta_1\bar x &amp;=&amp;(\bar y-\hat\beta_1\bar x)+\hat\beta_1\bar x\\
+       &amp;=&amp; \bar y
+\end{eqnarray*}\]</span>
+<img src="Appunti_di_Statistica_2025_files/figure-html/17-regressione-I-43-1.png" width="672" /></p>
+<p>Le previsioni, sulle <span class="math inline">\(x\)</span> osservate
+<span class="math display">\[\hat y_i=\hat\beta_0+\hat\beta_1x_i\]</span></p>
+<p>Le stime degli errori
+<span class="math display">\[\hat\varepsilon_i = y_i-\hat y_i\]</span></p>
+<p>Valgono le seguenti proprietà:</p>
+<div class="info">
+<p><span class="math display">\[
+\begin{aligned}
+y_i, &amp; &amp; \text{le $y$ osservate}\\
+\hat y_i &amp;= \hat \beta_0+\hat\beta_1x_i,&amp;\text{le $y$ stimate}\\
+\hat\varepsilon_i &amp;= y_i-\hat y_i,&amp;\text{gli errori stimati}\\
+\bar y &amp;= \frac 1 n\sum_{i=1}^n y_i, &amp;\text{la media degli $y$}\\
+\bar y &amp;= \frac 1 n\sum_{i=1}^n \hat y_i, &amp;\text{la media degli $\hat y$ coince con qeulla degli $y$}\\
+0 &amp;=\frac 1 n\sum_{i=1}^n\hat\varepsilon_i , &amp;\text{la media degli scarti dalla retta è zero}
+\end{aligned}
+\]</span></p>
+</div>
+<div id="calcolo-di-hat-y_i-e-hatvarepsilon_i" class="section level3 hasAnchor" number="17.5.1">
+<h3><span class="header-section-number">17.5.1</span> Calcolo di <span class="math inline">\(\hat y_i\)</span> e <span class="math inline">\(\hat\varepsilon_i\)</span><a href="regressione-lineare.html#calcolo-di-hat-y_i-e-hatvarepsilon_i" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<img src="Appunti_di_Statistica_2025_files/figure-html/17-regressione-I-45-1.png" width="672" />
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+<span class="math inline">\(i\)</span>
+</th>
+<th style="text-align:right;">
+<span class="math inline">\(x_i\)</span>
+</th>
+<th style="text-align:right;">
+<span class="math inline">\(y_i\)</span>
+</th>
+<th style="text-align:right;">
+<span class="math inline">\(\hat y_i = 2.25 + 0.5 x_i\)</span>
+</th>
+<th style="text-align:right;">
+<span class="math inline">\(\hat \varepsilon_i\)</span>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:right;">
+0.0
+</td>
+<td style="text-align:right;">
+2.0
+</td>
+<td style="text-align:right;">
+2.25
+</td>
+<td style="text-align:right;">
+-0.25
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:right;">
+1.0
+</td>
+<td style="text-align:right;">
+3.5
+</td>
+<td style="text-align:right;">
+2.75
+</td>
+<td style="text-align:right;">
+0.75
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+3
+</td>
+<td style="text-align:right;">
+2.0
+</td>
+<td style="text-align:right;">
+2.5
+</td>
+<td style="text-align:right;">
+3.25
+</td>
+<td style="text-align:right;">
+-0.75
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+4
+</td>
+<td style="text-align:right;">
+3.0
+</td>
+<td style="text-align:right;">
+4.0
+</td>
+<td style="text-align:right;">
+3.75
+</td>
+<td style="text-align:right;">
+0.25
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;color: white !important;background-color: gray !important;">
+Totale
+</td>
+<td style="text-align:right;font-weight: bold;color: white !important;background-color: gray !important;">
+6.0
+</td>
+<td style="text-align:right;font-weight: bold;color: white !important;background-color: gray !important;">
+12.0
+</td>
+<td style="text-align:right;font-weight: bold;color: white !important;background-color: gray !important;">
+12.00
+</td>
+<td style="text-align:right;font-weight: bold;color: white !important;background-color: gray !important;">
+0.00
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Totale/n
+</td>
+<td style="text-align:right;">
+1.5
+</td>
+<td style="text-align:right;">
+3.0
+</td>
+<td style="text-align:right;">
+3.00
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="il-coefficiente-di-correlazione" class="section level2 hasAnchor" number="17.6">
+<h2><span class="header-section-number">17.6</span> Il coefficiente di Correlazione<a href="regressione-lineare.html#il-coefficiente-di-correlazione" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Quanto si adatta bene la retta ai punti?
+<span class="math display">\[\begin{alignat*}{4}
+-\hat\sigma_X\hat\sigma_Y&amp;\leq~\text{cov}(x,y)&amp;\leq&amp; + \hat\sigma_X\hat\sigma_Y&amp;\\
+-\frac{\hat\sigma_X\hat\sigma_Y}{\hat\sigma_X\hat\sigma_Y}&amp;\leq\frac{\text{cov}(x,y)}{\hat\sigma_X\hat\sigma_Y}&amp;\leq&amp; +\frac{\hat\sigma_X\hat\sigma_Y}{\hat\sigma_X\hat\sigma_Y}&amp;\\
+-1&amp;\leq ~~~~~~~r &amp;\leq&amp; +1&amp;
+\end{alignat*}\]</span></p>
+<div class="info">
+<div class="definition">
+<p><span id="def:unlabeled-div-211" class="definition"><strong>Definizione 17.2  </strong></span>Il coefficiente <span class="math inline">\(r\)</span>
+<span class="math display">\[r=\frac{\text{cov}(x,y)}{\hat\sigma_X\hat\sigma_Y}\]</span>
+è chiamato <em>coefficiente di correlazione</em>.</p>
+</div>
+</div>
+<p>Nel nostro esempio
+<span class="math display">\[r=\frac{0.625}{1.118\cdot0.7906}=0.7071\]</span></p>
+<p><span class="math inline">\(r\)</span> misura <em>l’associazione lineare</em> ovvero CRESCE in valore assoluto quando
+i punti SI ADDENSANO intorno alla retta.</p>
+<div id="proprietà-di-r" class="section level3 hasAnchor" number="17.6.1">
+<h3><span class="header-section-number">17.6.1</span> Proprietà di <span class="math inline">\(r\)</span><a href="regressione-lineare.html#proprietà-di-r" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="info">
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(-1 \le r \le 1\)</span>. Il segno indica la direzione della relazione;
+<ul>
+<li><span class="math inline">\(r&gt;0\)</span>, al crescere di <span class="math inline">\(X\)</span>, <em>in media</em>, cresce <span class="math inline">\(Y\)</span>;</li>
+<li><span class="math inline">\(r&lt;0\)</span>, al crescere di <span class="math inline">\(X\)</span>, <em>in media</em>, decresce <span class="math inline">\(Y\)</span>;</li>
+<li><span class="math inline">\(r=1\)</span>, associazione perfetta diretta;</li>
+<li><span class="math inline">\(r=-1\)</span>, associazione perfetta indiretta.</li>
+</ul></li>
+<li><span class="math inline">\(r\)</span> è un numero puro, ovvero è privo di unità di misura</li>
+<li>è simmetrico: <span class="math inline">\(r_{XY} = r_{YX} = r\)</span></li>
+<li>è invariante per cambiamenti di scala:
+<span class="math display">\[\text{se }W=a+bY,\text{allora }r_{X,W}=\text{sign}(b) r_{XY},\text{ dove la funzione sign}(b)=
+\begin{cases}+1, &amp;\text{se $b&gt;0$}\\
+          -1, &amp;\text{se $b&lt;0$}
+\end{cases}\]</span></li>
+<li><span class="math inline">\(r\)</span> misura l’associazione lineare:
+<ul>
+<li><span class="math inline">\(r\)</span> misura come i punti si addensano intorno alla retta.</li>
+<li><span class="math inline">\(f(x)\)</span> <strong>non lineare</strong> <span class="math inline">\(r\)</span> è parzialmente inutile</li>
+<li>il valore di <span class="math inline">\(r\)</span>, da solo, non è in grado di descrivere tutte le possibili relazioni
+che si possono realizzare tra due variabili.</li>
+</ul></li>
+<li><span class="math inline">\(r\)</span> è più elevato se i dati sono aggregati in medie o percentuali</li>
+</ol>
+</div>
+<p><strong>1.</strong> La prima proprietà ci dice che <span class="math inline">\(r\)</span> non può mai essere minore di <span class="math inline">\(-1\)</span> e mai
+maggiore di <span class="math inline">\(+1\)</span> per costruzione</p>
+<p><span class="math display">\[-1 \le r \le 1\]</span></p>
+<p><img src="Appunti_di_Statistica_2025_files/figure-html/17-regressione-I-47-1.png" width="672" /></p>
+<p><img src="Appunti_di_Statistica_2025_files/figure-html/17-regressione-I-48-1.png" width="672" /></p>
+<p><strong>2.</strong> La seconda proprietà ci dice che <span class="math inline">\(r\)</span> non dipende dalla scala di misura delle variabili
+<span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span>. Mentre la covarianza ha un’unità di misura spuria, prodotto
+dell’unità di misura della <span class="math inline">\(x\)</span> (<span class="math inline">\(u_X\)</span>) e della <span class="math inline">\(y\)</span> (<span class="math inline">\(u_Y\)</span>), <span class="math inline">\(r\)</span> non
+ha unità di misura perché è un rapporto tra la covarianza che porta l’unità di misura della <span class="math inline">\(X\)</span>
+moltiplicata quella della <span class="math inline">\(Y\)</span> e le standard deviation delle stesse.</p>
+<p><span class="math display">\[\begin{eqnarray*}
+\text{cov}(x,y)&amp;=&amp;\frac 1 n\sum_{i=1}^n{(x_i\cdot u_X-\bar x\cdot u_X)(y_i\cdot u_Y-\bar y\cdot u_Y)}\\
+  &amp;=&amp;\frac 1 n\sum_{i=1}^n{(x_i-\bar x)u_X(y_i-\bar y)u_Y}\\
+  &amp;=&amp;\frac 1 n\sum_{i=1}^n{(x_i-\bar x)(y_i-\bar y)u_X\cdot u_Y}  \\
+  &amp;=&amp;\text{cov}(x,y)u_X\cdot u_Y
+\end{eqnarray*}\]</span></p>
+<p>Le standard deviation sono espresse nell’unità di misura delle variabili</p>
+<p><span class="math display">\[\begin{eqnarray*}
+\hat\sigma_Y &amp;=&amp; \sqrt{\frac 1 n\sum_{i=1}^n{(y_i\cdot u_Y-\bar y\cdot u_Y)^2}}\\
+  &amp;=&amp; \sqrt{\frac 1 n\sum_{i=1}^n{((y_i-\bar y)u_Y)^2}}\\
+  &amp;=&amp; \left(\sqrt{\frac 1 n\sum_{i=1}^n{(y_i-\bar y)^2}}\right)u_Y\\
+  &amp;=&amp; \hat\sigma_Y u_Y\\
+\hat\sigma_X &amp;=&amp; \hat\sigma_X u_X
+\end{eqnarray*}\]</span></p>
+<p>E quindi <span class="math inline">\(r\)</span>
+<span class="math display">\[r=\frac{\text{cov}(x,y)}{\hat\sigma_X\hat\sigma_Y}=\frac{\text{cov}(x,y)u_X\cdot u_Y}{\hat\sigma_X\cdot u_X\hat\sigma_Y\cdot u_Y}=
+\frac{\text{cov}(x,y){u_X}\cdot u_Y}{\hat\sigma_X\cdot u_X\hat\sigma_Y\cdot u_Y}\]</span></p>
+<p><strong>3.</strong> La terza proprietà deriva direttamente dalla simmetria della covarianza:
+<span class="math display">\[r_{XY}=\frac{\text{cov}(x,y)}{\hat\sigma_X\hat\sigma_Y}=\frac{\text{cov}(y,x)}{\hat\sigma_Y\hat\sigma_X}=r_{YX}\]</span></p>
+<p><strong>4.</strong> La quarta proprietà ci dice che, essendo un numero puro, <span class="math inline">\(r\)</span>,
+non dipende dalle unità di misura di <span class="math inline">\(X\)</span> ed <span class="math inline">\(Y\)</span> e quindi
+cambiarla non comporta alterazioni su <span class="math inline">\(r\)</span>.</p>
+<p><span class="math display">\[\text{se }W=a+bY,\text{allora }r_{X,W}=\text{sign}(b) r_{XY},\text{ dove la funzione sign}(b)=
+\begin{cases}+1, &amp;\text{se $b&gt;0$}\\
+             -1, &amp;\text{se $b&lt;0$}
+\end{cases}\]</span></p>
+<p><img src="Appunti_di_Statistica_2025_files/figure-html/17-regressione-I-49-1.png" width="672" /></p>
+<p><img src="Appunti_di_Statistica_2025_files/figure-html/17-regressione-I-50-1.png" width="672" /></p>
+<p><strong>5.</strong> La quinta proprietà dice che <span class="math inline">\(r\)</span> misura l’associazione lineare, ovvero
+Il coefficiente di correlazione <span class="math inline">\(r\)</span> è una misura della distanza dei punti da una retta.</p>
+<ul>
+<li><span class="math inline">\(r\)</span> misura come i punti si addensano intorno alla retta.</li>
+<li><span class="math inline">\(f(x)\)</span> <strong>non lineare</strong> <span class="math inline">\(r\)</span> è parzialmente inutile</li>
+<li>il valore di <span class="math inline">\(r\)</span>, da solo, non è in grado di descrivere tutte le possibili relazioni
+che si possono realizzare tra due variabili.</li>
+</ul>
+<p><img src="Appunti_di_Statistica_2025_files/figure-html/17-regressione-I-51-1.png" width="672" /></p>
+<p><img src="Appunti_di_Statistica_2025_files/figure-html/17-regressione-I-52-1.png" width="672" /></p>
+<p><strong>6.</strong> Infine <span class="math inline">\(r\)</span> è più elevato se i dati sono aggregati in medie o percentuali. Infatti se aggreghiamo, come nell’esempio qui sotto, i dati di tre paesi nelle loro medie, diminuiamo la variabilità.</p>
+<p><img src="Appunti_di_Statistica_2025_files/figure-html/17-regressione-I-54-1.png" width="672" /></p>
+<p>L’indice <span class="math inline">\(r\)</span> calcolato su tutti i dati è
+<span class="math display">\[r = 0.7056\]</span></p>
+<p>L’indice <span class="math inline">\(r\)</span> calcolato sulle tre medie è
+<span class="math display">\[r_{\text{Medie}} = 0.9893\]</span></p>
+</div>
+</div>
+<div id="scomposizione-della-varianza" class="section level2 hasAnchor" number="17.7">
+<h2><span class="header-section-number">17.7</span> Scomposizione della varianza<a href="regressione-lineare.html#scomposizione-della-varianza" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>La scomposizione della varianza ci offre un quadro teorico per comprendere
+come la variabilità iniziale della variabile di interesse <span class="math inline">\(Y\)</span> sia scomponibile
+in due pezzi: la variabilità spiegata dal modello e quella residua (casuale).</p>
+<p>Ricordiamo che:
+<span class="math display">\[\begin{aligned}
+y_i &amp;\phantom{=}\text{ dati } &amp;\hat y_i &amp;= \hat \beta_0+\hat\beta_1x_i,&amp; \hat\varepsilon_i &amp;= y_i-\hat y_i\\
+\bar y &amp;= \frac 1 n\sum_{i=1}^n y_i,&amp; \bar y &amp;= \frac 1 n\sum_{i=1}^n \hat y_i &amp;
+0  &amp;=\frac 1 n\sum_{i=1}^n\hat\varepsilon_i
+\end{aligned}\]</span></p>
+<div class="definition">
+<p><span id="def:unlabeled-div-212" class="definition"><strong>Definizione 17.3  (Varianza Totale, Varianza Spiegata e Varianza Residua) </strong></span>La varianza di <span class="math inline">\(y\)</span> (senza osservare <span class="math inline">\(x\)</span>) è
+<span class="math display">\[\hat\sigma_Y^2=\frac{\sum_{i=1}^n(y_i-\bar y)^2}n=\frac{TSS}{n},\qquad\text{$TSS$ Total Sum of Squares}\]</span></p>
+<p>La varianza di <span class="math inline">\(\hat y\)</span> è
+<span class="math display">\[\hat\sigma_{\hat Y}^2=\frac{\sum_{i=1}^n(\hat y_i-\bar y)^2}n=\frac{ESS}{n},\qquad\text{$ESS$ Explained Sum of Squares}\]</span></p>
+<p>La varianza di <span class="math inline">\(\hat \varepsilon\)</span> è
+<span class="math display">\[\hat\sigma_{\varepsilon}^2=\frac{\sum_{i=1}^n(\hat \varepsilon_i-0)^2}n=\frac{\sum_{i=1}^n\hat \varepsilon_i^2}n=\frac{RSS}{n},\qquad\text{$RSS$ Residual Sum of Squares}\]</span></p>
+</div>
+<div class="info">
+<div class="proposition">
+<p><span id="prp:unlabeled-div-213" class="proposition"><strong>Proprietà 17.3  </strong></span>Vale la seguente relazione
+<span class="math display">\[TSS = ESS + RSS\]</span></p>
+</div>
+</div>
+<p>La variabilità totale di <span class="math inline">\(y\)</span> (quella osservata senza <span class="math inline">\(x\)</span>) e scomponibile nella somma di due parti</p>
+<div class="info">
+<p><span class="math display">\[
+\left\{\begin{array}{cc}
+\text{varibilità di $y$}\\
+\text{intorno alla sua media}
+\end{array}\right\} =
+\left\{\begin{array}{cc}
+\text{varibilità della retta}\\
+\text{intorno alla media}
+\end{array}\right\} +
+\left\{\begin{array}{cc}
+\text{varibilità delle $y$}\\
+\text{intorno alla retta}
+\end{array} \right\}
+\]</span></p>
+</div>
+<p>Dividendo ogni membro per <span class="math inline">\(TSS\)</span>, si ottiene
+<span class="math display">\[\begin{eqnarray*}
+TSS &amp;=&amp; ESS + RSS \\
+\frac{TSS}{TSS} &amp;=&amp; \frac{ESS}{TSS} + \frac{RSS}{TSS}\\
+  1 &amp;=&amp; \frac{ESS}{TSS} + \frac{RSS}{TSS}\\
+\frac{RSS}{TSS} &amp;=&amp; 1 - \frac{ESS}{TSS}\\
+\frac{RSS}{TSS} &amp;=&amp; 1- r^2,\quad r^2=\frac{ESS}{TSS}
+\end{eqnarray*}\]</span></p>
+</div>
+<div id="il-coefficiente-di-determinazione-lineare-r2" class="section level2 hasAnchor" number="17.8">
+<h2><span class="header-section-number">17.8</span> Il coefficiente di determinazione lineare <span class="math inline">\(R^2\)</span><a href="regressione-lineare.html#il-coefficiente-di-determinazione-lineare-r2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>È un indicatore sintetico che indica la quota di varianza spiegata dal modello.
+Nel caso della regressione lineare semplice</p>
+<div class="info">
+<div class="definition">
+<p><span id="def:unlabeled-div-214" class="definition"><strong>Definizione 17.4  (Indice di Determinazione Lineare) </strong></span>Si definisce
+<span class="math display">\[R^2=\left(\frac{ESS}{TSS}\right)=r^2=\left(\frac{\text{cov}(x,y)}{\hat\sigma_x\hat\sigma_y}\right)^2\]</span>
+l’indice di determinazione lineare ed è, nel contesto della regressione lineare semplice, il quadrato dell’indice di correlazione
+<span class="math display">\[0\leq R^2\leq 1\]</span></p>
+</div>
+</div>
+<p>Se <span class="math inline">\(R^2=1\)</span>, allora <span class="math inline">\(r=-1\)</span> oppure <span class="math inline">\(r=+1\)</span>, associazione lineare perfetta, 100% della variabilità spiegata, se <span class="math inline">\(R^2=0\)</span>, allora <span class="math inline">\(r=0\)</span> associazione lineare nulla, 0% della variabilità spiegata, se <span class="math inline">\(R^2&gt;0.75\)</span>, allora considereremo l’associazione lineare <em>soddisfacente</em>.</p>
+<div id="interpretazione-di-r2" class="section level3 hasAnchor" number="17.8.1">
+<h3><span class="header-section-number">17.8.1</span> Interpretazione di <span class="math inline">\(r^2\)</span><a href="regressione-lineare.html#interpretazione-di-r2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>La variabilità di <span class="math inline">\(y\)</span> viene scomposta in due, la componente spiegata dalla retta e della residua.
+Caso limite uno: la retta spiega tutta la variabilità di <span class="math inline">\(y\)</span>:
+<span class="math display">\[TSS = ESS\Rightarrow RSS=0\Rightarrow r^2=1\]</span>
+i punti sono allineati su una retta</p>
+<p><img src="Appunti_di_Statistica_2025_files/figure-html/17-regressione-I-56-1.png" width="672" /></p>
+<p>Se la retta è in grado di assorbire tutta la variabilità di <span class="math inline">\(y\)</span> significa che tutti
+i punti sono allineati sul di essa.</p>
+<p>Caso limite due: la retta <strong>non</strong> spiega nulla della variabilità di <span class="math inline">\(y\)</span>
+<span class="math display">\[TSS = RSS\Rightarrow ESS=0\Rightarrow r^2=0\]</span>
+la retta è orizzontale e coincide con <span class="math inline">\(\hat\mu_Y\)</span></p>
+<p><img src="Appunti_di_Statistica_2025_files/figure-html/17-regressione-I-57-1.png" width="672" /></p>
+<p>Se la retta è parallela all’asse dell <span class="math inline">\(x\)</span> non spiega nulla della variabilità di <span class="math inline">\(y\)</span>.</p>
+</div>
+<div id="scomposizione-della-varianza-sui-dati-di-esempio" class="section level3 hasAnchor" number="17.8.2">
+<h3><span class="header-section-number">17.8.2</span> Scomposizione della varianza sui dati di esempio<a href="regressione-lineare.html#scomposizione-della-varianza-sui-dati-di-esempio" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><img src="Appunti_di_Statistica_2025_files/figure-html/17-regressione-I-58-1.png" width="672" /></p>
+<p><img src="Appunti_di_Statistica_2025_files/figure-html/17-regressione-I-59-1.png" width="672" /></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+<span class="math inline">\(i\)</span>
+</th>
+<th style="text-align:right;">
+<span class="math inline">\((y_i-\bar y)^2\)</span>
+</th>
+<th style="text-align:right;">
+<span class="math inline">\((\hat y_i-\bar y)^2\)</span>
+</th>
+<th style="text-align:right;">
+<span class="math inline">\(\hat \varepsilon_i^2\)</span>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:right;">
+1.00
+</td>
+<td style="text-align:right;">
+0.5625
+</td>
+<td style="text-align:right;">
+0.0625
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:right;">
+0.25
+</td>
+<td style="text-align:right;">
+0.0625
+</td>
+<td style="text-align:right;">
+0.5625
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+3
+</td>
+<td style="text-align:right;">
+0.25
+</td>
+<td style="text-align:right;">
+0.0625
+</td>
+<td style="text-align:right;">
+0.5625
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+4
+</td>
+<td style="text-align:right;">
+1.00
+</td>
+<td style="text-align:right;">
+0.5625
+</td>
+<td style="text-align:right;">
+0.0625
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;color: white !important;background-color: gray !important;">
+Totale
+</td>
+<td style="text-align:right;font-weight: bold;color: white !important;background-color: gray !important;">
+2.50
+</td>
+<td style="text-align:right;font-weight: bold;color: white !important;background-color: gray !important;">
+1.2500
+</td>
+<td style="text-align:right;font-weight: bold;color: white !important;background-color: gray !important;">
+1.2500
+</td>
+</tr>
+</tbody>
+</table>
+<p><span class="math display">\[\begin{eqnarray*}
+TSS &amp;=&amp; ESS + RSS \\
+2.5&amp;=&amp;1.25+1.25\\
+\frac{RSS}{TSS} &amp;=&amp; 1- r^2\\
+\frac{1.25}{2.5} &amp;=&amp; 1- 0.7071^2\\
+0.5 &amp;=&amp; 1- 0.5
+\end{eqnarray*}\]</span></p>
+<p>Ovvero la retta di regressione di <span class="math inline">\(y\)</span> dato <span class="math inline">\(x\)</span> spiega il 50% della variabilità totale della y.</p>
+<p><strong>Osservazione.</strong> Se volessi studiare la relazione tra <span class="math inline">\(X\)</span> e <span class="math inline">\(W\)</span> nella tabella qui sotto:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+<span class="math inline">\(i\)</span>
+</th>
+<th style="text-align:right;">
+<span class="math inline">\(x_i\)</span>
+</th>
+<th style="text-align:right;">
+<span class="math inline">\(y_i\)</span>
+</th>
+<th style="text-align:right;">
+<span class="math inline">\(w_i\)</span>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+2.0
+</td>
+<td style="text-align:right;">
+4.0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+3.5
+</td>
+<td style="text-align:right;">
+2.0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+3
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+2.5
+</td>
+<td style="text-align:right;">
+2.5
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+4
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+4.0
+</td>
+<td style="text-align:right;">
+3.5
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;color: white !important;background-color: gray !important;">
+Totale
+</td>
+<td style="text-align:right;font-weight: bold;color: white !important;background-color: gray !important;">
+6
+</td>
+<td style="text-align:right;font-weight: bold;color: white !important;background-color: gray !important;">
+12.0
+</td>
+<td style="text-align:right;font-weight: bold;color: white !important;background-color: gray !important;">
+12.0
+</td>
+</tr>
+</tbody>
+</table>
+<p>Osservo dapprima Le variabili <span class="math inline">\(y\)</span> e <span class="math inline">\(w\)</span> hanno la stessa media e la stessa varianza, infatti
+<span class="math inline">\(\sum_i y_i = \sum_i w_i=12\)</span> e <span class="math inline">\(\sum_i y_i^2=\sum_i w_i^2=38.5\)</span>.
+Se osservati rispetto ai soli valori, in ipotesi IID, sono fenomeni indistinguibili.</p>
+<p><img src="Appunti_di_Statistica_2025_files/figure-html/17-regressione-I-62-1.png" width="672" /></p>
+<p>La varianza di <span class="math inline">\(y\)</span> è dunque
+<span class="math display">\[\hat\sigma_Y^2=\frac 1 n\sum_i (y_i - \bar y)^2 =\frac 1 n\sum_i y_i^2 - \bar y^2 =9.625 - (3)^2=0.625\]</span>
+e quella di <span class="math inline">\(w\)</span>
+<span class="math display">\[\hat\sigma_W^2=\frac 1 n\sum_i (w_i - \bar w)^2 =\frac 1 n\sum_i w_i^2 - \bar w^2 =9.625 - (3)^2=0.625\]</span></p>
+<p>Ma la variabile <span class="math inline">\(X\)</span> non spiega nello stesso modo <span class="math inline">\(Y\)</span> e <span class="math inline">\(W\)</span>. Infatti se osserviamo la relazione tra <span class="math inline">\(x\)</span> ed <span class="math inline">\(Y\)</span> e la relazione tra <span class="math inline">\(x\)</span> e <span class="math inline">\(w\)</span> ci accorgiamo che i fenomeni sono diversi.</p>
+<p><img src="Appunti_di_Statistica_2025_files/figure-html/17-regressione-I-63-1.png" width="672" /></p>
+<ul>
+<li>La retta <span class="math inline">\(y|x\)</span> assorbe il 50% della variabilità di <span class="math inline">\(y\)</span></li>
+<li>La retta <span class="math inline">\(w|x\)</span> assorbe il 2% della variabilità di <span class="math inline">\(w\)</span></li>
+</ul>
+</div>
+</div>
+<div id="stima-di-sigma_varepsilon2" class="section level2 hasAnchor" number="17.9">
+<h2><span class="header-section-number">17.9</span> Stima di <span class="math inline">\(\sigma_\varepsilon^2\)</span><a href="regressione-lineare.html#stima-di-sigma_varepsilon2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Il parametro <span class="math inline">\(\sigma_\varepsilon^2\)</span> rappresenta la variabilità dei punti intorno alla retta.
+La stima di <span class="math inline">\(\sigma_\varepsilon^2\)</span> deriva dalla scomposizione della varianza
+<span class="math display">\[\begin{eqnarray*}
+\frac{RSS}{TSS} &amp;=&amp; 1-r^2 \\
+RSS &amp;=&amp; TSS(1-r^2)\\
+\frac{RSS}{n} &amp;=&amp; \frac{TSS}{n}(1-r^2) \\
+\hat\sigma_\varepsilon^2 &amp;=&amp; \hat\sigma_Y^2(1-r^2)
+\end{eqnarray*}\]</span></p>
+<p>In modo analogo alla stima di <span class="math inline">\(\sigma^2\)</span> in un modello normale, <span class="math inline">\(\hat\sigma_\varepsilon^2\)</span>
+<strong>non</strong> è stima corretta di <span class="math inline">\(\sigma_\varepsilon^2\)</span> e si dimostra che
+<span class="math display">\[E(\hat\sigma_\varepsilon^2)=\frac{n-2}n \sigma_\varepsilon^2\]</span>
+si quindi corregge con:
+<span class="math display">\[S_\varepsilon^2=\frac n{n-2}\hat\sigma_\varepsilon^2\]</span></p>
+</div>
+<div id="statistiche-sufficienti-del-modello-di-reegressione" class="section level2 hasAnchor" number="17.10">
+<h2><span class="header-section-number">17.10</span> Statistiche Sufficienti del Modello di Reegressione<a href="regressione-lineare.html#statistiche-sufficienti-del-modello-di-reegressione" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Se l’ipotesi di normalità dei residui viene ritenuta valida si può dimostrare che le
+stime di massima verosimiglianza per <span class="math inline">\(\beta_0\)</span>, <span class="math inline">\(\beta_1\)</span> e <span class="math inline">\(\sigma_\varepsilon^2\)</span> coincidono
+con quelle dei minimi quadrati <span class="math inline">\(\hat\beta_0\)</span>, <span class="math inline">\(\hat\beta_1\)</span> e <span class="math inline">\(\hat\sigma_\varepsilon^2\)</span>.
+Tutta l’informazione sul modello di regressione lineare semplice è contenuta nelle
+seguenti statistiche
+<span class="math display">\[\sum_{i=1}^n x_i,~~\sum_{i=1}^n y_i,~~\sum_{i=1}^n x_i^2,~~\sum_{i=1}^ny_i^2,~~ \sum_{i=1}^n x_i y_i\]</span></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+<span class="math inline">\(i\)</span>
+</th>
+<th style="text-align:right;">
+<span class="math inline">\(x_i\)</span>
+</th>
+<th style="text-align:right;">
+<span class="math inline">\(y_i\)</span>
+</th>
+<th style="text-align:right;">
+<span class="math inline">\(x_i^2\)</span>
+</th>
+<th style="text-align:right;">
+<span class="math inline">\(y_i^2\)</span>
+</th>
+<th style="text-align:right;">
+<span class="math inline">\(x_i\cdot y_i\)</span>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:right;">
+0.0
+</td>
+<td style="text-align:right;">
+2.0
+</td>
+<td style="text-align:right;">
+0.0
+</td>
+<td style="text-align:right;">
+4.000
+</td>
+<td style="text-align:right;">
+0.000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:right;">
+1.0
+</td>
+<td style="text-align:right;">
+3.5
+</td>
+<td style="text-align:right;">
+1.0
+</td>
+<td style="text-align:right;">
+12.250
+</td>
+<td style="text-align:right;">
+3.500
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+3
+</td>
+<td style="text-align:right;">
+2.0
+</td>
+<td style="text-align:right;">
+2.5
+</td>
+<td style="text-align:right;">
+4.0
+</td>
+<td style="text-align:right;">
+6.250
+</td>
+<td style="text-align:right;">
+5.000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+4
+</td>
+<td style="text-align:right;">
+3.0
+</td>
+<td style="text-align:right;">
+4.0
+</td>
+<td style="text-align:right;">
+9.0
+</td>
+<td style="text-align:right;">
+16.000
+</td>
+<td style="text-align:right;">
+12.000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;color: white !important;background-color: gray !important;">
+Totale
+</td>
+<td style="text-align:right;font-weight: bold;color: white !important;background-color: gray !important;">
+6.0
+</td>
+<td style="text-align:right;font-weight: bold;color: white !important;background-color: gray !important;">
+12.0
+</td>
+<td style="text-align:right;font-weight: bold;color: white !important;background-color: gray !important;">
+14.0
+</td>
+<td style="text-align:right;font-weight: bold;color: white !important;background-color: gray !important;">
+38.500
+</td>
+<td style="text-align:right;font-weight: bold;color: white !important;background-color: gray !important;">
+20.500
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Totale/n
+</td>
+<td style="text-align:right;">
+1.5
+</td>
+<td style="text-align:right;">
+3.0
+</td>
+<td style="text-align:right;">
+3.5
+</td>
+<td style="text-align:right;">
+9.625
+</td>
+<td style="text-align:right;">
+5.125
+</td>
+</tr>
+</tbody>
+</table>
+<p>Ricapitolando nel nostro esempio:
+<span class="math display">\[\begin{alignat*}{3}
+\bar x &amp; =  \frac 1 n \sum_{i=1}^n x_i  = 1.5 &amp;
+\hat\sigma_X^2 &amp; =  \frac 1 n \sum_{i=1}^n x_i^2 - \bar x^2  = 1.25 &amp;\\
+\bar y &amp; =  \frac 1 n \sum_{i=1}^n y_i   = 3 &amp;
+\hat\sigma_Y^2 &amp; =  \frac 1 n \sum_{i=1}^n y_i^2 - \bar y^2  = 0.625 &amp;\\
+\text{cov}(x,y) &amp; = \frac 1 n \sum_{i=1}^n x_iy_i -\bar x\bar y  = 0.625 &amp;
+r &amp; = \frac{\text{cov}(x,y)}{\hat\sigma_X \hat\sigma_Y }  = 0.7071 &amp;\\
+\hat\beta_1 &amp; = \frac{\text{cov}(x,y)}{\hat\sigma_X^2} = 0.5 &amp;
+\hat\beta_0 &amp; = \bar y  - \hat\beta_1\bar x = 2.25. &amp;\\
+\hat\sigma_\varepsilon^2 &amp; = \hat\sigma_Y^2(1-r^2)=0.3125 &amp;
+S_\varepsilon^2 &amp; = \frac{n}{n-2}\hat\sigma_\varepsilon^2 = 0.625\\
+\hat\sigma_\varepsilon &amp; = \hat\sigma_Y\sqrt{(1-r^2)}=0.559 &amp; \qquad
+S_\varepsilon &amp; = \sqrt{\frac{n}{n-2}}\hat\sigma_\varepsilon = 0.7906\\
+\end{alignat*}\]</span></p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="confronto-tra-due-popolazioni.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="inferenza-e-diagnostica-sul-modello-di-regressione-lineare.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["Appunti_di_Statistica_2025.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

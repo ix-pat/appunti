@@ -1,0 +1,659 @@
+---
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+```{r s01, echo=FALSE}
+
+
+source("intro.R")
+
+```
+
+# Variabili Statistiche e Distribuzioni di Frequenza
+
+
+
+## Variabili Statistiche
+
+Una _Variabile Statistica_ (VS) è una qualunque caratteristica osservabile sugli individui (unità statistiche) della popolazione di riferimento, che _varia_ da individuo ad individuo.
+
+
+### Notazione di Base
+- $\mathbf{x}=(x_1,x_2,...,x_i,...,x_n)$, etichette simboliche per i dati, il primo dato osservato, il secondo ecc.
+- $i$, indice che conta le osservazioni nell'ordine in cui sono state osservate
+  - $i\in\{1,2,...,n\}$
+  - il primo, il secondo, ... l'$i$-esimo, ... l'$n$-esimo (l'ultimo)
+- $n$, numerosità assoluta: il numero totale di individui osservati.
+- $S_X=\{\mathrm{x}_1,...,\mathrm{x}_j,...,\mathrm{x}_K\}$, l'insieme di tutte le modalità possibili che la variabile statistica è suscettibile di assumere.
+- $j$, indice che conta le modalità: prima, seconda, ..., $j$-esima,..., la $K$-esima.
+- $K$, numero di modalità.
+
+:::: {.example #vg name="Variabile: genere"}
+$\phantom{.}$
+
+- $\mathbf{x}=(x_1 = M, x_2 =F, x_3 =M, x_4=F,x_5=F,x_6=F)$
+- $n=6$
+- $S_X=\{\mathrm{x}_1 = F,\mathrm{x}_2 = M\}$
+- $K=2$
+::::
+
+:::: {.example name="Variabile: titolo di studio"}
+$\phantom{.}$
+
+- $\mathbf{x}=(x_1 = E, x_2 =M, x_3 =L, x_4=S,x_5=S,x_6=S,
+x_7=L,x_8=M,x_9=L,x_{10}=S)$
+- $n=10$
+- $S_X=\{\mathrm{x}_1 = E,\mathrm{x}_2 = M, \mathrm{x}_3=S,\mathrm{x}_4=L\}$
+- $K=4$
+::::
+
+:::: {.example name="Variabile: Numero di interventi di manutenzione giornalieri"}
+$\phantom{.}$
+ 
+- $\mathbf{x}=(x_1 = 0, x_2 =1, x_3 =0, x_4=2,x_5=1,x_6=1,
+x_7=0,x_8=1,x_9=3,x_{10}=1)$
+- $n=10$
+- $S_X=\{\mathrm{x}_1 = 0,\mathrm{x}_2 = 1,\mathrm{x}_3=2,\mathrm{x}_4=3,...\}$
+- $K=+\infty$
+::::
+
+### Ordinamento e conteggio
+
+Se l'ordine di osservazione non è influente ai fini della conoscenza del fenomeno
+i dati possono essere permutati (mescolati) a piacimento, la sequenza:
+
+$$(x_{(1)},x_{(2)},...,x_{(i)},...,x_{(n)}),$$ 
+
+indica i dati riordinati, dal più piccolo, al più grande. Se i dati sono numerici
+l'ordinamento è univoco, se i dati sono categoriali l'ordinamento è arbitrario.
+
+:::: {.example name="Continua"}
+Continuiamo l'esempio della variabile genere discussa
+nell'esempio \@ref(exm:vg)
+
+- $\mathbf{x}=(x_1 = M, x_2 =F, x_3 =M, x_4=F,x_5=F,x_6=F)$
+- $S_X=\{\mathrm{x}_1 = F,\mathrm{x}_2 = M\}$
+- $x_{(1)}=F,x_{(2)}=F,x_{(3)}=F,x_{(4)}=F,x_{(5)}=M,x_{(6)}=M$
+::::
+
+:::: {.example name="Continua: codifica 0, 1"}
+$\phantom{.}$
+
+- Variabile: genere {M -> 0,F-> 1}
+- $\mathbf{x}=(x_1 = 0, x_2 =1, x_3 =0, x_4=1,x_5=1,x_6=1)$
+- $S_X=\{\mathrm{x}_1 = 0,\mathrm{x}_2 = 1\}$
+- $x_{(1)}=0,x_{(2)}=0,x_{(3)}=1,x_{(4)}=1,x_{(5)}=1,x_{(6)}=1$
+- **nota**: nella codifica 0, 1 ha senso sommare i dati:
+\[x_1+x_2+x_3+x_4+x_6=4,~~\text{Numero di femmine}\]
+::::
+
+:::: {.example name="Continua: Variabile titolo di studio"}
+$\phantom{.}$
+
+- $\mathbf{x}=(x_1 = E, x_2 =M, x_3 =L, x_4=S,x_5=S,x_6=S,
+x_7=L,x_8=M,x_9=L,x_{10}=S)$
+- $S_X=\{\mathrm{x}_1 = E,\mathrm{x}_2 = M, x_3=S, x_4=L\}$
+- $x_{(1)}=E,x_{(2)}=M,x_{(3)}=M,x_{(4)}=S,x_{(5)}=S,x_{(6)}=S,x_{(7)}=S,x_{(8)}=L,x_{(9)}=L,
+x_{(10)}=L$
+
+::::
+
+:::: {.example name="Continua: Codifica Numerica"}
+$\phantom{.}$
+
+- Variabile: titolo di studio {E -> 1, M -> 2, S -> 3, L -> 4}
+- $\mathbf{x}=(x_1 = 1, x_2 = 2, x_3 = 4, x_4= 3,x_5=3,x_6=3,
+x_7=4,x_8=2,x_9=4,x_{10}=3)$
+- $S_X=\{\mathrm{x}_1 = 1,\mathrm{x}_2 = 2, x_3=3, x_4=4\}$
+- $x_{(1)}=1,x_{(2)}=2,x_{(3)}=2,x_{(4)}=3,x_{(5)}=3,x_{(6)}=3,x_{(7)}=3,x_{(8)}=4,x_{(9)}=4,
+x_{(10)}=4$
+- ha senso sommare i dati?
+
+La codifica numerica corretta sarebbe più complessa
+
+```{r}
+x<-c(x_1 = 1, x_2 = 2, x_3 = 4, x_4= 3,x_5=3,x_6=3,x_7=4,x_8=2,x_9=4,`x_{10}`=3)
+
+x_lab <- 1:4
+
+dat <- data.frame(outer(x, x_lab, FUN = function(x, y) as.integer(x == y)))
+dat <- rbind(dat,Tot = colSums(dat))
+names(dat) <- c("E","M","S","L")
+row.names(dat) <- paste0("$",row.names(dat),"$")
+tabl(dat)
+```
+
+I totali di colonna hanno senso e indicano il numero di individui che ha un determinato titolo 
+di studio.
+
+Questa codifica è sovra abbondante infatti come per maschio e femmina possiamo contare
+solo un colonna di presenza 1 (è femmina) e assenza 0 (non è femmina e quindi maschio), per una variabile a 4 modalità
+possiamo contare solo 3, ad esempio
+
+- 0,0,0 elementari
+- 1,0,0 medie
+- 0,1,0 superiori
+- 0,0,1 università
+
+```{r}
+x<-c(x_1 = 1, x_2 = 2, x_3 = 4, x_4= 3,x_5=3,x_6=3,x_7=4,x_8=2,x_9=4,`x_{10}`=3)
+
+x_lab <- 1:4
+
+dat <- data.frame(outer(x, x_lab, FUN = function(x, y) as.integer(x == y)))[,-1]
+dat <- rbind(dat,Tot = colSums(dat))
+names(dat) <- c("M","S","L")
+row.names(dat) <- paste0("$",row.names(dat),"$")
+tabl(dat)
+```
+
+Per sapere il numero persone che ha al massimo le elementari basta fare 10 (numero totale di individui)
+ meno 2 (medie) più 4 (superiori) più 3 (laureati):
+ 
+ \[
+ 10-(2+4+3)=1~~~\text{con le elemntari}
+ \]
+
+::::
+
+:::: {.example name="Continua: Numero di interventi di manutenzione giornalieri"}
+$\phantom{.}$
+
+- $\mathbf{x}=(x_1 = 0, x_2 =1, x_3 =0, x_4=2,x_5=1,x_6=1,
+x_7=0,x_8=1,x_9=3,x_{10}=1)$
+- $S_X=\{\mathrm{x}_1 = 0,\mathrm{x}_2 = 1,\mathrm{x}_3=2,\mathrm{x}_4=3,...\}$
+- $x_{(1)}=0,x_{(2)}=0,x_{(3)}=0,x_{(4)}=1,x_{(5)}=1,x_{(6)}=1,x_{(7)}=1,x_{(8)}=1,x_{(9)}=2,
+x_{(10)}=3$
+- ha senso sommare i dati?
+- cosa rappresenta la somma dei dati?
+::::
+
+## Distribuzione di Frequenza
+
+La frequenza indica quanto una modalità insiste sul collettivo. Le frequenze si dividono in:
+
+:::: {.info data-latex=""}
+::: {.definition name="Frequenze Assolute"}
+Si definiscono le $n_j$ le __frequenze assolute__: il numero di individui che presentano la modalità $j$. 
+:::
+
+::: {.definition name="Frequenze Relative"}
+Si definiscono le $f_j=n_j/n$ le __frequenze relative__: la proporzione di individui che presentano la modalità $j$. 
+:::
+
+::: {.definition name="Frequenze Percentuali"}
+Si definiscono le $f_{\% j}=f_j\times 100$ le __frequenze percentuali__: la percentuale di individui che presentano la modalità $j$. 
+:::
+::::
+
+:::: {.info data-latex=""}
+::: {.proposition}
+Le proprietà della frequenze assolute($n_{j}$) sono:
+
+-  $0\leq n_{j} \leq n, \forall j=1,...,K$,
+-  $\sum_{j=1}^{K} n_{j} = n$.
+
+:::
+
+
+::: {.proposition}
+Le proprietà della frequenze relative ($f_{j}$) sono:
+
+-  $0\leq f_{j} \leq 1, \forall j=1,...,K$,
+-  $\sum_{j=1}^{K} f_{j} = 1$.
+
+:::
+
+
+::: {.proposition}
+Le proprietà della frequenze percentuali ($f_{\% j}$) sono:
+
+-  $0\leq f_{\%,\, j} \leq 100, \forall j=1,...,K$,
+-  $\sum_{j=1}^{K} f_{\%,\, j} = 100$.
+
+:::
+::::
+
+:::: {.info data-latex=""}
+::: {.definition name="Distribuzione di Frequenza"}
+
+Una **distribuzione di frequenza** è una tabella a cui vengono associate le modalità e le frequenze
+:::
+::::
+
+:::: {.example name="Continua: Variabile: genere"}
+
+$$x_{(1)}=F,x_{(2)}=F,x_{(3)}=F,x_{(4)}=F,x_{(5)}=M,x_{(6)}=M$$
+
+<!-- $X$          | $n_j$   | $f_j$     | $f_{\% j}$ (\#tab:sesso) -->
+<!-- -------------|---------|-----------|------------- -->
+<!-- F            |  4      |  4/6=0.67 | 67% -->
+<!-- M            |  2      |  3/6=0.33 | 33% -->
+<!-- **Tot**      | **6**   |    **1**  | **100%** -->
+<!-- Tabella: \@ref(tab:sesso) distribuzione di frequenza del genere in un collettivo di $n=6$ individui. -->
+
+
+```{r sesso,echo=FALSE}
+nomi<-c("$X$","$n_j$","$f_j$","$f_{\\% j}$")
+sex<-c("F","M","Tot")
+n<-c("$4$","$2$","$6$")
+f<-c("$4/6=0.67$","$2/6=0.33$","$1.00$")
+fp<-c("$67\\%$","$33\\%$","$100\\%$")
+prn <- data.frame(sex,n,f,fp)
+names(prn)<- nomi
+
+kable(prn,booktabs=T,escape=F,linesep="",align = c("lrrr"),
+      #caption = "Distribuzione di frequenza del genere in un collettivo di $n=6$ individui."
+      )%>%
+  row_spec(2,hline_after = T)%>%
+  row_spec(3,hline_after = T,bold = T)%>%
+  kableExtra::kable_styling(latex_options = "hold_position")
+
+```
+::::
+
+:::: {.example name="Continua: Variabile titolo di studio"}
+$\phantom{.}$
+
+$x_{(1)}=E,x_{(2)}=M,x_{(3)}=M,x_{(4)}=S,x_{(5)}=S,x_{(6)}=S,x_{(7)}=S,x_{(8)}=L,x_{(9)}=L,
+x_{(10)}=L$
+
+```{r titolo,echo=FALSE}
+nomi<-c("$X$","$n_j$","$f_j$","$f_{\\% j}$")
+tit<-c("E","M","S","L","Tot")
+n<-c("$2$","$4$","$8$","$6$","$20$")
+f<-c("$2/20=0.1$","$4/20=0.2$","$8/20=0.4$","$6/20=0.3$","$1.0$")
+fp<-c("$10\\%$","$20\\%$","$40\\%$","$30\\%$","$100\\%$")
+prn <- data.frame(tit,n,f,fp)
+names(prn)<- nomi
+
+kable(prn,booktabs=T,escape=F,linesep="",align = c("lrrr"),
+      #caption = "Distribuzione di frequenza del titolo di studio in un collettivo di $n=10$ individui."
+      )%>%
+  row_spec(4,hline_after = T)%>%
+  row_spec(5,hline_after = T,bold = T)%>%
+  kableExtra::kable_styling(latex_options = "hold_position")
+
+```
+::::
+
+### Dati quantitativi continui
+
+Se i dati sono quantitativi continui il numero delle modalità è spesso di
+gran lunga superiore al numero dei dati e non sempre è possibile fissare un limite superiore 
+in anticipo all'osservazione dei dati. Se per esempio volessi misurare il 
+reddito di una persona in centesimi, otterrei:
+
+:::: {.example name="Variabile: Reddito mensile lordo in migliaia di euro"}
+$\phantom{x}$
+
+- unità di rilevazione: famiglie del comune A a febbraio 2021
+- $n=45$
+- $S_X=\{0.00,0.01,0.02,...,100.00,100.01,...,2000.00,...,10~000,...\}$
+
+Qui di seguito i dati nell'ordine in cui sono stati raccolti è sono mostrati sopra, mentre
+i dati riordinati sono mostrati sotto:
+
+<!-- ::: {.center data-latex=""} -->
+
+\vspace{10pt}
+<!-- \fontsize{6}{4}\selectfont -->
+\scriptsize
+```{r dati2,results='asis',echo=FALSE}
+set.seed(13)   # per ottenere sempre la stessa simulazione
+n <- 45      # ampiezza campionaria
+nomex <- "Consumo"
+samp <- (round(c(runif(9,0,3),runif(16,3,5),runif(10,5,10),runif(10,10,20)),2))
+sams <- sort(samp)
+
+samp1 <- format(samp,nsmall = 2)
+sams1 <- format(sams,nsmall = 2)
+# c1 <- paste("$x_{(", 1:9 ,")}=$",sep="")
+# c2 <- paste("$x_{(",10:18,")}=$",sep="")
+# c3 <- paste("$x_{(",19:27,")}=$",sep="")
+# c4 <- paste("$x_{(",28:36,")}=$",sep="")
+# c5 <- paste("$x_{(",37:45,")}=$",sep="")
+# 
+# out <- data.frame(c1,s1=samp[1:9],c2,s2=samp[10:18],c3,s2=samp[19:27],c4,s2=samp[28:36],c5,s2=samp[37:45])
+
+#names(samp) <- nomex
+
+# out %>%
+# kbl(booktabs = T, escape = F, linesep = "",caption = "Dati riordinati in ordine crescente",
+# col.names = rep("",times=10))
+ # cat("\\[\\begin{array}{crcrcrcrcr|crcrcrcrcr}\n")
+ # for (i in 1:9){
+ # #cat("\\tiny ")
+ # cat(paste(paste("x_{" ,seq(0,(4*9),by=9)+i, "}= & ",samp1[seq(0,(4*9),by=9)+i],collapse = " & ",sep=""),
+ #           " & ",
+ #           paste("x_{(",seq(0,(4*9),by=9)+i,")}= & ",sams1[seq(0,(4*9),by=9)+i],collapse = " & ",sep=""),
+ #           "\\\\ \n"))
+ # }
+ # cat("\\end{array}\\]")
+
+ 
+ 
+cat("\\[\\begin{array}{crcrcrcrcr}\n")
+cat("\\hline","\n")
+ for (i in 1:9){
+ #cat("\\tiny ")
+ cat(paste("x_{" ,seq(0,(4*9),by=9)+i, "}= & ",samp1[seq(0,(4*9),by=9)+i],collapse = " & ",sep=""),"\\\\ \n")
+ }
+cat("\\hline","\n")
+ for (i in 1:9){
+cat(paste("x_{(",seq(0,(4*9),by=9)+i,")}= & ",sams1[seq(0,(4*9),by=9)+i],collapse = " & ",sep=""), "\\\\ \n")
+}
+cat("\\hline","\n")
+ cat("\\end{array}\\]")
+
+ 
+```
+
+\normalsize
+<!-- ::: -->
+
+Come si osserva aver rimesso in ordine i dati non ci aiuta a capire la distribuzione del fenomeno.
+::::
+
+### Raggruppamenti in Classi
+
+L'idea è quella di raggruppare i dati in **intervalli contigui** e procedere alla
+rappresentazione in distribuzione di frequenza. 
+In tabella \@ref(tab:classi) vediamo a sinistra troppe poche classi, al centro troppe, 
+mentre a destra vediamo che il numero delle classi e la loro ampiezza variabile rende più leggibile la distribuzione dei dati.
+
+```{r classi,echo=FALSE}
+brk  <- c(0,5,20)
+k <- length(brk)-1
+ls2e(stat_base(samp,brk))
+dat3$`$f_{j\\%}$` <- dat3$`$f_j$`*100
+
+poche <- dat3[1:(k+1),c(1:2,12)]
+
+brk  <- seq(0,20,by=2.5)
+k <- length(brk)-1
+ls2e(stat_base(samp,brk))
+dat3$`$f_{j\\%}$` <- dat3$`$f_j$`*100
+
+# kable((dat3[1:(k+1),c(1:4,12)]),digits = 2) %>%
+#   kable_styling(full_width = F)
+
+# dat3[1:(k+1),c(1:4,12)] %>%
+# kbl(booktabs = T, escape = F, digits = 2,linesep = "",caption = "Troppe classi, non si coglie la distribuzone.")%>%
+#   kableExtra::kable_styling(latex_options = "hold_position")
+
+troppe <- dat3[1:(k+1),c(1:2,12)]
+
+brk  <- c(0,3,5,10,20)
+k <- length(brk)-1
+ls2e(stat_base(samp,brk))
+dat3$`$f_{j\\%}$` <- dat3$`$f_j$`*100
+
+giuste <- dat3[1:(k+1),c(1:2,12)]
+
+kable(list(poche,troppe,giuste),booktabs = T, escape = F, digits = 2,linesep = "",caption = "A sinistra abbiamo troppe poche classi, si perde troppa variabilità. Al centro sono state scelte troppe classi, non si coglie la distribuzone. A destra infine le classi sono state scelte ad hoc per rappresentare al meglio i dati cercando un compromesso tra sintesi e ricchezza dei dati.")
+
+```
+
+
+### Frequenze Cumulate
+
+Si definisce frequenza cumulata $F$ la seguente quantità:
+
+- $F_1 = f_1$
+- $F_2= f_1+f_2=F_1+f_2$
+- $F_3= f_1+f_2+f_3=F_2+f_3$
+- ...
+- $F_j= f_1+f_2+...+f_j=F_{j-1}+f_j$
+- ...
+- $F_K= f_1+f_2+...+f_K=1$
+
+ovvero $F_j=f_1+...+f_j$ _cumula_ tutte le frequenze dalla 1 alla $j$.
+
+:::: {.example name="Continua: Variabile titolo di studio"}
+$\phantom{.}$
+
+:::  {.center data-latex=""}
+```{r tit studio}
+x <- c("E","M","M","S","S","S","S","U","U","U")
+n <- (table(x))
+kbl(cbind("$n_j$"= n,"$f_j$" = n/sum(n),"$F_j$"= cumsum(n)/sum(n)),booktabs = T, escape = F, digits = 2) %>%
+    kable_styling(full_width = F, latex_options = "HOLD_position")
+```
+::: 
+
+E si legge: $F_1=0.1$ ci dice che il 10% del collettivo in esame ha come massimo titolo ha non più delle elementari. $F_1=0.3$ ci dice che il 30% del collettivo ha come massimo titolo ha non più delle medie. $F_4=0.7$ ci dice che il 30% del collettivo ha come massimo titolo ha non più delle superiori e $F_5=1$ che il 100% del collettivo ha, al massimo, la laurea.
+::::
+
+
+:::: {.example name="Continua: Reddito"}
+$\phantom{.}$
+
+:::  {.center data-latex=""}
+```{r classi2}
+brk  <- c(0,3,5,10,20)
+k <- length(brk)-1
+ls2e(stat_base(samp,brk))
+dat3$`$f_{j\\%}$` <- dat3$`$f_j$`*100
+kbl((dat3[1:(k+1),c(1:2,4,7)]),digits = 2,booktabs = T, escape = F) %>%
+    kable_styling(full_width = F, latex_options = "HOLD_position")
+```
+:::  
+
+E si legge: $F_1=0.21$ ci dice che il 20% del collettivo in esame guadagna al massimo 3 (mila euro); alternativamente leggiamo che il 20% del collettivo **non** guadagna più di 3 (mila euro). $F_2=0.56$ ci dice che il 56% del collettivo guadagna al massimo 5. $F_2=0.56$ ci dice che il 56% del collettivo guadagna al massimo 5 (mila euro); il 56% non guadagna più di 5 (mila euro).  $F_3=0.78$ ci dice che il 78% del collettivo guadagna 10 (mila euro); il 78% non guadagna più di 10 (mila euro). E infine il 100% del collettivo guadagna al massimo 20  (mila euro).
+::::
+
+## Istogramma di Densità
+
+È grafico che rappresenta rettangoli contigui la cui area è la frequenza e la base è l'intervallo di raggruppamento. Usiamo il simbolo $b_j$ per denotare l'ampiezza della base del rettangolo, l'altezza dei rettangoli viene chiamata _densità_
+
+:::: {.info data-latex=""}
+  \[h_j = Const.\times \frac {f_j} {b_j}\]
+::::
+
+Se $Const.=1$ si ottiene _l'istogramma di densità relativa_, la somma delle aree dei rettangoli è 1. Se $Const.=n$ si ottiene _l'istogramma di densità assoluta_, la somma delle aree dei rettangoli è $n$. Se $Const.=100$ si ottiene _l'istogramma di densità percentuale_, la somma delle aree dei rettangoli  è 100. Per comodità tutti gli esempi si riferiscono all'istogramma di densità percentuale.
+
+\tiny
+```{r conti}
+nm <- c("$[\\text{x}_j$,", "$\\text{x}_{j+1})$", "$n_j$", "$f_j=\\frac{n_j}{n}$", "$b_j=\\text{x}_{j+1}-\\text{x}_{j}$", "$h_j=100\\times\\frac{f_j}{b_j}$ ")
+
+r1 <- c("$[\\text{x}_1=0$,", "$\\text{x}_{2}=3)$", "$n_1=9$", "$f_1=\\frac {n_1} n =\\frac 9{45}=0.20$", "$b_1=3-0=3$", "$h_1=100\\times\\frac{0.20}{3}=6.67$")
+r2 <- c("$[\\text{x}_2=3$,", "$\\text{x}_{3}=5)$", "$n_2=16$", "$f_2=\\frac {n_2} n =\\frac {16}{45}=0.36$", "$b_2=5-3=2$", "$h_2=100\\times\\frac{0.36}{2}=17.78$")
+r3 <- c("$[\\text{x}_3=5$,", "$\\text{x}_{4}=10)$", "$n_3=10$", "$f_3=\\frac {n_3} n =\\frac {10}{45}=0.22$", "$b_3=10-5=5$", "$h_3=100\\times\\frac{0.22}{5}=4.44$")
+r4 <- c("$[\\text{x}_4=10$", "$\\text{x}_{5}=20)$", "$n_4=10$", "$f_4=\\frac {n_4} n =\\frac {10}{45}=0.22$", "$b_4=20-10=10$", "$h_4=100\\times\\frac{0.22}{10}=2.22$")
+
+out <- data.frame(rbind(r1,r2,r3,r4))
+names(out) <- nm
+
+kable(out,booktabs = T, escape = F, digits = 2,row.names = F,caption = "Come ricavare le quantità necessarie per calcolare l'istogramma di densità percentuale")%>%
+  kableExtra::kable_styling(latex_options = "hold_position")
+```
+\normalsize
+
+:::: {.example }
+
+La tabella \@ref(tab:conti) mostra passo, passo lo sviluppo del calcolo. La figura \@ref(fig:hist) la corrispondente rappresentazione grafica.
+
+```{r hist,fig.align='center',fig.cap="Rappresentazione grafica dell'istogramma di densità percentuale, l'area di ogni rettangolo corrisponde alla frequenza percentuale della classe, rappresentata sull'asse delle ascisse"}
+
+brk  <- c(0,3,5,10,20)
+k <- length(brk)-1
+ls2e(stat_base(samp,brk))
+dat3$`$f_{j\\%}$` <- dat3$`$f_j$`*100
+if (!html) par(cex=.5)
+histp(axes = T)
+
+arrows(brk[-1],.1,brk[-5],.1,cod=3,length = .05,col=ared)
+
+text((dat3[,1]+dat3[,2])/2,.5,dat3$`$b_j$`,col=ared)
+text((dat3[,1]+dat3[,2])/2,dat3$`$h_j$`*5/8,round(dat3$`$f_j$`*100,2),cex=1/cex,col=iblue)
+segments(-1,dat3$`$h_j$`,brk[-5]+.2,dat3$`$h_j$`,lty=2)
+par(cex=cex)
+```
+::::
+
+## La Funzione di Ripartizione
+
+Se i dati sono quantitativi continui raggruppati in classi, la Funzione di Ripartizione
+della VS $X$ è la funzione che misura l'area dell'istogramma di densità (le aree sommano ad 1)
+dal più piccolo dei dati $x_{(0)}$ fino ad un $x$ qualunque.
+Se nel caso dell'esempio precedente scegliessimo $x=7.2$, graficamente vedremmo la figura \@ref(fig:FdR).
+Notiamo innanzitutto che:
+
+\begin{eqnarray*}
+   F(\text{x}_1)&=&  0\\
+   F(\text{x}_2) &=& F_1\\
+   F(\text{x}_3) &=& F_2\\
+   \vdots~~~ && \vdots\\
+   F(\text{x}_j) &=& F_{j-1}\\   
+   \vdots~~~ && \vdots\\
+   F(\text{x}_{K+1}) &=& 1   
+\end{eqnarray*}
+
+```{r FdR,fig.cap="Rappresentazione grafica della Funzione di Ripartizione di $X$ valutata nel punto $7.2$, $F(7.2)$ è l'area da 0 a 7.2 dell'istogramma."}
+k <- length(brk)-1
+br1  <- brk[-(k+1)]
+br2  <- brk[-1]
+histp()
+axis(1,brk)
+h.int(0,7.2,density=20,col=4)
+axis(1,7.2)
+```
+
+Nel nostro caso $F(7.2)$ è la comma delle frequenze fino a 5 più l'area del rettangolo di base $(7.2-5)$ e altezza $h_3=`r dat2[3,6]`/100$, ovvero
+\begin{eqnarray*}
+   F(7.2) &=& f_1+f_2+\frac{(7.2-5)}{100}\times`r dat2[3,6]` \\
+   &=& F_2 +2.5\times`r dat2[3,6]/100`\\
+   &=& `r F.int(7.2)`
+\end{eqnarray*}
+Se per esempio ci interessasse sapere, in modo approssimato, che percentuale e quanti 
+individui che guadagno meno di 7.2 (mila euro) al mese, basta moltiplicare
+$F(7.2)$ per 100 e per $n$, rispettivamente.
+\begin{eqnarray*}
+   \%(X<7.2) &=& 100\times F(7.2) \\
+   &=& `r 100*F.int(7.2)`\% \\
+   \#(X<7.2) &=& 45\times F(7.2) \\
+   &=& `r 45*F.int(7.2)` 
+\end{eqnarray*}
+Dove $\%(X<7.2)$ significa la _percentuale_ approssimata di dati minori di 7.2 e
+dove $\#(X<7.2)$ significa il _numero_ approssimato di dati minori di 7.2.
+
+Se per esempio sono interessato alla percentuale (o al numero) di dati compresi tra
+2.4 e 7.2 osservo che
+\begin{eqnarray*}
+   \%(2.4<X<7.2) &=& 100\times (F(7.2)-F(2.4)) \\
+   F(2.4) &=& \frac{2.4-0}{100}\times`r dat2[1,6]` \\
+   &=&`r dat2[1,6]/100*2.4`\\
+   \%(2.4<X<7.2) &=& 100\times (`r F.int(7.2)`-`r F.int(2.4)`) \\
+   &=& `r 100*(F.int(7.2)-F.int(2.4))`. 
+\end{eqnarray*}
+Infatti calcolare l'area tra 2.4 e 7.2 equivale a calcolare l'area
+fino a 7.2, l'area fino a 2.4 e sottrarle.
+
+Più in generale la funzione di ripartizione cumula l'area dal più piccolo degli $\text{x}$ fino al
+più grande.
+
+\begin{eqnarray*}
+   F(x) &=& 0 \quad \text{per ogni } x\le \text{x}_1\\
+   F(x) &=& F(\text{x}_{j^*-1}) + \frac{x-\text{x}_{j^*}}{100}h_{j^*}\\
+   F(x) &=& 1 \quad \text{per ogni } x\ge \text{x}_{K+1}\\
+\end{eqnarray*}
+
+dove $j^*$ è la classe che contiene $x$.
+Se la volessimo rappresentare graficamente, nel nostro esempio sarebbe così:
+
+```{r plot FdR}
+curve(F.int(x),-1,22,n = 1001,axes=F,ylab="F(x)")
+axis(1,brk)
+axis(2,round(c(0,dat2$Fj),4),las=2)
+segments(x0 = -10,x1 = dat2$xsup,y0 = dat2$Fj,y1 = dat2$Fj,lty=2,col="grey")
+segments(x0 = dat2$xsup,x1 = dat2$xsup,y0 = 0,y1 = dat2$Fj,lty=2,col="grey")
+segments(x0 = 7.2,x1 = 7.2,y0 = 0,y1 = F.int(7.2),lty=2,col=ared)
+segments(x0 = -10,x1 = 7.2,y0 = F.int(7.2),y1 = F.int(7.2),lty=2,col=ared)
+axis(1,7.2,col.axis =ared)
+axis(2,round(F.int(7.2),4),las=2,col.axis =ared)
+```
+
+
+
+## L'inversa della Funzione di Ripartizione
+
+La funzione di ripartizione è una funziona che crescente che vale zero quando
+$x$ è il più piccolo dei dati e vale uno quando $x$ è il più grande dei dati.
+\[
+F:S_X\to [0,1]
+\]
+Definiamo $Q=F^{-1}$ la funzione inversa:
+\[
+Q:[0,1]\to S_X
+\]
+ed è tale che
+\[
+Q(p)=x_p:F(x_p)=p, 0\le p\le 1
+\]
+
+
+## Indicatori Sintetici di Centralità e di Variabilità
+
+Un indicatore è un numero che sintetizza una caratteristica del fenomeno collettivo.
+Esempi di indicatori sono: il massimo del fenomeno, il minimo del fenomeno, la media del fenomeno,
+la modalità più ricorrente, ecc.
+
+Gli **indicatori di centralità** sintetizzano l'intero fenomeno in un numero. Indicatori di che osserveremo  centralità sono:
+
+- La **media aritmetica** (variabili quantitative) nella sezione \@ref(media)
+- La **mediana** (variabili quantitative e variabili qualitative ordinate) nella sezione \@ref(mediana)
+- La **moda** (ogni tipo di variabile) nella sezione \@ref(moda)
+
+La media aritmetica è una _media analitica_ perché dipende dal valore che la variabile assume sulle unità. 
+Mediana e Moda sono invece _medie lasche_ perché dipendono dall'ordinamento dei dati.
+
+Gli **indicatori di variabilità** misurano lo scostamento del fenomeno oggetto di studio dall'indicatore di centralità. Vedremo:
+
+- La **varianza** \@ref(var) e la **standard deviation** nella sezione \@ref(sd)
+- Lo **scarto interquartile** nella sezione \@ref(sqi)
+
+
+
+## Riepilogo
+
+:::: {.info2 data-latex=""}
+\vspace{10pt}\scriptsize
+:::  {.center data-latex=""}
+```{r riepilogo distr}
+
+c1 <- c("$[\\text{x}_1,$","$[\\text{x}_2,$","$...$","$[\\text{x}_j,$","$...$","$[\\text{x}_K,$")
+c2 <- c("$\\text{x}_2)$","$\\text{x}_3)$","$...$","$\\text{x}_{j+1})$","$...$","$\\text{x}_{K+1})$")
+c3 <- c("$n_1$","$n_2$","$...$","$n_j$","$...$","$n_K$")
+c4 <- c("$f_1=\\frac{n_1}{n}$","$f_2=\\frac{n_2}n$","$...$","$f_j=\\frac{n_j}n$","$...$","$f_K=\\frac{n_K}n$")
+c5 <- c("$F_1=f_1$","$F_2=F_1+f_2$","$...$","$F_j=F_{j-1}+f_j$","$...$","$F_K=F_{K-1}+f_K$")
+c6 <- c("$b_1=\\text{x}_2-\\text{x}_1$","$b_2=\\text{x}_3-\\text{x}_2$","$...$","$b_j=\\text{x}_{j+1}-\\text{x}_j$","$...$","$b_K=\\text{x}_{K+1}-\\text{x}_K$")
+c7 <- c("$h_1=100\\times \\frac{ h_1}{b_1}$","$h_2=100\\times \\frac{ f_2}{b_2}$","$...$","$h_j=100\\times \\frac{ f_j}{b_j}$","$...$","$f_K=100\\times \\frac{ f_K}{b_K}$")
+
+
+out <- data.frame(c1,c2,c3,c4,c5,c6,c7)
+
+names(samp) <- nomex
+
+if (html){
+kable(out,col.names = c("Estremo inf","Estremo sup","freq. ass.","freq. relativa","freq. cum.","ampiezza","densità"),booktabs = T, escape = F,linesep = "") %>%
+  column_spec(c(1,2),background = "white") %>%
+  column_spec(3,background = "#d3dded")%>%
+  column_spec(4,background = "white")%>%
+  column_spec(5,background = "#d3dded")%>%
+  column_spec(6,background = "white")%>%
+  column_spec(7,background = "#d3dded")%>%
+  kable_styling(font_size = 14)
+}
+if (!html){
+kable(out,col.names = c("Estremo inf","Estremo sup","freq. ass.","freq. relativa","freq. cum.","ampiezza","densità"),booktabs = T, escape = F,linesep = "") %>%
+  column_spec(c(1,2),background = "white") %>%
+  column_spec(4,background = "white")%>%
+  column_spec(6,background = "white")
+}
+
+```
+:::  
+::::
+\normalsize

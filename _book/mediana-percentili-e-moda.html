@@ -1,0 +1,2457 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capitolo 4 Mediana, Percentili e Moda | Appunti di Statistica</title>
+  <meta name="description" content="Appunti sparsi" />
+  <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Capitolo 4 Mediana, Percentili e Moda | Appunti di Statistica" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="Appunti sparsi" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capitolo 4 Mediana, Percentili e Moda | Appunti di Statistica" />
+  
+  <meta name="twitter:description" content="Appunti sparsi" />
+  
+
+<meta name="author" content="Patrizio Frederic" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="media-aritmetica-varianza-e-standard-deviation.html"/>
+<link rel="next" href="cenni-di-teoria-della-probabilità.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="http://frederic.economia.unimore.it/">Statistica Home</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Appunti di Statistica</a></li>
+<li class="chapter" data-level="" data-path="avvertenza.html"><a href="avvertenza.html"><i class="fa fa-check"></i>Avvertenza</a></li>
+<li class="chapter" data-level="" data-path="introduzione.html"><a href="introduzione.html"><i class="fa fa-check"></i>Introduzione</a></li>
+<li class="chapter" data-level="1" data-path="i-fenomeni-collettivi.html"><a href="i-fenomeni-collettivi.html"><i class="fa fa-check"></i><b>1</b> I Fenomeni Collettivi</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="i-fenomeni-collettivi.html"><a href="i-fenomeni-collettivi.html#dati"><i class="fa fa-check"></i><b>1.1</b> I Dati</a></li>
+<li class="chapter" data-level="1.2" data-path="i-fenomeni-collettivi.html"><a href="i-fenomeni-collettivi.html#var-stat"><i class="fa fa-check"></i><b>1.2</b> Variabili Statistiche</a></li>
+<li class="chapter" data-level="1.3" data-path="i-fenomeni-collettivi.html"><a href="i-fenomeni-collettivi.html#popolazioni-statistiche"><i class="fa fa-check"></i><b>1.3</b> Popolazioni Statistiche</a></li>
+<li class="chapter" data-level="1.4" data-path="i-fenomeni-collettivi.html"><a href="i-fenomeni-collettivi.html#riv"><i class="fa fa-check"></i><b>1.4</b> Le rilevazioni Statistiche</a>
+<ul>
+<li class="chapter" data-level="1.4.1" data-path="i-fenomeni-collettivi.html"><a href="i-fenomeni-collettivi.html#fasi-dellindagine"><i class="fa fa-check"></i><b>1.4.1</b> Fasi dell’indagine</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="i-fenomeni-collettivi.html"><a href="i-fenomeni-collettivi.html#la-matrice-dei-dati"><i class="fa fa-check"></i><b>1.5</b> La matrice dei dati</a></li>
+<li class="chapter" data-level="1.6" data-path="i-fenomeni-collettivi.html"><a href="i-fenomeni-collettivi.html#riepilogo-sulle-variabili"><i class="fa fa-check"></i><b>1.6</b> Riepilogo sulle Variabili</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="variabili-statistiche-e-distribuzioni-di-frequenza.html"><a href="variabili-statistiche-e-distribuzioni-di-frequenza.html"><i class="fa fa-check"></i><b>2</b> Variabili Statistiche e Distribuzioni di Frequenza</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="variabili-statistiche-e-distribuzioni-di-frequenza.html"><a href="variabili-statistiche-e-distribuzioni-di-frequenza.html#variabili-statistiche"><i class="fa fa-check"></i><b>2.1</b> Variabili Statistiche</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="variabili-statistiche-e-distribuzioni-di-frequenza.html"><a href="variabili-statistiche-e-distribuzioni-di-frequenza.html#notazione-di-base"><i class="fa fa-check"></i><b>2.1.1</b> Notazione di Base</a></li>
+<li class="chapter" data-level="2.1.2" data-path="variabili-statistiche-e-distribuzioni-di-frequenza.html"><a href="variabili-statistiche-e-distribuzioni-di-frequenza.html#ordinamento-e-conteggio"><i class="fa fa-check"></i><b>2.1.2</b> Ordinamento e conteggio</a></li>
+<li class="chapter" data-level="2.1.3" data-path="variabili-statistiche-e-distribuzioni-di-frequenza.html"><a href="variabili-statistiche-e-distribuzioni-di-frequenza.html#le-unità-di-misura"><i class="fa fa-check"></i><b>2.1.3</b> Le unità di misura</a></li>
+<li class="chapter" data-level="2.1.4" data-path="variabili-statistiche-e-distribuzioni-di-frequenza.html"><a href="variabili-statistiche-e-distribuzioni-di-frequenza.html#trasformazioni-lineari"><i class="fa fa-check"></i><b>2.1.4</b> Trasformazioni lineari</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="variabili-statistiche-e-distribuzioni-di-frequenza.html"><a href="variabili-statistiche-e-distribuzioni-di-frequenza.html#distribuzione-di-frequenza"><i class="fa fa-check"></i><b>2.2</b> Distribuzione di Frequenza</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="variabili-statistiche-e-distribuzioni-di-frequenza.html"><a href="variabili-statistiche-e-distribuzioni-di-frequenza.html#dati-quantitativi-continui"><i class="fa fa-check"></i><b>2.2.1</b> Dati quantitativi continui</a></li>
+<li class="chapter" data-level="2.2.2" data-path="variabili-statistiche-e-distribuzioni-di-frequenza.html"><a href="variabili-statistiche-e-distribuzioni-di-frequenza.html#raggruppamenti-in-classi"><i class="fa fa-check"></i><b>2.2.2</b> Raggruppamenti in Classi</a></li>
+<li class="chapter" data-level="2.2.3" data-path="variabili-statistiche-e-distribuzioni-di-frequenza.html"><a href="variabili-statistiche-e-distribuzioni-di-frequenza.html#frequenze-cumulate"><i class="fa fa-check"></i><b>2.2.3</b> Frequenze Cumulate</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="variabili-statistiche-e-distribuzioni-di-frequenza.html"><a href="variabili-statistiche-e-distribuzioni-di-frequenza.html#istogramma-di-densità"><i class="fa fa-check"></i><b>2.3</b> Istogramma di Densità</a></li>
+<li class="chapter" data-level="2.4" data-path="variabili-statistiche-e-distribuzioni-di-frequenza.html"><a href="variabili-statistiche-e-distribuzioni-di-frequenza.html#la-funzione-di-ripartizione"><i class="fa fa-check"></i><b>2.4</b> La Funzione di Ripartizione</a></li>
+<li class="chapter" data-level="2.5" data-path="variabili-statistiche-e-distribuzioni-di-frequenza.html"><a href="variabili-statistiche-e-distribuzioni-di-frequenza.html#linversa-della-funzione-di-ripartizione"><i class="fa fa-check"></i><b>2.5</b> L’inversa della Funzione di Ripartizione</a></li>
+<li class="chapter" data-level="2.6" data-path="variabili-statistiche-e-distribuzioni-di-frequenza.html"><a href="variabili-statistiche-e-distribuzioni-di-frequenza.html#indicatori-sintetici-di-centralità-e-di-variabilità"><i class="fa fa-check"></i><b>2.6</b> Indicatori Sintetici di Centralità e di Variabilità</a></li>
+<li class="chapter" data-level="2.7" data-path="variabili-statistiche-e-distribuzioni-di-frequenza.html"><a href="variabili-statistiche-e-distribuzioni-di-frequenza.html#riepilogo"><i class="fa fa-check"></i><b>2.7</b> Riepilogo</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="media-aritmetica-varianza-e-standard-deviation.html"><a href="media-aritmetica-varianza-e-standard-deviation.html"><i class="fa fa-check"></i><b>3</b> Media Aritmetica, Varianza e Standard Deviation</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="media-aritmetica-varianza-e-standard-deviation.html"><a href="media-aritmetica-varianza-e-standard-deviation.html#media"><i class="fa fa-check"></i><b>3.1</b> Media Aritmetica</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="media-aritmetica-varianza-e-standard-deviation.html"><a href="media-aritmetica-varianza-e-standard-deviation.html#la-media-aritmetica-come-baricentro-dellistogramma"><i class="fa fa-check"></i><b>3.1.1</b> La Media Aritmetica come Baricentro dell’Istogramma</a></li>
+<li class="chapter" data-level="3.1.2" data-path="media-aritmetica-varianza-e-standard-deviation.html"><a href="media-aritmetica-varianza-e-standard-deviation.html#calcolo-per-distribuzioni-di-frequenza"><i class="fa fa-check"></i><b>3.1.2</b> Calcolo per Distribuzioni di Frequenza</a></li>
+<li class="chapter" data-level="3.1.3" data-path="media-aritmetica-varianza-e-standard-deviation.html"><a href="media-aritmetica-varianza-e-standard-deviation.html#proprietà-della-media-aritmetica"><i class="fa fa-check"></i><b>3.1.3</b> Proprietà della Media Aritmetica</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="media-aritmetica-varianza-e-standard-deviation.html"><a href="media-aritmetica-varianza-e-standard-deviation.html#var"><i class="fa fa-check"></i><b>3.2</b> La varianza</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="media-aritmetica-varianza-e-standard-deviation.html"><a href="media-aritmetica-varianza-e-standard-deviation.html#calcolo-per-distribuzioni-di-frequenza-1"><i class="fa fa-check"></i><b>3.2.1</b> Calcolo per Distribuzioni di Frequenza</a></li>
+<li class="chapter" data-level="3.2.2" data-path="media-aritmetica-varianza-e-standard-deviation.html"><a href="media-aritmetica-varianza-e-standard-deviation.html#proprietà-della-varianza"><i class="fa fa-check"></i><b>3.2.2</b> Proprietà della Varianza</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="media-aritmetica-varianza-e-standard-deviation.html"><a href="media-aritmetica-varianza-e-standard-deviation.html#sd"><i class="fa fa-check"></i><b>3.3</b> La Standard Deviation</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="media-aritmetica-varianza-e-standard-deviation.html"><a href="media-aritmetica-varianza-e-standard-deviation.html#proprietà-della-standard-deviation"><i class="fa fa-check"></i><b>3.3.1</b> Proprietà della Standard Deviation</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="media-aritmetica-varianza-e-standard-deviation.html"><a href="media-aritmetica-varianza-e-standard-deviation.html#esempi"><i class="fa fa-check"></i><b>3.4</b> Esempi</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="mediana-percentili-e-moda.html"><a href="mediana-percentili-e-moda.html"><i class="fa fa-check"></i><b>4</b> Mediana, Percentili e Moda</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="mediana-percentili-e-moda.html"><a href="mediana-percentili-e-moda.html#mediana"><i class="fa fa-check"></i><b>4.1</b> La Mediana</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="mediana-percentili-e-moda.html"><a href="mediana-percentili-e-moda.html#dati-espressi-in-distribuzione-di-frequenza"><i class="fa fa-check"></i><b>4.1.1</b> Dati espressi in distribuzione di frequenza</a></li>
+<li class="chapter" data-level="4.1.2" data-path="mediana-percentili-e-moda.html"><a href="mediana-percentili-e-moda.html#dati-espressi-in-classi"><i class="fa fa-check"></i><b>4.1.2</b> Dati espressi in classi</a></li>
+<li class="chapter" data-level="4.1.3" data-path="mediana-percentili-e-moda.html"><a href="mediana-percentili-e-moda.html#proprietà-della-mediana"><i class="fa fa-check"></i><b>4.1.3</b> Proprietà della Mediana</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="mediana-percentili-e-moda.html"><a href="mediana-percentili-e-moda.html#i-percentili"><i class="fa fa-check"></i><b>4.2</b> I Percentili</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="mediana-percentili-e-moda.html"><a href="mediana-percentili-e-moda.html#dati-espressi-in-distribuzione-di-frequenza-1"><i class="fa fa-check"></i><b>4.2.1</b> Dati espressi in distribuzione di frequenza</a></li>
+<li class="chapter" data-level="4.2.2" data-path="mediana-percentili-e-moda.html"><a href="mediana-percentili-e-moda.html#dati-espressi-in-classi-1"><i class="fa fa-check"></i><b>4.2.2</b> Dati espressi in classi</a></li>
+<li class="chapter" data-level="4.2.3" data-path="mediana-percentili-e-moda.html"><a href="mediana-percentili-e-moda.html#i-quartili"><i class="fa fa-check"></i><b>4.2.3</b> I Quartili</a></li>
+<li class="chapter" data-level="4.2.4" data-path="mediana-percentili-e-moda.html"><a href="mediana-percentili-e-moda.html#percentili-e-funzione-di-ripartizione"><i class="fa fa-check"></i><b>4.2.4</b> Percentili e Funzione di Ripartizione</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="mediana-percentili-e-moda.html"><a href="mediana-percentili-e-moda.html#sqi"><i class="fa fa-check"></i><b>4.3</b> Lo Scarto Interquartile</a></li>
+<li class="chapter" data-level="4.4" data-path="mediana-percentili-e-moda.html"><a href="mediana-percentili-e-moda.html#moda"><i class="fa fa-check"></i><b>4.4</b> La Moda</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="mediana-percentili-e-moda.html"><a href="mediana-percentili-e-moda.html#la-moda-per-dati-raccolti-in-classi"><i class="fa fa-check"></i><b>4.4.1</b> La Moda per dati raccolti in classi</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="mediana-percentili-e-moda.html"><a href="mediana-percentili-e-moda.html#relazione-tra-media-moda-e-mediana"><i class="fa fa-check"></i><b>4.5</b> Relazione tra Media, Moda e Mediana</a></li>
+<li class="chapter" data-level="4.6" data-path="mediana-percentili-e-moda.html"><a href="mediana-percentili-e-moda.html#istogramma-e-percentili"><i class="fa fa-check"></i><b>4.6</b> Istogramma e Percentili</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="cenni-di-teoria-della-probabilità.html"><a href="cenni-di-teoria-della-probabilità.html"><i class="fa fa-check"></i><b>5</b> Cenni di Teoria della probabilità</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="cenni-di-teoria-della-probabilità.html"><a href="cenni-di-teoria-della-probabilità.html#concetti-di-base"><i class="fa fa-check"></i><b>5.1</b> Concetti di base</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="cenni-di-teoria-della-probabilità.html"><a href="cenni-di-teoria-della-probabilità.html#eventi"><i class="fa fa-check"></i><b>5.1.1</b> Eventi</a></li>
+<li class="chapter" data-level="5.1.2" data-path="cenni-di-teoria-della-probabilità.html"><a href="cenni-di-teoria-della-probabilità.html#algebra-degli-eventi"><i class="fa fa-check"></i><b>5.1.2</b> Algebra degli eventi</a></li>
+<li class="chapter" data-level="5.1.3" data-path="cenni-di-teoria-della-probabilità.html"><a href="cenni-di-teoria-della-probabilità.html#operazioni-su-insieme"><i class="fa fa-check"></i><b>5.1.3</b> Operazioni su insieme</a></li>
+<li class="chapter" data-level="5.1.4" data-path="cenni-di-teoria-della-probabilità.html"><a href="cenni-di-teoria-della-probabilità.html#la-probabilità-è-una-funzione"><i class="fa fa-check"></i><b>5.1.4</b> La probabilità è una funzione</a></li>
+<li class="chapter" data-level="5.1.5" data-path="cenni-di-teoria-della-probabilità.html"><a href="cenni-di-teoria-della-probabilità.html#definizioni-di-probabilità"><i class="fa fa-check"></i><b>5.1.5</b> Definizioni di probabilità</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="cenni-di-teoria-della-probabilità.html"><a href="cenni-di-teoria-della-probabilità.html#teoria-di-kolmogorov"><i class="fa fa-check"></i><b>5.2</b> Teoria di Kolmogorov</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="cenni-di-teoria-della-probabilità.html"><a href="cenni-di-teoria-della-probabilità.html#algebra-degli-eventi-1"><i class="fa fa-check"></i><b>5.2.1</b> Algebra degli Eventi</a></li>
+<li class="chapter" data-level="5.2.2" data-path="cenni-di-teoria-della-probabilità.html"><a href="cenni-di-teoria-della-probabilità.html#assiomi-di-kolmogorov"><i class="fa fa-check"></i><b>5.2.2</b> Assiomi di Kolmogorov</a></li>
+<li class="chapter" data-level="5.2.3" data-path="cenni-di-teoria-della-probabilità.html"><a href="cenni-di-teoria-della-probabilità.html#proprietà-di-p"><i class="fa fa-check"></i><b>5.2.3</b> Proprietà di <span class="math inline">\(P\)</span></a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="cenni-di-teoria-della-probabilità.html"><a href="cenni-di-teoria-della-probabilità.html#probabilità-condizionata"><i class="fa fa-check"></i><b>5.3</b> Probabilità Condizionata</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="cenni-di-teoria-della-probabilità.html"><a href="cenni-di-teoria-della-probabilità.html#indipendenza-tra-eventi"><i class="fa fa-check"></i><b>5.3.1</b> Indipendenza tra Eventi</a></li>
+<li class="chapter" data-level="5.3.2" data-path="cenni-di-teoria-della-probabilità.html"><a href="cenni-di-teoria-della-probabilità.html#indipendenza-e-incompatibilità"><i class="fa fa-check"></i><b>5.3.2</b> Indipendenza e Incompatibilità</a></li>
+<li class="chapter" data-level="5.3.3" data-path="cenni-di-teoria-della-probabilità.html"><a href="cenni-di-teoria-della-probabilità.html#partizioni-di-omega"><i class="fa fa-check"></i><b>5.3.3</b> Partizioni di <span class="math inline">\(\Omega\)</span></a></li>
+<li class="chapter" data-level="5.3.4" data-path="cenni-di-teoria-della-probabilità.html"><a href="cenni-di-teoria-della-probabilità.html#teorema-delle-probabilità-totali"><i class="fa fa-check"></i><b>5.3.4</b> Teorema delle probabilità totali</a></li>
+<li class="chapter" data-level="5.3.5" data-path="cenni-di-teoria-della-probabilità.html"><a href="cenni-di-teoria-della-probabilità.html#il-teorema-di-bayes"><i class="fa fa-check"></i><b>5.3.5</b> Il Teorema di Bayes</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="cenni-di-teoria-della-probabilità.html"><a href="cenni-di-teoria-della-probabilità.html#specchietto-finale-utile-per-gli-esercizi-elementari"><i class="fa fa-check"></i><b>5.4</b> Specchietto finale utile per gli esercizi elementari</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="variabili-casuali.html"><a href="variabili-casuali.html"><i class="fa fa-check"></i><b>6</b> Variabili Casuali</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="variabili-casuali.html"><a href="variabili-casuali.html#definizione-formale-di-una-vc-discreta"><i class="fa fa-check"></i><b>6.1</b> Definizione formale di una VC discreta</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="variabili-casuali.html"><a href="variabili-casuali.html#descrizione-di-una-vc"><i class="fa fa-check"></i><b>6.1.1</b> Descrizione di una VC</a></li>
+<li class="chapter" data-level="6.1.2" data-path="variabili-casuali.html"><a href="variabili-casuali.html#operazioni-tra-vc"><i class="fa fa-check"></i><b>6.1.2</b> Operazioni tra VC</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="variabili-casuali.html"><a href="variabili-casuali.html#valore-atteso-e-varianza-di-una-vc"><i class="fa fa-check"></i><b>6.2</b> Valore Atteso, e Varianza di una VC</a></li>
+<li class="chapter" data-level="6.3" data-path="variabili-casuali.html"><a href="variabili-casuali.html#indipendenza-tra-vc"><i class="fa fa-check"></i><b>6.3</b> Indipendenza tra VC</a></li>
+<li class="chapter" data-level="6.4" data-path="variabili-casuali.html"><a href="variabili-casuali.html#vc-condizionate-complementi"><i class="fa fa-check"></i><b>6.4</b> VC condizionate (complementi)</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="variabili-casuali.html"><a href="variabili-casuali.html#valore-atteso-e-varianza-condizionata-complementi"><i class="fa fa-check"></i><b>6.4.1</b> Valore atteso e varianza condizionata (complementi)</a></li>
+<li class="chapter" data-level="6.4.2" data-path="variabili-casuali.html"><a href="variabili-casuali.html#esempio-di-indipendenza-tra-vc"><i class="fa fa-check"></i><b>6.4.2</b> Esempio di indipendenza tra VC</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="variabili-casuali.html"><a href="variabili-casuali.html#specchietto-finale-per-le-vc-discrete"><i class="fa fa-check"></i><b>6.5</b> Specchietto finale per le VC discrete</a></li>
+<li class="chapter" data-level="6.6" data-path="variabili-casuali.html"><a href="variabili-casuali.html#le-vc-continue"><i class="fa fa-check"></i><b>6.6</b> Le VC continue</a>
+<ul>
+<li class="chapter" data-level="6.6.1" data-path="variabili-casuali.html"><a href="variabili-casuali.html#valore-atesso-e-varianza-di-una-vc-continua"><i class="fa fa-check"></i><b>6.6.1</b> Valore Atesso e Varianza di una VC continua</a></li>
+<li class="chapter" data-level="6.6.2" data-path="variabili-casuali.html"><a href="variabili-casuali.html#la-vc-uniforme"><i class="fa fa-check"></i><b>6.6.2</b> La VC uniforme</a></li>
+</ul></li>
+<li class="chapter" data-level="6.7" data-path="variabili-casuali.html"><a href="variabili-casuali.html#operazioni-sulle-vc"><i class="fa fa-check"></i><b>6.7</b> Operazioni sulle VC</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="variabili-casuali-di-particolare-interesse.html"><a href="variabili-casuali-di-particolare-interesse.html"><i class="fa fa-check"></i><b>7</b> Variabili Casuali di particolare interesse</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="variabili-casuali-di-particolare-interesse.html"><a href="variabili-casuali-di-particolare-interesse.html#la-vc-di-bernoulli"><i class="fa fa-check"></i><b>7.1</b> La VC di Bernoulli</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="variabili-casuali-di-particolare-interesse.html"><a href="variabili-casuali-di-particolare-interesse.html#valore-atteso-e-varianza"><i class="fa fa-check"></i><b>7.1.1</b> Valore Atteso e Varianza</a></li>
+<li class="chapter" data-level="7.1.2" data-path="variabili-casuali-di-particolare-interesse.html"><a href="variabili-casuali-di-particolare-interesse.html#in-sintesi"><i class="fa fa-check"></i><b>7.1.2</b> In Sintesi</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="variabili-casuali-di-particolare-interesse.html"><a href="variabili-casuali-di-particolare-interesse.html#la-vc-binomiale"><i class="fa fa-check"></i><b>7.2</b> La VC Binomiale</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="variabili-casuali-di-particolare-interesse.html"><a href="variabili-casuali-di-particolare-interesse.html#la-vc-binomiale-attraverso-un-esempio"><i class="fa fa-check"></i><b>7.2.1</b> La VC Binomiale attraverso un esempio</a></li>
+<li class="chapter" data-level="7.2.2" data-path="variabili-casuali-di-particolare-interesse.html"><a href="variabili-casuali-di-particolare-interesse.html#il-modello"><i class="fa fa-check"></i><b>7.2.2</b> Il modello</a></li>
+<li class="chapter" data-level="7.2.3" data-path="variabili-casuali-di-particolare-interesse.html"><a href="variabili-casuali-di-particolare-interesse.html#dimostrazione-del-valore-atteso-e-della-varianza"><i class="fa fa-check"></i><b>7.2.3</b> Dimostrazione del Valore atteso e della Varianza</a></li>
+<li class="chapter" data-level="7.2.4" data-path="variabili-casuali-di-particolare-interesse.html"><a href="variabili-casuali-di-particolare-interesse.html#esempio"><i class="fa fa-check"></i><b>7.2.4</b> Esempio</a></li>
+<li class="chapter" data-level="7.2.5" data-path="variabili-casuali-di-particolare-interesse.html"><a href="variabili-casuali-di-particolare-interesse.html#proprietà"><i class="fa fa-check"></i><b>7.2.5</b> Proprietà</a></li>
+<li class="chapter" data-level="7.2.6" data-path="variabili-casuali-di-particolare-interesse.html"><a href="variabili-casuali-di-particolare-interesse.html#in-sintesi-1"><i class="fa fa-check"></i><b>7.2.6</b> In Sintesi</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="variabili-casuali-di-particolare-interesse.html"><a href="variabili-casuali-di-particolare-interesse.html#la-vc-di-poisson"><i class="fa fa-check"></i><b>7.3</b> La VC di Poisson</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="variabili-casuali-di-particolare-interesse.html"><a href="variabili-casuali-di-particolare-interesse.html#obiettivo"><i class="fa fa-check"></i><b>7.3.1</b> Obiettivo</a></li>
+<li class="chapter" data-level="7.3.2" data-path="variabili-casuali-di-particolare-interesse.html"><a href="variabili-casuali-di-particolare-interesse.html#storia"><i class="fa fa-check"></i><b>7.3.2</b> Storia</a></li>
+<li class="chapter" data-level="7.3.3" data-path="variabili-casuali-di-particolare-interesse.html"><a href="variabili-casuali-di-particolare-interesse.html#il-modello-1"><i class="fa fa-check"></i><b>7.3.3</b> Il modello</a></li>
+<li class="chapter" data-level="7.3.4" data-path="variabili-casuali-di-particolare-interesse.html"><a href="variabili-casuali-di-particolare-interesse.html#dimostrazione-del-valore-atteso-e-della-varianza-della-poisson"><i class="fa fa-check"></i><b>7.3.4</b> Dimostrazione del Valore atteso e della Varianza della Poisson</a></li>
+<li class="chapter" data-level="7.3.5" data-path="variabili-casuali-di-particolare-interesse.html"><a href="variabili-casuali-di-particolare-interesse.html#esempio-1"><i class="fa fa-check"></i><b>7.3.5</b> Esempio</a></li>
+<li class="chapter" data-level="7.3.6" data-path="variabili-casuali-di-particolare-interesse.html"><a href="variabili-casuali-di-particolare-interesse.html#proprietà-della-poisson"><i class="fa fa-check"></i><b>7.3.6</b> Proprietà della Poisson</a></li>
+<li class="chapter" data-level="7.3.7" data-path="variabili-casuali-di-particolare-interesse.html"><a href="variabili-casuali-di-particolare-interesse.html#in-sintesi-2"><i class="fa fa-check"></i><b>7.3.7</b> In Sintesi</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="variabili-casuali-di-particolare-interesse.html"><a href="variabili-casuali-di-particolare-interesse.html#la-vc-normale"><i class="fa fa-check"></i><b>7.4</b> La VC Normale</a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="variabili-casuali-di-particolare-interesse.html"><a href="variabili-casuali-di-particolare-interesse.html#obiettivo-1"><i class="fa fa-check"></i><b>7.4.1</b> Obiettivo</a></li>
+<li class="chapter" data-level="7.4.2" data-path="variabili-casuali-di-particolare-interesse.html"><a href="variabili-casuali-di-particolare-interesse.html#storia-1"><i class="fa fa-check"></i><b>7.4.2</b> Storia</a></li>
+<li class="chapter" data-level="7.4.3" data-path="variabili-casuali-di-particolare-interesse.html"><a href="variabili-casuali-di-particolare-interesse.html#il-modello-2"><i class="fa fa-check"></i><b>7.4.3</b> Il modello</a></li>
+<li class="chapter" data-level="7.4.4" data-path="variabili-casuali-di-particolare-interesse.html"><a href="variabili-casuali-di-particolare-interesse.html#proprietà-della-normale"><i class="fa fa-check"></i><b>7.4.4</b> Proprietà della Normale</a></li>
+<li class="chapter" data-level="7.4.5" data-path="variabili-casuali-di-particolare-interesse.html"><a href="variabili-casuali-di-particolare-interesse.html#la-normale-standard"><i class="fa fa-check"></i><b>7.4.5</b> La normale standard</a></li>
+<li class="chapter" data-level="7.4.6" data-path="variabili-casuali-di-particolare-interesse.html"><a href="variabili-casuali-di-particolare-interesse.html#la-funzione-di-ripartizione-della-normale-standard"><i class="fa fa-check"></i><b>7.4.6</b> La Funzione di Ripartizione della Normale Standard</a></li>
+<li class="chapter" data-level="7.4.7" data-path="variabili-casuali-di-particolare-interesse.html"><a href="variabili-casuali-di-particolare-interesse.html#la-tavole-statistiche-della-z"><i class="fa fa-check"></i><b>7.4.7</b> La tavole Statistiche della <span class="math inline">\(Z\)</span></a></li>
+<li class="chapter" data-level="7.4.8" data-path="variabili-casuali-di-particolare-interesse.html"><a href="variabili-casuali-di-particolare-interesse.html#in-sintesi-3"><i class="fa fa-check"></i><b>7.4.8</b> In Sintesi</a></li>
+<li class="chapter" data-level="7.4.9" data-path="variabili-casuali-di-particolare-interesse.html"><a href="variabili-casuali-di-particolare-interesse.html#esempio-2"><i class="fa fa-check"></i><b>7.4.9</b> Esempio</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="il-teorema-del-limite-centrale.html"><a href="il-teorema-del-limite-centrale.html"><i class="fa fa-check"></i><b>8</b> Il Teorema del Limite Centrale</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="il-teorema-del-limite-centrale.html"><a href="il-teorema-del-limite-centrale.html#successioni-di-vc"><i class="fa fa-check"></i><b>8.1</b> Successioni di VC</a></li>
+<li class="chapter" data-level="8.2" data-path="il-teorema-del-limite-centrale.html"><a href="il-teorema-del-limite-centrale.html#somme-e-medie-di-vc"><i class="fa fa-check"></i><b>8.2</b> Somme e Medie di VC</a></li>
+<li class="chapter" data-level="8.3" data-path="il-teorema-del-limite-centrale.html"><a href="il-teorema-del-limite-centrale.html#teoremi-del-limite-centrale"><i class="fa fa-check"></i><b>8.3</b> Teoremi del Limite Centrale</a>
+<ul>
+<li class="chapter" data-level="8.3.1" data-path="il-teorema-del-limite-centrale.html"><a href="il-teorema-del-limite-centrale.html#esempio-somma"><i class="fa fa-check"></i><b>8.3.1</b> Esempio Somma</a></li>
+<li class="chapter" data-level="8.3.2" data-path="il-teorema-del-limite-centrale.html"><a href="il-teorema-del-limite-centrale.html#roulette"><i class="fa fa-check"></i><b>8.3.2</b> Roulette</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="statistiche-campionarie.html"><a href="statistiche-campionarie.html"><i class="fa fa-check"></i><b>9</b> Statistiche campionarie</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="statistiche-campionarie.html"><a href="statistiche-campionarie.html#risultati-preliminari"><i class="fa fa-check"></i><b>9.1</b> Risultati preliminari</a></li>
+<li class="chapter" data-level="9.2" data-path="statistiche-campionarie.html"><a href="statistiche-campionarie.html#la-distribuzione-chi-quadro-chi2"><i class="fa fa-check"></i><b>9.2</b> La distribuzione Chi-quadro <span class="math inline">\(\chi^2\)</span></a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="statistiche-campionarie.html"><a href="statistiche-campionarie.html#le-tavole-del-chi2"><i class="fa fa-check"></i><b>9.2.1</b> Le tavole del <span class="math inline">\(\chi^2\)</span></a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="statistiche-campionarie.html"><a href="statistiche-campionarie.html#la-distribuzione-t-di-student"><i class="fa fa-check"></i><b>9.3</b> La distribuzione <span class="math inline">\(t\)</span>-di Student</a>
+<ul>
+<li class="chapter" data-level="9.3.1" data-path="statistiche-campionarie.html"><a href="statistiche-campionarie.html#le-tavole-della-t"><i class="fa fa-check"></i><b>9.3.1</b> Le tavole della <span class="math inline">\(t\)</span></a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="statistiche-campionarie.html"><a href="statistiche-campionarie.html#la-distribuzione-di-hatsigma2"><i class="fa fa-check"></i><b>9.4</b> La distribuzione di <span class="math inline">\(\hat\sigma^2\)</span></a></li>
+<li class="chapter" data-level="9.5" data-path="statistiche-campionarie.html"><a href="statistiche-campionarie.html#la-distribuzione-della-statistica-standardizzata"><i class="fa fa-check"></i><b>9.5</b> La distribuzione della statistica standardizzata</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="inferenza-concetti-introduttivi.html"><a href="inferenza-concetti-introduttivi.html"><i class="fa fa-check"></i><b>10</b> Inferenza: concetti introduttivi</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="inferenza-concetti-introduttivi.html"><a href="inferenza-concetti-introduttivi.html#inferenza-da-popolazioni-finite"><i class="fa fa-check"></i><b>10.1</b> Inferenza da popolazioni finite</a></li>
+<li class="chapter" data-level="10.2" data-path="inferenza-concetti-introduttivi.html"><a href="inferenza-concetti-introduttivi.html#inferenza-da-popolazioni-infinite"><i class="fa fa-check"></i><b>10.2</b> Inferenza da popolazioni infinite</a></li>
+<li class="chapter" data-level="10.3" data-path="inferenza-concetti-introduttivi.html"><a href="inferenza-concetti-introduttivi.html#inferenza-distribution-free-e-da-modello"><i class="fa fa-check"></i><b>10.3</b> Inferenza distribution-free e da modello</a></li>
+<li class="chapter" data-level="10.4" data-path="inferenza-concetti-introduttivi.html"><a href="inferenza-concetti-introduttivi.html#sintesi-dei-contesti"><i class="fa fa-check"></i><b>10.4</b> Sintesi dei contesti</a>
+<ul>
+<li class="chapter" data-level="10.4.1" data-path="inferenza-concetti-introduttivi.html"><a href="inferenza-concetti-introduttivi.html#binomiale-da-urna-con-dimensione-nota-e-estrazione-senza-reinserimento-popolazioni-finite"><i class="fa fa-check"></i><b>10.4.1</b> 1. Binomiale da urna con dimensione nota e estrazione senza reinserimento (popolazioni finite)</a></li>
+<li class="chapter" data-level="10.4.2" data-path="inferenza-concetti-introduttivi.html"><a href="inferenza-concetti-introduttivi.html#binomiale-da-urna-con-dimensione-incognita-popolazioni-infinite"><i class="fa fa-check"></i><b>10.4.2</b> 2. Binomiale da urna con dimensione incognita (popolazioni infinite)</a></li>
+<li class="chapter" data-level="10.4.3" data-path="inferenza-concetti-introduttivi.html"><a href="inferenza-concetti-introduttivi.html#urna-con-palline-numerate-in-numero-finito-con-distribuzione-incognita-popolazioni-finite-inferenza-distribution-free"><i class="fa fa-check"></i><b>10.4.3</b> 3. Urna con palline numerate, in numero finito, con distribuzione incognita (popolazioni finite, inferenza distribution free)</a></li>
+<li class="chapter" data-level="10.4.4" data-path="inferenza-concetti-introduttivi.html"><a href="inferenza-concetti-introduttivi.html#urna-con-infinite-palline-numerate-negli-interi-con-distribuzione-poisson-legata-a-lambda-popolazioni-infinite-inferenza-da-modello"><i class="fa fa-check"></i><b>10.4.4</b> 4. Urna con infinite palline numerate negli interi, con distribuzione Poisson, legata a <span class="math inline">\(\lambda\)</span> (popolazioni infinite, inferenza da modello)</a></li>
+<li class="chapter" data-level="10.4.5" data-path="inferenza-concetti-introduttivi.html"><a href="inferenza-concetti-introduttivi.html#urna-con-infinite-palline-nel-reale-con-distribuzione-normale-legata-a-mu-sigma2-popolazioni-infinite-inferenza-da-modello"><i class="fa fa-check"></i><b>10.4.5</b> 5. Urna con infinite palline nel reale, con distribuzione normale, legata a <span class="math inline">\(\mu, \sigma^2\)</span> (popolazioni infinite, inferenza da modello)</a></li>
+</ul></li>
+<li class="chapter" data-level="10.5" data-path="inferenza-concetti-introduttivi.html"><a href="inferenza-concetti-introduttivi.html#statistica-classica"><i class="fa fa-check"></i><b>10.5</b> Statistica Classica</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="elementi-di-teoria-della-stima.html"><a href="elementi-di-teoria-della-stima.html"><i class="fa fa-check"></i><b>11</b> Elementi di Teoria della Stima</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="elementi-di-teoria-della-stima.html"><a href="elementi-di-teoria-della-stima.html#campionamento"><i class="fa fa-check"></i><b>11.1</b> Campionamento</a>
+<ul>
+<li class="chapter" data-level="11.1.1" data-path="elementi-di-teoria-della-stima.html"><a href="elementi-di-teoria-della-stima.html#lessico"><i class="fa fa-check"></i><b>11.1.1</b> Lessico</a></li>
+<li class="chapter" data-level="11.1.2" data-path="elementi-di-teoria-della-stima.html"><a href="elementi-di-teoria-della-stima.html#esempio-al-finito"><i class="fa fa-check"></i><b>11.1.2</b> Esempio al finito</a></li>
+<li class="chapter" data-level="11.1.3" data-path="elementi-di-teoria-della-stima.html"><a href="elementi-di-teoria-della-stima.html#lessico-1"><i class="fa fa-check"></i><b>11.1.3</b> Lessico</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="elementi-di-teoria-della-stima.html"><a href="elementi-di-teoria-della-stima.html#gli-stimatori"><i class="fa fa-check"></i><b>11.2</b> Gli stimatori</a>
+<ul>
+<li class="chapter" data-level="11.2.1" data-path="elementi-di-teoria-della-stima.html"><a href="elementi-di-teoria-della-stima.html#stimatori-e-stime"><i class="fa fa-check"></i><b>11.2.1</b> Stimatori e Stime</a></li>
+<li class="chapter" data-level="11.2.2" data-path="elementi-di-teoria-della-stima.html"><a href="elementi-di-teoria-della-stima.html#come-scegliere-uno-stimatore"><i class="fa fa-check"></i><b>11.2.2</b> Come scegliere uno stimatore</a></li>
+<li class="chapter" data-level="11.2.3" data-path="elementi-di-teoria-della-stima.html"><a href="elementi-di-teoria-della-stima.html#proprietà-auspicabili-di-uno-stimatore-per-n-finito"><i class="fa fa-check"></i><b>11.2.3</b> Proprietà Auspicabili di uno stimatore (per <span class="math inline">\(n\)</span> finito)</a></li>
+<li class="chapter" data-level="11.2.4" data-path="elementi-di-teoria-della-stima.html"><a href="elementi-di-teoria-della-stima.html#media-aritmetica-e-varianza-campionaria-caso-iid"><i class="fa fa-check"></i><b>11.2.4</b> Media aritmetica e varianza campionaria caso IID</a></li>
+<li class="chapter" data-level="11.2.5" data-path="elementi-di-teoria-della-stima.html"><a href="elementi-di-teoria-della-stima.html#media-aritmetica-campionamento-sr-popolazioni-finite"><i class="fa fa-check"></i><b>11.2.5</b> Media aritmetica campionamento SR (popolazioni finite)</a></li>
+<li class="chapter" data-level="11.2.6" data-path="elementi-di-teoria-della-stima.html"><a href="elementi-di-teoria-della-stima.html#esempi-1"><i class="fa fa-check"></i><b>11.2.6</b> Esempi</a></li>
+<li class="chapter" data-level="11.2.7" data-path="elementi-di-teoria-della-stima.html"><a href="elementi-di-teoria-della-stima.html#distribuzione-delle-statistiche"><i class="fa fa-check"></i><b>11.2.7</b> Distribuzione delle statistiche</a></li>
+<li class="chapter" data-level="11.2.8" data-path="elementi-di-teoria-della-stima.html"><a href="elementi-di-teoria-della-stima.html#proprietà-auspicabili-di-uno-stimatore-per-ntoinfty"><i class="fa fa-check"></i><b>11.2.8</b> Proprietà Auspicabili di uno stimatore (per <span class="math inline">\(n\to\infty\)</span>)</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="elementi-di-teoria-della-stima.html"><a href="elementi-di-teoria-della-stima.html#la-sd-e-lo-se"><i class="fa fa-check"></i><b>11.3</b> La <span class="math inline">\(SD\)</span> e lo <span class="math inline">\(SE\)</span></a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="teoria-della-verosimiglianza.html"><a href="teoria-della-verosimiglianza.html"><i class="fa fa-check"></i><b>12</b> Teoria della Verosimiglianza</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="teoria-della-verosimiglianza.html"><a href="teoria-della-verosimiglianza.html#il-modello-statistico"><i class="fa fa-check"></i><b>12.1</b> Il Modello Statistico</a>
+<ul>
+<li class="chapter" data-level="12.1.1" data-path="teoria-della-verosimiglianza.html"><a href="teoria-della-verosimiglianza.html#esiste-lo-stimatore-più-efficiente"><i class="fa fa-check"></i><b>12.1.1</b> Esiste lo stimatore più efficiente?</a></li>
+</ul></li>
+<li class="chapter" data-level="12.2" data-path="teoria-della-verosimiglianza.html"><a href="teoria-della-verosimiglianza.html#la-verosimiglianza"><i class="fa fa-check"></i><b>12.2</b> La Verosimiglianza</a>
+<ul>
+<li class="chapter" data-level="12.2.1" data-path="teoria-della-verosimiglianza.html"><a href="teoria-della-verosimiglianza.html#la-verosimiglianza-attraverso-un-esempio"><i class="fa fa-check"></i><b>12.2.1</b> La Verosimiglianza attraverso un esempio</a></li>
+<li class="chapter" data-level="12.2.2" data-path="teoria-della-verosimiglianza.html"><a href="teoria-della-verosimiglianza.html#se-pi-fosse"><i class="fa fa-check"></i><b>12.2.2</b> Se <span class="math inline">\(\pi\)</span> fosse…</a></li>
+<li class="chapter" data-level="12.2.3" data-path="teoria-della-verosimiglianza.html"><a href="teoria-della-verosimiglianza.html#la-verosimiglianza-non-è-una-probabilità"><i class="fa fa-check"></i><b>12.2.3</b> La verosimiglianza non è una probabilità</a></li>
+<li class="chapter" data-level="12.2.4" data-path="teoria-della-verosimiglianza.html"><a href="teoria-della-verosimiglianza.html#la-stima-di-massima-verosimiglianza"><i class="fa fa-check"></i><b>12.2.4</b> La stima di massima verosimiglianza</a></li>
+<li class="chapter" data-level="12.2.5" data-path="teoria-della-verosimiglianza.html"><a href="teoria-della-verosimiglianza.html#esempio-iid-da-popolazione-finita-parte-due"><i class="fa fa-check"></i><b>12.2.5</b> Esempio IID da popolazione finita (parte due)</a></li>
+<li class="chapter" data-level="12.2.6" data-path="teoria-della-verosimiglianza.html"><a href="teoria-della-verosimiglianza.html#abbiamo-trovato-il-vero-pi"><i class="fa fa-check"></i><b>12.2.6</b> Abbiamo trovato il vero <span class="math inline">\(\pi\)</span>?</a></li>
+<li class="chapter" data-level="12.2.7" data-path="teoria-della-verosimiglianza.html"><a href="teoria-della-verosimiglianza.html#muoviamo-anche-s_n"><i class="fa fa-check"></i><b>12.2.7</b> Muoviamo anche <span class="math inline">\(S_n\)</span></a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="teoria-della-verosimiglianza.html"><a href="teoria-della-verosimiglianza.html#la-funzione-di-verosimiglianza"><i class="fa fa-check"></i><b>12.3</b> La Funzione di Verosimiglianza</a></li>
+<li class="chapter" data-level="12.4" data-path="teoria-della-verosimiglianza.html"><a href="teoria-della-verosimiglianza.html#la-stimatore-di-massima-verosimiglianza"><i class="fa fa-check"></i><b>12.4</b> La Stimatore di massima Verosimiglianza</a></li>
+<li class="chapter" data-level="12.5" data-path="teoria-della-verosimiglianza.html"><a href="teoria-della-verosimiglianza.html#il-principio-di-verosimiglianza"><i class="fa fa-check"></i><b>12.5</b> Il Principio di Verosimiglianza</a></li>
+<li class="chapter" data-level="12.6" data-path="teoria-della-verosimiglianza.html"><a href="teoria-della-verosimiglianza.html#verosimiglianza-e-statistiche-sufficienti"><i class="fa fa-check"></i><b>12.6</b> Verosimiglianza e Statistiche Sufficienti</a></li>
+<li class="chapter" data-level="12.7" data-path="teoria-della-verosimiglianza.html"><a href="teoria-della-verosimiglianza.html#caso-bernoulli-urna-infinita."><i class="fa fa-check"></i><b>12.7</b> Caso Bernoulli urna infinita.</a>
+<ul>
+<li class="chapter" data-level="12.7.1" data-path="teoria-della-verosimiglianza.html"><a href="teoria-della-verosimiglianza.html#calcolo-delle-proprietà-di-hatpi"><i class="fa fa-check"></i><b>12.7.1</b> Calcolo delle proprietà di <span class="math inline">\(\hat\pi\)</span></a></li>
+<li class="chapter" data-level="12.7.2" data-path="teoria-della-verosimiglianza.html"><a href="teoria-della-verosimiglianza.html#se-n-aumenta-e-hatpi0.6"><i class="fa fa-check"></i><b>12.7.2</b> Se <span class="math inline">\(n\)</span> aumenta e <span class="math inline">\(\hat\pi=0.6\)</span></a></li>
+<li class="chapter" data-level="12.7.3" data-path="teoria-della-verosimiglianza.html"><a href="teoria-della-verosimiglianza.html#lipotesi-pi0.5"><i class="fa fa-check"></i><b>12.7.3</b> L’ipotesi <span class="math inline">\(\pi=0.5\)</span></a></li>
+</ul></li>
+<li class="chapter" data-level="12.8" data-path="teoria-della-verosimiglianza.html"><a href="teoria-della-verosimiglianza.html#il-modello-poisson"><i class="fa fa-check"></i><b>12.8</b> Il modello Poisson</a>
+<ul>
+<li class="chapter" data-level="12.8.1" data-path="teoria-della-verosimiglianza.html"><a href="teoria-della-verosimiglianza.html#la-log-verosimiglianza-della-poisson"><i class="fa fa-check"></i><b>12.8.1</b> La log-verosimiglianza della Poisson</a></li>
+<li class="chapter" data-level="12.8.2" data-path="teoria-della-verosimiglianza.html"><a href="teoria-della-verosimiglianza.html#la-stima-di-massima-verosimiglianza-della-poisson"><i class="fa fa-check"></i><b>12.8.2</b> La stima di massima verosimiglianza della Poisson</a></li>
+<li class="chapter" data-level="12.8.3" data-path="teoria-della-verosimiglianza.html"><a href="teoria-della-verosimiglianza.html#proprietà-dello-stimatore-di-massima-verosimiglianza-della-poisson-hatlambda"><i class="fa fa-check"></i><b>12.8.3</b> Proprietà dello stimatore di massima verosimiglianza della Poisson <span class="math inline">\(\hat\lambda\)</span></a></li>
+<li class="chapter" data-level="12.8.4" data-path="teoria-della-verosimiglianza.html"><a href="teoria-della-verosimiglianza.html#esempio-n5"><i class="fa fa-check"></i><b>12.8.4</b> Esempio <span class="math inline">\(n=5\)</span></a></li>
+<li class="chapter" data-level="12.8.5" data-path="teoria-della-verosimiglianza.html"><a href="teoria-della-verosimiglianza.html#esempio-n50"><i class="fa fa-check"></i><b>12.8.5</b> Esempio <span class="math inline">\(n=50\)</span></a></li>
+</ul></li>
+<li class="chapter" data-level="12.9" data-path="teoria-della-verosimiglianza.html"><a href="teoria-della-verosimiglianza.html#il-modello-normale"><i class="fa fa-check"></i><b>12.9</b> Il modello Normale</a>
+<ul>
+<li class="chapter" data-level="12.9.1" data-path="teoria-della-verosimiglianza.html"><a href="teoria-della-verosimiglianza.html#verosimiglianza-e-log-verosimiglianza-della-normale"><i class="fa fa-check"></i><b>12.9.1</b> Verosimiglianza e log-verosimiglianza della Normale</a></li>
+<li class="chapter" data-level="12.9.2" data-path="teoria-della-verosimiglianza.html"><a href="teoria-della-verosimiglianza.html#le-stime-di-massima-verosimiglianza-della-normale"><i class="fa fa-check"></i><b>12.9.2</b> Le stime di massima verosimiglianza della Normale</a></li>
+<li class="chapter" data-level="12.9.3" data-path="teoria-della-verosimiglianza.html"><a href="teoria-della-verosimiglianza.html#proprietà-di-hatmu"><i class="fa fa-check"></i><b>12.9.3</b> Proprietà di <span class="math inline">\(\hat\mu\)</span></a></li>
+<li class="chapter" data-level="12.9.4" data-path="teoria-della-verosimiglianza.html"><a href="teoria-della-verosimiglianza.html#vnorm"><i class="fa fa-check"></i><b>12.9.4</b> Proprietà di <span class="math inline">\(\hat\sigma^2\)</span></a></li>
+<li class="chapter" data-level="12.9.5" data-path="teoria-della-verosimiglianza.html"><a href="teoria-della-verosimiglianza.html#ssem"><i class="fa fa-check"></i><b>12.9.5</b> Lo <span class="math inline">\(SE\)</span> di <span class="math inline">\(\hat\mu\)</span></a></li>
+<li class="chapter" data-level="12.9.6" data-path="teoria-della-verosimiglianza.html"><a href="teoria-della-verosimiglianza.html#esempio-n10"><i class="fa fa-check"></i><b>12.9.6</b> Esempio <span class="math inline">\(n=10\)</span></a></li>
+<li class="chapter" data-level="12.9.7" data-path="teoria-della-verosimiglianza.html"><a href="teoria-della-verosimiglianza.html#esempio-n100"><i class="fa fa-check"></i><b>12.9.7</b> Esempio <span class="math inline">\(n=100\)</span></a></li>
+<li class="chapter" data-level="12.9.8" data-path="teoria-della-verosimiglianza.html"><a href="teoria-della-verosimiglianza.html#perché-n-1"><i class="fa fa-check"></i><b>12.9.8</b> Perché <span class="math inline">\(n-1\)</span></a></li>
+</ul></li>
+<li class="chapter" data-level="12.10" data-path="teoria-della-verosimiglianza.html"><a href="teoria-della-verosimiglianza.html#proprietà-degli-stimatori-di-massima-verosimiglianza"><i class="fa fa-check"></i><b>12.10</b> Proprietà degli stimatori di massima verosimiglianza</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="stima-intervallare.html"><a href="stima-intervallare.html"><i class="fa fa-check"></i><b>13</b> Stima Intervallare</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="stima-intervallare.html"><a href="stima-intervallare.html#obiettivo-2"><i class="fa fa-check"></i><b>13.1</b> Obiettivo</a></li>
+<li class="chapter" data-level="13.2" data-path="stima-intervallare.html"><a href="stima-intervallare.html#il-contesto-probabilistico"><i class="fa fa-check"></i><b>13.2</b> Il Contesto Probabilistico</a>
+<ul>
+<li class="chapter" data-level="13.2.1" data-path="stima-intervallare.html"><a href="stima-intervallare.html#un-intervallo-per-hat-mu"><i class="fa fa-check"></i><b>13.2.1</b> Un intervallo per <span class="math inline">\(\hat \mu\)</span></a></li>
+<li class="chapter" data-level="13.2.2" data-path="stima-intervallare.html"><a href="stima-intervallare.html#n-e-sigma2-rimangono-fissi-cambiamo-mu"><i class="fa fa-check"></i><b>13.2.2</b> <span class="math inline">\(n\)</span> e <span class="math inline">\(\sigma^2\)</span> rimangono fissi, cambiamo <span class="math inline">\(\mu\)</span></a></li>
+<li class="chapter" data-level="13.2.3" data-path="stima-intervallare.html"><a href="stima-intervallare.html#n-e-sigma2-rimangono-fissi-e-noti-mu-incognita-hat-mu2.6"><i class="fa fa-check"></i><b>13.2.3</b> <span class="math inline">\(n\)</span> e <span class="math inline">\(\sigma^2\)</span> rimangono fissi e noti, <span class="math inline">\(\mu\)</span> incognita <span class="math inline">\(\hat \mu=2.6\)</span></a></li>
+</ul></li>
+<li class="chapter" data-level="13.3" data-path="stima-intervallare.html"><a href="stima-intervallare.html#intervalli-casuali"><i class="fa fa-check"></i><b>13.3</b> Intervalli casuali</a></li>
+<li class="chapter" data-level="13.4" data-path="stima-intervallare.html"><a href="stima-intervallare.html#intervallo-di-confidenza-per-mu-al-95-n5-e-sigma22.25."><i class="fa fa-check"></i><b>13.4</b> Intervallo di confidenza per <span class="math inline">\(\mu\)</span> al 95%, <span class="math inline">\(n=5\)</span> e <span class="math inline">\(\sigma^2=2.25\)</span>.</a></li>
+<li class="chapter" data-level="13.5" data-path="stima-intervallare.html"><a href="stima-intervallare.html#stimatori-e-intervalli-di-confidenza"><i class="fa fa-check"></i><b>13.5</b> Stimatori e intervalli di confidenza</a></li>
+<li class="chapter" data-level="13.6" data-path="stima-intervallare.html"><a href="stima-intervallare.html#massima-verosimiglianza-e-intervalli-di-confidenza"><i class="fa fa-check"></i><b>13.6</b> Massima Verosimiglianza e intervalli di confidenza</a></li>
+<li class="chapter" data-level="13.7" data-path="stima-intervallare.html"><a href="stima-intervallare.html#intervalli-di-confidenza-per-mu-al-livello-1-alphatimes-100-sigma2-nota"><i class="fa fa-check"></i><b>13.7</b> Intervalli di Confidenza per <span class="math inline">\(\mu\)</span> al livello <span class="math inline">\((1-\alpha)\times 100\)</span>, <span class="math inline">\(\sigma^2\)</span> nota</a></li>
+<li class="chapter" data-level="13.8" data-path="stima-intervallare.html"><a href="stima-intervallare.html#intervalli-di-confidenza-per-mu-al-livello-1-alphatimes-100-sigma2-incognita"><i class="fa fa-check"></i><b>13.8</b> Intervalli di Confidenza per <span class="math inline">\(\mu\)</span> al livello <span class="math inline">\((1-\alpha)\times 100\)</span>, <span class="math inline">\(\sigma^2\)</span> incognita</a>
+<ul>
+<li class="chapter" data-level="13.8.1" data-path="stima-intervallare.html"><a href="stima-intervallare.html#sigma-nota-e-sigma-incognita"><i class="fa fa-check"></i><b>13.8.1</b> <span class="math inline">\(\sigma\)</span> nota e <span class="math inline">\(\sigma\)</span> incognita</a></li>
+</ul></li>
+<li class="chapter" data-level="13.9" data-path="stima-intervallare.html"><a href="stima-intervallare.html#idc-per-la-proporzione"><i class="fa fa-check"></i><b>13.9</b> IDC per la proporzione</a>
+<ul>
+<li class="chapter" data-level="13.9.1" data-path="stima-intervallare.html"><a href="stima-intervallare.html#idc-per-pi-per-alpha-ed-n-fissati"><i class="fa fa-check"></i><b>13.9.1</b> IdC per <span class="math inline">\(\pi\)</span> per <span class="math inline">\(\alpha\)</span> ed <span class="math inline">\(n\)</span> fissati</a></li>
+</ul></li>
+<li class="chapter" data-level="13.10" data-path="stima-intervallare.html"><a href="stima-intervallare.html#specchietto-finale-per-gli-idc"><i class="fa fa-check"></i><b>13.10</b> Specchietto Finale per gli IdC</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="teoria-dei-test.html"><a href="teoria-dei-test.html"><i class="fa fa-check"></i><b>14</b> Teoria dei test</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="teoria-dei-test.html"><a href="teoria-dei-test.html#le-ipotesi"><i class="fa fa-check"></i><b>14.1</b> Le Ipotesi</a>
+<ul>
+<li class="chapter" data-level="14.1.1" data-path="teoria-dei-test.html"><a href="teoria-dei-test.html#esempi-di-ipotesi"><i class="fa fa-check"></i><b>14.1.1</b> Esempi di ipotesi</a></li>
+</ul></li>
+<li class="chapter" data-level="14.2" data-path="teoria-dei-test.html"><a href="teoria-dei-test.html#la-decisione"><i class="fa fa-check"></i><b>14.2</b> La Decisione</a></li>
+<li class="chapter" data-level="14.3" data-path="teoria-dei-test.html"><a href="teoria-dei-test.html#la-tavola-della-verità"><i class="fa fa-check"></i><b>14.3</b> La tavola della verità</a></li>
+<li class="chapter" data-level="14.4" data-path="teoria-dei-test.html"><a href="teoria-dei-test.html#esempio-scegliere-tra-due-ipotesi-semplici"><i class="fa fa-check"></i><b>14.4</b> Esempio: Scegliere tra due ipotesi semplici</a>
+<ul>
+<li class="chapter" data-level="14.4.1" data-path="teoria-dei-test.html"><a href="teoria-dei-test.html#tre-diversi-test-a-confronto"><i class="fa fa-check"></i><b>14.4.1</b> Tre diversi Test a confronto</a></li>
+<li class="chapter" data-level="14.4.2" data-path="teoria-dei-test.html"><a href="teoria-dei-test.html#gli-errori-della-decisione-a"><i class="fa fa-check"></i><b>14.4.2</b> Gli errori della decisione A</a></li>
+<li class="chapter" data-level="14.4.3" data-path="teoria-dei-test.html"><a href="teoria-dei-test.html#gli-errori-della-decisione-b"><i class="fa fa-check"></i><b>14.4.3</b> Gli errori della decisione B</a></li>
+<li class="chapter" data-level="14.4.4" data-path="teoria-dei-test.html"><a href="teoria-dei-test.html#gli-errori-della-decisione-c"><i class="fa fa-check"></i><b>14.4.4</b> Gli errori della decisione C</a></li>
+<li class="chapter" data-level="14.4.5" data-path="teoria-dei-test.html"><a href="teoria-dei-test.html#confronto"><i class="fa fa-check"></i><b>14.4.5</b> Confronto</a></li>
+</ul></li>
+<li class="chapter" data-level="14.5" data-path="teoria-dei-test.html"><a href="teoria-dei-test.html#ipotesi-nulla-e-ipotesi-alternativa"><i class="fa fa-check"></i><b>14.5</b> Ipotesi Nulla e Ipotesi Alternativa</a></li>
+<li class="chapter" data-level="14.6" data-path="teoria-dei-test.html"><a href="teoria-dei-test.html#rifiutare-o-non-rifiutare-h_0"><i class="fa fa-check"></i><b>14.6</b> Rifiutare o non rifiutare <span class="math inline">\(H_0\)</span></a></li>
+<li class="chapter" data-level="14.7" data-path="teoria-dei-test.html"><a href="teoria-dei-test.html#test-per-mu-due-ipotesi-semplici-sigma2-nota"><i class="fa fa-check"></i><b>14.7</b> Test per <span class="math inline">\(\mu\)</span>: due ipotesi semplici, <span class="math inline">\(\sigma^2\)</span> nota</a>
+<ul>
+<li class="chapter" data-level="14.7.1" data-path="teoria-dei-test.html"><a href="teoria-dei-test.html#test-per-mu-scegliere-il-punto-critico"><i class="fa fa-check"></i><b>14.7.1</b> Test per <span class="math inline">\(\mu\)</span>: scegliere il punto critico</a></li>
+<li class="chapter" data-level="14.7.2" data-path="teoria-dei-test.html"><a href="teoria-dei-test.html#probabilità-di-errore-di-primo-e-di-secondo-tipo"><i class="fa fa-check"></i><b>14.7.2</b> Probabilità di errore di primo e di secondo tipo</a></li>
+<li class="chapter" data-level="14.7.3" data-path="teoria-dei-test.html"><a href="teoria-dei-test.html#test-per-alpha-fissato-alpha0.05"><i class="fa fa-check"></i><b>14.7.3</b> Test per <span class="math inline">\(\alpha\)</span> fissato, <span class="math inline">\(\alpha=0.05\)</span></a></li>
+<li class="chapter" data-level="14.7.4" data-path="teoria-dei-test.html"><a href="teoria-dei-test.html#la-regola-di-decisione-alpha0.05"><i class="fa fa-check"></i><b>14.7.4</b> La regola di decisione, <span class="math inline">\(\alpha=0.05\)</span></a></li>
+<li class="chapter" data-level="14.7.5" data-path="teoria-dei-test.html"><a href="teoria-dei-test.html#test-per-alpha-fissato-alpha0.01"><i class="fa fa-check"></i><b>14.7.5</b> Test per <span class="math inline">\(\alpha\)</span> fissato, <span class="math inline">\(\alpha=0.01\)</span></a></li>
+<li class="chapter" data-level="14.7.6" data-path="teoria-dei-test.html"><a href="teoria-dei-test.html#la-regola-di-decisione-alpha0.01"><i class="fa fa-check"></i><b>14.7.6</b> La regola di decisione, <span class="math inline">\(\alpha=0.01\)</span></a></li>
+</ul></li>
+<li class="chapter" data-level="14.8" data-path="teoria-dei-test.html"><a href="teoria-dei-test.html#h_0-semplice-e-h_1-composta"><i class="fa fa-check"></i><b>14.8</b> <span class="math inline">\(H_0\)</span> semplice e <span class="math inline">\(H_1\)</span> composta</a></li>
+<li class="chapter" data-level="14.9" data-path="teoria-dei-test.html"><a href="teoria-dei-test.html#la-statistica-test"><i class="fa fa-check"></i><b>14.9</b> La Statistica Test</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="test-per-una-media-e-una-proporzione.html"><a href="test-per-una-media-e-una-proporzione.html"><i class="fa fa-check"></i><b>15</b> Test per una media e una proporzione</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="test-per-una-media-e-una-proporzione.html"><a href="test-per-una-media-e-una-proporzione.html#test-sulla-media-sigma2-noto"><i class="fa fa-check"></i><b>15.1</b> Test sulla media, <span class="math inline">\(\sigma^2\)</span> noto</a>
+<ul>
+<li class="chapter" data-level="15.1.1" data-path="test-per-una-media-e-una-proporzione.html"><a href="test-per-una-media-e-una-proporzione.html#test-sulla-media-ipotesi-unilaterale-destra-sigma2-noto"><i class="fa fa-check"></i><b>15.1.1</b> Test sulla media, ipotesi unilaterale destra, <span class="math inline">\(\sigma^2\)</span> noto</a></li>
+<li class="chapter" data-level="15.1.2" data-path="test-per-una-media-e-una-proporzione.html"><a href="test-per-una-media-e-una-proporzione.html#test-sulla-media-sigma2-noto-vari-livelli-di-alpha"><i class="fa fa-check"></i><b>15.1.2</b> Test sulla media, <span class="math inline">\(\sigma^2\)</span> noto, vari livelli di <span class="math inline">\(\alpha\)</span></a></li>
+<li class="chapter" data-level="15.1.3" data-path="test-per-una-media-e-una-proporzione.html"><a href="test-per-una-media-e-una-proporzione.html#la-probabilità-di-significatività-osservata-il-p_textvalue"><i class="fa fa-check"></i><b>15.1.3</b> La probabilità di significatività osservata il <span class="math inline">\(p_\text{value}\)</span></a></li>
+<li class="chapter" data-level="15.1.4" data-path="test-per-una-media-e-una-proporzione.html"><a href="test-per-una-media-e-una-proporzione.html#lettura-del-p_textvalue"><i class="fa fa-check"></i><b>15.1.4</b> Lettura del <span class="math inline">\(p_\text{value}\)</span></a></li>
+<li class="chapter" data-level="15.1.5" data-path="test-per-una-media-e-una-proporzione.html"><a href="test-per-una-media-e-una-proporzione.html#test-sulla-media-ipotesi-unilaterale-sinistra-sigma2-noto"><i class="fa fa-check"></i><b>15.1.5</b> Test sulla media, ipotesi unilaterale sinistra, <span class="math inline">\(\sigma^2\)</span> noto</a></li>
+<li class="chapter" data-level="15.1.6" data-path="test-per-una-media-e-una-proporzione.html"><a href="test-per-una-media-e-una-proporzione.html#test-sulla-media-ipotesi-bilaterale-sigma2-noto"><i class="fa fa-check"></i><b>15.1.6</b> Test sulla media, ipotesi bilaterale, <span class="math inline">\(\sigma^2\)</span> noto</a></li>
+</ul></li>
+<li class="chapter" data-level="15.2" data-path="test-per-una-media-e-una-proporzione.html"><a href="test-per-una-media-e-una-proporzione.html#significatività-non-fissata"><i class="fa fa-check"></i><b>15.2</b> Significatività non fissata</a></li>
+<li class="chapter" data-level="15.3" data-path="test-per-una-media-e-una-proporzione.html"><a href="test-per-una-media-e-una-proporzione.html#test-per-mu-sigma-incognita"><i class="fa fa-check"></i><b>15.3</b> Test per <span class="math inline">\(\mu\)</span>, <span class="math inline">\(\sigma\)</span> incognita</a>
+<ul>
+<li class="chapter" data-level="15.3.1" data-path="test-per-una-media-e-una-proporzione.html"><a href="test-per-una-media-e-una-proporzione.html#test-sulla-media-ipotesi-unilaterale-destra-sigma2-incognito"><i class="fa fa-check"></i><b>15.3.1</b> Test sulla media, ipotesi unilaterale destra, <span class="math inline">\(\sigma^2\)</span> incognito</a></li>
+<li class="chapter" data-level="15.3.2" data-path="test-per-una-media-e-una-proporzione.html"><a href="test-per-una-media-e-una-proporzione.html#test-sulla-media-ipotesi-unilaterale-sinistra-sigma2-incognito"><i class="fa fa-check"></i><b>15.3.2</b> Test sulla media, ipotesi unilaterale sinistra, <span class="math inline">\(\sigma^2\)</span> incognito</a></li>
+<li class="chapter" data-level="15.3.3" data-path="test-per-una-media-e-una-proporzione.html"><a href="test-per-una-media-e-una-proporzione.html#test-sulla-media-ipotesi-bilaterale-sigma2-incognito"><i class="fa fa-check"></i><b>15.3.3</b> Test sulla media, ipotesi bilaterale, <span class="math inline">\(\sigma^2\)</span> incognito</a></li>
+<li class="chapter" data-level="15.3.4" data-path="test-per-una-media-e-una-proporzione.html"><a href="test-per-una-media-e-una-proporzione.html#significatività-non-fissata-1"><i class="fa fa-check"></i><b>15.3.4</b> Significatività non fissata</a></li>
+</ul></li>
+<li class="chapter" data-level="15.4" data-path="test-per-una-media-e-una-proporzione.html"><a href="test-per-una-media-e-una-proporzione.html#massima-verosimiglianza-e-test"><i class="fa fa-check"></i><b>15.4</b> Massima verosimiglianza e test</a></li>
+<li class="chapter" data-level="15.5" data-path="test-per-una-media-e-una-proporzione.html"><a href="test-per-una-media-e-una-proporzione.html#test-per-pi"><i class="fa fa-check"></i><b>15.5</b> Test per <span class="math inline">\(\pi\)</span></a></li>
+<li class="chapter" data-level="15.6" data-path="test-per-una-media-e-una-proporzione.html"><a href="test-per-una-media-e-una-proporzione.html#specchietto-finale-per-i-test-ad-un-campione"><i class="fa fa-check"></i><b>15.6</b> Specchietto Finale per i Test ad un Campione</a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="confronto-tra-due-popolazioni.html"><a href="confronto-tra-due-popolazioni.html"><i class="fa fa-check"></i><b>16</b> Confronto tra due Popolazioni</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="confronto-tra-due-popolazioni.html"><a href="confronto-tra-due-popolazioni.html#test-per-due-medie"><i class="fa fa-check"></i><b>16.1</b> Test per due medie</a>
+<ul>
+<li class="chapter" data-level="16.1.1" data-path="confronto-tra-due-popolazioni.html"><a href="confronto-tra-due-popolazioni.html#il-contesto-probabilistico-1"><i class="fa fa-check"></i><b>16.1.1</b> il contesto probabilistico</a></li>
+<li class="chapter" data-level="16.1.2" data-path="confronto-tra-due-popolazioni.html"><a href="confronto-tra-due-popolazioni.html#derivazione-della-statistica-test"><i class="fa fa-check"></i><b>16.1.2</b> Derivazione della statistica test</a></li>
+<li class="chapter" data-level="16.1.3" data-path="confronto-tra-due-popolazioni.html"><a href="confronto-tra-due-popolazioni.html#stima-di-sigma_a-e-sigma_b"><i class="fa fa-check"></i><b>16.1.3</b> Stima di <span class="math inline">\(\sigma_A\)</span> e <span class="math inline">\(\sigma_B\)</span></a></li>
+<li class="chapter" data-level="16.1.4" data-path="confronto-tra-due-popolazioni.html"><a href="confronto-tra-due-popolazioni.html#ipotesi-1-omogeneità"><i class="fa fa-check"></i><b>16.1.4</b> Ipotesi 1: omogeneità</a></li>
+<li class="chapter" data-level="16.1.5" data-path="confronto-tra-due-popolazioni.html"><a href="confronto-tra-due-popolazioni.html#ipotesi-2-eterogeneità"><i class="fa fa-check"></i><b>16.1.5</b> Ipotesi 2: eterogeneità</a></li>
+<li class="chapter" data-level="16.1.6" data-path="confronto-tra-due-popolazioni.html"><a href="confronto-tra-due-popolazioni.html#esempio-3"><i class="fa fa-check"></i><b>16.1.6</b> Esempio</a></li>
+<li class="chapter" data-level="16.1.7" data-path="confronto-tra-due-popolazioni.html"><a href="confronto-tra-due-popolazioni.html#esempio-4"><i class="fa fa-check"></i><b>16.1.7</b> Esempio</a></li>
+</ul></li>
+<li class="chapter" data-level="16.2" data-path="confronto-tra-due-popolazioni.html"><a href="confronto-tra-due-popolazioni.html#test-per-due-proporzioni"><i class="fa fa-check"></i><b>16.2</b> Test per due proporzioni</a>
+<ul>
+<li class="chapter" data-level="16.2.1" data-path="confronto-tra-due-popolazioni.html"><a href="confronto-tra-due-popolazioni.html#il-contesto-probabilistico-2"><i class="fa fa-check"></i><b>16.2.1</b> Il contesto probabilistico</a></li>
+<li class="chapter" data-level="16.2.2" data-path="confronto-tra-due-popolazioni.html"><a href="confronto-tra-due-popolazioni.html#derivazione-della-statistica-test-1"><i class="fa fa-check"></i><b>16.2.2</b> Derivazione della statistica test</a></li>
+<li class="chapter" data-level="16.2.3" data-path="confronto-tra-due-popolazioni.html"><a href="confronto-tra-due-popolazioni.html#esempio-5"><i class="fa fa-check"></i><b>16.2.3</b> Esempio</a></li>
+</ul></li>
+<li class="chapter" data-level="16.3" data-path="confronto-tra-due-popolazioni.html"><a href="confronto-tra-due-popolazioni.html#specchietto-finale-per-i-test-ad-due-campioni"><i class="fa fa-check"></i><b>16.3</b> Specchietto Finale per i Test ad Due Campioni</a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="regressione-lineare.html"><a href="regressione-lineare.html"><i class="fa fa-check"></i><b>17</b> Regressione Lineare</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="regressione-lineare.html"><a href="regressione-lineare.html#il-modello-derrore"><i class="fa fa-check"></i><b>17.1</b> Il modello d’errore</a>
+<ul>
+<li class="chapter" data-level="17.1.1" data-path="regressione-lineare.html"><a href="regressione-lineare.html#esempi-2"><i class="fa fa-check"></i><b>17.1.1</b> Esempi</a></li>
+</ul></li>
+<li class="chapter" data-level="17.2" data-path="regressione-lineare.html"><a href="regressione-lineare.html#il-modello-di-regressione"><i class="fa fa-check"></i><b>17.2</b> Il modello di regressione</a></li>
+<li class="chapter" data-level="17.3" data-path="regressione-lineare.html"><a href="regressione-lineare.html#la-regressione-lineare"><i class="fa fa-check"></i><b>17.3</b> La Regressione Lineare</a>
+<ul>
+<li class="chapter" data-level="17.3.1" data-path="regressione-lineare.html"><a href="regressione-lineare.html#il-modello-di-regressione-lineare-semplice"><i class="fa fa-check"></i><b>17.3.1</b> Il modello di regressione lineare semplice</a></li>
+<li class="chapter" data-level="17.3.2" data-path="regressione-lineare.html"><a href="regressione-lineare.html#la-storia-del-metodo"><i class="fa fa-check"></i><b>17.3.2</b> La Storia del Metodo</a></li>
+<li class="chapter" data-level="17.3.3" data-path="regressione-lineare.html"><a href="regressione-lineare.html#gli-assunti-del-modello-di-regressione"><i class="fa fa-check"></i><b>17.3.3</b> Gli assunti del modello di regressione</a></li>
+<li class="chapter" data-level="17.3.4" data-path="regressione-lineare.html"><a href="regressione-lineare.html#il-metodo-dei-minimi-quadrati"><i class="fa fa-check"></i><b>17.3.4</b> Il metodo dei minimi quadrati</a></li>
+<li class="chapter" data-level="17.3.5" data-path="regressione-lineare.html"><a href="regressione-lineare.html#la-distanza-di-una-retta-dai-punti-il-metodo-dei-minimi-quadrati"><i class="fa fa-check"></i><b>17.3.5</b> La distanza di una retta dai punti (il metodo dei minimi quadrati)</a></li>
+<li class="chapter" data-level="17.3.6" data-path="regressione-lineare.html"><a href="regressione-lineare.html#soluzioni-dei-minimi-quadrati"><i class="fa fa-check"></i><b>17.3.6</b> Soluzioni dei minimi quadrati</a></li>
+</ul></li>
+<li class="chapter" data-level="17.4" data-path="regressione-lineare.html"><a href="regressione-lineare.html#la-covarianza"><i class="fa fa-check"></i><b>17.4</b> La covarianza</a>
+<ul>
+<li class="chapter" data-level="17.4.1" data-path="regressione-lineare.html"><a href="regressione-lineare.html#calcolo-della-covarianza"><i class="fa fa-check"></i><b>17.4.1</b> Calcolo della covarianza</a></li>
+<li class="chapter" data-level="17.4.2" data-path="regressione-lineare.html"><a href="regressione-lineare.html#interpretazione-della-covarianza"><i class="fa fa-check"></i><b>17.4.2</b> Interpretazione della Covarianza</a></li>
+<li class="chapter" data-level="17.4.3" data-path="regressione-lineare.html"><a href="regressione-lineare.html#altre-proprietà-della-covarianza"><i class="fa fa-check"></i><b>17.4.3</b> Altre proprietà della covarianza</a></li>
+<li class="chapter" data-level="17.4.4" data-path="regressione-lineare.html"><a href="regressione-lineare.html#campo-di-variazione-della-covarianza"><i class="fa fa-check"></i><b>17.4.4</b> Campo di variazione della covarianza</a></li>
+<li class="chapter" data-level="17.4.5" data-path="regressione-lineare.html"><a href="regressione-lineare.html#calcolo-in-colonna"><i class="fa fa-check"></i><b>17.4.5</b> Calcolo in colonna</a></li>
+<li class="chapter" data-level="17.4.6" data-path="regressione-lineare.html"><a href="regressione-lineare.html#calcolo-di-hatbeta_0-e-hatbeta_1"><i class="fa fa-check"></i><b>17.4.6</b> Calcolo di <span class="math inline">\(\hat\beta_0\)</span> e <span class="math inline">\(\hat\beta_1\)</span></a></li>
+</ul></li>
+<li class="chapter" data-level="17.5" data-path="regressione-lineare.html"><a href="regressione-lineare.html#proprietà-della-retta-dei-minimi-quadrati"><i class="fa fa-check"></i><b>17.5</b> Proprietà della retta dei minimi quadrati</a>
+<ul>
+<li class="chapter" data-level="17.5.1" data-path="regressione-lineare.html"><a href="regressione-lineare.html#calcolo-di-hat-y_i-e-hatvarepsilon_i"><i class="fa fa-check"></i><b>17.5.1</b> Calcolo di <span class="math inline">\(\hat y_i\)</span> e <span class="math inline">\(\hat\varepsilon_i\)</span></a></li>
+</ul></li>
+<li class="chapter" data-level="17.6" data-path="regressione-lineare.html"><a href="regressione-lineare.html#il-coefficiente-di-correlazione"><i class="fa fa-check"></i><b>17.6</b> Il coefficiente di Correlazione</a>
+<ul>
+<li class="chapter" data-level="17.6.1" data-path="regressione-lineare.html"><a href="regressione-lineare.html#proprietà-di-r"><i class="fa fa-check"></i><b>17.6.1</b> Proprietà di <span class="math inline">\(r\)</span></a></li>
+</ul></li>
+<li class="chapter" data-level="17.7" data-path="regressione-lineare.html"><a href="regressione-lineare.html#scomposizione-della-varianza"><i class="fa fa-check"></i><b>17.7</b> Scomposizione della varianza</a></li>
+<li class="chapter" data-level="17.8" data-path="regressione-lineare.html"><a href="regressione-lineare.html#il-coefficiente-di-determinazione-lineare-r2"><i class="fa fa-check"></i><b>17.8</b> Il coefficiente di determinazione lineare <span class="math inline">\(R^2\)</span></a>
+<ul>
+<li class="chapter" data-level="17.8.1" data-path="regressione-lineare.html"><a href="regressione-lineare.html#interpretazione-di-r2"><i class="fa fa-check"></i><b>17.8.1</b> Interpretazione di <span class="math inline">\(r^2\)</span></a></li>
+<li class="chapter" data-level="17.8.2" data-path="regressione-lineare.html"><a href="regressione-lineare.html#scomposizione-della-varianza-sui-dati-di-esempio"><i class="fa fa-check"></i><b>17.8.2</b> Scomposizione della varianza sui dati di esempio</a></li>
+</ul></li>
+<li class="chapter" data-level="17.9" data-path="regressione-lineare.html"><a href="regressione-lineare.html#stima-di-sigma_varepsilon2"><i class="fa fa-check"></i><b>17.9</b> Stima di <span class="math inline">\(\sigma_\varepsilon^2\)</span></a></li>
+<li class="chapter" data-level="17.10" data-path="regressione-lineare.html"><a href="regressione-lineare.html#statistiche-sufficienti-del-modello-di-reegressione"><i class="fa fa-check"></i><b>17.10</b> Statistiche Sufficienti del Modello di Reegressione</a></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="inferenza-e-diagnostica-sul-modello-di-regressione-lineare.html"><a href="inferenza-e-diagnostica-sul-modello-di-regressione-lineare.html"><i class="fa fa-check"></i><b>18</b> Inferenza e Diagnostica sul Modello di Regressione Lineare</a>
+<ul>
+<li class="chapter" data-level="18.1" data-path="inferenza-e-diagnostica-sul-modello-di-regressione-lineare.html"><a href="inferenza-e-diagnostica-sul-modello-di-regressione-lineare.html#teorema-di-gauss-markov"><i class="fa fa-check"></i><b>18.1</b> Teorema di Gauss-Markov</a></li>
+<li class="chapter" data-level="18.2" data-path="inferenza-e-diagnostica-sul-modello-di-regressione-lineare.html"><a href="inferenza-e-diagnostica-sul-modello-di-regressione-lineare.html#la-previsione-hat-y"><i class="fa fa-check"></i><b>18.2</b> La previsione <span class="math inline">\(\hat Y\)</span></a></li>
+<li class="chapter" data-level="18.3" data-path="inferenza-e-diagnostica-sul-modello-di-regressione-lineare.html"><a href="inferenza-e-diagnostica-sul-modello-di-regressione-lineare.html#standard-errors-e-stima-degli-se"><i class="fa fa-check"></i><b>18.3</b> Standard Errors e Stima degli SE</a></li>
+<li class="chapter" data-level="18.4" data-path="inferenza-e-diagnostica-sul-modello-di-regressione-lineare.html"><a href="inferenza-e-diagnostica-sul-modello-di-regressione-lineare.html#inferenza-su-beta_0-e-beta_1-e-su-hat-y"><i class="fa fa-check"></i><b>18.4</b> Inferenza su <span class="math inline">\(\beta_0\)</span> e <span class="math inline">\(\beta_1\)</span> e su <span class="math inline">\(\hat Y\)</span></a>
+<ul>
+<li class="chapter" data-level="18.4.1" data-path="inferenza-e-diagnostica-sul-modello-di-regressione-lineare.html"><a href="inferenza-e-diagnostica-sul-modello-di-regressione-lineare.html#interpolazione-e-estrapolazione"><i class="fa fa-check"></i><b>18.4.1</b> Interpolazione e Estrapolazione</a></li>
+<li class="chapter" data-level="18.4.2" data-path="inferenza-e-diagnostica-sul-modello-di-regressione-lineare.html"><a href="inferenza-e-diagnostica-sul-modello-di-regressione-lineare.html#intervalli-di-confidenza-per-beta_0-beta_1-e-hat-y"><i class="fa fa-check"></i><b>18.4.2</b> Intervalli di Confidenza per <span class="math inline">\(\beta_0\)</span>, <span class="math inline">\(\beta_1\)</span> e <span class="math inline">\(\hat Y\)</span></a></li>
+<li class="chapter" data-level="18.4.3" data-path="inferenza-e-diagnostica-sul-modello-di-regressione-lineare.html"><a href="inferenza-e-diagnostica-sul-modello-di-regressione-lineare.html#test-per-beta_0-e-beta_1"><i class="fa fa-check"></i><b>18.4.3</b> Test per <span class="math inline">\(\beta_0\)</span>, e <span class="math inline">\(\beta_1\)</span></a></li>
+<li class="chapter" data-level="18.4.4" data-path="inferenza-e-diagnostica-sul-modello-di-regressione-lineare.html"><a href="inferenza-e-diagnostica-sul-modello-di-regressione-lineare.html#esempio-sui-4-punti"><i class="fa fa-check"></i><b>18.4.4</b> Esempio sui 4 punti</a></li>
+<li class="chapter" data-level="18.4.5" data-path="inferenza-e-diagnostica-sul-modello-di-regressione-lineare.html"><a href="inferenza-e-diagnostica-sul-modello-di-regressione-lineare.html#calcolo-dei-valori-osservati-e-dei-valori-critici"><i class="fa fa-check"></i><b>18.4.5</b> Calcolo dei valori osservati e dei valori critici</a></li>
+<li class="chapter" data-level="18.4.6" data-path="inferenza-e-diagnostica-sul-modello-di-regressione-lineare.html"><a href="inferenza-e-diagnostica-sul-modello-di-regressione-lineare.html#se-n10"><i class="fa fa-check"></i><b>18.4.6</b> Se <span class="math inline">\(n=10\)</span></a></li>
+</ul></li>
+<li class="chapter" data-level="18.5" data-path="inferenza-e-diagnostica-sul-modello-di-regressione-lineare.html"><a href="inferenza-e-diagnostica-sul-modello-di-regressione-lineare.html#il-modello-di-regressione-lineare-multiplo"><i class="fa fa-check"></i><b>18.5</b> Il modello di regressione lineare multiplo</a></li>
+<li class="chapter" data-level="18.6" data-path="inferenza-e-diagnostica-sul-modello-di-regressione-lineare.html"><a href="inferenza-e-diagnostica-sul-modello-di-regressione-lineare.html#analisi-dei-residui"><i class="fa fa-check"></i><b>18.6</b> Analisi dei Residui</a>
+<ul>
+<li class="chapter" data-level="18.6.1" data-path="inferenza-e-diagnostica-sul-modello-di-regressione-lineare.html"><a href="inferenza-e-diagnostica-sul-modello-di-regressione-lineare.html#diagramma-dei-residui-e-retta-dei-residui"><i class="fa fa-check"></i><b>18.6.1</b> Diagramma dei residui e retta dei residui</a></li>
+<li class="chapter" data-level="18.6.2" data-path="inferenza-e-diagnostica-sul-modello-di-regressione-lineare.html"><a href="inferenza-e-diagnostica-sul-modello-di-regressione-lineare.html#lettura-del-diagramma-dei-residui"><i class="fa fa-check"></i><b>18.6.2</b> Lettura del Diagramma dei residui</a></li>
+<li class="chapter" data-level="18.6.3" data-path="inferenza-e-diagnostica-sul-modello-di-regressione-lineare.html"><a href="inferenza-e-diagnostica-sul-modello-di-regressione-lineare.html#normal-qq-plot"><i class="fa fa-check"></i><b>18.6.3</b> Normal QQ plot</a></li>
+</ul></li>
+<li class="chapter" data-level="18.7" data-path="inferenza-e-diagnostica-sul-modello-di-regressione-lineare.html"><a href="inferenza-e-diagnostica-sul-modello-di-regressione-lineare.html#punti-di-leva-outliers-e-punti-influenti"><i class="fa fa-check"></i><b>18.7</b> Punti di leva, Outliers e punti influenti</a>
+<ul>
+<li class="chapter" data-level="18.7.1" data-path="inferenza-e-diagnostica-sul-modello-di-regressione-lineare.html"><a href="inferenza-e-diagnostica-sul-modello-di-regressione-lineare.html#punti-di-leva"><i class="fa fa-check"></i><b>18.7.1</b> Punti di leva</a></li>
+<li class="chapter" data-level="18.7.2" data-path="inferenza-e-diagnostica-sul-modello-di-regressione-lineare.html"><a href="inferenza-e-diagnostica-sul-modello-di-regressione-lineare.html#i-residui-studentizzati"><i class="fa fa-check"></i><b>18.7.2</b> I residui Studentizzati</a></li>
+</ul></li>
+<li class="chapter" data-level="18.8" data-path="inferenza-e-diagnostica-sul-modello-di-regressione-lineare.html"><a href="inferenza-e-diagnostica-sul-modello-di-regressione-lineare.html#relazione-tra-yx-e-xy"><i class="fa fa-check"></i><b>18.8</b> Relazione tra <span class="math inline">\(Y|X\)</span> e <span class="math inline">\(X|Y\)</span></a>
+<ul>
+<li class="chapter" data-level="18.8.1" data-path="inferenza-e-diagnostica-sul-modello-di-regressione-lineare.html"><a href="inferenza-e-diagnostica-sul-modello-di-regressione-lineare.html#relazione-tra-gli-alpha-i-beta-ed-r"><i class="fa fa-check"></i><b>18.8.1</b> Relazione tra gli <span class="math inline">\(\alpha\)</span> i <span class="math inline">\(\beta\)</span> ed <span class="math inline">\(r\)</span></a></li>
+<li class="chapter" data-level="18.8.2" data-path="inferenza-e-diagnostica-sul-modello-di-regressione-lineare.html"><a href="inferenza-e-diagnostica-sul-modello-di-regressione-lineare.html#regressione-sulle-variabili-standardizzate"><i class="fa fa-check"></i><b>18.8.2</b> Regressione sulle variabili standardizzate</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="19" data-path="il-test-chi-quadro.html"><a href="il-test-chi-quadro.html"><i class="fa fa-check"></i><b>19</b> Il Test Chi-Quadro</a>
+<ul>
+<li class="chapter" data-level="19.1" data-path="il-test-chi-quadro.html"><a href="il-test-chi-quadro.html#test-di-significatività-pura"><i class="fa fa-check"></i><b>19.1</b> Test di Significatività pura</a></li>
+<li class="chapter" data-level="19.2" data-path="il-test-chi-quadro.html"><a href="il-test-chi-quadro.html#associazione-tra-due-variabili"><i class="fa fa-check"></i><b>19.2</b> Associazione tra due variabili</a>
+<ul>
+<li class="chapter" data-level="19.2.1" data-path="il-test-chi-quadro.html"><a href="il-test-chi-quadro.html#le-tavole-di-contingenza"><i class="fa fa-check"></i><b>19.2.1</b> Le tavole di contingenza</a></li>
+<li class="chapter" data-level="19.2.2" data-path="il-test-chi-quadro.html"><a href="il-test-chi-quadro.html#un-passo-indietro-il-concetto-di-indipendenza"><i class="fa fa-check"></i><b>19.2.2</b> Un passo indietro: il concetto di indipendenza</a></li>
+<li class="chapter" data-level="19.2.3" data-path="il-test-chi-quadro.html"><a href="il-test-chi-quadro.html#estensione-a-più-di-due-modalità"><i class="fa fa-check"></i><b>19.2.3</b> Estensione a più di due modalità</a></li>
+<li class="chapter" data-level="19.2.4" data-path="il-test-chi-quadro.html"><a href="il-test-chi-quadro.html#esempio-6"><i class="fa fa-check"></i><b>19.2.4</b> Esempio</a></li>
+<li class="chapter" data-level="19.2.5" data-path="il-test-chi-quadro.html"><a href="il-test-chi-quadro.html#dalla-popolazione-al-campione"><i class="fa fa-check"></i><b>19.2.5</b> Dalla popolazione al campione</a></li>
+<li class="chapter" data-level="19.2.6" data-path="il-test-chi-quadro.html"><a href="il-test-chi-quadro.html#notazione-formale-per-le-tavole-di-contingenza"><i class="fa fa-check"></i><b>19.2.6</b> Notazione formale per le tavole di contingenza</a></li>
+<li class="chapter" data-level="19.2.7" data-path="il-test-chi-quadro.html"><a href="il-test-chi-quadro.html#le-frequenze-sono-stime-dei-pi"><i class="fa fa-check"></i><b>19.2.7</b> Le frequenze sono stime dei <span class="math inline">\(\pi\)</span></a></li>
+<li class="chapter" data-level="19.2.8" data-path="il-test-chi-quadro.html"><a href="il-test-chi-quadro.html#esempio-continua"><i class="fa fa-check"></i><b>19.2.8</b> Esempio (continua)</a></li>
+</ul></li>
+<li class="chapter" data-level="19.3" data-path="il-test-chi-quadro.html"><a href="il-test-chi-quadro.html#lindice-chi2"><i class="fa fa-check"></i><b>19.3</b> L’indice <span class="math inline">\(\chi^2\)</span></a></li>
+<li class="chapter" data-level="19.4" data-path="il-test-chi-quadro.html"><a href="il-test-chi-quadro.html#test-per-lipotesi-di-indipendenza"><i class="fa fa-check"></i><b>19.4</b> Test per l’ipotesi di indipendenza</a>
+<ul>
+<li class="chapter" data-level="19.4.1" data-path="il-test-chi-quadro.html"><a href="il-test-chi-quadro.html#la-statistica-test-chi2"><i class="fa fa-check"></i><b>19.4.1</b> La statistica test <span class="math inline">\(\chi^2\)</span></a></li>
+<li class="chapter" data-level="19.4.2" data-path="il-test-chi-quadro.html"><a href="il-test-chi-quadro.html#esempio-7"><i class="fa fa-check"></i><b>19.4.2</b> Esempio</a></li>
+<li class="chapter" data-level="19.4.3" data-path="il-test-chi-quadro.html"><a href="il-test-chi-quadro.html#i-gradi-di-libertà"><i class="fa fa-check"></i><b>19.4.3</b> I gradi di libertà</a></li>
+</ul></li>
+<li class="chapter" data-level="19.5" data-path="il-test-chi-quadro.html"><a href="il-test-chi-quadro.html#misure-di-conformità"><i class="fa fa-check"></i><b>19.5</b> Misure di Conformità</a></li>
+<li class="chapter" data-level="19.6" data-path="il-test-chi-quadro.html"><a href="il-test-chi-quadro.html#il-chi2-come-misura-di-conformità"><i class="fa fa-check"></i><b>19.6</b> Il <span class="math inline">\(\chi^2\)</span> come misura di conformità</a>
+<ul>
+<li class="chapter" data-level="19.6.1" data-path="il-test-chi-quadro.html"><a href="il-test-chi-quadro.html#esempio-scostamento-da-una-uniforme"><i class="fa fa-check"></i><b>19.6.1</b> Esempio: Scostamento da una uniforme</a></li>
+<li class="chapter" data-level="19.6.2" data-path="il-test-chi-quadro.html"><a href="il-test-chi-quadro.html#esempio-scostamento-da-una-popolazione"><i class="fa fa-check"></i><b>19.6.2</b> Esempio: Scostamento da una popolazione</a></li>
+<li class="chapter" data-level="19.6.3" data-path="il-test-chi-quadro.html"><a href="il-test-chi-quadro.html#esempio-scostamento-da-una-poisson"><i class="fa fa-check"></i><b>19.6.3</b> Esempio: scostamento da una Poisson</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="20" data-path="richiami-sugli-operatori-sommatoria-e-produttorio.html"><a href="richiami-sugli-operatori-sommatoria-e-produttorio.html"><i class="fa fa-check"></i><b>20</b> Richiami sugli Operatori Sommatoria e Produttorio</a>
+<ul>
+<li class="chapter" data-level="20.1" data-path="richiami-sugli-operatori-sommatoria-e-produttorio.html"><a href="richiami-sugli-operatori-sommatoria-e-produttorio.html#operatore-sommatoria"><i class="fa fa-check"></i><b>20.1</b> Operatore Sommatoria</a></li>
+<li class="chapter" data-level="20.2" data-path="richiami-sugli-operatori-sommatoria-e-produttorio.html"><a href="richiami-sugli-operatori-sommatoria-e-produttorio.html#operatore-produttorio"><i class="fa fa-check"></i><b>20.2</b> Operatore Produttorio</a></li>
+</ul></li>
+<li class="chapter" data-level="21" data-path="richiami-di-calcolo-combinatorio.html"><a href="richiami-di-calcolo-combinatorio.html"><i class="fa fa-check"></i><b>21</b> Richiami di Calcolo Combinatorio</a>
+<ul>
+<li class="chapter" data-level="21.1" data-path="richiami-di-calcolo-combinatorio.html"><a href="richiami-di-calcolo-combinatorio.html#il-coefficiente-binomiale"><i class="fa fa-check"></i><b>21.1</b> Il coefficiente binomiale</a></li>
+</ul></li>
+<li class="chapter" data-level="22" data-path="richiami-di-matematica.html"><a href="richiami-di-matematica.html"><i class="fa fa-check"></i><b>22</b> Richiami di Matematica</a>
+<ul>
+<li class="chapter" data-level="22.1" data-path="richiami-di-matematica.html"><a href="richiami-di-matematica.html#richiami-sui-logaritmi"><i class="fa fa-check"></i><b>22.1</b> Richiami sui logaritmi</a></li>
+<li class="chapter" data-level="22.2" data-path="richiami-di-matematica.html"><a href="richiami-di-matematica.html#richiami-di-analisi"><i class="fa fa-check"></i><b>22.2</b> Richiami di Analisi</a>
+<ul>
+<li class="chapter" data-level="22.2.1" data-path="richiami-di-matematica.html"><a href="richiami-di-matematica.html#note-sulla-cardinalità-degli-insiemi"><i class="fa fa-check"></i><b>22.2.1</b> Note sulla cardinalità degli insiemi</a></li>
+<li class="chapter" data-level="22.2.2" data-path="richiami-di-matematica.html"><a href="richiami-di-matematica.html#funzioni-reali-e-loro-derivate"><i class="fa fa-check"></i><b>22.2.2</b> Funzioni Reali e loro derivate</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="23" data-path="comè-realizzato-il-libro.html"><a href="comè-realizzato-il-libro.html"><i class="fa fa-check"></i><b>23</b> Com’è Realizzato il Libro</a>
+<ul>
+<li class="chapter" data-level="23.1" data-path="comè-realizzato-il-libro.html"><a href="comè-realizzato-il-libro.html#r-a-language-and-environment-for-statistical-computing"><i class="fa fa-check"></i><b>23.1</b> R: A Language and Environment for Statistical Computing</a>
+<ul>
+<li class="chapter" data-level="23.1.1" data-path="comè-realizzato-il-libro.html"><a href="comè-realizzato-il-libro.html#r-come-calcolatrice"><i class="fa fa-check"></i><b>23.1.1</b> R come calcolatrice</a></li>
+<li class="chapter" data-level="23.1.2" data-path="comè-realizzato-il-libro.html"><a href="comè-realizzato-il-libro.html#operatori-speciali"><i class="fa fa-check"></i><b>23.1.2</b> Operatori Speciali</a></li>
+<li class="chapter" data-level="23.1.3" data-path="comè-realizzato-il-libro.html"><a href="comè-realizzato-il-libro.html#vettori-e-matrici"><i class="fa fa-check"></i><b>23.1.3</b> Vettori e matrici</a></li>
+<li class="chapter" data-level="23.1.4" data-path="comè-realizzato-il-libro.html"><a href="comè-realizzato-il-libro.html#liste-e-dataframe"><i class="fa fa-check"></i><b>23.1.4</b> Liste e dataframe</a></li>
+<li class="chapter" data-level="23.1.5" data-path="comè-realizzato-il-libro.html"><a href="comè-realizzato-il-libro.html#classi-e-oggetti"><i class="fa fa-check"></i><b>23.1.5</b> Classi e Oggetti</a></li>
+<li class="chapter" data-level="23.1.6" data-path="comè-realizzato-il-libro.html"><a href="comè-realizzato-il-libro.html#i-grafici"><i class="fa fa-check"></i><b>23.1.6</b> I grafici</a></li>
+<li class="chapter" data-level="23.1.7" data-path="comè-realizzato-il-libro.html"><a href="comè-realizzato-il-libro.html#le-funzioni-in-r"><i class="fa fa-check"></i><b>23.1.7</b> Le Funzioni in R</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="24" data-path="funzioni-usate-nel-libro.html"><a href="funzioni-usate-nel-libro.html"><i class="fa fa-check"></i><b>24</b> Funzioni usate nel libro</a>
+<ul>
+<li class="chapter" data-level="24.1" data-path="funzioni-usate-nel-libro.html"><a href="funzioni-usate-nel-libro.html#istogramma"><i class="fa fa-check"></i><b>24.1</b> Istogramma</a></li>
+<li class="chapter" data-level="24.2" data-path="funzioni-usate-nel-libro.html"><a href="funzioni-usate-nel-libro.html#probabilità"><i class="fa fa-check"></i><b>24.2</b> Probabilità</a>
+<ul>
+<li class="chapter" data-level="24.2.1" data-path="funzioni-usate-nel-libro.html"><a href="funzioni-usate-nel-libro.html#tavole-della-somma"><i class="fa fa-check"></i><b>24.2.1</b> Tavole della somma</a></li>
+<li class="chapter" data-level="24.2.2" data-path="funzioni-usate-nel-libro.html"><a href="funzioni-usate-nel-libro.html#binomiale"><i class="fa fa-check"></i><b>24.2.2</b> Binomiale</a></li>
+<li class="chapter" data-level="24.2.3" data-path="funzioni-usate-nel-libro.html"><a href="funzioni-usate-nel-libro.html#poisson"><i class="fa fa-check"></i><b>24.2.3</b> Poisson</a></li>
+<li class="chapter" data-level="24.2.4" data-path="funzioni-usate-nel-libro.html"><a href="funzioni-usate-nel-libro.html#normale"><i class="fa fa-check"></i><b>24.2.4</b> Normale</a></li>
+<li class="chapter" data-level="24.2.5" data-path="funzioni-usate-nel-libro.html"><a href="funzioni-usate-nel-libro.html#tlc"><i class="fa fa-check"></i><b>24.2.5</b> TLC</a></li>
+</ul></li>
+<li class="chapter" data-level="24.3" data-path="funzioni-usate-nel-libro.html"><a href="funzioni-usate-nel-libro.html#inferenza"><i class="fa fa-check"></i><b>24.3</b> Inferenza</a>
+<ul>
+<li class="chapter" data-level="24.3.1" data-path="funzioni-usate-nel-libro.html"><a href="funzioni-usate-nel-libro.html#intervalli-di-confidenza"><i class="fa fa-check"></i><b>24.3.1</b> Intervalli di Confidenza</a></li>
+<li class="chapter" data-level="24.3.2" data-path="funzioni-usate-nel-libro.html"><a href="funzioni-usate-nel-libro.html#test"><i class="fa fa-check"></i><b>24.3.2</b> Test</a></li>
+<li class="chapter" data-level="24.3.3" data-path="funzioni-usate-nel-libro.html"><a href="funzioni-usate-nel-libro.html#regressione"><i class="fa fa-check"></i><b>24.3.3</b> Regressione</a></li>
+</ul></li>
+<li class="chapter" data-level="24.4" data-path="funzioni-usate-nel-libro.html"><a href="funzioni-usate-nel-libro.html#esempi-3"><i class="fa fa-check"></i><b>24.4</b> Esempi</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Appunti di Statistica</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="mediana-percentili-e-moda" class="section level1 hasAnchor" number="4">
+<h1><span class="header-section-number">Capitolo 4</span> Mediana, Percentili e Moda<a href="mediana-percentili-e-moda.html#mediana-percentili-e-moda" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="mediana" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> La Mediana<a href="mediana-percentili-e-moda.html#mediana" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>La <em>Mediana</em>, <em>Me</em> o <span class="math inline">\(x_{0.5}\)</span>, è il valore centrale della serie dei dati riordinati in due: metà dei dati sono minori della mediana e metà dei dati sono maggiori della mediana.
+In simboli: sia <span class="math inline">\(x_{1},...,x_{n}\)</span> la serie dei dati e <span class="math inline">\(x_{(1)},...,x_{(n)}\)</span> i dati riordinati in modo crescente, allora:</p>
+<div class="info">
+<ol style="list-style-type: decimal">
+<li>se <span class="math inline">\(n\)</span> è dispari
+<span class="math display">\[x_{0.5}=x_{\left(\frac{n+1}{2}\right)}\]</span></li>
+<li>se <span class="math inline">\(n\)</span> è pari
+<span class="math display">\[x_{0.5}=\frac 1 2 \left(x_{\left(\frac{n}{2}\right)}+x_{\left(\frac{n}{2}+1\right)}\right)\]</span></li>
+</ol>
+</div>
+<div class="example">
+<p><span id="exm:unlabeled-div-47" class="example"><strong>Esempio 4.1  </strong></span>Sia
+<span class="math display">\[(x_1=2.9,x_2=3.5,x_3=1.2,x_4=2.7, x_5=4.2)\]</span>
+la serie dei dati, la serie dei dati riordinati sarà
+<span class="math display">\[(x_{(1)}=1.2, x_{(2)}=2.7, x_{(3)}=2.9, x_{(4)}=3.5,x_{(5)}=4.2),\]</span></p>
+<p><span class="math inline">\(n=5\)</span> è dispari e dunque</p>
+<p><span class="math display">\[x_{0.5}=x_{\left(\frac{n+1}{2}\right)}=x_{\left(\frac{5+1}{2}\right)}=x_{\left(3\right)}=2.9\]</span></p>
+</div>
+<div class="example">
+<p><span id="exm:unlabeled-div-48" class="example"><strong>Esempio 4.2  </strong></span>Sia
+<span class="math display">\[(x_1=2.9,x_2=3.5,x_3=1.2,x_4=2.7, x_5=4.2, x_6=4.2)\]</span>
+la serie dei dati, la serie dei dati riordinati sarà
+<span class="math display">\[(x_{(1)}=1.2, x_{(2)}=2.7, x_{(3)}=2.9, x_{(4)}=3.5,x_{(5)}=4.2,x_{(6)}=4.2)\]</span></p>
+<p><span class="math inline">\(n=6\)</span> è pari e dunque</p>
+<p><span class="math display">\[x_{0.5}=\frac 1 2 \left(x_{\left(\frac{n}{2}\right)}+x_{\left(\frac{n}{2}+1\right)}\right)=
+\frac 1 2 \left(x_{\left(\frac{6}{2}\right)}+x_{\left(\frac{6}{2}+1\right)}\right)=
+\frac 1 2 \left(x_{\left(3\right)}+x_{\left(4\right)}\right)=\frac{2.9+3.5}2=3.2\]</span></p>
+</div>
+<div id="dati-espressi-in-distribuzione-di-frequenza" class="section level3 hasAnchor" number="4.1.1">
+<h3><span class="header-section-number">4.1.1</span> Dati espressi in distribuzione di frequenza<a href="mediana-percentili-e-moda.html#dati-espressi-in-distribuzione-di-frequenza" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Se il fenomeno è espresso in una tabella di distribuzione di frequenza, allora la <em>modalità mediana</em> è la prima modalità tale per cui la frequenza cumulata è maggiore di 0.5</p>
+<div class="example">
+<p><span id="exm:unlabeled-div-49" class="example"><strong>Esempio 4.3  </strong></span>Fenomeno <em>Titolo di Studio</em>, <span class="math inline">\(n=350\)</span>, numero di modalità <span class="math inline">\(k=5\)</span>.</p>
+<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:right;">
+<span class="math inline">\(j\)</span>
+</th>
+<th style="text-align:left;">
+<span class="math inline">\(x_{j}\)</span>
+</th>
+<th style="text-align:right;">
+<span class="math inline">\(n_j\)</span>
+</th>
+<th style="text-align:right;">
+<span class="math inline">\(f_j\)</span>
+</th>
+<th style="text-align:right;">
+<span class="math inline">\(F_j\)</span>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+Elementare
+</td>
+<td style="text-align:right;">
+35
+</td>
+<td style="text-align:right;">
+0.10
+</td>
+<td style="text-align:right;">
+0.10
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+Media inferiore
+</td>
+<td style="text-align:right;">
+105
+</td>
+<td style="text-align:right;">
+0.30
+</td>
+<td style="text-align:right;">
+0.40
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+Media Superiore
+</td>
+<td style="text-align:right;">
+147
+</td>
+<td style="text-align:right;">
+0.42
+</td>
+<td style="text-align:right;">
+0.82
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:left;">
+Laurea
+</td>
+<td style="text-align:right;">
+35
+</td>
+<td style="text-align:right;">
+0.10
+</td>
+<td style="text-align:right;">
+0.92
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:left;">
+Post Laurea
+</td>
+<td style="text-align:right;">
+28
+</td>
+<td style="text-align:right;">
+0.08
+</td>
+<td style="text-align:right;">
+1.00
+</td>
+</tr>
+</tbody>
+</table>
+<p>La modalità mediana è la terza <span class="math inline">\(j=3\)</span>, dunque <em>Media Superiore</em>, infatti <span class="math inline">\(F_3=0.82&gt;0.50\)</span>.</p>
+</div>
+</div>
+<div id="dati-espressi-in-classi" class="section level3 hasAnchor" number="4.1.2">
+<h3><span class="header-section-number">4.1.2</span> Dati espressi in classi<a href="mediana-percentili-e-moda.html#dati-espressi-in-classi" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Se il fenomeno è espresso in classi, allora l’<em>intervallo mediano</em> è la primo intervallo tale per cui la frequenza cumulata è maggiore di 0.5.</p>
+<div class="example">
+<p><span id="exm:unlabeled-div-50" class="example"><strong>Esempio 4.4  </strong></span></p>
+Il reddito di <span class="math inline">\(n=\)</span> 4700 famiglie
+è rappresentato nella seguente tabella di frequenza
+<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:right;">
+<span class="math inline">\(j\)</span>
+</th>
+<th style="text-align:right;">
+<span class="math inline">\([\text{x}_j,\)</span>
+</th>
+<th style="text-align:right;">
+<span class="math inline">\(\text{x}_{j+1})\)</span>
+</th>
+<th style="text-align:right;">
+<span class="math inline">\(n_j\)</span>
+</th>
+<th style="text-align:right;">
+<span class="math inline">\(f_j\)</span>
+</th>
+<th style="text-align:right;">
+<span class="math inline">\(b_j\)</span>
+</th>
+<th style="text-align:right;">
+<span class="math inline">\(h_j\)</span>
+</th>
+<th style="text-align:right;">
+<span class="math inline">\(F_j\)</span>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+517
+</td>
+<td style="text-align:right;">
+0.11
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+1.1
+</td>
+<td style="text-align:right;">
+0.11
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:right;">
+1269
+</td>
+<td style="text-align:right;">
+0.27
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+5.4
+</td>
+<td style="text-align:right;">
+0.38
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+1551
+</td>
+<td style="text-align:right;">
+0.33
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+6.6
+</td>
+<td style="text-align:right;">
+0.71
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+25
+</td>
+<td style="text-align:right;">
+987
+</td>
+<td style="text-align:right;">
+0.21
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+4.2
+</td>
+<td style="text-align:right;">
+0.92
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+25
+</td>
+<td style="text-align:right;">
+35
+</td>
+<td style="text-align:right;">
+376
+</td>
+<td style="text-align:right;">
+0.08
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+0.8
+</td>
+<td style="text-align:right;">
+1.00
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+4700
+</td>
+<td style="text-align:right;">
+1.00
+</td>
+<td style="text-align:right;">
+35
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+</td>
+</tr>
+</tbody>
+</table>
+<p>La classe mediana è la terza classe <span class="math inline">\(j=3\)</span>, ovvero la classe [15,20), in quanto <span class="math inline">\(F_3=0.71&gt;0.50\)</span>.</p>
+</div>
+<p>Il <em>valore approssimato della mediana</em> è un valore che si trova all’interno dell’intervallo mediano e si ottiene dalla formula</p>
+<div class="info">
+<p><span class="math display">\[x_{0.5}=x_{\inf;m}+\frac{0.5-F_{m-1}}{f_m}\cdot \left(x_{\sup;m}-x_{\inf;m} \right),\]</span></p>
+</div>
+<p>dove <span class="math inline">\(m\)</span> è l’indicatore della classe mediana, <span class="math inline">\(x_{\inf;m}\)</span> e <span class="math inline">\(x_{\sup;m}\)</span> sono, rispettivamente l’estremo inferiore e quello superiore dell’intervallo che contiene la mediana.</p>
+<div class="example">
+<p><span id="exm:unlabeled-div-51" class="example"><strong>Esempio 4.5  </strong></span>Nell’esempio precedente l’intervallo mediano è [15,20) otterremo:</p>
+<p><span class="math display">\[\begin{eqnarray*}
+  p &amp;=&amp;  0.5 , \text{essendo }F_{ 3 }= 0.71  &gt; 0.5  \Rightarrow j_{ 0.5 }= 3 \\
+  x_{ 0.5 } &amp;=&amp; x_{\text{inf}; 3 } + \frac{ { 0.5 } - F_{ 2 }} {f_{ 3 }} \cdot b_{ 3 } \\
+            &amp;=&amp;  15  + \frac {{ 0.5 } -  0.38 } { 0.33 } \cdot  5  \\
+            &amp;=&amp;  16.82
+\end{eqnarray*}\]</span></p>
+</div>
+<div class="nota">
+<p>La mediana è quel valore che taglia l’istogramma in due parti, entrambe di area pari al 50% dell’area totale</p>
+<p><img src="Appunti_di_Statistica_2025_files/figure-html/04-mediana-percentili-1,-1.png" width="672" /><img src="Appunti_di_Statistica_2025_files/figure-html/04-mediana-percentili-1,-2.png" width="672" /></p>
+<p>L’area tratteggiata è il 50% dell’area totale.</p>
+</div>
+</div>
+<div id="proprietà-della-mediana" class="section level3 hasAnchor" number="4.1.3">
+<h3><span class="header-section-number">4.1.3</span> Proprietà della Mediana<a href="mediana-percentili-e-moda.html#proprietà-della-mediana" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="info">
+<div class="proposition">
+<p><span id="prp:unlabeled-div-52" class="proposition"><strong>Proprietà 4.1  (della Mediana) </strong></span>La mediana di una distribuzione, <span class="math inline">\(x_{0.5}\)</span>, è quel valore della per
+<span class="math inline">\(X\)</span> il quale si ha <span class="math inline">\(F(x_{0.5}) = 0.5\)</span>. Le proprietà della mediana
+(<span class="math inline">\(x_{0.5}\)</span>) sono:</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(x_{\min} \leq x_{0.5} \leq x_{\max}\)</span>,</li>
+<li><span class="math inline">\(\sum_{j=1}^{n} |x_{j} - x_{0.5}|\)</span> è un minimo.</li>
+<li>Relazione Media-Mediana:
+<ul>
+<li>Distribuzione simmetrica <span class="math inline">\(\rightarrow\)</span> <span class="math inline">\(x_{0.5} = \bar{x}\)</span></li>
+<li>Distribuzione con coda lunga a destra <span class="math inline">\(\rightarrow\)</span> <span class="math inline">\(x_{0.5} &lt; \bar{x}\)</span></li>
+<li>Distribuzione con coda lunga a sinistra <span class="math inline">\(\rightarrow\)</span> <span class="math inline">\(x_{0.5} &gt; \bar{x}\)</span></li>
+</ul></li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div id="i-percentili" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> I Percentili<a href="mediana-percentili-e-moda.html#i-percentili" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Il <span class="math inline">\(p\)</span>-esimo percentile <span class="math inline">\(x_p\)</span>, <span class="math inline">\(0\leq p\leq 1\)</span>, è qual valore che divide la serie dei dati riordinati in due: il <span class="math inline">\(p\times100\%\)</span> dei dati sono minori di <span class="math inline">\(x_p\)</span> e <span class="math inline">\((1-p)\times100\%\)</span> dei dati sono maggiori di <span class="math inline">\(x_p\)</span>.
+Se per esempio <span class="math inline">\(p=0.30\)</span> allora il trentesimo percentile è quel valore che ha il 30% dei dati inferiore il 70% dei dati superiore.
+Il <span class="math inline">\(p\)</span>-esimo percentile di una serie di dati è il valore che occupa la posizione <span class="math inline">\(\lfloor {p\times n}\rfloor+1\)</span>, dove <span class="math inline">\(\lfloor x\rfloor\)</span> è l’operatore che estrae la parte intera di un numero decimale, ad esempio <span class="math inline">\(\lfloor 3.001\rfloor=\lfloor 3.21\rfloor=\lfloor 3.94\rfloor=3\)</span>.</p>
+<div class="example">
+<p><span id="exm:unlabeled-div-53" class="example"><strong>Esempio 4.6  </strong></span>Si considerino <span class="math inline">\(n=21\)</span> osservazioni di una variabile categoriale ordinata che assume 7 valori: <span class="math inline">\(-2\)</span>, <span class="math inline">\(-1\)</span>, <span class="math inline">\(0\)</span>, <span class="math inline">\(1\)</span>, <span class="math inline">\(2\)</span> (ad esempio una scala del tipo <span class="math inline">\(-2=\)</span><em>in totale disaccordo</em>, <span class="math inline">\(-1=\)</span><em>più in disaccordo che in accordo</em>, <span class="math inline">\(0=\)</span><em>né d’accordo, né in disaccordo</em>, <span class="math inline">\(1=\)</span><em>più d’accordo che in disaccordo</em>, <span class="math inline">\(2=\)</span><em>totalmente d’accordo</em>). Qui di seguito i dati riordinati:</p>
+<table style="width:100%;">
+<colgroup>
+<col width="8%" />
+<col width="4%" />
+<col width="4%" />
+<col width="4%" />
+<col width="4%" />
+<col width="4%" />
+<col width="4%" />
+<col width="4%" />
+<col width="4%" />
+<col width="4%" />
+<col width="4%" />
+<col width="4%" />
+<col width="4%" />
+<col width="4%" />
+<col width="4%" />
+<col width="4%" />
+<col width="4%" />
+<col width="4%" />
+<col width="4%" />
+<col width="4%" />
+<col width="4%" />
+<col width="4%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td align="left"><span class="math inline">\((i)\)</span></td>
+<td align="right">1</td>
+<td align="right">2</td>
+<td align="right">3</td>
+<td align="right">4</td>
+<td align="right">5</td>
+<td align="right">6</td>
+<td align="right">7</td>
+<td align="right">8</td>
+<td align="right">9</td>
+<td align="right">10</td>
+<td align="right">11</td>
+<td align="right">12</td>
+<td align="right">13</td>
+<td align="right">14</td>
+<td align="right">15</td>
+<td align="right">16</td>
+<td align="right">17</td>
+<td align="right">18</td>
+<td align="right">19</td>
+<td align="right">20</td>
+<td align="right">21</td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(x_i\)</span></td>
+<td align="right">-2</td>
+<td align="right">-1</td>
+<td align="right">-1</td>
+<td align="right">-1</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">2</td>
+<td align="right">2</td>
+<td align="right">2</td>
+<td align="right">2</td>
+<td align="right">2</td>
+<td align="right">2</td>
+</tr>
+</tbody>
+</table>
+<p>Il 15-esimo percentile è il dato che occupa la <span class="math inline">\(\lfloor n\times p \rfloor+1 =\lfloor 21\times 0.15\rfloor+1= 3+1=4\)</span>, e dunque il 15-esimo percentile è il quarto dato <span class="math inline">\(x_{(4)}=-1\)</span>.
+È chiaro che la mediana è il 50-esimo percentile. In questo caso <span class="math inline">\(x_{0.5}=x_{\left(\lfloor21\times 0.5\rfloor +1\right)}=x_{(11)}=0\)</span>.</p>
+</div>
+<div id="dati-espressi-in-distribuzione-di-frequenza-1" class="section level3 hasAnchor" number="4.2.1">
+<h3><span class="header-section-number">4.2.1</span> Dati espressi in distribuzione di frequenza<a href="mediana-percentili-e-moda.html#dati-espressi-in-distribuzione-di-frequenza-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Se il fenomeno è espresso in una tabella di distribuzione di frequenza, allora il <span class="math inline">\(p\)</span>-esimo percentile è la prima modalità tale per cui la frequenza cumulata è maggiore di <span class="math inline">\(p\)</span>.</p>
+<div class="example">
+<p><span id="exm:unlabeled-div-54" class="example"><strong>Esempio 4.7  </strong></span>Fenomeno <em>Titolo di Studio</em>, <span class="math inline">\(n=350\)</span>, numero di modalità <span class="math inline">\(k=5\)</span>.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="right"><span class="math inline">\(j\)</span></th>
+<th align="left"><span class="math inline">\(x_{j}\)</span></th>
+<th align="right"><span class="math inline">\(n_j\)</span></th>
+<th align="right"><span class="math inline">\(f_j\)</span></th>
+<th align="right"><span class="math inline">\(F_j\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">1</td>
+<td align="left">Elementare</td>
+<td align="right">35</td>
+<td align="right">0.10</td>
+<td align="right">0.10</td>
+</tr>
+<tr class="even">
+<td align="right">2</td>
+<td align="left">Media inferiore</td>
+<td align="right">105</td>
+<td align="right">0.30</td>
+<td align="right">0.40</td>
+</tr>
+<tr class="odd">
+<td align="right">3</td>
+<td align="left">Media Superiore</td>
+<td align="right">147</td>
+<td align="right">0.42</td>
+<td align="right">0.82</td>
+</tr>
+<tr class="even">
+<td align="right">4</td>
+<td align="left">Laurea</td>
+<td align="right">35</td>
+<td align="right">0.10</td>
+<td align="right">0.92</td>
+</tr>
+<tr class="odd">
+<td align="right">5</td>
+<td align="left">Post Laurea</td>
+<td align="right">28</td>
+<td align="right">0.08</td>
+<td align="right">1.00</td>
+</tr>
+</tbody>
+</table>
+<p>Il 90-esimo percentile <span class="math inline">\(x_{0.90}\)</span> è la quarta modalità, <span class="math inline">\(x_{4}=\)</span>Laurea.</p>
+</div>
+<div class="example">
+<p><span id="exm:unlabeled-div-55" class="example"><strong>Esempio 4.8  </strong></span>Fenomeno: Numero di volte che si è cercato lavoro negli ultimi 3 mesi, <span class="math inline">\(n=322\)</span></p>
+<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:right;">
+<span class="math inline">\(j\)</span>
+</th>
+<th style="text-align:left;">
+<span class="math inline">\(x_{j}\)</span>
+</th>
+<th style="text-align:right;">
+<span class="math inline">\(n_j\)</span>
+</th>
+<th style="text-align:right;">
+<span class="math inline">\(f_j\)</span>
+</th>
+<th style="text-align:right;">
+<span class="math inline">\(F_j\)</span>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;border-left:1px solid;border-right:1px solid;">
+1
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+0.0621
+</td>
+<td style="text-align:right;">
+0.0621
+</td>
+</tr>
+<tr>
+<td style="text-align:right;border-left:1px solid;border-right:1px solid;">
+2
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:right;">
+47
+</td>
+<td style="text-align:right;">
+0.1460
+</td>
+<td style="text-align:right;">
+0.2081
+</td>
+</tr>
+<tr>
+<td style="text-align:right;border-left:1px solid;border-right:1px solid;">
+3
+</td>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:right;">
+80
+</td>
+<td style="text-align:right;">
+0.2484
+</td>
+<td style="text-align:right;">
+0.4565
+</td>
+</tr>
+<tr>
+<td style="text-align:right;border-left:1px solid;border-right:1px solid;">
+4
+</td>
+<td style="text-align:left;">
+3
+</td>
+<td style="text-align:right;">
+64
+</td>
+<td style="text-align:right;">
+0.1988
+</td>
+<td style="text-align:right;">
+0.6553
+</td>
+</tr>
+<tr>
+<td style="text-align:right;border-left:1px solid;border-right:1px solid;">
+5
+</td>
+<td style="text-align:left;">
+4
+</td>
+<td style="text-align:right;">
+46
+</td>
+<td style="text-align:right;">
+0.1429
+</td>
+<td style="text-align:right;">
+0.7981
+</td>
+</tr>
+<tr>
+<td style="text-align:right;border-left:1px solid;border-right:1px solid;">
+6
+</td>
+<td style="text-align:left;">
+5
+</td>
+<td style="text-align:right;">
+36
+</td>
+<td style="text-align:right;">
+0.1118
+</td>
+<td style="text-align:right;">
+0.9099
+</td>
+</tr>
+<tr>
+<td style="text-align:right;border-left:1px solid;border-right:1px solid;">
+7
+</td>
+<td style="text-align:left;">
+6
+</td>
+<td style="text-align:right;">
+16
+</td>
+<td style="text-align:right;">
+0.0497
+</td>
+<td style="text-align:right;">
+0.9596
+</td>
+</tr>
+<tr>
+<td style="text-align:right;border-left:1px solid;border-right:1px solid;">
+8
+</td>
+<td style="text-align:left;">
+7
+</td>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:right;">
+0.0280
+</td>
+<td style="text-align:right;">
+0.9876
+</td>
+</tr>
+<tr>
+<td style="text-align:right;border-left:1px solid;border-right:1px solid;">
+9
+</td>
+<td style="text-align:left;">
+8
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+0.0093
+</td>
+<td style="text-align:right;">
+0.9969
+</td>
+</tr>
+<tr>
+<td style="text-align:right;border-left:1px solid;border-right:1px solid;">
+10
+</td>
+<td style="text-align:left;">
+10
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0.0031
+</td>
+<td style="text-align:right;">
+1.0000
+</td>
+</tr>
+</tbody>
+</table>
+<p>Il 25-esimo percentile è la terza modalità in quanto <span class="math inline">\(F_3=0.45&gt;0.25\)</span>, <span class="math inline">\(x_{0.25}=x_3=2\)</span>. Il 50-esimo percentile, la mediana, è <span class="math inline">\(x_{0.5}=x_4=3\)</span> e il 75-esimo percentile è <span class="math inline">\(x_{0.75}=x_5=4\)</span>.</p>
+</div>
+</div>
+<div id="dati-espressi-in-classi-1" class="section level3 hasAnchor" number="4.2.2">
+<h3><span class="header-section-number">4.2.2</span> Dati espressi in classi<a href="mediana-percentili-e-moda.html#dati-espressi-in-classi-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Se il fenomeno è espresso in classi, allora l’<em>intervallo che contiene il <span class="math inline">\(p\)</span>-esimo percentile</em> è il primo intervallo tale per cui la frequenza cumulata è maggiore di <span class="math inline">\(p\)</span>. Il <em>valore approssimato del percentile</em> è un valore che si trova all’interno dell’intervallo e si ottiene dalla formula</p>
+<div class="info">
+<p><span class="math display">\[x_{p}=x_{\inf;j_p}+\frac{p-F_{j_p-1}}{f_{j_p}}\cdot \left(x_{\sup;j_p}-x_{\inf;j_p} \right)\]</span></p>
+</div>
+<p>dove <span class="math inline">\(j_p\)</span> è l’indicatore della classe che contiene il <span class="math inline">\(p\)</span>-esimo percentile, <span class="math inline">\(x_{\inf;j_p}\)</span> e <span class="math inline">\(x_{\sup;j_p}\)</span> sono, rispettivamente, l’estremo inferiore e quello superiore.</p>
+<div class="example">
+<p><span id="exm:unlabeled-div-56" class="example"><strong>Esempio 4.9  </strong></span></p>
+Il reddito di <span class="math inline">\(n=\)</span> 4700 famiglie
+è rappresentato nella seguente tabella di frequenza
+<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:right;">
+<span class="math inline">\(j\)</span>
+</th>
+<th style="text-align:right;">
+<span class="math inline">\([\text{x}_j,\)</span>
+</th>
+<th style="text-align:right;">
+<span class="math inline">\(\text{x}_{j+1})\)</span>
+</th>
+<th style="text-align:right;">
+<span class="math inline">\(n_j\)</span>
+</th>
+<th style="text-align:right;">
+<span class="math inline">\(f_j\)</span>
+</th>
+<th style="text-align:right;">
+<span class="math inline">\(b_j\)</span>
+</th>
+<th style="text-align:right;">
+<span class="math inline">\(h_j\)</span>
+</th>
+<th style="text-align:right;">
+<span class="math inline">\(F_j\)</span>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+517
+</td>
+<td style="text-align:right;">
+0.11
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+1.1
+</td>
+<td style="text-align:right;">
+0.11
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:right;">
+1269
+</td>
+<td style="text-align:right;">
+0.27
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+5.4
+</td>
+<td style="text-align:right;">
+0.38
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+1551
+</td>
+<td style="text-align:right;">
+0.33
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+6.6
+</td>
+<td style="text-align:right;">
+0.71
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+25
+</td>
+<td style="text-align:right;">
+987
+</td>
+<td style="text-align:right;">
+0.21
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+4.2
+</td>
+<td style="text-align:right;">
+0.92
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+25
+</td>
+<td style="text-align:right;">
+35
+</td>
+<td style="text-align:right;">
+376
+</td>
+<td style="text-align:right;">
+0.08
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+0.8
+</td>
+<td style="text-align:right;">
+1.00
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+4700
+</td>
+<td style="text-align:right;">
+1.00
+</td>
+<td style="text-align:right;">
+35
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+</td>
+</tr>
+</tbody>
+</table>
+<p>La classe che contiene il <span class="math inline">\(25\)</span>-esimo percentile è la seconda classe <span class="math inline">\(j_{0.25}=2\)</span>, ovvero la classe (10,15], in quanto <span class="math inline">\(F_2=0.2081&gt;0.25\)</span>.</p>
+<p><span class="math display">\[\begin{eqnarray*}
+  p &amp;=&amp;  0.25 , \text{essendo }F_{ 2 }= 0.38  &gt; 0.25  \Rightarrow j_{ 0.25 }= 2 \\
+  x_{ 0.25 } &amp;=&amp; x_{\text{inf}; 2 } + \frac{ { 0.25 } - F_{ 1 }} {f_{ 2 }} \cdot b_{ 2 } \\
+            &amp;=&amp;  10  + \frac {{ 0.25 } -  0.11 } { 0.27 } \cdot  5  \\
+            &amp;=&amp;  12.59
+\end{eqnarray*}\]</span></p>
+</div>
+<div class="nota">
+<p>Il <span class="math inline">\(p\)</span>-esimo percentile <span class="math inline">\(x_p\)</span> è quel valore che taglia l’istogramma in due parti, l’area dell’istogramma alla sinistra di <span class="math inline">\(x_p\)</span> è pari a <span class="math inline">\(p\times 100\%\)</span>, mentre l’area la sua destra è <span class="math inline">\((1-p)\times 100\%\)</span></p>
+<p><img src="Appunti_di_Statistica_2025_files/figure-html/04-mediana-percentili-9,-1.png" width="672" /><img src="Appunti_di_Statistica_2025_files/figure-html/04-mediana-percentili-9,-2.png" width="672" /></p>
+<p>L’area in blue è il 25% dell’area totale, quella in grigio il 75%.</p>
+</div>
+</div>
+<div id="i-quartili" class="section level3 hasAnchor" number="4.2.3">
+<h3><span class="header-section-number">4.2.3</span> I Quartili<a href="mediana-percentili-e-moda.html#i-quartili" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Si definiscono <strong>i quartili</strong> della VS <span class="math inline">\(X\)</span>, il 25-esimo, il 50.esimo e il 75-esimo percentile di <span class="math inline">\(X\)</span>:
+<span class="math display">\[
+(x_{0.25},x_{0.5},x_{0.75})
+\]</span></p>
+</div>
+<div id="percentili-e-funzione-di-ripartizione" class="section level3 hasAnchor" number="4.2.4">
+<h3><span class="header-section-number">4.2.4</span> Percentili e Funzione di Ripartizione<a href="mediana-percentili-e-moda.html#percentili-e-funzione-di-ripartizione" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Se i dati sono quantitativi continui raccolti in classi e <span class="math inline">\(F\)</span> è la funzione di
+ripartizione di <span class="math inline">\(X\)</span> allora il percentile è quel valore tale che
+<span class="math display">\[
+F(x_p)=p
+\]</span>
+ovvero a sinistra di <span class="math inline">\(x_p\)</span> c’è il <span class="math inline">\(p\times 100\%\)</span> dei dati e a destra di <span class="math inline">\(x_p\)</span>
+il rimanente <span class="math inline">\((1-p)\times 100\%\)</span>. Per esempio sappiamo nel caso studiato sopra che
+<span class="math inline">\(x_{0.25}=12.593\)</span> e quindi <span class="math inline">\(F(12.593)=0.25\)</span>.</p>
+<p>Ogni valore di <span class="math inline">\(X\)</span> dal suo minimo al suo massimo è un percentile, per esempio
+il valore 15 è il 38-esimo percentile di <span class="math inline">\(X\)</span> (<span class="math inline">\(x_{0.38}=15\)</span>), infatti il 38%
+dei dati è inferiore a 15:
+<span class="math display">\[
+F(15)=F_{2}=0.38
+\]</span>
+Mentre la funzione inversa <span class="math inline">\(Q=F^{-1}\)</span> è la funzione che ci permette di calcolare il
+percentile di ordine <span class="math inline">\(p\)</span>:
+<span class="math display">\[
+Q(p)=x_p.
+\]</span>
+Per esempio
+<span class="math display">\[
+Q(0.25)=x_{0.25}=12.593
+\]</span></p>
+<p>Questa applicazione interattiva aiuta a comprendere meglio la relazione tra istogramma
+e funzione di ripartizione: <a href="https://patrizio-frederic.shinyapps.io/FdR_descrittiva/">La Funzione di Ripartizione</a></p>
+</div>
+</div>
+<div id="sqi" class="section level2 hasAnchor" number="4.3">
+<h2><span class="header-section-number">4.3</span> Lo Scarto Interquartile<a href="mediana-percentili-e-moda.html#sqi" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Una misura di variabilità è lo scarto interquartile
+<span class="math display">\[
+SI = x_{0.75}-x_{0.25}
+\]</span></p>
+</div>
+<div id="moda" class="section level2 hasAnchor" number="4.4">
+<h2><span class="header-section-number">4.4</span> La Moda<a href="mediana-percentili-e-moda.html#moda" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="info">
+<p>Si definisce la <strong>moda</strong>, <span class="math inline">\(x_{Mo}\)</span> la modalità cui compete frequenza maggiore.</p>
+</div>
+<div class="example">
+<p><span id="exm:unlabeled-div-57" class="example"><strong>Esempio 4.10  </strong></span>Consideriamo la distribuzione del colore dei capelli</p>
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\mathrm{x}_j\)</span></td>
+<td align="right">Cast.</td>
+<td align="right">Biondi</td>
+<td align="right">Rossi</td>
+<td align="right">Tot</td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(n_j\)</span></td>
+<td align="right">245</td>
+<td align="right">68</td>
+<td align="right">13</td>
+<td align="right">326</td>
+</tr>
+</tbody>
+</table>
+<p>La modalità modale (la moda) è <span class="math inline">\(x_{Mo}\)</span>=Castano.</p>
+</div>
+<div class="example">
+<p><span id="exm:unlabeled-div-58" class="example"><strong>Esempio 4.11  </strong></span>Titolo di studio:</p>
+<table>
+<tbody>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\mathrm{x}_j\)</span></td>
+<td align="right">Prim.</td>
+<td align="right">M. inf.</td>
+<td align="right">M. sup.</td>
+<td align="right">Univ.</td>
+<td align="right">Post univ.</td>
+<td align="right">Tot</td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(n_j\)</span></td>
+<td align="right">10</td>
+<td align="right">18</td>
+<td align="right">158</td>
+<td align="right">62</td>
+<td align="right">12</td>
+<td align="right">260</td>
+</tr>
+</tbody>
+</table>
+<p>La modalità modale (la moda) è <span class="math inline">\(x_{Mo}=\)</span>M. sup.</p>
+</div>
+<div class="example">
+<p><span id="exm:unlabeled-div-59" class="example"><strong>Esempio 4.12  </strong></span><span class="math inline">\(\phantom{2}\)</span></p>
+<table>
+<thead>
+<tr class="header">
+<th align="right">0</th>
+<th align="right">1</th>
+<th align="right">2</th>
+<th align="right">3</th>
+<th align="right">4</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">1</td>
+<td align="right">11</td>
+<td align="right">6</td>
+<td align="right">8</td>
+<td align="right">5</td>
+</tr>
+</tbody>
+</table>
+<p>La modalità modale è <span class="math inline">\(\mathrm{x} = 1\)</span> e osserviamo che la media è 2.1613 e la mediana è 2</p>
+</div>
+<div id="la-moda-per-dati-raccolti-in-classi" class="section level3 hasAnchor" number="4.4.1">
+<h3><span class="header-section-number">4.4.1</span> La Moda per dati raccolti in classi<a href="mediana-percentili-e-moda.html#la-moda-per-dati-raccolti-in-classi" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="info">
+<p>Se i dati sono sono raccolti in classi, non c’è un valore modale ma una classe modale ed è la <strong>classe cui compete densità maggiore</strong>.</p>
+</div>
+<div class="example">
+<p><span id="exm:unlabeled-div-60" class="example"><strong>Esempio 4.13  </strong></span><span class="math inline">\(\phantom{2}\)</span></p>
+<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:right;">
+<span class="math inline">\(j\)</span>
+</th>
+<th style="text-align:right;">
+<span class="math inline">\([\text{x}_j,\)</span>
+</th>
+<th style="text-align:right;">
+<span class="math inline">\(\text{x}_{j+1})\)</span>
+</th>
+<th style="text-align:right;">
+<span class="math inline">\(n_j\)</span>
+</th>
+<th style="text-align:right;">
+<span class="math inline">\(f_j\)</span>
+</th>
+<th style="text-align:right;">
+<span class="math inline">\(b_j\)</span>
+</th>
+<th style="text-align:right;">
+<span class="math inline">\(h_j\)</span>
+</th>
+<th style="text-align:right;">
+<span class="math inline">\(F_j\)</span>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+517
+</td>
+<td style="text-align:right;">
+0.11
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+1.1
+</td>
+<td style="text-align:right;">
+0.11
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:right;">
+1269
+</td>
+<td style="text-align:right;">
+0.27
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+5.4
+</td>
+<td style="text-align:right;">
+0.38
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+1551
+</td>
+<td style="text-align:right;">
+0.33
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+6.6
+</td>
+<td style="text-align:right;">
+0.71
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+25
+</td>
+<td style="text-align:right;">
+987
+</td>
+<td style="text-align:right;">
+0.21
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+4.2
+</td>
+<td style="text-align:right;">
+0.92
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+25
+</td>
+<td style="text-align:right;">
+35
+</td>
+<td style="text-align:right;">
+376
+</td>
+<td style="text-align:right;">
+0.08
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+0.8
+</td>
+<td style="text-align:right;">
+1.00
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+4700
+</td>
+<td style="text-align:right;">
+1.00
+</td>
+<td style="text-align:right;">
+35
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+</td>
+</tr>
+</tbody>
+</table>
+<p>la classe modale è la terza classe, la classe <span class="math inline">\([15,20)\)</span></p>
+</div>
+</div>
+</div>
+<div id="relazione-tra-media-moda-e-mediana" class="section level2 hasAnchor" number="4.5">
+<h2><span class="header-section-number">4.5</span> Relazione tra Media, Moda e Mediana<a href="mediana-percentili-e-moda.html#relazione-tra-media-moda-e-mediana" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="info">
+<p>Se la VS <span class="math inline">\(X\)</span> ha una sola classe modale, allora valgono le seguenti relazioni:</p>
+<ul>
+<li>Se la distribuzione presenta un’asimmetria negativa (coda lunga a sx) allora
+<span class="math display">\[\bar x\le  x_{0.5} \le x_{mo}\]</span></li>
+<li>Se la distribuzione è simmetrica allora
+<span class="math display">\[x_{mo}\approx x_{0.5}\approx \bar x\]</span></li>
+<li>Se la distribuzione presenta un’asimmetria positiva (coda lunga a dx) allora
+<span class="math display">\[x_{mo}\le x_{0.5}\le \bar x\]</span></li>
+</ul>
+</div>
+<p>La figura <a href="mediana-percentili-e-moda.html#fig:mmm">4.1</a> ne offre una rappresentazione grafica.</p>
+<div class="figure"><span style="display:block;" id="fig:mmm"></span>
+<img src="Appunti_di_Statistica_2025_files/figure-html/mmm-1.png" alt="Relazione tra media mediana e moda" width="672" />
+<p class="caption">
+<b>Figura 4.1 </b>Relazione tra media mediana e moda
+</p>
+</div>
+</div>
+<div id="istogramma-e-percentili" class="section level2 hasAnchor" number="4.6">
+<h2><span class="header-section-number">4.6</span> Istogramma e Percentili<a href="mediana-percentili-e-moda.html#istogramma-e-percentili" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>La relazione tra istogramma di densità e percentili è evidente, i percentile di ordine <span class="math inline">\(p\)</span> indica per quale
+valore di <span class="math inline">\(x_p\)</span> l’area dell’istogramma fino misurano l’area dell’istogramma fino ad <span class="math inline">\(x_p\)</span> vale <span class="math inline">\(p\)</span>.</p>
+<p>Attraverso il seguente esempio osserveremo meglio il legame tra i due concetti.</p>
+<div class="example">
+<p><span id="exm:unlabeled-div-61" class="example"><strong>Esempio 4.14  </strong></span>Il reddito di <span class="math inline">\(n=\)</span> 4700 famiglie (dati inventati)
+è rappresentato nella tabella di frequenza qui di seguito</p>
+<table>
+<thead>
+<tr class="header">
+<th align="right"><span class="math inline">\([\text{x}_j,\)</span></th>
+<th align="right"><span class="math inline">\(\text{x}_{j+1})\)</span></th>
+<th align="right"><span class="math inline">\(f_j\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">0</td>
+<td align="right">10</td>
+<td align="right">0.18</td>
+</tr>
+<tr class="even">
+<td align="right">10</td>
+<td align="right">20</td>
+<td align="right">0.30</td>
+</tr>
+<tr class="odd">
+<td align="right">20</td>
+<td align="right">50</td>
+<td align="right">0.42</td>
+</tr>
+<tr class="even">
+<td align="right">50</td>
+<td align="right">90</td>
+<td align="right">0.10</td>
+</tr>
+<tr class="odd">
+<td align="right"></td>
+<td align="right"></td>
+<td align="right">1.00</td>
+</tr>
+</tbody>
+</table>
+<p>Per prima cosa calcoliamo tutta la tabella: la colonna delle frequenza assolute e cumulate, delle densità, ecc.</p>
+<table>
+<colgroup>
+<col width="9%" />
+<col width="11%" />
+<col width="3%" />
+<col width="3%" />
+<col width="3%" />
+<col width="3%" />
+<col width="3%" />
+<col width="11%" />
+<col width="13%" />
+<col width="13%" />
+<col width="15%" />
+<col width="6%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="right"><span class="math inline">\([\text{x}_j,\)</span></th>
+<th align="right"><span class="math inline">\(\text{x}_{j+1})\)</span></th>
+<th align="right"><span class="math inline">\(n_j\)</span></th>
+<th align="right"><span class="math inline">\(f_j\)</span></th>
+<th align="right"><span class="math inline">\(b_j\)</span></th>
+<th align="right"><span class="math inline">\(h_j\)</span></th>
+<th align="right"><span class="math inline">\(F_j\)</span></th>
+<th align="right"><span class="math inline">\(\bar{\text{x}}_j\)</span></th>
+<th align="right"><span class="math inline">\(\bar{\text{x}}_j^2\)</span></th>
+<th align="right"><span class="math inline">\(\bar{\text{x}}_jn_j\)</span></th>
+<th align="right"><span class="math inline">\(\bar{\text{x}}_j^2 n_j\)</span></th>
+<th align="right"><span class="math inline">\(f_{j\%}\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">0</td>
+<td align="right">10</td>
+<td align="right">846</td>
+<td align="right">0.18</td>
+<td align="right">10</td>
+<td align="right">1.80</td>
+<td align="right">0.18</td>
+<td align="right">5</td>
+<td align="right">25</td>
+<td align="right">4230</td>
+<td align="right">21150</td>
+<td align="right">18</td>
+</tr>
+<tr class="even">
+<td align="right">10</td>
+<td align="right">20</td>
+<td align="right">1410</td>
+<td align="right">0.30</td>
+<td align="right">10</td>
+<td align="right">3.00</td>
+<td align="right">0.48</td>
+<td align="right">15</td>
+<td align="right">225</td>
+<td align="right">21150</td>
+<td align="right">317250</td>
+<td align="right">30</td>
+</tr>
+<tr class="odd">
+<td align="right">20</td>
+<td align="right">50</td>
+<td align="right">1974</td>
+<td align="right">0.42</td>
+<td align="right">30</td>
+<td align="right">1.40</td>
+<td align="right">0.90</td>
+<td align="right">35</td>
+<td align="right">1225</td>
+<td align="right">69090</td>
+<td align="right">2418150</td>
+<td align="right">42</td>
+</tr>
+<tr class="even">
+<td align="right">50</td>
+<td align="right">90</td>
+<td align="right">470</td>
+<td align="right">0.10</td>
+<td align="right">40</td>
+<td align="right">0.25</td>
+<td align="right">1.00</td>
+<td align="right">70</td>
+<td align="right">4900</td>
+<td align="right">32900</td>
+<td align="right">2303000</td>
+<td align="right">10</td>
+</tr>
+<tr class="odd">
+<td align="right"></td>
+<td align="right"></td>
+<td align="right">4700</td>
+<td align="right">1.00</td>
+<td align="right">90</td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right">127370</td>
+<td align="right">5059550</td>
+<td align="right">100</td>
+</tr>
+</tbody>
+</table>
+<p>Quindi disegniamo l’istogramma di densità percentuale, dove le <span class="math inline">\(h\)</span> sono usate come altezze e le <span class="math inline">\(f_{\%}\)</span> sono le aree dei rettangoli.</p>
+<p><img src="Appunti_di_Statistica_2025_files/figure-html/04a-Istogramma-2,-1.png" width="672" /></p>
+<div class="att">
+<p>Se al posto delle <span class="math inline">\(h\)</span> usiamo le <span class="math inline">\(f\)</span> disegniamo l’istogramma <em>sbagliato</em>, . Notiamo che la classe <span class="math inline">\([20,50)\)</span>
+viene sovra rappresentata. Infatti è vero che il 45% delle famiglie si trova in quella classe, ma è anche vero che l’ampiezza della classe molto grande e l’istogramma non rappresenta i dati.</p>
+<p><img src="Appunti_di_Statistica_2025_files/figure-html/04a-Istogramma-3,-1.png" width="672" /></p>
+</div>
+<div class="att">
+<p>Per disegnare un istogramma di densità in modo corretto si devono rispettare le proporzioni
+tra le basi</p>
+<p><img src="Appunti_di_Statistica_2025_files/figure-html/04a-Istogramma-4,-1.png" width="672" /></p>
+</div>
+<p>Una volta che abbiamo ricostruito tutta la tabella e realizzato il grafico possiamo
+rispondere a tante domande sulla distribuzione dei dati, quali, per esempio:</p>
+<ul>
+<li>Individuare la classe modale</li>
+</ul>
+<p>La classe modale è la classe [10,20) non la classe 20-50. Infatti la classe modale è la classe con densità maggiore, non la classe con frequenza maggiore.</p>
+<ul>
+<li>Individuare la classe che contiene la mediana</li>
+</ul>
+<p>La classe mediana è la terza classe [20,50), infatti <span class="math inline">\(F_3=0.90\)</span> è il primo degli <span class="math inline">\(F_j\)</span> che
+super <span class="math inline">\(0.50\)</span>.</p>
+<ul>
+<li>Calcolare <span class="math inline">\(x_0, x_{0.10}, x_{0.20},..., x_{0.90}, x_1\)</span></li>
+</ul>
+<p><span class="math display">\[x_p           = x_{\text{inf};j_p} + \frac {p - F_{j_p - 1}} {f_{j_p}} b_{j_p}\]</span></p>
+<p><span class="math display">\[x_0 = 0, ~~~\text{il più piccol dei dati}\]</span></p>
+<p><span class="math display">\[\begin{eqnarray*}
+  p &amp;=&amp;  0.1 , \text{essendo }F_{ 1 }= 0.18  &gt; 0.1  \Rightarrow j_{ 0.1 }= 1 \\
+  x_{ 0.1 } &amp;=&amp; x_{\text{inf}; 1 } + \frac{ { 0.1 } - F_{ 0 }} {f_{ 1 }} \cdot b_{ 1 } \\
+            &amp;=&amp;  0  + \frac {{ 0.1 } -  0 } { 0.18 } \cdot  10  \\
+            &amp;=&amp;  5.556
+\end{eqnarray*}\]</span></p>
+<p><span class="math display">\[\begin{eqnarray*}
+  p &amp;=&amp;  0.2 , \text{essendo }F_{ 2 }= 0.48  &gt; 0.2  \Rightarrow j_{ 0.2 }= 2 \\
+  x_{ 0.2 } &amp;=&amp; x_{\text{inf}; 2 } + \frac{ { 0.2 } - F_{ 1 }} {f_{ 2 }} \cdot b_{ 2 } \\
+            &amp;=&amp;  10  + \frac {{ 0.2 } -  0.18 } { 0.3 } \cdot  10  \\
+            &amp;=&amp;  10.67
+\end{eqnarray*}\]</span>
+<span class="math display">\[\vdots\]</span></p>
+<p><span class="math display">\[\begin{eqnarray*}
+  p &amp;=&amp;  0.9 , \text{essendo }F_{ 4 }= 1  &gt; 0.9  \Rightarrow j_{ 0.9 }= 4 \\
+  x_{ 0.9 } &amp;=&amp; x_{\text{inf}; 4 } + \frac{ { 0.9 } - F_{ 3 }} {f_{ 4 }} \cdot b_{ 4 } \\
+            &amp;=&amp;  50  + \frac {{ 0.9 } -  0.9 } { 0.1 } \cdot  40  \\
+            &amp;=&amp;  50
+\end{eqnarray*}\]</span>
+<span class="math display">\[x_{1.0} = 90, ~~~\text{il più grande dei dati}\]</span></p>
+<p>Riassumendo in tabella otteniamo:</p>
+<table>
+<colgroup>
+<col width="7%" />
+<col width="7%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+<col width="7%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="right"><span class="math inline">\(x_{ 0 }\)</span></th>
+<th align="right"><span class="math inline">\(x_{ 0.1 }\)</span></th>
+<th align="right"><span class="math inline">\(x_{ 0.2 }\)</span></th>
+<th align="right"><span class="math inline">\(x_{ 0.3 }\)</span></th>
+<th align="right"><span class="math inline">\(x_{ 0.4 }\)</span></th>
+<th align="right"><span class="math inline">\(x_{ 0.5 }\)</span></th>
+<th align="right"><span class="math inline">\(x_{ 0.6 }\)</span></th>
+<th align="right"><span class="math inline">\(x_{ 0.7 }\)</span></th>
+<th align="right"><span class="math inline">\(x_{ 0.8 }\)</span></th>
+<th align="right"><span class="math inline">\(x_{ 0.9 }\)</span></th>
+<th align="right"><span class="math inline">\(x_{ 1 }\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Percentili</td>
+<td align="right">0</td>
+<td align="right">5.556</td>
+<td align="right">10.67</td>
+<td align="right">14</td>
+<td align="right">17.33</td>
+<td align="right">21.43</td>
+<td align="right">28.57</td>
+<td align="right">35.71</td>
+<td align="right">42.86</td>
+<td align="right">50</td>
+<td align="right">90</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>mettere a grafico i punti (0,<span class="math inline">\(x_0\)</span>), (0.10,<span class="math inline">\(x_{0.10}\)</span>),…,(1,<span class="math inline">\(x_{1}\)</span>)) e (<span class="math inline">\(x_0\)</span>,0), (<span class="math inline">\(x_{0.10}\)</span>,0.10),…,(<span class="math inline">\(x_{1}\)</span>,1))</li>
+</ul>
+<p><img src="Appunti_di_Statistica_2025_files/figure-html/decili-g1-1.png" width="672" /></p>
+<p><img src="Appunti_di_Statistica_2025_files/figure-html/decili-g10-1.png" width="672" /></p>
+<ul>
+<li>calcolare la percentuale di individui con reddito inferiore a 50</li>
+</ul>
+<p>90% è la percentuale di individui con reddito minore di 50</p>
+<ul>
+<li><p>calcolare la percentuale di individui con reddito superiore a 20</p>
+<ul>
+<li>48% è la percentuale di individui con reddito minore di 20</li>
+<li>52% è la percentuale di individui con reddito maggiore di 20</li>
+</ul></li>
+<li><p>calcolare la percentuale approssimata di individui con reddito inferiore a 14</p></li>
+</ul>
+<p>Per calcolare <span class="math inline">\(\%(X&lt;14)\)</span> abbiamo diversi modi, anzi tutto notiamo che la percentuale di <span class="math inline">\(dat2\)</span> minori di
+14 è, approssimativamente, l’area dell’istogramma da zero a 14. E quindi, direttamente:</p>
+<p><span class="math display">\[\begin{eqnarray*}
+   \%(X&lt;14) &amp;=&amp;  f_1\times 100+(14-10)\times h_2\\
+   &amp;=&amp; 0.18\times 100 + 4\times 3\\
+   &amp;=&amp; 30\%
+\end{eqnarray*}\]</span></p>
+<p>In modo del tutto analogo con la funzione di ripartizione <span class="math inline">\(F\)</span></p>
+<p><span class="math display">\[\begin{eqnarray*}
+   \%(X&lt;14) &amp;=&amp;  100\times F(14)\\
+   &amp;=&amp; 100\times(f_1+(14-10)\times h_2/100)\\
+   &amp;=&amp; 100\times(0.18 + 4\times 3/100)\\
+   &amp;=&amp; 30\%
+\end{eqnarray*}\]</span></p>
+<p>Ma anche notando che <span class="math inline">\(x_{0.30}=14\)</span>, significa che <span class="math inline">\(F(x_{0.30})=0.30\)</span> e
+<span class="math inline">\(\%(X&lt;14)=100\times F(x_{0.30})=30\%\)</span>.</p>
+<ul>
+<li>Calcolare la percentuale approssimata di individui con reddito superiore a 28.57</li>
+</ul>
+<p>Notiamo che <span class="math inline">\(x_{0.60}\)</span> = 28.57 e quindi <span class="math inline">\(F(x_{0.60})=0.60\)</span>, quindi
+<span class="math inline">\(\%(X&lt;28.57)=0.60\times 100=60\%\)</span> e quindi <span class="math inline">\(\%(X&gt;28.57)=40\%\)</span></p>
+<ul>
+<li>Calcolare la percentuale approssimata di individui con reddito inferiore a 35</li>
+</ul>
+<p>Si tratta di calcolare l’area in blu:</p>
+<p><img src="Appunti_di_Statistica_2025_files/figure-html/decili-g2-1.png" width="672" /></p>
+<p>e osservare che la sua area misura 69. Infatti l’area
+è data dalla somma di
+<span class="math display">\[\begin{eqnarray*}
+\%(X\leq 35) &amp;=&amp; f_1\times 100+f_2\times 100+(35-20)\times h_3 \\
+&amp;=&amp; 18+30+15\times 1.4\\
+&amp;=&amp; 69
+\end{eqnarray*}\]</span></p>
+<ul>
+<li>calcolare la percentuale approssimata di individui con reddito superiore a 16</li>
+</ul>
+<p>Si tratta di calcolare l’area in blu:</p>
+<p><img src="Appunti_di_Statistica_2025_files/figure-html/decili-g3-1.png" width="672" /></p>
+<p>e osservare che la sua area misura 64.
+Infatti l’area si può vedere o direttamente calcolandola da 16 a 100 oppure si
+può valutarla come complemento:
+<span class="math display">\[\%(X&gt;16)=100\%-\%(X\leq 16)\]</span>
+e quindi:
+<span class="math display">\[\%(X\leq 16)=f_1\times 100+(16-10)\times h_2=36\]</span>
+Quindi <span class="math inline">\(\%(X&gt;16)=100-36=64\)</span></p>
+<ul>
+<li>Individuare la media approssimata, la varianza approssimata, e i quartili approssimati</li>
+</ul>
+<p>La media:
+<span class="math display">\[\bar x = \frac 1 n \sum_j x_{jc} n_j = \frac 1{4700}127370=27.1 \]</span></p>
+<p>La varianza:
+<span class="math display">\[Var(X)=\frac {\sum_j x_{jc}^2 n_j }{n}-\bar x^2=\frac 1{4700}5059550-(27.1)^2=342.09\]</span></p>
+<p><span class="math inline">\(\bar x=\)</span> 27.1, <span class="math inline">\(Var=\)</span> 342.09, <span class="math inline">\((x_{0.25},x_{0.50},x_{0.75})=\)</span> (12.3333, 21.4286, 39.2857)</p>
+<ul>
+<li>Calcolare la percentuale di dati compresi tra il 25-esimo e il 75-esimo percentile</li>
+</ul>
+<p><img src="Appunti_di_Statistica_2025_files/figure-html/decili-g4-1.png" width="672" /></p>
+<ul>
+<li>calcolare <span class="math inline">\(x_{0.025}\)</span> e <span class="math inline">\(x_{0.975}\)</span></li>
+</ul>
+<p>i valori sono <span class="math inline">\((x_{0.025}, x_{0.975})=\)</span>(1.3889, 80)</p>
+<ul>
+<li>Rappresentare graficamente e calcolare la percentuale di famiglie con reddito:
+<ul>
+<li>compreso tra 1.3889 e 80</li>
+<li>compreso tra 0 e 1.3889</li>
+<li>compreso tra 1.3889 e 21.4286</li>
+<li>compreso tra 21.4286 e 80</li>
+<li>compreso tra 80 e 100</li>
+<li>minore di 1.3889 o maggiore di 80</li>
+</ul></li>
+</ul>
+</div>
+<!-- :::: {.example name="Temperature (C°)"} -->
+<!-- ```{r setup2, include=FALSE} -->
+<!-- n <- 1000 -->
+<!-- brk <- seq(-3.75,3.75,by=1.5) -->
+<!-- k <- length(brk) -->
+<!-- f    <- pnorm(brk[-1],0,1)-pnorm(brk[-k],0,1) -->
+<!-- f    <- round(f/sum(f),3) -->
+<!-- f    <- round(f/sum(f),3) -->
+<!-- h    <- f/diff(brk)*100 -->
+<!-- X <- data.frame(xinf=brk[-6],xsup = brk[-1],nj = f*n,fj = f,Fj = cumsum(f),bj = diff(brk),hj = h) -->
+<!-- dat2$xc <- .5*(dat2$xinf+dat2$xsup) -->
+<!-- dat2$xn <- dat2$xc*dat2$nj -->
+<!-- dat2$x2 <- dat2$xc^2*dat2$nj -->
+<!-- Y <- X -->
+<!-- names(Y) <- c("$x_{j}$","$x_{j+1}$","$n_j$","$f_j$","$F_j$","$b_j$","$h_j$","$x_{jc}$","$x_{jc} n_j$","$x_{jc}^2 n_j$") -->
+<!-- ``` -->
+<!-- La temperatura in una cella frigorifera è stata monitorata per 1000 -->
+<!-- giorni. I dati sono stati riassunti nella seguente distribuzione -->
+<!-- ```{r , echo=FALSE, results="asis"} -->
+<!-- kable(Y[,c(1,2,4)],booktabs = T, escape = F,linesep = "", digits = 4) -->
+<!-- ``` -->
+<!-- * Disegnare l'istogramma _sbagliato_ -->
+<!-- ```{r 04a-Istogramma-8,, echo=FALSE} -->
+<!-- plot(c(brk[1],brk),c(0,dat2$fj,0),type="s",axes = FALSE,xlab="Temperature (C°)",ylab="fj",main = "istogramma sbagliato") -->
+<!-- segments(dat2$xsup,0,dat2$xsup,dat2$fj,lty=2) -->
+<!-- axis(side = 1,at = brk,labels = brk) -->
+<!-- axis(2,at=round(dat2$fj,4)) -->
+<!-- ``` -->
+<!-- * Disegnare l'istogramma corretto -->
+<!-- ```{r 04a-Istogramma-9,, echo=FALSE} -->
+<!-- plot(c(brk[1],brk),c(0,dat2$hj,0),type="s",axes = FALSE,xlab="Temperature (C°)",ylab="hj",main = "istogramma corretto") -->
+<!-- segments(dat2$xsup,0,dat2$xsup,dat2$hj,lty=2) -->
+<!-- axis(side = 1,at = brk,labels = brk) -->
+<!-- axis(2,at=round(dat2$hj,4)) -->
+<!-- ``` -->
+<!-- * Perché i due istogrammi hanno la stessa leggibilità in questo caso? -->
+<!-- * Calcolare le frequenza assolute e cumulate, le densità, ecc. -->
+<!-- ```{r , echo=FALSE, results="asis"} -->
+<!-- kable(Y,booktabs = T, escape = F,linesep = "", digits = 4) -->
+<!-- ``` -->
+<!-- * Individuare la classe modale -->
+<!-- * Individuare la media senza fare i calcoli -->
+<!-- * Individuare la mediana senza fare i calcoli -->
+<!-- * Calcolare $x_0, x_{0.10}, x_{0.20},..., x_{0.90}, x_1$ -->
+<!-- ```{r , echo=FALSE, results="asis"} -->
+<!-- dec <- paste("$x_{",(0:10)/10,"}$") -->
+<!-- ddd <- matrix(nrow = 1,ncol = length(dec)) -->
+<!-- ddd[1,] <- c(round(Q.int((0:9)/10),4),max(brk)) -->
+<!-- colnames(ddd) <- dec -->
+<!-- #ddd <- data.frame(percentili = c(round(Q.int((0:9)/10),4),max(brk))) -->
+<!-- rownames(ddd)<-"Percentili" -->
+<!-- kable((ddd),booktabs = T, escape = F,linesep = "", digits = 4) -->
+<!-- ``` -->
+<!-- * mettere a grafico i punti (0,$x_0$), (0.10,$x_{0.10}$),...,(1,$x_{1}$)) e ($x_0$,0), ($x_{0.10}$,0.10),...,($x_{1}$,1)) -->
+<!-- ```{r , echo=FALSE, results="asis"} -->
+<!-- dec <- paste("$x_{",(0:10)/10,"}$") -->
+<!-- ddd <- (percentili = c(round(Q.int((0:9)/10),4),max(brk))) -->
+<!-- plot((0:10)/10,ddd,type="p",pch=16,xlab = "p",ylab = "p-esimo percentile",axes = F) -->
+<!-- axis(1,(0:10)/10) -->
+<!-- axis(2) -->
+<!-- ``` -->
+<!-- ```{r , echo=FALSE, results="asis"} -->
+<!-- plot(ddd,(0:10)/10,type="p",ylab = "p",pch=16,xlab = "p-esimo percentile",axes = F) -->
+<!-- axis(1,brk) -->
+<!-- axis(2,round(c(0,dat2$Fj),4)) -->
+<!-- segments(dat2$xinf,c(0,dat2$Fj[-(k-1)]),dat2$xsup,dat2$Fj,col=ared,lwd=2) -->
+<!-- segments(dat2$xsup,0,dat2$xsup,dat2$Fj,col="grey",lwd=1,lty=2) -->
+<!-- segments(-4,dat2$Fj,dat2$xsup,dat2$Fj,col="grey",lwd=1,lty=2) -->
+<!-- segments(-4,.6,Q.int(.6),.6,col=4,lwd=1,lty=2) -->
+<!-- segments(Q.int(.6),.6,Q.int(.6),0,col=4,lwd=1,lty=2) -->
+<!-- axis(2,.6) -->
+<!-- ``` -->
+<!-- * calcolare la percentuale approssimata di giorni con temperatura inferiore -1 -->
+<!-- %(giorni con $T < -1$) = 0% -->
+<!-- * Conversione in Fahrenheit -->
+<!-- \[ -->
+<!-- T_F= 32 + 1.8 \cdot T_C  -->
+<!-- \] -->
+<!-- ```{r , echo=FALSE, results="asis"} -->
+<!-- YF <- Y -->
+<!-- YF[,1:2]<-Y[,1:2]*1.8+32 -->
+<!-- YF$`$b_j$`<-YF$`$x_{j+1}$`-YF$`$x_{j}$` -->
+<!-- YF$`$h_j$`<- Y$`$f_j$`/YF$`$b_j$`*100 -->
+<!-- YF$`$x_{jc}$` <- YF$`$x_{j}$`+YF$`$b_j$`/2 -->
+<!-- plot(c(YF[c(1,1:5),1],YF[5,2]),c(0,YF$`$h_j$`,0),type="s",axes = FALSE,xlab="Temperature (F°)",ylab="hj",main = "Gradi F°") -->
+<!-- segments(YF$`$x_{j}$`,0,YF$`$x_{j}$`,YF$`$h_j$`,lty=2) -->
+<!-- axis(side = 1,at = c(YF$`$x_{j}$`,YF$`$x_{j+1}$`[5])) -->
+<!-- axis(2,at=round(YF$`$h_j$`,4)) -->
+<!-- ``` -->
+<!-- ```{r , echo=FALSE, results="asis"} -->
+<!-- kable(YF[,1:7],booktabs = T, escape = F,linesep = "", digits = 4) -->
+<!-- ``` -->
+<!-- :::: -->
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="media-aritmetica-varianza-e-standard-deviation.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="cenni-di-teoria-della-probabilità.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["Appunti_di_Statistica_2025.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
