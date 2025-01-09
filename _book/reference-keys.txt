@@ -622,3 +622,15 @@ def:unlabeled-div-19
 exm:unlabeled-div-24
 exm:unlabeled-div-25
 scelta-dei-coefficienti
+exm:unlabeled-div-13
+exm:unlabeled-div-14
+exm:unlabeled-div-15
+exm:unlabeled-div-16
+def:unlabeled-div-18
+prp:unlabeled-div-20
+prp:unlabeled-div-21
+prp:unlabeled-div-22
+def:unlabeled-div-23
+exm:unlabeled-div-27
+exm:unlabeled-div-28
+exm:unlabeled-div-29
