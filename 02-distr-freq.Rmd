@@ -216,7 +216,7 @@ Per esempio, immaginiamo di voler calcolare un **punteggio di idoneità** per i 
     - \( a_{i2} \): punteggio di un test tecnico (da 0 a 100),
     - \( a_{i3} \): valutazione del colloquio (da 0 a 5).
   
-    Per produrre un indicatore che misuri l'idoneità complessiva su una scala uniforme, potremmo usare una formula come:
+Per produrre un indicatore che misuri l'idoneità complessiva su una scala uniforme, potremmo usare una formula come:
       \[
       x_i = 0.5 \cdot a_{i1} + 0.3 \cdot a_{i2} + 2 \cdot a_{i3}
       \]
@@ -247,7 +247,7 @@ Geometricamente, il termine \( a \) trasla il grafico lungo l'asse verticale sen
 
 Un cambiamento di scala è una trasformazione lineare applicata a ogni misura i-esima del dato, che permette di adattare l'unità di misura senza alterare i rapporti tra le osservazioni. Vediamo alcuni esempi pratici.
 
-:::: {.example name="Ore uomo dedicate a interventi di manutenzione"}
+:::: {.example name="Dati spese"}
 
 Supponiamo di avere i dati su diverse spese in euro e di volerli esprimere in migliaia di euro per facilitare la lettura. La trasformazione è:
 
@@ -264,7 +264,7 @@ y_4 = \frac{1}{1000} \cdot 12~000 = 12
 Quindi, invece di esprimere la quarta misura come $12~000$ euro, la rappresentiamo come 12 _migliaia_ di euro, semplificando la gestione e la comparabilità dei dati.
 :::: 
 
-:::: {.example name="Ore uomo dedicate a interventi di manutenzione"}
+:::: {.example name="Conversione temperature"}
 
 Anche la conversione da gradi Celsius (\( C \)) a gradi Fahrenheit (\( F \)) segue una trasformazione lineare, espressa come:
 
@@ -280,6 +280,20 @@ F_2 = 32 + \frac{9}{5} \cdot 25 = 32 + 45 = 77
 
 Questa trasformazione mantiene la proporzionalità tra le temperature, adattando la scala e le unità di misura.
 ::::
+
+Le trasformazioni lineari \( y = a + bx \) mantengono le distanze relative tra i dati poiché ogni differenza tra due valori \( x_i \) e \( x_j \) viene amplificata o ridotta di un fattore costante \( b \). In altre parole, per ogni coppia di dati \( x_i, x_j \) vale la relazione:
+
+\[
+y_i - y_j = b (x_i - x_j)
+\]
+
+Quindi, la proporzionalità tra le differenze dei valori originali si conserva, preservando l'ordine e la struttura relativa dei dati.
+
+In termini più intuitivi immaginate di avere 5 punti distribuiti su una retta, rappresentati da valori numerici come coordinate lungo un asse \( x \). Se si cambia l'unità di misura (ad esempio passando da metri a centimetri) o se si decide di nascondere i numeri, la loro disposizione relativa sulla retta rimane la stessa agli occhi di chi osserva: le distanze tra i punti e l'ordine dei punti non cambiano.
+
+Questo accade perché una trasformazione lineare del tipo \( y = a + bx \) modifica solo la scala e la posizione dell'intero sistema, ma non altera le proporzioni tra le distanze dei punti. È come osservare un disegno su un foglio: se ingrandisci o rimpicciolisci il foglio, le figure disegnate mantengono le stesse relazioni interne tra di loro.
+
+All'occhio, quindi, i punti "restano uguali" perché la trasformazione lineare agisce uniformemente su tutti i punti, preservando le loro distanze relative e l'allineamento lungo la retta.
 
 #### Rappresentazione grafica delle trasformazioni lineari
 
@@ -453,8 +467,94 @@ arrows(x0_adj,y0_adj,x1_adj,y1_adj,length = .1)
 par(opar)
 ```
 
-
 Osserviamo che i dati sono stati traslati a destra di uno, i dati originari vanno da $`r min(x)`$ a $`r max(x)`$, quelli trasformati da $`r min(x_r)`$ a $`r max(x_r)`$. Notiamo che lo zero è cambiato nella nuova scala.
+
+#### Scelta dei coefficienti
+
+A volte i coefficienti $a$ e $b$ vengono usati per modificare a piacimento il massimo e il minimo dei dati,
+per trasformare, ad esempio, punteggi in centesimi in punteggi in trentesimi.
+
+Se i dati originari esistono nell'intervallo $[x_{\min},x_{\max}]$, ovvero tutti i dati $x_{\min}\le x_i\le x_{\max}$
+e vogliamo trasformarli in dati $y_i$ tali che $y_{\min}\le y_i\le y_{\max}$, dove $y_{\min}$ e $y_{\max}$ sono fissati arbitrariamente. Se imponiamo
+
+$$
+\begin{cases}
+y_{\text{min}} = a + b \cdot x_{\text{min}} \\
+y_{\text{max}} = a + b \cdot x_{\text{max}}
+\end{cases}
+$$
+
+Avremo:
+$$
+b = \frac{y_{\text{max}} - y_{\text{min}}}{x_{\text{max}} - x_{\text{min}}}
+$$
+
+e quindi:
+\[
+a = y_{\text{min}} - \frac{y_{\text{max}} - y_{\text{min}}}{x_{\text{max}} - x_{\text{min}}} \cdot x_{\text{min}}
+\]
+ in definitiva
+$$
+y = \left( y_{\text{min}} - \frac{y_{\text{max}} - y_{\text{min}}}{x_{\text{max}} - x_{\text{min}}} \cdot x_{\text{min}} \right) + \frac{y_{\text{max}} - y_{\text{min}}}{x_{\text{max}} - x_{\text{min}}} \cdot x
+$$
+
+:::: {.example name="Conversione punteggi tra 0 e 50"}
+
+Supponiamo di aver somministrato un questionario con 25 domande, che assegnano punteggio $0$ se la risposta è sbagliata,
+$+1$ se la risposta è parzialmente corretta e $+2$ se la risposta è corretta. Sia $x_i$ la somma dei punteggi dello studente etichettato con $i$, che potrà:
+
+1. sbagliarle tutte $x_i=0\cdot 25 =0$
+2. rispondere correttamente a tutte $x_i=2\cdot 25 =50$.
+
+Il punteggio originario varia in una scala tra $0$ e $50$.
+
+Per trasformare il punteggio in trentesimi faremo
+$$
+y_i = \left(0 - \left(\frac{30-0}{50-0}\right)\cdot 0\right)+\left(\frac{30-0}{50-0}\right) x_i=\frac 35x_i
+$$
+
+Il nuovo punteggio varrà quindi
+
+1. se tutte le domande sono sbagliate $x_i = 0 \rightarrow y_i = 0$
+2. se tutte le domande sono corrette  $x_i = 50 \rightarrow y_i = 30$
+
+Il punteggio trasformato varia tra 0 e 30. Se per esempio lo studente 3 ha ottenuto il punteggio $x_3=43$ avrà un voto in trentesimi pari a
+$$
+y_3=\frac{30}{50}\cdot43=`r 3/5*43`
+$$
+
+::::
+
+:::: {.example name="Conversione punteggi tra -25 e 25"}
+
+Supponiamo di aver somministrato un questionario con 15 domande, che assegnano punteggio $-1$ se la risposta è sbagliata,
+$0$ se la risposta non è data e $+1$ se la risposta è corretta
+
+Sia $x_i$ la somma dei punteggi dello studente etichettato con $i$, che potrà:
+
+1. sbagliarle tutte $x_i=-1\cdot 25 =-25$
+2. rispondere correttamente a tutte $x_i=1\cdot 25 =25$
+
+Per trasformare il punteggio in trentesimi faremo
+$$
+y_i = \left(0 - \left(\frac{30-0}{50-0}\right)\cdot (-25)\right)+\left(\frac{30-0}{50-0}\right) x_i=15+\frac 35x_i
+$$
+
+Il nuovo punteggio varrà
+
+1. se tutte le domande sono sbagliate $x_i = -25 \rightarrow y_i = 15+3/5\cdot(-25)=0$
+2. se tutte le domande sono corrette  $x_i = +25 \rightarrow y_i = 15+3/5\cdot(+25)=30$
+
+Il punteggio trasformato varia tra 0 e 30. Se per esempio lo studente 3 ha ottenuto il punteggio $x_3=21$ avrà un voto in trentesimi pari a
+$$
+y_3=15+\frac{3}{5}\cdot43=`r 15+3/5*21`
+$$
+
+::::
+
+
+
+
 
 ## Distribuzione di Frequenza
 

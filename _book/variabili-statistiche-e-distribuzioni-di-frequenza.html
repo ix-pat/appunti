@@ -1120,17 +1120,17 @@ Per esempio, immaginiamo di voler calcolare un <strong>punteggio di idoneità</s
 <li><span class="math inline">\(a_{i1}\)</span>: esperienza in anni,</li>
 <li><span class="math inline">\(a_{i2}\)</span>: punteggio di un test tecnico (da 0 a 100),</li>
 <li><span class="math inline">\(a_{i3}\)</span>: valutazione del colloquio (da 0 a 5).</li>
-</ul>
+</ul></li>
+</ol>
 <p>Per produrre un indicatore che misuri l’idoneità complessiva su una scala uniforme, potremmo usare una formula come:
 <span class="math display">\[
-   x_i = 0.5 \cdot a_{i1} + 0.3 \cdot a_{i2} + 2 \cdot a_{i3}
-   \]</span>
+      x_i = 0.5 \cdot a_{i1} + 0.3 \cdot a_{i2} + 2 \cdot a_{i3}
+      \]</span>
 Questa formula pondera ciascuna misura per dare maggiore peso all’esperienza (0.5) e al colloquio (2) rispetto al test tecnico (0.3). Per il quinto candidato (<span class="math inline">\(i=5\)</span>) con 5 anni di esperienza, un punteggio di 80 al test e una valutazione di 4 al colloquio, il punteggio di idoneità risulterebbe:
 <span class="math display">\[
-   x_5 = 0.5 \cdot 5 + 0.3 \cdot 80 + 2 \cdot 4 = 2.5 + 24 + 8 = 34.5
-   \]</span>
-In questo caso, il punteggio di idoneità <span class="math inline">\(x_i\)</span> è su una scala propria, definita dalle scelte di peso e dalle unità combinate, e consente di confrontare i candidati in modo sintetico, anche se ogni componente ha un’unità di misura diversa.</p></li>
-</ol>
+      x_5 = 0.5 \cdot 5 + 0.3 \cdot 80 + 2 \cdot 4 = 2.5 + 24 + 8 = 34.5
+      \]</span>
+In questo caso, il punteggio di idoneità <span class="math inline">\(x_i\)</span> è su una scala propria, definita dalle scelte di peso e dalle unità combinate, e consente di confrontare i candidati in modo sintetico, anche se ogni componente ha un’unità di misura diversa.</p>
 </div>
 <div id="trasformazioni-lineari" class="section level3 hasAnchor" number="3.1.4">
 <h3><span class="header-section-number">3.1.4</span> Trasformazioni lineari<a href="variabili-statistiche-e-distribuzioni-di-frequenza.html#trasformazioni-lineari" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -1149,7 +1149,7 @@ y_i = a + b x_i
 <h4><span class="header-section-number">3.1.4.1</span> Cambiamento di scala come trasformazione lineare<a href="variabili-statistiche-e-distribuzioni-di-frequenza.html#cambiamento-di-scala-come-trasformazione-lineare" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Un cambiamento di scala è una trasformazione lineare applicata a ogni misura i-esima del dato, che permette di adattare l’unità di misura senza alterare i rapporti tra le osservazioni. Vediamo alcuni esempi pratici.</p>
 <div class="example">
-<p><span id="exm:unlabeled-div-9" class="example"><strong>Esempio 3.10  (Ore uomo dedicate a interventi di manutenzione) </strong></span>Supponiamo di avere i dati su diverse spese in euro e di volerli esprimere in migliaia di euro per facilitare la lettura. La trasformazione è:</p>
+<p><span id="exm:unlabeled-div-9" class="example"><strong>Esempio 3.10  (Dati spese) </strong></span>Supponiamo di avere i dati su diverse spese in euro e di volerli esprimere in migliaia di euro per facilitare la lettura. La trasformazione è:</p>
 <p><span class="math display">\[
 y_i = \frac{1}{1000} \cdot x_i
 \]</span></p>
@@ -1160,7 +1160,7 @@ y_4 = \frac{1}{1000} \cdot 12~000 = 12
 <p>Quindi, invece di esprimere la quarta misura come <span class="math inline">\(12~000\)</span> euro, la rappresentiamo come 12 <em>migliaia</em> di euro, semplificando la gestione e la comparabilità dei dati.</p>
 </div>
 <div class="example">
-<p><span id="exm:unlabeled-div-10" class="example"><strong>Esempio 3.11  (Ore uomo dedicate a interventi di manutenzione) </strong></span>Anche la conversione da gradi Celsius (<span class="math inline">\(C\)</span>) a gradi Fahrenheit (<span class="math inline">\(F\)</span>) segue una trasformazione lineare, espressa come:</p>
+<p><span id="exm:unlabeled-div-10" class="example"><strong>Esempio 3.11  (Conversione temperature) </strong></span>Anche la conversione da gradi Celsius (<span class="math inline">\(C\)</span>) a gradi Fahrenheit (<span class="math inline">\(F\)</span>) segue una trasformazione lineare, espressa come:</p>
 <p><span class="math display">\[
 F_i = 32 + \frac{9}{5} \cdot C_i
 \]</span></p>
@@ -1170,6 +1170,14 @@ F_2 = 32 + \frac{9}{5} \cdot 25 = 32 + 45 = 77
 \]</span></p>
 <p>Questa trasformazione mantiene la proporzionalità tra le temperature, adattando la scala e le unità di misura.</p>
 </div>
+<p>Le trasformazioni lineari <span class="math inline">\(y = a + bx\)</span> mantengono le distanze relative tra i dati poiché ogni differenza tra due valori <span class="math inline">\(x_i\)</span> e <span class="math inline">\(x_j\)</span> viene amplificata o ridotta di un fattore costante <span class="math inline">\(b\)</span>. In altre parole, per ogni coppia di dati <span class="math inline">\(x_i, x_j\)</span> vale la relazione:</p>
+<p><span class="math display">\[
+y_i - y_j = b (x_i - x_j)
+\]</span></p>
+<p>Quindi, la proporzionalità tra le differenze dei valori originali si conserva, preservando l’ordine e la struttura relativa dei dati.</p>
+<p>In termini più intuitivi immaginate di avere 5 punti distribuiti su una retta, rappresentati da valori numerici come coordinate lungo un asse <span class="math inline">\(x\)</span>. Se si cambia l’unità di misura (ad esempio passando da metri a centimetri) o se si decide di nascondere i numeri, la loro disposizione relativa sulla retta rimane la stessa agli occhi di chi osserva: le distanze tra i punti e l’ordine dei punti non cambiano.</p>
+<p>Questo accade perché una trasformazione lineare del tipo <span class="math inline">\(y = a + bx\)</span> modifica solo la scala e la posizione dell’intero sistema, ma non altera le proporzioni tra le distanze dei punti. È come osservare un disegno su un foglio: se ingrandisci o rimpicciolisci il foglio, le figure disegnate mantengono le stesse relazioni interne tra di loro.</p>
+<p>All’occhio, quindi, i punti “restano uguali” perché la trasformazione lineare agisce uniformemente su tutti i punti, preservando le loro distanze relative e l’allineamento lungo la retta.</p>
 </div>
 <div id="rappresentazione-grafica-delle-trasformazioni-lineari" class="section level4 hasAnchor" number="3.1.4.2">
 <h4><span class="header-section-number">3.1.4.2</span> Rappresentazione grafica delle trasformazioni lineari<a href="variabili-statistiche-e-distribuzioni-di-frequenza.html#rappresentazione-grafica-delle-trasformazioni-lineari" class="anchor-section" aria-label="Anchor link to header"></a></h4>
@@ -1214,6 +1222,75 @@ allora (<span class="math inline">\(x_1=3, x_2=5, x_3=6, x_4=8, x_5=11\)</span>)
 <img src="Appunti_di_Statistica_2025_files/figure-html/tranf-lin-gr4-1.png" width="672" /></p>
 <p>Osserviamo che i dati sono stati traslati a destra di uno, i dati originari vanno da <span class="math inline">\(0\)</span> a <span class="math inline">\(16\)</span>, quelli trasformati da <span class="math inline">\(3\)</span> a <span class="math inline">\(11\)</span>. Notiamo che lo zero è cambiato nella nuova scala.</p>
 </div>
+<div id="scelta-dei-coefficienti" class="section level4 hasAnchor" number="3.1.4.3">
+<h4><span class="header-section-number">3.1.4.3</span> Scelta dei coefficienti<a href="variabili-statistiche-e-distribuzioni-di-frequenza.html#scelta-dei-coefficienti" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>A volte i coefficienti <span class="math inline">\(a\)</span> e <span class="math inline">\(b\)</span> vengono usati per modificare a piacimento il massimo e il minimo dei dati,
+per trasformare, ad esempio, punteggi in centesimi in punteggi in trentesimi.</p>
+<p>Se i dati originari esistono nell’intervallo <span class="math inline">\([x_{\min},x_{\max}]\)</span>, ovvero tutti i dati <span class="math inline">\(x_{\min}\le x_i\le x_{\max}\)</span>
+e vogliamo trasformarli in dati <span class="math inline">\(y_i\)</span> tali che <span class="math inline">\(y_{\min}\le y_i\le y_{\max}\)</span>, dove <span class="math inline">\(y_{\min}\)</span> e <span class="math inline">\(y_{\max}\)</span> sono fissati arbitrariamente. Se imponiamo</p>
+<p><span class="math display">\[
+\begin{cases}
+y_{\text{min}} = a + b \cdot x_{\text{min}} \\
+y_{\text{max}} = a + b \cdot x_{\text{max}}
+\end{cases}
+\]</span></p>
+<p>Avremo:
+<span class="math display">\[
+b = \frac{y_{\text{max}} - y_{\text{min}}}{x_{\text{max}} - x_{\text{min}}}
+\]</span></p>
+<p>e quindi:
+<span class="math display">\[
+a = y_{\text{min}} - \frac{y_{\text{max}} - y_{\text{min}}}{x_{\text{max}} - x_{\text{min}}} \cdot x_{\text{min}}
+\]</span>
+in definitiva
+<span class="math display">\[
+y = \left( y_{\text{min}} - \frac{y_{\text{max}} - y_{\text{min}}}{x_{\text{max}} - x_{\text{min}}} \cdot x_{\text{min}} \right) + \frac{y_{\text{max}} - y_{\text{min}}}{x_{\text{max}} - x_{\text{min}}} \cdot x
+\]</span></p>
+<div class="example">
+<p><span id="exm:unlabeled-div-11" class="example"><strong>Esempio 3.12  (Conversione punteggi tra 0 e 50) </strong></span>Supponiamo di aver somministrato un questionario con 25 domande, che assegnano punteggio <span class="math inline">\(0\)</span> se la risposta è sbagliata,
+<span class="math inline">\(+1\)</span> se la risposta è parzialmente corretta e <span class="math inline">\(+2\)</span> se la risposta è corretta. Sia <span class="math inline">\(x_i\)</span> la somma dei punteggi dello studente etichettato con <span class="math inline">\(i\)</span>, che potrà:</p>
+<ol style="list-style-type: decimal">
+<li>sbagliarle tutte <span class="math inline">\(x_i=0\cdot 25 =0\)</span></li>
+<li>rispondere correttamente a tutte <span class="math inline">\(x_i=2\cdot 25 =50\)</span>.</li>
+</ol>
+<p>Il punteggio originario varia in una scala tra <span class="math inline">\(0\)</span> e <span class="math inline">\(50\)</span>.</p>
+<p>Per trasformare il punteggio in trentesimi faremo
+<span class="math display">\[
+y_i = \left(0 - \left(\frac{30-0}{50-0}\right)\cdot 0\right)+\left(\frac{30-0}{50-0}\right) x_i=\frac 35x_i
+\]</span></p>
+<p>Il nuovo punteggio varrà quindi</p>
+<ol style="list-style-type: decimal">
+<li>se tutte le domande sono sbagliate <span class="math inline">\(x_i = 0 \rightarrow y_i = 0\)</span></li>
+<li>se tutte le domande sono corrette <span class="math inline">\(x_i = 50 \rightarrow y_i = 30\)</span></li>
+</ol>
+<p>Il punteggio trasformato varia tra 0 e 30. Se per esempio lo studente 3 ha ottenuto il punteggio <span class="math inline">\(x_3=43\)</span> avrà un voto in trentesimi pari a
+<span class="math display">\[
+y_3=\frac{30}{50}\cdot43=25.8
+\]</span></p>
+</div>
+<div class="example">
+<p><span id="exm:unlabeled-div-12" class="example"><strong>Esempio 3.13  (Conversione punteggi tra -25 e 25) </strong></span>Supponiamo di aver somministrato un questionario con 15 domande, che assegnano punteggio <span class="math inline">\(-1\)</span> se la risposta è sbagliata,
+<span class="math inline">\(0\)</span> se la risposta non è data e <span class="math inline">\(+1\)</span> se la risposta è corretta</p>
+<p>Sia <span class="math inline">\(x_i\)</span> la somma dei punteggi dello studente etichettato con <span class="math inline">\(i\)</span>, che potrà:</p>
+<ol style="list-style-type: decimal">
+<li>sbagliarle tutte <span class="math inline">\(x_i=-1\cdot 25 =-25\)</span></li>
+<li>rispondere correttamente a tutte <span class="math inline">\(x_i=1\cdot 25 =25\)</span></li>
+</ol>
+<p>Per trasformare il punteggio in trentesimi faremo
+<span class="math display">\[
+y_i = \left(0 - \left(\frac{30-0}{50-0}\right)\cdot (-25)\right)+\left(\frac{30-0}{50-0}\right) x_i=15+\frac 35x_i
+\]</span></p>
+<p>Il nuovo punteggio varrà</p>
+<ol style="list-style-type: decimal">
+<li>se tutte le domande sono sbagliate <span class="math inline">\(x_i = -25 \rightarrow y_i = 15+3/5\cdot(-25)=0\)</span></li>
+<li>se tutte le domande sono corrette <span class="math inline">\(x_i = +25 \rightarrow y_i = 15+3/5\cdot(+25)=30\)</span></li>
+</ol>
+<p>Il punteggio trasformato varia tra 0 e 30. Se per esempio lo studente 3 ha ottenuto il punteggio <span class="math inline">\(x_3=21\)</span> avrà un voto in trentesimi pari a
+<span class="math display">\[
+y_3=15+\frac{3}{5}\cdot43=27.6
+\]</span></p>
+</div>
+</div>
 </div>
 </div>
 <div id="distribuzione-di-frequenza" class="section level2 hasAnchor" number="3.2">
@@ -1221,22 +1298,22 @@ allora (<span class="math inline">\(x_1=3, x_2=5, x_3=6, x_4=8, x_5=11\)</span>)
 <p>La frequenza indica quanto una modalità insiste sul collettivo. Le frequenze si dividono in:</p>
 <div class="info">
 <div class="definition">
-<p><span id="def:unlabeled-div-11" class="definition"><strong>Definizione 3.1  (Frequenze Assolute) </strong></span>Si definiscono le <span class="math inline">\(n_j\)</span> le <strong>frequenze assolute</strong>: il numero di individui che presentano la modalità <span class="math inline">\(j\)</span>.</p>
+<p><span id="def:unlabeled-div-13" class="definition"><strong>Definizione 3.1  (Frequenze Assolute) </strong></span>Si definiscono le <span class="math inline">\(n_j\)</span> le <strong>frequenze assolute</strong>: il numero di individui che presentano la modalità <span class="math inline">\(j\)</span>.</p>
 </div>
 </div>
 <div class="info">
 <div class="definition">
-<p><span id="def:unlabeled-div-12" class="definition"><strong>Definizione 3.2  (Frequenze Relative) </strong></span>Si definiscono le <span class="math inline">\(f_j=n_j/n\)</span> le <strong>frequenze relative</strong>: la proporzione di individui che presentano la modalità <span class="math inline">\(j\)</span>.</p>
+<p><span id="def:unlabeled-div-14" class="definition"><strong>Definizione 3.2  (Frequenze Relative) </strong></span>Si definiscono le <span class="math inline">\(f_j=n_j/n\)</span> le <strong>frequenze relative</strong>: la proporzione di individui che presentano la modalità <span class="math inline">\(j\)</span>.</p>
 </div>
 </div>
 <div class="info">
 <div class="definition">
-<p><span id="def:unlabeled-div-13" class="definition"><strong>Definizione 3.3  (Frequenze Percentuali) </strong></span>Si definiscono le <span class="math inline">\(f_{\% j}=f_j\times 100\)</span> le <strong>frequenze percentuali</strong>: la percentuale di individui che presentano la modalità <span class="math inline">\(j\)</span>.</p>
+<p><span id="def:unlabeled-div-15" class="definition"><strong>Definizione 3.3  (Frequenze Percentuali) </strong></span>Si definiscono le <span class="math inline">\(f_{\% j}=f_j\times 100\)</span> le <strong>frequenze percentuali</strong>: la percentuale di individui che presentano la modalità <span class="math inline">\(j\)</span>.</p>
 </div>
 </div>
 <div class="info">
 <div class="proposition">
-<p><span id="prp:unlabeled-div-14" class="proposition"><strong>Proprietà 3.1  </strong></span>Le proprietà della frequenze assolute(<span class="math inline">\(n_{j}\)</span>) sono:</p>
+<p><span id="prp:unlabeled-div-16" class="proposition"><strong>Proprietà 3.1  </strong></span>Le proprietà della frequenze assolute(<span class="math inline">\(n_{j}\)</span>) sono:</p>
 <ul>
 <li><span class="math inline">\(0\leq n_{j} \leq n, \forall j=1,...,K\)</span>,</li>
 <li><span class="math inline">\(\sum_{j=1}^{K} n_{j} = n\)</span>.</li>
@@ -1245,7 +1322,7 @@ allora (<span class="math inline">\(x_1=3, x_2=5, x_3=6, x_4=8, x_5=11\)</span>)
 </div>
 <div class="info">
 <div class="proposition">
-<p><span id="prp:unlabeled-div-15" class="proposition"><strong>Proprietà 3.2  </strong></span>Le proprietà della frequenze relative (<span class="math inline">\(f_{j}\)</span>) sono:</p>
+<p><span id="prp:unlabeled-div-17" class="proposition"><strong>Proprietà 3.2  </strong></span>Le proprietà della frequenze relative (<span class="math inline">\(f_{j}\)</span>) sono:</p>
 <ul>
 <li><span class="math inline">\(0\leq f_{j} \leq 1, \forall j=1,...,K\)</span>,</li>
 <li><span class="math inline">\(\sum_{j=1}^{K} f_{j} = 1\)</span>.</li>
@@ -1254,7 +1331,7 @@ allora (<span class="math inline">\(x_1=3, x_2=5, x_3=6, x_4=8, x_5=11\)</span>)
 </div>
 <div class="info">
 <div class="proposition">
-<p><span id="prp:unlabeled-div-16" class="proposition"><strong>Proprietà 3.3  </strong></span>Le proprietà della frequenze percentuali (<span class="math inline">\(f_{\% j}\)</span>) sono:</p>
+<p><span id="prp:unlabeled-div-18" class="proposition"><strong>Proprietà 3.3  </strong></span>Le proprietà della frequenze percentuali (<span class="math inline">\(f_{\% j}\)</span>) sono:</p>
 <ul>
 <li><span class="math inline">\(0\leq f_{\%,\, j} \leq 100, \forall j=1,...,K\)</span>,</li>
 <li><span class="math inline">\(\sum_{j=1}^{K} f_{\%,\, j} = 100\)</span>.</li>
@@ -1263,11 +1340,11 @@ allora (<span class="math inline">\(x_1=3, x_2=5, x_3=6, x_4=8, x_5=11\)</span>)
 </div>
 <div class="info">
 <div class="definition">
-<p><span id="def:unlabeled-div-17" class="definition"><strong>Definizione 3.4  (Distribuzione di Frequenza) </strong></span>Una <strong>distribuzione di frequenza</strong> è una tabella a cui vengono associate le modalità e le frequenze</p>
+<p><span id="def:unlabeled-div-19" class="definition"><strong>Definizione 3.4  (Distribuzione di Frequenza) </strong></span>Una <strong>distribuzione di frequenza</strong> è una tabella a cui vengono associate le modalità e le frequenze</p>
 </div>
 </div>
 <div class="example">
-<p><span id="exm:unlabeled-div-18" class="example"><strong>Esempio 3.12  (Continua: Variabile: genere) </strong></span><span class="math display">\[x_{(1)}=F,x_{(2)}=F,x_{(3)}=F,x_{(4)}=F,x_{(5)}=M,x_{(6)}=M\]</span></p>
+<p><span id="exm:unlabeled-div-20" class="example"><strong>Esempio 3.14  (Continua: Variabile: genere) </strong></span><span class="math display">\[x_{(1)}=F,x_{(2)}=F,x_{(3)}=F,x_{(4)}=F,x_{(5)}=M,x_{(6)}=M\]</span></p>
 <!-- $X$          | $n_j$   | $f_j$     | $f_{\% j}$ (\#tab:sesso) -->
 <!-- -------------|---------|-----------|------------- -->
 <!-- F            |  4      |  4/6=0.67 | 67% -->
@@ -1338,7 +1415,7 @@ Tot
 </table>
 </div>
 <div class="example">
-<p><span id="exm:unlabeled-div-19" class="example"><strong>Esempio 3.13  (Continua: Variabile titolo di studio) </strong></span><span class="math inline">\(\phantom{.}\)</span></p>
+<p><span id="exm:unlabeled-div-21" class="example"><strong>Esempio 3.15  (Continua: Variabile titolo di studio) </strong></span><span class="math inline">\(\phantom{.}\)</span></p>
 <p><span class="math inline">\(x_{(1)}=E,x_{(2)}=M,x_{(3)}=M,x_{(4)}=S,x_{(5)}=S,x_{(6)}=S,x_{(7)}=S,x_{(8)}=L,x_{(9)}=L,
 x_{(10)}=L\)</span></p>
 <table class="table" style="margin-left: auto; margin-right: auto;">
@@ -1439,7 +1516,7 @@ gran lunga superiore al numero dei dati e non sempre è possibile fissare un lim
 in anticipo all’osservazione dei dati. Se per esempio volessi misurare il
 reddito di una persona in centesimi, otterrei:</p>
 <div class="example">
-<p><span id="exm:unlabeled-div-20" class="example"><strong>Esempio 3.14  (Variabile: Reddito mensile lordo in migliaia di euro) </strong></span><span class="math inline">\(\phantom{x}\)</span></p>
+<p><span id="exm:unlabeled-div-22" class="example"><strong>Esempio 3.16  (Variabile: Reddito mensile lordo in migliaia di euro) </strong></span><span class="math inline">\(\phantom{x}\)</span></p>
 <ul>
 <li>unità di rilevazione: famiglie del comune A a febbraio 2021</li>
 <li><span class="math inline">\(n=45\)</span></li>
@@ -1630,7 +1707,7 @@ mentre a destra vediamo che il numero delle classi e la loro ampiezza variabile 
 </ul>
 <p>ovvero <span class="math inline">\(F_j=f_1+...+f_j\)</span> <em>cumula</em> tutte le frequenze dalla 1 alla <span class="math inline">\(j\)</span>.</p>
 <div class="example">
-<p><span id="exm:unlabeled-div-21" class="example"><strong>Esempio 3.15  (Continua: Variabile titolo di studio) </strong></span><span class="math inline">\(\phantom{.}\)</span></p>
+<p><span id="exm:unlabeled-div-23" class="example"><strong>Esempio 3.17  (Continua: Variabile titolo di studio) </strong></span><span class="math inline">\(\phantom{.}\)</span></p>
 <div class="center">
 <table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
@@ -1711,7 +1788,7 @@ U
 <p>E si legge: <span class="math inline">\(F_1=0.1\)</span> ci dice che il 10% del collettivo in esame ha come massimo titolo ha non più delle elementari. <span class="math inline">\(F_1=0.3\)</span> ci dice che il 30% del collettivo ha come massimo titolo ha non più delle medie. <span class="math inline">\(F_4=0.7\)</span> ci dice che il 30% del collettivo ha come massimo titolo ha non più delle superiori e <span class="math inline">\(F_5=1\)</span> che il 100% del collettivo ha, al massimo, la laurea.</p>
 </div>
 <div class="example">
-<p><span id="exm:unlabeled-div-22" class="example"><strong>Esempio 3.16  (Continua: Reddito) </strong></span><span class="math inline">\(\phantom{.}\)</span></p>
+<p><span id="exm:unlabeled-div-24" class="example"><strong>Esempio 3.18  (Continua: Reddito) </strong></span><span class="math inline">\(\phantom{.}\)</span></p>
 <div class="center">
 <table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
@@ -1922,7 +1999,7 @@ U
 </tbody>
 </table>
 <div class="example">
-<p><span id="exm:unlabeled-div-23" class="example"><strong>Esempio 3.17  </strong></span>La tabella <a href="variabili-statistiche-e-distribuzioni-di-frequenza.html#tab:conti">3.2</a> mostra passo, passo lo sviluppo del calcolo. La figura <a href="variabili-statistiche-e-distribuzioni-di-frequenza.html#fig:hist">3.1</a> la corrispondente rappresentazione grafica.</p>
+<p><span id="exm:unlabeled-div-25" class="example"><strong>Esempio 3.19  </strong></span>La tabella <a href="variabili-statistiche-e-distribuzioni-di-frequenza.html#tab:conti">3.2</a> mostra passo, passo lo sviluppo del calcolo. La figura <a href="variabili-statistiche-e-distribuzioni-di-frequenza.html#fig:hist">3.1</a> la corrispondente rappresentazione grafica.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:hist"></span>
 <img src="Appunti_di_Statistica_2025_files/figure-html/hist-1.png" alt="Rappresentazione grafica dell'istogramma di densità percentuale, l'area di ogni rettangolo corrisponde alla frequenza percentuale della classe, rappresentata sull'asse delle ascisse" width="672" />
 <p class="caption">

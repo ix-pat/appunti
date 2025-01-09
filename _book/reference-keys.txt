@@ -611,3 +611,14 @@ regressione
 esempi-3
 esercizio-1
 bookdownepub_book
+alcuni-casi-reali
+exm:unlabeled-div-11
+exm:unlabeled-div-12
+def:unlabeled-div-14
+def:unlabeled-div-15
+prp:unlabeled-div-17
+prp:unlabeled-div-18
+def:unlabeled-div-19
+exm:unlabeled-div-24
+exm:unlabeled-div-25
+scelta-dei-coefficienti
