@@ -789,8 +789,8 @@ b.  Aumento percentuale pari al 5\%.
  
 \begin{eqnarray*}
 y_{i}   &=& x_{i} + \frac{5} {100}\ x_{i} = 1.05\ x_{i}  \\
-\bar{y} &=& 1.05 \bar{x}  .\\
-\sigma_Y^2=(1.05)^2\sigma_X^2
+\bar{y} &=& 1.05 \bar{x}  \\
+\sigma_Y^2 &=& (1.05)^2\sigma_X^2
 \end{eqnarray*}
  
 La MEDIA aumenta del 5\%, la varianza aumenta in modo quadratico.
