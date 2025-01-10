@@ -445,42 +445,37 @@ Nell'ordine
     grafica.
 :::
 
-```{r 05-Probabilita-3}
-fig.def(3.5)
-```
-
 ```{r demorgan,fig.cap="Regola di De Morgan per due insiemi: la probabilità dell'unione è la somma della probilità di tre eventi disgiunti",echo=FALSE}
-
+par(mar=c(0,0,0,0)+.1)
 plot(c(0,10),c(0,10),axes = F,xlab="",ylab="",type="n",asp=.6)
 rect(0,2,10,9)
-text(9,8,expression(Omega),cex=3)
-ellisse(3,5,2.8,2.1,col = ared,density=60,lwd=.1)
-ellisse(7,5,2.8,2.1,col = iblue,density=60,angle=-45,lwd=.1)
-text(2,5,expression(paste(A,intersect(bar(B)))),cex=2)
-text(5,5,expression(paste(A,intersect(B))),cex=2)
-text(8,5,expression(paste(B,intersect(bar(A)))),cex=2)
+text(9,8,expression(Omega),cex=2)
+ellisse(3,5,2.8,2.1,col = ared,density=30,lwd=.1)
+ellisse(7,5,2.8,2.1,col = iblue,density=30,angle=-45,lwd=.1)
+text(2,5,expression(paste(A,intersect(bar(B)))),cex=1)
+text(5,5,expression(paste(A,intersect(B))),cex=1)
+text(8,5,expression(paste(B,intersect(bar(A)))),cex=1)
 ```
 
 ::: {.info data-latex=""}
-::: {.definition name="Eventi Incompatibili"}
+:::: {.definition name="Eventi Incompatibili"}
 $A$ e $B$ si dicono **incompatibili** se e solo se
 $$A\cap B = \emptyset$$ in figura \@ref(fig:incomp) una rappresentazione
 grafica.
-:::
+::::
 :::
 
 ```{r incomp,fig.cap="Regola di De Morgan per due insiemi: la probabilità dell'unione è la somma della probaiblità di tre eventi disgiunti",echo=FALSE}
+par(mar=c(0,0,0,0)+.1)
+
 plot(c(0,10),c(0,10),axes = F,xlab="",ylab="",type="n",asp=.8)
 rect(0,2,10,9)
-text(9,8,expression(Omega),cex=3)
-ellisse(3,5,1.4,1.1,col = ared,density=60,lwd=.1)
-ellisse(7,5,1.5,1.1,col = iblue,density=60,angle=-45,lwd=.1)
+text(9,8,expression(Omega),cex=2)
+ellisse(3,5,1.4,1.1,col = ared,density=30,lwd=.1)
+ellisse(7,5,1.5,1.1,col = iblue,density=30,angle=-45,lwd=.1)
 text(3,5,expression(A),cex=2)
 text(7,5,expression(B),cex=2)
-
-fig.def()
-
-
+fig.def(titolo = F)
 ```
 
 ::: {.example}
@@ -499,7 +494,8 @@ alla domanda
 ::: {.info data-latex=""}
 ::: {#pcond .definition name="Probabilità Condizionata"}
 Si definisce probabilità di $A$ condizionata a $B$ (probabilità di $A$
-dato $B$) la quantità $$
+dato $B$) la quantità 
+$$
 P(A|B)=\frac{P(A\cap B)}{P(B)}
 $$
 :::
@@ -601,7 +597,13 @@ Sia $A$ è un evento e $\bar A$ è il suo complementare, allora la coppia
 $\{A,\bar A\}$ è una *bipartizione* di $\Omega$.
 :::
 
-![](img/2-part.png)
+```{r,out.height="35%"}
+library(knitr)
+include_graphics("img/2-part.png")
+```
+
+
+<!-- ![](img/2-part.png){out.width="50%"} -->
 
 Più in generale definiamo una *partizione finita*:
 
@@ -615,7 +617,12 @@ tali che
 Allora $\{A_1,...,A_n\}$ è detta una *partizione* (finita) di $\Omega$
 :::
 
-![](img/n-part.png)
+```{r,out.height="35%"}
+library(knitr)
+include_graphics("img/n-part.png")
+```
+
+<!-- ![](img/n-part.png){out.width="50%"} -->
 
 ### Teorema delle probabilità totali
 
@@ -631,7 +638,12 @@ P(B)&=&P(A)P(B|A)+P(\bar A)P(B|\bar A)
 :::
 :::
 
-![](img/2x2.png)
+```{r,out.height="35%"}
+library(knitr)
+include_graphics("img/2x2.png")
+```
+
+<!-- ![](img/2x2.png) -->
 
 ::: {.proof}
 Si parte considerando l'identità insiemistica 
@@ -695,7 +707,12 @@ $$
 :::
 :::
 
-![](img/nxm.png)
+```{r,out.height="35%"}
+library(knitr)
+include_graphics("img/nxm.png")
+```
+
+<!-- ![](img/nxm.png) -->
 
 ::: {.proof}
 Si parte considerando l'identità insiemistica

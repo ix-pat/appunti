@@ -148,12 +148,12 @@ Ovvero spostando il primo dato verso valori minori spingiamo la media su valori 
 Graficamente osserviamo come la media tenga in equilibrio l'istogramma nella figura \@ref(fig:medh2).
 
 ```{r 03-media-varianza-11}
-fig.def(2)
+fig.def(2,titolo = F)
 ```
 
-```{r medh2,fig.cap="Analogamente se spostiamo un dato verso sinistra la media si sposta a sinistra anch'essa"}
+```{r medh2,fig.cap="Analogamente se spostiamo un dato verso sinistra la media si sposta a sinistra anch'essa",fig.height=2}
 
-par(mfrow=c(1,2),cex=.5)
+par(mfrow=c(1,2),cex=.5,mar=c(1,4,2,4))
 
 x <- c(-1,2,3)
 
@@ -172,6 +172,7 @@ arrows(1,-.5,1,-1.5,code = 1,length = .1,col=ared)
 axis(1,1,col=1,pos = 0)
 
 par(mfrow=c(1,1),cex=cex)
+fig.def(titolo = F)
 ```
 
 
@@ -672,7 +673,7 @@ Se la distribuzione della $X$ è abbastanza simmetrica e di forma campanulare, a
 \]
 
 ```{r 03-media-varianza-15}
-fig.def()
+fig.def(titolo = F)
 ```
 
 ```{r sd,echo=FALSE,fig.cap="Interpretazione della SD"}

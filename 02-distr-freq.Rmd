@@ -133,7 +133,7 @@ dat <- data.frame(outer(x, x_lab, FUN = function(x, y) as.integer(x == y)))
 dat <- rbind(dat,Tot = colSums(dat))
 names(dat) <- c("E","M","S","L")
 row.names(dat) <- paste0("$",row.names(dat),"$")
-tabl(dat)
+tabl(t(dat))
 ```
 
 I totali di colonna hanno senso e indicano il numero di individui che ha un determinato titolo 
@@ -157,7 +157,7 @@ dat <- data.frame(outer(x, x_lab, FUN = function(x, y) as.integer(x == y)))[,-1]
 dat <- rbind(dat,Tot = colSums(dat))
 names(dat) <- c("M","S","L")
 row.names(dat) <- paste0("$",row.names(dat),"$")
-tabl(dat)
+tabl(t(dat))
 ```
 
 Per sapere il numero persone che ha al massimo le elementari basta fare 10 (numero totale di individui)
@@ -423,7 +423,6 @@ text(x,1.25,x,cex=.5)
 text(sort(c(x,x_r)),-.25,sort(c(x,x_r)),cex=.5,col=1:2)
 arrows(x0_adj,y0_adj,x1_adj,y1_adj,length = .1)
 segments(x,1,x,0,lty=2,col="gray")
-par(opar)
 ```
 
 

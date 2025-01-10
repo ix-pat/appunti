@@ -37,7 +37,7 @@
   \KOMAoptions{parskip=half}}
 \makeatother
 \usepackage{xcolor}
-\usepackage[left=2.5cm, right=2.5cm, top=4.5cm, bottom=4.5cm, showframe=false, showcrop=true]{geometry}
+\usepackage[left=2.5cm, right=2.5cm, top=3.5cm, bottom=3.5cm, showframe=false, showcrop=true]{geometry}
 \usepackage{color}
 \usepackage{fancyvrb}
 \newcommand{\VerbBar}{|}
@@ -1118,21 +1118,14 @@ La codifica numerica corretta sarebbe più complessa
 
 \begin{table}[H]
 \centering
-\begin{tabular}{lrrrr}
+\begin{tabular}{lrrrrrrrrrrr}
 \toprule
-  & E & M & S & L\\
+  & $x_1$ & $x_2$ & $x_3$ & $x_4$ & $x_5$ & $x_6$ & $x_7$ & $x_8$ & $x_9$ & $x_{10}$ & $Tot$\\
 \midrule
-$x_1$ & 1 & 0 & 0 & 0\\
-$x_2$ & 0 & 1 & 0 & 0\\
-$x_3$ & 0 & 0 & 0 & 1\\
-$x_4$ & 0 & 0 & 1 & 0\\
-$x_5$ & 0 & 0 & 1 & 0\\
-$x_6$ & 0 & 0 & 1 & 0\\
-$x_7$ & 0 & 0 & 0 & 1\\
-$x_8$ & 0 & 1 & 0 & 0\\
-$x_9$ & 0 & 0 & 0 & 1\\
-$x_{10}$ & 0 & 0 & 1 & 0\\
-$Tot$ & 1 & 2 & 4 & 3\\
+E & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1\\
+M & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 2\\
+S & 0 & 0 & 0 & 1 & 1 & 1 & 0 & 0 & 0 & 1 & 4\\
+L & 0 & 0 & 1 & 0 & 0 & 0 & 1 & 0 & 1 & 0 & 3\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -1158,21 +1151,13 @@ possiamo contare solo 3, ad esempio
 
 \begin{table}[H]
 \centering
-\begin{tabular}{lrrr}
+\begin{tabular}{lrrrrrrrrrrr}
 \toprule
-  & M & S & L\\
+  & $x_1$ & $x_2$ & $x_3$ & $x_4$ & $x_5$ & $x_6$ & $x_7$ & $x_8$ & $x_9$ & $x_{10}$ & $Tot$\\
 \midrule
-$x_1$ & 0 & 0 & 0\\
-$x_2$ & 1 & 0 & 0\\
-$x_3$ & 0 & 0 & 1\\
-$x_4$ & 0 & 1 & 0\\
-$x_5$ & 0 & 1 & 0\\
-$x_6$ & 0 & 1 & 0\\
-$x_7$ & 0 & 0 & 1\\
-$x_8$ & 1 & 0 & 0\\
-$x_9$ & 0 & 0 & 1\\
-$x_{10}$ & 0 & 1 & 0\\
-$Tot$ & 2 & 4 & 3\\
+M & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 2\\
+S & 0 & 0 & 0 & 1 & 1 & 1 & 0 & 0 & 0 & 1 & 4\\
+L & 0 & 0 & 1 & 0 & 0 & 0 & 1 & 0 & 1 & 0 & 3\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -3282,14 +3267,14 @@ $[\text{x}_j,$ & $\text{x}_{j+1})$ & $n_j$ & $f_j$ & $b_j$ & $h_j$ & $F_j$ & $\b
 
 Quindi disegniamo l'istogramma di densità percentuale, dove le \(h\) sono usate come altezze e le \(f_{\%}\) sono le aree dei rettangoli.
 
-\begin{center}\includegraphics{Appunti_di_Statistica_2025_files/figure-latex/04a-Istogramma-2,-1} \end{center}
+\begin{center}\includegraphics{Appunti_di_Statistica_2025_files/figure-latex/04a-Istogramma-2-1} \end{center}
 
 \begin{att}
 
 Se al posto delle \(h\) usiamo le \(f\) disegniamo l'istogramma \emph{sbagliato}, . Notiamo che la classe \([20,50)\)
 viene sovra rappresentata. Infatti è vero che il 45\% delle famiglie si trova in quella classe, ma è anche vero che l'ampiezza della classe molto grande e l'istogramma non rappresenta i dati.
 
-\begin{center}\includegraphics{Appunti_di_Statistica_2025_files/figure-latex/04a-Istogramma-3,-1} \end{center}
+\begin{center}\includegraphics{Appunti_di_Statistica_2025_files/figure-latex/04a-Istogramma-3-1} \end{center}
 
 \end{att}
 
@@ -3298,7 +3283,7 @@ viene sovra rappresentata. Infatti è vero che il 45\% delle famiglie si trova i
 Per disegnare un istogramma di densità in modo corretto si devono rispettare le proporzioni
 tra le basi
 
-\begin{center}\includegraphics{Appunti_di_Statistica_2025_files/figure-latex/04a-Istogramma-4,-1} \end{center}
+\begin{center}\includegraphics{Appunti_di_Statistica_2025_files/figure-latex/04a-Istogramma-4-1} \end{center}
 
 \end{att}
 
@@ -4051,7 +4036,8 @@ alla domanda
 
 \begin{definition}[Probabilità Condizionata]
 \protect\hypertarget{def:pcond}{}\label{def:pcond}Si definisce probabilità di \(A\) condizionata a \(B\) (probabilità di \(A\)
-dato \(B\)) la quantità \[
+dato \(B\)) la quantità
+\[
 P(A|B)=\frac{P(A\cap B)}{P(B)}
 \]
 \end{definition}
@@ -4162,7 +4148,7 @@ Sia \(A\) è un evento e \(\bar A\) è il suo complementare, allora la coppia
 \(\{A,\bar A\}\) è una \emph{bipartizione} di \(\Omega\).
 \end{definition}
 
-\includegraphics{img/2-part.png}
+\begin{center}\includegraphics[width=21in,height=0.35\textheight,]{img/2-part} \end{center}
 
 Più in generale definiamo una \emph{partizione finita}:
 
@@ -4182,7 +4168,7 @@ tali che
 Allora \(\{A_1,...,A_n\}\) è detta una \emph{partizione} (finita) di \(\Omega\)
 \end{definition}
 
-\includegraphics{img/n-part.png}
+\begin{center}\includegraphics[width=21in,height=0.35\textheight,]{img/n-part} \end{center}
 
 \subsection{Teorema delle probabilità totali}\label{teorema-delle-probabilituxe0-totali}
 
@@ -4200,7 +4186,7 @@ P(B)&=&P(A)P(B|A)+P(\bar A)P(B|\bar A)
 
 \end{info}
 
-\includegraphics{img/2x2.png}
+\begin{center}\includegraphics[width=21in,height=0.35\textheight,]{img/2x2} \end{center}
 
 \begin{proof}
 Si parte considerando l'identità insiemistica
@@ -4265,7 +4251,7 @@ P(B_j)=\sum_{i=1}^nP(A_i)P(B_j|A_i),\qquad j=1,...,m
 
 \end{info}
 
-\includegraphics{img/nxm.png}
+\begin{center}\includegraphics[width=21in,height=0.35\textheight,]{img/nxm} \end{center}
 
 \begin{proof}
 Si parte considerando l'identità insiemistica
@@ -8576,7 +8562,7 @@ Alla luce dei dati (3 successi su 5 estrazioni) il valore \(\hat\pi=0.6\) è il 
 
 \subsection{\texorpdfstring{Muoviamo anche \(S_n\)}{Muoviamo anche S\_n}}\label{muoviamo-anche-s_n}
 
-\begin{center}\includegraphics{Appunti_di_Statistica_2025_files/figure-latex/unnamed-chunk-7-1} \end{center}
+\begin{center}\includegraphics{Appunti_di_Statistica_2025_files/figure-latex/unnamed-chunk-11-1} \end{center}
 
 In sintesi, lo spazio \(X\times\Theta\) è l'incrocio tra tutti i possibili \(\pi\) e tutti i possibili \(s_n\), ne esce una matrice con 10 righe e 10 colonne dove le righe rappresentano \(s_n\) e le colonne \(\pi\).
 
@@ -16424,10 +16410,89 @@ al livello \(1-\alpha\), per un \(\alpha\) qualunque
 
 \chapter{Funzioni usate nel libro}\label{funzioni-usate-nel-libro}
 
-Presento le funzioni che sono state create da me per risolvere vari problemi
+Presento le funzioni che sono state create da me e inserite nel pacchetto \texttt{pat.book} per risolvere vari problemi
 di automazione, dalla creazione dei data set alla soluzione di alcuni problemi.
 
-\section{Istogramma}\label{istogramma}
+\section{Installazione del pacchetto}\label{installazione-del-pacchetto}
+
+Il pacchetto si installa da github
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{devtools}\SpecialCharTok{::}\FunctionTok{install\_git}\NormalTok{(}\StringTok{"https://github.com/ix{-}pat/stat/"}\NormalTok{,}\AttributeTok{build\_vignettes =}\NormalTok{ T)}
+\end{Highlighting}
+\end{Shaded}
+
+Le funzioni restituiscono pezzi di codice markdown come da esempio
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{stat\_}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{4}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+\begin{eqnarray*}
+ \mu &=& \frac 1{ 4 }(  1 + 2 + 3 + 4  )= 2.5 \\ 
+ \sigma^2 &=& \frac 1{ 4 }(  1 ^2+ 2 ^2+ 3 ^2+ 4 ^2 )-( 2.5 )^2= 1.25 
+\end{eqnarray*}
+\end{verbatim}
+
+\section{Statistica descrittiva}\label{statistica-descrittiva}
+
+\subsection{Media e Varianza}\label{media-e-varianza}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{media\_}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{4}\NormalTok{)                     }\CommentTok{\# media dei dati 1,2,3,4}
+\end{Highlighting}
+\end{Shaded}
+
+\[ \mu =\frac 1{ 4 }( 1+2+3+4 )= 2.5 \]
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{var\_}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{4}\NormalTok{)                       }\CommentTok{\# varianza dei dati 1,2,3,4}
+\end{Highlighting}
+\end{Shaded}
+
+\[ \sigma^2 =\frac 1{ 4 }( 1^2+2^2+3^2+4^2 )-( 2.5 )^2= 1.25 \]
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{stat\_}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{4}\NormalTok{)                      }\CommentTok{\# media e varianza insieme (new)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{eqnarray*}
+ \mu &=& \frac 1{ 4 }(  1 + 2 + 3 + 4  )= 2.5 \\ 
+ \sigma^2 &=& \frac 1{ 4 }(  1 ^2+ 2 ^2+ 3 ^2+ 4 ^2 )-( 2.5 )^2= 1.25 
+\end{eqnarray*}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{stat\_}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{4}\NormalTok{,}\AttributeTok{p =} \FunctionTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{4}\NormalTok{,}\DecValTok{5}\NormalTok{,}\DecValTok{1}\NormalTok{))       }\CommentTok{\# vettore dei pesi p}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{eqnarray*}
+ \mu &=&  1  \cdot 0.1667+ 2  \cdot 0.3333+ 3  \cdot 0.4167+ 4  \cdot 0.0833 = 2.417 \\ \sigma^2 &=&(  1 ^2 \cdot 0.1667+ 2 ^2 \cdot 0.3333+ 3 ^2 \cdot 0.4167+ 4 ^2 \cdot 0.0833 )-( 29 )^2= 0.7431 \end{eqnarray*}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{stat\_}\NormalTok{(}\FunctionTok{rep}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{4}\NormalTok{,}\AttributeTok{times=}\FunctionTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{4}\NormalTok{,}\DecValTok{5}\NormalTok{,}\DecValTok{1}\NormalTok{)),}\AttributeTok{semp =}\NormalTok{ T) }\CommentTok{\# in frazione}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{eqnarray*} \mu &=& E(X_i) = \sum_{x\in S_X}x P(X=x)\\ 
+ &=&  1  \frac { 2 }{ 12 }+ 2  \frac { 4 }{ 12 }+ 3  \frac { 5 }{ 12 }+ 4  \frac { 1 }{ 12 } \\ 
+            &=& 2.417 \\ 
+ \sigma^2 &=& V(X_i) = \sum_{x\in S_X}x^2 P(X=x)-\mu^2\\ 
+ &=&\left(  1  ^2\frac { 2 }{ 12 }+ 2  ^2\frac { 4 }{ 12 }+ 3  ^2\frac { 5 }{ 12 }+ 4  ^2\frac { 1 }{ 12 } \right)-( 2.417 )^2\\ 
+            &=& 0.7431 
+\end{eqnarray*}
+
+\subsection{Istogramma}\label{istogramma}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -16524,7 +16589,7 @@ $[\text{x}_j,$ & $\text{x}_{j+1})$ & $n_j$ & $f_j$ & $b_j$ & $h_j$ & $F_j$ & $\b
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics{Appunti_di_Statistica_2025_files/figure-latex/25-test-functions-2,-1} \end{center}
+\begin{center}\includegraphics{Appunti_di_Statistica_2025_files/figure-latex/25-test-functions-2-1} \end{center}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -16589,56 +16654,6 @@ $[\text{x}_j,$ & $\text{x}_{j+1})$ & $n_j$ & $f_j$ & $b_j$ & $h_j$ & $F_j$ & $\b
  &=&  0.7044 \times(100)\\
      \#( 2 < X < 8 ) &\approx& 42 
          \end{eqnarray*}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{media\_}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{4}\NormalTok{)                     }\CommentTok{\# media dei dati 1,2,3,4}
-\end{Highlighting}
-\end{Shaded}
-
-\[ \mu =\frac 1{ 4 }( 1+2+3+4 )= 2.5 \]
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{var\_}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{4}\NormalTok{)                       }\CommentTok{\# varianza dei dati 1,2,3,4}
-\end{Highlighting}
-\end{Shaded}
-
-\[ \sigma^2 =\frac 1{ 4 }( 1^2+2^2+3^2+4^2 )-( 2.5 )^2= 1.25 \]
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{stat\_}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{4}\NormalTok{)                      }\CommentTok{\# media e varianza insieme (new)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{eqnarray*}
- \mu &=& \frac 1{ 4 }(  1 + 2 + 3 + 4  )= 2.5 \\ 
- \sigma^2 &=& \frac 1{ 4 }(  1 ^2+ 2 ^2+ 3 ^2+ 4 ^2 )-( 2.5 )^2= 1.25 
-\end{eqnarray*}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{stat\_}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{4}\NormalTok{,}\AttributeTok{p =} \FunctionTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{4}\NormalTok{,}\DecValTok{5}\NormalTok{,}\DecValTok{1}\NormalTok{))       }\CommentTok{\# vettore dei pesi p}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{eqnarray*}
- \mu &=&  1  \cdot 0.1667+ 2  \cdot 0.3333+ 3  \cdot 0.4167+ 4  \cdot 0.0833 = 2.417 \\ \sigma^2 &=&(  1 ^2 \cdot 0.1667+ 2 ^2 \cdot 0.3333+ 3 ^2 \cdot 0.4167+ 4 ^2 \cdot 0.0833 )-( 29 )^2= 0.7431 \end{eqnarray*}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{stat\_}\NormalTok{(}\FunctionTok{rep}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{4}\NormalTok{,}\AttributeTok{times=}\FunctionTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{4}\NormalTok{,}\DecValTok{5}\NormalTok{,}\DecValTok{1}\NormalTok{)),}\AttributeTok{semp =}\NormalTok{ T) }\CommentTok{\# in frazione}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{eqnarray*} \mu &=& E(X_i) = \sum_{x\in S_X}x P(X=x)\\ 
- &=&  1  \frac { 2 }{ 12 }+ 2  \frac { 4 }{ 12 }+ 3  \frac { 5 }{ 12 }+ 4  \frac { 1 }{ 12 } \\ 
-            &=& 2.417 \\ 
- \sigma^2 &=& V(X_i) = \sum_{x\in S_X}x^2 P(X=x)-\mu^2\\ 
- &=&\left(  1  ^2\frac { 2 }{ 12 }+ 2  ^2\frac { 4 }{ 12 }+ 3  ^2\frac { 5 }{ 12 }+ 4  ^2\frac { 1 }{ 12 } \right)-( 2.417 )^2\\ 
-            &=& 0.7431 
-\end{eqnarray*}
 
 \section{Probabilità}\label{probabilituxe0}
 
@@ -17129,7 +17144,7 @@ La siginficatitività è \(\alpha=0.05\), dalle tavole osserviamo \(z_{0.025}=1.
 
 Essendo \(|z_\text{obs}|=3.1623>z_{0.025}=1.96\) allora \textbf{rifiuto} \(H_0\) al 5\%.
 
-\begin{center}\includegraphics{Appunti_di_Statistica_2025_files/figure-latex/25-test-functions-10,-1} \end{center}
+\begin{center}\includegraphics{Appunti_di_Statistica_2025_files/figure-latex/25-test-functions-10-1} \end{center}
 
 Il \(p_{\text{value}}\) è
 
@@ -17180,7 +17195,7 @@ Siccome \(2.5758<|z_\text{obs}|=3.1623<3.2905\), quindi \textbf{rifiuto} \(H_0\)
 
 \(0.001<p_\text{value}<0.01\), \emph{molto significativo} \(\fbox{**}\).
 
-\begin{center}\includegraphics{Appunti_di_Statistica_2025_files/figure-latex/25-test-functions-10,-2} \end{center}
+\begin{center}\includegraphics{Appunti_di_Statistica_2025_files/figure-latex/25-test-functions-10-2} \end{center}
 
 Il \(p_{\text{value}}\) è
 
@@ -17226,7 +17241,7 @@ Il \(p_{\text{value}}\) è
  0.001 < p_\text{value}= 0.001565 \leq 0.01 
 \]
 
-\begin{center}\includegraphics{Appunti_di_Statistica_2025_files/figure-latex/25-test-functions-10,-3} \end{center}
+\begin{center}\includegraphics{Appunti_di_Statistica_2025_files/figure-latex/25-test-functions-10-3} \end{center}
 
 \textbf{Rifiuto} \(H_0\) all'1\%,
 
@@ -17264,7 +17279,7 @@ La siginficatitività è \(\alpha=0.01\), dalle tavole osserviamo \(t_{10-1;0.01
 
 Essendo \(t_\text{obs}=-3<t_{10-1;0.01}=-2.8214\) allora \textbf{rifiuto} \(H_0\) al 1\%.
 
-\begin{center}\includegraphics{Appunti_di_Statistica_2025_files/figure-latex/25-test-functions-10,-4} \end{center}
+\begin{center}\includegraphics{Appunti_di_Statistica_2025_files/figure-latex/25-test-functions-10-4} \end{center}
 
 Il \(p_{\text{value}}\) è
 
@@ -17312,7 +17327,7 @@ Siccome \(-1.8331<t_\text{obs}=-3<-1.383\), quindi \textbf{rifiuto} \(H_0\) all'
 
 \(0.001<p_\text{value}<0.01\), \emph{molto significativo} \(\fbox{**}\).
 
-\begin{center}\includegraphics{Appunti_di_Statistica_2025_files/figure-latex/25-test-functions-10,-5} \end{center}
+\begin{center}\includegraphics{Appunti_di_Statistica_2025_files/figure-latex/25-test-functions-10-5} \end{center}
 
 Il \(p_{\text{value}}\) è
 
@@ -17358,7 +17373,7 @@ Attenzione il calcolo del \(p_\text{value}\) con la \(T\) è puramente illustrat
  0.001 < p_\text{value}= 0.007478 \leq 0.01 
 \]
 
-\begin{center}\includegraphics{Appunti_di_Statistica_2025_files/figure-latex/25-test-functions-10,-6} \end{center}
+\begin{center}\includegraphics{Appunti_di_Statistica_2025_files/figure-latex/25-test-functions-10-6} \end{center}
 
 \textbf{Rifiuto} \(H_0\) all'1\%,
 
@@ -17402,7 +17417,7 @@ Il \(p_{\text{value}}\) è
  0.01 < p_\text{value}= 0.022750 \leq 0.05 
 \]
 
-\begin{center}\includegraphics{Appunti_di_Statistica_2025_files/figure-latex/25-test-functions-10,-7} \end{center}
+\begin{center}\includegraphics{Appunti_di_Statistica_2025_files/figure-latex/25-test-functions-10-7} \end{center}
 
 Indecisione sul rifiuto di \(H_0\) al 10\%,
 
@@ -17453,7 +17468,7 @@ Siccome \(1.7247<|t_\text{obs}|=1.9413<2.086\), indecisione sul rifiuto di \(H_0
 
 \(0.05<p_\text{value}<0.1\), \emph{marginalmente significativo} \(\fbox{.}\).
 
-\begin{center}\includegraphics{Appunti_di_Statistica_2025_files/figure-latex/25-test-functions-10,-8} \end{center}
+\begin{center}\includegraphics{Appunti_di_Statistica_2025_files/figure-latex/25-test-functions-10-8} \end{center}
 
 Il \(p_{\text{value}}\) è
 
@@ -17500,7 +17515,7 @@ La siginficatitività è \(\alpha=0.05\), dalle tavole osserviamo \(t_{22-2;0.02
 
 Essendo \(|t_\text{obs}|=1.9269<t_{22-2;0.025}=2.086\) allora \textbf{non} rifiuto \(H_0\) al 5\%.
 
-\begin{center}\includegraphics{Appunti_di_Statistica_2025_files/figure-latex/25-test-functions-10,-9} \end{center}
+\begin{center}\includegraphics{Appunti_di_Statistica_2025_files/figure-latex/25-test-functions-10-9} \end{center}
 
 Il \(p_{\text{value}}\) è
 
@@ -17547,7 +17562,7 @@ La siginficatitività è \(\alpha=0.05\), dalle tavole osserviamo \(z_{0.025}=1.
 
 Essendo \(|z_\text{obs}|=0.2568<z_{0.025}=1.96\) allora \textbf{non} rifiuto \(H_0\) al 5\%.
 
-\begin{center}\includegraphics{Appunti_di_Statistica_2025_files/figure-latex/25-test-functions-10,-10} \end{center}
+\begin{center}\includegraphics{Appunti_di_Statistica_2025_files/figure-latex/25-test-functions-10-10} \end{center}
 
 Il \(p_{\text{value}}\) è
 
@@ -17593,7 +17608,7 @@ La siginficatitività è \(\alpha=0.05\), dalle tavole osserviamo \(t_{22-2;0.02
 
 Essendo \(|t_\text{obs}|=1.9413<t_{22-2;0.025}=2.086\) allora \textbf{non} rifiuto \(H_0\) al 5\%.
 
-\begin{center}\includegraphics{Appunti_di_Statistica_2025_files/figure-latex/25-test-functions-10,-11} \end{center}
+\begin{center}\includegraphics{Appunti_di_Statistica_2025_files/figure-latex/25-test-functions-10-11} \end{center}
 
 Il \(p_{\text{value}}\) è
 
@@ -17649,7 +17664,7 @@ Siccome \(1.7247<|t_\text{obs}|=1.9269<2.086\), indecisione sul rifiuto di \(H_0
 
 \(0.05<p_\text{value}<0.1\), \emph{marginalmente significativo} \(\fbox{.}\).
 
-\begin{center}\includegraphics{Appunti_di_Statistica_2025_files/figure-latex/25-test-functions-10,-12} \end{center}
+\begin{center}\includegraphics{Appunti_di_Statistica_2025_files/figure-latex/25-test-functions-10-12} \end{center}
 
 Il \(p_{\text{value}}\) è
 
@@ -17699,7 +17714,7 @@ Il \(p_{\text{value}}\) è
  0.1 < p_\text{value}= 0.325756 \leq 1 
 \]
 
-\begin{center}\includegraphics{Appunti_di_Statistica_2025_files/figure-latex/25-test-functions-10,-13} \end{center}
+\begin{center}\includegraphics{Appunti_di_Statistica_2025_files/figure-latex/25-test-functions-10-13} \end{center}
 
 \textbf{Non} rifiuto \(H_0\) a \textbf{nessun}
 livello di significatività,
@@ -17834,7 +17849,7 @@ La siginficatitività è \(\alpha=0.01\), dalle tavole osserviamo \(t_{100-2;0.0
 
 Essendo \(t_\text{obs}=-0.1488>t_{100-2;0.01}=-2.365\) allora \textbf{rifiuto} \(H_0\) al 1\%.
 
-\begin{center}\includegraphics{Appunti_di_Statistica_2025_files/figure-latex/25-test-functions-11,-1} \end{center}
+\begin{center}\includegraphics{Appunti_di_Statistica_2025_files/figure-latex/25-test-functions-11-1} \end{center}
 
 Il \(p_{\text{value}}\) è
 
@@ -17873,7 +17888,7 @@ La siginficatitività è \(\alpha=0.01\), dalle tavole osserviamo \(t_{100-2;0.0
 
 Essendo \(|t_\text{obs}|=8.7327>t_{100-2;0.005}=2.6269\) allora \textbf{rifiuto} \(H_0\) al 1\%.
 
-\begin{center}\includegraphics{Appunti_di_Statistica_2025_files/figure-latex/25-test-functions-11,-2} \end{center}
+\begin{center}\includegraphics{Appunti_di_Statistica_2025_files/figure-latex/25-test-functions-11-2} \end{center}
 
 Il \(p_{\text{value}}\) è
 
@@ -17889,7 +17904,7 @@ Attenzione il calcolo del \(p_\text{value}\) con la \(T\) è puramente illustrat
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\InformationTok{\textasciigrave{}\textasciigrave{}\textasciigrave{}\{r 25{-}test{-}functions{-}12,, echo=FALSE\} }
+\InformationTok{\textasciigrave{}\textasciigrave{}\textasciigrave{}\{r 25{-}test{-}functions{-}12, echo=FALSE\} }
 \InformationTok{set.seed(1)                      \# per ottenere sempre la stessa simulazione}
 \InformationTok{n \textless{}{-} 250                         \# ampiezza campionaria}
 
@@ -17906,7 +17921,7 @@ Attenzione il calcolo del \(p_\text{value}\) con la \(T\) è puramente illustrat
 \NormalTok{rilevata la spesa mensile in telecomunicazioni (in euro), qui di seguito la }
 \NormalTok{distribuzione delle frequenze relative:}
 
-\InformationTok{\textasciigrave{}\textasciigrave{}\textasciigrave{}\{r 25{-}test{-}functions{-}13,, echo=FALSE\} }
+\InformationTok{\textasciigrave{}\textasciigrave{}\textasciigrave{}\{r 25{-}test{-}functions{-}13, echo=FALSE\} }
 \InformationTok{kable(dat3[,c(1,2,4)]) \%\textgreater{}\%}
 \InformationTok{  kable\_styling(full\_width = F)}
 \InformationTok{\textasciigrave{}\textasciigrave{}\textasciigrave{}}
@@ -17916,7 +17931,7 @@ Attenzione il calcolo del \(p_\text{value}\) con la \(T\) è puramente illustrat
 
 \NormalTok{**Soluzione**}
 
-\InformationTok{\textasciigrave{}\textasciigrave{}\textasciigrave{}\{r 25{-}test{-}functions{-}14,, echo=FALSE\} }
+\InformationTok{\textasciigrave{}\textasciigrave{}\textasciigrave{}\{r 25{-}test{-}functions{-}14, echo=FALSE\} }
 \InformationTok{kable(dat3) \%\textgreater{}\%            \# Stampa la tabella}
 \InformationTok{  kable\_styling(full\_width = F)}
 \InformationTok{histp(axes = T)}
@@ -17928,7 +17943,7 @@ Attenzione il calcolo del \(p_\text{value}\) con la \(T\) è puramente illustrat
 
 \NormalTok{**Soluzione**}
 
-\InformationTok{\textasciigrave{}\textasciigrave{}\textasciigrave{}\{r 25{-}test{-}functions{-}15,, echo=FALSE\} }
+\InformationTok{\textasciigrave{}\textasciigrave{}\textasciigrave{}\{r 25{-}test{-}functions{-}15, echo=FALSE\} }
 \InformationTok{F\_print(60,verso="\textgreater{}")}
 \InformationTok{\textasciigrave{}\textasciigrave{}\textasciigrave{}}
 \end{Highlighting}
@@ -17977,7 +17992,7 @@ $[\text{x}_j,$ & $\text{x}_{j+1})$ & $n_j$ & $f_j$ & $b_j$ & $h_j$ & $F_j$ & $f_
 \end{tabular}
 \end{table}
 
-\begin{center}\includegraphics{Appunti_di_Statistica_2025_files/figure-latex/25-test-functions-18,-1} \end{center}
+\begin{center}\includegraphics{Appunti_di_Statistica_2025_files/figure-latex/25-test-functions-18-1} \end{center}
 
 1.b (\textbf{Punti 3}) Qual è la percentuale di famiglie con spesa superiore a 60 euro?
 
@@ -17994,7 +18009,7 @@ $[\text{x}_j,$ & $\text{x}_{j+1})$ & $n_j$ & $f_j$ & $b_j$ & $h_j$ & $F_j$ & $f_
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\InformationTok{\textasciigrave{}\textasciigrave{}\textasciigrave{}\{r 25{-}test{-}functions{-}21,, echo=FALSE\} }
+\InformationTok{\textasciigrave{}\textasciigrave{}\textasciigrave{}\{r 25{-}test{-}functions{-}21, echo=FALSE\} }
 \InformationTok{\# preparo i parametri}
 \InformationTok{s1 \textless{}{-} 27}
 \InformationTok{n1 \textless{}{-} 37}
@@ -18012,7 +18027,7 @@ $[\text{x}_j,$ & $\text{x}_{j+1})$ & $n_j$ & $f_j$ & $b_j$ & $h_j$ & $F_j$ & $f_
 
 \NormalTok{**Soluzione**}
 
-\InformationTok{\textasciigrave{}\textasciigrave{}\textasciigrave{}\{r 25{-}test{-}functions{-}22,,results=\textquotesingle{}asis\textquotesingle{}, echo=FALSE\} }
+\InformationTok{\textasciigrave{}\textasciigrave{}\textasciigrave{}\{r 25{-}test{-}functions{-}22,results=\textquotesingle{}asis\textquotesingle{}, echo=FALSE\} }
 \InformationTok{ztest\_2c\_pi(s1 = s1,s2 = s2,n1 = n1,n2 = n2,}
 \InformationTok{                h1 = h1,alpha = alpha,a = "U",b = "D")}
 \InformationTok{\textasciigrave{}\textasciigrave{}\textasciigrave{}}
@@ -18022,7 +18037,7 @@ $[\text{x}_j,$ & $\text{x}_{j+1})$ & $n_j$ & $f_j$ & $b_j$ & $h_j$ & $F_j$ & $f_
 
 \NormalTok{**Soluzione**}
 
-\InformationTok{\textasciigrave{}\textasciigrave{}\textasciigrave{}\{r 25{-}test{-}functions{-}23,,results=\textquotesingle{}asis\textquotesingle{}, echo=FALSE\} }
+\InformationTok{\textasciigrave{}\textasciigrave{}\textasciigrave{}\{r 25{-}test{-}functions{-}23,results=\textquotesingle{}asis\textquotesingle{}, echo=FALSE\} }
 \InformationTok{idc(xm = s1,alpha = .95,n = n1 ,dist\_ = "z")}
 \InformationTok{\textasciigrave{}\textasciigrave{}\textasciigrave{}}
 \end{Highlighting}
@@ -18072,7 +18087,7 @@ Il \(p_{\text{value}}\) è
  0.1 < p_\text{value}= 0.537051 \leq 1 
 \]
 
-\begin{center}\includegraphics{Appunti_di_Statistica_2025_files/figure-latex/25-test-functions-24,-1} \end{center}
+\begin{center}\includegraphics{Appunti_di_Statistica_2025_files/figure-latex/25-test-functions-24-1} \end{center}
 
 \textbf{Non} rifiuto \(H_0\) a \textbf{nessun}
 livello di significatività,

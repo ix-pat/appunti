@@ -5,7 +5,7 @@ editor_options:
 ---
 
 
-```{r 04a-Istogramma-1,,echo=FALSE}
+```{r 04a-Istogramma-1,echo=FALSE}
 #rm(list = ls())
 
 
@@ -57,7 +57,8 @@ kable(dat3,booktabs = T, escape = F,linesep = "", digits = 4)
 
 Quindi disegniamo l'istogramma di densità percentuale, dove le $h$ sono usate come altezze e le $f_{\%}$ sono le aree dei rettangoli. 
 
-```{r 04a-Istogramma-2,, echo=FALSE}
+```{r 04a-Istogramma-2, echo=FALSE}
+par(lwd=.5,col.main=iblue,mfrow=c(1,1),cex=cex,mar=c(5,4,1,2))
 histp(T)
 ```
 
@@ -65,8 +66,8 @@ histp(T)
 Se al posto delle $h$ usiamo le $f$ disegniamo l'istogramma _sbagliato_, . Notiamo che la classe $[20,50)$
 viene sovra rappresentata. Infatti è vero che il 45% delle famiglie si trova in quella classe, ma è anche vero che l'ampiezza della classe molto grande e l'istogramma non rappresenta i dati.
 
-```{r 04a-Istogramma-3,, echo=FALSE}
-source("intro.R")
+```{r 04a-Istogramma-3, echo=FALSE}
+fig.def(titolo = T)
 barplot(dat2$fj,diff(brk),space = 0,main = "istogramma sbagliato, le f sono usate al posto delle h",col = "white")
 lines(c(0,90),c(0,0.4),col=ared,lwd=4)
 lines(c(0,90),c(0.4,0.0),col=ared,lwd=4)
@@ -78,8 +79,8 @@ axis(side = 1,at = brk,labels = brk)
 Per disegnare un istogramma di densità in modo corretto si devono rispettare le proporzioni
 tra le basi
 
-```{r 04a-Istogramma-4,, echo=FALSE}
-source("intro.R")
+```{r 04a-Istogramma-4, echo=FALSE}
+fig.def(titolo = T)
 #barplot(dat2$h,diff(brk),space = 0,main = "istogramma corretto")
 plot(c(0,4),c(0,max(dat2$hj)),type="n" ,axes=F,xlab="x",ylab="Densità") 
 rect(0:3,0,1:4,dat2$hj)
@@ -109,16 +110,16 @@ super $0.50$.
 
 \[x_0 = 0, ~~~\text{il più piccol dei dati}\] 
 `r p=0.1`
-```{r 04a-Istogramma-5,,results='asis'}
+```{r 04a-Istogramma-5,results='asis'}
 cat(percentile(p = 0.1))
 ```
 `r p=0.2`
-```{r 04a-Istogramma-6,,results='asis'}
+```{r 04a-Istogramma-51,results='asis'}
 cat(percentile(p = 0.2))
 ```
 \[\vdots\]
 `r p=0.9`
-```{r 04a-Istogramma-7,,results='asis'}
+```{r 04a-Istogramma-7,results='asis'}
 cat(percentile(p = 0.9))
 ```
 \[x_{1.0} = 90, ~~~\text{il più grande dei dati}\] 
@@ -139,7 +140,7 @@ kable((ddd),booktabs = T, escape = F,linesep = "", digits = 4)
 * mettere a grafico i punti (0,$x_0$), (0.10,$x_{0.10}$),...,(1,$x_{1}$)) e ($x_0$,0), ($x_{0.10}$,0.10),...,($x_{1}$,1))
 
 ```{r decili-g1, echo=FALSE, results="asis"}
-source("intro.R")
+fig.def(titolo = F)
 dec <- paste("$x_{",(0:10)/10,"}$")
 ddd <- (percentili = c(round(Q.int((0:9)/10),4),90))
 plot((0:10)/10,ddd,type="p",pch=16,xlab = "p",ylab = "p-esimo percentile",axes = F)
@@ -148,7 +149,7 @@ axis(2)
 ```
 
 ```{r decili-g10, echo=FALSE, results="asis"}
-source("intro.R")
+fig.def(titolo = F)
 plot(ddd,(0:10)/10,type="n",ylab = "p",pch=16,xlab = "p-esimo percentile",axes = F)
 points(ddd,(0:10)/10,pch=16,col="grey")
 axis(1,brk)
@@ -206,6 +207,7 @@ $\%(X<28.57)=0.60\times 100=60\%$ e quindi $\%(X>28.57)=40\%$
 Si tratta di calcolare l'area in blu:
 
 ```{r decili-g2, echo=FALSE, results="asis"}
+fig.def(titolo = F)
 histp(T)
 h.int(0,35,density=20,col=4)
 axis(side = 1,at = 35)
@@ -225,6 +227,7 @@ e osservare che la sua area misura `r (dat2$Fj[2] + (35-20)*dat2$hj[3]/100)*100`
 Si tratta di calcolare l'area in blu:
 
 ```{r decili-g3, echo=FALSE, results="asis"}
+fig.def(titolo = F)
 histp(T)
 h.int(16,90,density=20,col=4)
 axis(side = 1,at = 16)
@@ -252,6 +255,7 @@ $\bar x=$ `r sum(dat2$xn)/n`, $Var=$ `r sum(dat2$x2n)/n-(sum(dat2$xn)/n)^2`, $(x
 * Calcolare la percentuale di dati compresi tra il 25-esimo e il 75-esimo percentile
 
 ```{r decili-g4, echo=FALSE, results="asis"}
+fig.def(titolo = F)
 histp(T)
 h.int(Q.int(.25),Q.int(.75),density=20,col=4)
 axis(side = 1,at = Q.int(c(.25,.75)),labels = round(Q.int(c(.25,.75)),2),las=2)
@@ -306,7 +310,7 @@ i valori sono $(x_{0.025}, x_{0.975})=$(`r Q.int(c(.025,.975))`)
 
 <!-- * Disegnare l'istogramma _sbagliato_ -->
 
-<!-- ```{r 04a-Istogramma-8,, echo=FALSE} -->
+<!-- ```{r 04a-Istogramma-8, echo=FALSE} -->
 <!-- plot(c(brk[1],brk),c(0,dat2$fj,0),type="s",axes = FALSE,xlab="Temperature (C°)",ylab="fj",main = "istogramma sbagliato") -->
 <!-- segments(dat2$xsup,0,dat2$xsup,dat2$fj,lty=2) -->
 <!-- axis(side = 1,at = brk,labels = brk) -->
@@ -315,7 +319,7 @@ i valori sono $(x_{0.025}, x_{0.975})=$(`r Q.int(c(.025,.975))`)
 
 <!-- * Disegnare l'istogramma corretto -->
 
-<!-- ```{r 04a-Istogramma-9,, echo=FALSE} -->
+<!-- ```{r 04a-Istogramma-9, echo=FALSE} -->
 <!-- plot(c(brk[1],brk),c(0,dat2$hj,0),type="s",axes = FALSE,xlab="Temperature (C°)",ylab="hj",main = "istogramma corretto") -->
 <!-- segments(dat2$xsup,0,dat2$xsup,dat2$hj,lty=2) -->
 <!-- axis(side = 1,at = brk,labels = brk) -->

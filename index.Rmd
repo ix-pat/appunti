@@ -10,7 +10,7 @@ link-citations: yes
 description: "Appunti sparsi"
 # bookdown::epub_book:
 #   pandoc_args: "--mathml"
-geometry: "left=2.5cm, right=2.5cm, top=4.5cm, bottom=4.5cm, showframe=false, showcrop=true"
+geometry: "left=2.5cm, right=2.5cm, top=3.5cm, bottom=3.5cm, showframe=false, showcrop=true"
 fontsize: 11pt
 output:
    bookdown::pdf_book:
