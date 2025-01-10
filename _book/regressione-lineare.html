@@ -694,7 +694,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="esempi-2" class="section level3 hasAnchor" number="17.1.1">
 <h3><span class="header-section-number">17.1.1</span> Esempi<a href="regressione-lineare.html#esempi-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div class="example">
-<p><span id="exm:unlabeled-div-203" class="example"><strong>Esempio 17.1  </strong></span>Stiamo studiando la produttività media di un ettaro coltivato ad una certa varietà di riso:
+<p><span id="exm:unlabeled-div-205" class="example"><strong>Esempio 17.1  </strong></span>Stiamo studiando la produttività media di un ettaro coltivato ad una certa varietà di riso:
 per prima cosa piantiamo 10 ettari <strong>non</strong> trattati con fertilizzante (<span class="math inline">\(X=0\)</span>) con questa varietà e calcoliamo i quintali per ettaro, otteniamo (28.22, 27.46, 28.89, 28.6, 29.64, 28.69, 26.72, 27.79, 29.9, 29.78)</p>
 <p><span class="math display">\[Y_i=\mu_{(X=0)}+\varepsilon_i\qquad\varepsilon_i\sim N(0,\sigma_\varepsilon^2)\]</span></p>
 <p>Stimiamo
@@ -731,7 +731,7 @@ E(\hat Y_{11})&amp;=&amp;E(\hat\mu_{(X=0)}+\varepsilon_{11})\\
 <p>L’errore di previsione stimato è <span class="math inline">\(S_{(X=0)}=1.048\)</span>.</p>
 </div>
 <div class="example">
-<p><span id="exm:unlabeled-div-204" class="example"><strong>Esempio 17.2  </strong></span>Supponiamo di aver piantato altri 10 ettari di questa varietà ma su terreni trattati con 1.13 hg (<span class="math inline">\(X=1.13\)</span>)
+<p><span id="exm:unlabeled-div-206" class="example"><strong>Esempio 17.2  </strong></span>Supponiamo di aver piantato altri 10 ettari di questa varietà ma su terreni trattati con 1.13 hg (<span class="math inline">\(X=1.13\)</span>)
 di concime azotato per ettaro e osserviamo (28.16, 30.38, 27.74, 29.07, 30.71, 28.4, 28.53, 28.36, 28.71, 29.14)
 <span class="math display">\[Y_i=\mu_{(X=1.13)}+\varepsilon_i\qquad\varepsilon_i\sim N(0,\sigma_\varepsilon^2)\]</span></p>
 <p>Stimiamo
@@ -784,7 +784,7 @@ S_{(X=1.3)}&amp;=&amp;0.952
 \]</span></p>
 </div>
 <div class="example">
-<p><span id="exm:unlabeled-div-205" class="example"><strong>Esempio 17.3  </strong></span>Supponiamo di aver piantato altri 10 ettari di questa varietà ma su terreni trattati con 2.84 hg (<span class="math inline">\(X=2.84\)</span>)
+<p><span id="exm:unlabeled-div-207" class="example"><strong>Esempio 17.3  </strong></span>Supponiamo di aver piantato altri 10 ettari di questa varietà ma su terreni trattati con 2.84 hg (<span class="math inline">\(X=2.84\)</span>)
 di concime azotato per ettaro e osserviamo (29.03, 32.09, 29.56, 29.59, 28.52, 30.24, 30.2, 29.89, 30.41, 30.94)
 <span class="math display">\[Y_i=\mu_{(X=2.84)}+\varepsilon_i\qquad\varepsilon_i\sim N(0,\sigma_\varepsilon^2)\]</span></p>
 <p>Stimiamo
@@ -812,7 +812,7 @@ Potremmo proporre di congiungere le medie con una spezzata</p>
 <p><img src="Appunti_di_Statistica_2025_files/figure-html/17-regressione-I-14-1.png" width="672" /></p>
 </div>
 <div class="example">
-<p><span id="exm:unlabeled-div-206" class="example"><strong>Esempio 17.4  </strong></span><strong>problema 3:</strong> Dobbiamo studiare un nuova varietà di riso, ma il budget è inferiore.
+<p><span id="exm:unlabeled-div-208" class="example"><strong>Esempio 17.4  </strong></span><strong>problema 3:</strong> Dobbiamo studiare un nuova varietà di riso, ma il budget è inferiore.
 osserviamo 10 ettari</p>
 <table>
 <colgroup>
@@ -1157,7 +1157,7 @@ ovvero
 \end{eqnarray*}\]</span></p>
 <div class="info">
 <div class="proposition">
-<p><span id="prp:unlabeled-div-207" class="proposition"><strong>Proprietà 17.1  (Stimatori dei Minimi Quadrati) </strong></span>Gli stimatori dei minimi quadrati <span class="math inline">\(\hat\beta_0\)</span> e <span class="math inline">\(\hat\beta_1\)</span> sono
+<p><span id="prp:unlabeled-div-209" class="proposition"><strong>Proprietà 17.1  (Stimatori dei Minimi Quadrati) </strong></span>Gli stimatori dei minimi quadrati <span class="math inline">\(\hat\beta_0\)</span> e <span class="math inline">\(\hat\beta_1\)</span> sono
 <span class="math display">\[\begin{eqnarray*}
 \hat\beta_1 &amp;=&amp; \frac{\frac 1 n\sum_{i=1}^n{(x_i-\bar x)(y_i-\bar y)}}{\frac 1 n\sum_{i=1}^n(x_i-\bar x)^2}=\frac{\text{ cov}(x,y)}{\hat\sigma^2_X}\\
 \hat\beta_0 &amp;=&amp;\bar y -\hat\beta_1\bar x
@@ -1171,7 +1171,7 @@ e
 </div>
 </div>
 <div class="proof">
-<p><span id="unlabeled-div-208" class="proof"><em>Dimostrazione</em>. </span><span class="math display">\[\begin{eqnarray*}
+<p><span id="unlabeled-div-210" class="proof"><em>Dimostrazione</em>. </span><span class="math display">\[\begin{eqnarray*}
   G(\beta_{0}, \beta_{1}) &amp;=&amp; \frac 1n \sum_{i=1}^{n} \left( y_{i} - (\beta_{0} + \beta_{1} x_{i})   \right)^2\\
   \frac{\partial G(\beta_{0}, \beta_{1})} {\partial \beta_{0}}
 &amp;=&amp; -\frac{2} {n} \sum_{i=1}^n  \left( y_{i} - (\beta_{0} + \beta_{1} x_{i})
@@ -1232,7 +1232,7 @@ da cui
 <h2><span class="header-section-number">17.4</span> La covarianza<a href="regressione-lineare.html#la-covarianza" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="info">
 <div class="definition">
-<p><span id="def:unlabeled-div-209" class="definition"><strong>Definizione 17.1  </strong></span>La Covarianza <span class="math inline">\(\text{cov}(x,y)\)</span> tra due variabili <span class="math inline">\(x\)</span> e <span class="math inline">\(y\)</span> è una misura della loro <em>covariazione</em>
+<p><span id="def:unlabeled-div-211" class="definition"><strong>Definizione 17.1  </strong></span>La Covarianza <span class="math inline">\(\text{cov}(x,y)\)</span> tra due variabili <span class="math inline">\(x\)</span> e <span class="math inline">\(y\)</span> è una misura della loro <em>covariazione</em>
 <span class="math display">\[\text{cov}(x,y)=\frac 1 n\sum_{i=1}^n{(x_i-\bar x)(y_i-\bar y)}\]</span></p>
 </div>
 </div>
@@ -1240,7 +1240,7 @@ da cui
 Come per la varianza esiste una formula semplificata:</p>
 <div class="info">
 <div class="proposition">
-<p><span id="prp:unlabeled-div-210" class="proposition"><strong>Proprietà 17.2  </strong></span><span class="math display">\[\text{cov}(x,y)=\frac 1 n\sum_{i=1}^nx_i~y_i-\bar x\bar y\]</span></p>
+<p><span id="prp:unlabeled-div-212" class="proposition"><strong>Proprietà 17.2  </strong></span><span class="math display">\[\text{cov}(x,y)=\frac 1 n\sum_{i=1}^nx_i~y_i-\bar x\bar y\]</span></p>
 </div>
 </div>
 <div class="nota">
@@ -1485,7 +1485,7 @@ Totale/n
 \end{alignat*}\]</span></p>
 <div class="info">
 <div class="definition">
-<p><span id="def:unlabeled-div-211" class="definition"><strong>Definizione 17.2  </strong></span>Il coefficiente <span class="math inline">\(r\)</span>
+<p><span id="def:unlabeled-div-213" class="definition"><strong>Definizione 17.2  </strong></span>Il coefficiente <span class="math inline">\(r\)</span>
 <span class="math display">\[r=\frac{\text{cov}(x,y)}{\hat\sigma_X\hat\sigma_Y}\]</span>
 è chiamato <em>coefficiente di correlazione</em>.</p>
 </div>
@@ -1590,7 +1590,7 @@ y_i &amp;\phantom{=}\text{ dati } &amp;\hat y_i &amp;= \hat \beta_0+\hat\beta_1x
 0  &amp;=\frac 1 n\sum_{i=1}^n\hat\varepsilon_i
 \end{aligned}\]</span></p>
 <div class="definition">
-<p><span id="def:unlabeled-div-212" class="definition"><strong>Definizione 17.3  (Varianza Totale, Varianza Spiegata e Varianza Residua) </strong></span>La varianza di <span class="math inline">\(y\)</span> (senza osservare <span class="math inline">\(x\)</span>) è
+<p><span id="def:unlabeled-div-214" class="definition"><strong>Definizione 17.3  (Varianza Totale, Varianza Spiegata e Varianza Residua) </strong></span>La varianza di <span class="math inline">\(y\)</span> (senza osservare <span class="math inline">\(x\)</span>) è
 <span class="math display">\[\hat\sigma_Y^2=\frac{\sum_{i=1}^n(y_i-\bar y)^2}n=\frac{TSS}{n},\qquad\text{$TSS$ Total Sum of Squares}\]</span></p>
 <p>La varianza di <span class="math inline">\(\hat y\)</span> è
 <span class="math display">\[\hat\sigma_{\hat Y}^2=\frac{\sum_{i=1}^n(\hat y_i-\bar y)^2}n=\frac{ESS}{n},\qquad\text{$ESS$ Explained Sum of Squares}\]</span></p>
@@ -1599,7 +1599,7 @@ y_i &amp;\phantom{=}\text{ dati } &amp;\hat y_i &amp;= \hat \beta_0+\hat\beta_1x
 </div>
 <div class="info">
 <div class="proposition">
-<p><span id="prp:unlabeled-div-213" class="proposition"><strong>Proprietà 17.3  </strong></span>Vale la seguente relazione
+<p><span id="prp:unlabeled-div-215" class="proposition"><strong>Proprietà 17.3  </strong></span>Vale la seguente relazione
 <span class="math display">\[TSS = ESS + RSS\]</span></p>
 </div>
 </div>
@@ -1635,7 +1635,7 @@ TSS &amp;=&amp; ESS + RSS \\
 Nel caso della regressione lineare semplice</p>
 <div class="info">
 <div class="definition">
-<p><span id="def:unlabeled-div-214" class="definition"><strong>Definizione 17.4  (Indice di Determinazione Lineare) </strong></span>Si definisce
+<p><span id="def:unlabeled-div-216" class="definition"><strong>Definizione 17.4  (Indice di Determinazione Lineare) </strong></span>Si definisce
 <span class="math display">\[R^2=\left(\frac{ESS}{TSS}\right)=r^2=\left(\frac{\text{cov}(x,y)}{\hat\sigma_x\hat\sigma_y}\right)^2\]</span>
 l’indice di determinazione lineare ed è, nel contesto della regressione lineare semplice, il quadrato dell’indice di correlazione
 <span class="math display">\[0\leq R^2\leq 1\]</span></p>

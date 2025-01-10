@@ -512,7 +512,7 @@ drop fuzzy shadow]
 \makeatother
 \subtitle{CLEAM AA 24/25}
 \author{Patrizio Frederic}
-\date{Aggiornato al 29-12-2024}
+\date{Aggiornato al 09-01-2025}
 
 \begin{document}
 \maketitle
@@ -570,7 +570,7 @@ costruisco le mie lezioni. Non è da ritenersi alternativo alle lezioni in aula 
 
 Un ringraziamento speciale va alle mie donne e a Michele Lalla, amico, collega e maestro.
 
-Bologna, il 29-12-2024.
+Bologna, il 09-01-2025.
 
 \part{Statistica Descrittiva}
 
@@ -1260,17 +1260,17 @@ In statistica, ogni dato è sempre espresso in una specifica unità di misura, c
   \item
     \(a_{i3}\): valutazione del colloquio (da 0 a 5).
   \end{itemize}
-
-  Per produrre un indicatore che misuri l'idoneità complessiva su una scala uniforme, potremmo usare una formula come:
-  \[
-     x_i = 0.5 \cdot a_{i1} + 0.3 \cdot a_{i2} + 2 \cdot a_{i3}
-     \]
-  Questa formula pondera ciascuna misura per dare maggiore peso all'esperienza (0.5) e al colloquio (2) rispetto al test tecnico (0.3). Per il quinto candidato (\(i=5\)) con 5 anni di esperienza, un punteggio di 80 al test e una valutazione di 4 al colloquio, il punteggio di idoneità risulterebbe:
-  \[
-     x_5 = 0.5 \cdot 5 + 0.3 \cdot 80 + 2 \cdot 4 = 2.5 + 24 + 8 = 34.5
-     \]
-  In questo caso, il punteggio di idoneità \(x_i\) è su una scala propria, definita dalle scelte di peso e dalle unità combinate, e consente di confrontare i candidati in modo sintetico, anche se ogni componente ha un'unità di misura diversa.
 \end{enumerate}
+
+Per produrre un indicatore che misuri l'idoneità complessiva su una scala uniforme, potremmo usare una formula come:
+\[
+      x_i = 0.5 \cdot a_{i1} + 0.3 \cdot a_{i2} + 2 \cdot a_{i3}
+      \]
+Questa formula pondera ciascuna misura per dare maggiore peso all'esperienza (0.5) e al colloquio (2) rispetto al test tecnico (0.3). Per il quinto candidato (\(i=5\)) con 5 anni di esperienza, un punteggio di 80 al test e una valutazione di 4 al colloquio, il punteggio di idoneità risulterebbe:
+\[
+      x_5 = 0.5 \cdot 5 + 0.3 \cdot 80 + 2 \cdot 4 = 2.5 + 24 + 8 = 34.5
+      \]
+In questo caso, il punteggio di idoneità \(x_i\) è su una scala propria, definita dalle scelte di peso e dalle unità combinate, e consente di confrontare i candidati in modo sintetico, anche se ogni componente ha un'unità di misura diversa.
 
 \subsection{Trasformazioni lineari}\label{trasformazioni-lineari}
 
@@ -1298,7 +1298,7 @@ Geometricamente, il termine \(a\) trasla il grafico lungo l'asse verticale senza
 
 Un cambiamento di scala è una trasformazione lineare applicata a ogni misura i-esima del dato, che permette di adattare l'unità di misura senza alterare i rapporti tra le osservazioni. Vediamo alcuni esempi pratici.
 
-\begin{example}[Ore uomo dedicate a interventi di manutenzione]
+\begin{example}[Dati spese]
 Supponiamo di avere i dati su diverse spese in euro e di volerli esprimere in migliaia di euro per facilitare la lettura. La trasformazione è:
 
 \[
@@ -1314,7 +1314,7 @@ y_4 = \frac{1}{1000} \cdot 12~000 = 12
 Quindi, invece di esprimere la quarta misura come \(12~000\) euro, la rappresentiamo come 12 \emph{migliaia} di euro, semplificando la gestione e la comparabilità dei dati.
 \end{example}
 
-\begin{example}[Ore uomo dedicate a interventi di manutenzione]
+\begin{example}[Conversione temperature]
 Anche la conversione da gradi Celsius (\(C\)) a gradi Fahrenheit (\(F\)) segue una trasformazione lineare, espressa come:
 
 \[
@@ -1329,6 +1329,20 @@ F_2 = 32 + \frac{9}{5} \cdot 25 = 32 + 45 = 77
 
 Questa trasformazione mantiene la proporzionalità tra le temperature, adattando la scala e le unità di misura.
 \end{example}
+
+Le trasformazioni lineari \(y = a + bx\) mantengono le distanze relative tra i dati poiché ogni differenza tra due valori \(x_i\) e \(x_j\) viene amplificata o ridotta di un fattore costante \(b\). In altre parole, per ogni coppia di dati \(x_i, x_j\) vale la relazione:
+
+\[
+y_i - y_j = b (x_i - x_j)
+\]
+
+Quindi, la proporzionalità tra le differenze dei valori originali si conserva, preservando l'ordine e la struttura relativa dei dati.
+
+In termini più intuitivi immaginate di avere 5 punti distribuiti su una retta, rappresentati da valori numerici come coordinate lungo un asse \(x\). Se si cambia l'unità di misura (ad esempio passando da metri a centimetri) o se si decide di nascondere i numeri, la loro disposizione relativa sulla retta rimane la stessa agli occhi di chi osserva: le distanze tra i punti e l'ordine dei punti non cambiano.
+
+Questo accade perché una trasformazione lineare del tipo \(y = a + bx\) modifica solo la scala e la posizione dell'intero sistema, ma non altera le proporzioni tra le distanze dei punti. È come osservare un disegno su un foglio: se ingrandisci o rimpicciolisci il foglio, le figure disegnate mantengono le stesse relazioni interne tra di loro.
+
+All'occhio, quindi, i punti ``restano uguali'' perché la trasformazione lineare agisce uniformemente su tutti i punti, preservando le loro distanze relative e l'allineamento lungo la retta.
 
 \subsubsection{Rappresentazione grafica delle trasformazioni lineari}\label{rappresentazione-grafica-delle-trasformazioni-lineari}
 
@@ -1375,6 +1389,122 @@ allora (\(x_1=1, x_2=5, x_3=7, x_4=11, x_5=17\)). Geometricamente
 \begin{center}\includegraphics{Appunti_di_Statistica_2025_files/figure-latex/tranf-lin-gr3-1} \end{center}
 
 Osserviamo che i dati sono stati traslati a destra di uno, i dati originari vanno da \(0\) a \(16\), quelli trasformati da \(1\) a \(17\). Notiamo che lo zero è cambiato nella nuova scala.
+
+\textbf{caso 4: \(a\ne 0\), \(b\ne 0\)}
+
+Le distanze tra i dati restano invariate, lo zero cambia.
+Per esempio: supponiamo di avere osservato (\(x_1=0, x_2=4, x_3=6, x_4=10, x_5=16\)), e fissato \(a=+1\) e \(b=1/2\)
+\[
+y_i= 3 + \frac 12 \cdot x_i, \forall i = 1,...,5
+\]
+allora (\(x_1=3, x_2=5, x_3=6, x_4=8, x_5=11\)). Geometricamente
+
+\begin{center}\includegraphics{Appunti_di_Statistica_2025_files/figure-latex/tranf-lin-gr4-1} \end{center}
+
+Osserviamo che i dati sono stati traslati a destra di uno, i dati originari vanno da \(0\) a \(16\), quelli trasformati da \(3\) a \(11\). Notiamo che lo zero è cambiato nella nuova scala.
+
+\subsubsection{Scelta dei coefficienti}\label{scelta-dei-coefficienti}
+
+A volte i coefficienti \(a\) e \(b\) vengono usati per modificare a piacimento il massimo e il minimo dei dati,
+per trasformare, ad esempio, punteggi in centesimi in punteggi in trentesimi.
+
+Se i dati originari esistono nell'intervallo \([x_{\min},x_{\max}]\), ovvero tutti i dati \(x_{\min}\le x_i\le x_{\max}\)
+e vogliamo trasformarli in dati \(y_i\) tali che \(y_{\min}\le y_i\le y_{\max}\), dove \(y_{\min}\) e \(y_{\max}\) sono fissati arbitrariamente. Se imponiamo
+
+\[
+\begin{cases}
+y_{\text{min}} = a + b \cdot x_{\text{min}} \\
+y_{\text{max}} = a + b \cdot x_{\text{max}}
+\end{cases}
+\]
+
+Avremo:
+\[
+b = \frac{y_{\text{max}} - y_{\text{min}}}{x_{\text{max}} - x_{\text{min}}}
+\]
+
+e quindi:
+\[
+a = y_{\text{min}} - \frac{y_{\text{max}} - y_{\text{min}}}{x_{\text{max}} - x_{\text{min}}} \cdot x_{\text{min}}
+\]
+in definitiva
+\[
+y = \left( y_{\text{min}} - \frac{y_{\text{max}} - y_{\text{min}}}{x_{\text{max}} - x_{\text{min}}} \cdot x_{\text{min}} \right) + \frac{y_{\text{max}} - y_{\text{min}}}{x_{\text{max}} - x_{\text{min}}} \cdot x
+\]
+
+\begin{example}[Conversione punteggi tra 0 e 50]
+Supponiamo di aver somministrato un questionario con 25 domande, che assegnano punteggio \(0\) se la risposta è sbagliata,
+\(+1\) se la risposta è parzialmente corretta e \(+2\) se la risposta è corretta. Sia \(x_i\) la somma dei punteggi dello studente etichettato con \(i\), che potrà:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  sbagliarle tutte \(x_i=0\cdot 25 =0\)
+\item
+  rispondere correttamente a tutte \(x_i=2\cdot 25 =50\).
+\end{enumerate}
+
+Il punteggio originario varia in una scala tra \(0\) e \(50\).
+
+Per trasformare il punteggio in trentesimi faremo
+\[
+y_i = \left(0 - \left(\frac{30-0}{50-0}\right)\cdot 0\right)+\left(\frac{30-0}{50-0}\right) x_i=\frac 35x_i
+\]
+
+Il nuovo punteggio varrà quindi
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  se tutte le domande sono sbagliate \(x_i = 0 \rightarrow y_i = 0\)
+\item
+  se tutte le domande sono corrette \(x_i = 50 \rightarrow y_i = 30\)
+\end{enumerate}
+
+Il punteggio trasformato varia tra 0 e 30. Se per esempio lo studente 3 ha ottenuto il punteggio \(x_3=43\) avrà un voto in trentesimi pari a
+\[
+y_3=\frac{30}{50}\cdot43=25.8
+\]
+\end{example}
+
+\begin{example}[Conversione punteggi tra -25 e 25]
+Supponiamo di aver somministrato un questionario con 15 domande, che assegnano punteggio \(-1\) se la risposta è sbagliata,
+\(0\) se la risposta non è data e \(+1\) se la risposta è corretta
+
+Sia \(x_i\) la somma dei punteggi dello studente etichettato con \(i\), che potrà:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  sbagliarle tutte \(x_i=-1\cdot 25 =-25\)
+\item
+  rispondere correttamente a tutte \(x_i=1\cdot 25 =25\)
+\end{enumerate}
+
+Per trasformare il punteggio in trentesimi faremo
+\[
+y_i = \left(0 - \left(\frac{30-0}{50-0}\right)\cdot (-25)\right)+\left(\frac{30-0}{50-0}\right) x_i=15+\frac 35x_i
+\]
+
+Il nuovo punteggio varrà
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  se tutte le domande sono sbagliate \(x_i = -25 \rightarrow y_i = 15+3/5\cdot(-25)=0\)
+\item
+  se tutte le domande sono corrette \(x_i = +25 \rightarrow y_i = 15+3/5\cdot(+25)=30\)
+\end{enumerate}
+
+Il punteggio trasformato varia tra 0 e 30. Se per esempio lo studente 3 ha ottenuto il punteggio \(x_3=21\) avrà un voto in trentesimi pari a
+\[
+y_3=15+\frac{3}{5}\cdot43=27.6
+\]
+\end{example}
 
 \section{Distribuzione di Frequenza}\label{distribuzione-di-frequenza}
 
@@ -2590,8 +2720,8 @@ Stipendio medio aumenta esattamente di 100\euro, la varianza non cambia.
 
 \begin{eqnarray*}
 y_{i}   &=& x_{i} + \frac{5} {100}\ x_{i} = 1.05\ x_{i}  \\
-\bar{y} &=& 1.05 \bar{x}  .\\
-\sigma_Y^2=(1.05)^2\sigma_X^2
+\bar{y} &=& 1.05 \bar{x}  \\
+\sigma_Y^2 &=& (1.05)^2\sigma_X^2
 \end{eqnarray*}
 
 La MEDIA aumenta del 5\%, la varianza aumenta in modo quadratico.
@@ -8446,7 +8576,7 @@ Alla luce dei dati (3 successi su 5 estrazioni) il valore \(\hat\pi=0.6\) è il 
 
 \subsection{\texorpdfstring{Muoviamo anche \(S_n\)}{Muoviamo anche S\_n}}\label{muoviamo-anche-s_n}
 
-\begin{center}\includegraphics{Appunti_di_Statistica_2025_files/figure-latex/unnamed-chunk-6-1} \end{center}
+\begin{center}\includegraphics{Appunti_di_Statistica_2025_files/figure-latex/unnamed-chunk-7-1} \end{center}
 
 In sintesi, lo spazio \(X\times\Theta\) è l'incrocio tra tutti i possibili \(\pi\) e tutti i possibili \(s_n\), ne esce una matrice con 10 righe e 10 colonne dove le righe rappresentano \(s_n\) e le colonne \(\pi\).
 
