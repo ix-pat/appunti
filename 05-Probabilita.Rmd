@@ -78,9 +78,11 @@ A\cup B
 $$ è vera se **almeno uno dei due** è vero.
 ::::
 :::
+
 ```{r unione,out.height="20%"}
 include_graphics("img/unione.png")
 ```
+
 ::: {.example}
 \begin{eqnarray*}
     A&=&  \text{Domani pioverà}\\
@@ -505,7 +507,7 @@ grafica.
 ::::
 :::
 
-```{r incomp,fig.cap="Regola di De Morgan per due insiemi: la probabilità dell'unione è la somma della probaiblità di tre eventi disgiunti",out.height="20%"}
+```{r incomp,fig.cap="Due eventi si dicono incompatibili se sono disgiunti",out.height="20%"}
 include_graphics("img/disgiunto.png")
 ```
 

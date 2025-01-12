@@ -1171,7 +1171,7 @@ Anche in questo caso la risposta è negativa, <span class="math inline">\(\pi=0.
 <h2><span class="header-section-number">12.3</span> La Funzione di Verosimiglianza<a href="teoria-della-verosimiglianza.html#la-funzione-di-verosimiglianza" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="info">
 <div class="definition">
-<p><span id="def:unlabeled-div-166" class="definition"><strong>Definizione 12.1  (Funzione di Verosimiglianza) </strong></span>Siano <span class="math inline">\(x_1,...,x_n\)</span> <span class="math inline">\(n\)</span> osservazioni di <span class="math inline">\(X\sim \mathscr{L}(\theta)\)</span>, <span class="math inline">\(\theta\in\Theta\)</span>, si definisce la verosimiglianza <span class="math inline">\(L\)</span> di <span class="math inline">\(\theta\)</span> la funzione:
+<p><span id="def:unlabeled-div-167" class="definition"><strong>Definizione 12.1  (Funzione di Verosimiglianza) </strong></span>Siano <span class="math inline">\(x_1,...,x_n\)</span> <span class="math inline">\(n\)</span> osservazioni di <span class="math inline">\(X\sim \mathscr{L}(\theta)\)</span>, <span class="math inline">\(\theta\in\Theta\)</span>, si definisce la verosimiglianza <span class="math inline">\(L\)</span> di <span class="math inline">\(\theta\)</span> la funzione:
 <span class="math display">\[L(\theta;x_1,...,x_n)=L(\theta)\propto P(X_1=x_1,...,X_n=x_n;\theta)\]</span></p>
 </div>
 </div>
@@ -1186,7 +1186,7 @@ L(\theta) &amp;\propto&amp; P(X_1=x_1;\theta)\cdot...\cdot P(X_n=x_n;\theta) \\
 \end{eqnarray*}\]</span></p>
 <div class="info">
 <div class="definition">
-<p><span id="def:unlabeled-div-167" class="definition"><strong>Definizione 12.2  (Log Verosimiglianza) </strong></span>Si definisce la log-verosimiglianza <span class="math inline">\(\ell\)</span>:
+<p><span id="def:unlabeled-div-168" class="definition"><strong>Definizione 12.2  (Log Verosimiglianza) </strong></span>Si definisce la log-verosimiglianza <span class="math inline">\(\ell\)</span>:
 <span class="math display">\[\begin{eqnarray*}
 \ell(\theta) &amp;=&amp; \log L(\theta) \\
              &amp;=&amp; \log \prod_{i=1}^n f(x_i;\theta)\\
@@ -1199,7 +1199,7 @@ L(\theta) &amp;\propto&amp; P(X_1=x_1;\theta)\cdot...\cdot P(X_n=x_n;\theta) \\
 <h2><span class="header-section-number">12.4</span> La Stimatore di massima Verosimiglianza<a href="teoria-della-verosimiglianza.html#la-stimatore-di-massima-verosimiglianza" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="info">
 <div class="definition">
-<p><span id="def:unlabeled-div-168" class="definition"><strong>Definizione 12.3  (Stimatore du Massima Verosimiglianza) </strong></span>Lo stimatore di <em>massima verosimiglianza</em> per <span class="math inline">\(\theta\)</span> è
+<p><span id="def:unlabeled-div-169" class="definition"><strong>Definizione 12.3  (Stimatore du Massima Verosimiglianza) </strong></span>Lo stimatore di <em>massima verosimiglianza</em> per <span class="math inline">\(\theta\)</span> è
 <span class="math display">\[\begin{eqnarray*}
 \hat\theta &amp;=&amp; \operatorname*{\text{argmax}}_{\theta\in\Theta} L(\theta)\\
            &amp;=&amp; \operatorname*{\text{argmax}}_{\theta\in\Theta} \ell(\theta)
@@ -1465,7 +1465,7 @@ equazioni di derivate di <span class="math inline">\(\ell(\mu,\sigma^2)\)</span>
 \]</span></p>
 <div class="info">
 <div class="proposition">
-<p><span id="prp:unlabeled-div-169" class="proposition"><strong>Proprietà 12.1  </strong></span><span class="math display">\[\begin{eqnarray*}
+<p><span id="prp:unlabeled-div-170" class="proposition"><strong>Proprietà 12.1  </strong></span><span class="math display">\[\begin{eqnarray*}
   \hat\mu            &amp;=&amp; \frac 1 n \sum_{i=1}^n x_i\\
   \hat\sigma^2       &amp;=&amp; \frac 1 n \sum_{i=1}^n(x_i-\hat\mu)^2\\
                      &amp;=&amp; \frac 1 n \sum_{i=1}^n x_i^2 -\hat\mu^2
@@ -1475,7 +1475,7 @@ equazioni di derivate di <span class="math inline">\(\ell(\mu,\sigma^2)\)</span>
 <p>Tutta l’<strong>informazione</strong> del campione è contenuta nelle statistiche <span class="math inline">\(\sum_{i=1}^n x_i\)</span>
 e <span class="math inline">\(\sum_{i=1}^n x_i^2\)</span>.</p>
 <div class="proof">
-<p><span id="unlabeled-div-170" class="proof"><em>Dimostrazione</em>. </span><span class="math display">\[\begin{eqnarray*}
+<p><span id="unlabeled-div-171" class="proof"><em>Dimostrazione</em>. </span><span class="math display">\[\begin{eqnarray*}
   L(\mu,\sigma^2;\,\mathbf{x}) &amp;=&amp;  \prod_{i=1}^n \frac{1}{\sqrt{2\pi\sigma^2}}e^
   {-\frac 12\left(\frac{(x_i-\mu)^2}{\sigma^2}\right)}\\
   &amp;=&amp;\left(\frac{1}{\sqrt{2\pi\sigma^2}}\right)^n
@@ -1601,7 +1601,7 @@ Il terzo <strong>è vincolato</strong>:
 <h2><span class="header-section-number">12.10</span> Proprietà degli stimatori di massima verosimiglianza<a href="teoria-della-verosimiglianza.html#proprietà-degli-stimatori-di-massima-verosimiglianza" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="info">
 <div class="proposition">
-<p><span id="prp:unlabeled-div-171" class="proposition"><strong>Proprietà 12.2  (Stimatori di massima verosimgilianza) </strong></span>Siano <span class="math inline">\(X_1,...,X_n\)</span> <span class="math inline">\(n\)</span> VC IID, replicazioni di <span class="math inline">\(X\sim \mathscr{L}(\theta)\)</span> e sia <span class="math inline">\(\hat\theta\)</span> lo stimatore di massima verosimiglianza per per <span class="math inline">\(\theta\)</span>, allora</p>
+<p><span id="prp:unlabeled-div-172" class="proposition"><strong>Proprietà 12.2  (Stimatori di massima verosimgilianza) </strong></span>Siano <span class="math inline">\(X_1,...,X_n\)</span> <span class="math inline">\(n\)</span> VC IID, replicazioni di <span class="math inline">\(X\sim \mathscr{L}(\theta)\)</span> e sia <span class="math inline">\(\hat\theta\)</span> lo stimatore di massima verosimiglianza per per <span class="math inline">\(\theta\)</span>, allora</p>
 <ol style="list-style-type: decimal">
 <li><p><span class="math inline">\(\hat\theta\)</span> non è sempre stimatore corretto ma è sempre corretto asintoticamente:
 <span class="math display">\[E(\hat\theta)\xrightarrow{n\to\infty}\theta\]</span></p></li>
