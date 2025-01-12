@@ -512,7 +512,7 @@ drop fuzzy shadow]
 \makeatother
 \subtitle{CLEAM AA 24/25}
 \author{Patrizio Frederic}
-\date{Aggiornato al 10-01-2025}
+\date{Aggiornato al 12-01-2025}
 
 \begin{document}
 \maketitle
@@ -570,7 +570,7 @@ costruisco le mie lezioni. Non è da ritenersi alternativo alle lezioni in aula 
 
 Un ringraziamento speciale va alle mie donne e a Michele Lalla, amico, collega e maestro.
 
-Bologna, il 10-01-2025.
+Bologna, il 12-01-2025.
 
 \part{Statistica Descrittiva}
 
@@ -3533,6 +3533,10 @@ Milano 1982.
 
 \subsection{Eventi}\label{eventi}
 
+Prima di definire cos'è la misura di \emph{probabilità} dobbiamo definire a cosa
+si applichi. La probabilità, nell'accezione che daremo, è un numero compreso
+tra 0 ed 1 che gradua quanto è credibile l'accadibilità di un fatto (un \emph{evento}).
+
 Un evento \(E\) è un \emph{fatto} (potenzialmente verificabile), espresso nel
 linguaggio comune, che non sappiamo se è vero o se è falso:
 
@@ -3569,11 +3573,14 @@ A\cup B
 
 \end{info}
 
+\begin{center}\includegraphics[width=41.67in,height=0.2\textheight,]{img/unione} \end{center}
+
 \begin{example}
 \begin{eqnarray*}
     A&=&  \text{Domani pioverà}\\
     B&=&  \text{Domani ci sarà traffico}
-\end{eqnarray*} \[
+\end{eqnarray*}
+\[
 A\cup B\qquad\text{sarà vera se domani pioverà }\textbf{o}\text{ ci sarà traffico }\textbf{o}\text{ ci sarà pioggia e traffico.}
 \]
 \end{example}
@@ -3581,12 +3588,15 @@ A\cup B\qquad\text{sarà vera se domani pioverà }\textbf{o}\text{ ci sarà traf
 \begin{info}
 
 \begin{definition}[Intersezione tra Eventi]
-Siano \(A\) e \(B\) due eventi, l'espressione \[
+Siano \(A\) e \(B\) due eventi, l'espressione
+\[
 A\cap B\qquad\text{è vera se è vero $A$ }\textbf{e}\text{  è vero $B$.}
 \]
 \end{definition}
 
 \end{info}
+
+\begin{center}\includegraphics[width=41.67in,height=0.2\textheight,]{img/intersezione} \end{center}
 
 \begin{example}
 \begin{eqnarray*}
@@ -3605,6 +3615,8 @@ Sia \(A\) un evento, si definisce \(\bar A\) l'evento complementare di \(A\)
 \end{definition}
 
 \end{info}
+
+\begin{center}\includegraphics[width=41.67in,height=0.2\textheight,]{img/complementare} \end{center}
 
 \begin{example}
 \begin{eqnarray*}
@@ -3660,7 +3672,8 @@ Sia \(A\) un evento, si definisce l'evento certo \(\emptyset\) l'evento:
 \begin{nota}
 Gli operatori Unione \(\cup\) e Intersezione \(\cap\) si comportano sugli
 insiemi come somme \(+\) e moltiplicazione \(\times\) si comportano sui
-numeri. In particolare \begin{align*}
+numeri. In particolare
+\begin{align*}
   A\cup B &=  B\cup A ,&&\text{prorietà commutativa}\\
   A\cap B &=  B\cap A ,&&\text{prorietà commutativa}\\
   (A\cup B)\cup C &=   A\cup (B\cup C),       &&\text{prorietà associativa}\\
@@ -3674,11 +3687,15 @@ numeri. In particolare \begin{align*}
 
 \subsection{La probabilità è una funzione}\label{la-probabilituxe0-uxe8-una-funzione}
 
-La probabilità assegna ad ogni evento il grado di credibilità \[
+La probabilità assegna ad ogni evento il grado di credibilità
+\[
 P(A)
-\] indica la probabilità che l'evento \(A\) sia vero. In particolare \[
+\]
+indica la probabilità che l'evento \(A\) sia vero. In particolare
+\[
 P(A)=P(\Omega)=1
-\] se \(A\) è un evento \textbf{certo}
+\]
+se \(A\) è un evento \textbf{certo}
 \[
 P(A)=P(\emptyset)=0
 \]
@@ -3991,7 +4008,7 @@ Nell'ordine
 
 \begin{figure}[H]
 
-{\centering \includegraphics{Appunti_di_Statistica_2025_files/figure-latex/demorgan-1} 
+{\centering \includegraphics[width=41.67in,height=0.2\textheight,]{img/demorgan} 
 
 }
 
@@ -4010,7 +4027,7 @@ grafica.
 
 \begin{figure}[H]
 
-{\centering \includegraphics{Appunti_di_Statistica_2025_files/figure-latex/incomp-1} 
+{\centering \includegraphics[width=41.67in,height=0.2\textheight,]{img/disgiunto} 
 
 }
 
@@ -4148,7 +4165,7 @@ Sia \(A\) è un evento e \(\bar A\) è il suo complementare, allora la coppia
 \(\{A,\bar A\}\) è una \emph{bipartizione} di \(\Omega\).
 \end{definition}
 
-\begin{center}\includegraphics[width=21in,height=0.35\textheight,]{img/2-part} \end{center}
+\begin{center}\includegraphics[width=41.67in,height=0.2\textheight,]{img/bipartizione} \end{center}
 
 Più in generale definiamo una \emph{partizione finita}:
 
@@ -4168,7 +4185,7 @@ tali che
 Allora \(\{A_1,...,A_n\}\) è detta una \emph{partizione} (finita) di \(\Omega\)
 \end{definition}
 
-\begin{center}\includegraphics[width=21in,height=0.35\textheight,]{img/n-part} \end{center}
+\begin{center}\includegraphics[width=41.67in,height=0.2\textheight,]{img/npart} \end{center}
 
 \subsection{Teorema delle probabilità totali}\label{teorema-delle-probabilituxe0-totali}
 
@@ -4186,7 +4203,7 @@ P(B)&=&P(A)P(B|A)+P(\bar A)P(B|\bar A)
 
 \end{info}
 
-\begin{center}\includegraphics[width=21in,height=0.35\textheight,]{img/2x2} \end{center}
+\begin{center}\includegraphics[width=41.67in,height=0.2\textheight,]{img/2x2} \end{center}
 
 \begin{proof}
 Si parte considerando l'identità insiemistica
@@ -4251,7 +4268,7 @@ P(B_j)=\sum_{i=1}^nP(A_i)P(B_j|A_i),\qquad j=1,...,m
 
 \end{info}
 
-\begin{center}\includegraphics[width=21in,height=0.35\textheight,]{img/nxm} \end{center}
+\begin{center}\includegraphics[width=41.67in,height=0.2\textheight,]{img/nxm} \end{center}
 
 \begin{proof}
 Si parte considerando l'identità insiemistica
@@ -8562,7 +8579,7 @@ Alla luce dei dati (3 successi su 5 estrazioni) il valore \(\hat\pi=0.6\) è il 
 
 \subsection{\texorpdfstring{Muoviamo anche \(S_n\)}{Muoviamo anche S\_n}}\label{muoviamo-anche-s_n}
 
-\begin{center}\includegraphics{Appunti_di_Statistica_2025_files/figure-latex/unnamed-chunk-11-1} \end{center}
+\begin{center}\includegraphics{Appunti_di_Statistica_2025_files/figure-latex/unnamed-chunk-7-1} \end{center}
 
 In sintesi, lo spazio \(X\times\Theta\) è l'incrocio tra tutti i possibili \(\pi\) e tutti i possibili \(s_n\), ne esce una matrice con 10 righe e 10 colonne dove le righe rappresentano \(s_n\) e le colonne \(\pi\).
 

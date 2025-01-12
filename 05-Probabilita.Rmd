@@ -14,10 +14,17 @@ editor_options:
 
 
 source("intro.R")
+
+grafico <- function(file){
+  file_ext <- ifelse(html,paste0(file,".png"),paste0(file,".pdf"))
+  include_graphics(file_ext,auto_pdf = T)
+}
+
 ```
 
 
 # Cenni di Teoria della probabilità
+
 
 ## Concetti di base 
 
@@ -41,6 +48,10 @@ di Costantini e Geymonat:
 
 ### Eventi
 
+Prima di definire cos'è la misura di _probabilità_ dobbiamo definire a cosa
+si applichi. La probabilità, nell'accezione che daremo, è un numero compreso 
+tra 0 ed 1 che gradua quanto è credibile l'accadibilità di un fatto (un _evento_).
+
 Un evento $E$ è un *fatto* (potenzialmente verificabile), espresso nel
 linguaggio comune, che non sappiamo se è vero o se è falso:
 
@@ -61,29 +72,40 @@ loro, trasformando le operazioni sintattiche del linguaggio comune in
 unioni ed intersezioni di eventi.
 
 ::: {.info data-latex=""}
-::: {.definition name="Unione tra Eventi"}
+:::: {.definition name="Unione tra Eventi"}
 Siano $A$ e $B$ due eventi, l'espressione $$
 A\cup B
 $$ è vera se **almeno uno dei due** è vero.
+::::
 :::
-:::
-
+```{r unione,out.height="20%"}
+include_graphics("img/unione.png")
+```
 ::: {.example}
 \begin{eqnarray*}
     A&=&  \text{Domani pioverà}\\
     B&=&  \text{Domani ci sarà traffico}
-\end{eqnarray*} $$
+\end{eqnarray*} 
+$$
 A\cup B\qquad\text{sarà vera se domani pioverà }\textbf{o}\text{ ci sarà traffico }\textbf{o}\text{ ci sarà pioggia e traffico.}
 $$
 :::
 
+
 ::: {.info data-latex=""}
 ::: {.definition name="Intersezione tra Eventi"}
-Siano $A$ e $B$ due eventi, l'espressione $$
+Siano $A$ e $B$ due eventi, l'espressione 
+$$
 A\cap B\qquad\text{è vera se è vero $A$ }\textbf{e}\text{  è vero $B$.}
 $$
 :::
 :::
+
+
+```{r intersezione,out.height="20%"}
+include_graphics("img/intersezione.png")
+```
+
 
 ::: {.example}
 \begin{eqnarray*}
@@ -100,6 +122,11 @@ $$
 Sia $A$ un evento, si definisce $\bar A$ l'evento complementare di $A$
 :::
 :::
+
+```{r complementare,out.height="20%"}
+include_graphics("img/complementare.png")
+```
+
 
 ::: {.example}
 \begin{eqnarray*}
@@ -155,7 +182,8 @@ Sia $A$ un evento, si definisce l'evento certo $\emptyset$ l'evento:
 ::: {.nota data-latex=""}
 Gli operatori Unione $\cup$ e Intersezione $\cap$ si comportano sugli
 insiemi come somme $+$ e moltiplicazione $\times$ si comportano sui
-numeri. In particolare \begin{align*}
+numeri. In particolare 
+\begin{align*}
   A\cup B &=  B\cup A ,&&\text{prorietà commutativa}\\
   A\cap B &=  B\cap A ,&&\text{prorietà commutativa}\\
   (A\cup B)\cup C &=   A\cup (B\cup C),       &&\text{prorietà associativa}\\
@@ -168,11 +196,15 @@ numeri. In particolare \begin{align*}
 
 ### La probabilità è una funzione
 
-La probabilità assegna ad ogni evento il grado di credibilità $$
+La probabilità assegna ad ogni evento il grado di credibilità 
+$$
 P(A)
-$$ indica la probabilità che l'evento $A$ sia vero. In particolare $$
+$$ 
+indica la probabilità che l'evento $A$ sia vero. In particolare 
+$$
 P(A)=P(\Omega)=1
-$$ se $A$ è un evento **certo** 
+$$ 
+se $A$ è un evento **certo** 
 $$
 P(A)=P(\emptyset)=0
 $$ 
@@ -445,16 +477,24 @@ Nell'ordine
     grafica.
 :::
 
-```{r demorgan,fig.cap="Regola di De Morgan per due insiemi: la probabilità dell'unione è la somma della probilità di tre eventi disgiunti",echo=FALSE}
-par(mar=c(0,0,0,0)+.1)
-plot(c(0,10),c(0,10),axes = F,xlab="",ylab="",type="n",asp=.6)
-rect(0,2,10,9)
-text(9,8,expression(Omega),cex=2)
-ellisse(3,5,2.8,2.1,col = ared,density=30,lwd=.1)
-ellisse(7,5,2.8,2.1,col = iblue,density=30,angle=-45,lwd=.1)
-text(2,5,expression(paste(A,intersect(bar(B)))),cex=1)
-text(5,5,expression(paste(A,intersect(B))),cex=1)
-text(8,5,expression(paste(B,intersect(bar(A)))),cex=1)
+<!-- ```{r demorgan,fig.cap="Regola di De Morgan per due insiemi: la probabilità dell'unione è la somma della probilità di tre eventi disgiunti",echo=FALSE} -->
+<!-- par(mar=c(0,0,0,0)+.1) -->
+<!-- plot(c(0,10),c(0,10),axes = F,xlab="",ylab="",type="n",asp=.6) -->
+<!-- rect(0,2,10,9) -->
+<!-- text(9,8,expression(Omega),cex=2) -->
+<!-- ellisse(3,5,2.8,2.1,col = ared,density=30,lwd=.1) -->
+<!-- ellisse(7,5,2.8,2.1,col = iblue,density=30,angle=-45,lwd=.1) -->
+<!-- text(2,5,expression(paste(A,intersect(bar(B)))),cex=1) -->
+<!-- text(5,5,expression(paste(A,intersect(B))),cex=1) -->
+<!-- text(8,5,expression(paste(B,intersect(bar(A)))),cex=1) -->
+<!-- ``` -->
+
+<!-- ```{r demorgan,fig.cap="Regola di De Morgan per due insiemi: la probabilità dell'unione è la somma della probilità di tre eventi disgiunti",echo=FALSE,out.height=200}  -->
+<!-- grafico("img/output_page_2") -->
+<!-- ``` -->
+
+```{r demorgan,fig.cap="Regola di De Morgan per due insiemi: la probabilità dell'unione è la somma della probilità di tre eventi disgiunti",out.height="20%"}
+include_graphics("img/demorgan.png")
 ```
 
 ::: {.info data-latex=""}
@@ -465,18 +505,13 @@ grafica.
 ::::
 :::
 
-```{r incomp,fig.cap="Regola di De Morgan per due insiemi: la probabilità dell'unione è la somma della probaiblità di tre eventi disgiunti",echo=FALSE}
-par(mar=c(0,0,0,0)+.1)
-
-plot(c(0,10),c(0,10),axes = F,xlab="",ylab="",type="n",asp=.8)
-rect(0,2,10,9)
-text(9,8,expression(Omega),cex=2)
-ellisse(3,5,1.4,1.1,col = ared,density=30,lwd=.1)
-ellisse(7,5,1.5,1.1,col = iblue,density=30,angle=-45,lwd=.1)
-text(3,5,expression(A),cex=2)
-text(7,5,expression(B),cex=2)
-fig.def(titolo = F)
+```{r incomp,fig.cap="Regola di De Morgan per due insiemi: la probabilità dell'unione è la somma della probaiblità di tre eventi disgiunti",out.height="20%"}
+include_graphics("img/disgiunto.png")
 ```
+
+<!-- ```{r incomp,fig.cap="Regola di De Morgan per due insiemi: la probabilità dell'unione è la somma della probaiblità di tre eventi disgiunti",echo=FALSE,out.height=200} -->
+<!-- grafico("img/output_page_4") -->
+<!-- ``` -->
 
 ::: {.example}
 Un'urna ha 8 palline bianche numerate da 1 a 8 e 5 palline nere numerate
@@ -597,11 +632,9 @@ Sia $A$ è un evento e $\bar A$ è il suo complementare, allora la coppia
 $\{A,\bar A\}$ è una *bipartizione* di $\Omega$.
 :::
 
-```{r,out.height="35%"}
-library(knitr)
-include_graphics("img/2-part.png")
+```{r bipartizione,out.height="20%"}
+include_graphics("img/bipartizione.png")
 ```
-
 
 <!-- ![](img/2-part.png){out.width="50%"} -->
 
@@ -617,9 +650,8 @@ tali che
 Allora $\{A_1,...,A_n\}$ è detta una *partizione* (finita) di $\Omega$
 :::
 
-```{r,out.height="35%"}
-library(knitr)
-include_graphics("img/n-part.png")
+```{r npart,out.height="20%"}
+include_graphics("img/npart.png")
 ```
 
 <!-- ![](img/n-part.png){out.width="50%"} -->
@@ -638,8 +670,7 @@ P(B)&=&P(A)P(B|A)+P(\bar A)P(B|\bar A)
 :::
 :::
 
-```{r,out.height="35%"}
-library(knitr)
+```{r 2x2,out.height="20%"}
 include_graphics("img/2x2.png")
 ```
 
@@ -707,8 +738,7 @@ $$
 :::
 :::
 
-```{r,out.height="35%"}
-library(knitr)
+```{r nxm,out.height="20%"}
 include_graphics("img/nxm.png")
 ```
 
