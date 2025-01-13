@@ -859,6 +859,7 @@ names(out) <- nm
 
 kable(out,booktabs = T, escape = F, digits = 2,row.names = F,caption = "Come ricavare le quantità necessarie per calcolare l'istogramma di densità percentuale")%>%
   kableExtra::kable_styling(latex_options = "hold_position")
+fig.def(height = 2,titolo = FALSE)
 ```
 \normalsize
 
@@ -866,7 +867,7 @@ kable(out,booktabs = T, escape = F, digits = 2,row.names = F,caption = "Come ric
 
 La tabella \@ref(tab:conti) mostra passo, passo lo sviluppo del calcolo. La figura \@ref(fig:hist) la corrispondente rappresentazione grafica.
 
-```{r hist,fig.align='center',fig.cap="Rappresentazione grafica dell'istogramma di densità percentuale, l'area di ogni rettangolo corrisponde alla frequenza percentuale della classe, rappresentata sull'asse delle ascisse"}
+```{r hist,fig.align='left',fig.cap="Rappresentazione grafica dell'istogramma di densità percentuale, l'area di ogni rettangolo corrisponde alla frequenza percentuale della classe, rappresentata sull'asse delle ascisse"}
 
 brk  <- c(0,3,5,10,20)
 k <- length(brk)-1
@@ -880,7 +881,7 @@ arrows(brk[-1],.1,brk[-5],.1,cod=3,length = .05,col=ared)
 text((dat3[,1]+dat3[,2])/2,.5,dat3$`$b_j$`,col=ared)
 text((dat3[,1]+dat3[,2])/2,dat3$`$h_j$`*5/8,round(dat3$`$f_j$`*100,2),cex=1/cex,col=iblue)
 segments(-1,dat3$`$h_j$`,brk[-5]+.2,dat3$`$h_j$`,lty=2)
-par(cex=cex)
+
 ```
 ::::
 

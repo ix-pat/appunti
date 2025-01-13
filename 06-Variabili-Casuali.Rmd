@@ -542,7 +542,7 @@ tale che l'area sottesa ad una classe si la probabilità della classe stessa.
 Se per esempio dividiamo l'intervallo in 11 intervalli, otteniamo, graficamente
 
 ```{r 06-Variabili-Casuali-7}
-fig.def()
+fig.def(titolo = F)
 ```
 
 ```{r 06-Variabili-Casuali-8}
