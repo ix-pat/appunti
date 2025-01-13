@@ -503,7 +503,7 @@ include_graphics("img/demorgan.png")
 :::: {.definition name="Eventi Incompatibili"}
 $A$ e $B$ si dicono **incompatibili** se e solo se
 $$A\cap B = \emptyset$$ in figura \@ref(fig:incomp) una rappresentazione
-grafica. 
+grafica.  
 ::::
 :::
 
