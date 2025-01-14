@@ -66,7 +66,7 @@ Con valore atteso e varianza:
 __Esempi__
 
 ```{r 07c-Normale-2,,echo=F}
-fig.def()
+fig.def(titolo = F)
 ```
 
 ```{r 07c-Normale-3,,echo=F}
@@ -478,7 +478,7 @@ kable(rbind(tab[1:5,],continua),row.names = T,booktabs = T, escape = F,linesep =
   column_spec(2,color = ared,border_left = T,border_right = T)%>%
   row_spec(1,color = ared,hline_after = T)
 
-fig.def(height = 3.5)
+fig.def(height = 2.5,titolo = F)
 ```
 
 ```{r 07c-Normale-12,,echo=F}
