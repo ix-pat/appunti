@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2022/dev/Debian) (preloaded format=xelatex 2024.3.16)  15 JAN 2025 18:08
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2022/dev/Debian) (preloaded format=xelatex 2024.3.16)  15 JAN 2025 19:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1480,7 +1480,7 @@ ndard glyph set (RS)
 File: img/grafico_torta_3d_margin.png Graphic file (type bmp)
 <img/grafico_torta_3d_margin.png>
 [40]
-Overfull \hbox (11.87996pt too wide) in paragraph at lines 1907--1917
+Overfull \hbox (11.87996pt too wide) in paragraph at lines 1901--1911
  [][] 
  []
 
@@ -1488,12 +1488,12 @@ File: Appunti_di_Statistica_2025_files/figure-latex/hist-1.pdf Graphic file (ty
 pe pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/hist-1.pdf>
 
-Underfull \hbox (badness 10000) in paragraph at lines 1926--1927
+Underfull \hbox (badness 10000) in paragraph at lines 1920--1921
 [][]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1926--1927
+Underfull \hbox (badness 10000) in paragraph at lines 1920--1921
 
  []
 
@@ -1521,7 +1521,17 @@ File: Appunti_di_Statistica_2025_files/figure-latex/medh2-1.pdf Graphic file (t
 ype pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/medh2-1.pdf>
 [47] [48] [49] [50] [51] [52]
-Overfull \hbox (293.6083pt too wide) in alignment at lines 2484--2491
+
+LaTeX Font Warning: Command \tiny invalid in math mode on input line 2480.
+
+
+LaTeX Font Warning: Command \tiny invalid in math mode on input line 2481.
+
+
+LaTeX Font Warning: Command \small invalid in math mode on input line 2482.
+
+
+Overfull \hbox (293.6083pt too wide) in alignment at lines 2478--2485
  [][][] []
  []
 
@@ -1605,7 +1615,7 @@ File: img/unione.png Graphic file (type bmp)
 File: img/intersezione.png Graphic file (type bmp)
 <img/intersezione.png>
 
-Underfull \hbox (badness 2573) in paragraph at lines 3693--3694
+Underfull \hbox (badness 2573) in paragraph at lines 3687--3688
 [][][]\TU/lmss/bx/n/10.95 Definizione 5.1.3 \TU/lmss/m/n/10.95 (Evento Compleme
 ntare)\TU/lmss/bx/n/10.95 . [][]\TU/lmr/m/n/10.95 Sia $[]$ un evento, si defini
 sce $[]$ l’evento
@@ -1614,18 +1624,18 @@ sce $[]$ l’evento
 File: img/complementare.png Graphic file (type bmp)
 <img/complementare.png>
 [80] [81] [82] [83]
-Underfull \hbox (badness 1038) in paragraph at lines 3932--3933
+Underfull \hbox (badness 1038) in paragraph at lines 3926--3927
 []$ \TU/lmr/m/n/10.95 è dato da tutte le possibili combinazioni dei risultati d
 i due lanci di moneta: $[] []
  []
 
 [84]
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 12.0pt on input line 4005.
+(Font)              scaled to size 12.0pt on input line 3999.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 12.0011pt on input line 4005.
+(Font)              scaled to size 12.0011pt on input line 3999.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 11.99872pt on input line 4005.
+(Font)              scaled to size 11.99872pt on input line 3999.
 [85] [86]
 File: img/demorgan.png Graphic file (type bmp)
 <img/demorgan.png>
@@ -1635,7 +1645,7 @@ File: img/disgiunto.png Graphic file (type bmp)
 File: img/bipartizione.png Graphic file (type bmp)
 <img/bipartizione.png>
 
-Overfull \hbox (20.34663pt too wide) in paragraph at lines 4247--4247
+Overfull \hbox (20.34663pt too wide) in paragraph at lines 4241--4241
  [] 
  []
 
@@ -1664,28 +1674,28 @@ df Graphic file (type pdf)
 f>
 [101]
 LaTeX Font Info:    Calculating math sizes for size <7.63434> on input line 481
-7.
+1.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 7.63434pt on input line 4817.
+(Font)              scaled to size 7.63434pt on input line 4811.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 5.34401pt on input line 4817.
+(Font)              scaled to size 5.34401pt on input line 4811.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 3.81717pt on input line 4817.
+(Font)              scaled to size 3.81717pt on input line 4811.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 7.63503pt on input line 4817.
+(Font)              scaled to size 7.63503pt on input line 4811.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 5.3445pt on input line 4817.
+(Font)              scaled to size 5.3445pt on input line 4811.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 3.8175pt on input line 4817.
+(Font)              scaled to size 3.8175pt on input line 4811.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 7.63351pt on input line 4817.
+(Font)              scaled to size 7.63351pt on input line 4811.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 5.34343pt on input line 4817.
+(Font)              scaled to size 5.34343pt on input line 4811.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 3.81676pt on input line 4817.
+(Font)              scaled to size 3.81676pt on input line 4811.
 
 LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <3.81717> not available
-(Font)              size <5> substituted on input line 4817.
+(Font)              size <5> substituted on input line 4811.
 
 [102] [103] [104] [105]
 File: Appunti_di_Statistica_2025_files/figure-latex/06-Variabili-Casuali-8-1.pd
@@ -1749,13 +1759,13 @@ File: Appunti_di_Statistica_2025_files/figure-latex/06-unif3-1.pdf Graphic file
  (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/06-unif3-1.pdf>
 [111] [112]
-Overfull \hbox (19.40828pt too wide) detected at line 5276
+Overfull \hbox (19.40828pt too wide) detected at line 5270
 [][][] [] [][] [] [][][] [] [][] [] [] [] [][] [][][] [] [][] [] [][][] [] [][]
  [] [] [] [][] [] [][][] [] [][][] [] [][][] [] [][] [] [] [] [] [] []
  []
 
 [113]
-Overfull \hbox (19.40828pt too wide) detected at line 5307
+Overfull \hbox (19.40828pt too wide) detected at line 5301
 [][][] [] [][] [] [][][] [] [][] [] [] [] [][] [][][] [] [][] [] [][][] [] [][]
  [] [] [] [][] [] [][][] [] [][][] [] [][][] [] [][] [] [] [] [] [] []
  []
@@ -1782,13 +1792,13 @@ File: Appunti_di_Statistica_2025_files/figure-latex/07a-Binomiale-4,-1.pdf Grap
 hic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/07a-Binomiale-4,-1.pdf>
 [123] [124]
-Underfull \hbox (badness 1490) in paragraph at lines 5668--5670
+Underfull \hbox (badness 1490) in paragraph at lines 5662--5664
 []\TU/lmr/bx/it/10.95 Proprietà riproduttiva: \TU/lmr/m/it/10.95 Siano $[][][] 
 [][][] [][][][] [][]$ $[]$ VC indipendenti, ognuna $[] []
  []
 
 [125]
-Underfull \hbox (badness 2951) in paragraph at lines 5704--5706
+Underfull \hbox (badness 2951) in paragraph at lines 5698--5700
 []\TU/lmr/bx/n/10.95 Proprietà riproduttiva: \TU/lmr/m/n/10.95 Siano $[][][] []
 [][] [][][][] [][]$ $[]$ VC indipendenti, ognuna $[] []
  []
@@ -1872,7 +1882,7 @@ File: Appunti_di_Statistica_2025_files/figure-latex/07c-Normale-11,-1.pdf Graph
 ic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/07c-Normale-11,-1.pdf>
 [139]
-Overfull \hbox (5.72658pt too wide) in paragraph at lines 6108--6121
+Overfull \hbox (5.72658pt too wide) in paragraph at lines 6102--6115
 [][] 
  []
 
@@ -1880,7 +1890,7 @@ File: Appunti_di_Statistica_2025_files/figure-latex/07c-Normale-12,-1.pdf Graph
 ic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/07c-Normale-12,-1.pdf>
 
-Overfull \hbox (5.72658pt too wide) in paragraph at lines 6126--6143
+Overfull \hbox (5.72658pt too wide) in paragraph at lines 6120--6137
 [][] 
  []
 
@@ -1891,35 +1901,35 @@ ic file (type pdf)
 Underfull \vbox (badness 6775) has occurred while \output is active []
 
 [140]
-Overfull \hbox (5.72658pt too wide) in paragraph at lines 6148--6165
+Overfull \hbox (5.72658pt too wide) in paragraph at lines 6142--6159
 [][] 
  []
 
 File: Appunti_di_Statistica_2025_files/figure-latex/07c-Normale-15,-1.pdf Graph
 ic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/07c-Normale-15,-1.pdf>
-LaTeX Font Info:    Calculating math sizes for size <11> on input line 6168.
+LaTeX Font Info:    Calculating math sizes for size <11> on input line 6162.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 11.0pt on input line 6168.
+(Font)              scaled to size 11.0pt on input line 6162.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 7.69997pt on input line 6168.
+(Font)              scaled to size 7.69997pt on input line 6162.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 5.5pt on input line 6168.
+(Font)              scaled to size 5.5pt on input line 6162.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 11.001pt on input line 6168.
+(Font)              scaled to size 11.001pt on input line 6162.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 7.70067pt on input line 6168.
+(Font)              scaled to size 7.70067pt on input line 6162.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 5.5005pt on input line 6168.
+(Font)              scaled to size 5.5005pt on input line 6162.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 10.99883pt on input line 6168.
+(Font)              scaled to size 10.99883pt on input line 6162.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 7.69914pt on input line 6168.
+(Font)              scaled to size 7.69914pt on input line 6162.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 5.4994pt on input line 6168.
+(Font)              scaled to size 5.4994pt on input line 6162.
 
 LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <5.5> not available
-(Font)              size <5> substituted on input line 6168.
+(Font)              size <5> substituted on input line 6162.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1951,7 +1961,7 @@ File: Appunti_di_Statistica_2025_files/figure-latex/07c-Normale-27,-1.pdf Graph
 ic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/07c-Normale-27,-1.pdf>
 
-Overfull \hbox (5.72658pt too wide) in paragraph at lines 6334--6355
+Overfull \hbox (5.72658pt too wide) in paragraph at lines 6328--6349
 [][] 
  []
 
@@ -1991,7 +2001,7 @@ df Graphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/07d-Esercizi-Normale-18-1.pd
 f>
 
-Overfull \hbox (33.42944pt too wide) detected at line 6559
+Overfull \hbox (33.42944pt too wide) detected at line 6553
 [][][][][] [] [] [] [][][] [] [][][] [] [] [] [][][][] [] [][][][][] [] [] [] [
 ][][][][][][][][] [] [] [] [][][][][]  []
  []
@@ -1999,7 +2009,7 @@ Overfull \hbox (33.42944pt too wide) detected at line 6559
 [153] [154] [155] [156]
 Capitolo 8.
 
-Underfull \hbox (badness 1226) in paragraph at lines 6724--6726
+Underfull \hbox (badness 1226) in paragraph at lines 6718--6720
 \TU/lmr/m/n/10.95 Una successione di variabili casuali è espressa da un numero 
 infinito di variabili casuali
  []
@@ -2030,25 +2040,25 @@ e (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/08-tlc-15-1.pdf>
 [168]
 Capitolo 9.
-LaTeX Font Info:    Calculating math sizes for size <14> on input line 7237.
+LaTeX Font Info:    Calculating math sizes for size <14> on input line 7231.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 14.0pt on input line 7237.
+(Font)              scaled to size 14.0pt on input line 7231.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 9.79996pt on input line 7237.
+(Font)              scaled to size 9.79996pt on input line 7231.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 7.0pt on input line 7237.
+(Font)              scaled to size 7.0pt on input line 7231.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 14.00128pt on input line 7237.
+(Font)              scaled to size 14.00128pt on input line 7231.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 9.80084pt on input line 7237.
+(Font)              scaled to size 9.80084pt on input line 7231.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 7.00064pt on input line 7237.
+(Font)              scaled to size 7.00064pt on input line 7231.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 13.9985pt on input line 7237.
+(Font)              scaled to size 13.9985pt on input line 7231.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 9.7989pt on input line 7237.
+(Font)              scaled to size 9.7989pt on input line 7231.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 6.99925pt on input line 7237.
+(Font)              scaled to size 6.99925pt on input line 7231.
 [169
 
 ]
@@ -2088,7 +2098,7 @@ File: Appunti_di_Statistica_2025_files/figure-latex/09-Statistiche-Campionarie_
 <use Appunti_di_Statistica_2025_files/figure-latex/09-Statistiche-Campionarie_2
 ,-1.pdf>
 [174]
-Overfull \hbox (16.64362pt too wide) in paragraph at lines 7529--7539
+Overfull \hbox (16.64362pt too wide) in paragraph at lines 7523--7533
  [][] 
  []
 
@@ -2108,10 +2118,10 @@ Capitolo 11.
 ] [186] [187]
 
 Package tcolorbox Warning: Using nobreak failed. Try to enlarge `lines before b
-reak' or set page breaks manually on input line 7910.
+reak' or set page breaks manually on input line 7904.
 
 [188] [189] [190]
-Overfull \hbox (1.7781pt too wide) detected at line 8104
+Overfull \hbox (1.7781pt too wide) detected at line 8098
 [][][][][][][] [] [] [] [] [][][][][][]
  []
 
@@ -2120,7 +2130,7 @@ Overfull \hbox (1.7781pt too wide) detected at line 8104
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-Overfull \hbox (10.33032pt too wide) in alignment at lines 8214--8219
+Overfull \hbox (10.33032pt too wide) in alignment at lines 8208--8213
  [][][] []
  []
 
@@ -2143,7 +2153,7 @@ File: Appunti_di_Statistica_2025_files/figure-latex/12-Verosimiglianza-5-1.pdf
 Graphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/12-Verosimiglianza-5-1.pdf>
 [202]
-Overfull \hbox (29.65045pt too wide) in paragraph at lines 8592--8599
+Overfull \hbox (29.65045pt too wide) in paragraph at lines 8586--8593
 [][] 
  []
 
@@ -2154,7 +2164,7 @@ Graphic file (type pdf)
 Underfull \vbox (badness 6094) has occurred while \output is active []
 
 [203] [204]
-Overfull \hbox (52.16367pt too wide) in paragraph at lines 8641--8648
+Overfull \hbox (52.16367pt too wide) in paragraph at lines 8635--8642
 [][] 
  []
 
@@ -2168,7 +2178,7 @@ hic file (type pdf)
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [206]
-Underfull \hbox (badness 3118) in paragraph at lines 8730--8731
+Underfull \hbox (badness 3118) in paragraph at lines 8724--8725
 [][][]\TU/lmss/bx/n/10.95 Definizione 12.4.1 \TU/lmss/m/n/10.95 (Stimatore du M
 assima Verosimiglianza)\TU/lmss/bx/n/10.95 . [][]\TU/lmr/m/n/10.95 Lo stimatore
  di \TU/lmr/m/it/10.95 massima
@@ -2221,7 +2231,7 @@ Underfull \vbox (badness 2809) has occurred while \output is active []
 
 [219]
 
-LaTeX Font Warning: Command \small invalid in math mode on input line 9176.
+LaTeX Font Warning: Command \small invalid in math mode on input line 9170.
 
 [220] [221] [222]
 Capitolo 13.
@@ -2272,13 +2282,13 @@ df>
 Capitolo 14.
 [239] [240] [241]
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 10.0pt on input line 10060.
+(Font)              scaled to size 10.0pt on input line 10054.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 10.00092pt on input line 10060.
+(Font)              scaled to size 10.00092pt on input line 10054.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 9.99893pt on input line 10060.
+(Font)              scaled to size 9.99893pt on input line 10054.
 
-Overfull \hbox (41.23358pt too wide) in paragraph at lines 10060--10068
+Overfull \hbox (41.23358pt too wide) in paragraph at lines 10054--10062
  [][] 
  []
 
@@ -2292,22 +2302,22 @@ File: Appunti_di_Statistica_2025_files/figure-latex/14-test-intro-18-1.pdf Grap
 hic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/14-test-intro-18-1.pdf>
 [242]
-Overfull \hbox (41.23358pt too wide) in paragraph at lines 10102--10110
+Overfull \hbox (41.23358pt too wide) in paragraph at lines 10096--10104
  [][] 
  []
 
 
-Overfull \hbox (41.23358pt too wide) in paragraph at lines 10149--10157
+Overfull \hbox (41.23358pt too wide) in paragraph at lines 10143--10151
  [][] 
  []
 
 [243]
-Overfull \hbox (41.23358pt too wide) in paragraph at lines 10195--10203
+Overfull \hbox (41.23358pt too wide) in paragraph at lines 10189--10197
  [][] 
  []
 
 
-LaTeX Font Warning: Command \small invalid in math mode on input line 10208.
+LaTeX Font Warning: Command \small invalid in math mode on input line 10202.
 
 
 Underfull \vbox (badness 2626) has occurred while \output is active []
@@ -2430,7 +2440,7 @@ File: Appunti_di_Statistica_2025_files/figure-latex/15-test-mu-pi-13,-1.pdf Gra
 phic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/15-test-mu-pi-13,-1.pdf>
 [279]
-Overfull \hbox (0.55235pt too wide) detected at line 11632
+Overfull \hbox (0.55235pt too wide) detected at line 11626
 []
  []
 
@@ -2482,7 +2492,7 @@ File: Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-14-1.pdf G
 raphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-14-1.pdf>
 [296]
-Overfull \hbox (36.93124pt too wide) in paragraph at lines 12170--12176
+Overfull \hbox (36.93124pt too wide) in paragraph at lines 12164--12170
 [][] 
  []
 
@@ -2841,25 +2851,25 @@ SUL MODELLO DI REGRESSIONE LINEARE
 [350]
 Capitolo 19.
 
-LaTeX Font Warning: Command \tiny invalid in math mode on input line 13649.
+LaTeX Font Warning: Command \tiny invalid in math mode on input line 13643.
 
 
-LaTeX Font Warning: Command \tiny invalid in math mode on input line 13693.
+LaTeX Font Warning: Command \tiny invalid in math mode on input line 13687.
 
 [351
 
 ]
-Overfull \hbox (33.4938pt too wide) detected at line 13750
+Overfull \hbox (33.4938pt too wide) detected at line 13744
 []
  []
 
 [352] [353] [354] [355]
 
-LaTeX Font Warning: Command \tiny invalid in math mode on input line 13974.
+LaTeX Font Warning: Command \tiny invalid in math mode on input line 13968.
 
 [356]
 
-LaTeX Font Warning: Command \tiny invalid in math mode on input line 14022.
+LaTeX Font Warning: Command \tiny invalid in math mode on input line 14016.
 
 [357] [358] [359] [360] [361] [362] [363] [364] [365
 
@@ -2878,11 +2888,11 @@ Appendice C.
 [373] [374]
 Appendice D.
 LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10.95> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 14811.
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 14805.
 
 
 LaTeX Font Warning: Font shape `TU/lmtt/bx/it' in size <10.95> not available
-(Font)              Font shape `TU/lmtt/b/sl' tried instead on input line 14811
+(Font)              Font shape `TU/lmtt/b/sl' tried instead on input line 14805
 .
 
 File: Appunti_di_Statistica_2025_files/figure-latex/24-Libro-54-1.pdf Graphic f
@@ -2992,7 +3002,7 @@ file (type pdf)
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [396]
-Overfull \hbox (5.11491pt too wide) in paragraph at lines 16167--16167
+Overfull \hbox (5.11491pt too wide) in paragraph at lines 16161--16161
 []\TU/lmtt/m/n/10.95 ## [1] "la mela è rossa e la pera è verde e la pesca è gia
 lla e la banana è gialla" 
  []
@@ -3005,7 +3015,7 @@ Appendice E.
 [403
 
 ] [404]
-Overfull \hbox (2.71814pt too wide) in paragraph at lines 16648--16660
+Overfull \hbox (2.71814pt too wide) in paragraph at lines 16642--16654
  [][] 
  []
 
@@ -3014,41 +3024,41 @@ raphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/25-test-functions-2-1.pdf>
 [405] [406]
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 9.0pt on input line 16777.
+(Font)              scaled to size 9.0pt on input line 16771.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 9.00082pt on input line 16777.
+(Font)              scaled to size 9.00082pt on input line 16771.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 8.99904pt on input line 16777.
+(Font)              scaled to size 8.99904pt on input line 16771.
 LaTeX Font Info:    Calculating math sizes for size <6.2748> on input line 1677
-8.
+2.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 6.2748pt on input line 16778.
+(Font)              scaled to size 6.2748pt on input line 16772.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 4.39233pt on input line 16778.
+(Font)              scaled to size 4.39233pt on input line 16772.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 3.13739pt on input line 16778.
+(Font)              scaled to size 3.13739pt on input line 16772.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 6.27536pt on input line 16778.
+(Font)              scaled to size 6.27536pt on input line 16772.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 4.39273pt on input line 16778.
+(Font)              scaled to size 4.39273pt on input line 16772.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 3.13766pt on input line 16778.
+(Font)              scaled to size 3.13766pt on input line 16772.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 6.27412pt on input line 16778.
+(Font)              scaled to size 6.27412pt on input line 16772.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 4.39186pt on input line 16778.
+(Font)              scaled to size 4.39186pt on input line 16772.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 3.13705pt on input line 16778.
+(Font)              scaled to size 3.13705pt on input line 16772.
 
 LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <4.39233> not available
-(Font)              size <5> substituted on input line 16778.
+(Font)              size <5> substituted on input line 16772.
 
 
 LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <3.13739> not available
-(Font)              size <5> substituted on input line 16778.
+(Font)              size <5> substituted on input line 16772.
 
 [407]
-Overfull \hbox (31.07884pt too wide) in alignment at lines 16850--16856
+Overfull \hbox (31.07884pt too wide) in alignment at lines 16844--16850
  [][][] []
  []
 
@@ -3148,7 +3158,7 @@ LaTeX Font Warning: Size substitutions with differences
 Here is how much of TeX's memory you used:
  43896 strings out of 478175
  999798 string characters out of 5854103
- 1467745 words of memory out of 5000000
+ 1467746 words of memory out of 5000000
  63372 multiletter control sequences out of 15000+600000
  510719 words of font info for 395 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
