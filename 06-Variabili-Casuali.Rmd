@@ -15,7 +15,13 @@ source("intro.R")
 
 ## Definizione formale di una VC discreta
 
-Si consideri un partizione finita o al più numerabile dell'evento certo: 
+Una variabile casuale, o numero casuale, è un numero che non sappiamo in anticipo
+quale valore varrà: il numero di Teste nei prossimi 10 lanci, i millimetri di 
+pioggia che cadranno in Emilia Romagna nelle prossime 24 ore, il numero di ricoverati
+nell'ospedale Maggiore di Bologna nel 2025.
+
+Dal punto di vista formale una variabile casuale è una numerizzazione dell'evento 
+certo. Si consideri un partizione finita o al più numerabile dell'evento certo: 
 
 $$
 \{E_1,...,E_k\},~E_i\cap E_j,~\forall i\ne j, ~E_1\cup...\cup E_k=\Omega
@@ -57,8 +63,8 @@ $W$ vale uno se i due lanci sono identici e vale zero altrimenti.
 Se la moneta è perfetta ($P(T)=P(C)=0.5$) allora:
 
 \begin{eqnarray*} 
-P(E_1) &=& P(\{C,C\}) \\ 
-    &=& P(C)P(C), \qquad \text{in virtù dell'indipendenza}\\
+P(E_1) &=& P(\{T,T\}) \\ 
+    &=& P(T)P(T), \qquad \text{in virtù dell'indipendenza}\\
     &=& \frac 12 \cdot \frac 12  = \frac 14 \\
 P(E_2)  &=& P(\{T,C\})\\
     &=& P(T)P(C), \qquad \text{in virtù dell'indipendenza}\\
@@ -66,8 +72,8 @@ P(E_2)  &=& P(\{T,C\})\\
 P(E_3)  &=& P(\{C,T\})\\
     &=& P(C)P(T), \qquad \text{in virtù dell'indipendenza}\\
     &=& \frac 12 \cdot \frac 12  = \frac 14 \\
-P(E_4)  &=& P(\{T,T\})\\
-    &=& P(T)P(T), \qquad \text{in virtù dell'indipendenza}\\
+P(E_4)  &=& P(\{C,C\})\\
+    &=& P(C)P(C), \qquad \text{in virtù dell'indipendenza}\\
     &=& \frac 12 \cdot \frac 12  = \frac 14 
 \end{eqnarray*}
 

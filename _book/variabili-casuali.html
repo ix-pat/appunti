@@ -692,7 +692,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">Capitolo 6</span> Variabili Casuali<a href="variabili-casuali.html#variabili-casuali" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <div id="definizione-formale-di-una-vc-discreta" class="section level2 hasAnchor" number="6.1">
 <h2><span class="header-section-number">6.1</span> Definizione formale di una VC discreta<a href="variabili-casuali.html#definizione-formale-di-una-vc-discreta" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Si consideri un partizione finita o al più numerabile dell’evento certo:</p>
+<p>Una variabile casuale, o numero casuale, è un numero che non sappiamo in anticipo
+quale valore varrà: il numero di Teste nei prossimi 10 lanci, i millimetri di
+pioggia che cadranno in Emilia Romagna nelle prossime 24 ore, il numero di ricoverati
+nell’ospedale Maggiore di Bologna nel 2025.</p>
+<p>Dal punto di vista formale una variabile casuale è una numerizzazione dell’evento
+certo. Si consideri un partizione finita o al più numerabile dell’evento certo:</p>
 <p><span class="math display">\[
 \{E_1,...,E_k\},~E_i\cap E_j,~\forall i\ne j, ~E_1\cup...\cup E_k=\Omega
 \]</span></p>
@@ -757,8 +762,8 @@ f(x)=P(X=x)=P(E_j:X(E_j)=x)
 <span class="math inline">\(W\)</span> vale uno se i due lanci sono identici e vale zero altrimenti.</p>
 <p>Se la moneta è perfetta (<span class="math inline">\(P(T)=P(C)=0.5\)</span>) allora:</p>
 <p><span class="math display">\[\begin{eqnarray*}
-P(E_1) &amp;=&amp; P(\{C,C\}) \\
-    &amp;=&amp; P(C)P(C), \qquad \text{in virtù dell&#39;indipendenza}\\
+P(E_1) &amp;=&amp; P(\{T,T\}) \\
+    &amp;=&amp; P(T)P(T), \qquad \text{in virtù dell&#39;indipendenza}\\
     &amp;=&amp; \frac 12 \cdot \frac 12  = \frac 14 \\
 P(E_2)  &amp;=&amp; P(\{T,C\})\\
     &amp;=&amp; P(T)P(C), \qquad \text{in virtù dell&#39;indipendenza}\\
@@ -766,8 +771,8 @@ P(E_2)  &amp;=&amp; P(\{T,C\})\\
 P(E_3)  &amp;=&amp; P(\{C,T\})\\
     &amp;=&amp; P(C)P(T), \qquad \text{in virtù dell&#39;indipendenza}\\
     &amp;=&amp; \frac 12 \cdot \frac 12  = \frac 14 \\
-P(E_4)  &amp;=&amp; P(\{T,T\})\\
-    &amp;=&amp; P(T)P(T), \qquad \text{in virtù dell&#39;indipendenza}\\
+P(E_4)  &amp;=&amp; P(\{C,C\})\\
+    &amp;=&amp; P(C)P(C), \qquad \text{in virtù dell&#39;indipendenza}\\
     &amp;=&amp; \frac 12 \cdot \frac 12  = \frac 14
 \end{eqnarray*}\]</span></p>
 <p>e quindi:</p>
