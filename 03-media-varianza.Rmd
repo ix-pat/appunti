@@ -482,9 +482,9 @@ La varianza `r sq <- (samp-mean(samp))^2; m<- mean(samp); x<- samp`
 
 \begin{eqnarray*}
   \sigma^2 &=& \frac 1 n \sum_{1=1}^n(x_i-\bar x)^2\\
-   &=& \frac{`r paste("(x_{",1:n,"}-\\bar x)^2",collapse = "+",sep="")`} {`r n`} \\
-         &=& \frac{`r paste(paste("(",samp,"-",mean(x),")^2"),collapse = "+",sep="")`}  {`r n`} \\
-         &=& \frac{`r paste(round((samp-mean(samp))^2,4),collapse = "+",sep="")`}  {`r n`} \\
+         &=& \tiny\frac{`r paste("(x_{",1:n,"}-\\bar x)^2",collapse = "+",sep="")`} {`r n`} \\
+         &=& \tiny\frac{`r paste(paste("(",samp,"-",mean(x),")^2"),collapse = "+",sep="")`}  {`r n`} \\
+         &=& \small\frac{`r paste(round((samp-mean(samp))^2,4),collapse = "+",sep="")`}  {`r n`} \\
          &=& \frac{`r sum((samp-mean(samp))^2)`}  {`r n`}\\
          &=& `r s2c(samp)`
 \end{eqnarray*}

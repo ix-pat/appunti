@@ -171,11 +171,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.2.2" data-path="variabili-statistiche-e-distribuzioni-di-frequenza.html"><a href="variabili-statistiche-e-distribuzioni-di-frequenza.html#raggruppamenti-in-classi"><i class="fa fa-check"></i><b>2.2.2</b> Raggruppamenti in Classi</a></li>
 <li class="chapter" data-level="2.2.3" data-path="variabili-statistiche-e-distribuzioni-di-frequenza.html"><a href="variabili-statistiche-e-distribuzioni-di-frequenza.html#frequenze-cumulate"><i class="fa fa-check"></i><b>2.2.3</b> Frequenze Cumulate</a></li>
 </ul></li>
-<li class="chapter" data-level="2.3" data-path="variabili-statistiche-e-distribuzioni-di-frequenza.html"><a href="variabili-statistiche-e-distribuzioni-di-frequenza.html#istogramma-di-densità"><i class="fa fa-check"></i><b>2.3</b> Istogramma di Densità</a></li>
-<li class="chapter" data-level="2.4" data-path="variabili-statistiche-e-distribuzioni-di-frequenza.html"><a href="variabili-statistiche-e-distribuzioni-di-frequenza.html#la-funzione-di-ripartizione"><i class="fa fa-check"></i><b>2.4</b> La Funzione di Ripartizione</a></li>
-<li class="chapter" data-level="2.5" data-path="variabili-statistiche-e-distribuzioni-di-frequenza.html"><a href="variabili-statistiche-e-distribuzioni-di-frequenza.html#linversa-della-funzione-di-ripartizione"><i class="fa fa-check"></i><b>2.5</b> L’inversa della Funzione di Ripartizione</a></li>
-<li class="chapter" data-level="2.6" data-path="variabili-statistiche-e-distribuzioni-di-frequenza.html"><a href="variabili-statistiche-e-distribuzioni-di-frequenza.html#indicatori-sintetici-di-centralità-e-di-variabilità"><i class="fa fa-check"></i><b>2.6</b> Indicatori Sintetici di Centralità e di Variabilità</a></li>
-<li class="chapter" data-level="2.7" data-path="variabili-statistiche-e-distribuzioni-di-frequenza.html"><a href="variabili-statistiche-e-distribuzioni-di-frequenza.html#riepilogo"><i class="fa fa-check"></i><b>2.7</b> Riepilogo</a></li>
+<li class="chapter" data-level="2.3" data-path="variabili-statistiche-e-distribuzioni-di-frequenza.html"><a href="variabili-statistiche-e-distribuzioni-di-frequenza.html#rappresentazioni-grafiche"><i class="fa fa-check"></i><b>2.3</b> Rappresentazioni Grafiche</a></li>
+<li class="chapter" data-level="2.4" data-path="variabili-statistiche-e-distribuzioni-di-frequenza.html"><a href="variabili-statistiche-e-distribuzioni-di-frequenza.html#istogramma-di-densità"><i class="fa fa-check"></i><b>2.4</b> Istogramma di Densità</a></li>
+<li class="chapter" data-level="2.5" data-path="variabili-statistiche-e-distribuzioni-di-frequenza.html"><a href="variabili-statistiche-e-distribuzioni-di-frequenza.html#la-funzione-di-ripartizione"><i class="fa fa-check"></i><b>2.5</b> La Funzione di Ripartizione</a></li>
+<li class="chapter" data-level="2.6" data-path="variabili-statistiche-e-distribuzioni-di-frequenza.html"><a href="variabili-statistiche-e-distribuzioni-di-frequenza.html#linversa-della-funzione-di-ripartizione"><i class="fa fa-check"></i><b>2.6</b> L’inversa della Funzione di Ripartizione</a></li>
+<li class="chapter" data-level="2.7" data-path="variabili-statistiche-e-distribuzioni-di-frequenza.html"><a href="variabili-statistiche-e-distribuzioni-di-frequenza.html#indicatori-sintetici-di-centralità-e-di-variabilità"><i class="fa fa-check"></i><b>2.7</b> Indicatori Sintetici di Centralità e di Variabilità</a></li>
+<li class="chapter" data-level="2.8" data-path="variabili-statistiche-e-distribuzioni-di-frequenza.html"><a href="variabili-statistiche-e-distribuzioni-di-frequenza.html#riepilogo"><i class="fa fa-check"></i><b>2.8</b> Riepilogo</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="media-aritmetica-varianza-e-standard-deviation.html"><a href="media-aritmetica-varianza-e-standard-deviation.html"><i class="fa fa-check"></i><b>3</b> Media Aritmetica, Varianza e Standard Deviation</a>
 <ul>
@@ -709,7 +710,7 @@ f(x)=P(X=x)=P(E_j:X(E_j)=x)
 \]</span></p>
 <p><em>Una variabile casuale</em> <span class="math inline">\(X\)</span> è un numero che ancora non sappiamo quanto varrà, potrà assumere uno qualunque dei valori <span class="math inline">\(x\)</span> del supporto <span class="math inline">\(S_X\)</span> e lo assumerà con una data probabilità <span class="math inline">\(f(x)=P(X=x)\)</span>.</p>
 <div class="example">
-<p><span id="exm:unlabeled-div-100" class="example"><strong>Esempio 6.1  </strong></span>Consideriamo il lancio di due monete identiche, la partizione associata è</p>
+<p><span id="exm:unlabeled-div-101" class="example"><strong>Esempio 6.1  </strong></span>Consideriamo il lancio di due monete identiche, la partizione associata è</p>
 <ul>
 <li><span class="math inline">\(E_1=\{T,T\}\)</span>, la prima e la seconda moneta mostrano Testa.</li>
 <li><span class="math inline">\(E_2=\{T,C\}\)</span>, la prima moneta mostra Testa e la seconda Croce.</li>
@@ -805,11 +806,11 @@ descrittiva. In sintesi</p>
 </div>
 <div class="info">
 <div class="definition">
-<p><span id="def:unlabeled-div-101" class="definition"><strong>Definizione 6.1  (Supporto) </strong></span>Sia <span class="math inline">\(X\)</span> una VC, si definisce <span class="math inline">\(S_X\)</span> il supporto di <span class="math inline">\(X\)</span>, l’insieme di tutti i possibili valori che <span class="math inline">\(X\)</span> è suscettibile di assumere.</p>
+<p><span id="def:unlabeled-div-102" class="definition"><strong>Definizione 6.1  (Supporto) </strong></span>Sia <span class="math inline">\(X\)</span> una VC, si definisce <span class="math inline">\(S_X\)</span> il supporto di <span class="math inline">\(X\)</span>, l’insieme di tutti i possibili valori che <span class="math inline">\(X\)</span> è suscettibile di assumere.</p>
 </div>
 </div>
 <div class="example">
-<p><span id="exm:unlabeled-div-102" class="example"><strong>Esempio 6.2  </strong></span>Lancio una moneta due volte e definisco <span class="math inline">\(X\)</span> la VC che <em>conta il numero di volte che osservo Testa in due lanci</em>. La VC <span class="math inline">\(X\)</span>
+<p><span id="exm:unlabeled-div-103" class="example"><strong>Esempio 6.2  </strong></span>Lancio una moneta due volte e definisco <span class="math inline">\(X\)</span> la VC che <em>conta il numero di volte che osservo Testa in due lanci</em>. La VC <span class="math inline">\(X\)</span>
 potrà assumete solo 3 valori: 0 (zero volte Testa in due lanci), 1 (una volta Testa in due lanci), e 2 (2 volte Testa in due lanci). E quindi
 <span class="math display">\[
 S_X=\{0,1,2\}
@@ -817,7 +818,7 @@ S_X=\{0,1,2\}
 </div>
 <div class="info">
 <div class="definition">
-<p><span id="def:unlabeled-div-103" class="definition"><strong>Definizione 6.2  (Funzione di Probabilità) </strong></span>Sia <span class="math inline">\(X\)</span> una VC con supporto <span class="math inline">\(S_X\)</span>, si definisce <span class="math inline">\(f\)</span> la funzione di probabilità:
+<p><span id="def:unlabeled-div-104" class="definition"><strong>Definizione 6.2  (Funzione di Probabilità) </strong></span>Sia <span class="math inline">\(X\)</span> una VC con supporto <span class="math inline">\(S_X\)</span>, si definisce <span class="math inline">\(f\)</span> la funzione di probabilità:
 è la probabilità che la VC <span class="math inline">\(X\)</span> assuma esattamente il valore <span class="math inline">\(x\)</span>
 <span class="math display">\[
 f(x)=P(X=x), ~x\in S_X
@@ -825,7 +826,7 @@ f(x)=P(X=x), ~x\in S_X
 </div>
 </div>
 <div class="example">
-<p><span id="exm:unlabeled-div-104" class="example"><strong>Esempio 6.3  </strong></span>Si consideri un’urna che contiene 4 palline: <span class="math display">\[E_1=\fbox{1},E_2=\fbox{2},E_3=\fbox{2},E_4=\fbox{3}\]</span> Sia <span class="math inline">\(X\)</span> la VC che rappresenta il numero sulla pallina:</p>
+<p><span id="exm:unlabeled-div-105" class="example"><strong>Esempio 6.3  </strong></span>Si consideri un’urna che contiene 4 palline: <span class="math display">\[E_1=\fbox{1},E_2=\fbox{2},E_3=\fbox{2},E_4=\fbox{3}\]</span> Sia <span class="math inline">\(X\)</span> la VC che rappresenta il numero sulla pallina:</p>
 <p><span class="math display">\[\begin{eqnarray*}
 X(E_1) &amp;=&amp; 1\\
 X(E_2) &amp;=&amp; 2\\
@@ -844,7 +845,7 @@ la <span class="math inline">\(f\)</span> è compresa tra zero e uno, per ogni <
 la somma della <span class="math inline">\(f\)</span> calcolata su ogni <span class="math inline">\(x\)</span> dà uno.</p>
 <div class="info">
 <div class="proposition">
-<p><span id="prp:unlabeled-div-105" class="proposition"><strong>Proprietà 6.1  (Funzione di probabilità) </strong></span>Sia <span class="math inline">\(X\)</span> una VC con supporto <span class="math inline">\(S_X\)</span> e funzione di probabilità <span class="math inline">\(f\)</span>, allora</p>
+<p><span id="prp:unlabeled-div-106" class="proposition"><strong>Proprietà 6.1  (Funzione di probabilità) </strong></span>Sia <span class="math inline">\(X\)</span> una VC con supporto <span class="math inline">\(S_X\)</span> e funzione di probabilità <span class="math inline">\(f\)</span>, allora</p>
 <ul>
 <li><span class="math inline">\(0\le f(x)\le1,\forall x\in S_X\)</span></li>
 <li><span class="math inline">\(\sum_{x\in S_X} f(x) = 1.\)</span></li>
@@ -854,13 +855,13 @@ la somma della <span class="math inline">\(f\)</span> calcolata su ogni <span cl
 <p>La Funzione di Ripartizione <span class="math inline">\(F\)</span> di una VC <span class="math inline">\(X\)</span> cumula tutta la probabilità fino ad <span class="math inline">\(x\)</span>:</p>
 <div class="info">
 <div class="definition">
-<p><span id="def:unlabeled-div-106" class="definition"><strong>Definizione 6.3  (Funzione di Ripartizione di una VC) </strong></span><span class="math display">\[
+<p><span id="def:unlabeled-div-107" class="definition"><strong>Definizione 6.3  (Funzione di Ripartizione di una VC) </strong></span><span class="math display">\[
 F(x)=P(X\le x)=\sum_{x^*\le x} f(x^*)
 \]</span></p>
 </div>
 </div>
 <div class="example">
-<p><span id="exm:unlabeled-div-107" class="example"><strong>Esempio 6.4  (Continua) </strong></span>Continuando l’esempio precedente:
+<p><span id="exm:unlabeled-div-108" class="example"><strong>Esempio 6.4  (Continua) </strong></span>Continuando l’esempio precedente:
 <span class="math display">\[\begin{eqnarray*}
 F(x)&amp;=&amp;P(X\le x)\\
     &amp;=&amp;\begin{cases}
@@ -875,7 +876,7 @@ F(x)&amp;=&amp;P(X\le x)\\
 per il calcolo delle probabilità della VC continua che vedremo più avanti.</p>
 <div class="info">
 <div class="proposition">
-<p><span id="prp:unlabeled-div-108" class="proposition"><strong>Proprietà 6.2  (Funzione di Ripartizione) </strong></span>La funzione di ripartizione <span class="math inline">\(F\)</span> di una VC <span class="math inline">\(X\)</span> è, per definizione:
+<p><span id="prp:unlabeled-div-109" class="proposition"><strong>Proprietà 6.2  (Funzione di Ripartizione) </strong></span>La funzione di ripartizione <span class="math inline">\(F\)</span> di una VC <span class="math inline">\(X\)</span> è, per definizione:
 <span class="math display">\[F(x)=P(X\leq x)\]</span>
 <span class="math inline">\(F\)</span> gode delle seguenti proprietà:</p>
 <ol style="list-style-type: decimal">
@@ -893,7 +894,7 @@ Altre caratteristiche si possono calcolare, come i <strong>percentili</strong> d
 <span class="math inline">\(P(X\le x_p)=p,~~~P(X&gt;x_p)=1-p\)</span></p>
 <div class="info">
 <div class="definition">
-<p><span id="def:unlabeled-div-109" class="definition"><strong>Definizione 6.4  (Percentie di una VC) </strong></span>Sia <span class="math inline">\(X\)</span> una VC con support <span class="math inline">\(S_X\)</span> e con Fuzione di Ripartizione <span class="math inline">\(F\)</span>, si definisce il <span class="math inline">\(p\)</span>-esimo percentile di <span class="math inline">\(X\)</span>, il vaolre <span class="math inline">\(x_p\)</span>, tale che:
+<p><span id="def:unlabeled-div-110" class="definition"><strong>Definizione 6.4  (Percentie di una VC) </strong></span>Sia <span class="math inline">\(X\)</span> una VC con support <span class="math inline">\(S_X\)</span> e con Fuzione di Ripartizione <span class="math inline">\(F\)</span>, si definisce il <span class="math inline">\(p\)</span>-esimo percentile di <span class="math inline">\(X\)</span>, il vaolre <span class="math inline">\(x_p\)</span>, tale che:
 <span class="math display">\[
 x_p:F(x_p)=p
 \]</span></p>
@@ -914,7 +915,7 @@ Nell’esempio di sopra otterremmo:</p>
 diventeranno numeri li potremo sommare, sottrarre, moltiplicare, ecc. sia con numeri
 costanti che con altre VC.</p>
 <div class="example">
-<p><span id="exm:unlabeled-div-110" class="example"><strong>Esempio 6.5  </strong></span>Sia <span class="math inline">\(X\)</span> la VC con supporto <span class="math inline">\(S_X=\{-1,0,+1\}\)</span> e con funzione di probabilità
+<p><span id="exm:unlabeled-div-111" class="example"><strong>Esempio 6.5  </strong></span>Sia <span class="math inline">\(X\)</span> la VC con supporto <span class="math inline">\(S_X=\{-1,0,+1\}\)</span> e con funzione di probabilità
 <span class="math display">\[\begin{eqnarray*}
    f(-1)&amp;=&amp;  \frac 15\\
    f(0)&amp;=&amp;\frac 35\\
@@ -956,7 +957,7 @@ P( S ) &amp; \frac{1}{10}&amp; \frac{4}{10}&amp; \frac{4}{10}&amp; \frac{1}{10} 
 le modalità di <span class="math inline">\(X\)</span> vengono pesate con le probabilità invece che con le frequenze.</p>
 <div class="info">
 <div class="definition">
-<p><span id="def:unlabeled-div-111" class="definition"><strong>Definizione 6.5  (Valore Atteso di una VC discreta) </strong></span>Si definisce <span class="math inline">\(E(X)\)</span> il valore atteso della VC <span class="math inline">\(X\)</span> con supporto <span class="math inline">\(S_X\)</span> e funzione di probabilita <span class="math inline">\(f\)</span>:
+<p><span id="def:unlabeled-div-112" class="definition"><strong>Definizione 6.5  (Valore Atteso di una VC discreta) </strong></span>Si definisce <span class="math inline">\(E(X)\)</span> il valore atteso della VC <span class="math inline">\(X\)</span> con supporto <span class="math inline">\(S_X\)</span> e funzione di probabilita <span class="math inline">\(f\)</span>:
 <span class="math display">\[
 E(X)=\sum_{x\in S_x}xf(x)
 \]</span></p>
@@ -968,7 +969,7 @@ E(X)=\sum_{x\in S_x}xf(x)
 <p>La <strong>varianza</strong> di una VC è del tutto analoga alla varianza di una VS.</p>
 <div class="info">
 <div class="definition">
-<p><span id="def:unlabeled-div-112" class="definition"><strong>Definizione 6.6  (Varianza di una VC discreta) </strong></span>Si definisce <span class="math inline">\(V(X)\)</span> la varianza della VC <span class="math inline">\(X\)</span> con supporto <span class="math inline">\(S_X\)</span> e funzione di probabilita <span class="math inline">\(f\)</span>:
+<p><span id="def:unlabeled-div-113" class="definition"><strong>Definizione 6.6  (Varianza di una VC discreta) </strong></span>Si definisce <span class="math inline">\(V(X)\)</span> la varianza della VC <span class="math inline">\(X\)</span> con supporto <span class="math inline">\(S_X\)</span> e funzione di probabilita <span class="math inline">\(f\)</span>:
 <span class="math display">\[\begin{eqnarray*}
 V(X)&amp;=&amp;E\left(\big(X-E(X)\big)^2\right)\\
     &amp;=&amp;\sum_{x\in S_x}(x-E(X))^2f(x),\qquad\text{oppure equivalentemente}\\
@@ -980,7 +981,7 @@ V(X)&amp;=&amp;E\left(\big(X-E(X)\big)^2\right)\\
 <p>così come la sua standard deviation.</p>
 <div class="info">
 <div class="definition">
-<p><span id="def:unlabeled-div-113" class="definition"><strong>Definizione 6.7  (Standard Deviation di una VC discreta) </strong></span>Si definisce <span class="math inline">\(SD(X)\)</span> la Standard Deviation della VC <span class="math inline">\(X\)</span> con supporto <span class="math inline">\(S_X\)</span> e funzione di probabilita <span class="math inline">\(f\)</span>,
+<p><span id="def:unlabeled-div-114" class="definition"><strong>Definizione 6.7  (Standard Deviation di una VC discreta) </strong></span>Si definisce <span class="math inline">\(SD(X)\)</span> la Standard Deviation della VC <span class="math inline">\(X\)</span> con supporto <span class="math inline">\(S_X\)</span> e funzione di probabilita <span class="math inline">\(f\)</span>,
 la radice della sua varianza
 <span class="math display">\[\begin{eqnarray*}
 SD(X)&amp;=&amp;\sqrt{V(X)}
@@ -988,7 +989,7 @@ SD(X)&amp;=&amp;\sqrt{V(X)}
 </div>
 </div>
 <div class="example">
-<p><span id="exm:unlabeled-div-114" class="example"><strong>Esempio 6.6  (Continua) </strong></span>Continuiamo l’esempio precedente e otteniamo, il valore atteso:
+<p><span id="exm:unlabeled-div-115" class="example"><strong>Esempio 6.6  (Continua) </strong></span>Continuiamo l’esempio precedente e otteniamo, il valore atteso:
 <span class="math display">\[
 E(X)=1\cdot\frac 1 4 +2\cdot\frac 2 4+3\cdot\frac 1 4=2
 \]</span>
@@ -1000,7 +1001,7 @@ V(X)=1^2\cdot\frac 1 4 +2^2\cdot\frac 2 4+3^2\cdot\frac 1 4 - 2^2= 0.5
 <p>Le proprietà di valore atteso e varianza di una VC sono del tutto analoghe alle rispettive di una VS.</p>
 <div class="info">
 <div class="proposition">
-<p><span id="prp:unlabeled-div-115" class="proposition"><strong>Proprietà 6.3  (Proprietà del Valore Atteso di una VC) </strong></span>Le proprietà del valore atteso, <span class="math inline">\(E(X)\)</span> sono:</p>
+<p><span id="prp:unlabeled-div-116" class="proposition"><strong>Proprietà 6.3  (Proprietà del Valore Atteso di una VC) </strong></span>Le proprietà del valore atteso, <span class="math inline">\(E(X)\)</span> sono:</p>
 <ol style="list-style-type: decimal">
 <li><span class="math inline">\(x_{\min} \leq E(X) \leq x_{\max}, \quad x_{\min},\ x_{\max}\in S_{X}\)</span>,</li>
 <li><span class="math inline">\(E\Big(X - E(X)\Big) = 0\)</span>,</li>
@@ -1015,7 +1016,7 @@ alcuni risultati che esulano dallo scopo di questi appunti e non verrà riportat
 <p>Anche per la varianza di una VC valgono le stesse proprietà della varianza di una VS. In particolare</p>
 <div class="info">
 <div class="proposition">
-<p><span id="prp:unlabeled-div-116" class="proposition"><strong>Proprietà 6.4  (Proprietà della Varianza di una VC) </strong></span>Le proprietà della Varianza, <span class="math inline">\(V(X)\)</span> sono:</p>
+<p><span id="prp:unlabeled-div-117" class="proposition"><strong>Proprietà 6.4  (Proprietà della Varianza di una VC) </strong></span>Le proprietà della Varianza, <span class="math inline">\(V(X)\)</span> sono:</p>
 <ol style="list-style-type: decimal">
 <li><span class="math inline">\(V(X)\geq 0\)</span>,</li>
 <li><span class="math inline">\(V(X)=0\)</span> se e solo se <span class="math inline">\(P(X=x)=1\)</span></li>
@@ -1033,7 +1034,7 @@ le varianze non si sottraggono mai.</p>
 </div>
 <div class="info">
 <div class="proposition">
-<p><span id="prp:unlabeled-div-117" class="proposition"><strong>Proprietà 6.5  (Proprietà della SD di una VC) </strong></span>Le proprietà della Standard Deviation di <span class="math inline">\(X\)</span>, <span class="math inline">\(SD(X)\)</span> sono:</p>
+<p><span id="prp:unlabeled-div-118" class="proposition"><strong>Proprietà 6.5  (Proprietà della SD di una VC) </strong></span>Le proprietà della Standard Deviation di <span class="math inline">\(X\)</span>, <span class="math inline">\(SD(X)\)</span> sono:</p>
 <ol style="list-style-type: decimal">
 <li><span class="math inline">\(SD(X)\geq 0\)</span>,</li>
 <li><span class="math inline">\(SD(X)=0\)</span> se e solo se <span class="math inline">\(P(X=x)=1\)</span></li>
@@ -1251,7 +1252,7 @@ Y = g(X)
 \]</span>
 Allora <span class="math inline">\(Y\)</span> è una VC.</p>
 <div class="example">
-<p><span id="exm:unlabeled-div-118" class="example"><strong>Esempio 6.7  </strong></span>Sia <span class="math inline">\(X\)</span> una VC con supporto <span class="math inline">\(\{-1,0,1\}\)</span> r con funzione di probabilità
+<p><span id="exm:unlabeled-div-119" class="example"><strong>Esempio 6.7  </strong></span>Sia <span class="math inline">\(X\)</span> una VC con supporto <span class="math inline">\(\{-1,0,1\}\)</span> r con funzione di probabilità
 <span class="math display">\[
 f(x)= \begin{cases}
 \frac 14,~~\text{se $x=-1$}\\
@@ -1277,7 +1278,7 @@ f_Y(y)= \begin{cases}
 \]</span></p>
 </div>
 <div class="example">
-<p><span id="exm:unlabeled-div-119" class="example"><strong>Esempio 6.8  </strong></span>Sia <span class="math inline">\(X\)</span> una VC con supporto <span class="math inline">\(\{-1,0,1\}\)</span> r con funzione di probabilità
+<p><span id="exm:unlabeled-div-120" class="example"><strong>Esempio 6.8  </strong></span>Sia <span class="math inline">\(X\)</span> una VC con supporto <span class="math inline">\(\{-1,0,1\}\)</span> r con funzione di probabilità
 <span class="math display">\[
 f(x)= \begin{cases}
 \frac 14,~~\text{se $x=-1$}\\
@@ -1306,7 +1307,7 @@ f_Y(y)= \begin{cases}
 \]</span></p>
 </div>
 <div class="example">
-<p><span id="exm:unlabeled-div-120" class="example"><strong>Esempio 6.9  </strong></span>Sia <span class="math inline">\(X\)</span> una VC con supporto <span class="math inline">\(\{-1,0,1\}\)</span> r con funzione di probabilità
+<p><span id="exm:unlabeled-div-121" class="example"><strong>Esempio 6.9  </strong></span>Sia <span class="math inline">\(X\)</span> una VC con supporto <span class="math inline">\(\{-1,0,1\}\)</span> r con funzione di probabilità
 <span class="math display">\[
 f(x)= \begin{cases}
 \frac 14,~~\text{se $x=-1$}\\
@@ -1335,7 +1336,7 @@ f_Y(y)= \begin{cases}
 \]</span></p>
 </div>
 <div class="example">
-<p><span id="exm:unlabeled-div-121" class="example"><strong>Esempio 6.10  </strong></span>Sia <span class="math inline">\(X\)</span> un VC continua con supporto <span class="math inline">\(S_X=[0,1]\)</span> e funzione di densità <span class="math inline">\(f(x)\)</span>. Posto
+<p><span id="exm:unlabeled-div-122" class="example"><strong>Esempio 6.10  </strong></span>Sia <span class="math inline">\(X\)</span> un VC continua con supporto <span class="math inline">\(S_X=[0,1]\)</span> e funzione di densità <span class="math inline">\(f(x)\)</span>. Posto
 <span class="math display">\[
 Y=0.5+1.5\cdot X
 \]</span>

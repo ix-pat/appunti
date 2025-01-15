@@ -645,16 +645,16 @@ kable(prn,booktabs=T,escape=F,linesep="",align = c("lrrr"),
 ::::
 
 :::: {.example name="Continua: Variabile titolo di studio"}
-$\phantom{.}$
-
-$x_{(1)}=E,x_{(2)}=M,x_{(3)}=M,x_{(4)}=S,x_{(5)}=S,x_{(6)}=S,x_{(7)}=S,x_{(8)}=L,x_{(9)}=L,
-x_{(10)}=L$
+Consideriamo i 10 dati ordinati:
+$x_{(1)}=E,x_{(2)}=M,x_{(3)}=M,x_{(4)}=S,x_{(5)}=S$ 
+$,x_{(6)}=S,x_{(7)}=S,x_{(8)}=L,x_{(9)}=L,x_{(10)}=L$
+la loro tabella di frequenza è
 
 ```{r titolo,echo=FALSE}
 nomi<-c("$X$","$n_j$","$f_j$","$f_{\\% j}$")
 tit<-c("E","M","S","L","Tot")
-n<-c("$2$","$4$","$8$","$6$","$20$")
-f<-c("$2/20=0.1$","$4/20=0.2$","$8/20=0.4$","$6/20=0.3$","$1.0$")
+n<-c("$1$","$2$","$4$","$3$","$10$")
+f<-c("$1/10=0.1$","$2/10=0.2$","$4/10=0.4$","$3/10=0.3$","$1.0$")
 fp<-c("$10\\%$","$20\\%$","$40\\%$","$30\\%$","$100\\%$")
 prn <- data.frame(tit,n,f,fp)
 names(prn)<- nomi
@@ -833,6 +833,108 @@ kbl((dat3[1:(k+1),c(1:2,4,7)]),digits = 2,booktabs = T, escape = F) %>%
 :::  
 
 E si legge: $F_1=0.21$ ci dice che il 20% del collettivo in esame guadagna al massimo 3 (mila euro); alternativamente leggiamo che il 20% del collettivo **non** guadagna più di 3 (mila euro). $F_2=0.56$ ci dice che il 56% del collettivo guadagna al massimo 5. $F_2=0.56$ ci dice che il 56% del collettivo guadagna al massimo 5 (mila euro); il 56% non guadagna più di 5 (mila euro).  $F_3=0.78$ ci dice che il 78% del collettivo guadagna 10 (mila euro); il 78% non guadagna più di 10 (mila euro). E infine il 100% del collettivo guadagna al massimo 20  (mila euro).
+::::
+
+## Rappresentazioni Grafiche
+
+Diversi grafici statistici consentono di leggere in modo visivo una tabella di frequenza. 
+Le frequenze vengono rappresentate come barre verticali -orizzontali- (diagramma a barre), 
+o come angoli di una circonferenza (diagramma a torta).
+
+:::: {.example name="Continua: Variabile titolo di studio"}
+Consideriamo i 10 dati ordinati:
+$x_{(1)}=E,x_{(2)}=M,x_{(3)}=M,x_{(4)}=S,x_{(5)}=S$ 
+$,x_{(6)}=S,x_{(7)}=S,x_{(8)}=L,x_{(9)}=L,x_{(10)}=L$
+e la loro tabella di frequenza
+
+```{r titolo2,echo=FALSE}
+nomi<-c("$X$","$n_j$","$f_j$","$f_{\\% j}$")
+tit<-c("E","M","S","L","Tot")
+n<-c("$1$","$2$","$4$","$3$","$10$")
+f<-c("$1/10=0.1$","$2/10=0.2$","$4/10=0.4$","$3/10=0.3$","$1.0$")
+fp<-c("$10\\%$","$20\\%$","$40\\%$","$30\\%$","$100\\%$")
+prn <- data.frame(tit,n,f,fp)
+names(prn)<- nomi
+
+kable(prn,booktabs=T,escape=F,linesep="",align = c("lrrr"),
+      #caption = "Distribuzione di frequenza del titolo di studio in un collettivo di $n=10$ individui."
+      )%>%
+  row_spec(4,hline_after = T)%>%
+  row_spec(5,hline_after = T,bold = T)%>%
+  kableExtra::kable_styling(latex_options = "hold_position")
+
+```
+
+Un diagramma a barre verticali trasforma le frequenze (assolute o relative)
+nelle altezze dei rettangoli
+
+```{r}
+fig.def()
+# Dati forniti
+dati <- c("E", "M", "L", "S", "S", "S", "L", "M", "L", "S")
+table(dati)
+
+# Creazione del fattore con l'ordine specificato
+dati_factor <- factor(dati, levels = c("E", "M", "S", "L"))
+
+# Conteggio delle occorrenze di ciascun livello
+conteggi <- table(dati_factor)
+
+# Grafico a barre
+barplot(conteggi, main = "Diagramma a Barre", col = ablue, ylim = c(0, max(conteggi) + 1),
+        xlab = "Categorie", ylab = "Frequenza")
+```
+Mentre un diagramma a torta rappresenta le frequenze come spicchi della circonferenza
+e ovvero in angoli con una proporzione. Sia $\alpha_j$ l'angolo dello spicchio $j$ 
+in corrispondenza della modalità $j$, allora
+$$
+\alpha_j : 360°=n_j:n
+$$
+da cui si ricava facilmente che l'angolo di ogni spicchio è
+$$
+\alpha_j =f_j \cdot 360°
+$$
+o, in radianti
+$$
+\theta_j =f_j \cdot 2\pi
+$$
+```{r,fig.cap="Grafico a torta"}
+# Grafico a torta normale
+fig.def()
+par(mar=c(0,0,3,0))
+pie(conteggi, main = "Grafico a Torta 2D", col = c(iblue, lighten(iblue,.75), lighten(iblue,.5), lighten(iblue,.25)))
+```
+
+:::{.att data-latex=""}
+Attenzione la terza dimensione è inutile, non ha interpretazione fenomenica e
+rischi di non fare cogliere l'angolatura giusta.
+
+```{r,fig.cap="Attenzione alla terza dimensione",fig.align='center'}
+# Grafico a torta normale
+fig.def()
+# Grafico a torta 3D
+clip(-1.1,1.1,-.5,.5)
+png("img/grafico_torta_3d.png", width = 1600, height = 1200, res = 300)
+par(mar = c(0, 0, 0, 0))
+pie3D(conteggi, 
+      col = c(iblue, lighten(iblue,.75), lighten(iblue,.5), lighten(iblue,.25)), 
+      explode = 0.0, labelcex = 0.8,theta = .34,start = 3/4*pi,height = .1)
+invisible(dev.off())
+
+# Ritaglia l'immagine usando magick
+img <- image_read("img/grafico_torta_3d.png")
+img_trimmed <- image_trim(img)  # Ritaglia automaticamente lo spazio bianco
+
+# Aggiunge un margine di 20 pixel intorno all'immagine ritagliata
+img_with_margin <- image_border(img_trimmed, color = "white", geometry = "50x50")
+
+# Salva l'immagine finale con margine
+image_write(img_with_margin, "img/grafico_torta_3d_margin.png")
+
+# Includi l'immagine ritagliata con margine
+knitr::include_graphics("img/grafico_torta_3d_margin.png")
+```
+:::
 ::::
 
 ## Istogramma di Densità
