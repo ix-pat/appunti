@@ -7671,7 +7671,7 @@ Questa classificazione dei contesti di inferenza aiuta a chiarire il tipo di dom
 
 Immaginiamo un'urna contenente \(N = 100\) bussolotti, di cui \(60\) rossi e \(40\) blu. Supponiamo di estrarre \(n = 10\) bussolotti \textbf{senza reinserimento}. Ogni estrazione dipende da quelle precedenti, perché il numero di bussolotti rimasti nell'urna cambia a ogni passo.
 
-In questo caso, il numero di bussolotti rossi osservati segue una distribuzione ipergeometrica, ma per grandi \(N\) e piccoli \(n\), può essere ben approssimata da una \textbf{binomiale} con probabilità di successo \(\pi = 0.6\). Questo modello è tipico delle \textbf{popolazioni finite}, dove il campionamento avviene da un insieme noto e completamente enumerabile. L'inferenza potrebbe riguardare proporzioni (\(\pi\)) o altre caratteristiche della composizione dell'urna.
+In questo caso, il numero di bussolotti rossi osservati segue una distribuzione ipergeometrica, ma per grandi \(N\) e piccoli \(n\), può essere ben approssimata da una \textbf{binomiale} con probabilità di successo. Questo modello è tipico delle \textbf{popolazioni finite}, dove il campionamento avviene da un insieme noto e completamente enumerabile. L'inferenza potrebbe riguardare proporzioni (\(\pi\)) o altre caratteristiche della composizione dell'urna.
 
 \subsection{Binomiale da urna con dimensione incognita (popolazioni infinite)}\label{binomiale-da-urna-con-dimensione-incognita-popolazioni-infinite}
 
@@ -7696,8 +7696,6 @@ Questo modello è usato per descrivere fenomeni come il numero di eventi in un i
 Infine, consideriamo un'urna teorica contenente un numero infinito di palline, ciascuna numerata con un valore reale. La probabilità di estrarre una pallina con un dato valore segue una distribuzione normale \(N(\mu, \sigma^2)\), dove \(\mu\) è la media e \(\sigma^2\) la varianza.
 
 In questo caso, ogni estrazione è un'osservazione continua indipendente dalla precedente. Supponiamo di osservare \(n = 30\) estrazioni: l'obiettivo è fare inferenza su \(\mu\) e \(\sigma^2\), i parametri che caratterizzano la distribuzione. Questo modello, legato alle \textbf{popolazioni infinite}, è fondamentale in molte applicazioni statistiche, perché permette di fare inferenze non solo sui parametri, ma anche su eventi futuri.
-
-Questi esempi mostrano come il modello dell'urna possa essere generalizzato, passando da popolazioni finite e concrete a contesti astratti e teorici, mantenendo un filo conduttore nell'inferenza che si desidera effettuare. Che ne pensi?
 
 Nel proseguire, ci concentreremo sull'inferenza da popolazioni infinite e da modelli probabilistici, che sono centrali per lo studio dell'economia e della scienza dei dati. Tuttavia, l'approccio sarà sempre lo stesso: estrarre il massimo di informazioni dai dati osservati, bilanciando rigore e comprensibilità.
 
@@ -14802,7 +14800,7 @@ per esempio il codice
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\InformationTok{\textasciigrave{}\textasciigrave{}\textasciigrave{}\{r 24{-}Libro{-}2, echo=FALSE\}}
+\InformationTok{\textasciigrave{}\textasciigrave{}\textasciigrave{}\{r, echo=FALSE\}}
 \InformationTok{\# Questo è un blocco di codice in R}
 \InformationTok{\# fisso alcuni parametri ed eseguo alcuni conti}
 \InformationTok{n \textless{}{-} 250 \# fisso n = 250}
@@ -14813,7 +14811,7 @@ per esempio il codice
 \NormalTok{Abbiamo analizzato $n=}\InformationTok{\textasciigrave{}r n\textasciigrave{}}\NormalTok{$ individui, abbiamo osservato una media pari }
 \NormalTok{a $\textbackslash{}bar x =}\InformationTok{\textasciigrave{}r mx\textasciigrave{}}\NormalTok{$ e una varianza pari a $\textbackslash{}sigma\^{}2=}\InformationTok{\textasciigrave{}r vx\textasciigrave{}}\NormalTok{$}
 
-\InformationTok{\textasciigrave{}\textasciigrave{}\textasciigrave{}\{r 24{-}Libro{-}3, echo=FALSE\}}
+\InformationTok{\textasciigrave{}\textasciigrave{}\textasciigrave{}\{r, echo=FALSE\}}
 \InformationTok{\# qui produco un grafico}
 \InformationTok{hist(data)}
 \InformationTok{\textasciigrave{}\textasciigrave{}\textasciigrave{}}

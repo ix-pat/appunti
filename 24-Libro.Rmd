@@ -36,7 +36,7 @@ In sostanza lo stesso documento contiene:
 
 per esempio il codice
 ````.markdown
-```{r 24-Libro-2, echo=FALSE}`r ''`
+```{r, echo=FALSE}`r ''`
 # Questo è un blocco di codice in R
 # fisso alcuni parametri ed eseguo alcuni conti
 n <- 250 # fisso n = 250
@@ -47,7 +47,7 @@ vx <- var(data) # chiamo vx la varianza dei dati
 Abbiamo analizzato $n=`r virg`r n`$ individui, abbiamo osservato una media pari 
 a $\bar x =`r virg`r mx`$ e una varianza pari a $\sigma^2=`r virg`r vx`$
 
-```{r 24-Libro-3, echo=FALSE}`r ''`
+```{r, echo=FALSE}`r ''`
 # qui produco un grafico
 hist(data)
 ```
