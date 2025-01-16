@@ -927,7 +927,7 @@ img <- image_read("img/grafico_torta_3d.png")
 img_trimmed <- image_trim(img)  # Ritaglia automaticamente lo spazio bianco
 
 # Aggiunge un margine di 20 pixel intorno all'immagine ritagliata
-img_with_margin <- image_border(img_trimmed, color = "white", geometry = "50x50")
+img_with_margin <- image_border(img_trimmed, color = "white", geometry = "300x50")
 
 # Salva l'immagine finale con margine
 image_write(img_with_margin, "img/grafico_torta_3d_margin.png")

@@ -866,7 +866,7 @@ abline(h=mean(y),lty=2)
 
 ```
 
-```{r 18-regressione-II-1,, results='asis', echo=FALSE, out.extra=''}
+```{r 18-regressione-II-1, results='asis', echo=FALSE, out.extra=''}
 
 tab <- data.frame(x,y,h)
 names(tab) <- c("$x_i$","$y_i$","$h_i$")
@@ -891,7 +891,7 @@ abline(h=mean(y),lty=2)
 h <- 1/11 + (x-mean(x))^2/(11*s2c(x))
 ```
 
-```{r 18-regressione-II-2,, results='asis', echo=FALSE, out.extra=''}
+```{r 18-regressione-II-2, results='asis', echo=FALSE, out.extra=''}
 
 tab <- data.frame(x,y,h)
 names(tab) <- c("$x_i$","$y_i$","$h_i$")

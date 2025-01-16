@@ -76,7 +76,7 @@ __Alcuni esempi per $\lambda\le 2$__
 fig.def(2)
 ```
 
-```{r 07b-Poisson-1,,echo=F}
+```{r 07b-Poisson-1,echo=F}
 par(mfrow=c(1,2),cex=cex)
 lam = 0.5
 plot(0:10,dpois(0:10,lambda = lam),main = paste("lambda =", lam),type="n",lwd=2,col=ared,axes = F,xlab = "x",ylab="f(x)" )
@@ -90,7 +90,7 @@ axis(1,0:10)
 axis(2)
 ```
 
-```{r 07b-Poisson-2,,echo=F}
+```{r 07b-Poisson-2,echo=F}
 par(mfrow=c(1,2),cex=cex)
 lam = 1.5
 plot(0:10,dpois(0:10,lambda = lam),main = paste("lambda =", lam),type="n",lwd=2,col=ared,axes = F,xlab = "x",ylab="f(x)" )
@@ -109,7 +109,7 @@ par(cex=cex)
 
 __Alcuni esempi per $\lambda\geq 5$__
 
-```{r 07b-Poisson-3,,echo=F}
+```{r 07b-Poisson-3,echo=F}
 par(mfrow=c(1,2),cex=cex)
 lam <- 5
 kk  <- 20
@@ -126,7 +126,7 @@ kk=100
 lam = 50
 ```
 
-```{r 07b-Poisson-4,,echo=F}
+```{r 07b-Poisson-4,echo=F}
 par(mfrow=c(1,2),cex=cex)
 plot(0:kk,dpois(0:kk,lambda = lam),main = paste("lambda =", lam),type="n",lwd=2,col=ared,axes = F,xlab = "x",ylab="f(x)" )
 rect((0:kk)-.5,0,(0:kk)+.5,dpois(0:kk,lambda = lam),col=ablue,border = ablue)

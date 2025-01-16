@@ -16,7 +16,7 @@ L'obiettivo è trovare una variabile casuale che ci consenta di probabilizzare f
   Temperatura di un locale, utile netto giornaliero di un negozio, errore commesso nel misurare una distanza, ecc.
 Sono tutti fenomeni che si esprimono con numeri decimali a volte con una precisione che può essere indefinitamente aumentata (ad esempio il peso, il tempo, la temperatura, ecc.), che possono assumere anche valori negativi
 
-```{r 07c-Normale-1,,echo=F}
+```{r 07c-Normale-1,echo=F}
 
 n <- 50
 set.seed(3)
@@ -65,11 +65,11 @@ Con valore atteso e varianza:
 
 __Esempi__
 
-```{r 07c-Normale-2,,echo=F}
+```{r 07c-Normale-2,echo=F}
 fig.def(titolo = F)
 ```
 
-```{r 07c-Normale-3,,echo=F}
+```{r 07c-Normale-3,echo=F}
 
 m1 <- 3.2
 s1 <- sqrt(.5)
@@ -94,7 +94,7 @@ axis(2)
 
 Esempio $X\sim N(5,2.25)$, posizione dei flessi
 
-```{r 07c-Normale-4,,echo=F}
+```{r 07c-Normale-4,echo=F}
 
 ss <- 2.25
 s  <- sqrt(ss)
@@ -195,7 +195,7 @@ La normale standard ha densità di probabilità chiama $\phi$ (da non richiesta 
 \[\phi(-z)=\phi(z)\]
 
 
-```{r 07c-Normale-5,,echo=F}
+```{r 07c-Normale-5,echo=F}
 
 curve(dnorm,-4,4,axes = F,ylab=expression(varphi(z)), xlab=expression(z))
 axis(1)
@@ -206,7 +206,7 @@ fig.def(height = 3.5)
 ```
 
 
-```{r 07c-Normale-6,,echo=F}
+```{r 07c-Normale-6,echo=F}
 
 
 par(mfrow=c(2,2),cex=cex*.8)
@@ -258,7 +258,7 @@ Rappresenta la probabilità che la variabile $Z$ assuma un valore minore o ugual
 fig.def()
 ```
 
-```{r 07c-Normale-7,,echo=F}
+```{r 07c-Normale-7,echo=F}
 
 par(mfrow=c(1,2),cex=cex)
 curve(pnorm,-4,4,axes = F,ylab=expression(Phi(z)),lwd=2)
@@ -293,7 +293,7 @@ Osserviamo che
 \end{eqnarray*}
 
 
-```{r 07c-Normale-8,,echo=F}
+```{r 07c-Normale-8,echo=F}
 par(mfrow=c(1,2),cex=cex*.95)
 z <- 1.1
 curve(pnorm,-4,4,axes = F,ylab=expression(Phi(z)),xlab=expression(z))
@@ -342,7 +342,7 @@ fig.def(3.3)
 
 <!-- $\Phi(z)=1-\Phi(-z)$ -->
 
-```{r 07c-Normale-9,,echo=F}
+```{r 07c-Normale-9,echo=F}
 
 par(mfrow=c(2,2),cex=cex*.8)
 z <- 1.5
@@ -381,7 +381,7 @@ par(cex=cex)
 
 Esempio $z=-1.5$, $\Phi(-1.5)=1-\Phi(+1.5)=`r pnorm(-1.5)`$
 
-```{r 07c-Normale-10,,echo=F}
+```{r 07c-Normale-10,echo=F}
 par(mfrow=c(2,2),cex=cex*.8)
 z <- 1.5
 curve(pnorm,-4,4,axes = F,ylab=expression(Phi(z)),xlab=expression(z))
@@ -418,7 +418,7 @@ par(cex=cex)
 
 Esempio $z=+1.5$, $\Phi(+1.5)=1-\Phi(-1.5)=`r pnorm(+1.5)`$
 
-```{r 07c-Normale-11,,echo=F}
+```{r 07c-Normale-11,echo=F}
 
 
 par(mfrow=c(2,2),cex=cex*.8)
@@ -481,7 +481,7 @@ kable(rbind(tab[1:5,],continua),row.names = T,booktabs = T, escape = F,linesep =
 fig.def(height = 2.5,titolo = F)
 ```
 
-```{r 07c-Normale-12,,echo=F}
+```{r 07c-Normale-12,echo=F}
 z <- 0
 par(cex=cex*.8)
 curve(dnorm,-4,4,axes = F,ylab=expression(varphi(z)),xlab=expression(z))
@@ -512,7 +512,7 @@ kable(rbind(tab[1:8,],continua),row.names = T,booktabs = T, escape = F,linesep =
 <!-- ``` -->
 
 
-```{r 07c-Normale-13,,echo=F}
+```{r 07c-Normale-13,echo=F}
 
 
 z <- 0.63
@@ -527,7 +527,7 @@ axis(2)
 
 Esempi $\Phi(2.47)=`r pnorm(2.47)`$
 
-```{r 07c-Normale-14,,echo=F}
+```{r 07c-Normale-14,echo=F}
 
 
 xx <- seq(0,.09,by=0.01)
@@ -547,7 +547,7 @@ kable(rbind(continua,tab[22:28,],continua),row.names = T,booktabs = T, escape = 
 
 
 
-```{r 07c-Normale-15,,echo=F}
+```{r 07c-Normale-15,echo=F}
 z <- 2.47
 
 curve(dnorm,-4,4,axes = F,ylab=expression(varphi(z)),xlab=expression(z))
@@ -592,7 +592,7 @@ Siccome il complementare di $\{Z\leq z\}$ è $\{Z> z\}$, dalle proprietà della 
 
 \[P(Z>z)=1-P(Z\leq z)=1-\Phi(z)\]
 
-```{r 07c-Normale-16,,echo=F}
+```{r 07c-Normale-16,echo=F}
 z <- 1.5
 
 
@@ -604,7 +604,7 @@ calcolare la probabilità che $Z$ si maggiore di `r z`
 
 \[P(Z > `r z`) = 1-\Phi(`r z`)=1-`r pnorm(z)`=`r 1-pnorm(z)`\]
 
-```{r 07c-Normale-17,,echo=F}
+```{r 07c-Normale-17,echo=F}
 
 curve(dnorm,-4,4,axes = F,ylab=expression(varphi(z)),xlab=expression(z))
 draw_dist(dist = dnorm,z,4,col=ablue)
@@ -615,7 +615,7 @@ axis(2)
 ```
 
 
-```{r 07c-Normale-18,,echo=F}
+```{r 07c-Normale-18,echo=F}
 z <- -1.5
 ```
 ::::
@@ -625,7 +625,7 @@ Calcolare la probabilità che $Z$ si maggiore di `r z`
 
 \[P(Z > `r z`) = 1-\Phi(`r z`)=1-(1-\Phi(+`r -z`))=\Phi(+`r -z`)=`r pnorm(-z)`\]
 
-```{r 07c-Normale-19,,echo=F}
+```{r 07c-Normale-19,echo=F}
 
 curve(dnorm,-4,4,axes = F,ylab=expression(varphi(z)),xlab=expression(z))
 draw_dist(dist = dnorm,z,4,col=ablue)
@@ -638,7 +638,7 @@ axis(2)
 
 #### Calcolo della probabilità di intervalli
 
-```{r 07c-Normale-20,,echo=F}
+```{r 07c-Normale-20,echo=F}
 z1 <- 0.25; z2 <- 2.1
 ```
 
@@ -651,7 +651,7 @@ Dalle proprietà della funzione di ripartizione abbiamo
 Calcolare la probabilità che $Z$ si avveri tra `r z1` e `r z2`
 \[P(`r z1`< Z \leq `r z2`) = \Phi(`r z2`)-\Phi(`r z1`)=`r pnorm(z2)`-`r pnorm(z1)`=`r pnorm(z2)-pnorm(z1)`\]
 
-```{r 07c-Normale-21,,echo=F}
+```{r 07c-Normale-21,echo=F}
 
 curve(dnorm,-4,4,axes = F,ylab=expression(varphi(z)),xlab=expression(z))
 draw_dist(dist = dnorm,z1,z2,col=ablue)
@@ -661,7 +661,7 @@ axis(1,c(-4,z1,z2,4))
 axis(2)
 ```
 
-```{r 07c-Normale-22,,echo=F}
+```{r 07c-Normale-22,echo=F}
 z1 <- -1.22; z2 <- 0.78
 ```
 ::::
@@ -675,7 +675,7 @@ P(`r z1`< Z \leq `r z2`) &=& \Phi(`r z2`)-\Phi(`r z1`) \\
                          &=& `r pnorm(z2)-pnorm(z1)`
 \end{eqnarray*}
 
-```{r 07c-Normale-23,,echo=F}
+```{r 07c-Normale-23,echo=F}
 
 curve(dnorm,-4,4,axes = F,ylab=expression(varphi(z)),xlab=expression(z))
 draw_dist(dist = dnorm,z1,z2,col=ablue)
@@ -685,7 +685,7 @@ axis(1,c(-4,z1,z2,4))
 axis(2)
 ```
 
-```{r 07c-Normale-24,,echo=F}
+```{r 07c-Normale-24,echo=F}
 z1 <- -2.8; z2 <- -0.12
 fig.def()
 ```
@@ -700,7 +700,7 @@ P(`r z1`< Z \leq `r z2`) &=& \Phi(`r z2`)-\Phi(`r z1`) \\
                          &=& `r pnorm(z2)-pnorm(z1)`
 \end{eqnarray*}
 
-```{r 07c-Normale-25,,echo=F}
+```{r 07c-Normale-25,echo=F}
 par(mfrow=c(1,2),cex=cex*.8)
 curve(dnorm,-4,4,axes = F,ylab=expression(varphi(z)),xlab=expression(z))
 draw_dist(dist = dnorm,z1,z2,col=ablue)
@@ -754,7 +754,7 @@ P(7<X\leq 11) &=& P\left( \frac {7 - 10}{\sqrt{4}} < \frac {X - \mu}\sigma \leq 
 fig.def()
 ```
 
-```{r 07c-Normale-26,,echo=F}
+```{r 07c-Normale-26,echo=F}
 mm <- 10
 ss <-  2
 x1 <- 7
@@ -813,7 +813,7 @@ Se $X$ è VC continua
 Obbiettivo: data $Z\sim N(0,1)$, sia $0<\alpha<1$ un numero fissato, si cerca qual valore $z_\alpha$ tale che:
 \[P(Z > z_\alpha)=\alpha\]
 
-```{r 07c-Normale-27,,echo=F}
+```{r 07c-Normale-27,echo=F}
 par(mfrow=c(1,2),cex=cex*.8)
 z <- 1
 curve(pnorm,-4,4,axes = F,ylab=expression(Phi(z)),xlab=expression(z))
@@ -844,7 +844,7 @@ Dalla regola del complemento otteniamo
 Cerchiamo nelle tavole della normale quale valore di $z$ si avvicina di più a 0.85
 
 
-```{r 07c-Normale-28,,echo=F}
+```{r 07c-Normale-28,echo=F}
 
 
 xx <- seq(0,.09,by=0.01)
@@ -859,7 +859,7 @@ kable(rbind(continua,tab[8:18,],continua),row.names = T,booktabs = T, escape = F
 
 e dunque $z_{0.15}\approx 1.04$
 
-```{r 07c-Normale-29,,echo=F}
+```{r 07c-Normale-29,echo=F}
 
 
 par(mfrow=c(1,2),cex=cex*.8)
@@ -915,7 +915,7 @@ r3 <- paste(nam[3],paste(pap,collapse = " & ",sep="& "),sep=" & ")
 \hline
 \end{array}\]
 
-```{r 07c-Normale-30,,echo=F}
+```{r 07c-Normale-30,echo=F}
 par(mfrow=c(1,2),cex=cex*.8)
 z <- qnorm(.90)
 curve(pnorm,-4,4,axes = F,ylab=expression(Phi(z)),xlab=expression(z))

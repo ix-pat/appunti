@@ -48,18 +48,18 @@ In ogni caso, l'insieme dei valori possibili per \(\theta\), chiamato **spazio d
 
 Questa notazione, benché astratta, è fondamentale per costruire un linguaggio che sia universale, sintetico e adattabile a contesti diversi. Essa ci permette di comunicare non solo che \( X \) segue una certa distribuzione, ma anche di precisare come i parametri controllano il comportamento della distribuzione stessa. Sarà utile sia nel contesto probabilistico, dove i parametri sono spesso fissati a priori, sia in quello statistico, dove i parametri devono essere stimati dai dati osservati.
 
-```{r 07-vc-importanti-1,,results='asis',echo=FALSE}
+```{r 07-vc-importanti-1,results='asis',echo=FALSE}
 cat(knit_child("07a-Binomiale.Rmd",envir = environment(),quiet=T))
 ```
 
-```{r 07-vc-importanti-2,,results='asis',echo=FALSE}
+```{r 07-vc-importanti-2,results='asis',echo=FALSE}
 cat(knit_child("07b-Poisson.Rmd",envir = environment(),quiet=T))
 ```
 
-```{r 07-vc-importanti-3,,results='asis',echo=FALSE}
+```{r 07-vc-importanti-3,results='asis',echo=FALSE}
 cat(knit_child("07c-Normale.Rmd",envir = environment(),quiet=T))
 ```
 
-```{r 07-vc-importanti-4,,results='asis',echo=FALSE}
+```{r 07-vc-importanti-4,results='asis',echo=FALSE}
 cat(knit_child("07d-Esercizi-Normale.Rmd",envir = environment(),quiet=T))
 ```

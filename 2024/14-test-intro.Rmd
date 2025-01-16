@@ -85,7 +85,7 @@ se scelgo di tenere $H_0$ o di rifiutarla in favore di $H_1$.
 
 :::: {.info data-latex=""}
 ::: {.center data-latex=""}
-```{r 14-test-intro-1,, results='asis'}
+```{r 14-test-intro-1, results='asis'}
 
 t.ver <- data.frame(s.n.="stato di natura",pi=c("$H_0$","$H_1$"),matrix(c("Corretta","Errore II tipo","Errore I tipo","Corretta"),2))
 kable(t.ver,row.names = F,col.names = c("","","decido $H_0$","decido $H_1$"),align = 'c',
@@ -120,7 +120,7 @@ Dunque ad ogni decisione corrisponde un possibile errore.
 Per valutare un test si devono calcolare le probabilità di errore
 
 ::: {.center data-latex=""}
-```{r 14-test-intro-2,, results='asis'}
+```{r 14-test-intro-2, results='asis'}
 
 t.ver <- data.frame(s.n.="stato di natura",pi=c("$H_0$","$H_1$"),matrix(c("$1-\\alpha$","$\\beta$","$\\alpha$","$1-\\beta$"),2))
 kable(t.ver,row.names = F,col.names = c("","","decido $H_0$","decido $H_1$"),align = 'c',
@@ -167,7 +167,7 @@ $1-\beta$ è la **potenza del test**, $1-\beta$ è la probabilità di scegliere 
 <!-- \end{align} -->
 
 <!-- - La tavola della verità -->
-<!-- ```{r 14-test-intro-3,, results='asis'} -->
+<!-- ```{r 14-test-intro-3, results='asis'} -->
 <!-- alpha <- .02 -->
 <!-- bbeta <- .3 -->
 <!-- t.ver <- data.frame(s.n.="stato di natura",pi=c("Non Infetto","Infetto"),matrix(c(1-alpha,bbeta,alpha,1-bbeta),2)) -->
@@ -202,7 +202,7 @@ P(\text{Falso Negativo}) =& P(\text{filtrata non spam} ; \text{è spam})= \beta 
 La tavola della verità
 
 ::: {.center data-latex=""}
-```{r 14-test-intro-4,, results='asis'}
+```{r 14-test-intro-4, results='asis'}
 alpha <- .02
 bbeta <- .3
 t.ver <- data.frame(s.n.="stato di natura",pi=c("Non Spam","Spam"),matrix(c("$1-\\alpha$","$\\beta$","$\\alpha$","$1-\\beta$"),2))
@@ -221,7 +221,7 @@ $1-\beta$ sia la più alta possibile, per $\alpha$ fissato
 ::::
 
 
-```{r 14-test-intro-5,,echo=FALSE,include=FALSE}
+```{r 14-test-intro-5,echo=FALSE,include=FALSE}
 ############# Esempio dell'Orsi
 
 
@@ -332,7 +332,7 @@ e
 Possiamo quindi calcolare
 
 \scriptsize
-```{r 14-test-intro-6,, results='asis'}
+```{r 14-test-intro-6, results='asis'}
 gg <- cbind(0:10,format(ff,digits = 4))
 colnames(gg)<-c("$S_n$","$P(S_n;\\pi=0.8)$","$P(S_n;\\pi=0.4)$")
 rownames(gg)<-NULL
@@ -411,7 +411,7 @@ text(5,.5,expression(S[0]),cex=2)
 Siccome sappiamo calcolare la distribuzione di $S_{10}$ sotto $H_0$ e sotto $H_1$:
 
 \scriptsize
-```{r 14-test-intro-7,, results='asis'}
+```{r 14-test-intro-7, results='asis'}
 kable(t(gg),booktabs = T, escape = F,linesep = "", digits = 4,col.names = NA)%>%
   column_spec(10:12, color =  iblue) %>%
   column_spec(2:9, color =  ared) %>%
@@ -434,7 +434,7 @@ La significatività del test A è $\alpha=`r tvA[1,4]`$.
 La potenza del test A è $1-\beta=`r tvA[2,4]`$
 
 ::: {.center data-latex=""}
-```{r 14-test-intro-8,, results='asis'}
+```{r 14-test-intro-8, results='asis'}
 kable(tvA,row.names = F,col.names = c("","","$H_0$","$H_1$"),
       booktabs = T, escape = F,linesep = "", digits = 4) %>%
   column_spec(1, bold = T) %>%
@@ -448,7 +448,7 @@ kable(tvA,row.names = F,col.names = c("","","$H_0$","$H_1$"),
 
 Siccome sappiamo calcolare la distribuzione di $S_{10}$ sotto $H_0$ e sotto $H_1$:
 \scriptsize
-```{r 14-test-intro-9,, results='asis'}
+```{r 14-test-intro-9, results='asis'}
 kable(t(gg),booktabs = T, escape = F,linesep = "", digits = 4,col.names = NA)%>%
   column_spec(8:12, color =  iblue) %>%
   column_spec(2:7, color =  ared) %>%
@@ -469,7 +469,7 @@ La significatività del test B è $\alpha=`r tvB[1,4]`$.
 La potenza del test B è $1-\beta=`r tvB[2,4]`$
 
 ::: {.center data-latex=""}
-```{r 14-test-intro-10,, results='asis'}
+```{r 14-test-intro-10, results='asis'}
 kable(tvB,row.names = F,col.names = c("","","$H_0$","$H_1$"),
       booktabs = T, escape = F,linesep = "", digits = 4) %>%
   column_spec(1, bold = T) %>%
@@ -485,7 +485,7 @@ kable(tvB,row.names = F,col.names = c("","","$H_0$","$H_1$"),
 Siccome sappiamo calcolare la distribuzione di $S_{10}$ sotto $H_0$ e sotto $H_1$:
 
 \scriptsize
-```{r 14-test-intro-11,, results='asis'}
+```{r 14-test-intro-11, results='asis'}
 kable(t(gg),booktabs = T, escape = F,linesep = "", digits = 4,col.names = NA)%>%
   column_spec(4:10, color =  iblue) %>%
   column_spec(c(2:3,11:12), color =  ared) %>%
@@ -505,7 +505,7 @@ La significatività del test C è $\alpha=`r tvC[1,4]`$,
 la potenza del test C è $1-\beta=`r tvC[2,4]`$
 
 ::: {.center data-latex=""}
-```{r 14-test-intro-12,, results='asis'}
+```{r 14-test-intro-12, results='asis'}
 kable(tvC,row.names = F,col.names = c("","","$H_0$","$H_1$"),
       booktabs = T, escape = F,linesep = "", digits = 4) %>%
   column_spec(1, bold = T) %>%
@@ -518,7 +518,7 @@ kable(tvC,row.names = F,col.names = c("","","$H_0$","$H_1$"),
 ### Confronto
 
 ::: {.center data-latex=""}
-```{r 14-test-intro-13,, results='asis'}
+```{r 14-test-intro-13, results='asis'}
 kable(tvA,row.names = F,col.names = c("","","$H_0$","$H_1$"),
       booktabs = T, escape = F,linesep = "", digits = 4) %>%
   column_spec(1, bold = T) %>%
@@ -529,7 +529,7 @@ kable(tvA,row.names = F,col.names = c("","","$H_0$","$H_1$"),
 :::
 
 ::: {.center data-latex=""}
-```{r 14-test-intro-14,, results='asis'}
+```{r 14-test-intro-14, results='asis'}
 kable(tvB,row.names = F,col.names = c("","","$H_0$","$H_1$"),
       booktabs = T, escape = F,linesep = "", digits = 4) %>%
   column_spec(1, bold = T) %>%
@@ -540,7 +540,7 @@ kable(tvB,row.names = F,col.names = c("","","$H_0$","$H_1$"),
 :::
 
 ::: {.center data-latex=""}
-```{r 14-test-intro-15,, results='asis'}
+```{r 14-test-intro-15, results='asis'}
 kable(tvC,row.names = F,col.names = c("","","$H_0$","$H_1$"),
       booktabs = T, escape = F,linesep = "", digits = 4) %>%
   column_spec(1, bold = T) %>%

@@ -9,7 +9,7 @@ editor_options:
 \part{Probabilità}
 
 
-```{r 05-Probabilita-1,,echo=F,include=FALSE}
+```{r 05-Probabilita-1,echo=F,include=FALSE}
 #rm(list = ls())
 
 
@@ -904,7 +904,7 @@ P(C|V)&=&\frac{P(C)P(V| C)}{P(A)P(V|A)+P(B)P(V| B)+P(C)P(V| C)}\\
 
 ::: {.info2 data-latex=""}
 <div style="font-size:0.8em;">
-```{r 05-Probabilita-2,, echo=F,results='asis'}
+```{r 05-Probabilita-2, echo=F,results='asis'}
 # 
 # if ( html){ f1 <- " "; f2 <- " "}   # se html usa questi
 # if (!html) {f1 <- "\\bf"; f2 <- "\\rm"} # se pdf usa questi

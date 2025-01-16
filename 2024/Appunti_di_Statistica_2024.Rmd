@@ -314,7 +314,7 @@ La lista è l'elenco degli elementi appartenenti a $\mathscr{P}$ e rappresenta l
 
 La matrice dei dati è una tabella che consente di raccogliere in modo efficiente molti tipi diversi di dati.
 
-```{r 01-dati-1,,echo=FALSE}
+```{r 01-dati-1,echo=FALSE}
 j <- c(1:3,"$n$")
 età <- sample(18:80,size = 4,replace = T)
 Sesso <- sample(c("M","F"),size = 4,replace = T)
@@ -1280,7 +1280,7 @@ kable(out,col.names = c("Estremo inf","Estremo sup","freq. ass.","freq. relativa
 editor_options: 
   chunk_output_type: console
 ---
-```{r 03-media-varianza-1,,echo=F,include=FALSE}
+```{r 03-media-varianza-1,echo=F,include=FALSE}
 #rm(list = ls())
 
 
@@ -1307,7 +1307,7 @@ __Esempio.__ Posto $x_1=2$, $x_2=5$, allora
 
 :::  {.center data-latex=""}
 
-```{r 03-media-varianza-2,,echo=FALSE,fig.height=1.5}
+```{r 03-media-varianza-2,echo=FALSE,fig.height=1.5}
 
 par(mar=c(0, 3, 3, 0) + 0.1)
 
@@ -1456,7 +1456,7 @@ par(mfrow=c(1,1),cex=cex)
 ### Calcolo per Distribuzioni di Frequenza
 
 Se i dati sono raccolti in distribuzione di frequenza
-```{r 03-media-varianza-3,, echo=FALSE, results="asis"}
+```{r 03-media-varianza-3, echo=FALSE, results="asis"}
 y1 <- c("$\\mathrm{x}_1$","$\\mathrm{x}_2$","$\\ldots$","$\\mathrm{x}_j$","$\\ldots$","$\\mathrm{x}_K$",NA)
 n  <- c("$n_1$","$n_2$","$\\ldots$", "$n_j$","$\\ldots$","$n_K$","$n$")
 tab <- data.frame("Modalità"=y1,"Frequenze"=n)
@@ -1474,7 +1474,7 @@ kbl(t(tab),booktabs = T, escape = F,linesep = "", digits = 4,col.names=NA)
 
 :::: {.example}
 Osserviamo i seguenti dati:
-```{r 03-media-varianza-4,,results='asis',echo=FALSE}
+```{r 03-media-varianza-4,results='asis',echo=FALSE}
 set.seed(112)
 n <- 10
 samp <- sample(c(2.7,3.4,5.1),n,T)
@@ -1493,7 +1493,7 @@ La media
 
 
 Riordiniamo i dati:
-```{r 03-media-varianza-5,,results='asis'}
+```{r 03-media-varianza-5,results='asis'}
 cat(paste("$x_{(",1:5,")}=",sort(samp),"$; ",sep=""))
 ```
 
@@ -1702,7 +1702,7 @@ Tutto il totale è posseduto da un solo individuo, c'è massima variabilità.
 
 Se i dati sono raccolti in distribuzione di frequenza
 
-```{r 03-media-varianza-6,, echo=FALSE, results="asis"}
+```{r 03-media-varianza-6, echo=FALSE, results="asis"}
 y1 <- c("$\\mathrm{x}_1$","$\\mathrm{x}_2$","$\\ldots$","$\\mathrm{x}_j$","$\\ldots$","$\\mathrm{x}_K$",NA)
 nn  <- c("$n_1$","$n_2$","$\\ldots$", "$n_j$","$\\ldots$","$n_K$","$n$")
 tab <- data.frame("Modalità"=y1,"Frequenze"=nn)
@@ -1735,7 +1735,7 @@ e di conseguenza, con un po' di algebra otteniamo:
 
 :::: {.example}
 
-```{r 03-media-varianza-7,,results='asis',echo=FALSE}
+```{r 03-media-varianza-7,results='asis',echo=FALSE}
 set.seed(112)
 n <- 10
 samp <- sample(c(2.7,3.4,5.1),n,T)
@@ -1779,7 +1779,7 @@ Osserviamo che
 
 
 Riordiniamo i dati:
-```{r 03-media-varianza-8,,results='asis'}
+```{r 03-media-varianza-8,results='asis'}
 cat(paste("$x_{(",1:n,")}=",sort(samp),"$; ",sep=""))
 ```
 
@@ -1830,7 +1830,7 @@ o alternativamente
 
 :::: {.example}
 
-```{r 03-media-varianza-9,, results='asis'}
+```{r 03-media-varianza-9, results='asis'}
 set.seed(12)
 x <- round(sample(sqrt(c(10:15)),size=21,T,prob=dnorm(10:15,13,2)),2)
 cat(paste("$x_{",1:21,"}=",x,"$; ",sep=""))
@@ -1854,7 +1854,7 @@ La varianza
 
 riordiniamo i dati
 
-```{r 03-media-varianza-10,,results='asis'}
+```{r 03-media-varianza-10,results='asis'}
 cat(paste("$x_{(",1:21,")}=",sort(x),"$; ",sep=""))
 ```
 
@@ -2305,7 +2305,7 @@ percentile()
 La mediana è quel valore che taglia l'istogramma in due parti, entrambe di area pari al 50% dell'area totale
 
 
-```{r 04-mediana-percentili-1,, echo=FALSE}
+```{r 04-mediana-percentili-1, echo=FALSE}
 nomex <- "Reddito"
 
 histp(T)
@@ -2356,7 +2356,7 @@ Il $p$-esimo percentile di una serie di dati è il valore che occupa la posizion
 :::: {.example}
 Si considerino $n=21$ osservazioni di una variabile categoriale ordinata che assume 7 valori: $-2$, $-1$, $0$, $1$, $2$ (ad esempio una scala del tipo $-2=$_in totale disaccordo_, $-1=$_più in disaccordo che in accordo_, $0=$_né d'accordo, né in disaccordo_, $1=$_più d'accordo che in disaccordo_, $2=$_totalmente d'accordo_). Qui di seguito i dati riordinati:
 
-```{r 04-mediana-percentili-2,, include=FALSE}
+```{r 04-mediana-percentili-2, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 options(digits=4)
 
@@ -2371,7 +2371,7 @@ names(tab) <- c("$(i)$","$x_i$")
 ```
 
 
-```{r 04-mediana-percentili-3,, echo=FALSE, results="asis"}
+```{r 04-mediana-percentili-3, echo=FALSE, results="asis"}
 kable(t(tab),booktabs = T, escape = F,linesep = "", digits = 4)
 ```
 
@@ -2387,7 +2387,7 @@ Se il fenomeno è espresso in una tabella di distribuzione di frequenza, allora 
 
 Fenomeno _Titolo di Studio_, $n=350$, numero di modalità $k=5$.
 
-```{r 04-mediana-percentili-4,,echo=F}
+```{r 04-mediana-percentili-4,echo=F}
 f    <- c(0.10,0.30,0.42,0.10,0.08)
 n <- 350
 Fj <- cumsum(f)
@@ -2408,7 +2408,7 @@ Il 90-esimo percentile $x_{0.90}$ è la quarta modalità, $x_{4}=$Laurea.
 :::: {.example}
 Fenomeno: Numero di volte che si è cercato lavoro negli ultimi 3 mesi, $n=322$
 
-```{r 04-mediana-percentili-5,,echo=F}
+```{r 04-mediana-percentili-5,echo=F}
 x    <- 0:10
 n <- 322
 nj    <- rpois(n,3)
@@ -2443,7 +2443,7 @@ dove $j_p$ è l'indicatore della classe che contiene il $p$-esimo percentile, $x
 
 :::: {.example}
 
-```{r 04-mediana-percentili-6,,echo=F,include=F}
+```{r 04-mediana-percentili-6,echo=F,include=F}
 n <- 4700
 xlim <- brk <- c(0,10,15,20,25,35)
 k <- length(xlim)-1
@@ -2455,13 +2455,13 @@ ls2e(stat_base(samp,brk))
 
 Il reddito di $n=$ 4700 famiglie 
 è rappresentato nella seguente tabella di frequenza
-```{r 04-mediana-percentili-7,, echo=FALSE, results="asis"}
+```{r 04-mediana-percentili-7, echo=FALSE, results="asis"}
 tabl(cbind("$j$"=c(1:k,NA),dat3[,c(1:7)]))
 ```
 
 La classe che contiene il $25$-esimo percentile è la seconda classe $j_{0.25}=2$, ovvero la classe (10,15], in quanto $F_2=`r X$Fj[2]`>0.25$.
 
-```{r 04-mediana-percentili-8,,echo=FALSE}
+```{r 04-mediana-percentili-8,echo=FALSE}
 X <- dat2
 percentile(p=.25)
 ```
@@ -2470,7 +2470,7 @@ percentile(p=.25)
 :::: {.nota data-latex=""}
 Il $p$-esimo percentile $x_p$ è quel valore che taglia l'istogramma in due parti, l'area dell'istogramma alla sinistra di $x_p$ è pari a $p\times 100\%$, mentre l'area la sua destra è $(1-p)\times 100\%$
 
-```{r 04-mediana-percentili-9,, echo=FALSE}
+```{r 04-mediana-percentili-9, echo=FALSE}
 nomex <- "Reddito"
 
 histp(T)
@@ -2551,7 +2551,7 @@ Si definisce la **moda**, $x_{Mo}$ la modalità cui compete frequenza maggiore.
 Consideriamo la distribuzione del colore dei capelli
 
 
-```{r 04-mediana-percentili-10,,echo=FALSE}
+```{r 04-mediana-percentili-10,echo=FALSE}
 colore <- c("Cast.","Biondi","Rossi","Tot")
 frequenza <- c(245,68,13,326)
 prn <- data.frame(colore,frequenza)
@@ -2565,7 +2565,7 @@ La modalità modale (la moda) è $x_{Mo}$=Castano.
 :::: {.example} 
 Titolo di studio:
 
-```{r 04-mediana-percentili-11,,echo=FALSE}
+```{r 04-mediana-percentili-11,echo=FALSE}
 colore <- c("Prim.","M. inf.","M. sup.","Univ.","Post univ.","Tot")
 frequenza <- c(10,18,158,62,12,sum(c(10,18,158,62,12)))
 prn <- data.frame(colore,frequenza)
@@ -2579,7 +2579,7 @@ La modalità modale (la moda) è $x_{Mo}=$M. sup.
 :::: {.example}
 $\phantom{2}$
 
-```{r 04-mediana-percentili-12,,echo=FALSE}
+```{r 04-mediana-percentili-12,echo=FALSE}
 set.seed(10)
 xx <- 0:4
 nn <- c(1,11,6,8,5)
@@ -2600,7 +2600,7 @@ Se i dati sono sono raccolti in classi, non c'è un valore modale ma una classe 
 :::: {.example}
 $\phantom{2}$
 
-```{r 04-mediana-percentili-13,, echo=FALSE, results="asis"}
+```{r 04-mediana-percentili-13, echo=FALSE, results="asis"}
 tabl(cbind("$j$"=c(1:k,NA),dat3[,c(1:7)]))
 ```
 
@@ -2655,7 +2655,7 @@ par(op)
 ```
 
 
-```{r 04-mediana-percentili-14,,results='asis',echo=FALSE}
+```{r 04-mediana-percentili-14,results='asis',echo=FALSE}
 cat(knit_child("04a-Istogramma.Rmd",envir = environment(),quiet=T))
 ```
 
@@ -2672,7 +2672,7 @@ editor_options:
 \part{Probabilità}
 
 
-```{r 05-Probabilita-1,,echo=F,include=FALSE}
+```{r 05-Probabilita-1,echo=F,include=FALSE}
 #rm(list = ls())
 
 
@@ -3518,7 +3518,7 @@ P(C|V)&=&\frac{P(C)P(V| C)}{P(A)P(V|A)+P(B)P(V| B)+P(C)P(V| C)}\\
 
 ::: {.info2 data-latex=""}
 <div style="font-size:0.8em;">
-```{r 05-Probabilita-2,, echo=F,results='asis'}
+```{r 05-Probabilita-2, echo=F,results='asis'}
 # 
 # if ( html){ f1 <- " "; f2 <- " "}   # se html usa questi
 # if (!html) {f1 <- "\\bf"; f2 <- "\\rm"} # se pdf usa questi
@@ -3793,7 +3793,7 @@ Nel nostro esempio di prima:
 fig.def()
 ```
 
-```{r 06-Variabili-Casuali-1,,echo=F}
+```{r 06-Variabili-Casuali-1,echo=F}
 
 #par(mfrow=c(2,1))
 par(cex=.65)
@@ -3807,7 +3807,7 @@ text(1:3-.5,.1,c("0.25","0.50","0.25"),cex=2.5)
 Analogamente possiamo costruire la funzione di ripartizione cumulando le probabilità.
 Nell'esempio di sopra otterremmo:
 
-```{r 06-Variabili-Casuali-2,,echo=F}
+```{r 06-Variabili-Casuali-2,echo=F}
 plot(function(x) 0*(x<1) + .25*(x>=1 & x<2)+.75*(x>=2 & x <3)+1*(x>=3),.5,3.5,n=10001,
      axes=F,ylab="F(x)",type="n")
 axis(1,at=0:4)
@@ -4050,7 +4050,7 @@ rownames(out) <- c("$Y=-1$","$Y=+1$")
 \vspace{10pt}
 :::: {.info2 data-latex=""}
 <div style="font-size:0.75em;">
-```{r 06-Variabili-Casuali-3,,results='asis'}
+```{r 06-Variabili-Casuali-3,results='asis'}
 rig1 <- c(" S_X&", "\\text{il supporto della VC $X$:}")
 rig11 <- c(" &", "\\text{l'insieme di tutti i possibili valori che la VC può assumere. }")
 rig2 <- c("  &     ", "\\text{Se $X$ è una VD discreta il suo supporto ha:}")
@@ -4568,19 +4568,19 @@ In ogni caso, l'insieme dei valori possibili per \(\theta\), chiamato **spazio d
 
 Questa notazione, benché astratta, è fondamentale per costruire un linguaggio che sia universale, sintetico e adattabile a contesti diversi. Essa ci permette di comunicare non solo che \( X \) segue una certa distribuzione, ma anche di precisare come i parametri controllano il comportamento della distribuzione stessa. Sarà utile sia nel contesto probabilistico, dove i parametri sono spesso fissati a priori, sia in quello statistico, dove i parametri devono essere stimati dai dati osservati.
 
-```{r 07-vc-importanti-1,,results='asis',echo=FALSE}
+```{r 07-vc-importanti-1,results='asis',echo=FALSE}
 cat(knit_child("07a-Binomiale.Rmd",envir = environment(),quiet=T))
 ```
 
-```{r 07-vc-importanti-2,,results='asis',echo=FALSE}
+```{r 07-vc-importanti-2,results='asis',echo=FALSE}
 cat(knit_child("07b-Poisson.Rmd",envir = environment(),quiet=T))
 ```
 
-```{r 07-vc-importanti-3,,results='asis',echo=FALSE}
+```{r 07-vc-importanti-3,results='asis',echo=FALSE}
 cat(knit_child("07c-Normale.Rmd",envir = environment(),quiet=T))
 ```
 
-```{r 07-vc-importanti-4,,results='asis',echo=FALSE}
+```{r 07-vc-importanti-4,results='asis',echo=FALSE}
 cat(knit_child("07d-Esercizi-Normale.Rmd",envir = environment(),quiet=T))
 ```
 
@@ -4808,7 +4808,7 @@ $$ il supporto di $S_2$ sarà $$S_{S_2}=\{-2,-1,0,+1,+2 \} $$ $S_2=-2$ se
 sia $X_1=-1$ e $X_2=-1$, $S_2=-1$ se sia $X_1+X_2=-1$ ecc. mettiamo in
 tabella
 
-```{r 08-tlc-1,,results='asis'}
+```{r 08-tlc-1,results='asis'}
 S_1 <- (-1):1
 S_2 <- (-1):1
 num1 <- rep(1,times=3)
@@ -4827,7 +4827,7 @@ $$
 
 lavoriamo come prima facendo la somma tra $S_2$ e $X_1$
 
-```{r 08-tlc-2,,results='asis'}
+```{r 08-tlc-2,results='asis'}
 res <- two_way(S_1=S_1,S_2=S_3,num1=num1,num2=num3,EV = F,vnam="S_3")
 S_4 <- res$S_3
 num4 <- res$num3
@@ -4840,7 +4840,7 @@ $$
 S_4=S_3+X_4
 $$
 
-```{r 08-tlc-3,,results='asis'}
+```{r 08-tlc-3,results='asis'}
 res <- two_way(S_1=S_1,S_2=S_4,num1=num1,num2=num4,EV = F,vnam="S_4")
 S_5 <- res$S_3
 num5 <- res$num3
@@ -4953,7 +4953,7 @@ sigma <- "V(S_n)"
 vnam <- "S_n"
 ```
 
-```{r 08-tlc-4,, results='asis'}
+```{r 08-tlc-4, results='asis'}
 cat(norm_int(x1 = x1,verso = "<",mm = mm,ss = ss,vnam = vnam,sigma = sigma))
 ```
 
@@ -5143,7 +5143,7 @@ S_{100}&&\operatorname*{\sim}_{a} N(100\times(`r xg`),100\times`r vg`)\\
 
 E quindi
 
-```{r 08-tlc-5,,results='asis'}
+```{r 08-tlc-5,results='asis'}
 vnam<-"S_n"
 mm <- round(100*xn,4)
 ss <- 100*vn
@@ -5172,7 +5172,7 @@ in zero. Per ovviare e migliorare l'approssimazione basta spostare sulla
 fine del rettangolo dello zero il calcolo della normale. Senza entrare
 nel dettaglio si ricava che il rettangolo finisce per $S_n=1$ e dunque
 
-```{r 08-tlc-6,, results='asis'}
+```{r 08-tlc-6, results='asis'}
 vnam<-"S_n"
 mm <- round(100*xn,4)
 ss <- 100*vn
@@ -5480,7 +5480,7 @@ kable(rbind(continua,tab[13:17,],continua),row.names = F,booktabs = T, escape = 
 ```
 
 
-```{r 09-Statistiche-Campionarie_2,,fig.align='center'}
+```{r 09-Statistiche-Campionarie_2,fig.align='center'}
 curve(dt(x,15),-5,5, axes = F, xlab='t',ylab='f(t)')
 axis(1,c(-5,0,round(qt(.995,15),4),5))
 axis(2)
@@ -5883,7 +5883,7 @@ Se estraiamo SR, lo spazio dei campioni è di dimensione $\#\mathcal{S}=4(\times
 Anziché tutti i 24 possibili campioni la tabella mostra solo i 4 campioni riordinati, perché il campione (0,1,3), ai nostri fini
 è identico al campione (3,1,0) e al campione (0,3,1), ecc.
 
-```{r 11-Stima-1,,results="asis"}
+```{r 11-Stima-1,results="asis"}
 xp <- c(0,1,3,7)
 
 camp <- combn(xp,3)
@@ -5898,7 +5898,7 @@ column_spec (1:ncol(camp),border_left = F, border_right = T)
 
 Se invece estraiamo CR, lo spazio dei campioni è di dimensione $\#\mathcal{S}=64$ ed è descritto in tabella (\@ref(tab:ccr)).
 
-```{r 11-Stima-2,,results="asis"}
+```{r 11-Stima-2,results="asis"}
 xp <- c(0,1,3,7)
   
 xxx <- expand.grid(xp,xp,xp)
@@ -6122,7 +6122,7 @@ l'incertezza sulla media è zero.
 
 :::: {.example name="Popolazione finita, estrazioni SR (Stima)"}
 
-```{r 11-Stima-3,,results="asis"}
+```{r 11-Stima-3,results="asis"}
 xp <- c(0,1,3,7)
 
 camp <- combn(xp,3)
@@ -6315,7 +6315,7 @@ Proponiamo la varianza campionaria $\hat\sigma^2$ per stimare $\sigma^2=`r sig2`
 \[\hat\sigma^2=\frac 1 3\sum_{i=1}^3(x_i-\hat \mu)^2\]
 
 
-```{r 11-Stima-4,,results="asis"}
+```{r 11-Stima-4,results="asis"}
 xp <- c(0,1,3,7)
   
 xxx <- expand.grid(xp,xp,xp)
@@ -6363,7 +6363,7 @@ E(\hat\sigma^2)=\frac{n-1}n\sigma^2=\frac{`r n-1`}{`r n`}`r sig2`
 
 ### Distribuzione delle statistiche
 
-```{r 11-Stima-5,, echo=FALSE, results='asis'}
+```{r 11-Stima-5, echo=FALSE, results='asis'}
 
 #curve(dgamma(x,9,.9),0,25)
 set.seed(1)
@@ -6376,7 +6376,7 @@ s2 <- vvv(xpop)
 Estraggo campioni di ampiezza $n=5$ da una popolazione di $N=10000$ individui con media $\mu=`r mu`$ e varianza $\sigma^2=`r s2`$.
 Osservo tre diversi stimatori per $\mu$: $h_1$, $h_2$ e $h_3$
 
-```{r 11-Stima-6,, echo=FALSE, results='asis'}
+```{r 11-Stima-6, echo=FALSE, results='asis'}
 
 #curve(dgamma(x,9,.9),0,25)
 xpop <- rgamma(10000,9,.9)
@@ -6629,7 +6629,7 @@ alla luce dei dati $\mathbf{x}=(0,1,1,0,1)$. Questo si fa sostituendo $\pi$ con
 i suoi possibili valori e calcolando la _ipotetica_ probabilità.
 
 
-```{r 12-Verosimiglianza-1,,results='asis'}
+```{r 12-Verosimiglianza-1,results='asis'}
 pp <- (0:10)/10
 for (i in 1:11){
   cat("Se fosse $\\pi=$",pp[i]," con quale probabilità avrei osservato la sequenza $0,1,1,0,1$? \n")
@@ -8280,7 +8280,7 @@ Osserviamo graficamente gli intervalli di confidenza per $\mu$ con $\hat \mu=`r 
 
 
 
-```{r 13-stima-intervallare-1,,results='asis'}
+```{r 13-stima-intervallare-1,results='asis'}
 plot(c(xbar-4.5*se,xbar+4.5*se),c(-.4,1),axes=F,xlab='',ylab="",type='n')
 arrows(xbar-4.5*se,0,xbar+4.5*se,0,length = .1)
 points(xbar,0,pch='|')
@@ -8639,7 +8639,7 @@ se scelgo di tenere $H_0$ o di rifiutarla in favore di $H_1$.
 
 :::: {.info data-latex=""}
 ::: {.center data-latex=""}
-```{r 14-test-intro-1,, results='asis'}
+```{r 14-test-intro-1, results='asis'}
 
 t.ver <- data.frame(s.n.="stato di natura",pi=c("$H_0$","$H_1$"),matrix(c("Corretta","Errore II tipo","Errore I tipo","Corretta"),2))
 kable(t.ver,row.names = F,col.names = c("","","decido $H_0$","decido $H_1$"),align = 'c',
@@ -8674,7 +8674,7 @@ Dunque ad ogni decisione corrisponde un possibile errore.
 Per valutare un test si devono calcolare le probabilità di errore
 
 ::: {.center data-latex=""}
-```{r 14-test-intro-2,, results='asis'}
+```{r 14-test-intro-2, results='asis'}
 
 t.ver <- data.frame(s.n.="stato di natura",pi=c("$H_0$","$H_1$"),matrix(c("$1-\\alpha$","$\\beta$","$\\alpha$","$1-\\beta$"),2))
 kable(t.ver,row.names = F,col.names = c("","","decido $H_0$","decido $H_1$"),align = 'c',
@@ -8721,7 +8721,7 @@ $1-\beta$ è la **potenza del test**, $1-\beta$ è la probabilità di scegliere 
 <!-- \end{align} -->
 
 <!-- - La tavola della verità -->
-<!-- ```{r 14-test-intro-3,, results='asis'} -->
+<!-- ```{r 14-test-intro-3, results='asis'} -->
 <!-- alpha <- .02 -->
 <!-- bbeta <- .3 -->
 <!-- t.ver <- data.frame(s.n.="stato di natura",pi=c("Non Infetto","Infetto"),matrix(c(1-alpha,bbeta,alpha,1-bbeta),2)) -->
@@ -8756,7 +8756,7 @@ P(\text{Falso Negativo}) =& P(\text{filtrata non spam} ; \text{è spam})= \beta 
 La tavola della verità
 
 ::: {.center data-latex=""}
-```{r 14-test-intro-4,, results='asis'}
+```{r 14-test-intro-4, results='asis'}
 alpha <- .02
 bbeta <- .3
 t.ver <- data.frame(s.n.="stato di natura",pi=c("Non Spam","Spam"),matrix(c("$1-\\alpha$","$\\beta$","$\\alpha$","$1-\\beta$"),2))
@@ -8775,7 +8775,7 @@ $1-\beta$ sia la più alta possibile, per $\alpha$ fissato
 ::::
 
 
-```{r 14-test-intro-5,,echo=FALSE,include=FALSE}
+```{r 14-test-intro-5,echo=FALSE,include=FALSE}
 ############# Esempio dell'Orsi
 
 
@@ -8886,7 +8886,7 @@ e
 Possiamo quindi calcolare
 
 \scriptsize
-```{r 14-test-intro-6,, results='asis'}
+```{r 14-test-intro-6, results='asis'}
 gg <- cbind(0:10,format(ff,digits = 4))
 colnames(gg)<-c("$S_n$","$P(S_n;\\pi=0.8)$","$P(S_n;\\pi=0.4)$")
 rownames(gg)<-NULL
@@ -8965,7 +8965,7 @@ text(5,.5,expression(S[0]),cex=2)
 Siccome sappiamo calcolare la distribuzione di $S_{10}$ sotto $H_0$ e sotto $H_1$:
 
 \scriptsize
-```{r 14-test-intro-7,, results='asis'}
+```{r 14-test-intro-7, results='asis'}
 kable(t(gg),booktabs = T, escape = F,linesep = "", digits = 4,col.names = NA)%>%
   column_spec(10:12, color =  iblue) %>%
   column_spec(2:9, color =  ared) %>%
@@ -8988,7 +8988,7 @@ La significatività del test A è $\alpha=`r tvA[1,4]`$.
 La potenza del test A è $1-\beta=`r tvA[2,4]`$
 
 ::: {.center data-latex=""}
-```{r 14-test-intro-8,, results='asis'}
+```{r 14-test-intro-8, results='asis'}
 kable(tvA,row.names = F,col.names = c("","","$H_0$","$H_1$"),
       booktabs = T, escape = F,linesep = "", digits = 4) %>%
   column_spec(1, bold = T) %>%
@@ -9002,7 +9002,7 @@ kable(tvA,row.names = F,col.names = c("","","$H_0$","$H_1$"),
 
 Siccome sappiamo calcolare la distribuzione di $S_{10}$ sotto $H_0$ e sotto $H_1$:
 \scriptsize
-```{r 14-test-intro-9,, results='asis'}
+```{r 14-test-intro-9, results='asis'}
 kable(t(gg),booktabs = T, escape = F,linesep = "", digits = 4,col.names = NA)%>%
   column_spec(8:12, color =  iblue) %>%
   column_spec(2:7, color =  ared) %>%
@@ -9023,7 +9023,7 @@ La significatività del test B è $\alpha=`r tvB[1,4]`$.
 La potenza del test B è $1-\beta=`r tvB[2,4]`$
 
 ::: {.center data-latex=""}
-```{r 14-test-intro-10,, results='asis'}
+```{r 14-test-intro-10, results='asis'}
 kable(tvB,row.names = F,col.names = c("","","$H_0$","$H_1$"),
       booktabs = T, escape = F,linesep = "", digits = 4) %>%
   column_spec(1, bold = T) %>%
@@ -9039,7 +9039,7 @@ kable(tvB,row.names = F,col.names = c("","","$H_0$","$H_1$"),
 Siccome sappiamo calcolare la distribuzione di $S_{10}$ sotto $H_0$ e sotto $H_1$:
 
 \scriptsize
-```{r 14-test-intro-11,, results='asis'}
+```{r 14-test-intro-11, results='asis'}
 kable(t(gg),booktabs = T, escape = F,linesep = "", digits = 4,col.names = NA)%>%
   column_spec(4:10, color =  iblue) %>%
   column_spec(c(2:3,11:12), color =  ared) %>%
@@ -9059,7 +9059,7 @@ La significatività del test C è $\alpha=`r tvC[1,4]`$,
 la potenza del test C è $1-\beta=`r tvC[2,4]`$
 
 ::: {.center data-latex=""}
-```{r 14-test-intro-12,, results='asis'}
+```{r 14-test-intro-12, results='asis'}
 kable(tvC,row.names = F,col.names = c("","","$H_0$","$H_1$"),
       booktabs = T, escape = F,linesep = "", digits = 4) %>%
   column_spec(1, bold = T) %>%
@@ -9072,7 +9072,7 @@ kable(tvC,row.names = F,col.names = c("","","$H_0$","$H_1$"),
 ### Confronto
 
 ::: {.center data-latex=""}
-```{r 14-test-intro-13,, results='asis'}
+```{r 14-test-intro-13, results='asis'}
 kable(tvA,row.names = F,col.names = c("","","$H_0$","$H_1$"),
       booktabs = T, escape = F,linesep = "", digits = 4) %>%
   column_spec(1, bold = T) %>%
@@ -9083,7 +9083,7 @@ kable(tvA,row.names = F,col.names = c("","","$H_0$","$H_1$"),
 :::
 
 ::: {.center data-latex=""}
-```{r 14-test-intro-14,, results='asis'}
+```{r 14-test-intro-14, results='asis'}
 kable(tvB,row.names = F,col.names = c("","","$H_0$","$H_1$"),
       booktabs = T, escape = F,linesep = "", digits = 4) %>%
   column_spec(1, bold = T) %>%
@@ -9094,7 +9094,7 @@ kable(tvB,row.names = F,col.names = c("","","$H_0$","$H_1$"),
 :::
 
 ::: {.center data-latex=""}
-```{r 14-test-intro-15,, results='asis'}
+```{r 14-test-intro-15, results='asis'}
 kable(tvC,row.names = F,col.names = c("","","$H_0$","$H_1$"),
       booktabs = T, escape = F,linesep = "", digits = 4) %>%
   column_spec(1, bold = T) %>%
@@ -9513,7 +9513,7 @@ pari a 5g. Uno studente seleziona 25 cavie e ottiene un peso medio
 uguale a 32g con una $\hat\sigma$ pari a 7g. La selezione è casuale o il
 valore ottenuto della media è troppo alto, a un LdS del 5%?
 
-```{r 15-test-mu-pi-1,, results='asis'}
+```{r 15-test-mu-pi-1, results='asis'}
 muh <- 32
 mu0 <- 30
 s   <- 5
@@ -9531,7 +9531,7 @@ pari a 5g. Uno studente seleziona 25 cavie e ottiene un peso medio
 uguale a 32g con una $\hat\sigma$ pari a 7g. La selezione è casuale o il
 valore ottenuto della media è troppo alto, a un LdS del 1%?
 
-```{r 15-test-mu-pi-2,, results='asis'}
+```{r 15-test-mu-pi-2, results='asis'}
 muh <- 32
 mu0 <- 30
 s   <- 5
@@ -9657,7 +9657,7 @@ quali si ottiene una durata media $\bar{x}=5.7$ e uno deviazione
 standard $s=0.6$. Verificare l'ipotesi, al LdS dell'1%, che la
 resistenza sia rimasta invariata contro l'alternativa che sia diminuita.
 
-```{r 15-test-mu-pi-3,,results='asis'}
+```{r 15-test-mu-pi-3,results='asis'}
 muh <- 5.7
 mu0 <- 6
 s   <- .5
@@ -9741,7 +9741,7 @@ title("Normale Standard")
 ::: {.example}
 Un produttore di semiconduttori afferma che la durata media dei suoi chip è di 300 ore con una deviazione standard di 3 ore. Un'azienda decide di testare la qualità dei chip e conduce un esperimento con 16 chip, ottenendo una durata media di 298 ore e una deviazione standard di 4 ore. I risultati di questo test sono coerenti con l'affermazione del produttore i chip tendono a durare in modo diverso dalla durata dichiarata, al 5%?
 
-```{r 15-test-mu-pi-4,, results='asis'}
+```{r 15-test-mu-pi-4, results='asis'}
 muh <- 298
 mu0 <- 300
 s   <- 3
@@ -9878,7 +9878,7 @@ testa in 30 minuti. Un campione casuale di 25 persone la usa. Risultato:
 $\bar{x}=31.4$m con $\hat{\sigma}= 4.2$m. Verificare l'affermazione del
 produttore a un LdS del 5%.
 
-```{r 15-test-mu-pi-5,, results='asis'}
+```{r 15-test-mu-pi-5, results='asis'}
 muh <- 31.4
 mu0 <- 30
 sh  <- 4.2
@@ -9936,7 +9936,7 @@ gli iscritti al programma.
 Risultato: $\overline{\Delta x}=1.5$kg con $\hat\sigma=1.4$kg.
 Verificare l'affermazione del Centro al LdS del 5%.
 
-```{r 15-test-mu-pi-6,, results='asis'}
+```{r 15-test-mu-pi-6, results='asis'}
 muh <- 1.5
 mu0 <- 2
 sh  <- 1.4
@@ -9996,7 +9996,7 @@ i possibili effetti sulla resistenza. Verificare, a un LdS del 5%,
 l'ipotesi che la resistenza media sia uguale al filo standard, che è
 6.8N, contro l'alternativa che sia diverso.
 
-```{r 15-test-mu-pi-7,, results='asis'}
+```{r 15-test-mu-pi-7, results='asis'}
 muh <- 7.5
 mu0 <- 6.8
 sh  <- 1.2
@@ -10033,7 +10033,7 @@ media di 51 mg e una deviazione standard di 2.5 mg.
 I risultati delle analisi sono coerenti con l'affermazione dell'azienda o la 
 concentrazione del principio attivo tende a differire dalla quantità dichiarata?
 
-```{r 15-test-mu-pi-8,, results='asis'}
+```{r 15-test-mu-pi-8, results='asis'}
 muh <- 51
 mu0 <- 50
 sh  <- 2.5
@@ -10090,7 +10090,7 @@ bilanciata ($\pi=0.5$), contro l'alternativa che sia maggiore.
 Lo stimatore di massima verosimiglianza è
 $$\hat\pi=\frac 1 n \sum_{i=1}^n X_i$$
 
-```{r 15-test-mu-pi-9,, results='asis'}
+```{r 15-test-mu-pi-9, results='asis'}
 sn <- 30
 p0 <- .5
 n   <- 50
@@ -10108,7 +10108,7 @@ l'alternativa che sia maggiore.
 Lo stimatore di massima verosimiglianza è
 $$\hat\pi=\frac 1 n \sum_{i=1}^n X_i$$
 
-```{r 15-test-mu-pi-10,, results='asis'}
+```{r 15-test-mu-pi-10, results='asis'}
 sn <- 60
 p0 <- .5
 n   <- 100
@@ -10126,7 +10126,7 @@ l'alternativa che sia maggiore.
 Lo stimatore di massima verosimiglianza è
 $$\hat\pi=\frac 1 n \sum_{i=1}^n X_i$$
 
-```{r 15-test-mu-pi-11,, results='asis'}
+```{r 15-test-mu-pi-11, results='asis'}
 sn <- 600
 p0 <- .5
 n   <- 1000
@@ -10144,7 +10144,7 @@ che il valore osservato sia dovuto al caso, contro
 l'alternativa che vi sia stata una diminuzione della proporzione di
 decentramento.
 
-```{r 15-test-mu-pi-12,, results='asis'}
+```{r 15-test-mu-pi-12, results='asis'}
 sn <- 30
 p0 <- .4
 n   <- 100
@@ -10161,7 +10161,7 @@ banda ultra-larga. La proporzione posseduta a livello nazionale è pari
 al 25%. Verificare che nella città la
 percentuale sia diversa (in più o in meno).
 
-```{r 15-test-mu-pi-13,, results='asis'}
+```{r 15-test-mu-pi-13, results='asis'}
 sn <- 20
 p0 <- .25
 n   <- 100
@@ -10344,7 +10344,7 @@ di varianze **eterogenee**, verificare, se le due diete
 sono equivalenti contro l'alternativa che la dieta $A$ sia più efficace 
 (maggiore) della dieta $B$.
 
-```{r 16-test-2C-1,,results='asis'}
+```{r 16-test-2C-1,results='asis'}
 mu1 <- 6
 mu2 <- 5
 s1h   <- 1.2
@@ -10372,7 +10372,7 @@ giorni per il supermercato $B$ fornisce $\bar x_B=$ 57 mila euro, con
 Sotto assunto di **omogeneità**  delle varianze
 verificare l'ipotesi che la vendita media del supermercato $A$ sia uguale a quella del supermercato $B$, contro l'alternativa sia diversa.
 
-```{r 16-test-2C-2,,results='asis'}
+```{r 16-test-2C-2,results='asis'}
 mu1 <- 55
 mu2 <- 57
 s1h   <- 2.9
@@ -10448,7 +10448,7 @@ contro l'alternativa che le donne si dimostrino meno
 propense a accettare tale legge.
 
 
-```{r 16-test-2C-3,, results='asis'}
+```{r 16-test-2C-3, results='asis'}
 s1 <- 70
 n1 <- 80
 s2 <- 70
@@ -10761,7 +10761,7 @@ fig.def()
 
 Se mettiamo a test, otteniamo
 
-```{r 17-regressione-I-1,,results='asis'}
+```{r 17-regressione-I-1,results='asis'}
 mu1 <- ybar2
 mu2 <- ybar1
 b <- "$(X=0)$" 
@@ -10949,7 +10949,7 @@ fig.def(3)
 La previsione sembra più difficile, 
 la suggestione di prima non sembra funzionare
 
-```{r 17-regressione-I-2,,results='asis'}
+```{r 17-regressione-I-2,results='asis'}
 opar <- par(no.readonly = T)
 par(mfrow=c(1,2),cex=cex)
 set.seed(1)
@@ -10997,7 +10997,7 @@ e varianza costante
 
 Qui di seguito un paio di esempi grafici
 
-```{r 17-regressione-I-3,,results='asis'}
+```{r 17-regressione-I-3,results='asis'}
 opar <- par(no.readonly = T)
 par(mfrow=c(1,2),cex=cex)
 set.seed(1)
@@ -11023,7 +11023,7 @@ par(opar)
 ```
 
 
-<!-- ```{r 17-regressione-I-4,,results='asis'} -->
+<!-- ```{r 17-regressione-I-4,results='asis'} -->
 
 <!-- plot(x*2.5,y,pch=16,cex=.8,xlab="x",xlim = c(2,4),ylim = c(35,48)) -->
 <!-- lines(x*2.5,15*sin(x)+28,col=ared) -->
@@ -11038,7 +11038,7 @@ Tra le tante $f$ limitiamo l'attenzione alle funzioni lineari
 \[y_i=\beta_0+\beta_1x_i+\varepsilon_i\]
 
 
-```{r 17-regressione-I-5,,results='asis'}
+```{r 17-regressione-I-5,results='asis'}
 opar <- par(no.readonly = T)
 par(mfrow=c(1,2),cex=cex)
 set.seed(2)
@@ -13639,7 +13639,7 @@ abline(h=mean(y),lty=2)
 
 ```
 
-```{r 18-regressione-II-1,, results='asis', echo=FALSE, out.extra=''}
+```{r 18-regressione-II-1, results='asis', echo=FALSE, out.extra=''}
 
 tab <- data.frame(x,y,h)
 names(tab) <- c("$x_i$","$y_i$","$h_i$")
@@ -13664,7 +13664,7 @@ abline(h=mean(y),lty=2)
 h <- 1/11 + (x-mean(x))^2/(11*s2c(x))
 ```
 
-```{r 18-regressione-II-2,, results='asis', echo=FALSE, out.extra=''}
+```{r 18-regressione-II-2, results='asis', echo=FALSE, out.extra=''}
 
 tab <- data.frame(x,y,h)
 names(tab) <- c("$x_i$","$y_i$","$h_i$")
@@ -15363,7 +15363,7 @@ editor_options:
   chunk_output_type: console
 ---
 
-```{r 24-Libro-1,, echo=FALSE}
+```{r 24-Libro-1, echo=FALSE}
 rm(list = ls())
 
 
@@ -15395,7 +15395,7 @@ In sostanza lo stesso documento contiene:
 
 per esempio il codice
 ````.markdown
-```{r 24-Libro-2,, echo=FALSE}`r ''`
+```{r 24-Libro-2, echo=FALSE}`r ''`
 # Questo è un blocco di codice in R
 # fisso alcuni parametri ed eseguo alcuni conti
 n <- 250 # fisso n = 250
@@ -15406,7 +15406,7 @@ vx <- var(data) # chiamo vx la varianza dei dati
 Abbiamo analizzato $n=`r virg`r n`$ individui, abbiamo osservato una media pari 
 a $\bar x =`r virg`r mx`$ e una varianza pari a $\sigma^2=`r virg`r vx`$
 
-```{r 24-Libro-3,, echo=FALSE}`r ''`
+```{r 24-Libro-3, echo=FALSE}`r ''`
 # qui produco un grafico
 hist(data)
 ```
@@ -15414,7 +15414,7 @@ hist(data)
 
 produrrà il seguente risultato
 
-```{r 24-Libro-4,,echo=FALSE}
+```{r 24-Libro-4,echo=FALSE}
 # Questo è un blocco di codice in R
 # fisso alcuni parametri ed eseguo alcuni conti
 n <- 250 # fisso n = 250
@@ -15480,7 +15480,7 @@ opts_knit$set(echo=T,results = "markup")
 options(digits = 5,nsmall=5) # quanti decimali stampo
 ```
 
-```{r 24-Libro-5,,echo=TRUE,results='markup'}
+```{r 24-Libro-5,echo=TRUE,results='markup'}
 1+1 # uno più uno 
 3-4 # tre meno quattro
 4*3 # quattro per tre
@@ -15502,7 +15502,7 @@ Alcuni caratteri speciali sono
 - ``TRUE`` o ``T`` vero
 - ``FALSE`` o ``F`` falso
 
-```{r 24-Libro-6,,echo=TRUE,results='markup'}
+```{r 24-Libro-6,echo=TRUE,results='markup'}
 NA+1      # sommare uno al dato mancante dà come risultato un dato mancante
 Inf+1     # infinito più uno è sempre infinito
 NULL+1    # sommare al nulla uno non restituisce nulla
@@ -15514,7 +15514,7 @@ FALSE + 1 # falso + 1 fa uno
 - ``a!=b`` a è diverso a b?
 - ``a>b`` a è maggiore di b?
 
-```{r 24-Libro-7,,echo=TRUE,results='markup'}
+```{r 24-Libro-7,echo=TRUE,results='markup'}
 3 == 4   # 3 è uguale a 4?
 3 != 4   # 3 è diverso da 4?
 3 >  4   # 3 è maggiore di 4?
@@ -15522,7 +15522,7 @@ FALSE + 1 # falso + 1 fa uno
 
 Gli operatori ``&`` e ``|`` svolgono il ruolo di ``and`` e ``or``.
 
-```{r 24-Libro-8,,echo=TRUE,results='markup'}
+```{r 24-Libro-8,echo=TRUE,results='markup'}
 cond1 <- TRUE
 cond2 <- FALSE
 
@@ -15535,7 +15535,7 @@ cond1 | cond2 # vera se almeno una delle due è vera
 Con il comando ``c`` è possibile concatenare dei valori per creare un vettore, mentre 
 si possono assegnare etichette agli oggetti con l'operatore ``<-``
 
-```{r 24-Libro-9,,echo=TRUE,results='markup'}
+```{r 24-Libro-9,echo=TRUE,results='markup'}
 x <- c(2,1,9)
 x
 y <- c(2.3,1.4,2.8)
@@ -15546,14 +15546,14 @@ x+y # somma elemento per elemento
 Alcune funzioni speciali aiutano a velocizzare la creazione di vettori, per
 esempio ``1:10`` produce i numeri che vanno da uno a dieci.
 
-```{r 24-Libro-10,,echo=TRUE,results='markup'}
+```{r 24-Libro-10,echo=TRUE,results='markup'}
 1:10
 ```
 
 Alternativamente la funzione ``seq`` produce una sequenza di numeri dal minimo al massimo 
 secondo alcuni criteri
 
-```{r 24-Libro-11,,echo=TRUE,results='markup'}
+```{r 24-Libro-11,echo=TRUE,results='markup'}
 s1 <- seq(0,1,by=.1)     # sequenza da 0 ad 1 di passo 0.1
 s2 <- seq(0,1,length=6)  # sequenza da 0 ad 1 di 6 numeri
 s1
@@ -15562,20 +15562,20 @@ s2
 
 La lunghezza di un vettore si ricava col comando ``lenght``
 
-```{r 24-Libro-12,,echo=TRUE,results='markup'}
+```{r 24-Libro-12,echo=TRUE,results='markup'}
 length(s2)
 ```
 
 Per estrarre elementi da un vettore usiamo le parentesi quadre: ``s2[2]`` restituisce il secondo elemento di ``s2`` mentre ``s2[1:4]`` restituisce i primi 4 elementi e ``s2[c(3,2,5)]``
 il terzo, il secondo e il quinto
 
-```{r 24-Libro-13,,echo=TRUE,results='markup'}
+```{r 24-Libro-13,echo=TRUE,results='markup'}
 s2[2]
 s2[1:4]
 s2[c(3,2,5)]
 ```
 
-```{r 24-Libro-14,,echo=TRUE,results='markup'}
+```{r 24-Libro-14,echo=TRUE,results='markup'}
 x <- c(1.1,-3.4,4.2,5.1,-4.4,-3.9,2.5)
 x > 0 # sequenza di TRUE e FALSE
 which(x > 0) # in quale posizione sono gli x maggiori di zero?
@@ -15585,7 +15585,7 @@ x[!(x > 0)] # gli x, ma solo quelli che NON sono maggiori di zero
 
 È possibile costruire matrici con la funzione ``matrix``
 
-```{r 24-Libro-15,,echo=TRUE,results='markup'}
+```{r 24-Libro-15,echo=TRUE,results='markup'}
 mat1 <- matrix(c(1,2,3,4),nrow = 2) # legge in colonna
 mat1
 mat2 <- matrix(c(1,2,3,4),nrow = 2,byrow = T) # legge per riga
@@ -15597,7 +15597,7 @@ mat1 + mat2 # restituisce la somma elemento per elemento
 Le funzioni ``cbind`` ed ``rdbind`` consentono di unire una nuova colonna o una nuova riga
 ad una matrice o vettore.
 
-```{r 24-Libro-16,,echo=TRUE,results='markup'}
+```{r 24-Libro-16,echo=TRUE,results='markup'}
 x1 <- 1:3
 x2 <- 2:4
 cbind(x1,x2)
@@ -15606,7 +15606,7 @@ rbind(x1,x2)
 
 Per indicizzare una matrice useremo sempre le parentesi quadre ma con 2 indici
 
-```{r 24-Libro-17,,echo=TRUE,results='markup'}
+```{r 24-Libro-17,echo=TRUE,results='markup'}
 mat <- matrix(1:20,nrow = 5) 
 mat
 mat[1,1]
@@ -15616,7 +15616,7 @@ mat[2:3,3:4]
 I vettori e le matrici non sono solo numeriche ma possono anche contenere 
 caratteri, ovviamente le operazioni aritmetiche non sono più consentite
 
-```{r 24-Libro-18,,echo=TRUE,results='markup'}
+```{r 24-Libro-18,echo=TRUE,results='markup'}
 mat <- matrix(c("testo 1","testo 2","testo 3","testo 4"),nrow = 2) 
 mat
 ```
@@ -15625,7 +15625,7 @@ mat
 
 Una lista è una collezione di diversi oggetti di R
 
-```{r 24-Libro-19,,echo=TRUE,results='markup'}
+```{r 24-Libro-19,echo=TRUE,results='markup'}
 mat1 <- matrix(c(1,2,3,4),nrow = 2) # legge in colonna
 mat <- matrix(c("testo 1","testo 2","testo 3","testo 4"),nrow = 2) 
 b <- c(NA,NA,NA)
@@ -15638,7 +15638,7 @@ Una particolare tipo di lista è il ``data.frame`` che consente di creare una ma
 dati composta da colonne di diversa natura
 
 
-```{r 24-Libro-20,,echo=TRUE,results='markup'}
+```{r 24-Libro-20,echo=TRUE,results='markup'}
 sesso <- c("M","M","M","F","F")
 eta   <- c(32.2,45.6,65.3,34.1,43.2)
 dati <- data.frame(sesso,eta)
@@ -15647,7 +15647,7 @@ dati
 
 il simbolo del ``$`` aiuta a selezionare le colonne di interesse
 
-```{r 24-Libro-21,,echo=TRUE,results='markup'}
+```{r 24-Libro-21,echo=TRUE,results='markup'}
 dati$sesso
 dati$eta
 ```
@@ -15657,7 +15657,7 @@ dati$eta
 R è un linguaggio funzionale, ogni elemento è un oggetto che ha un classe
 e metodi. Per esempio
 
-```{r 24-Libro-22,,echo=TRUE,results='markup'}
+```{r 24-Libro-22,echo=TRUE,results='markup'}
 x <- 3
 class(x)
 x <- matrix(1:4,nrow = 2)
@@ -15668,7 +15668,7 @@ class(x)
 
 ::: {.att data-latex=""}
 Alcuni oggetti possono assomigliarsi ma essere diversi ad esempio
-```{r 24-Libro-23,,echo=TRUE,results='markup'}
+```{r 24-Libro-23,echo=TRUE,results='markup'}
 x1 <- 1;3
 x2 <- 2:4
 mat <- cbind(x1,x2)
@@ -15686,7 +15686,7 @@ La libraria grafica di R è particolarmente ricca. La funzione di base per
 realizzare un grafico è la funzione ``plot(x,y)``. La funzione, di default, disegna 
 i punti di coordinate ``x`` e ``y``.
 
-```{r 24-Libro-24,,echo=TRUE,results='markup'}
+```{r 24-Libro-24,echo=TRUE,results='markup'}
 x <- c(1,2,3,4)
 y <- c(2,1,4,3)
 plot(x,y)
@@ -15694,7 +15694,7 @@ plot(x,y)
 
 La funzione ``plot`` è molto flessibile e può essere arricchita con molte opzioni
 
-```{r 24-Libro-25,,echo=TRUE,results='markup'}
+```{r 24-Libro-25,echo=TRUE,results='markup'}
 x <- c(1,2,3,4)
 y <- c(1.9,1.2,3.5,3.1)
 plot(x,y,
@@ -15718,7 +15718,7 @@ Con le funzioni ``points`` e ``lines``  è possibile aggiungere al grafico esist
 punti e linee, rispettivamente. Mentre per disegnare funzioni la funzione ``curves``
 aiuta molto
 
-```{r 24-Libro-26,,echo=TRUE,results='markup'}
+```{r 24-Libro-26,echo=TRUE,results='markup'}
 curve(sin(x),from = -pi,to = pi,axes=F) # disegna sin(x) tra - pi e + pi 
 curve(cos(x),col=ared,add=T)           # aggiunge il grafico di cos(x) in rosso
 points((-3):3,cos((-3):3),pch=3)
@@ -15729,7 +15729,7 @@ axis(2)
 
 Un'altra funzione di interesse è ``hist`` che produce istogrammi di densità
 
-```{r 24-Libro-27,,echo=TRUE,fig.width=4}
+```{r 24-Libro-27,echo=TRUE,fig.width=4}
 x <- c(2.3,2.5,3.5,3.6,4.6,5.9,6.9,9.8)
 hist(x)
 hist(x,breaks = c(0,3,4,6,10),probability = T,axes=F,col="white")
@@ -15738,7 +15738,7 @@ axis(1,at = c(0,3,4,6,10))
 
 Per rappresentare dati in 3D la funzione ``persp`` disegna superfici in 3 dimensioni
 
-```{r 24-Libro-28,,echo=TRUE,fig.height=3.5}
+```{r 24-Libro-28,echo=TRUE,fig.height=3.5}
 x <- seq(-4,4,by=.1)
 y <- seq(-4,4,by=.1)
 z <- outer(x,y,function(x,y)exp(-x^2-y^2))
@@ -15748,7 +15748,7 @@ persp(x,y,z,theta = 25,phi = 25,ltheta = 25,border = NA,shade = 2.5)
 Altre funzioni grafiche interessanti sono ``rect`` e ``polyogn``
 che aggiungo ai grafici rettangoli e poligoni, rispettivamente
 
-```{r 24-Libro-29,,echo=TRUE,fig.height=3}
+```{r 24-Libro-29,echo=TRUE,fig.height=3}
 plot(c(0,10),c(0,10),xlab = "", ylab="",axes=F,type="n") # inizia un grafico vuoto 
 rect(xleft = 1,ybottom = 2,xright = 5,ytop = 4)
 rect(xleft = 2,ybottom = 3,xright = 6,ytop = 9,density = 20,col=iblue)
@@ -15759,26 +15759,26 @@ polygon(x = c(6,6.5,7,10),y = c(1,7,5,6),density = 10,
 
 Le proporzioni tra ``x`` ed ``y`` si possono forzare con l'opzione ``asp``
 
-```{r 24-Libro-30,,echo=TRUE,results='markup'}
+```{r 24-Libro-30,echo=TRUE,results='markup'}
 plot(0:10,0:10,xlab = "", ylab="",axes=F) # asp non specificato
 axis(1,pos = 0)
 axis(2,pos = 0,las=2)
 ```
 
-```{r 24-Libro-31,,echo=TRUE,fig.height=2.2,fig.width=2}
+```{r 24-Libro-31,echo=TRUE,fig.height=2.2,fig.width=2}
 plot(0:10,0:10,xlab = "", ylab="",axes=F,asp=1) # asp=1 
 axis(1,pos = 0,at = seq(0,10,by=2))
 axis(2,pos = 0,las=2)
 ```
 
-```{r 24-Libro-32,,echo=TRUE,fig.height=2,fig.width=2}
+```{r 24-Libro-32,echo=TRUE,fig.height=2,fig.width=2}
 plot(0:10,0:10,xlab = "", ylab="",axes=F,asp=9/16) # asp=9/16 
 axis(1,pos = 0)
 axis(2,pos = 0,las=2)
 ```
 
 
-```{r 24-Libro-33,,echo=TRUE,fig.height=4,fig.width=2}
+```{r 24-Libro-33,echo=TRUE,fig.height=4,fig.width=2}
 plot(0:10,0:10,xlab = "", ylab="",axes=F,asp=4/3) # asp=4/3 
 axis(1,pos = 0)
 axis(2,pos = 0,las=2,at = seq(0,10,by=2))
@@ -15786,7 +15786,7 @@ axis(2,pos = 0,las=2,at = seq(0,10,by=2))
 
 I parametri del grafico si possono settare attraverso ``par``
 
-```{r 24-Libro-34,,echo=TRUE,results='markup'}
+```{r 24-Libro-34,echo=TRUE,results='markup'}
 set.seed(1)
 par(mfrow=c(1,2),cex=0.6) # 1 riga e 2 colonne
 dati <- rnorm(100) # 100 dati dalla normale
@@ -15810,7 +15810,7 @@ si alimenta di uno o più oggetti di determinate classi e restituisce uno o
 più oggetti di una determina classe. Per esempio abbiamo visto come la funzione 
 ``matrix`` abbia come input un vettore e come output una matrice.
 
-```{r 24-Libro-35,,echo=TRUE,results='markup'}
+```{r 24-Libro-35,echo=TRUE,results='markup'}
 x <- 1:10
 class(x)
 y <- matrix(x,nrow = 2)
@@ -15826,7 +15826,7 @@ e il numero di righe ``nrow`` o il numero di colonne ``ncol``
 matrix(data,nrow,ncol,byrow = F)
 ````
 
-```{r 24-Libro-36,,echo=TRUE,results='markup'}
+```{r 24-Libro-36,echo=TRUE,results='markup'}
 x <- 1:10
 matrix(x, 2)                # è identico a
 matrix(nrow = 2, data = x)  # ma è diverso da
@@ -15840,7 +15840,7 @@ Tra le funzioni di base ricordiamo ``mean(x)`` la media del vettore ``x``
 ``var(x)`` la varianza **corretta**, ``sd(x)`` la SD **corretta** , ``median(x)`` la mediana
 e ``quantile(x,p)`` il percentile di ordine $p$. Per esempio
 
-```{r 24-Libro-37,,echo=TRUE,results='markup'}
+```{r 24-Libro-37,echo=TRUE,results='markup'}
 x <- c(2.3,4.5,6.7,2.1,3.8,2.5,6.9,9.8)
 mean(x)   # media
 var(x)    # varianza corretta
@@ -15852,7 +15852,7 @@ Per trattare le variabili doppie nella regressione ci sono strumenti appositi,
 le funzioni ``cov(x,y)`` e ``cor(x,y)`` calcolano la correlazione e la covarianza tra i vettori
 ``x`` ed ``y``
 
-```{r 24-Libro-38,,echo=TRUE,results='markup'}
+```{r 24-Libro-38,echo=TRUE,results='markup'}
 x <- c(2.3,4.5,6.7,2.1,3.8,2.5,6.9,9.8)
 y <- c(2.4,2.1,5.6,7.2,6.5,7.1,4.3,9.7)
 cov(x,y)   # covarianza
@@ -15863,7 +15863,7 @@ cor(x,y)^2 # r quadro
 La funzione ``lsfit`` (Least Squared Fit => Stima dei Minimi Quadrati) consente
 di calcolare $\hat\beta_0$ e $\hat\beta_1$ rapidamente
 
-```{r 24-Libro-39,,echo=TRUE,results='markup'}
+```{r 24-Libro-39,echo=TRUE,results='markup'}
 x <- c(1,2,3,4)
 y <- c(1.9,1.2,3.5,3.1)
 modello <- lsfit(x,y)
@@ -15900,7 +15900,7 @@ l'inverso della funzione di ripartizione e il prefisso ``r`` genera numeri casua
 da quella distribuzione. 
 Per esempio se $X\sim\text{Binom}(n=5;\pi=0.3)$ 
 
-```{r 24-Libro-40,,echo=TRUE,fig.width=5,fig.height=3}
+```{r 24-Libro-40,echo=TRUE,fig.width=5,fig.height=3}
 dbinom(x = 3,size = 5,prob = 0.3) # è la probabilità che X=3
 dbinom(x = 0:5,size = 5,prob = 0.3) #  tutte le probabilità per X=0, 1, ..., 5
 plot(0:5,dbinom(x = 0:5,size = 5,prob = 0.3),type="h",lwd=2) # grafico
@@ -15911,7 +15911,7 @@ rbinom(n = 10,size = 5,prob = 0.3)  # simula 10 estrazioni da X
 
 Per esempio se $X\sim\text{Pois}(\lambda=4.3)$ 
 
-```{r 24-Libro-41,,echo=TRUE,fig.width=5,fig.height=3}
+```{r 24-Libro-41,echo=TRUE,fig.width=5,fig.height=3}
 dpois(x = 3,lambda = 4.3) # è la probabilità che X=3
 dpois(x = 0:10,lambda = 4.3) #  le probabilità per X=0, 1, ..., 10
 plot(0:10,dpois(x = 0:10,lambda = 4.3),type="h",lwd=2) # grafico
@@ -15922,7 +15922,7 @@ rpois(n = 10,lambda = 4.3)  # simula 10 estrazioni da X
 
 Per esempio se $X\sim N(\mu=2.5,\sigma^2=(1.5)^2)$ 
 
-```{r 24-Libro-42,,echo=TRUE,results='markup'}
+```{r 24-Libro-42,echo=TRUE,results='markup'}
 par(mfrow=c(1,2),cex=0.6) # metto una figura accanto all'altra
 curve(dnorm(x,mean = 2.5,sd = 1.5),
       from = 2.5-4*1.5,
@@ -15957,7 +15957,7 @@ rnorm(25,2.5,1.5) # 25 estrazioni da X
 Una stringa è un vettore di testo, non numerico, la funzione ``paste`` consente 
 di incollare testi.
 
-```{r 24-Libro-43,,echo=TRUE,results='markup'}
+```{r 24-Libro-43,echo=TRUE,results='markup'}
 vettore_testo1 <- c("mela","pera","pesca","banana")
 vettore_testo2 <- c("rossa","verde","gialla","gialla")
 paste(vettore_testo1,vettore_testo2,sep=" è ")
@@ -15969,7 +15969,7 @@ paste("La somma degli x è",paste(x,collapse = " + ")," = ", sum(x))
 
 La funzione ``cat`` stampa su schermo o su file e consente l'utilizzo di alcuni caratteri speciali
 
-```{r 24-Libro-44,,echo=TRUE,results='markup'}
+```{r 24-Libro-44,echo=TRUE,results='markup'}
 cat(vettore_testo1,vettore_testo2)
 cat(vettore_testo1,"\t",vettore_testo2)
 cat(vettore_testo1,"\n",vettore_testo2)
@@ -15979,7 +15979,7 @@ cat(vettore_testo1,"\n",vettore_testo2)
 
 I cicli si possono fare con ``for`` ma come vedremo si possono aggirare in molti modi
 
-```{r 24-Libro-45,,echo=TRUE,results='markup'}
+```{r 24-Libro-45,echo=TRUE,results='markup'}
 for (i in 1:5){
   cat(i,"; ")
 }
@@ -15987,7 +15987,7 @@ for (i in 1:5){
 
 Mentre le condizioni si risolvono con ``if`` ``else``
 
-```{r 24-Libro-46,,echo=TRUE,results='markup'}
+```{r 24-Libro-46,echo=TRUE,results='markup'}
 a <- 12
 if (a>10) {
   cat("Hai vinto! \n")
@@ -16001,7 +16001,7 @@ if (a>10) {
 
 anche la funzione ``ifelse`` è di aiuto
 
-```{r 24-Libro-47,,echo=TRUE,results='markup'}
+```{r 24-Libro-47,echo=TRUE,results='markup'}
 cond <- TRUE
 ifelse(cond,"VERO","FALSO")
 cond <- FALSE
@@ -16014,7 +16014,7 @@ alcune funzioni speciali quali ``apply``, ``tapply``, ``lapplay`` e ``sapply``
 applicano a diversi tipi di oggetti una funzione.
 ``apply`` applica una funzione alle righe o alle colonne di una matrice
 
-```{r 24-Libro-48,,echo=TRUE,results='markup'}
+```{r 24-Libro-48,echo=TRUE,results='markup'}
 mat <- matrix(rnorm(12),nrow = 3)
 mat
 apply(X = mat, MARGIN = 1,FUN = "sum") # applica a mat per righe la somma
@@ -16023,7 +16023,7 @@ apply(X = mat, MARGIN = 2,FUN = "mean") # applica a mat per colonne la media
 
 ``tapply`` applica una funzione solo su elementi che rispettano una condizione
 
-```{r 24-Libro-49,,echo=TRUE,results='markup'}
+```{r 24-Libro-49,echo=TRUE,results='markup'}
 sesso <- c("M","M","M","F","F")
 eta   <- c(32.2,45.6,65.3,34.1,43.2)
 tapply(eta, sesso, median) # applica la mediana al gruppo M e al gruppo F
@@ -16032,7 +16032,7 @@ tapply(eta, sesso, median) # applica la mediana al gruppo M e al gruppo F
 Le funzioni ``lapplay`` e ``sapply`` (versione semplificata delle prima) applicano una funzione
 ad una lista o agli elementi di un vettore
 
-```{r 24-Libro-50,,echo=TRUE,results='markup'}
+```{r 24-Libro-50,echo=TRUE,results='markup'}
 gruppo1 <- rnorm(5,9.4,1.1)  # gruppo1 5 estrazioni da una N( 9.4,1.1^2)
 gruppo2 <- rnorm(9,12.2,1.2) # gruppo2 9 estrazioni da una N(12.2,1.2^2)
 gruppo3 <- rnorm(7,11.7,0.9) # gruppo3 7 estrazioni da una N(11.7,0.9^2)
@@ -16046,7 +16046,7 @@ sapply(campione,FUN = function(x)c(mean(x),var(x))) # come sopra ma in matrice
 
 Le funzioni si possono creare con la funzione ``function``
 
-```{r 24-Libro-51,,echo=TRUE,results='markup'}
+```{r 24-Libro-51,echo=TRUE,results='markup'}
 funz1 <- function(x) x^2 # funz1 usa x come input e x^2 come output
 funz1(3)
 funz2 <- function(x,y) { # funz2 usa x e y come input 
@@ -16060,7 +16060,7 @@ funz2(3,1)
 
 Possiamo per esempio creare la funzione che crei la varianza del campione e la SD non corretta
 
-```{r 24-Libro-52,,echo=TRUE,results='markup'}
+```{r 24-Libro-52,echo=TRUE,results='markup'}
 var_pop <- function(x) {
   vpop <- mean(x^2)-mean(x)^2 # media dei quadrati meno il quadrato della media
   return(vpop)  
@@ -16078,7 +16078,7 @@ sd_pop(x)
 Possiamo anche creare una funzione che calcola un intervallo di confidenza 
 al livello $1-\alpha$, per un $\alpha$ qualunque
 
-```{r 24-Libro-53,,echo=TRUE,results='markup'}
+```{r 24-Libro-53,echo=TRUE,results='markup'}
 ## intervallo di confidenza per mu, sigma nota
 
 idc_mu <- function(mu_obs,sigma,alpha=0.05){
@@ -16122,7 +16122,7 @@ editor_options:
 Presento le funzioni che sono state create da me per risolvere vari problemi
 di automazione, dalla creazione dei data set alla soluzione di alcuni problemi.
 
-```{r 25-test-functions-1,, include=FALSE}
+```{r 25-test-functions-1, include=FALSE}
 
 rm(list = ls())
 
@@ -16142,7 +16142,7 @@ virg <- "`"
 
 ## Istogramma 
 
-```{r 25-test-functions-2,,results='asis'}
+```{r 25-test-functions-2,results='asis'}
 #############################################################################
 #############################################################################
 ## Funzioni per generare i dati dell'esercizio 1
@@ -16193,7 +16193,7 @@ histp(axes=T)         # Istogramma
 h.int(2,8,col=ared,   # Aree selezionate
       density = 25)   
 ```
-```{r 25-test-functions-3,,results='asis'}
+```{r 25-test-functions-3,results='asis'}
 percentile(p = 0.45)       # Calcolo percentile
 F_print(2,"<")             # calcolo della prop inferiore a 2
 F_print(2,">")             # calcolo della prop superiore a 2
@@ -16211,7 +16211,7 @@ stat_(rep(1:4,times=c(2,4,5,1)),semp = T) # in frazione
 ## Probabilità
 
 ### Tavole della somma
-```{r 25-test-functions-4,, results='asis'}
+```{r 25-test-functions-4, results='asis'}
 # Somma di due dadi
 c1 <- 6
 c2 <- 6
@@ -16229,7 +16229,7 @@ names(res)
 ```
 
 ### Binomiale
-```{r 25-test-functions-5,, results='asis'}
+```{r 25-test-functions-5, results='asis'}
 bin_dis(x1 = 2,n = 5,pp = 0.34)
 bin_dis(x1 = 4,n = 5,pp = 0.34,verso = "\\geq")
 bin_dis(x1 = 2,n = 5,pp = 0.34,comp = T)
@@ -16237,7 +16237,7 @@ bin_dis(x1 = 2,n = 5,pp = 0.34,sing = T)
 ```
 
 ### Poisson
-```{r 25-test-functions-6,, results='asis'}
+```{r 25-test-functions-6, results='asis'}
 pois_dis(x1 = 2,ll = 1.5)
 pois_dis(x1 = 2,ll = 1.5,verso = "\\geq")
 pois_dis(x1 = 2,ll = 1.5,sing = T)
@@ -16245,7 +16245,7 @@ pois_dis(x1 = 2,ll = 1.5,sing = T)
 ```
 
 ### Normale
-```{r 25-test-functions-7,, results='asis'}
+```{r 25-test-functions-7, results='asis'}
 norm_int(x1 = 1,verso = "<",mm = 3,ss = 2.2,vnam = "\\theta",
              mu = "\\mu_\\theta",sigma = "\\sigma_\\theta")
 norm_int(x1 = 4,verso = "<",mm = 3,ss = 2.2,vnam = "X",
@@ -16261,7 +16261,7 @@ norm_int(x1 = -1,x2=2,mm = -3,ss = 2.2,verso = NULL)
 
 ### TLC
 
-```{r 25-test-functions-8,,results='asis'}
+```{r 25-test-functions-8,results='asis'}
 tlc(tipo = "somma",x1 = 90,x2 = 110,verso = NULL,mu = 1,s2 = 1,n = 100)
 tlc(tipo = "media",x1 = 9,x2 = 11,verso = NULL,mu = 10,s2 = 1,n = 100)
 tlc(tipo = "prop",x1 = .1,verso = ">",mu = .2,n = 50)
@@ -16270,7 +16270,7 @@ tlc(tipo = "prop",x1 = .1,verso = ">",mu = .2,n = 50)
 ## Inferenza
 
 ### Intervalli di Confidenza
-```{r 25-test-functions-9,, results='asis'}
+```{r 25-test-functions-9, results='asis'}
 idc(xm = 10,sd = 1.1,alpha = .05,n = 15,dist_ = "z")
 idc(xm = 10,sd = 1.1,alpha = .05,n = 15,dist_ = "t")
 idc(xm = 10,alpha = .05,n = 15,dist_ = "z")
@@ -16280,7 +16280,7 @@ idc(xm = 7.4,sd = sqrt(7.4),alpha = .05,n = 75,dist_ = "z",mus = "\\lambda",
 
 
 ### Test
-```{r 25-test-functions-10,, results='asis'}
+```{r 25-test-functions-10, results='asis'}
 ztest_mu(muh = 0,s = 1,10,mu0 = 1,h1 = "\\neq",alpha = 0.05)
 ztest_mu(muh = 0,s = 1,10,mu0 = 1,h1 = "\\neq")
 ztest_mu(muh = 0,s = 1,10,mu0 = 1,h1 = "\\neq",pv_only = T)
@@ -16303,7 +16303,7 @@ ztest_2c_pi(s1 = 120,s2 = 130,n1 = 250,n2 = 260,h1 = "<",alpha = .01)
 
 
 ### Regressione
-```{r 25-test-functions-11,,results='asis'}
+```{r 25-test-functions-11,results='asis'}
 set.seed(12)                 # ripete le stesse generazioni casuali
 n <- 100                     # fisso n
 x <- rnorm(n,10)             # genero x
@@ -16326,7 +16326,7 @@ ttest_beta(cof = 1,bj0 = 0,h1 = "\\neq",alpha = 0.01)
 
 
 ````.markdown
-```{r 25-test-functions-12,, echo=FALSE}`r ' '`
+```{r 25-test-functions-12, echo=FALSE}`r ' '`
 set.seed(1)                      # per ottenere sempre la stessa simulazione
 n <- 250                         # ampiezza campionaria
 
@@ -16343,7 +16343,7 @@ Su un campione di $`r virg`r n`$ famiglie della provincia di Modena è stato
 rilevata la spesa mensile in telecomunicazioni (in euro), qui di seguito la 
 distribuzione delle frequenze relative:
 
-```{r 25-test-functions-13,, echo=FALSE}`r ' '`
+```{r 25-test-functions-13, echo=FALSE}`r ' '`
 kable(dat3[,c(1,2,4)]) %>%
   kable_styling(full_width = F)
 ```
@@ -16353,7 +16353,7 @@ percentuale.
 
 **Soluzione**
 
-```{r 25-test-functions-14,, echo=FALSE}`r ' '`
+```{r 25-test-functions-14, echo=FALSE}`r ' '`
 kable(dat3) %>%            # Stampa la tabella
   kable_styling(full_width = F)
 histp(axes = T)
@@ -16365,13 +16365,13 @@ spesa superiore a 60 euro?
 
 **Soluzione**
 
-```{r 25-test-functions-15,, echo=FALSE}`r ' '`
+```{r 25-test-functions-15, echo=FALSE}`r ' '`
 F_print(60,verso=">")
 ```
 ````
 _________________________________________________________
 
-```{r 25-test-functions-16,,echo=FALSE}
+```{r 25-test-functions-16,echo=FALSE}
 set.seed(1)                      # per ottenere sempre la stessa simulazione
 n <- 250                         # ampiezza campionaria
 
@@ -16390,7 +16390,7 @@ i2 <- 0
 Su un campione di $`r n`$ famiglie della provincia di Modena è stato rilevata la spesa mensile in telecomunicazioni (in euro), qui di seguito 
 la distribuzione delle frequenze relative:
 
-```{r 25-test-functions-17,,echo=FALSE,}
+```{r 25-test-functions-17,echo=FALSE,}
 kable(dat3[,c(1,2,4)],booktab=T,            # Stampa la tabella  
       escape = F,linesep = "") %>%            
   kable_styling(full_width = F,latex_options = "HOLD_position")
@@ -16400,7 +16400,7 @@ kable(dat3[,c(1,2,4)],booktab=T,            # Stampa la tabella
 
 **Soluzione**
 
-```{r 25-test-functions-18,,echo=FALSE}
+```{r 25-test-functions-18,echo=FALSE}
 kable(dat3[,c(1:7,12)],booktab=T,            # Stampa la tabella  
       escape = F,linesep = "") %>%            
   kable_styling(full_width = F,latex_options = "HOLD_position")
@@ -16412,12 +16412,12 @@ h.int(60,250,density=20)
 
 **Soluzione**
 
-```{r 25-test-functions-19,,results='asis',echo=FALSE}
+```{r 25-test-functions-19,results='asis',echo=FALSE}
 F_print(60,verso=">")
 ```
 
 
-```{r 25-test-functions-20,,echo=FALSE}
+```{r 25-test-functions-20,echo=FALSE}
 # preparo i parametri
 s1 <- 27
 n1 <- 37
@@ -16432,7 +16432,7 @@ i2 <- 0
 _________________________________________________________
 
 ````.markdown
-```{r 25-test-functions-21,, echo=FALSE}`r ' '`
+```{r 25-test-functions-21, echo=FALSE}`r ' '`
 # preparo i parametri
 s1 <- 27
 n1 <- 37
@@ -16450,7 +16450,7 @@ donna abbiano lo stesso parare contro l'alternativa che siano diversi.
 
 **Soluzione**
 
-```{r 25-test-functions-22,,results='asis', echo=FALSE}`r ' '`
+```{r 25-test-functions-22,results='asis', echo=FALSE}`r ' '`
 ztest_2c_pi(s1 = s1,s2 = s2,n1 = n1,n2 = n2,
                 h1 = h1,alpha = alpha,a = "U",b = "D")
 ```
@@ -16460,7 +16460,7 @@ la proporzione di uomini favorevoli
 
 **Soluzione**
 
-```{r 25-test-functions-23,,results='asis', echo=FALSE}`r ' '`
+```{r 25-test-functions-23,results='asis', echo=FALSE}`r ' '`
 idc(xm = s1,alpha = .95,n = n1 ,dist_ = "z")
 ```
 ````
@@ -16476,7 +16476,7 @@ diversi.
 
 **Soluzione**
 
-```{r 25-test-functions-24,,results='asis',echo=FALSE}
+```{r 25-test-functions-24,results='asis',echo=FALSE}
 ztest_2c_pi(s1 = s1,s2 = s2,n1 = n1,n2 = n2,
                 h1 = h1,alpha = alpha,a = "U",b = "D")
 ```
@@ -16486,7 +16486,7 @@ favorevoli
 
 **Soluzione**
 
-```{r 25-test-functions-25,,results='asis',echo=FALSE}
+```{r 25-test-functions-25,results='asis',echo=FALSE}
 idc(xm = s1,alpha = .95,n = n1 ,dist_ = "z")
 ```
 

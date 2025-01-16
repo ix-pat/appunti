@@ -135,7 +135,7 @@ alla luce dei dati $\mathbf{x}=(0,1,1,0,1)$. Questo si fa sostituendo $\pi$ con
 i suoi possibili valori e calcolando la _ipotetica_ probabilità.
 
 
-```{r 12-Verosimiglianza-1,,results='asis'}
+```{r 12-Verosimiglianza-1,results='asis'}
 pp <- (0:10)/10
 for (i in 1:11){
   cat("Se fosse $\\pi=$",pp[i]," con quale probabilità avrei osservato la sequenza $0,1,1,0,1$? \n")

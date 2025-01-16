@@ -126,7 +126,7 @@ percentile()
 La mediana è quel valore che taglia l'istogramma in due parti, entrambe di area pari al 50% dell'area totale
 
 
-```{r 04-mediana-percentili-1,, echo=FALSE}
+```{r 04-mediana-percentili-1, echo=FALSE}
 nomex <- "Reddito"
 
 histp(T)
@@ -177,7 +177,7 @@ Il $p$-esimo percentile di una serie di dati è il valore che occupa la posizion
 :::: {.example}
 Si considerino $n=21$ osservazioni di una variabile categoriale ordinata che assume 7 valori: $-2$, $-1$, $0$, $1$, $2$ (ad esempio una scala del tipo $-2=$_in totale disaccordo_, $-1=$_più in disaccordo che in accordo_, $0=$_né d'accordo, né in disaccordo_, $1=$_più d'accordo che in disaccordo_, $2=$_totalmente d'accordo_). Qui di seguito i dati riordinati:
 
-```{r 04-mediana-percentili-2,, include=FALSE}
+```{r 04-mediana-percentili-2, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 options(digits=4)
 
@@ -192,7 +192,7 @@ names(tab) <- c("$(i)$","$x_i$")
 ```
 
 
-```{r 04-mediana-percentili-3,, echo=FALSE, results="asis"}
+```{r 04-mediana-percentili-3, echo=FALSE, results="asis"}
 kable(t(tab),booktabs = T, escape = F,linesep = "", digits = 4)
 ```
 
@@ -208,7 +208,7 @@ Se il fenomeno è espresso in una tabella di distribuzione di frequenza, allora 
 
 Fenomeno _Titolo di Studio_, $n=350$, numero di modalità $k=5$.
 
-```{r 04-mediana-percentili-4,,echo=F}
+```{r 04-mediana-percentili-4,echo=F}
 f    <- c(0.10,0.30,0.42,0.10,0.08)
 n <- 350
 Fj <- cumsum(f)
@@ -229,7 +229,7 @@ Il 90-esimo percentile $x_{0.90}$ è la quarta modalità, $x_{4}=$Laurea.
 :::: {.example}
 Fenomeno: Numero di volte che si è cercato lavoro negli ultimi 3 mesi, $n=322$
 
-```{r 04-mediana-percentili-5,,echo=F}
+```{r 04-mediana-percentili-5,echo=F}
 x    <- 0:10
 n <- 322
 nj    <- rpois(n,3)
@@ -264,7 +264,7 @@ dove $j_p$ è l'indicatore della classe che contiene il $p$-esimo percentile, $x
 
 :::: {.example}
 
-```{r 04-mediana-percentili-6,,echo=F,include=F}
+```{r 04-mediana-percentili-6,echo=F,include=F}
 n <- 4700
 xlim <- brk <- c(0,10,15,20,25,35)
 k <- length(xlim)-1
@@ -276,13 +276,13 @@ ls2e(stat_base(samp,brk))
 
 Il reddito di $n=$ 4700 famiglie 
 è rappresentato nella seguente tabella di frequenza
-```{r 04-mediana-percentili-7,, echo=FALSE, results="asis"}
+```{r 04-mediana-percentili-7, echo=FALSE, results="asis"}
 tabl(cbind("$j$"=c(1:k,NA),dat3[,c(1:7)]))
 ```
 
 La classe che contiene il $25$-esimo percentile è la seconda classe $j_{0.25}=2$, ovvero la classe (10,15], in quanto $F_2=`r X$Fj[2]`>0.25$.
 
-```{r 04-mediana-percentili-8,,echo=FALSE}
+```{r 04-mediana-percentili-8,echo=FALSE}
 X <- dat2
 percentile(p=.25)
 ```
@@ -291,7 +291,7 @@ percentile(p=.25)
 :::: {.nota data-latex=""}
 Il $p$-esimo percentile $x_p$ è quel valore che taglia l'istogramma in due parti, l'area dell'istogramma alla sinistra di $x_p$ è pari a $p\times 100\%$, mentre l'area la sua destra è $(1-p)\times 100\%$
 
-```{r 04-mediana-percentili-9,, echo=FALSE}
+```{r 04-mediana-percentili-9, echo=FALSE}
 nomex <- "Reddito"
 
 histp(T)
@@ -372,7 +372,7 @@ Si definisce la **moda**, $x_{Mo}$ la modalità cui compete frequenza maggiore.
 Consideriamo la distribuzione del colore dei capelli
 
 
-```{r 04-mediana-percentili-10,,echo=FALSE}
+```{r 04-mediana-percentili-10,echo=FALSE}
 colore <- c("Cast.","Biondi","Rossi","Tot")
 frequenza <- c(245,68,13,326)
 prn <- data.frame(colore,frequenza)
@@ -386,7 +386,7 @@ La modalità modale (la moda) è $x_{Mo}$=Castano.
 :::: {.example} 
 Titolo di studio:
 
-```{r 04-mediana-percentili-11,,echo=FALSE}
+```{r 04-mediana-percentili-11,echo=FALSE}
 colore <- c("Prim.","M. inf.","M. sup.","Univ.","Post univ.","Tot")
 frequenza <- c(10,18,158,62,12,sum(c(10,18,158,62,12)))
 prn <- data.frame(colore,frequenza)
@@ -400,7 +400,7 @@ La modalità modale (la moda) è $x_{Mo}=$M. sup.
 :::: {.example}
 $\phantom{2}$
 
-```{r 04-mediana-percentili-12,,echo=FALSE}
+```{r 04-mediana-percentili-12,echo=FALSE}
 set.seed(10)
 xx <- 0:4
 nn <- c(1,11,6,8,5)
@@ -421,7 +421,7 @@ Se i dati sono sono raccolti in classi, non c'è un valore modale ma una classe 
 :::: {.example}
 $\phantom{2}$
 
-```{r 04-mediana-percentili-13,, echo=FALSE, results="asis"}
+```{r 04-mediana-percentili-13, echo=FALSE, results="asis"}
 tabl(cbind("$j$"=c(1:k,NA),dat3[,c(1:7)]))
 ```
 
@@ -476,6 +476,6 @@ par(op)
 ```
 
 
-```{r 04-mediana-percentili-14,,results='asis',echo=FALSE}
+```{r 04-mediana-percentili-14,results='asis',echo=FALSE}
 cat(knit_child("04a-Istogramma.Rmd",envir = environment(),quiet=T))
 ```

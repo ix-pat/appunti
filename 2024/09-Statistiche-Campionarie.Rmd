@@ -293,7 +293,7 @@ kable(rbind(continua,tab[13:17,],continua),row.names = F,booktabs = T, escape = 
 ```
 
 
-```{r 09-Statistiche-Campionarie_2,,fig.align='center'}
+```{r 09-Statistiche-Campionarie_2,fig.align='center'}
 curve(dt(x,15),-5,5, axes = F, xlab='t',ylab='f(t)')
 axis(1,c(-5,0,round(qt(.995,15),4),5))
 axis(2)

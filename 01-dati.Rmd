@@ -170,7 +170,7 @@ La lista è l'elenco degli elementi appartenenti a $\mathscr{P}$ e rappresenta l
 
 La matrice dei dati è una tabella che consente di raccogliere in modo efficiente molti tipi diversi di dati.
 
-```{r 01-dati-1,,echo=FALSE}
+```{r 01-dati-1,echo=FALSE}
 set.seed(13)
 j <- c(1:3,"$n$")
 età <- sample(18:80,size = 4,replace = T)

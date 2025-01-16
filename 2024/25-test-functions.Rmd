@@ -10,7 +10,7 @@ editor_options:
 Presento le funzioni che sono state create da me per risolvere vari problemi
 di automazione, dalla creazione dei data set alla soluzione di alcuni problemi.
 
-```{r 25-test-functions-1,, include=FALSE}
+```{r 25-test-functions-1, include=FALSE}
 
 rm(list = ls())
 
@@ -30,7 +30,7 @@ virg <- "`"
 
 ## Istogramma 
 
-```{r 25-test-functions-2,,results='asis'}
+```{r 25-test-functions-2,results='asis'}
 #############################################################################
 #############################################################################
 ## Funzioni per generare i dati dell'esercizio 1
@@ -81,7 +81,7 @@ histp(axes=T)         # Istogramma
 h.int(2,8,col=ared,   # Aree selezionate
       density = 25)   
 ```
-```{r 25-test-functions-3,,results='asis'}
+```{r 25-test-functions-3,results='asis'}
 percentile(p = 0.45)       # Calcolo percentile
 F_print(2,"<")             # calcolo della prop inferiore a 2
 F_print(2,">")             # calcolo della prop superiore a 2
@@ -99,7 +99,7 @@ stat_(rep(1:4,times=c(2,4,5,1)),semp = T) # in frazione
 ## Probabilità
 
 ### Tavole della somma
-```{r 25-test-functions-4,, results='asis'}
+```{r 25-test-functions-4, results='asis'}
 # Somma di due dadi
 c1 <- 6
 c2 <- 6
@@ -117,7 +117,7 @@ names(res)
 ```
 
 ### Binomiale
-```{r 25-test-functions-5,, results='asis'}
+```{r 25-test-functions-5, results='asis'}
 bin_dis(x1 = 2,n = 5,pp = 0.34)
 bin_dis(x1 = 4,n = 5,pp = 0.34,verso = "\\geq")
 bin_dis(x1 = 2,n = 5,pp = 0.34,comp = T)
@@ -125,7 +125,7 @@ bin_dis(x1 = 2,n = 5,pp = 0.34,sing = T)
 ```
 
 ### Poisson
-```{r 25-test-functions-6,, results='asis'}
+```{r 25-test-functions-6, results='asis'}
 pois_dis(x1 = 2,ll = 1.5)
 pois_dis(x1 = 2,ll = 1.5,verso = "\\geq")
 pois_dis(x1 = 2,ll = 1.5,sing = T)
@@ -133,7 +133,7 @@ pois_dis(x1 = 2,ll = 1.5,sing = T)
 ```
 
 ### Normale
-```{r 25-test-functions-7,, results='asis'}
+```{r 25-test-functions-7, results='asis'}
 norm_int(x1 = 1,verso = "<",mm = 3,ss = 2.2,vnam = "\\theta",
              mu = "\\mu_\\theta",sigma = "\\sigma_\\theta")
 norm_int(x1 = 4,verso = "<",mm = 3,ss = 2.2,vnam = "X",
@@ -149,7 +149,7 @@ norm_int(x1 = -1,x2=2,mm = -3,ss = 2.2,verso = NULL)
 
 ### TLC
 
-```{r 25-test-functions-8,,results='asis'}
+```{r 25-test-functions-8,results='asis'}
 tlc(tipo = "somma",x1 = 90,x2 = 110,verso = NULL,mu = 1,s2 = 1,n = 100)
 tlc(tipo = "media",x1 = 9,x2 = 11,verso = NULL,mu = 10,s2 = 1,n = 100)
 tlc(tipo = "prop",x1 = .1,verso = ">",mu = .2,n = 50)
@@ -158,7 +158,7 @@ tlc(tipo = "prop",x1 = .1,verso = ">",mu = .2,n = 50)
 ## Inferenza
 
 ### Intervalli di Confidenza
-```{r 25-test-functions-9,, results='asis'}
+```{r 25-test-functions-9, results='asis'}
 idc(xm = 10,sd = 1.1,alpha = .05,n = 15,dist_ = "z")
 idc(xm = 10,sd = 1.1,alpha = .05,n = 15,dist_ = "t")
 idc(xm = 10,alpha = .05,n = 15,dist_ = "z")
@@ -168,7 +168,7 @@ idc(xm = 7.4,sd = sqrt(7.4),alpha = .05,n = 75,dist_ = "z",mus = "\\lambda",
 
 
 ### Test
-```{r 25-test-functions-10,, results='asis'}
+```{r 25-test-functions-10, results='asis'}
 ztest_mu(muh = 0,s = 1,10,mu0 = 1,h1 = "\\neq",alpha = 0.05)
 ztest_mu(muh = 0,s = 1,10,mu0 = 1,h1 = "\\neq")
 ztest_mu(muh = 0,s = 1,10,mu0 = 1,h1 = "\\neq",pv_only = T)
@@ -191,7 +191,7 @@ ztest_2c_pi(s1 = 120,s2 = 130,n1 = 250,n2 = 260,h1 = "<",alpha = .01)
 
 
 ### Regressione
-```{r 25-test-functions-11,,results='asis'}
+```{r 25-test-functions-11,results='asis'}
 set.seed(12)                 # ripete le stesse generazioni casuali
 n <- 100                     # fisso n
 x <- rnorm(n,10)             # genero x
@@ -214,7 +214,7 @@ ttest_beta(cof = 1,bj0 = 0,h1 = "\\neq",alpha = 0.01)
 
 
 ````.markdown
-```{r 25-test-functions-12,, echo=FALSE}`r ' '`
+```{r 25-test-functions-12, echo=FALSE}`r ' '`
 set.seed(1)                      # per ottenere sempre la stessa simulazione
 n <- 250                         # ampiezza campionaria
 
@@ -231,7 +231,7 @@ Su un campione di $`r virg`r n`$ famiglie della provincia di Modena è stato
 rilevata la spesa mensile in telecomunicazioni (in euro), qui di seguito la 
 distribuzione delle frequenze relative:
 
-```{r 25-test-functions-13,, echo=FALSE}`r ' '`
+```{r 25-test-functions-13, echo=FALSE}`r ' '`
 kable(dat3[,c(1,2,4)]) %>%
   kable_styling(full_width = F)
 ```
@@ -241,7 +241,7 @@ percentuale.
 
 **Soluzione**
 
-```{r 25-test-functions-14,, echo=FALSE}`r ' '`
+```{r 25-test-functions-14, echo=FALSE}`r ' '`
 kable(dat3) %>%            # Stampa la tabella
   kable_styling(full_width = F)
 histp(axes = T)
@@ -253,13 +253,13 @@ spesa superiore a 60 euro?
 
 **Soluzione**
 
-```{r 25-test-functions-15,, echo=FALSE}`r ' '`
+```{r 25-test-functions-15, echo=FALSE}`r ' '`
 F_print(60,verso=">")
 ```
 ````
 _________________________________________________________
 
-```{r 25-test-functions-16,,echo=FALSE}
+```{r 25-test-functions-16,echo=FALSE}
 set.seed(1)                      # per ottenere sempre la stessa simulazione
 n <- 250                         # ampiezza campionaria
 
@@ -278,7 +278,7 @@ i2 <- 0
 Su un campione di $`r n`$ famiglie della provincia di Modena è stato rilevata la spesa mensile in telecomunicazioni (in euro), qui di seguito 
 la distribuzione delle frequenze relative:
 
-```{r 25-test-functions-17,,echo=FALSE,}
+```{r 25-test-functions-17,echo=FALSE,}
 kable(dat3[,c(1,2,4)],booktab=T,            # Stampa la tabella  
       escape = F,linesep = "") %>%            
   kable_styling(full_width = F,latex_options = "HOLD_position")
@@ -288,7 +288,7 @@ kable(dat3[,c(1,2,4)],booktab=T,            # Stampa la tabella
 
 **Soluzione**
 
-```{r 25-test-functions-18,,echo=FALSE}
+```{r 25-test-functions-18,echo=FALSE}
 kable(dat3[,c(1:7,12)],booktab=T,            # Stampa la tabella  
       escape = F,linesep = "") %>%            
   kable_styling(full_width = F,latex_options = "HOLD_position")
@@ -300,12 +300,12 @@ h.int(60,250,density=20)
 
 **Soluzione**
 
-```{r 25-test-functions-19,,results='asis',echo=FALSE}
+```{r 25-test-functions-19,results='asis',echo=FALSE}
 F_print(60,verso=">")
 ```
 
 
-```{r 25-test-functions-20,,echo=FALSE}
+```{r 25-test-functions-20,echo=FALSE}
 # preparo i parametri
 s1 <- 27
 n1 <- 37
@@ -320,7 +320,7 @@ i2 <- 0
 _________________________________________________________
 
 ````.markdown
-```{r 25-test-functions-21,, echo=FALSE}`r ' '`
+```{r 25-test-functions-21, echo=FALSE}`r ' '`
 # preparo i parametri
 s1 <- 27
 n1 <- 37
@@ -338,7 +338,7 @@ donna abbiano lo stesso parare contro l'alternativa che siano diversi.
 
 **Soluzione**
 
-```{r 25-test-functions-22,,results='asis', echo=FALSE}`r ' '`
+```{r 25-test-functions-22,results='asis', echo=FALSE}`r ' '`
 ztest_2c_pi(s1 = s1,s2 = s2,n1 = n1,n2 = n2,
                 h1 = h1,alpha = alpha,a = "U",b = "D")
 ```
@@ -348,7 +348,7 @@ la proporzione di uomini favorevoli
 
 **Soluzione**
 
-```{r 25-test-functions-23,,results='asis', echo=FALSE}`r ' '`
+```{r 25-test-functions-23,results='asis', echo=FALSE}`r ' '`
 idc(xm = s1,alpha = .95,n = n1 ,dist_ = "z")
 ```
 ````
@@ -364,7 +364,7 @@ diversi.
 
 **Soluzione**
 
-```{r 25-test-functions-24,,results='asis',echo=FALSE}
+```{r 25-test-functions-24,results='asis',echo=FALSE}
 ztest_2c_pi(s1 = s1,s2 = s2,n1 = n1,n2 = n2,
                 h1 = h1,alpha = alpha,a = "U",b = "D")
 ```
@@ -374,7 +374,7 @@ favorevoli
 
 **Soluzione**
 
-```{r 25-test-functions-25,,results='asis',echo=FALSE}
+```{r 25-test-functions-25,results='asis',echo=FALSE}
 idc(xm = s1,alpha = .95,n = n1 ,dist_ = "z")
 ```
 

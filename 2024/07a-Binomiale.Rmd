@@ -223,7 +223,7 @@ fig.def(2)
 
 ```
 
-```{r 07a-Binomiale-1,,echo=F}
+```{r 07a-Binomiale-1,echo=F}
 par(mfrow=c(1,2),cex=cex)
 pp <- 0.5
 n  <- 1
@@ -239,7 +239,7 @@ axis(1,0:n)
 axis(2,c(pp,1-pp))
 ```
 
-```{r 07a-Binomiale-2,,echo=F}
+```{r 07a-Binomiale-2,echo=F}
 par(mfrow=c(1,2),cex=cex)
 
 pp <- 0.5
@@ -261,7 +261,7 @@ par(cex=cex)
 
 __Esempi ($n=10$ e $n=50$)__
 
-```{r 07a-Binomiale-3,,echo=F}
+```{r 07a-Binomiale-3,echo=F}
 
 
 par(mfrow=c(1,2),cex=cex)
@@ -278,7 +278,7 @@ axis(1,0:n)
 axis(2)
 ```
 
-```{r 07a-Binomiale-4,,echo=F}
+```{r 07a-Binomiale-4,echo=F}
 
 
 par(mfrow=c(1,2),cex=cex)

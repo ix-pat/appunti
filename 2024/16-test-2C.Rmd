@@ -139,7 +139,7 @@ di varianze **eterogenee**, verificare, se le due diete
 sono equivalenti contro l'alternativa che la dieta $A$ sia più efficace 
 (maggiore) della dieta $B$.
 
-```{r 16-test-2C-1,,results='asis'}
+```{r 16-test-2C-1,results='asis'}
 mu1 <- 6
 mu2 <- 5
 s1h   <- 1.2
@@ -167,7 +167,7 @@ giorni per il supermercato $B$ fornisce $\bar x_B=$ 57 mila euro, con
 Sotto assunto di **omogeneità**  delle varianze
 verificare l'ipotesi che la vendita media del supermercato $A$ sia uguale a quella del supermercato $B$, contro l'alternativa sia diversa.
 
-```{r 16-test-2C-2,,results='asis'}
+```{r 16-test-2C-2,results='asis'}
 mu1 <- 55
 mu2 <- 57
 s1h   <- 2.9
@@ -243,7 +243,7 @@ contro l'alternativa che le donne si dimostrino meno
 propense a accettare tale legge.
 
 
-```{r 16-test-2C-3,, results='asis'}
+```{r 16-test-2C-3, results='asis'}
 s1 <- 70
 n1 <- 80
 s2 <- 70

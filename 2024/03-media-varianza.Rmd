@@ -2,7 +2,7 @@
 editor_options: 
   chunk_output_type: console
 ---
-```{r 03-media-varianza-1,,echo=F,include=FALSE}
+```{r 03-media-varianza-1,echo=F,include=FALSE}
 #rm(list = ls())
 
 
@@ -29,7 +29,7 @@ __Esempio.__ Posto $x_1=2$, $x_2=5$, allora
 
 :::  {.center data-latex=""}
 
-```{r 03-media-varianza-2,,echo=FALSE,fig.height=1.5}
+```{r 03-media-varianza-2,echo=FALSE,fig.height=1.5}
 
 par(mar=c(0, 3, 3, 0) + 0.1)
 
@@ -178,7 +178,7 @@ par(mfrow=c(1,1),cex=cex)
 ### Calcolo per Distribuzioni di Frequenza
 
 Se i dati sono raccolti in distribuzione di frequenza
-```{r 03-media-varianza-3,, echo=FALSE, results="asis"}
+```{r 03-media-varianza-3, echo=FALSE, results="asis"}
 y1 <- c("$\\mathrm{x}_1$","$\\mathrm{x}_2$","$\\ldots$","$\\mathrm{x}_j$","$\\ldots$","$\\mathrm{x}_K$",NA)
 n  <- c("$n_1$","$n_2$","$\\ldots$", "$n_j$","$\\ldots$","$n_K$","$n$")
 tab <- data.frame("Modalità"=y1,"Frequenze"=n)
@@ -196,7 +196,7 @@ kbl(t(tab),booktabs = T, escape = F,linesep = "", digits = 4,col.names=NA)
 
 :::: {.example}
 Osserviamo i seguenti dati:
-```{r 03-media-varianza-4,,results='asis',echo=FALSE}
+```{r 03-media-varianza-4,results='asis',echo=FALSE}
 set.seed(112)
 n <- 10
 samp <- sample(c(2.7,3.4,5.1),n,T)
@@ -215,7 +215,7 @@ La media
 
 
 Riordiniamo i dati:
-```{r 03-media-varianza-5,,results='asis'}
+```{r 03-media-varianza-5,results='asis'}
 cat(paste("$x_{(",1:5,")}=",sort(samp),"$; ",sep=""))
 ```
 
@@ -424,7 +424,7 @@ Tutto il totale è posseduto da un solo individuo, c'è massima variabilità.
 
 Se i dati sono raccolti in distribuzione di frequenza
 
-```{r 03-media-varianza-6,, echo=FALSE, results="asis"}
+```{r 03-media-varianza-6, echo=FALSE, results="asis"}
 y1 <- c("$\\mathrm{x}_1$","$\\mathrm{x}_2$","$\\ldots$","$\\mathrm{x}_j$","$\\ldots$","$\\mathrm{x}_K$",NA)
 nn  <- c("$n_1$","$n_2$","$\\ldots$", "$n_j$","$\\ldots$","$n_K$","$n$")
 tab <- data.frame("Modalità"=y1,"Frequenze"=nn)
@@ -457,7 +457,7 @@ e di conseguenza, con un po' di algebra otteniamo:
 
 :::: {.example}
 
-```{r 03-media-varianza-7,,results='asis',echo=FALSE}
+```{r 03-media-varianza-7,results='asis',echo=FALSE}
 set.seed(112)
 n <- 10
 samp <- sample(c(2.7,3.4,5.1),n,T)
@@ -501,7 +501,7 @@ Osserviamo che
 
 
 Riordiniamo i dati:
-```{r 03-media-varianza-8,,results='asis'}
+```{r 03-media-varianza-8,results='asis'}
 cat(paste("$x_{(",1:n,")}=",sort(samp),"$; ",sep=""))
 ```
 
@@ -552,7 +552,7 @@ o alternativamente
 
 :::: {.example}
 
-```{r 03-media-varianza-9,, results='asis'}
+```{r 03-media-varianza-9, results='asis'}
 set.seed(12)
 x <- round(sample(sqrt(c(10:15)),size=21,T,prob=dnorm(10:15,13,2)),2)
 cat(paste("$x_{",1:21,"}=",x,"$; ",sep=""))
@@ -576,7 +576,7 @@ La varianza
 
 riordiniamo i dati
 
-```{r 03-media-varianza-10,,results='asis'}
+```{r 03-media-varianza-10,results='asis'}
 cat(paste("$x_{(",1:21,")}=",sort(x),"$; ",sep=""))
 ```
 

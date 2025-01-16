@@ -71,27 +71,27 @@ mm <- mx
 ss <- ssx
 ```
 
-```{r 07d-Esercizi-Normale-1,, results='asis'}
+```{r 07d-Esercizi-Normale-1, results='asis'}
 cat(norm_int(x1 = x1,x2 = x2,verso = NULL,mm = mx,ss = ssx,mu = "\\mu_X",sigma = "\\sigma_X"))
 ```
 
 2. Calcolare di  $P(A)$.
 
 
-```{r 07d-Esercizi-Normale-2,, results='asis'}
+```{r 07d-Esercizi-Normale-2, results='asis'}
 cat(norm_int(x1 = x0,verso = ">",mm = mx,ss = ssx,mu = "\\mu_X",sigma = "\\sigma_X"))
 ```
 
 alternativamente possiamo osservare che 
 \[A=\{X>0.9\}=\{0.9< X\leq +\infty \}\]
 
-```{r 07d-Esercizi-Normale-3,, results='asis'}
+```{r 07d-Esercizi-Normale-3, results='asis'}
 cat(norm_int(x1 = x0,x2=Inf,verso = NULL,mm = mx,ss = ssx,mu = "\\mu_X",sigma = "\\sigma_X"))
 ```
 
 3. Calcolare $P(C)$.
 
-```{r 07d-Esercizi-Normale-4,, results='asis'}
+```{r 07d-Esercizi-Normale-4, results='asis'}
 cat(norm_int(x1 = y1,x2 = y2,verso = NULL,mm = my,ss = ssy,vnam = "Y",mu = "\\mu_Y",sigma = "\\sigma_Y"))
 fig.def(width = 10)
 ```
@@ -102,7 +102,7 @@ Osserviamo che
   \[A\cap B=\{X>`r x0`\}\cap\{`r xx1`<X<`r xx2`\}= \{`r x0`<X<`r xx2`\} \]
    e quindi $A\cap B$ è un **intervallo** sulla retta di supporto di $X$
 
-```{r 07d-Esercizi-Normale-5,,echo=F}
+```{r 07d-Esercizi-Normale-5,echo=F}
 
 x1 <- xx1
 x2 <- xx2
@@ -134,7 +134,7 @@ segments(x0,0,x2,0,lwd=4)
 
 5. Calcolare  $P(A\cap B)$.
 
-```{r 07d-Esercizi-Normale-6,, results='asis'}
+```{r 07d-Esercizi-Normale-6, results='asis'}
 cat(norm_int(x1 = x0,x2=x2,verso = NULL,mm = mx,ss = ssx,mu = "\\mu_X",sigma = "\\sigma_X"))
 ```
 
@@ -153,7 +153,7 @@ Quando invece osserviamo $B\cap C$ vediamo che
 \[B\cap C=\{`r x1`<X<`r x2`\}\cap\{`r y1`<Y< `r y2`\}= \{`r x1`<X<`r x2`\}\times\{`r y1`<Y< `r y2`\} \]
 e dunque $B\cap C$ è un **rettangolo** sul piano $(X,Y)$
 
-```{r 07d-Esercizi-Normale-7,,echo=F}
+```{r 07d-Esercizi-Normale-7,echo=F}
 x1 <- xx1
 x2 <- xx2
 
@@ -509,7 +509,7 @@ ss <- ssx
 vnam <- "X"
 ```
 
-```{r 07d-Esercizi-Normale-8,, results='asis'}
+```{r 07d-Esercizi-Normale-8, results='asis'}
 cat(norm_int(x1 = x1,verso = ">",ss = ssx,mm = mx,mu = "\\mu_X",sigma = "\\sigma_X"))
 ```
 
@@ -543,7 +543,7 @@ ss <- (ssx+ssy)
 vnam <- "W"
 ```
 
-```{r 07d-Esercizi-Normale-9,, results='asis'}
+```{r 07d-Esercizi-Normale-9, results='asis'}
 cat(norm_int(x1 = x0,mm = mm,ss = ss,vnam = vnam,mu = "\\mu_W",sigma = "\\sigma_W"))
 ```
 
@@ -560,7 +560,7 @@ vnam <- "V"
 pb <- pnorm(round((1.2-mm)/sqrt(ss),2))
 ```
 
-```{r 07d-Esercizi-Normale-10,, results='asis'}
+```{r 07d-Esercizi-Normale-10, results='asis'}
 cat(norm_int(x1 = x0,mm = mm,ss = ss,vnam = vnam,mu = "\\mu_V",sigma = "\\sigma_V"))
 ```
 
@@ -578,7 +578,7 @@ Dalla definizione di probabilità condizionata
    &=&\frac{P(0<V<1.2)}{P(V<1.2)}
 \end{eqnarray*}
   
-```{r 07d-Esercizi-Normale-11,,results='asis'}
+```{r 07d-Esercizi-Normale-11,results='asis'}
 
 res <- norm_int(x1 = 0,x2 = 1.2,verso = NULL,mm = mm,ss = ss,vnam = "V",mu = "\\mu_V",sigma = "\\sigma^2_V")
 cat(res,sep="\n")
@@ -605,7 +605,7 @@ E quindi
 
 dobbiamo solo calcolare $P(V>0)$
 
-```{r 07d-Esercizi-Normale-12,,results='asis'}
+```{r 07d-Esercizi-Normale-12,results='asis'}
 res <-norm_int(x1 = 0,x2 = NULL,verso = ">",mm = mm,ss = ss,vnam = "V",mu = "\\mu_V",sigma = "\\sigma^2")
 cat(res,sep="\n")
 pa <- 1-pnorm(round((0-mm)/sqrt(ss),2))

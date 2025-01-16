@@ -53,7 +53,7 @@ Se estraiamo SR, lo spazio dei campioni è di dimensione $\#\mathcal{S}=4(\times
 Anziché tutti i 24 possibili campioni la tabella mostra solo i 4 campioni riordinati, perché il campione (0,1,3), ai nostri fini
 è identico al campione (3,1,0) e al campione (0,3,1), ecc.
 
-```{r 11-Stima-1,,results="asis"}
+```{r 11-Stima-1,results="asis"}
 xp <- c(0,1,3,7)
 
 camp <- combn(xp,3)
@@ -68,7 +68,7 @@ column_spec (1:ncol(camp),border_left = F, border_right = T)
 
 Se invece estraiamo CR, lo spazio dei campioni è di dimensione $\#\mathcal{S}=64$ ed è descritto in tabella (\@ref(tab:ccr)).
 
-```{r 11-Stima-2,,results="asis"}
+```{r 11-Stima-2,results="asis"}
 xp <- c(0,1,3,7)
   
 xxx <- expand.grid(xp,xp,xp)
@@ -292,7 +292,7 @@ l'incertezza sulla media è zero.
 
 :::: {.example name="Popolazione finita, estrazioni SR (Stima)"}
 
-```{r 11-Stima-3,,results="asis"}
+```{r 11-Stima-3,results="asis"}
 xp <- c(0,1,3,7)
 
 camp <- combn(xp,3)
@@ -485,7 +485,7 @@ Proponiamo la varianza campionaria $\hat\sigma^2$ per stimare $\sigma^2=`r sig2`
 \[\hat\sigma^2=\frac 1 3\sum_{i=1}^3(x_i-\hat \mu)^2\]
 
 
-```{r 11-Stima-4,,results="asis"}
+```{r 11-Stima-4,results="asis"}
 xp <- c(0,1,3,7)
   
 xxx <- expand.grid(xp,xp,xp)
@@ -533,7 +533,7 @@ E(\hat\sigma^2)=\frac{n-1}n\sigma^2=\frac{`r n-1`}{`r n`}`r sig2`
 
 ### Distribuzione delle statistiche
 
-```{r 11-Stima-5,, echo=FALSE, results='asis'}
+```{r 11-Stima-5, echo=FALSE, results='asis'}
 
 #curve(dgamma(x,9,.9),0,25)
 set.seed(1)
@@ -546,7 +546,7 @@ s2 <- vvv(xpop)
 Estraggo campioni di ampiezza $n=5$ da una popolazione di $N=10000$ individui con media $\mu=`r mu`$ e varianza $\sigma^2=`r s2`$.
 Osservo tre diversi stimatori per $\mu$: $h_1$, $h_2$ e $h_3$
 
-```{r 11-Stima-6,, echo=FALSE, results='asis'}
+```{r 11-Stima-6, echo=FALSE, results='asis'}
 
 #curve(dgamma(x,9,.9),0,25)
 xpop <- rgamma(10000,9,.9)

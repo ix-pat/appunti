@@ -220,7 +220,7 @@ $$ il supporto di $S_2$ sarà $$S_{S_2}=\{-2,-1,0,+1,+2 \} $$ $S_2=-2$ se
 sia $X_1=-1$ e $X_2=-1$, $S_2=-1$ se sia $X_1+X_2=-1$ ecc. mettiamo in
 tabella
 
-```{r 08-tlc-1,,results='asis'}
+```{r 08-tlc-1,results='asis'}
 S_1 <- (-1):1
 S_2 <- (-1):1
 num1 <- rep(1,times=3)
@@ -239,7 +239,7 @@ $$
 
 lavoriamo come prima facendo la somma tra $S_2$ e $X_1$
 
-```{r 08-tlc-2,,results='asis'}
+```{r 08-tlc-2,results='asis'}
 res <- two_way(S_1=S_1,S_2=S_3,num1=num1,num2=num3,EV = F,vnam="S_3")
 S_4 <- res$S_3
 num4 <- res$num3
@@ -252,7 +252,7 @@ $$
 S_4=S_3+X_4
 $$
 
-```{r 08-tlc-3,,results='asis'}
+```{r 08-tlc-3,results='asis'}
 res <- two_way(S_1=S_1,S_2=S_4,num1=num1,num2=num4,EV = F,vnam="S_4")
 S_5 <- res$S_3
 num5 <- res$num3
@@ -365,7 +365,7 @@ sigma <- "V(S_n)"
 vnam <- "S_n"
 ```
 
-```{r 08-tlc-4,, results='asis'}
+```{r 08-tlc-4, results='asis'}
 cat(norm_int(x1 = x1,verso = "<",mm = mm,ss = ss,vnam = vnam,sigma = sigma))
 ```
 
@@ -555,7 +555,7 @@ S_{100}&&\operatorname*{\sim}_{a} N(100\times(`r xg`),100\times`r vg`)\\
 
 E quindi
 
-```{r 08-tlc-5,,results='asis'}
+```{r 08-tlc-5,results='asis'}
 vnam<-"S_n"
 mm <- round(100*xn,4)
 ss <- 100*vn
@@ -584,7 +584,7 @@ in zero. Per ovviare e migliorare l'approssimazione basta spostare sulla
 fine del rettangolo dello zero il calcolo della normale. Senza entrare
 nel dettaglio si ricava che il rettangolo finisce per $S_n=1$ e dunque
 
-```{r 08-tlc-6,, results='asis'}
+```{r 08-tlc-6, results='asis'}
 vnam<-"S_n"
 mm <- round(100*xn,4)
 ss <- 100*vn

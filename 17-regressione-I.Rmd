@@ -231,7 +231,7 @@ fig.def()
 
 Se mettiamo a test, otteniamo
 
-```{r 17-regressione-I-1,,results='asis'}
+```{r 17-regressione-I-1,results='asis'}
 mu1 <- ybar2
 mu2 <- ybar1
 b <- "$(X=0)$" 
@@ -419,7 +419,7 @@ fig.def(3)
 La previsione sembra più difficile, 
 la suggestione di prima non sembra funzionare
 
-```{r 17-regressione-I-2,,results='asis'}
+```{r 17-regressione-I-2,results='asis'}
 opar <- par(no.readonly = T)
 par(mfrow=c(1,2),cex=cex)
 set.seed(1)
@@ -467,7 +467,7 @@ e varianza costante
 
 Qui di seguito un paio di esempi grafici
 
-```{r 17-regressione-I-3,,results='asis'}
+```{r 17-regressione-I-3,results='asis'}
 opar <- par(no.readonly = T)
 par(mfrow=c(1,2),cex=cex)
 set.seed(1)
@@ -493,7 +493,7 @@ par(opar)
 ```
 
 
-<!-- ```{r 17-regressione-I-4,,results='asis'} -->
+<!-- ```{r 17-regressione-I-4,results='asis'} -->
 
 <!-- plot(x*2.5,y,pch=16,cex=.8,xlab="x",xlim = c(2,4),ylim = c(35,48)) -->
 <!-- lines(x*2.5,15*sin(x)+28,col=ared) -->
@@ -508,7 +508,7 @@ Tra le tante $f$ limitiamo l'attenzione alle funzioni lineari
 \[y_i=\beta_0+\beta_1x_i+\varepsilon_i\]
 
 
-```{r 17-regressione-I-5,,results='asis'}
+```{r 17-regressione-I-5,results='asis'}
 opar <- par(no.readonly = T)
 par(mfrow=c(1,2),cex=cex)
 set.seed(2)

@@ -125,7 +125,7 @@ pari a 5g. Uno studente seleziona 25 cavie e ottiene un peso medio
 uguale a 32g con una $\hat\sigma$ pari a 7g. La selezione è casuale o il
 valore ottenuto della media è troppo alto, a un LdS del 5%?
 
-```{r 15-test-mu-pi-1,, results='asis'}
+```{r 15-test-mu-pi-1, results='asis'}
 muh <- 32
 mu0 <- 30
 s   <- 5
@@ -143,7 +143,7 @@ pari a 5g. Uno studente seleziona 25 cavie e ottiene un peso medio
 uguale a 32g con una $\hat\sigma$ pari a 7g. La selezione è casuale o il
 valore ottenuto della media è troppo alto, a un LdS del 1%?
 
-```{r 15-test-mu-pi-2,, results='asis'}
+```{r 15-test-mu-pi-2, results='asis'}
 muh <- 32
 mu0 <- 30
 s   <- 5
@@ -269,7 +269,7 @@ quali si ottiene una durata media $\bar{x}=5.7$ e uno deviazione
 standard $s=0.6$. Verificare l'ipotesi, al LdS dell'1%, che la
 resistenza sia rimasta invariata contro l'alternativa che sia diminuita.
 
-```{r 15-test-mu-pi-3,,results='asis'}
+```{r 15-test-mu-pi-3,results='asis'}
 muh <- 5.7
 mu0 <- 6
 s   <- .5
@@ -353,7 +353,7 @@ title("Normale Standard")
 ::: {.example}
 Un produttore di semiconduttori afferma che la durata media dei suoi chip è di 300 ore con una deviazione standard di 3 ore. Un'azienda decide di testare la qualità dei chip e conduce un esperimento con 16 chip, ottenendo una durata media di 298 ore e una deviazione standard di 4 ore. I risultati di questo test sono coerenti con l'affermazione del produttore i chip tendono a durare in modo diverso dalla durata dichiarata, al 5%?
 
-```{r 15-test-mu-pi-4,, results='asis'}
+```{r 15-test-mu-pi-4, results='asis'}
 muh <- 298
 mu0 <- 300
 s   <- 3
@@ -490,7 +490,7 @@ testa in 30 minuti. Un campione casuale di 25 persone la usa. Risultato:
 $\bar{x}=31.4$m con $\hat{\sigma}= 4.2$m. Verificare l'affermazione del
 produttore a un LdS del 5%.
 
-```{r 15-test-mu-pi-5,, results='asis'}
+```{r 15-test-mu-pi-5, results='asis'}
 muh <- 31.4
 mu0 <- 30
 sh  <- 4.2
@@ -548,7 +548,7 @@ gli iscritti al programma.
 Risultato: $\overline{\Delta x}=1.5$kg con $\hat\sigma=1.4$kg.
 Verificare l'affermazione del Centro al LdS del 5%.
 
-```{r 15-test-mu-pi-6,, results='asis'}
+```{r 15-test-mu-pi-6, results='asis'}
 muh <- 1.5
 mu0 <- 2
 sh  <- 1.4
@@ -608,7 +608,7 @@ i possibili effetti sulla resistenza. Verificare, a un LdS del 5%,
 l'ipotesi che la resistenza media sia uguale al filo standard, che è
 6.8N, contro l'alternativa che sia diverso.
 
-```{r 15-test-mu-pi-7,, results='asis'}
+```{r 15-test-mu-pi-7, results='asis'}
 muh <- 7.5
 mu0 <- 6.8
 sh  <- 1.2
@@ -645,7 +645,7 @@ media di 51 mg e una deviazione standard di 2.5 mg.
 I risultati delle analisi sono coerenti con l'affermazione dell'azienda o la 
 concentrazione del principio attivo tende a differire dalla quantità dichiarata?
 
-```{r 15-test-mu-pi-8,, results='asis'}
+```{r 15-test-mu-pi-8, results='asis'}
 muh <- 51
 mu0 <- 50
 sh  <- 2.5
@@ -702,7 +702,7 @@ bilanciata ($\pi=0.5$), contro l'alternativa che sia maggiore.
 Lo stimatore di massima verosimiglianza è
 $$\hat\pi=\frac 1 n \sum_{i=1}^n X_i$$
 
-```{r 15-test-mu-pi-9,, results='asis'}
+```{r 15-test-mu-pi-9, results='asis'}
 sn <- 30
 p0 <- .5
 n   <- 50
@@ -720,7 +720,7 @@ l'alternativa che sia maggiore.
 Lo stimatore di massima verosimiglianza è
 $$\hat\pi=\frac 1 n \sum_{i=1}^n X_i$$
 
-```{r 15-test-mu-pi-10,, results='asis'}
+```{r 15-test-mu-pi-10, results='asis'}
 sn <- 60
 p0 <- .5
 n   <- 100
@@ -738,7 +738,7 @@ l'alternativa che sia maggiore.
 Lo stimatore di massima verosimiglianza è
 $$\hat\pi=\frac 1 n \sum_{i=1}^n X_i$$
 
-```{r 15-test-mu-pi-11,, results='asis'}
+```{r 15-test-mu-pi-11, results='asis'}
 sn <- 600
 p0 <- .5
 n   <- 1000
@@ -756,7 +756,7 @@ che il valore osservato sia dovuto al caso, contro
 l'alternativa che vi sia stata una diminuzione della proporzione di
 decentramento.
 
-```{r 15-test-mu-pi-12,, results='asis'}
+```{r 15-test-mu-pi-12, results='asis'}
 sn <- 30
 p0 <- .4
 n   <- 100
@@ -773,7 +773,7 @@ banda ultra-larga. La proporzione posseduta a livello nazionale è pari
 al 25%. Verificare che nella città la
 percentuale sia diversa (in più o in meno).
 
-```{r 15-test-mu-pi-13,, results='asis'}
+```{r 15-test-mu-pi-13, results='asis'}
 sn <- 20
 p0 <- .25
 n   <- 100

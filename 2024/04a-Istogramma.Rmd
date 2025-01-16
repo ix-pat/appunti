@@ -5,7 +5,7 @@ editor_options:
 ---
 
 
-```{r 04a-Istogramma-1,,echo=FALSE}
+```{r 04a-Istogramma-1,echo=FALSE}
 #rm(list = ls())
 
 
@@ -57,7 +57,7 @@ kable(dat3,booktabs = T, escape = F,linesep = "", digits = 4)
 
 Quindi disegniamo l'istogramma di densità percentuale, dove le $h$ sono usate come altezze e le $f_{\%}$ sono le aree dei rettangoli. 
 
-```{r 04a-Istogramma-2,, echo=FALSE}
+```{r 04a-Istogramma-2, echo=FALSE}
 histp(T)
 ```
 
@@ -65,7 +65,7 @@ histp(T)
 Se al posto delle $h$ usiamo le $f$ disegniamo l'istogramma _sbagliato_, . Notiamo che la classe $[20,50)$
 viene sovra rappresentata. Infatti è vero che il 45% delle famiglie si trova in quella classe, ma è anche vero che l'ampiezza della classe molto grande e l'istogramma non rappresenta i dati.
 
-```{r 04a-Istogramma-3,, echo=FALSE}
+```{r 04a-Istogramma-3, echo=FALSE}
 source("intro.R")
 barplot(dat2$fj,diff(brk),space = 0,main = "istogramma sbagliato, le f sono usate al posto delle h",col = "white")
 lines(c(0,90),c(0,0.4),col=ared,lwd=4)
@@ -78,7 +78,7 @@ axis(side = 1,at = brk,labels = brk)
 Per disegnare un istogramma di densità in modo corretto si devono rispettare le proporzioni
 tra le basi
 
-```{r 04a-Istogramma-4,, echo=FALSE}
+```{r 04a-Istogramma-4, echo=FALSE}
 source("intro.R")
 #barplot(dat2$h,diff(brk),space = 0,main = "istogramma corretto")
 plot(c(0,4),c(0,max(dat2$hj)),type="n" ,axes=F,xlab="x",ylab="Densità") 
@@ -109,16 +109,16 @@ super $0.50$.
 
 \[x_0 = 0, ~~~\text{il più piccol dei dati}\] 
 `r p=0.1`
-```{r 04a-Istogramma-5,,results='asis'}
+```{r 04a-Istogramma-5,results='asis'}
 cat(percentile(p = 0.1))
 ```
 `r p=0.2`
-```{r 04a-Istogramma-6,,results='asis'}
+```{r 04a-Istogramma-6,results='asis'}
 cat(percentile(p = 0.2))
 ```
 \[\vdots\]
 `r p=0.9`
-```{r 04a-Istogramma-7,,results='asis'}
+```{r 04a-Istogramma-7,results='asis'}
 cat(percentile(p = 0.9))
 ```
 \[x_{1.0} = 90, ~~~\text{il più grande dei dati}\] 
@@ -306,7 +306,7 @@ i valori sono $(x_{0.025}, x_{0.975})=$(`r Q.int(c(.025,.975))`)
 
 <!-- * Disegnare l'istogramma _sbagliato_ -->
 
-<!-- ```{r 04a-Istogramma-8,, echo=FALSE} -->
+<!-- ```{r 04a-Istogramma-8, echo=FALSE} -->
 <!-- plot(c(brk[1],brk),c(0,dat2$fj,0),type="s",axes = FALSE,xlab="Temperature (C°)",ylab="fj",main = "istogramma sbagliato") -->
 <!-- segments(dat2$xsup,0,dat2$xsup,dat2$fj,lty=2) -->
 <!-- axis(side = 1,at = brk,labels = brk) -->
@@ -315,7 +315,7 @@ i valori sono $(x_{0.025}, x_{0.975})=$(`r Q.int(c(.025,.975))`)
 
 <!-- * Disegnare l'istogramma corretto -->
 
-<!-- ```{r 04a-Istogramma-9,, echo=FALSE} -->
+<!-- ```{r 04a-Istogramma-9, echo=FALSE} -->
 <!-- plot(c(brk[1],brk),c(0,dat2$hj,0),type="s",axes = FALSE,xlab="Temperature (C°)",ylab="hj",main = "istogramma corretto") -->
 <!-- segments(dat2$xsup,0,dat2$xsup,dat2$hj,lty=2) -->
 <!-- axis(side = 1,at = brk,labels = brk) -->

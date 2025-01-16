@@ -526,7 +526,7 @@ Osserviamo graficamente gli intervalli di confidenza per $\mu$ con $\hat \mu=`r 
 
 
 
-```{r 13-stima-intervallare-1,,results='asis'}
+```{r 13-stima-intervallare-1,results='asis'}
 plot(c(xbar-4.5*se,xbar+4.5*se),c(-.4,1),axes=F,xlab='',ylab="",type='n')
 arrows(xbar-4.5*se,0,xbar+4.5*se,0,length = .1)
 points(xbar,0,pch='|')
