@@ -35,8 +35,8 @@ language:
     exa: "Esempio "
     exm: "Esempio "
     Example: "Esempio "
-    fig: !expr function(x) ifelse(html,sprintf("<b>Figura %s </b>", x),sprintf("", x))
-    tab: !expr function(x) ifelse(html,sprintf("<b>Tabella %s </b>", x),sprintf("", x))
+    # fig: !expr function(x) ifelse(html,sprintf("<b>Figura %s </b>", x),sprintf("", x))
+    # tab: !expr function(x) ifelse(html,sprintf("<b>Tabella %s </b>", x),sprintf("", x))
     prp: "Proprietà "
     def: "Definizione "
     thm: "Teorema "

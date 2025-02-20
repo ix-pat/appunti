@@ -961,7 +961,7 @@ out <- data.frame(rbind(r1,r2,r3,r4))
 names(out) <- nm
 
 kable(out,booktabs = T, escape = F, digits = 2,row.names = F,caption = "Come ricavare le quantità necessarie per calcolare l'istogramma di densità percentuale")%>%
-  kableExtra::kable_styling(latex_options = "hold_position")
+  kableExtra::kable_styling(latex_options = "hold_position",font_size = 11)
 fig.def(height = 2,titolo = FALSE)
 ```
 \normalsize
