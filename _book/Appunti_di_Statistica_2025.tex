@@ -512,7 +512,7 @@ drop fuzzy shadow]
 \makeatother
 \subtitle{CLEAM AA 24/25}
 \author{Patrizio Frederic}
-\date{Aggiornato al 25-01-2025}
+\date{Aggiornato al 20-02-2025}
 
 \begin{document}
 \maketitle
@@ -570,7 +570,7 @@ costruisco le mie lezioni. Non è da ritenersi alternativo alle lezioni in aula 
 
 Un ringraziamento speciale va alle mie donne e a Michele Lalla, amico, collega e maestro.
 
-Bologna, il 25-01-2025.
+Bologna, il 20-02-2025.
 
 \part{Statistica Descrittiva}
 
@@ -1362,7 +1362,7 @@ allora (\(x_1=0, x_2=8, x_3=12, x_4=20, x_5=32\)). Geometricamente
 
 Osserviamo che i dati si espandono, i dati originari vanno da \(0\) a \(16\), quelli trasformati da \(0\) a \(32\). Notiamo che lo zero resta invariato.
 
-\textbf{caso 3: \(a\ne 0\), \(b=0\)}
+\textbf{caso 3: \(a\ne 0\), \(b=1\)}
 
 Le distanze tra i dati restano invariate, lo zero cambia.
 Per esempio: supponiamo di avere osservato (\(x_1=0, x_2=4, x_3=6, x_4=10, x_5=16\)), e fissato \(a=+1\)
@@ -1375,7 +1375,7 @@ allora (\(x_1=1, x_2=5, x_3=7, x_4=11, x_5=17\)). Geometricamente
 
 Osserviamo che i dati sono stati traslati a destra di uno, i dati originari vanno da \(0\) a \(16\), quelli trasformati da \(1\) a \(17\). Notiamo che lo zero è cambiato nella nuova scala.
 
-\textbf{caso 4: \(a\ne 0\), \(b\ne 0\)}
+\textbf{caso 4: \(a\ne 0\), \(b\ne 1\)}
 
 Le distanze tra i dati restano invariate, lo zero cambia.
 Per esempio: supponiamo di avere osservato (\(x_1=0, x_2=4, x_3=6, x_4=10, x_5=16\)), e fissato \(a=+1\) e \(b=1/2\)
@@ -6459,10 +6459,10 @@ alternativamente possiamo osservare che
 \[A=\{X>0.9\}=\{0.9< X\leq +\infty \}\]
 
 \begin{eqnarray*}
-   P( 0.9 < X \leq  Inf ) &=& P\left( \frac { 0.9  -  1.5 }{\sqrt{ 0.25 }} < \frac { X  -  \mu_X }{ \sigma_X } \leq \frac { Inf  -  1.5 }{\sqrt{ 0.25 }}\right)  \\
-              &=& P\left(  -1.2  < Z \leq  Inf \right) \\
-              &=& \Phi( Inf )-\Phi( -1.2 )\\
-              &=&  \Phi( Inf )-(1-\Phi( 1.2 )) \\ &=&  1 -(1- 0.8849 ) \\ 
+   P( 0.9 < X \leq  +\infty ) &=& P\left( \frac { 0.9  -  1.5 }{\sqrt{ 0.25 }} < \frac { X  -  \mu_X }{ \sigma_X } \leq \frac { +\infty  -  1.5 }{\sqrt{ 0.25 }}\right)  \\
+              &=& P\left(  -1.2  < Z \leq  +\infty \right) \\
+              &=& \Phi( +\infty )-\Phi( -1.2 )\\
+              &=&  \Phi( +\infty )-(1-\Phi( 1.2 )) \\ &=&  1 -(1- 0.8849 ) \\ 
               &=&  0.8849 
    \end{eqnarray*}
 

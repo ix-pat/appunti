@@ -387,7 +387,7 @@ arrows(x0_adj,y0_adj,x1_adj,y1_adj,length = .1)
 Osserviamo che i dati si espandono, i dati originari vanno da $`r min(x)`$ a $`r max(x)`$, quelli trasformati da $`r min(x_r)`$ a $`r max(x_r)`$. Notiamo che lo zero resta invariato.
 
 
-**caso 3: $a\ne 0$, $b=0$**
+**caso 3: $a\ne 0$, $b=1$**
 
 ```{r}
 set.seed(1)
@@ -428,7 +428,7 @@ segments(x,1,x,0,lty=2,col="gray")
 
 Osserviamo che i dati sono stati traslati a destra di uno, i dati originari vanno da $`r min(x)`$ a $`r max(x)`$, quelli trasformati da $`r min(x_r)`$ a $`r max(x_r)`$. Notiamo che lo zero è cambiato nella nuova scala.
 
-**caso 4: $a\ne 0$, $b\ne 0$**
+**caso 4: $a\ne 0$, $b\ne 1$**
 
 ```{r}
 set.seed(1)

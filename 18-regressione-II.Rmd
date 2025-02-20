@@ -746,7 +746,7 @@ Si tratta di un grafico che mette sull'asse delle x i _quantile_ (percentili in 
 e in ordinata i _quantile_ osservati dei residui sul campione.
 
 Si crea una tabella dei percentili degli $\hat\varepsilon_{(1)}$
-<div/>
+
  errori ordinati        | ordine del percentile | percentile teorico
  -----------------------|-----------------------|-------------------
 $\hat\varepsilon_{(1)}$ | $1/n$                 | $z_{1/n}$

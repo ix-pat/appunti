@@ -463,7 +463,8 @@ Il valore $0<\alpha<1$, può essere qualunque ma solitamente si usa
   - Gli intervalli per $\alpha=0.1$ e $\alpha=0.001$, intervalli al $90\%$ e al $99.9\%$ meno usati.
 
 
-dalle tavole abbiamo<div/>
+dalle tavole abbiamo
+
 | $\alpha$        | $\alpha/2$            | $z_{\alpha/2}$                    |                       |           |
 |:----------------|:----------------------|:----------------------------------|:----------------------|-----------|
 |  $\alpha=0.1$   | con $\alpha/2=0.05$   | e quindi $z_{\alpha/2}=z_{0.05}$  | $=`r qnorm(1-.05)`$   | Raro      |
