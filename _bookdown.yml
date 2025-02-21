@@ -37,6 +37,8 @@ language:
     Example: "Esempio "
     # fig: !expr function(x) ifelse(html,sprintf("<b>Figura %s </b>", x),sprintf("", x))
     # tab: !expr function(x) ifelse(html,sprintf("<b>Tabella %s </b>", x),sprintf("", x))
+    tab: "Tabella "
+    fig: "Figura "
     prp: "Proprietà "
     def: "Definizione "
     thm: "Teorema "

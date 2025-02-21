@@ -217,7 +217,7 @@ La media
 
 Riordiniamo i dati:
 ```{r 03-media-varianza-5,results='asis'}
-cat(paste("$x_{(",1:5,")}=",sort(samp),"$; ",sep=""))
+cat(paste("$x_{(",1:n,")}=",sort(samp),"$; ",sep=""))
 ```
 
 
@@ -503,7 +503,7 @@ Osserviamo che
 
 Riordiniamo i dati:
 ```{r 03-media-varianza-8,results='asis'}
-cat(paste("$x_{(",1:n,")}=",sort(samp),"$; ",sep=""))
+cat(paste("$x_{(",1:10,")}=",sort(samp),"$; ",sep=""))
 ```
 
 
