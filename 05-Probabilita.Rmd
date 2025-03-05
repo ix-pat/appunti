@@ -174,7 +174,7 @@ Sia $A$ un evento, si definisce l'evento certo $\emptyset$ l'evento:
 \begin{eqnarray*}
     A&=&  \text{Domani pioverà}\\
     \bar A&=&  \text{Domani }\textbf{non}\text{ pioverà}\\
-    \emptyset &=& \text{Domani pioverà \bf e non pioverà}
+    \emptyset &=& \text{Domani pioverà }\textbf{e }\text{ non pioverà}
 \end{eqnarray*}
 
 :::
