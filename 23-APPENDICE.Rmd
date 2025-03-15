@@ -234,7 +234,8 @@ Proprietà utili
   \binom{n}{ k} &=&\binom{n}{ n-k},\qquad\text{Per esempio:} \\
   \binom{5}{ 3} &=&\binom{5}{ 2}=`r choose(5,2)`,\\
   \binom{n}{ 0} &=&\binom{n}{ n} = 1 \\
-  \binom{n}{ 1} &=&\binom{n}{ n-1}=n 
+  \binom{n}{ 1} &=&\binom{n}{ n-1}=n \\
+  \binom{n}{ k} &=&\binom{n-1}{k-1}+\binom{n-1}{k}
 \end{eqnarray*}
 
 In matematica $\binom{n}{ k}$ è il $k$-esimo elemento della $n$-esima riga del _triangolo di Tartaglia_.
