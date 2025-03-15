@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Introduzione | Appunti di Statistica</title>
+  <title>Capitolo 21 Richiami di Calcolo Combinatorio | Appunti di Statistica</title>
   <meta name="description" content="Appunti sparsi" />
   <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Introduzione | Appunti di Statistica" />
+  <meta property="og:title" content="Capitolo 21 Richiami di Calcolo Combinatorio | Appunti di Statistica" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Appunti sparsi" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Introduzione | Appunti di Statistica" />
+  <meta name="twitter:title" content="Capitolo 21 Richiami di Calcolo Combinatorio | Appunti di Statistica" />
   
   <meta name="twitter:description" content="Appunti sparsi" />
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="avvertenza.html"/>
-<link rel="next" href="i-fenomeni-collettivi.html"/>
+<link rel="prev" href="richiami-sugli-operatori-sommatoria-e-produttorio.html"/>
+<link rel="next" href="richiami-di-matematica.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -689,41 +689,140 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="introduzione" class="section level1 unnumbered hasAnchor">
-<h1>Introduzione<a href="introduzione.html#introduzione" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Durante il lock down della prima ondata, nel marzo del 2020, ho iniziato a trascrivere
-i miei appunti, raccolti negli ultimi 17 anni, in diapositive. Questa è una rielaborazione
-di quelle diapositive a cui è stato aggiunto parte dell’eserciziario realizzato con Michele Lalla.
-L’esposizione degli argomenti ricalca il corso di Statistica che con Michele Lalla abbiamo
-progettato per i corsi di CLEF e CLEA nel periodo che va dal 2008 al 2019, al quale ho
-portato alcune modifiche di forma e qualche aggiunta.</p>
-<!-- Scrivono Agresti, e Franklin, (2007), nel loro celebre libro: -->
-<!-- >"Statistics is the art and science of designing studies and analyzing the data that those studies produce. Its ultimate goal is translating data into knowledge and understanding of the world around us. In short, **statistics is the art and science of learning from data**". -->
-<!-- > La statistica è l'arte e la scienza di pianificare la raccolta e l'analisi dei dati che tali ricerche producono. Il suo fine è di trasformare i dati in conoscenza e comprensione del mondo circostante. In sintesi: **La statistica è l'arte e la scienza di imparare dai dati**. -->
-<!-- > *Agresti, A., and Franklin, C. (2007), Statistics: the Art and Science of Learning from Data, Upper Saddle River, Pearson Prentice Hall.* -->
-<!-- La statistica è dunque quelle disciplina che si occupa della progettazione, raccolta, analisi, sintesi, reportistica, e molto altro di collezioni di dati. -->
-<!-- In latino *datum* significa un fatto, quindi i *dati* sono collezioni di fatti. I dati sono osservazioni e misure di un fenomeno reale. Per esempio il numero di ricoverati a marzo del 2023 al reparto di pneumologia dell'ospedale di Baggiovara è un dato, i numeri dei ricoveri di ogni mese del 2023 sono i _dati dei ricoveri mensili_. Se ad ogni ricovero aggiungiamo il numero di notti di permanenza, avremo dati più complessi. La retribuzione di un operaio della provincia di modena è un dato, l'insieme delle retribuzioni di tutti operai della provincia sono _i dati sulle retribuzioni_, se alla retribuzione aggiungiamo il settore industriale avremo dati più ricchi di informazione. Il prezzo di un titolo in borsa alle 11 del 12 giugno 2024 è un singolo dato, la serie dei prezzi di quel titolo dal primo gennaio del 2024 è _la serie storica_ di quel titoli (dati osservati nel tempo), mentre i prezzi di tutti gli altri titoli di borsa al 12 giugno 2024 rappresentano _i dati_ della borsa in quel giorno, se da ultimo collezioniamo tutti i prezzi di tutti i titoli dal primo gennaio del 2023 fino ad oggi otterremo _i dati_ della borsa dal 01/01/2023. -->
-<p>Questo manoscritto è diviso in tre parti, la prima dedicata alla statistica descrittiva nella quale
-vengono date le nozioni di base di descrizione di una popolazione, le sue rappresentazioni grafiche,
-la media e la variabilità. Nella seconda parte verranno date le nozioni di base di teoria e calcolo delle probabilità.
-Dal concetto di evento fino alle principali variabili casuali, il teorema del limite centrale e la distribuzione
-delle principali statistiche campionarie. Nella terza e ultima parte verranno sviluppati
-i principi di base di inferenza classica, dalla stima puntuale alla stima intervallare, la teoria dei test,
-il modello di regressione lineare e il test del chi-quadro.</p>
-<p>Questo materiale, che non è ancora un libro, è da considerarsi il canovaccio d’appunti sul quale
-costruisco le mie lezioni. Non è da ritenersi alternativo alle lezioni in aula o ad un libro di testo.
-È ancora incompleto e disseminato di errori e imprecisioni.</p>
-<p>Un ringraziamento speciale va alle mie donne e a Michele Lalla, amico, collega e maestro.</p>
-<p>Bologna, il 15-03-2025.</p>
-
+<div id="richiami-di-calcolo-combinatorio" class="section level1 hasAnchor" number="21">
+<h1><span class="header-section-number">Capitolo 21</span> Richiami di Calcolo Combinatorio<a href="richiami-di-calcolo-combinatorio.html#richiami-di-calcolo-combinatorio" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Sia <span class="math inline">\(n\in\mathbb{N}\)</span> un numero naturale, si definisce <span class="math inline">\(n\)</span> fattoriale, il numero
+<span class="math display">\[n!=n(n-1)(n-2)...3\cdot 2 \cdot 1\]</span>
+conta in quanti modo posso rimescolare <span class="math inline">\(n\)</span> oggetti.</p>
+<p><strong>Esempi</strong> <span class="math inline">\(3!=3\cdot 2\cdot 1=6\)</span>, <span class="math inline">\(10!=10\cdot 9\cdot... \cdot1 =3628800\)</span>, <span class="math inline">\(52!=8.0658\times 10^{67}\)</span></p>
+<p><strong>Nota.</strong> Per definizione <span class="math inline">\(0!=1\)</span></p>
+<div id="il-coefficiente-binomiale" class="section level2 hasAnchor" number="21.1">
+<h2><span class="header-section-number">21.1</span> Il coefficiente binomiale<a href="richiami-di-calcolo-combinatorio.html#il-coefficiente-binomiale" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Il coefficiente binomiale <span class="math inline">\(\binom{n}{k}\)</span> conta in quanti modi posso disporre <span class="math inline">\(k\)</span> oggetti indistinguibili in <span class="math inline">\(n\ge k\)</span> posti:
+<span class="math display">\[\binom{n}{ k}=\frac {n!}{k!(n-k)!}\]</span></p>
+<p>Proprietà utili</p>
+<p><span class="math display">\[\begin{eqnarray*}
+  \binom{n}{ k} &amp;=&amp;\binom{n}{ n-k},\qquad\text{Per esempio:} \\
+  \binom{5}{ 3} &amp;=&amp;\binom{5}{ 2}=10,\\
+  \binom{n}{ 0} &amp;=&amp;\binom{n}{ n} = 1 \\
+  \binom{n}{ 1} &amp;=&amp;\binom{n}{ n-1}=n \\
+  \binom{n}{ k} &amp;=&amp;\binom{n-1}{k-1}+\binom{n-1}{k}
+\end{eqnarray*}\]</span></p>
+<p>In matematica <span class="math inline">\(\binom{n}{ k}\)</span> è il <span class="math inline">\(k\)</span>-esimo elemento della <span class="math inline">\(n\)</span>-esima riga del <em>triangolo di Tartaglia</em>.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="center">0</th>
+<th align="center">1</th>
+<th align="center">2</th>
+<th align="center">3</th>
+<th align="center">4</th>
+<th align="center">5</th>
+<th align="center">6</th>
+<th align="center">7</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">0</td>
+<td align="center">1</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="left">1</td>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr class="odd">
+<td align="left">2</td>
+<td align="center">1</td>
+<td align="center">2</td>
+<td align="center">1</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="left">3</td>
+<td align="center">1</td>
+<td align="center">3</td>
+<td align="center">3</td>
+<td align="center">1</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr class="odd">
+<td align="left">4</td>
+<td align="center">1</td>
+<td align="center">4</td>
+<td align="center">6</td>
+<td align="center">4</td>
+<td align="center">1</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="left">5</td>
+<td align="center">1</td>
+<td align="center">5</td>
+<td align="center">10</td>
+<td align="center">10</td>
+<td align="center">5</td>
+<td align="center">1</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr class="odd">
+<td align="left">6</td>
+<td align="center">1</td>
+<td align="center">6</td>
+<td align="center">15</td>
+<td align="center">20</td>
+<td align="center">15</td>
+<td align="center">6</td>
+<td align="center">1</td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="left">7</td>
+<td align="center">1</td>
+<td align="center">7</td>
+<td align="center">21</td>
+<td align="center">35</td>
+<td align="center">35</td>
+<td align="center">21</td>
+<td align="center">7</td>
+<td align="center">1</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="avvertenza.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="i-fenomeni-collettivi.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="richiami-sugli-operatori-sommatoria-e-produttorio.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="richiami-di-matematica.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
