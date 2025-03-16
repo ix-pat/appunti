@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2022/dev/Debian) (preloaded format=xelatex 2024.3.16)  8 MAR 2025 11:26
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2022/dev/Debian) (preloaded format=xelatex 2024.3.16)  15 MAR 2025 17:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2889,11 +2889,11 @@ Appendice C.
 [373] [374]
 Appendice D.
 LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10.95> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 14804.
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 14805.
 
 
 LaTeX Font Warning: Font shape `TU/lmtt/bx/it' in size <10.95> not available
-(Font)              Font shape `TU/lmtt/b/sl' tried instead on input line 14804
+(Font)              Font shape `TU/lmtt/b/sl' tried instead on input line 14805
 .
 
 File: Appunti_di_Statistica_2025_files/figure-latex/24-Libro-54-1.pdf Graphic f
@@ -3003,7 +3003,7 @@ ile (type pdf)
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [396]
-Overfull \hbox (5.11491pt too wide) in paragraph at lines 16160--16160
+Overfull \hbox (5.11491pt too wide) in paragraph at lines 16161--16161
 []\TU/lmtt/m/n/10.95 ## [1] "la mela è rossa e la pera è verde e la pesca è gia
 lla e la banana è gialla" 
  []
@@ -3016,7 +3016,7 @@ Appendice E.
 [403
 
 ] [404]
-Overfull \hbox (2.71814pt too wide) in paragraph at lines 16641--16653
+Overfull \hbox (2.71814pt too wide) in paragraph at lines 16642--16654
  [][] 
  []
 
@@ -3025,41 +3025,41 @@ raphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/25-test-functions-2-1.pdf>
 [405] [406]
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 9.0pt on input line 16770.
+(Font)              scaled to size 9.0pt on input line 16771.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 9.00082pt on input line 16770.
+(Font)              scaled to size 9.00082pt on input line 16771.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 8.99904pt on input line 16770.
+(Font)              scaled to size 8.99904pt on input line 16771.
 LaTeX Font Info:    Calculating math sizes for size <6.2748> on input line 1677
-1.
+2.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 6.2748pt on input line 16771.
+(Font)              scaled to size 6.2748pt on input line 16772.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 4.39233pt on input line 16771.
+(Font)              scaled to size 4.39233pt on input line 16772.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 3.13739pt on input line 16771.
+(Font)              scaled to size 3.13739pt on input line 16772.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 6.27536pt on input line 16771.
+(Font)              scaled to size 6.27536pt on input line 16772.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 4.39273pt on input line 16771.
+(Font)              scaled to size 4.39273pt on input line 16772.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 3.13766pt on input line 16771.
+(Font)              scaled to size 3.13766pt on input line 16772.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 6.27412pt on input line 16771.
+(Font)              scaled to size 6.27412pt on input line 16772.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 4.39186pt on input line 16771.
+(Font)              scaled to size 4.39186pt on input line 16772.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 3.13705pt on input line 16771.
+(Font)              scaled to size 3.13705pt on input line 16772.
 
 LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <4.39233> not available
-(Font)              size <5> substituted on input line 16771.
+(Font)              size <5> substituted on input line 16772.
 
 
 LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <3.13739> not available
-(Font)              size <5> substituted on input line 16771.
+(Font)              size <5> substituted on input line 16772.
 
 [407]
-Overfull \hbox (31.07884pt too wide) in alignment at lines 16843--16849
+Overfull \hbox (31.07884pt too wide) in alignment at lines 16844--16850
  [][][] []
  []
 
@@ -3159,7 +3159,7 @@ LaTeX Font Warning: Size substitutions with differences
 Here is how much of TeX's memory you used:
  43897 strings out of 478175
  999064 string characters out of 5854103
- 1467813 words of memory out of 5000000
+ 1468813 words of memory out of 5000000
  63373 multiletter control sequences out of 15000+600000
  510719 words of font info for 395 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
