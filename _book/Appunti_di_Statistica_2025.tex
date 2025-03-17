@@ -512,7 +512,7 @@ drop fuzzy shadow]
 \makeatother
 \subtitle{CLEAM AA 24/25}
 \author{Patrizio Frederic}
-\date{Aggiornato al 15-03-2025}
+\date{Aggiornato al 17-03-2025}
 
 \begin{document}
 \maketitle
@@ -570,7 +570,7 @@ costruisco le mie lezioni. Non è da ritenersi alternativo alle lezioni in aula 
 
 Un ringraziamento speciale va alle mie donne e a Michele Lalla, amico, collega e maestro.
 
-Bologna, il 15-03-2025.
+Bologna, il 17-03-2025.
 
 \part{Statistica Descrittiva}
 
@@ -14651,13 +14651,101 @@ Esempio: \(a_1=1.1\), \(a_2=0.9\), \(a_3=1.3\)
 
 \chapter{Richiami di Calcolo Combinatorio}\label{richiami-di-calcolo-combinatorio}
 
+Il \textbf{calcolo combinatorio} ha come scopo principale \textbf{il conteggio del numero di modi in cui possono verificarsi determinati eventi}, senza doverli enumerare uno per uno. Questo permette di risolvere problemi legati alla disposizione, alla scelta e alla distribuzione di oggetti in modo efficiente e rigoroso.
+
+Un modello efficace per affrontare queste situazioni è quello delle \textbf{\(n\) scatole numerate} e delle \textbf{\(k\) palline}, che permette di classificare i problemi combinatori in base a due aspetti fondamentali:\\
+1. Le \textbf{palline} possono essere numerate (distinguibili) o non numerate (indistinguibili).\\
+2. Il \textbf{numero di scatole rispetto alle palline} determina se tutte possono essere sistemate senza vincoli o se vi è un limite.
+
+A partire da questa impostazione, si sviluppano le formule fondamentali della combinatoria, che trovano applicazioni in statistica, probabilità e molte altre discipline.
+
+Quando ogni scatola può contenere al massimo una pallina, si individuano quattro casi principali, ciascuno con una specifica formula combinatoria.
+
+\section{\texorpdfstring{Scelte indipendenti con ripetizione: \(n^k\)}{Scelte indipendenti con ripetizione: n\^{}k}}\label{scelte-indipendenti-con-ripetizione-nk}
+
+Si consideri il caso in cui abbiamo \(k\) palline numerate e \textbf{ogni pallina può essere collocata indipendentemente in una qualsiasi delle \(n\) scatole disponibili}, senza restrizioni sul numero di volte in cui una scatola può essere scelta.
+
+Il numero totale di distribuzioni è dato da:
+
+\[
+n^k
+\]
+
+che rappresenta il numero di \textbf{sequenze ordinate} di \(k\) elementi scelti tra \(n\) possibilità.
+
+\begin{example}[Valigetta]
+Un sistema di sicurezza utilizza un codice a tre cifre, in cui ciascun numero può variare da 1 a 9. Il codice è quindi una sequenza ordinata di tre elementi, scelti tra 9 possibilità:
+
+\[
+9^3 = 729
+\]
+
+Esistono 729 possibili codici di apertura.
+\end{example}
+
+\section{\texorpdfstring{\(n = k\) -- Palline numerate: permutazioni}{n = k -- Palline numerate: permutazioni}}\label{n-k-palline-numerate-permutazioni}
+
+Quando il numero di palline è uguale al numero di scatole e ogni pallina è distinguibile, il problema diventa quello di \textbf{ordinare \(n\) elementi distinti}. Il numero di modi in cui ciò è possibile è dato dal \textbf{fattoriale}.
+
 Sia \(n\in\mathbb{N}\) un numero naturale, si definisce \(n\) fattoriale, il numero
+
 \[n!=n(n-1)(n-2)...3\cdot 2 \cdot 1\]
+
 conta in quanti modo posso rimescolare \(n\) oggetti.
 
-\textbf{Esempi} \(3!=3\cdot 2\cdot 1=6\), \(10!=10\cdot 9\cdot... \cdot1 =3628800\), \(52!=\ensuremath{8.0658\times 10^{67}}\)
-
 \textbf{Nota.} Per definizione \(0!=1\)
+
+\begin{example}
+\(3!=3\cdot 2\cdot 1=6\), \(10!=10\cdot 9\cdot... \cdot1 =3628800\)
+\end{example}
+
+\begin{example}[Mazzo di Carte]
+Consideriamo un mazzo di 52 carte tutte distinte. Il numero di modi in cui il mazzo può essere mescolato corrisponde a tutte le possibili permutazioni delle 52 carte:
+
+\[
+52! = 80,658,175,170,944,942,408,940,349,866,698,506,766,127,860,028,660,283,290,685,487,972,352
+\]
+
+che è un numero estremamente grande, pari a circa \(8.0658 \times 10^{67}\). Questo valore evidenzia come, ogni volta che un mazzo di carte viene mescolato, sia altamente improbabile che l'ordine ottenuto sia mai stato realizzato prima.
+\end{example}
+
+\section{\texorpdfstring{\(n > k\) Palline numerate: disposizioni senza ripetizione}{n \textgreater{} k Palline numerate: disposizioni senza ripetizione}}\label{n-k-palline-numerate-disposizioni-senza-ripetizione}
+
+Se \(n\) è maggiore di \(k\) e le palline sono numerate, il problema diventa quello di scegliere \(k\) elementi distinti da un insieme di \(n\) e disporli in un ordine specifico. In questo caso, la formula è:
+
+\[
+\frac{n!}{(n-k)!}
+\]
+
+che rappresenta il numero di \textbf{sequenze ordinate} di \(k\) elementi scelti da un insieme di \(n\) elementi distinti.
+
+\begin{example}
+Se si estrae una mano di 5 carte da un mazzo di 52 e si considera l'ordine di estrazione, il numero di possibili sequenze è:
+
+\[
+\frac{52!}{(52-5)!} = \frac{52!}{47!}
+\]
+
+che fornisce \(311\,875\,200\) possibili sequenze.
+\end{example}
+
+\section{\texorpdfstring{\(n > k\) -- Palline non numerate: coefficienti binomiale}{n \textgreater{} k -- Palline non numerate: coefficienti binomiale}}\label{n-k-palline-non-numerate-coefficienti-binomiale}
+
+Se \(n > k\) e le palline sono \textbf{non numerate}, il problema si riduce alla \textbf{scelta di \(k\) scatole tra \(n\) disponibili}, senza considerare l'ordine. Questo corrisponde al numero di \textbf{combinazioni} di \(k\) elementi scelti tra \(n\), dato dal coefficiente binomiale:
+
+\[
+\binom{n}{k} = \frac{n!}{k!(n-k)!}
+\]
+
+\begin{example}[Sei al super enalotto]
+
+Nel Superenalotto, si scelgono 6 numeri tra 90, senza che l'ordine abbia rilevanza. Il numero totale di combinazioni possibili è:
+
+\[
+\binom{90}{6} = \frac{90!}{6!(90-6)!} = \frac{90!}{6!84!}
+\]
+
+che fornisce \textbf{622.614.630} possibilità. Questo spiega l'estrema difficoltà di vincere il jackpot.
 
 \section{Il coefficiente binomiale}\label{il-coefficiente-binomiale}
 
@@ -18210,5 +18298,7 @@ favorevoli
 \end{eqnarray*}
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\end{example}
 
 \end{document}

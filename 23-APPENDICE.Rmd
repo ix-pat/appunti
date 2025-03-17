@@ -226,9 +226,11 @@ A partire da questa impostazione, si sviluppano le formule fondamentali della co
 Quando ogni scatola può contenere al massimo una pallina, si individuano quattro casi principali, ciascuno con una specifica formula combinatoria.
 
 
-## \( n < k \) – Palline numerate: disposizioni con ripetizione
+## Scelte indipendenti con ripetizione: \( n^k \)
 
-Si consideri il caso in cui il numero di scatole sia minore del numero di palline e ogni pallina sia distinguibile. In questa situazione, ogni pallina può essere collocata indipendentemente in una qualsiasi delle \( n \) scatole disponibili. Il numero totale di distribuzioni è dato da:
+Si consideri il caso in cui abbiamo \( k \) palline numerate e **ogni pallina può essere collocata indipendentemente in una qualsiasi delle \( n \) scatole disponibili**, senza restrizioni sul numero di volte in cui una scatola può essere scelta.  
+
+Il numero totale di distribuzioni è dato da:
 
 \[
 n^k
@@ -251,8 +253,12 @@ Esistono 729 possibili codici di apertura.
 Quando il numero di palline è uguale al numero di scatole e ogni pallina è distinguibile, il problema diventa quello di **ordinare \( n \) elementi distinti**. Il numero di modi in cui ciò è possibile è dato dal **fattoriale**.
 
 Sia $n\in\mathbb{N}$ un numero naturale, si definisce $n$ fattoriale, il numero 
+
 \[n!=n(n-1)(n-2)...3\cdot 2 \cdot 1\] 
+
 conta in quanti modo posso rimescolare $n$ oggetti.
+
+__Nota.__ Per definizione $0!=1$
 
 :::{.example}
 $3!=3\cdot 2\cdot 1=6$, $10!=10\cdot 9\cdot... \cdot1 =`r factorial(10)`$
@@ -262,12 +268,52 @@ $3!=3\cdot 2\cdot 1=6$, $10!=10\cdot 9\cdot... \cdot1 =`r factorial(10)`$
 Consideriamo un mazzo di 52 carte tutte distinte. Il numero di modi in cui il mazzo può essere mescolato corrisponde a tutte le possibili permutazioni delle 52 carte:
 
 \[
-52! = `r format(factorial(52),scientific = 100,big.mark = "~")`
+52! = `r format(factorial(52),scientific = 100,big.mark = "\\,")`
 \]
 
 che è un numero estremamente grande, pari a circa \( 8.0658 \times 10^{67} \). Questo valore evidenzia come, ogni volta che un mazzo di carte viene mescolato, sia altamente improbabile che l’ordine ottenuto sia mai stato realizzato prima.
+:::
 
-__Nota.__ Per definizione $0!=1$
+
+
+
+## \( n > k \) Palline numerate: disposizioni senza ripetizione
+
+Se \( n \) è maggiore di \( k \) e le palline sono numerate, il problema diventa quello di scegliere \( k \) elementi distinti da un insieme di \( n \) e disporli in un ordine specifico. In questo caso, la formula è:
+
+\[
+\frac{n!}{(n-k)!}
+\]
+
+che rappresenta il numero di **sequenze ordinate** di \( k \) elementi scelti da un insieme di \( n \) elementi distinti.
+
+:::{.example}
+Se si estrae una mano di 5 carte da un mazzo di 52 e si considera l'ordine di estrazione, il numero di possibili sequenze è:
+
+\[
+\frac{52!}{(52-5)!} = \frac{52!}{47!}
+\]
+
+che fornisce $311\,875\,200$ possibili sequenze.
+:::
+
+## \( n > k \) – Palline non numerate: coefficienti binomiale
+
+Se \( n > k \) e le palline sono **non numerate**, il problema si riduce alla **scelta di \( k \) scatole tra \( n \) disponibili**, senza considerare l'ordine. Questo corrisponde al numero di **combinazioni** di \( k \) elementi scelti tra \( n \), dato dal coefficiente binomiale:
+
+\[
+\binom{n}{k} = \frac{n!}{k!(n-k)!}
+\]
+
+:::{.example name="Sei al super enalotto"}
+Nel Superenalotto, si scelgono 6 numeri tra 90, senza che l'ordine abbia rilevanza. Il numero totale di combinazioni possibili è:
+
+\[
+\binom{90}{6} = \frac{90!}{6!(90-6)!} = \frac{90!}{6!84!}
+\]
+
+che fornisce **622.614.630** possibilità. Questo spiega l'estrema difficoltà di vincere il jackpot.
+
 
 ## Il coefficiente binomiale
 
