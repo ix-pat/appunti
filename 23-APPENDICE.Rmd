@@ -226,7 +226,7 @@ A partire da questa impostazione, si sviluppano le formule fondamentali della co
 Quando ogni scatola può contenere al massimo una pallina, si individuano quattro casi principali, ciascuno con una specifica formula combinatoria.
 
 
-## Scelte indipendenti con ripetizione: \( n^k \)
+## Scelte indipendenti con ripetizione: \( k^n \)
 
 Si consideri il caso in cui abbiamo \( k \) palline numerate e **ogni pallina può essere collocata indipendentemente in una qualsiasi delle \( n \) scatole disponibili**, senza restrizioni sul numero di volte in cui una scatola può essere scelta.  
 
@@ -236,7 +236,7 @@ Il numero totale di distribuzioni è dato da:
 n^k
 \]
 
-che rappresenta il numero di **sequenze ordinate** di \( k \) elementi scelti tra \( n \) possibilità.
+che rappresenta il numero di **sequenze ordinate** di \( n \) elementi scelti tra \( k \) possibilità.
 
 :::{.example name="Valigetta"}
 Un sistema di sicurezza utilizza un codice a tre cifre, in cui ciascun numero può variare da 1 a 9. Il codice è quindi una sequenza ordinata di tre elementi, scelti tra 9 possibilità:
@@ -248,7 +248,7 @@ Un sistema di sicurezza utilizza un codice a tre cifre, in cui ciascun numero pu
 Esistono 729 possibili codici di apertura.
 :::
 
-## \( n = k \) – Palline numerate: permutazioni
+## \( n = k \) Palline numerate: permutazioni
 
 Quando il numero di palline è uguale al numero di scatole e ogni pallina è distinguibile, il problema diventa quello di **ordinare \( n \) elementi distinti**. Il numero di modi in cui ciò è possibile è dato dal **fattoriale**.
 
@@ -267,9 +267,9 @@ $3!=3\cdot 2\cdot 1=6$, $10!=10\cdot 9\cdot... \cdot1 =`r factorial(10)`$
 :::{.example name="Mazzo di Carte"}
 Consideriamo un mazzo di 52 carte tutte distinte. Il numero di modi in cui il mazzo può essere mescolato corrisponde a tutte le possibili permutazioni delle 52 carte:
 
-\[
-52! = `r format(factorial(52),scientific = 100,big.mark = "\\,")`
-\]
+$$
+52! = \scriptsize `r format(factorial(52),scientific = 100,big.mark = "\\\\,")`
+$$
 
 che è un numero estremamente grande, pari a circa \( 8.0658 \times 10^{67} \). Questo valore evidenzia come, ogni volta che un mazzo di carte viene mescolato, sia altamente improbabile che l’ordine ottenuto sia mai stato realizzato prima.
 :::
@@ -297,7 +297,7 @@ Se si estrae una mano di 5 carte da un mazzo di 52 e si considera l'ordine di es
 che fornisce $311\,875\,200$ possibili sequenze.
 :::
 
-## \( n > k \) – Palline non numerate: coefficienti binomiale
+## \( n > k \) Palline non numerate: coefficienti binomiale
 
 Se \( n > k \) e le palline sono **non numerate**, il problema si riduce alla **scelta di \( k \) scatole tra \( n \) disponibili**, senza considerare l'ordine. Questo corrisponde al numero di **combinazioni** di \( k \) elementi scelti tra \( n \), dato dal coefficiente binomiale:
 
@@ -312,8 +312,8 @@ Nel Superenalotto, si scelgono 6 numeri tra 90, senza che l'ordine abbia rilevan
 \binom{90}{6} = \frac{90!}{6!(90-6)!} = \frac{90!}{6!84!}
 \]
 
-che fornisce **622.614.630** possibilità. Questo spiega l'estrema difficoltà di vincere il jackpot.
-
+che fornisce $622\,614\,630$ possibilità. Questo spiega l'estrema difficoltà di vincere il jackpot.
+:::
 
 ## Il coefficiente binomiale
 

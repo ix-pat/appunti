@@ -14661,7 +14661,7 @@ A partire da questa impostazione, si sviluppano le formule fondamentali della co
 
 Quando ogni scatola può contenere al massimo una pallina, si individuano quattro casi principali, ciascuno con una specifica formula combinatoria.
 
-\section{\texorpdfstring{Scelte indipendenti con ripetizione: \(n^k\)}{Scelte indipendenti con ripetizione: n\^{}k}}\label{scelte-indipendenti-con-ripetizione-nk}
+\section{\texorpdfstring{Scelte indipendenti con ripetizione: \(k^n\)}{Scelte indipendenti con ripetizione: k\^{}n}}\label{scelte-indipendenti-con-ripetizione-kn}
 
 Si consideri il caso in cui abbiamo \(k\) palline numerate e \textbf{ogni pallina può essere collocata indipendentemente in una qualsiasi delle \(n\) scatole disponibili}, senza restrizioni sul numero di volte in cui una scatola può essere scelta.
 
@@ -14671,7 +14671,7 @@ Il numero totale di distribuzioni è dato da:
 n^k
 \]
 
-che rappresenta il numero di \textbf{sequenze ordinate} di \(k\) elementi scelti tra \(n\) possibilità.
+che rappresenta il numero di \textbf{sequenze ordinate} di \(n\) elementi scelti tra \(k\) possibilità.
 
 \begin{example}[Valigetta]
 Un sistema di sicurezza utilizza un codice a tre cifre, in cui ciascun numero può variare da 1 a 9. Il codice è quindi una sequenza ordinata di tre elementi, scelti tra 9 possibilità:
@@ -14683,7 +14683,7 @@ Un sistema di sicurezza utilizza un codice a tre cifre, in cui ciascun numero pu
 Esistono 729 possibili codici di apertura.
 \end{example}
 
-\section{\texorpdfstring{\(n = k\) -- Palline numerate: permutazioni}{n = k -- Palline numerate: permutazioni}}\label{n-k-palline-numerate-permutazioni}
+\section{\texorpdfstring{\(n = k\) Palline numerate: permutazioni}{n = k Palline numerate: permutazioni}}\label{n-k-palline-numerate-permutazioni}
 
 Quando il numero di palline è uguale al numero di scatole e ogni pallina è distinguibile, il problema diventa quello di \textbf{ordinare \(n\) elementi distinti}. Il numero di modi in cui ciò è possibile è dato dal \textbf{fattoriale}.
 
@@ -14729,7 +14729,7 @@ Se si estrae una mano di 5 carte da un mazzo di 52 e si considera l'ordine di es
 che fornisce \(311\,875\,200\) possibili sequenze.
 \end{example}
 
-\section{\texorpdfstring{\(n > k\) -- Palline non numerate: coefficienti binomiale}{n \textgreater{} k -- Palline non numerate: coefficienti binomiale}}\label{n-k-palline-non-numerate-coefficienti-binomiale}
+\section{\texorpdfstring{\(n > k\) Palline non numerate: coefficienti binomiale}{n \textgreater{} k Palline non numerate: coefficienti binomiale}}\label{n-k-palline-non-numerate-coefficienti-binomiale}
 
 Se \(n > k\) e le palline sono \textbf{non numerate}, il problema si riduce alla \textbf{scelta di \(k\) scatole tra \(n\) disponibili}, senza considerare l'ordine. Questo corrisponde al numero di \textbf{combinazioni} di \(k\) elementi scelti tra \(n\), dato dal coefficiente binomiale:
 
@@ -14738,14 +14738,14 @@ Se \(n > k\) e le palline sono \textbf{non numerate}, il problema si riduce alla
 \]
 
 \begin{example}[Sei al super enalotto]
-
 Nel Superenalotto, si scelgono 6 numeri tra 90, senza che l'ordine abbia rilevanza. Il numero totale di combinazioni possibili è:
 
 \[
 \binom{90}{6} = \frac{90!}{6!(90-6)!} = \frac{90!}{6!84!}
 \]
 
-che fornisce \textbf{622.614.630} possibilità. Questo spiega l'estrema difficoltà di vincere il jackpot.
+che fornisce \(622\,614\,630\) possibilità. Questo spiega l'estrema difficoltà di vincere il jackpot.
+\end{example}
 
 \section{Il coefficiente binomiale}\label{il-coefficiente-binomiale}
 
@@ -18298,7 +18298,5 @@ favorevoli
 \end{eqnarray*}
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
-\end{example}
 
 \end{document}
