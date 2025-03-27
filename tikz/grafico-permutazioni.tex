@@ -13,10 +13,18 @@
 \begin{tikzpicture}
   [level distance=1.2cm, sibling distance=2.5cm, 
   every node/.style={draw, circle, minimum size=1cm, font=\small}]
-    \node {A}
-      child {node (b){B} child  (b1){C} }
-      child {node {C}}
-      child {node {D}};
+  \node (root) {root};
+ \node at (root) {\phantom{root}}
+        child   {   node {left}
+                            child {node {child 1}}
+                    child {node {child 2}}
+                    child {node {child 3}}
+}
+        child   {   node {right}
+                    child {node {child 1}}
+                    child {node {child 2}}
+                    child {node {child 3}}
+                };
 \end{tikzpicture}
 \end{center}
 
