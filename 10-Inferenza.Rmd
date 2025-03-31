@@ -45,70 +45,112 @@ Per comprendere la differenza tra inferenza induttiva diretta e inversa, conside
 
 ## Inferenza da popolazioni finite
 
-Le popolazioni finite rappresentano il contesto più vicino all'intuizione comune. Si tratta di insiemi chiusi e completamente enumerabili di unità, come le persone registrate in un censimento o gli studenti iscritti a un corso. In questi casi, ogni elemento della popolazione può essere associato a una lista e il campione rappresenta una frazione precisa della popolazione. Questo contesto è tipico delle **statistiche ufficiali**, come quelle prodotte dall'ISTAT.
+Le **popolazioni finite** rappresentano il contesto più vicino all'intuizione comune. Si tratta di insiemi chiusi e completamente enumerabili di unità, come le persone registrate in un censimento o gli studenti iscritti a un corso. In questi casi, ogni elemento della popolazione può essere associato a una lista, e il campione rappresenta una frazione precisa della popolazione. Questo contesto è tipico delle **statistiche ufficiali**, come quelle prodotte dall'**ISTAT**, dall'**Eurostat** e dall'**OCSE**.
 
-Esempi concreti di domande a cui risponde l'inferenza da popolazioni finite includono:
+L'inferenza da popolazioni finite è quindi apparentemente intuitiva, ma richiede un impianto operativo articolato: occorre disporre di un **registro completo della popolazione**, progettare un **disegno di campionamento** adatto (spesso stratificato o a più stadi), costruire e testare **strumenti di rilevazione standardizzati** (come questionari), e garantire **qualità e controllo dei dati raccolti**. Si tratta di operazioni costose e complesse, che solo istituzioni pubbliche di grande dimensione e con mandato istituzionale riescono a realizzare su scala nazionale o internazionale.
 
-- **Censimenti**: Quanti cittadini vivono in Italia? Qual è il numero medio di componenti per nucleo familiare? Quanti studenti frequentano le scuole secondarie?
-- **Indagini campionarie**: Qual è il reddito medio delle famiglie italiane? Quale percentuale di famiglie ha accesso a Internet?
-- **Sondaggi elettorali**: Qual è la proporzione degli elettori intenzionati a votare per un certo partito politico?
+Ecco alcuni esempi concreti di indagini campionarie su popolazioni finite:
 
-Queste analisi si basano su campioni estratti da una popolazione nota, che è completamente enumerata. Per esempio, nel caso di un'indagine ISTAT sul reddito medio, la popolazione di riferimento è il database delle famiglie italiane registrate. Il campione estratto può essere usato per stimare parametri come la media o la mediana del reddito, con metodi che tengono conto della numerosità finita della popolazione.
+- **L'Indagine sulle forze di lavoro (ISTAT)** ha l'obiettivo di stimare il tasso di occupazione, disoccupazione e inattività della popolazione residente in Italia. La popolazione di riferimento è costituita da tutte le persone residenti in famiglie, escluse le collettività. L'indagine è continua e si basa su un campione a rotazione di circa 77.000 famiglie ogni trimestre, selezionate casualmente. I questionari raccolgono informazioni su attività lavorativa, ricerca di lavoro, orari, contratti e condizioni lavorative.
+
+- **L'Indagine sui consumi delle famiglie (ISTAT)** rileva le spese sostenute per beni e servizi, allo scopo di descrivere i comportamenti di consumo e aggiornare il paniere per l'indice dei prezzi. La popolazione è costituita dalle famiglie residenti in Italia, e il campione include oltre 30.000 famiglie distribuite lungo l'anno. Le famiglie selezionate devono compilare un diario giornaliero delle spese e rispondere a interviste dettagliate, il che rende l'indagine particolarmente impegnativa.
+
+- **L'indagine EU-SILC (coordinata da Eurostat, realizzata in Italia da ISTAT)** fornisce informazioni su redditi, condizioni abitative, povertà e disuguaglianza. La popolazione è costituita dalle famiglie residenti nei paesi europei. In Italia, il campione supera le 20.000 famiglie, con interviste condotte annualmente e in parte replicate su base panel. I questionari sono armonizzati a livello europeo per consentire il confronto tra paesi.
+
+- **L'indagine PIAAC (OCSE)** valuta le competenze fondamentali degli adulti tra i 16 e i 65 anni, in particolare la capacità di comprendere testi, usare strumenti numerici e risolvere problemi. In Italia, la popolazione campionata è estratta dai registri anagrafici e comprende circa 5.000 individui. Le interviste includono sia un modulo socio-demografico sia prove individuali computerizzate, somministrate in centri di test.
+
+- **L'indagine TALIS (OCSE)** raccoglie informazioni sulle condizioni di lavoro degli insegnanti e dei dirigenti scolastici, esplorando aspetti come la formazione, la soddisfazione professionale, le pratiche didattiche e il clima scolastico. La popolazione di riferimento è costituita dagli insegnanti delle scuole secondarie inferiori. Anche qui il campione è probabilistico e i questionari, somministrati in modo standardizzato, permettono confronti tra paesi.
+
+Queste analisi si basano su **campioni estratti da popolazioni note e completamente enumerate**. Il disegno campionario, il calcolo dei pesi e l'analisi dei dati tengono esplicitamente conto della struttura finita della popolazione e della complessità del piano di campionamento. La qualità dell'inferenza dipende in larga parte dalla precisione con cui questi aspetti sono progettati e implementati.
 
 
 ## Inferenza da popolazioni infinite
 
-Quando la popolazione non è enumerabile o è concettualmente infinita, entriamo nel campo delle popolazioni infinite. Questo contesto è comune nelle applicazioni scientifiche, dove le osservazioni rappresentano un campione di una popolazione teoricamente infinita. Esempi tipici includono:
+Nel lavoro statistico reale, capita spesso di trovarsi in contesti in cui la popolazione non è elencabile né finita, o non è nemmeno definibile in modo operativo. In questi casi si adotta un approccio diverso: si assume che i dati osservati derivino da una **popolazione concettualmente infinita**, e si modellano come **realizzazioni di una variabile aleatoria**. Si tratta di una rappresentazione idealizzata, ma estremamente potente e spesso necessaria per dare senso e struttura all'analisi dei dati.
 
-- **Processi fisici e naturali**: Qual è la probabilità che il livello di un fiume superi una certa soglia durante la stagione delle piogge? Qual è la concentrazione media di un inquinante nell'aria in una data area?
-- **Processi industriali**: Qual è la proporzione di prodotti difettosi in una linea di produzione? Quanto dura mediamente un componente prima di rompersi?
-- **Eventi ripetibili**: Qual è la probabilità di ottenere testa lanciando una moneta? Qual è la frequenza con cui un cliente accede a un servizio online?
+Esempi classici includono:
 
-In questi contesti, la popolazione non è un insieme fisicamente limitato, ma una rappresentazione teorica. Ad esempio, nel caso di una moneta, ogni lancio è considerato indipendente dagli altri, e la popolazione è rappresentata dalla distribuzione probabilistica dei possibili esiti.
+- **Processi fisici e ambientali**, come il livello di un fiume, la temperatura media di una regione, o la concentrazione di un inquinante nell'aria. Non possiamo elencare tutti i valori possibili, né osservare tutti i momenti futuri: costruiamo un modello e lavoriamo con i dati come se fossero campioni da una variabile continua.
+- **Processi industriali e produttivi**, in cui i pezzi prodotti in futuro non esistono ancora, ma si assume che seguano la stessa legge dei pezzi già osservati.
+- **Eventi ripetibili**, come lanci di monete, click su un sito o richieste a un server: non ci interessa una popolazione finita, ma una regolarità stocastica nel lungo periodo.
+- **Sperimentazioni controllate**, come i *clinical trials*, in cui si valuta l'efficacia di un farmaco o di una terapia. La popolazione di riferimento è concettualmente infinita (tutti i possibili pazienti), e si ipotizza che l'effetto del trattamento segua una distribuzione probabilistica.
+- **Psicologia sperimentale e scienze comportamentali**, dove si testano ipotesi su preferenze, scelte, reazioni, sotto vincoli controllati. Anche in questi casi, si modellano le risposte come esiti stocastici, spesso su scala continua o discreta.
+- **Economia sperimentale**, in cui si studiano decisioni individuali o interazioni strategiche (come giochi o aste) in laboratorio. I dati sono trattati come osservazioni da una popolazione astratta, con l'obiettivo di descrivere regolarità comportamentali generalizzabili.
 
-## Inferenza distribution-free e da modello
+Anche quando i dati provengono da una popolazione finita, può essere utile (o necessario) adottare il punto di vista **modellistico**, trattando i dati come esiti casuali di un esperimento teorico. È una scelta metodologica che consente di rispondere a domande su effetti, relazioni, rischi, scenari ipotetici.
 
-Un'ulteriore distinzione riguarda il tipo di informazione disponibile sulla distribuzione dei dati:
+## Inferenza non parametrica e inferenza parametrica
 
-- Nell'inferenza **distribution-free**, ci si limita a inferire proprietà aggregate come la media o la varianza, senza assumere nulla sulla forma della distribuzione.
-- Nell'inferenza **da modello**, si ipotizza una distribuzione nota (ad esempio normale, binomiale o Poisson), a meno di alcuni parametri incogniti. Questo approccio permette non solo di stimare i parametri, ma anche di rispondere a domande più complesse.
+Una volta accettato il quadro modellistico, si aprono due grandi strade a seconda del grado di struttura imposto al modello probabilistico:
 
-Esempi concreti di domande per questi contesti includono:
+- Nell'inferenza **non parametrica** (o *distribution-free*), si assume solo che le osservazioni siano **i.i.d.** (indipendenti e identicamente distribuite), ma non si specifica la forma della distribuzione. L'obiettivo è stimare quantità come media, mediana o varianza con il minimo numero di ipotesi. È un approccio flessibile, adatto a situazioni esplorative o con pochi dati.
 
-- **Distribution-free**: Qual è la mediana del reddito? Qual è la varianza del tempo impiegato dai pendolari per raggiungere il lavoro?
-- **Da modello**: Qual è la probabilità che un semaforo abbia più di 10 auto in fila a mezzogiorno, sapendo che il numero di auto segue una distribuzione di Poisson? Qual è la probabilità che il livello dell'acqua in un fiume superi 150 cm, assumendo che sia distribuito normalmente?
+- Nell'inferenza **parametrica**, si ipotizza che i dati seguano una certa **famiglia di distribuzioni** (ad esempio normale, binomiale, esponenziale...), a meno di pochi parametri ignoti. Questo approccio consente di ottenere inferenze più precise, stimare probabilità di eventi complessi e costruire modelli predittivi, a patto che l'ipotesi sul modello sia ragionevole.
 
-Nel caso di un modello, l'aggiunta di un'ipotesi probabilistica consente di rispondere non solo su parametri come media e varianza, ma sull'intera distribuzione del fenomeno.
+Esempi realistici:
+- Un gestore del traffico può usare un **modello di Poisson** per stimare la probabilità che un incrocio abbia più di 10 auto in coda a mezzogiorno.
+- Un epidemiologo può usare un **modello binomiale** per stimare la probabilità che almeno 3 persone in un piccolo gruppo siano infette.
+- Un analista può stimare la **mediana del tempo di percorrenza** su una tratta, senza assumere nulla sulla forma della distribuzione: in questo caso si opera in ambito non parametrico.
+
+L'adozione di un modello più o meno strutturato comporta sempre un **compromesso tra generalità e precisione**: meno ipotesi permettono maggiore robustezza, ma richiedono strumenti più cauti; più ipotesi rendono le conclusioni più forti, ma più sensibili a eventuali deviazioni dalla realtà.
 
 ## Sintesi dei contesti
 
-Questa classificazione dei contesti di inferenza aiuta a chiarire il tipo di domande che lo statistico può affrontare. Mentre l'inferenza da popolazioni finite si concentra su contesti pratici e limitati, tipici delle statistiche ufficiali, l'inferenza da popolazioni infinite e da modelli probabilistici consente di affrontare problemi più astratti e complessi, con applicazioni che spaziano dalla scienza alla finanza.
+Questa classificazione dei contesti di inferenza aiuta a chiarire il tipo di domande che lo statistico può affrontare. Mentre l'inferenza da popolazioni finite si concentra su contesti pratici e limitati, tipici delle statistiche ufficiali, l'inferenza da popolazioni infinite e da modelli probabilistici consente di affrontare problemi più astratti e complessi, con applicazioni che spaziano dalla scienza alla finanza, dall'industria alla ricerca sperimentale.
 
 
-### Binomiale da urna con dimensione nota e estrazione senza reinserimento (popolazioni finite)
-Immaginiamo un'urna contenente \(N = 100\) bussolotti, di cui \(60\) rossi e \(40\) blu. Supponiamo di estrarre \(n = 10\) bussolotti **senza reinserimento**. Ogni estrazione dipende da quelle precedenti, perché il numero di bussolotti rimasti nell'urna cambia a ogni passo. 
 
-In questo caso, il numero di bussolotti rossi osservati segue una distribuzione ipergeometrica, ma per grandi \(N\) e piccoli \(n\), può essere ben approssimata da una **binomiale** con probabilità di successo. Questo modello è tipico delle **popolazioni finite**, dove il campionamento avviene da un insieme noto e completamente enumerabile. L'inferenza potrebbe riguardare proporzioni (\(\pi\)) o altre caratteristiche della composizione dell'urna.
+## Dalle popolazioni ai modelli: la metafora dell'urna
 
-### Binomiale da urna con dimensione incognita (popolazioni infinite)
-Passiamo ora a un caso più astratto: un'urna di dimensione incognita che contiene bussolotti rossi e blu in proporzione \(\pi\). Supponiamo di estrarre \(n = 10\) bussolotti **con reinserimento**, cioè ogni estrazione è indipendente dalle altre e non altera la composizione dell'urna.
+Per fissare le idee sui diversi schemi inferenziali che incontreremo nel corso, possiamo fare ricorso alla metafora dell'urna, già utilizzata nello studio della probabilità. In ciascun caso, l'urna rappresenta un meccanismo stocastico, idealmente realizzabile o puramente concettuale, da cui si ottengono osservazioni mediante un campionamento probabilistico. La metafora non suggerisce un'applicazione, ma si concentra sul **meccanismo probabilistico** alla base di ciascun tipo di inferenza.
 
-In questo contesto, trattiamo l'urna come una popolazione teoricamente infinita, in cui ogni estrazione è un evento Bernoulliano con probabilità di successo \(\pi\). Il numero di bussolotti rossi osservati segue una distribuzione binomiale con parametri \(n\) e \(\pi\). Questo modello è tipico delle **popolazioni infinite**, dove l'inferenza si concentra su proporzioni e probabilità, senza fare riferimento a una numerosità finita.
 
-### Urna con palline numerate, in numero finito, con distribuzione incognita (popolazioni finite, inferenza distribution free)
-Immaginiamo un'urna contenente \(N = 100\) palline numerate con valori sconosciuti, ad esempio: \(x_1, x_2, \dots, x_{100}\). Estraiamo \(n = 10\) palline **senza reinserimento**, registrandone i valori numerici.
+### Campionamento da un'urna di dimensione nota, senza reinserimento  **(popolazioni finite)**
 
-Qui non facciamo alcuna ipotesi sulla distribuzione dei numeri nell'urna, ma possiamo comunque fare inferenza su alcune proprietà aggregate della popolazione, come la media \(\mu\), la mediana o la varianza \(\sigma^2\). Questo tipo di analisi è detto **distribution free**, perché non assume alcuna forma specifica per la distribuzione sottostante. È tipico delle **popolazioni finite**, dove l'obiettivo è spesso stimare parametri descrittivi senza vincoli modellistici.
+Un'urna contiene \( N = 100 \) bussolotti, un numero ignoto \( R \) di rossi e \( B = N - R \) bianchi. Vengono estratti \( n = 10 \) bussolotti **senza reinserimento**, e si osservano \( s = 6 \) bianchi.
 
-### Urna con infinite palline numerate negli interi, con distribuzione Poisson, legata a \(\lambda\) (popolazioni infinite, inferenza da modello)
-Immaginiamo un'urna teorica contenente un numero infinito di palline numerate con valori interi \(0, 1, 2, \dots\). La probabilità di estrarre una pallina con un dato numero \(k\) segue una distribuzione di Poisson con parametro \(\lambda\), che rappresenta la media (e varianza) del processo.
+**Domanda inferenziale**:  
+Quanti bussolotti bianchi sono contenuti nell'urna? Possiamo stimare \( B \), o almeno approssimare un intervallo plausibile per la proporzione \( \frac{B}{N} \)?
 
-Questo modello è usato per descrivere fenomeni come il numero di eventi in un intervallo di tempo o spazio. Supponiamo di osservare \(n = 10\) estrazioni indipendenti: possiamo fare inferenza sul parametro \(\lambda\), che caratterizza completamente la distribuzione. Qui entriamo nel campo delle **popolazioni infinite**, dove l'inferenza si basa su un modello probabilistico noto.
+### Campionamento da un'urna a composizione ignota, con reinserimento  **(popolazioni infinite, modello binomiale)**
 
-### Urna con infinite palline nel reale, con distribuzione normale, legata a \(\mu, \sigma^2\) (popolazioni infinite, inferenza da modello)
-Infine, consideriamo un'urna teorica contenente un numero infinito di palline, ciascuna numerata con un valore reale. La probabilità di estrarre una pallina con un dato valore segue una distribuzione normale \(N(\mu, \sigma^2)\), dove \(\mu\) è la media e \(\sigma^2\) la varianza.
+L'urna ha una composizione fissa ma ignota: una proporzione \( \pi \) di bianchi e \( 1 - \pi \) di rossi. Si eseguono \( n = 10 \) estrazioni **con reinserimento**, e si osservano \( s = 6 \) bianchi.
 
-In questo caso, ogni estrazione è un'osservazione continua indipendente dalla precedente. Supponiamo di osservare \(n = 30\) estrazioni: l'obiettivo è fare inferenza su \(\mu\) e \(\sigma^2\), i parametri che caratterizzano la distribuzione. Questo modello, legato alle **popolazioni infinite**, è fondamentale in molte applicazioni statistiche, perché permette di fare inferenze non solo sui parametri, ma anche su eventi futuri.
+**Domanda inferenziale**:  
+Qual è la stima di \( \pi \), cioè della proporzione di bianchi nell'urna? Possiamo fornire un intervallo credibile per \( \pi \), sulla base del campione osservato?
+
+
+### Campionamento da un'urna che genera numeri reali con legge ignota  **(popolazioni infinite, inferenza non parametrica)**
+
+L'urna genera numeri reali, secondo una distribuzione ignota. Si estraggono \( n = 10 \) valori:  
+\( X = \{2.3,\ 1.8,\ 3.1,\ 2.6,\ 2.0,\ 2.5,\ 2.9,\ 1.7,\ 2.1,\ 2.4\} \)  
+con media campionaria \( \bar{x} = 2.34 \) e varianza campionaria \( s^2 = 0.19 \).
+
+**Domande inferenziali**:  
+Cosa possiamo concludere sul valore medio \( \mu \) della distribuzione da cui provengono questi dati? E sulla variabilità \( \sigma^2 \)?  
+Quali margini di incertezza sono associati a queste stime, pur non conoscendo la forma della distribuzione?
+
+
+### Campionamento da un'urna che genera conteggi secondo un modello di Poisson  **(popolazioni infinite, inferenza parametrica discreta)**
+
+L'urna genera conteggi secondo una legge di Poisson con parametro \( \lambda \) ignoto. Si osservano  
+\( Y = \{3,\ 1,\ 2,\ 4,\ 2,\ 0,\ 1,\ 3,\ 2,\ 1\} \)  
+con media campionaria \( \bar{y} = 1.9 \).
+
+**Domanda inferenziale**:  
+Possiamo stimare il tasso medio \( \lambda \)? Quanto è plausibile che il valore vero di \( \lambda \) sia maggiore di 2? Quale margine di errore possiamo associare alla stima ottenuta?
+
+
+### Campionamento da un'urna che genera valori reali secondo una distribuzione normale  
+**(popolazioni infinite, inferenza parametrica continua)**
+
+L'urna genera numeri reali secondo una distribuzione normale \( \mathcal{N}(\mu, \sigma^2) \). Si osservano:  
+$\mathbf{x} = \{175.2,\ 179.3,\ 173.5,\ 176.1,\ 178.7,\ 174.0,\ 175.9,\ 177.4,\ 176.8,\ 178.1\}$,  
+con media campionaria \( \bar{x} = 176.5 \) e deviazione standard campionaria \( s = 1.8 \).
+
+**Domanda inferenziale**:  
+Possiamo stimare \( \mu \) e \( \sigma \), e sulla base di tali stime calcolare la probabilità che un nuovo valore superi una certa soglia?
+Qual è la probabilità che la prossima estrazione sia superiore a 180?  
 
 Nel proseguire, ci concentreremo sull'inferenza da popolazioni infinite e da modelli probabilistici, che sono centrali per lo studio dell'economia e della scienza dei dati. Tuttavia, l'approccio sarà sempre lo stesso: estrarre il massimo di informazioni dai dati osservati, bilanciando rigore e comprensibilità.
 
@@ -253,3 +295,18 @@ L'idea che \(\theta\) esista in un regno ideale, come verità perfetta e inosser
 Questa apparente tensione tra la ricerca della verità ideale e l'attenzione ai dati concreti non è priva di contraddizioni. La statistica classica si sviluppa su una sottile linea di compromesso: accetta l'esistenza di parametri teorici per costruire modelli potenti e rigorosi, ma dipende integralmente dalle osservazioni empiriche per avvicinarsi a quelle verità astratte. È un modello mentale che funziona all'interno delle sue assunzioni, ma che rimane soggetto a critica e revisione, specialmente quando queste assunzioni vengono meno.
 
 Nel nostro percorso, accetteremo questo approccio come base metodologica, riconoscendo che esso rappresenta un sistema coerente, anche se non l'unica via possibile per fare inferenza. L'idea di parametri perfetti che governano i dati può essere vista come un artificio concettuale, utile per l'analisi e la modellazione, ma non necessariamente una descrizione della realtà ultima. In questo senso, la statistica classica non è solo uno strumento matematico, ma anche un prodotto di una specifica eredità filosofica, che merita di essere compresa e, quando necessario, interrogata. 
+
+### Un'altra via: la statistica bayesiana
+
+Accanto alla statistica classica, esiste un altro approccio all'inferenza, fondato su una concezione diversa della probabilità: la **statistica bayesiana**. In questa impostazione, il parametro \(\theta\) non è una costante fissa e ignota che governa i dati, ma una **variabile aleatoria** che rappresenta lo **stato di conoscenza** dell'osservatore. La probabilità non misura una frequenza nel lungo periodo, ma **esprime il grado di fiducia** o credenza razionale che si attribuisce a un certo valore di \(\theta\), alla luce delle informazioni disponibili.
+
+La statistica bayesiana si fonda su un principio semplice e potente: aggiornare le proprie convinzioni quando si osservano nuovi dati. Questo aggiornamento avviene attraverso il **teorema di Bayes**, che combina l'**informazione a priori** (la distribuzione di probabilità assegnata a \(\theta\) prima di osservare i dati) con l'**informazione contenuta nel campione** (attraverso la verosimiglianza) per ottenere una **distribuzione a posteriori** su \(\theta\), che rappresenta lo stato di conoscenza aggiornato.
+
+Da questo punto di vista, l'inferenza non è più una stima di qualcosa che esiste “là fuori”, ma un processo di revisione coerente delle proprie credenze alla luce dell'evidenza. Questo rende l'approccio bayesiano particolarmente adatto in contesti in cui:
+- l'esperienza pregressa o la letteratura suggerisce una conoscenza parziale ma strutturata del fenomeno;
+- l'incertezza ha un ruolo centrale nella decisione (come nella teoria delle decisioni o nella valutazione dei rischi);
+- il numero di osservazioni è limitato, o l'inferenza richiede uno sforzo di integrazione tra fonti diverse.
+
+L'impostazione bayesiana è concettualmente più vicina all'**empirismo epistemico** e ha trovato crescente applicazione grazie alla disponibilità di strumenti computazionali per approssimare le distribuzioni a posteriori (come i metodi Monte Carlo via Markov Chain). Tuttavia, essa richiede anche una maggiore responsabilità soggettiva da parte dell'analista, che deve esplicitare le proprie ipotesi a priori e accettare che l'inferenza dipenda, almeno in parte, da esse.
+
+Nel presente corso non utilizzeremo formalmente il quadro bayesiano, ma ne terremo conto a livello concettuale. In alcuni esercizi verrà proposta l'interpretazione soggettiva della probabilità come alternativa alla frequenza relativa. Più avanti, sarà utile confrontare le risposte classiche e quelle bayesiane a problemi semplici, per cogliere il significato profondo delle differenze tra i due approcci.

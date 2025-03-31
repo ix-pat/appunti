@@ -10,6 +10,9 @@ library(rgl)
 library(mvtnorm)
 library(pat.book)
 library(magick)
+library(reticulate)
+
+use_python("/usr/bin/python3", required = TRUE)
 
 options(digits=4,knitr.kable.NA = '',scipen = 8,big.mark=" ")
 opts_knit$set(global.par = TRUE,warning = FALSE, message = FALSE, fig.align = "center",fig.pos = "H", out.extra = "",results = 'asis',echo=FALSE)
