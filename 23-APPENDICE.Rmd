@@ -260,6 +260,90 @@ conta in quanti modo posso rimescolare $n$ oggetti.
 
 __Nota.__ Per definizione $0!=1$
 
+In figura $3!$.
+
+```{python permutazioni}
+import matplotlib.pyplot as plt
+import networkx as nx
+import numpy as np
+
+def generate_permutation_tree(letters):
+    G = nx.DiGraph()
+    levels = {0: [], 1: [], 2: []}
+
+    # Livello 0
+    for i, l in enumerate(letters):
+        levels[0].append((l, 0, i))
+        G.add_node(l)
+
+    # Livello 1
+    for (node0, _, _) in levels[0]:
+        for l1 in letters:
+            if l1 not in node0:
+                node1 = node0 + l1
+                levels[1].append((node1, 1, 0))
+                G.add_node(node1)
+                G.add_edge(node0, node1)
+
+    # Livello 2 (perm. complete)
+    for (node1, _, _) in levels[1]:
+        for l2 in letters:
+            if l2 not in node1:
+                node2 = node1 + l2
+                levels[2].append((node2, 2, 0))
+                G.add_node(node2)
+                G.add_edge(node1, node2)
+
+    return G, levels
+
+def generate_fixed_last_level_positions(levels, base_spacing=3.5, expansion_factor=3.0):
+    pos = {}
+    max_depth = max(levels.keys())
+
+    for depth, nodes in levels.items():
+        width = len(levels[depth - 1]) if depth == max_depth else len(nodes)
+        spacing = base_spacing + (depth if depth < max_depth else max_depth - 1) * expansion_factor
+        y_positions = np.linspace(-width / 2, width / 2, len(nodes)) * spacing
+
+        for (name, x, _), y in zip(nodes, y_positions):
+            pos[name] = (x, y)
+
+    return pos
+
+labels = {
+    "a": "a",
+    "ab": "b",
+    "abc": "c",
+    "ac": "c",
+    "acb": "b",
+    "b": "b",
+    "ba": "a",
+    "bac": "c",
+    "bc": "c",
+    "bca": "a",
+    "c": "c",
+    "ca": "a",
+    "cab": "b",
+    "cb": "b",
+    "cba": "a"
+}
+
+# Esegui
+letters = ['c', 'b', 'a']
+G, levels = generate_permutation_tree(letters)
+pos = generate_fixed_last_level_positions(levels)
+
+plt.figure(figsize=(10, 5))
+nx.draw(
+    G, pos, labels=labels, node_size=1000, node_color="lightblue",
+    font_size=10, edge_color="gray", arrows=False
+)
+plt.title("Albero delle permutazioni di 3 lettere (fattoriale di 3)", fontsize=14)
+plt.show()
+
+```
+
+
 :::{.example}
 $3!=3\cdot 2\cdot 1=6$, $10!=10\cdot 9\cdot... \cdot1 =`r factorial(10)`$
 :::
@@ -268,7 +352,7 @@ $3!=3\cdot 2\cdot 1=6$, $10!=10\cdot 9\cdot... \cdot1 =`r factorial(10)`$
 Consideriamo un mazzo di 52 carte tutte distinte. Il numero di modi in cui il mazzo può essere mescolato corrisponde a tutte le possibili permutazioni delle 52 carte:
 
 $$
-52! = \scriptsize `r format(factorial(52),scientific = 100,big.mark = "\\\\,")`
+52! = \scriptsize `r format(factorial(52),scientific = 100,big.mark = "\\\\hspace{0.9pt}")`
 $$
 
 che è un numero estremamente grande, pari a circa \( 8.0658 \times 10^{67} \). Questo valore evidenzia come, ogni volta che un mazzo di carte viene mescolato, sia altamente improbabile che l’ordine ottenuto sia mai stato realizzato prima.
