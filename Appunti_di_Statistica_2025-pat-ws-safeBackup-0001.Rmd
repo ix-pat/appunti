@@ -1,0 +1,1012 @@
+--- 
+title: "Appunti di Statistica"
+subtitle: "CLEAM AA 24/25"
+author: "Patrizio Frederic"
+date: "Aggiornato al `r format(Sys.Date(),'%d-%m-%Y')`"
+documentclass: book
+site: bookdown::bookdown_site
+biblio-style: apalike
+link-citations: yes
+description: "Appunti sparsi"
+# bookdown::epub_book:
+#   pandoc_args: "--mathml"
+geometry: "left=2.5cm, right=2.5cm, top=3.5cm, bottom=3.5cm, showframe=false, showcrop=true"
+fontsize: 11pt
+output:
+   bookdown::pdf_book:
+     keep_tex: true
+     highlight: default
+     fig_caption: true
+     # fig_width: 4
+     # fig_height: 3
+   bookdown::gitbook:
+     fig_caption: true
+     # fig_width: 12
+     # fig_height: 8
+#documentclass: book
+editor_options: 
+  chunk_output_type: console
+---
+
+# bookdown::epub_book:
+
+Placeholder
+
+
+
+<!--chapter:end:index.Rmd-->
+
+
+# Avvertenza {-}
+
+Placeholder
+
+
+
+<!--chapter:end:00-intro.Rmd-->
+
+
+# I Fenomeni Collettivi
+
+Placeholder
+
+
+## I Dati {#dati}
+## Variabili Statistiche {#var-stat}
+## Popolazioni Statistiche
+## Le rilevazioni Statistiche {#riv}
+### Fasi dell'indagine
+## La matrice dei dati
+## Riepilogo sulle Variabili
+
+<!--chapter:end:01-dati.Rmd-->
+
+
+# Variabili Statistiche e Distribuzioni di Frequenza
+
+Placeholder
+
+
+## Variabili Statistiche
+### Notazione di Base
+### Ordinamento e conteggio
+### Le unità di misura
+### Trasformazioni lineari
+#### Cambiamento di scala come trasformazione lineare
+#### Rappresentazione grafica delle trasformazioni lineari
+#### Scelta dei coefficienti
+## Distribuzione di Frequenza
+### Dati quantitativi continui
+### Raggruppamenti in Classi
+### Frequenze Cumulate
+## Rappresentazioni Grafiche
+## Istogramma di Densità
+## La Funzione di Ripartizione
+## L'inversa della Funzione di Ripartizione
+## Indicatori Sintetici di Centralità e di Variabilità
+## Riepilogo
+
+<!--chapter:end:02-distr-freq.Rmd-->
+
+
+# Media Aritmetica, Varianza e Standard Deviation 
+
+Placeholder
+
+
+## Media Aritmetica {#media}
+### La Media Aritmetica come Baricentro dell'Istogramma
+### Calcolo per Distribuzioni di Frequenza
+### Proprietà della Media Aritmetica
+## La varianza {#var}
+### Calcolo per Distribuzioni di Frequenza
+### Proprietà della Varianza
+## La Standard Deviation {#sd}
+### Proprietà della Standard Deviation
+## Esempi
+
+<!--chapter:end:03-media-varianza.Rmd-->
+
+
+# Mediana, Percentili e Moda
+
+Placeholder
+
+
+## La Mediana {#mediana}
+### Dati espressi in distribuzione di frequenza
+### Dati espressi in classi 
+### Proprietà della Mediana 
+## I Percentili
+### Dati espressi in distribuzione di frequenza
+### Dati espressi in classi 
+### I Quartili
+### Percentili e Funzione di Ripartizione
+## Lo Scarto Interquartile {#sqi}
+## La Moda {#moda}
+### La Moda per dati raccolti in classi
+## Relazione tra Media, Moda e Mediana
+
+<!--chapter:end:04-mediana-percentili.Rmd-->
+
+
+# Cenni di Teoria della probabilità
+
+Placeholder
+
+
+## Concetti di base 
+### Eventi
+### Algebra degli eventi
+### Operazioni su insieme
+### La probabilità è una funzione
+### Definizioni di probabilità
+## Teoria di Kolmogorov
+### Algebra degli Eventi
+### Assiomi di Kolmogorov
+### Proprietà di $P$
+## Probabilità Condizionata
+### Indipendenza tra Eventi
+### Indipendenza e Incompatibilità
+### Partizioni di $\Omega$
+### Teorema delle probabilità totali
+### Il Teorema di Bayes
+## Specchietto finale utile per gli esercizi elementari
+
+<!--chapter:end:05-Probabilita.Rmd-->
+
+
+# Variabili Casuali
+
+Placeholder
+
+
+## Definizione formale di una VC discreta
+### Descrizione di una VC
+### Operazioni tra VC
+## Valore Atteso, e Varianza di una VC
+## Indipendenza tra VC
+## VC condizionate (complementi)
+### Valore atteso e varianza condizionata (complementi)
+### Esempio di indipendenza tra VC
+## Specchietto finale per le VC discrete
+## Le VC continue
+### Valore Atesso e Varianza di una VC continua
+### La VC uniforme
+## Operazioni sulle VC
+
+<!--chapter:end:06-Variabili-Casuali.Rmd-->
+
+
+# Variabili Casuali di particolare interesse
+
+Placeholder
+
+
+
+<!--chapter:end:07-vc-importanti.Rmd-->
+
+
+# Il Teorema del Limite Centrale
+
+Placeholder
+
+
+## Successioni di VC
+## Somme e Medie di VC
+## Teoremi del Limite Centrale
+### Esempio Somma
+### Roulette
+
+<!--chapter:end:08-tlc.Rmd-->
+
+
+# Statistiche campionarie
+
+Placeholder
+
+
+## Risultati preliminari
+## La distribuzione Chi-quadro $\chi^2$
+### Le tavole del $\chi^2$
+## La distribuzione $t$-di Student
+### Le tavole della $t$
+## La distribuzione di $\hat\sigma^2$
+## La distribuzione della statistica standardizzata
+
+<!--chapter:end:09-Statistiche-Campionarie.Rmd-->
+
+
+# Inferenza: concetti introduttivi
+
+Placeholder
+
+
+## Inferenza da popolazioni finite
+## Inferenza da popolazioni infinite
+## Inferenza distribution-free e da modello
+## Sintesi dei contesti
+### Binomiale da urna con dimensione nota e estrazione senza reinserimento (popolazioni finite)
+### Binomiale da urna con dimensione incognita (popolazioni infinite)
+### Urna con palline numerate, in numero finito, con distribuzione incognita (popolazioni finite, inferenza distribution free)
+### Urna con infinite palline numerate negli interi, con distribuzione Poisson, legata a \(\lambda\) (popolazioni infinite, inferenza da modello)
+### Urna con infinite palline nel reale, con distribuzione normale, legata a \(\mu, \sigma^2\) (popolazioni infinite, inferenza da modello)
+## Statistica Classica
+
+<!--chapter:end:10-Inferenza.Rmd-->
+
+
+# Elementi di Teoria della Stima
+
+Placeholder
+
+
+## Campionamento
+### Lessico
+### Esempio al finito
+### Lessico
+## Gli stimatori
+### Stimatori e Stime
+### Come scegliere uno stimatore
+### Proprietà Auspicabili di uno stimatore (per $n$ finito)
+### Media aritmetica e varianza campionaria caso IID
+### Media aritmetica campionamento SR (popolazioni finite)
+### Esempi
+### Distribuzione delle statistiche
+### Proprietà Auspicabili di uno stimatore (per $n\to\infty$)
+## La $SD$ e lo $SE$
+
+<!--chapter:end:11-Stima.Rmd-->
+
+
+# Teoria della Verosimiglianza
+
+Placeholder
+
+
+## Il Modello Statistico
+### Esiste lo stimatore più efficiente?
+## La Verosimiglianza
+### La Verosimiglianza attraverso un esempio
+### Se $\pi$ fosse...
+### La verosimiglianza non è una probabilità
+### La stima di massima verosimiglianza
+### Esempio IID da popolazione finita (parte due)
+### Abbiamo trovato il vero $\pi$?
+### Muoviamo anche $S_n$
+## La Funzione di Verosimiglianza 
+## La Stimatore di massima Verosimiglianza 
+## Il Principio di Verosimiglianza
+## Verosimiglianza e Statistiche Sufficienti
+## Caso Bernoulli urna infinita.
+### Calcolo delle proprietà di $\hat\pi$
+### Se $n$ aumenta e $\hat\pi=0.6$
+### L'ipotesi $\pi=0.5$
+## Il modello Poisson
+### La log-verosimiglianza della Poisson
+### La stima di massima verosimiglianza della Poisson
+### Proprietà dello stimatore di massima verosimiglianza della Poisson $\hat\lambda$
+### Esempio $n=5$
+### Esempio $n=50$
+## Il modello Normale
+### Verosimiglianza e log-verosimiglianza della Normale
+### Le stime di massima verosimiglianza della Normale
+### Proprietà di $\hat\mu$
+### Proprietà di $\hat\sigma^2$ {#vnorm}
+### Lo $SE$ di $\hat\mu$ {#ssem}
+### Esempio $n=10$
+### Esempio $n=100$
+### Perché $n-1$
+## Proprietà degli stimatori di massima verosimiglianza
+
+<!--chapter:end:12-Verosimiglianza.Rmd-->
+
+
+# Stima Intervallare
+
+Placeholder
+
+
+## Obiettivo
+## Il Contesto Probabilistico
+### Un intervallo per $\hat \mu$
+### $n$ e $\sigma^2$ rimangono fissi, cambiamo $\mu$
+### $n$ e $\sigma^2$ rimangono fissi e noti, $\mu$ incognita $\hat \mu=2.6$
+## Intervalli casuali
+## Intervallo di confidenza per $\mu$ al 95%, $n=5$ e $\sigma^2=2.25$.
+## Stimatori e intervalli di confidenza
+## Massima Verosimiglianza e intervalli di confidenza
+## Intervalli di Confidenza per $\mu$ al livello $(1-\alpha)\times 100$, $\sigma^2$ nota
+## Intervalli di Confidenza per $\mu$ al livello $(1-\alpha)\times 100$, $\sigma^2$ incognita
+### $\sigma$ nota e $\sigma$ incognita
+## IDC per la proporzione
+### IdC per $\pi$ per $\alpha$ ed $n$ fissati
+## Specchietto Finale per gli IdC
+
+<!--chapter:end:13-stima-intervallare.Rmd-->
+
+
+# Teoria dei test
+
+Placeholder
+
+
+## Le Ipotesi
+### Esempi di ipotesi
+## La Decisione
+## La tavola della verità
+## Esempio: Scegliere tra due ipotesi semplici
+### Tre diversi Test a confronto
+### Gli errori della decisione A
+### Gli errori della decisione B
+### Gli errori della decisione C
+### Confronto
+## Ipotesi Nulla e Ipotesi Alternativa
+## Rifiutare o non rifiutare $H_0$
+## Test per $\mu$: due ipotesi semplici, $\sigma^2$ nota
+### Test per $\mu$: scegliere il punto critico
+### Probabilità di errore di primo e di secondo tipo
+### Test per $\alpha$ fissato, $\alpha=0.05$
+### La regola di decisione, $\alpha=0.05$
+### Test per $\alpha$ fissato, $\alpha=0.01$
+### La regola di decisione, $\alpha=0.01$
+## $H_0$ semplice e $H_1$ composta
+## La Statistica Test
+
+<!--chapter:end:14-test-intro.Rmd-->
+
+
+# Test per una media e una proporzione
+
+Placeholder
+
+
+## Test sulla media, $\sigma^2$ noto
+### Test sulla media, ipotesi unilaterale destra, $\sigma^2$ noto
+### Test sulla media, $\sigma^2$ noto, vari livelli di $\alpha$
+### La probabilità di significatività osservata il $p_\text{value}$
+### Lettura del $p_\text{value}$
+### Test sulla media, ipotesi unilaterale sinistra, $\sigma^2$ noto
+#### La probabilità di significatività osservata il $p_\text{value}$
+### Test sulla media, ipotesi bilaterale, $\sigma^2$ noto
+#### La probabilità di significatività osservata il $p_\text{value}$
+## Significatività non fissata
+## Test per $\mu$, $\sigma$ incognita
+### Test sulla media, ipotesi unilaterale destra, $\sigma^2$ incognito
+### Test sulla media, ipotesi unilaterale sinistra, $\sigma^2$ incognito
+### Test sulla media, ipotesi bilaterale, $\sigma^2$ incognito
+### Significatività non fissata
+## Massima verosimiglianza e test
+## Test per $\pi$
+## Specchietto Finale per i Test ad un Campione
+
+<!--chapter:end:15-test-mu-pi.Rmd-->
+
+
+# Confronto tra due Popolazioni
+
+Placeholder
+
+
+## Test per due medie 
+### il contesto probabilistico
+### Derivazione della statistica test
+### Stima di $\sigma_A$ e $\sigma_B$
+### Ipotesi 1: omogeneità
+### Ipotesi 2: eterogeneità
+### Esempio 
+### Esempio 
+## Test per due proporzioni 
+### Il contesto probabilistico
+### Derivazione della statistica test
+### Esempio
+## Specchietto Finale per i Test ad Due Campioni
+
+<!--chapter:end:16-test-2C.Rmd-->
+
+
+# Regressione Lineare
+
+Placeholder
+
+
+## Il modello d'errore
+### Esempi
+## Il modello di regressione
+## La Regressione Lineare
+### Il modello di regressione lineare semplice
+### La Storia del Metodo
+### Gli assunti del modello di regressione
+### Il metodo dei minimi quadrati
+### La distanza di una retta dai punti (il metodo dei minimi quadrati)
+### Soluzioni dei minimi quadrati
+## La covarianza
+### Calcolo della covarianza
+### Interpretazione della Covarianza
+### Altre proprietà della covarianza
+### Campo di variazione della covarianza
+### Calcolo in colonna
+### Calcolo di $\hat\beta_0$ e $\hat\beta_1$
+## Proprietà della retta dei minimi quadrati
+### Calcolo di $\hat y_i$ e $\hat\varepsilon_i$
+## Il coefficiente di Correlazione
+### Proprietà di $r$
+## Scomposizione della varianza
+## Il coefficiente di determinazione lineare $R^2$
+### Interpretazione di $r^2$
+### Scomposizione della varianza sui dati di esempio
+## Stima di $\sigma_\varepsilon^2$
+## Statistiche Sufficienti del Modello di Reegressione
+
+<!--chapter:end:17-regressione-I.Rmd-->
+
+
+# Inferenza e Diagnostica sul Modello di Regressione Lineare
+
+Placeholder
+
+
+## Teorema di Gauss-Markov
+## La previsione $\hat Y$
+## Standard Errors e Stima degli SE
+## Inferenza su $\beta_0$ e $\beta_1$ e su $\hat Y$
+### Interpolazione e Estrapolazione
+### Intervalli di Confidenza per $\beta_0$, $\beta_1$ e $\hat Y$
+### Test per $\beta_0$, e $\beta_1$
+### Esempio sui 4 punti
+### Calcolo dei valori osservati e dei valori critici
+### Se $n=10$
+## Il modello di regressione lineare multiplo
+## Analisi dei Residui
+### Diagramma dei residui e retta dei residui
+### Lettura del Diagramma dei residui
+### Normal QQ plot
+## Punti di leva, Outliers e punti influenti
+### Punti di leva
+### I residui Studentizzati
+## Relazione tra $Y|X$ e $X|Y$
+### Relazione tra gli $\alpha$ i $\beta$ ed $r$
+### Regressione sulle variabili standardizzate
+
+<!--chapter:end:18-regressione-II.Rmd-->
+
+
+# Il Test Chi-Quadro 
+
+Placeholder
+
+
+## Test di Significatività pura
+## Associazione tra due variabili
+### Le tavole di contingenza
+### Un passo indietro: il concetto di indipendenza
+### Estensione a più di due modalità
+### Esempio
+### Dalla popolazione al campione
+### Notazione formale per le tavole di contingenza
+### Le frequenze sono stime dei $\pi$
+### Esempio (continua)
+## L'indice $\chi^2$
+## Test per l'ipotesi di indipendenza
+### La statistica test $\chi^2$
+### Esempio
+### I gradi di libertà
+## Misure di Conformità
+## Il $\chi^2$ come misura di conformità
+### Esempio: Scostamento da una uniforme
+### Esempio: Scostamento da una popolazione
+### Esempio: scostamento da una Poisson
+
+<!--chapter:end:19-chi-quadro.Rmd-->
+
+---
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+```{r intro23, include=FALSE}
+rm(list = ls())
+
+
+source("intro.R")
+options(digits=4)
+opts_knit$set(global.par = TRUE)
+```
+
+\part{Appendice}
+
+```{r 23-APPENDICE-1}
+if (!html) cat("# (APPENDIX) Appendice {-} ")
+```
+
+# Richiami sugli Operatori Sommatoria e Produttorio
+
+## Operatore Sommatoria
+
+È una forma simbolica per rappresentare somme di un numero qualunque di addendi.
+Si consideri un insieme di numeri indicizzati con $i$
+\[
+\{a_1,...,a_n\}
+\]
+Si definisce la _Sommatoria per $i$ che va da 1 fino ad $n$_
+\[
+\sum_{i=1}^n a_i = a_1+a_2+...+a_n
+\]
+$i$ ed $n$ sono chiamati _quantificatori_.
+
+_Esempio_
+
+Si consideri l'insieme
+\[
+S=\{a_1=30,a_2=15,a_3=21\}
+\]
+allora la _Sommatoria per $i$ che va da 1 fino ad 3_
+\[
+\sum_{i=1}^3 a_i = 30+15+21=`r 30+15+21`
+\]
+
+Si consideri l'insieme
+\[
+S=\{x_1 = 3.1,x_2 = 4.1, x_3 = 1.4,x_4=3.3,x_5=2.9\}
+\]
+allora la _Sommatoria per $a$ che varia in $S$_
+\[
+\sum_{i=3}^5  x_3 + x_4+x_5=x_3 = 1.4+3.3+2.9=`r 1.4+3.3+2.9`
+\]
+
+Un modo alternativo per indicare i quantificatori è il seguente. Sia $S$ un insieme di numeri
+\[
+S=\{a_1,...,a_n\}
+\]
+Si definisce la _Sommatoria di tutti gli $a$ in $S$_
+\[
+\sum_{a\in S} a = a_1+a_2+...+a_n
+\]
+
+Si consideri l'insieme
+\[
+S=\{y_1=3.0,y_2=1.5,y_3=2.1\}
+\]
+allora la _Sommatoria per $a$ che varia in $S$_
+\[
+\sum_{a\in S} a = 3.0+1.5+2.1=`r 3.0+1.5+2.1`
+\]
+
+
+**Proprietà della Sommatoria**
+
+1. Se $k$ è una costatante, allora
+\[
+\sum_{1=1}^n k x_i = k\sum_{1=1}^n  x_i
+\]
+
+```{r 23-APPENDICE-2}
+k <- 3.6
+xx<-c(x_1 = 3.1,x_2 = 4.1, x_3 = 1.4,x_4=3.3,x_5=2.9)
+xk <- paste(k,xx,sep = "\\times ",collapse = "+")
+```
+
+Infatti
+
+\begin{eqnarray*}
+\sum_{1=1}^n k x_i   &=&  k\cdot x_1 + k\cdot x_n\\
+ &=& k(x_1+...+x_n)\\
+ &=& k\sum_{i=1}^n x_i
+\end{eqnarray*}
+
+Si consideri l'insieme
+\[
+S=\{x_1 = 3.1,x_2 = 4.1, x_3 = 1.4,x_4=3.3,x_5=2.9\},
+\]
+Posto $k=3.6$
+
+\begin{eqnarray*}
+\sum_{1=1}^n k x_i   &=&  `r xk`\\
+ &=& `r k`\times(`r paste(xx,collapse="+")`)\\
+ &=& `r sum(xx)*k`
+\end{eqnarray*}
+  
+2. Se consideriamo due insiemi di numeri $\{a_1,...,a_n\}$ e $\{b_1,...,b_n\}$, allora
+
+\[
+\sum_{1=1}^n (a_i + b_i) = \sum_{1=1}^n  a_i + \sum_{1=1}^n  b_i
+\]
+
+
+```{r 23-APPENDICE-3}
+k <- 3.6
+xx <-c(x_1 = 3.1,x_2 = 4.1, x_3 = 1.4)
+yy <-c(y_1 = 1.9,y_2 = 6.3, y_3 = 5.1)
+xy <- paste("(",xx,"+",yy,")",sep = " ",collapse = "+")
+xs <- paste(xx,collapse =  "+")
+ys <- paste(yy,collapse =  "+")
+xxyy <- paste("(",xs,")","+","(",ys,")")
+```
+
+Posto $S_X=\{x_1 = 3.1,x_2 = 4.1, x_3 = 1.4\}$,
+      $S_Y=\{y_1 = 1.9,y_2 = 6.3, y_3 = 5.1\}$
+
+\begin{eqnarray*}
+\sum_{1=1}^n k x_i   &=&  `r xk`\\
+ &=& `r xxyy`\\
+ &=& `r sum(xx+yy)`
+\end{eqnarray*}
+
+3. Se $k$ è una costante, allora
+
+\[
+\sum_{1=1}^nk=k+k+...+k=n\cdot k
+\]
+
+Posto $k=3.6$ e $n=4$, allora
+\begin{eqnarray*}
+\sum_{1=1}^n  k   &=&  \sum_{1=1}^4 3.6\\
+ &=& 3.6+3.6+3.6+3.6\\
+ &=& 4\times 3.6\\
+ &=& `r 4*3.6`
+\end{eqnarray*}
+
+4. Se $k$ e $c$ sono due costanti, allora
+
+\[
+\sum_{1=1}^n(c+ k a_i) = n\cdot c+k\sum_{1=1}^n  a_i
+\]
+
+Posto $S_X=\{x_1 = 3.1,x_2 = 4.1, x_3 = 1.4\}$, $k=3.6$ e $c=0.5$, allora
+
+\begin{eqnarray*}
+\sum_{1=1}^n c + k x_i   &=&  \sum_{1=1}^3 0.5 + 3.6\times x_i  \\
+ &=& `r paste(0.5,"+",3.6,"\\times",xx,collapse="+")`\\
+ &=& 4\times 0.5 + 3.6 \times (`r xs`)\\
+ &=& `r sum(.5+3.6*xx)`
+\end{eqnarray*}
+
+
+**Attenzione!**
+
+\[
+\sum_{1=1}^n (a_i \cdot b_i) \ne \left(\sum_{1=1}^n  a_i \right)\cdot\left(\sum_{1=1}^n  b_i\right)
+\]
+
+
+```{r 23-APPENDICE-4}
+xx <-c(x_1 = 3.1,x_2 = 4.1, x_3 = 1.4)
+yy <-c(y_1 = 1.9,y_2 = 6.3, y_3 = 5.1)
+xy <- paste("(",xx,"\\times",yy,")",sep = " ",collapse = "+")
+xs <- paste(xx,collapse =  "+")
+ys <- paste(yy,collapse =  "+")
+xxyy <- paste("(",xs,")","+","(",ys,")")
+```
+
+Posto $S_X=\{x_1 = 3.1,x_2 = 4.1, x_3 = 1.4\}$,
+      $S_Y=\{y_1 = 1.9,y_2 = 6.3, y_3 = 5.1\}$
+
+\begin{eqnarray*}
+\sum_{1=1}^n x_i    &=&  `r sum(xx)`\\
+\sum_{1=1}^n y_i    &=&  `r sum(yy)`\\
+\sum_{1=1}^n x_i y_i   &=&  `r xy`\\
+ &=& `r sum(xx*yy)`\\
+ &\ne& `r sum(xx)`\times `r sum(yy)`=`r sum(xx)*sum(yy)`
+\end{eqnarray*}
+
+
+
+## Operatore Produttorio
+
+```{r 23-APPENDICE-5} 
+a <- c(1.1,0.9,1.3)
+```
+Siano $a_1,...,a_n$, $n$ numeri, $a_i\in\mathbb{R}$:
+L'operatore sommatoria somma gli elementi 
+\[\sum_{i=1}^n a_i=a_1+ a_2+ ...+ a_n\],
+allo stesso modo, l'operatore _produttoria_ opera il prodotto dei dati 
+
+::: {.definition name="Produttoria"}
+L'operatore produttoria moltiplica gli elementi
+\[\prod_{i=1}^n a_i=a_1\cdot a_2\cdot ...\cdot a_n\]
+:::
+
+
+Esempio: $a_1=1.1$, $a_2=0.9$, $a_3=1.3$ 
+\begin{eqnarray*}
+ \sum_{i=1}^n a_i &=& `r paste(a[1],'+',a[2],'+',a[3])` = `r sum(a)`\\
+ \prod_{i=1}^n a_i &=& `r paste(a[1],'\\times',a[2],'\\times',a[3])` = `r prod(a)`
+\end{eqnarray*}
+
+
+# Richiami di Calcolo Combinatorio
+
+Il **calcolo combinatorio** ha come scopo principale **il conteggio del numero di modi in cui possono verificarsi determinati eventi**, senza doverli enumerare uno per uno. Questo permette di risolvere problemi legati alla disposizione, alla scelta e alla distribuzione di oggetti in modo efficiente e rigoroso.  
+
+Un modello efficace per affrontare queste situazioni è quello delle **\( n \) scatole numerate** e delle **\( k \) palline**, che permette di classificare i problemi combinatori in base a due aspetti fondamentali:  
+1. Le **palline** possono essere numerate (distinguibili) o non numerate (indistinguibili).  
+2. Il **numero di scatole rispetto alle palline** determina se tutte possono essere sistemate senza vincoli o se vi è un limite.  
+
+A partire da questa impostazione, si sviluppano le formule fondamentali della combinatoria, che trovano applicazioni in statistica, probabilità e molte altre discipline.
+
+Quando ogni scatola può contenere al massimo una pallina, si individuano quattro casi principali, ciascuno con una specifica formula combinatoria.
+
+
+## Scelte indipendenti con ripetizione: \( k^n \)
+
+Si consideri il caso in cui abbiamo \( k \) palline numerate e **ogni pallina può essere collocata indipendentemente in una qualsiasi delle \( n \) scatole disponibili**, senza restrizioni sul numero di volte in cui una scatola può essere scelta.  
+
+Il numero totale di distribuzioni è dato da:
+
+\[
+n^k
+\]
+
+che rappresenta il numero di **sequenze ordinate** di \( n \) elementi scelti tra \( k \) possibilità.
+
+:::{.example name="Valigetta"}
+Un sistema di sicurezza utilizza un codice a tre cifre, in cui ciascun numero può variare da 1 a 9. Il codice è quindi una sequenza ordinata di tre elementi, scelti tra 9 possibilità:
+
+\[
+9^3 = 729
+\]
+
+Esistono 729 possibili codici di apertura.
+:::
+
+## \( n = k \) Palline numerate: permutazioni
+
+Quando il numero di palline è uguale al numero di scatole e ogni pallina è distinguibile, il problema diventa quello di **ordinare \( n \) elementi distinti**. Il numero di modi in cui ciò è possibile è dato dal **fattoriale**.
+
+Sia $n\in\mathbb{N}$ un numero naturale, si definisce $n$ fattoriale, il numero 
+
+\[n!=n(n-1)(n-2)...3\cdot 2 \cdot 1\] 
+
+conta in quanti modo posso rimescolare $n$ oggetti.
+
+```{python}
+# Genera nuove posizioni con l'ultimo livello esattamente alla stessa altezza del penultimo
+def generate_fixed_last_level_positions(levels, base_spacing=3.5, expansion_factor=3.0):
+    pos = {}
+    max_depth = max(levels.keys())
+
+    for depth, nodes in levels.items():
+        num_nodes = len(nodes)
+        if depth == max_depth:  # Ultimo livello deve avere la stessa altezza del penultimo
+            reference_width = len(levels[depth - 1])  # Ampiezza del penultimo livello
+        else:
+            reference_width = num_nodes
+
+        # Calcoliamo la distribuzione verticale con riferimento al livello precedente
+        y_positions = np.linspace(-reference_width / 2, reference_width / 2, num_nodes) * (base_spacing + (depth if depth < max_depth else max_depth - 1) * expansion_factor)
+        for (name, x, _), y in zip(nodes, y_positions):
+            pos[name] = (x, y)
+
+    return pos
+
+# Genera nuove posizioni con l'ultimo livello allineato al penultimo
+pos = generate_fixed_last_level_positions(levels, base_spacing=3.5, expansion_factor=3.0)
+
+# Disegna il grafo con l'ultimo livello allineato al penultimo
+plt.figure(figsize=(10, 12))
+nx.draw(G, pos, with_labels=True, node_size=2500, node_color="lightblue", font_size=12, font_weight="bold", edge_color="gray", arrows=False)
+plt.title("Albero delle permutazioni di 3 lettere (fattoriale di 3) - Ultimo livello allineato", fontsize=14)
+plt.show()
+
+```
+
+
+__Nota.__ Per definizione $0!=1$
+
+:::{.example}
+$3!=3\cdot 2\cdot 1=6$, $10!=10\cdot 9\cdot... \cdot1 =`r factorial(10)`$
+:::
+
+:::{.example name="Mazzo di Carte"}
+Consideriamo un mazzo di 52 carte tutte distinte. Il numero di modi in cui il mazzo può essere mescolato corrisponde a tutte le possibili permutazioni delle 52 carte:
+
+$$
+52! = \scriptsize `r format(factorial(52),scientific = 100,big.mark = "\\\\,")`
+$$
+
+che è un numero estremamente grande, pari a circa \( 8.0658 \times 10^{67} \). Questo valore evidenzia come, ogni volta che un mazzo di carte viene mescolato, sia altamente improbabile che l’ordine ottenuto sia mai stato realizzato prima.
+:::
+
+
+
+
+## \( n > k \) Palline numerate: disposizioni senza ripetizione
+
+Se \( n \) è maggiore di \( k \) e le palline sono numerate, il problema diventa quello di scegliere \( k \) elementi distinti da un insieme di \( n \) e disporli in un ordine specifico. In questo caso, la formula è:
+
+\[
+\frac{n!}{(n-k)!}
+\]
+
+che rappresenta il numero di **sequenze ordinate** di \( k \) elementi scelti da un insieme di \( n \) elementi distinti.
+
+:::{.example}
+Se si estrae una mano di 5 carte da un mazzo di 52 e si considera l'ordine di estrazione, il numero di possibili sequenze è:
+
+\[
+\frac{52!}{(52-5)!} = \frac{52!}{47!}
+\]
+
+che fornisce $311\,875\,200$ possibili sequenze.
+:::
+
+## \( n > k \) Palline non numerate: coefficienti binomiale
+
+Se \( n > k \) e le palline sono **non numerate**, il problema si riduce alla **scelta di \( k \) scatole tra \( n \) disponibili**, senza considerare l'ordine. Questo corrisponde al numero di **combinazioni** di \( k \) elementi scelti tra \( n \), dato dal coefficiente binomiale:
+
+\[
+\binom{n}{k} = \frac{n!}{k!(n-k)!}
+\]
+
+:::{.example name="Sei al super enalotto"}
+Nel Superenalotto, si scelgono 6 numeri tra 90, senza che l'ordine abbia rilevanza. Il numero totale di combinazioni possibili è:
+
+\[
+\binom{90}{6} = \frac{90!}{6!(90-6)!} = \frac{90!}{6!84!}
+\]
+
+che fornisce $622\,614\,630$ possibilità. Questo spiega l'estrema difficoltà di vincere il jackpot.
+:::
+
+## Il coefficiente binomiale
+
+Il coefficiente binomiale $\binom{n}{k}$ conta in quanti modi posso disporre $k$ oggetti indistinguibili in $n\ge k$ posti:
+\[\binom{n}{ k}=\frac {n!}{k!(n-k)!}\]
+
+Proprietà utili
+
+\begin{eqnarray*}
+  \binom{n}{ k} &=&\binom{n}{ n-k},\qquad\text{Per esempio:} \\
+  \binom{5}{ 3} &=&\binom{5}{ 2}=`r choose(5,2)`,\\
+  \binom{n}{ 0} &=&\binom{n}{ n} = 1 \\
+  \binom{n}{ 1} &=&\binom{n}{ n-1}=n \\
+  \binom{n}{ k} &=&\binom{n-1}{k-1}+\binom{n-1}{k}
+\end{eqnarray*}
+
+In matematica $\binom{n}{ k}$ è il $k$-esimo elemento della $n$-esima riga del _triangolo di Tartaglia_.
+
+```{r 23-APPENDICE-6}
+N <- 8
+rnam <- 0:(N-1)
+cnam <- 0:(N-1)
+trg <- outer(rnam,cnam,choose)
+trg[trg==0]<- NA
+dimnames(trg)[[1]]<-rnam
+dimnames(trg)[[2]]<-rnam
+
+kable(trg,row.names = T,align = 'c',
+      booktabs = T, escape = F,linesep = "", digits = 4) 
+
+```
+
+
+
+# Richiami di Matematica
+
+## Richiami sui logaritmi
+
+Si definisce $\log x$ il logaritmo naturale di $x>0$
+  - $\lim_{x\to 0}\log x = -\infty$
+  - $\log e = 1$, dove $e$ è il numero di Nepero `r exp(1)`...
+
+Una delle utilità dei logaritmi è di trasformare il logaritmo del prodotto 
+in somma dei logaritmi dei fattori.
+
+__Proprietà 1__
+\[\log a\cdot b=\log a + \log b\]
+
+ed esprime la potenza come coefficiente moltiplicativo:
+
+__Proprietà 2__
+\[\log a^b=b\log a\]
+
+Consideriamo il prodotto di logaritmi:
+\begin{eqnarray*}
+ \log \prod_{i=1}^n a_i &=& \log a_1\cdot...\cdot a_n\\
+                       &=& \log a_1+...+\log a_n\\
+                       &=& \sum_{i=1}^n \log a_i
+\end{eqnarray*}
+
+Inoltre
+\begin{eqnarray*}
+ \log\prod_{i=1}^n a_i^{b_i} &=& \log a_1^{b_1}\cdot...\cdot a_n^{b_i}\\
+                       &=& b_1\log a_1 + ... + a_n\log a_n\\
+                       &=& \sum_{i=1}^n b_i\log a_i
+\end{eqnarray*}
+
+
+
+## Richiami di Analisi
+
+### Note sulla cardinalità degli insiemi
+
+In matematica la cardinalità di un insieme indica il numero dei suoi elementi.
+
+L'insieme $E=\{a,b,c\}$ ha *cardinalità* finita $$\text{card} (E)=\# E = 3$$ L'insieme dei numeri $S=\{0,1,2,3,...,n\}$ ha cardinalità finita: $$\# S = n+1$$ L'insieme dei numeri naturali $$
+\mathbb{N}=\{0,1,2,3,...\}
+$$ ha **cardinalità infinita numerabile** $$\# \mathbb{N} = \aleph_0,\qquad \text{infinito numerabile}$$ L'insieme dei reali $$\mathbb{R}=\mathbb{Q}\cup\mathbb{I}, \qquad\text{i numeri reali sono dati dall'unione dei razionali $\mathbb{Q}$ e degli irrazionali $\mathbb{I}$}$$ ha **cardinalità infinita più che numerabile** $$\# \mathbb{R} = \aleph_1,\qquad \text{infinito più che numerabile}$$
+
+### Funzioni Reali e loro derivate
+
+Solitamente in analisi matematica si studia una generica funzione $f$, dove la variabile è $x$.
+La maggior parte degli esercizi riguardano 
+\[
+f(x), x\in\text{Dominio di $f$}
+\]
+In particolare, se $f(x)=\log x, x>0$ sappiamo che
+\[f'(x)=\frac{1}x\]
+
+Nella teoria della verosimiglianza lasceremo la lettera $f$ assegnata alle funzioni di 
+probabilità (nel caso discreto) e le funzioni di densità (nel caso continuo) e 
+useremo lettere differenti per indicare la funzione. Allo stesso modo le etichette $x$
+restano per individuare i dati e le variabili sono i parametri del modello.
+
+Quindi scriveremo, per esempio,
+
+\[
+g(\theta)=\log \theta,~~~ \theta\in\Theta
+\]
+
+e leggeremo: $g$ è funzione di $\theta$ e se dobbiamo derivare la funzione
+lo facciamo rispetto a $\theta$:
+\[g'(\theta)=\frac{1}\theta\]
+
+Ricordiamo qualche semplice regola di derivazione:
+
+Se $f(\theta)=g(h(\theta))$
+\[f'(\theta)=g'(h(\theta))h'(\theta)\]
+
+Se $f(\theta)=\log h(\theta)$
+\[f'(\theta)=\frac{h'(\theta)}{h(\theta)}\]
+
+
+<!--chapter:end:23-APPENDICE.Rmd-->
+
+
+# Com'è Realizzato il Libro
+
+Placeholder
+
+
+## R: A Language and Environment for Statistical Computing
+### R come calcolatrice
+### Operatori Speciali
+### Vettori e matrici
+### Liste e dataframe
+### Classi e Oggetti
+### I grafici
+### Le Funzioni in R
+#### Le funzioni statistiche
+#### Le VC di maggiore interessa
+#### Funzioni tra stringhe
+#### Cicli e Condizioni
+#### Funzioni per Ovviare ai Cicli
+#### Funzioni personalizzate
+
+<!--chapter:end:24-Libro.Rmd-->
+
+
+# Funzioni usate nel libro
+
+Placeholder
+
+
+## Installazione del pacchetto
+## Statistica descrittiva
+### Media e Varianza
+### Istogramma 
+## Probabilità
+### Tavole della somma
+### Binomiale
+### Poisson
+### Normale
+### TLC
+## Inferenza
+### Intervalli di Confidenza
+### Test
+### Regressione
+## Esempi
+#### Esercizio 1
+
+<!--chapter:end:25-test-functions.Rmd-->
+

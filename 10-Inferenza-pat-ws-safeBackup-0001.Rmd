@@ -1,0 +1,255 @@
+---
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+\part{Inferenza}
+
+```{r setup10, include=FALSE}
+source("intro.R")
+```
+
+# Inferenza: concetti introduttivi
+
+<!-- Inferire è un termine che trova le sue radici nella filosofia e si estende in numerosi ambiti del sapere. Nella sua essenza, inferire significa trarre una conclusione a partire da premesse date, ma il modo in cui questo processo viene attuato varia in base al contesto. Sebbene l'inferenza abbia applicazioni in diversi campi, quando si parla comunemente di "inferenza", ci si riferisce spesso all'inferenza nel contesto statistico. -->
+
+<!-- In statistica, inferire si traduce nell'arte di estrarre conclusioni significative e informazioni da dati e campioni, un processo cruciale nella ricerca e nell'analisi dei dati. La Treccani definisce l'atto di inferire come: -->
+
+<!-- 2a Trarre, partendo da una determinata premessa o dalla constatazione di un fatto, una conseguenza, un giudizio, una conclusione. -->
+
+<!-- Questa definizione si adatta perfettamente al contesto statistico, dove l'attenzione è focalizzata sull'interpretazione e sulle implicazioni dei dati raccolti. -->
+
+Dalla Treccani si definisce l'atto di inferire come: 
+
+> Trarre, partendo da una determinata premessa o dalla constatazione di un fatto, una conseguenza, un giudizio, una conclusione.
+
+Inferire è un atto fondamentale non solo del pensiero umano, ma anche della vita stessa. Gran parte delle specie evolute possiede un istinto innato per trarre conclusioni a partire dall'osservazione dell'ambiente circostante. Che si tratti di un animale che associa il rumore di un predatore al pericolo o di una pianta che risponde agli stimoli luminosi per orientare la crescita, l'inferenza è una strategia essenziale per adattarsi e sopravvivere.
+
+L'uomo, tuttavia, si distingue per un aspetto cruciale: la capacità di prendere coscienza di questo processo, di formalizzarlo e di costruirci sopra un linguaggio. La riflessione sull'inferenza, il tentativo di comprendere e replicare consapevolmente ciò che molte specie fanno istintivamente, ha dato origine a discipline come la logica, la matematica e, infine, la statistica. Studiando l'inferenza, l'uomo è riuscito a trasformare un'abilità naturale in un processo razionale, formale e comunicabile, che non solo migliora la comprensione del mondo, ma rende possibile la condivisione e la riproduzione di quel sapere.
+
+Esistono diverse modalità di inferenza, che riflettono modi distinti di trarre conclusioni: **deduttiva**, **induttiva diretta** e **induttiva inversa**.
+
+L'inferenza deduttiva, tipica della logica formale, parte da premesse certe per arrivare a conclusioni necessarie. È il tipo di ragionamento che governa la matematica: dati alcuni assunti iniziali, le conclusioni sono logicamente inevitabili e già contenute nelle premesse. Questo tipo di inferenza è deterministico e privo di incertezze.
+
+L'inferenza induttiva diretta, invece, opera nel campo della probabilità. Partendo da un modello noto o da una distribuzione che descrive un fenomeno, permette di calcolare la probabilità di osservare determinati esiti. È il caso di un'urna dalla composizione nota: possiamo determinare con precisione la probabilità che un'estrazione casuale produca un certo risultato. Qui il ragionamento è incerto, ma il modello è dato a priori e costituisce la base delle conclusioni.
+
+L'inferenza induttiva inversa, oggi conosciuta come **inferenza statistica**, ribalta questa prospettiva. Non ci si chiede quali osservazioni aspettarsi da un modello noto, ma quale modello, quali parametri o quali proprietà della popolazione possano spiegare i dati osservati. È il problema dell'urna dalla composizione incognita: data una serie di estrazioni, come possiamo inferire la composizione complessiva? Questo tipo di inferenza è intrinsecamente probabilistico e dipende fortemente dal contesto e dalle ipotesi di partenza.
+
+Ciò che rende l'inferenza statistica così straordinaria è proprio la sua capacità di trasformare osservazioni parziali, influenzate dal caso, in una comprensione più ampia e generalizzabile. Ma ciò che la rende possibile è il linguaggio formale che l'uomo ha costruito per descriverla. Questo linguaggio non solo rende espliciti i passaggi impliciti del ragionamento, ma permette di comunicare e replicare i risultati, superando i limiti del contesto individuale.
+
+In definitiva, l'inferenza statistica è l'espressione più raffinata di una capacità condivisa con molte specie, ma che l'uomo ha elevato a strumento consapevole e rigoroso. Essa rappresenta un ponte tra l'istinto naturale e la razionalità formale, dimostrando come un processo profondamente radicato nella biologia possa essere trasformato in un metodo universale per comprendere il mondo.
+
+Per comprendere la differenza tra inferenza induttiva diretta e inversa, consideriamo il classico esempio di un'urna contenente bussolotti di due colori: rosso e blu.
+
+
+
+## Inferenza da popolazioni finite
+
+Le popolazioni finite rappresentano il contesto più vicino all'intuizione comune. Si tratta di insiemi chiusi e completamente enumerabili di unità, come le persone registrate in un censimento o gli studenti iscritti a un corso. In questi casi, ogni elemento della popolazione può essere associato a una lista e il campione rappresenta una frazione precisa della popolazione. Questo contesto è tipico delle **statistiche ufficiali**, come quelle prodotte dall'ISTAT.
+
+Esempi concreti di domande a cui risponde l'inferenza da popolazioni finite includono:
+
+- **Censimenti**: Quanti cittadini vivono in Italia? Qual è il numero medio di componenti per nucleo familiare? Quanti studenti frequentano le scuole secondarie?
+- **Indagini campionarie**: Qual è il reddito medio delle famiglie italiane? Quale percentuale di famiglie ha accesso a Internet?
+- **Sondaggi elettorali**: Qual è la proporzione degli elettori intenzionati a votare per un certo partito politico?
+
+Queste analisi si basano su campioni estratti da una popolazione nota, che è completamente enumerata. Per esempio, nel caso di un'indagine ISTAT sul reddito medio, la popolazione di riferimento è il database delle famiglie italiane registrate. Il campione estratto può essere usato per stimare parametri come la media o la mediana del reddito, con metodi che tengono conto della numerosità finita della popolazione.
+
+
+## Inferenza da popolazioni infinite
+
+Quando la popolazione non è enumerabile o è concettualmente infinita, entriamo nel campo delle popolazioni infinite. Questo contesto è comune nelle applicazioni scientifiche, dove le osservazioni rappresentano un campione di una popolazione teoricamente infinita. Esempi tipici includono:
+
+- **Processi fisici e naturali**: Qual è la probabilità che il livello di un fiume superi una certa soglia durante la stagione delle piogge? Qual è la concentrazione media di un inquinante nell'aria in una data area?
+- **Processi industriali**: Qual è la proporzione di prodotti difettosi in una linea di produzione? Quanto dura mediamente un componente prima di rompersi?
+- **Eventi ripetibili**: Qual è la probabilità di ottenere testa lanciando una moneta? Qual è la frequenza con cui un cliente accede a un servizio online?
+
+In questi contesti, la popolazione non è un insieme fisicamente limitato, ma una rappresentazione teorica. Ad esempio, nel caso di una moneta, ogni lancio è considerato indipendente dagli altri, e la popolazione è rappresentata dalla distribuzione probabilistica dei possibili esiti.
+
+## Inferenza distribution-free e da modello
+
+Un'ulteriore distinzione riguarda il tipo di informazione disponibile sulla distribuzione dei dati:
+
+- Nell'inferenza **distribution-free**, ci si limita a inferire proprietà aggregate come la media o la varianza, senza assumere nulla sulla forma della distribuzione.
+- Nell'inferenza **da modello**, si ipotizza una distribuzione nota (ad esempio normale, binomiale o Poisson), a meno di alcuni parametri incogniti. Questo approccio permette non solo di stimare i parametri, ma anche di rispondere a domande più complesse.
+
+Esempi concreti di domande per questi contesti includono:
+
+- **Distribution-free**: Qual è la mediana del reddito? Qual è la varianza del tempo impiegato dai pendolari per raggiungere il lavoro?
+- **Da modello**: Qual è la probabilità che un semaforo abbia più di 10 auto in fila a mezzogiorno, sapendo che il numero di auto segue una distribuzione di Poisson? Qual è la probabilità che il livello dell'acqua in un fiume superi 150 cm, assumendo che sia distribuito normalmente?
+
+Nel caso di un modello, l'aggiunta di un'ipotesi probabilistica consente di rispondere non solo su parametri come media e varianza, ma sull'intera distribuzione del fenomeno.
+
+## Sintesi dei contesti
+
+Questa classificazione dei contesti di inferenza aiuta a chiarire il tipo di domande che lo statistico può affrontare. Mentre l'inferenza da popolazioni finite si concentra su contesti pratici e limitati, tipici delle statistiche ufficiali, l'inferenza da popolazioni infinite e da modelli probabilistici consente di affrontare problemi più astratti e complessi, con applicazioni che spaziano dalla scienza alla finanza.
+
+
+### Binomiale da urna con dimensione nota e estrazione senza reinserimento (popolazioni finite)
+Immaginiamo un'urna contenente \(N = 100\) bussolotti, di cui \(60\) rossi e \(40\) blu. Supponiamo di estrarre \(n = 10\) bussolotti **senza reinserimento**. Ogni estrazione dipende da quelle precedenti, perché il numero di bussolotti rimasti nell'urna cambia a ogni passo. 
+
+In questo caso, il numero di bussolotti rossi osservati segue una distribuzione ipergeometrica, ma per grandi \(N\) e piccoli \(n\), può essere ben approssimata da una **binomiale** con probabilità di successo. Questo modello è tipico delle **popolazioni finite**, dove il campionamento avviene da un insieme noto e completamente enumerabile. L'inferenza potrebbe riguardare proporzioni (\(\pi\)) o altre caratteristiche della composizione dell'urna.
+
+### Binomiale da urna con dimensione incognita (popolazioni infinite)
+Passiamo ora a un caso più astratto: un'urna di dimensione incognita che contiene bussolotti rossi e blu in proporzione \(\pi\). Supponiamo di estrarre \(n = 10\) bussolotti **con reinserimento**, cioè ogni estrazione è indipendente dalle altre e non altera la composizione dell'urna.
+
+In questo contesto, trattiamo l'urna come una popolazione teoricamente infinita, in cui ogni estrazione è un evento Bernoulliano con probabilità di successo \(\pi\). Il numero di bussolotti rossi osservati segue una distribuzione binomiale con parametri \(n\) e \(\pi\). Questo modello è tipico delle **popolazioni infinite**, dove l'inferenza si concentra su proporzioni e probabilità, senza fare riferimento a una numerosità finita.
+
+### Urna con palline numerate, in numero finito, con distribuzione incognita (popolazioni finite, inferenza distribution free)
+Immaginiamo un'urna contenente \(N = 100\) palline numerate con valori sconosciuti, ad esempio: \(x_1, x_2, \dots, x_{100}\). Estraiamo \(n = 10\) palline **senza reinserimento**, registrandone i valori numerici.
+
+Qui non facciamo alcuna ipotesi sulla distribuzione dei numeri nell'urna, ma possiamo comunque fare inferenza su alcune proprietà aggregate della popolazione, come la media \(\mu\), la mediana o la varianza \(\sigma^2\). Questo tipo di analisi è detto **distribution free**, perché non assume alcuna forma specifica per la distribuzione sottostante. È tipico delle **popolazioni finite**, dove l'obiettivo è spesso stimare parametri descrittivi senza vincoli modellistici.
+
+### Urna con infinite palline numerate negli interi, con distribuzione Poisson, legata a \(\lambda\) (popolazioni infinite, inferenza da modello)
+Immaginiamo un'urna teorica contenente un numero infinito di palline numerate con valori interi \(0, 1, 2, \dots\). La probabilità di estrarre una pallina con un dato numero \(k\) segue una distribuzione di Poisson con parametro \(\lambda\), che rappresenta la media (e varianza) del processo.
+
+Questo modello è usato per descrivere fenomeni come il numero di eventi in un intervallo di tempo o spazio. Supponiamo di osservare \(n = 10\) estrazioni indipendenti: possiamo fare inferenza sul parametro \(\lambda\), che caratterizza completamente la distribuzione. Qui entriamo nel campo delle **popolazioni infinite**, dove l'inferenza si basa su un modello probabilistico noto.
+
+### Urna con infinite palline nel reale, con distribuzione normale, legata a \(\mu, \sigma^2\) (popolazioni infinite, inferenza da modello)
+Infine, consideriamo un'urna teorica contenente un numero infinito di palline, ciascuna numerata con un valore reale. La probabilità di estrarre una pallina con un dato valore segue una distribuzione normale \(N(\mu, \sigma^2)\), dove \(\mu\) è la media e \(\sigma^2\) la varianza.
+
+In questo caso, ogni estrazione è un'osservazione continua indipendente dalla precedente. Supponiamo di osservare \(n = 30\) estrazioni: l'obiettivo è fare inferenza su \(\mu\) e \(\sigma^2\), i parametri che caratterizzano la distribuzione. Questo modello, legato alle **popolazioni infinite**, è fondamentale in molte applicazioni statistiche, perché permette di fare inferenze non solo sui parametri, ma anche su eventi futuri.
+
+Nel proseguire, ci concentreremo sull'inferenza da popolazioni infinite e da modelli probabilistici, che sono centrali per lo studio dell'economia e della scienza dei dati. Tuttavia, l'approccio sarà sempre lo stesso: estrarre il massimo di informazioni dai dati osservati, bilanciando rigore e comprensibilità.
+
+<!-- **Inferenza induttiva diretta** -->
+
+<!-- Immaginiamo che l'urna contenga una proporzione nota di bussolotti rossi e blu: il 60% sono rossi (\(\pi = 0.6\)) e il 40% blu (\(1 - \pi = 0.4\)). Supponiamo di estrarre 5 bussolotti a caso con reinserimento, cioè ogni estrazione è indipendente dalle altre. Possiamo calcolare la probabilità di ottenere un certo numero di bussolotti rossi su 5 estrazioni. Ad esempio: -->
+
+<!-- > Qual è la probabilità di ottenere esattamente 3 bussolotti rossi? -->
+
+<!-- Sappiamo che le estrazioni seguono una **distribuzione binomiale** con \(n = 5\) e \(\pi = 0.6\). La probabilità di osservare \(k = 3\) rossi è data da: -->
+
+<!-- \[ -->
+<!-- P(X = 3) = \binom{5}{3} \pi^3 (1-\pi)^2 = \frac{5!}{3!(5-3)!} (0.6)^3 (0.4)^2 -->
+<!-- \] -->
+
+<!-- Calcolando, otteniamo: -->
+
+<!-- \[ -->
+<!-- P(X = 3) = 10 \cdot (0.6)^3 \cdot (0.4)^2 = 10 \cdot 0.216 \cdot 0.16 = 0.3456 -->
+<!-- \] -->
+
+<!-- Quindi, la probabilità di ottenere esattamente 3 bussolotti rossi è \(P(X = 3) = 0.3456\). Questo è un esempio di **inferenza induttiva diretta**: partendo da un modello noto (la composizione dell'urna), possiamo calcolare la probabilità di osservare un dato risultato. -->
+
+<!-- **Inferenza induttiva inversa** -->
+
+<!-- Consideriamo ora il caso inverso: supponiamo di non conoscere la composizione dell'urna, ma di sapere che ogni estrazione segue una distribuzione Bernoulli identica e indipendente. Dopo 5 estrazioni, osserviamo il seguente risultato: -->
+
+<!-- \[ -->
+<!-- \text{Rosso, Rosso, Blu, Rosso, Blu} -->
+<!-- \] -->
+
+<!-- In totale, abbiamo 3 bussolotti rossi su 5 estrazioni. Ora la domanda è: -->
+
+<!-- > Qual è la proporzione di bussolotti rossi nell'urna (\(\pi\))? -->
+
+<!-- Questo è un esempio di **inferenza induttiva inversa**, o inferenza statistica. Non conosciamo il parametro \(\pi\) (la proporzione di rossi), ma possiamo stimarlo dai dati. Una prima stima naturale è la **frequenza relativa osservata**: -->
+
+<!-- \[ -->
+<!-- \hat{\pi} = \frac{\text{numero di rossi osservati}}{\text{numero totale di estrazioni}} = \frac{3}{5} = 0.6 -->
+<!-- \] -->
+
+<!-- Questa stima suggerisce che la proporzione di bussolotti rossi nell'urna potrebbe essere circa il 60%. Tuttavia, questa è solo una stima basata sul campione osservato e non possiamo essere certi che il parametro vero \(\pi\) sia esattamente \(0.6\). -->
+
+<!-- **Confronto tra i due approcci** -->
+
+<!-- La differenza tra i due tipi di inferenza è fondamentale: -->
+
+<!-- - **Induttiva diretta**: partiamo da un modello noto (\(\pi = 0.6\)) per calcolare la probabilità di osservare un certo risultato (\(X = 3\)). -->
+<!-- - **Induttiva inversa**: partiamo da un risultato osservato (\(X = 3\)) per stimare il parametro \(\pi\) che descrive la composizione dell'urna. -->
+
+<!-- Il primo approccio si basa su un modello già definito, mentre il secondo utilizza i dati per costruire o verificare il modello stesso. Questo secondo approccio, che è il cuore dell'inferenza statistica, ci consente di trarre conclusioni sulla popolazione a partire da campioni finiti. -->
+
+<!-- ## Inferenza deduttiva, induttiva diretta e indiretta -->
+
+<!-- La matematica è un processo di _inferenza deduttiva_: partendo da premesse accettate come vere, giunge a conclusioni logicamente inderogabili e univoche, con ogni conclusione già implicita nelle premesse. -->
+
+<!-- Se disponiamo di un'urna con composizione **nota**, _calcolare la probabilità_ di una certa composizione di  -->
+<!-- bussolotti è un processo di _inferenza induttiva diretta_.  In questo caso, pur non potendo predire con certezza l'esito di un singolo evento, possiamo valutare le probabilità relative a vari esiti. -->
+
+<!-- Con un'urna dalla composizione **incognita** e un insieme di dati estratti da essa, entriamo nel campo dell'**inferenza induttiva inversa** meglio nota come **inferenza statistica**. Qui, il nostro obiettivo è speculare sulla composizione totale dell'urna utilizzando le informazioni ottenute da una parte limitata di essa (il **campione**). -->
+
+<!-- ## Inferenza da Popolazioni finite, infinite, da modello e distribution free -->
+
+<!-- Se si conosce il numero di unità di cui è composta la popolazione ed è possibile scegliere il campione da una lista che consenta di sorteggiare il numero della lista, allora parliamo di inferenza da **popolazioni finite**. -->
+
+<!-- Se non si conosce il numero di unità di cui è composta la popolazione, allora parliamo di inferenza da **popolazioni infinite**. -->
+
+<!-- Se siamo interessati solo ad alcuni aspetti statistici della distribuzione della popolazione, come la sua media, la sua varianza, la mediana, ecc. allora si parla di __distribution free__. -->
+
+<!-- Se abbiamo un'ipotesi sulla distribuzione dei dati e possiamo adottare un __modello__ noto, a meno dei suoi parametri, allora parliamo di __inferenza da modello__. -->
+
+<!-- ::: example -->
+<!-- Il reddito medio annuo degli italiani ha una _distribuzione incognita_ $X_i\sim\mathcal{L}$, con -->
+<!-- valore atteso $E(X_i)=\mu$ e $V(X_i)=\sigma^2$. Estraiamo _senza reinserimento_ $n=100$ italiani a caso e osserviamo -->
+<!-- \[\bar x=25\text{mila €},\qquad \hat\sigma=5\text{mila €}\] -->
+
+<!--   - è come estrarre $n=100$ bussolotti da un'urna che contiene un numero **noto** di bussolotti ognuno numerato col reddito del singolo italiano. -->
+<!--   - Cosa possiamo dire su $\mu$ e $\sigma^2$? -->
+<!--   - **Inferenza da Popolazioni Finite**: conosco il numero di individui di cui è composta la popolazione $N$, posseggo la lista degli individui e campiono direttamente dalla lista. Sono interessato solo a $\mu$, $\sigma^2$ (_distribution free_) -->
+
+<!-- ::: -->
+
+<!-- ::: example -->
+<!-- Una moneta che **non** sappiamo se è bilanciata, dunque $X_i\sim\text{Ber}(\pi)$, dove $\pi$ è incognito: la lanciamo 10 volte e otteniamo -->
+<!-- \[T,T,T,C,C,T,T,T,C,T\] -->
+
+<!--   - è come aver estratto $n=10$ bussolotti da un'urna che contiene una quantità **incognita** di bussolotti $T$ e $C$ -->
+<!--   - Cosa possiamo dire su $\pi$? -->
+<!--   - **Inferenza da Popolazioni Infinite**: la popolazione dei lanci è chiaramente infinita, non ha senso parlare di lista. Le ripetizioni sono chiaramente IID, il modello Bernoulli è obbligato. -->
+
+<!-- ::: -->
+
+<!-- ::: example -->
+
+<!-- Il numero di automobili in fila alle 12 di un giorno lavorativo ad un dato semaforo è distribuito come una Poisson di parametro $\lambda$ **incognito**, osserviamo le auto in fila per 10 giorni feriali alle ore 12 e otteniamo -->
+<!-- \[5,10,3,6,6,7,4,7,9,3\] -->
+
+<!--   - è come aver estratto $n=10$ bussolotti da un'urna che contiene una quantità **incognita** di bussolotti numerati con numeri interi -->
+<!--   - Cosa possiamo dire su $\lambda$? -->
+<!--   - **Inferenza da modello su Popolazioni Infinite**: la popolazione dei giorni feriali è infinita, non ha senso parlare di lista, aggiungiamo un'informazione: _sappiamo che il modello è Poisson_ -->
+
+<!-- ::: -->
+
+<!-- ::: example -->
+
+<!-- Il livello dell'acqua $X$ di un fiume, il giorno $i$, è descritto bene da una normale di $X_i\sim N(\mu,\sigma^2)$. -->
+<!-- I parametri $\mu$ e $\sigma^2$ sono incogniti. Dopo $n=30$ giorni di osservazione abbiamo osservato -->
+<!-- \[\hat\mu=122\text{cm},\qquad \hat\sigma=11.3\text{cm}\] -->
+
+<!-- - Cosa possiamo dire su -->
+<!-- \[P(X_{n+1}>150)=?\] -->
+<!-- - **Inferenza da modello su Popolazioni Infinite**: la popolazione delle possibili misure del livello dell'acqua è infinita, non ha senso parlare di lista, aggiungiamo un'informazione: _sappiamo che il modello è Normale_, siamo interessati non solo ai parametri ma all'intera distribuzione. -->
+
+<!-- ::: -->
+
+
+## Statistica Classica
+
+In questo libro adotteremo il paradigma della **statistica classica**, un approccio che si fonda sull'idea che i dati osservati siano manifestazioni imperfette di una realtà ideale descritta da modelli probabilistici. Pur essendo un sostenitore della prospettiva bayesiana, mi concentrerò su questo approccio tradizionale per il suo valore didattico e per la sua centralità in molti contesti applicativi.
+
+Alla base della statistica classica vi è un'assunzione fondamentale: i parametri di un modello, come \(\mu\), \(\sigma^2\) o \(\lambda\), **esistono** in un senso ideale. Questi parametri non sono osservabili, ma rappresentano la struttura profonda e immutabile della popolazione. Ogni osservazione \(x_i\) e ogni statistica campionaria, come \(\bar{x}\) o \(s^2\), non sono altro che **ombre** di questa verità ideale, un'emanazione del parametro inosservabile \(\theta\). 
+
+La distinzione tra ciò che è ideale e ciò che è osservabile richiama direttamente la metafora platonica della caverna. I parametri, rappresentati da lettere greche, abitano l'**iperuranio**, il regno delle verità perfette e immutabili. In questo regno, esiste una media ideale, una varianza ideale, una probabilità ideale. I dati osservati e le statistiche campionarie, invece, sono come le **ombre proiettate sulle pareti della caverna**: imperfette, corrotte dalla variabilità del campionamento, ma comunque legate a quella verità profonda che tentiamo di comprendere.
+
+Ad esempio:
+
+- Una singola osservazione \(x_i\) è un'ombra della struttura imposta dal parametro \(\theta\), ma la sua forma concreta è influenzata dalla variabilità intrinseca del processo probabilistico.
+- La media campionaria \(\bar{x}\) è un'approssimazione imperfetta della media ideale \(\mu\), che abita l'iperuranio.
+- La frequenza relativa osservata \(m/n\) riflette solo parzialmente la probabilità ideale \(\pi\) in una distribuzione Bernoulli.
+
+Questo approccio funziona perfettamente come un **gioco mentale rigoroso**, a condizione che le assunzioni del modello siano rispettate. In particolare:
+
+1. Le forme distributive delle variabili casuali devono essere corrette. Se assumiamo che una variabile segua una distribuzione normale, tale ipotesi deve essere giustificata dai dati o dal contesto.
+2. I legami di dipendenza o indipendenza tra le osservazioni devono essere realistici. Ad esempio, l'assunzione che i dati siano indipendenti e identicamente distribuiti (IID) è cruciale in molti modelli, ma deve essere verificata.
+
+Queste assunzioni creano il legame tra il mondo ideale e quello osservato. Senza di esse, la connessione tra le ombre (\(x_i\) e le statistiche campionarie) e la verità (\(\theta\)) si spezza, e le inferenze statistiche rischiano di essere prive di fondamento.
+
+Ecco una revisione della chiosa, che sottolinea il carattere filosofico e potenzialmente contestabile di questa impostazione, in relazione alle radici empiriste della statistica:
+
+L'idea che \(\theta\) esista in un regno ideale, come verità perfetta e inosservabile, riflette una visione filosofica di derivazione platonica, che può sembrare in contrasto con le radici empiriste su cui si fonda la statistica moderna. La disciplina, infatti, nasce dalla necessità di descrivere e comprendere il mondo reale attraverso dati osservabili, più vicina all'approccio britannico della conoscenza basata sull'esperienza.
+
+Questa apparente tensione tra la ricerca della verità ideale e l'attenzione ai dati concreti non è priva di contraddizioni. La statistica classica si sviluppa su una sottile linea di compromesso: accetta l'esistenza di parametri teorici per costruire modelli potenti e rigorosi, ma dipende integralmente dalle osservazioni empiriche per avvicinarsi a quelle verità astratte. È un modello mentale che funziona all'interno delle sue assunzioni, ma che rimane soggetto a critica e revisione, specialmente quando queste assunzioni vengono meno.
+
+Nel nostro percorso, accetteremo questo approccio come base metodologica, riconoscendo che esso rappresenta un sistema coerente, anche se non l'unica via possibile per fare inferenza. L'idea di parametri perfetti che governano i dati può essere vista come un artificio concettuale, utile per l'analisi e la modellazione, ma non necessariamente una descrizione della realtà ultima. In questo senso, la statistica classica non è solo uno strumento matematico, ma anche un prodotto di una specifica eredità filosofica, che merita di essere compresa e, quando necessario, interrogata. 
