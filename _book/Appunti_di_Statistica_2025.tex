@@ -7622,6 +7622,8 @@ Ecco alcuni esempi concreti di indagini campionarie su popolazioni finite:
 \item
   \textbf{L'indagine EU-SILC (coordinata da Eurostat, realizzata in Italia da ISTAT)} fornisce informazioni su redditi, condizioni abitative, povertà e disuguaglianza. La popolazione è costituita dalle famiglie residenti nei paesi europei. In Italia, il campione supera le 20.000 famiglie, con interviste condotte annualmente e in parte replicate su base panel. I questionari sono armonizzati a livello europeo per consentire il confronto tra paesi.
 \item
+  \textbf{L'indagine PISA (OCSE)} valuta le competenze degli studenti quindicenni in lettura, matematica e scienze, con l'obiettivo di confrontare i sistemi educativi dei paesi partecipanti. La popolazione di riferimento è costituita dagli studenti iscritti al secondo ciclo dell'istruzione secondaria, indipendentemente dall'anno frequentato. In Italia, il campione coinvolge circa 11.000 studenti ogni tre anni, selezionati da un insieme rappresentativo di scuole. I questionari comprendono sia prove cognitive standardizzate sia sezioni dedicate al contesto scolastico, familiare e motivazionale, permettendo analisi multilivello sul rendimento e le disuguaglianze educative.
+\item
   \textbf{L'indagine PIAAC (OCSE)} valuta le competenze fondamentali degli adulti tra i 16 e i 65 anni, in particolare la capacità di comprendere testi, usare strumenti numerici e risolvere problemi. In Italia, la popolazione campionata è estratta dai registri anagrafici e comprende circa 5.000 individui. Le interviste includono sia un modulo socio-demografico sia prove individuali computerizzate, somministrate in centri di test.
 \item
   \textbf{L'indagine TALIS (OCSE)} raccoglie informazioni sulle condizioni di lavoro degli insegnanti e dei dirigenti scolastici, esplorando aspetti come la formazione, la soddisfazione professionale, le pratiche didattiche e il clima scolastico. La popolazione di riferimento è costituita dagli insegnanti delle scuole secondarie inferiori. Anche qui il campione è probabilistico e i questionari, somministrati in modo standardizzato, permettono confronti tra paesi.
@@ -7659,15 +7661,22 @@ Una volta accettato il quadro modellistico, si aprono due grandi strade a second
 
 \begin{itemize}
 \item
-  Nell'inferenza \textbf{non parametrica} (o \emph{distribution-free}), si assume solo che le osservazioni siano \textbf{i.i.d.} (indipendenti e identicamente distribuite), ma non si specifica la forma della distribuzione. L'obiettivo è stimare quantità come media, mediana o varianza con il minimo numero di ipotesi. È un approccio flessibile, adatto a situazioni esplorative o con pochi dati.
+  Nell'inferenza \textbf{non parametrica} (o \emph{distribution-free}), si assume solo che le osservazioni siano \textbf{IID} (indipendenti e identicamente distribuite), ma non si specifica la forma della distribuzione. L'obiettivo è stimare quantità come media, mediana o varianza con il minimo numero di ipotesi. È un approccio flessibile, adatto a situazioni esplorative o con pochi dati.
 \item
   Nell'inferenza \textbf{parametrica}, si ipotizza che i dati seguano una certa \textbf{famiglia di distribuzioni} (ad esempio normale, binomiale, esponenziale\ldots), a meno di pochi parametri ignoti. Questo approccio consente di ottenere inferenze più precise, stimare probabilità di eventi complessi e costruire modelli predittivi, a patto che l'ipotesi sul modello sia ragionevole.
 \end{itemize}
 
-Esempi realistici:
-- Un gestore del traffico può usare un \textbf{modello di Poisson} per stimare la probabilità che un incrocio abbia più di 10 auto in coda a mezzogiorno.
-- Un epidemiologo può usare un \textbf{modello binomiale} per stimare la probabilità che almeno 3 persone in un piccolo gruppo siano infette.
-- Un analista può stimare la \textbf{mediana del tempo di percorrenza} su una tratta, senza assumere nulla sulla forma della distribuzione: in questo caso si opera in ambito non parametrico.
+Per esempio:
+
+\begin{itemize}
+\tightlist
+\item
+  Un analista può stimare la \textbf{mediana del tempo di percorrenza} su una tratta, senza assumere nulla sulla forma della distribuzione: in questo caso si opera in ambito non parametrico.
+\item
+  Un gestore del traffico può usare un \textbf{modello di Poisson} per stimare la probabilità che un incrocio abbia più di 10 auto in coda a mezzogiorno.
+\item
+  Un epidemiologo può usare un \textbf{modello binomiale} per stimare la probabilità che almeno 3 persone in un piccolo gruppo siano infette.
+\end{itemize}
 
 L'adozione di un modello più o meno strutturato comporta sempre un \textbf{compromesso tra generalità e precisione}: meno ipotesi permettono maggiore robustezza, ma richiedono strumenti più cauti; più ipotesi rendono le conclusioni più forti, ma più sensibili a eventuali deviazioni dalla realtà.
 
@@ -7774,9 +7783,16 @@ Accanto alla statistica classica, esiste un altro approccio all'inferenza, fonda
 La statistica bayesiana si fonda su un principio semplice e potente: aggiornare le proprie convinzioni quando si osservano nuovi dati. Questo aggiornamento avviene attraverso il \textbf{teorema di Bayes}, che combina l'\textbf{informazione a priori} (la distribuzione di probabilità assegnata a \(\theta\) prima di osservare i dati) con l'\textbf{informazione contenuta nel campione} (attraverso la verosimiglianza) per ottenere una \textbf{distribuzione a posteriori} su \(\theta\), che rappresenta lo stato di conoscenza aggiornato.
 
 Da questo punto di vista, l'inferenza non è più una stima di qualcosa che esiste ``là fuori'', ma un processo di revisione coerente delle proprie credenze alla luce dell'evidenza. Questo rende l'approccio bayesiano particolarmente adatto in contesti in cui:
-- l'esperienza pregressa o la letteratura suggerisce una conoscenza parziale ma strutturata del fenomeno;
-- l'incertezza ha un ruolo centrale nella decisione (come nella teoria delle decisioni o nella valutazione dei rischi);
-- il numero di osservazioni è limitato, o l'inferenza richiede uno sforzo di integrazione tra fonti diverse.
+
+\begin{itemize}
+\tightlist
+\item
+  l'esperienza pregressa o la letteratura suggerisce una conoscenza parziale ma strutturata del fenomeno;
+\item
+  l'incertezza ha un ruolo centrale nella decisione (come nella teoria delle decisioni o nella valutazione dei rischi);
+\item
+  il numero di osservazioni è limitato, o l'inferenza richiede uno sforzo di integrazione tra fonti diverse.
+\end{itemize}
 
 L'impostazione bayesiana è concettualmente più vicina all'\textbf{empirismo epistemico} e ha trovato crescente applicazione grazie alla disponibilità di strumenti computazionali per approssimare le distribuzioni a posteriori (come i metodi Monte Carlo via Markov Chain). Tuttavia, essa richiede anche una maggiore responsabilità soggettiva da parte dell'analista, che deve esplicitare le proprie ipotesi a priori e accettare che l'inferenza dipenda, almeno in parte, da esse.
 
