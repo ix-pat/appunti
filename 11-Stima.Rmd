@@ -11,26 +11,55 @@ source("intro.R")
 
 # Elementi di Teoria della Stima
 
-Stimare, in statistica, significa scegliere un valore o un insieme dei parametri di popolazione
-alla luce di un campione. 
+Il problema della **stima** nasce quando si vuole assegnare un valore numerico a una quantità incognita, chiamata **parametro**, a partire da un insieme limitato di osservazioni. In statistica, questa operazione si fonda sull'idea che i dati provengano da un **meccanismo aleatorio** e che il parametro rappresenti una proprietà stabile della popolazione o del modello da cui i dati sono stati generati.
+
+Nel nostro contesto, un parametro può essere, ad esempio, la media \(\mu\), la varianza \(\sigma^2\), una proporzione \(\pi\), un tasso \(\lambda\), o più in generale un elemento \(\theta\) di uno spazio dei parametri \(\Theta\). La stima si basa sull'uso di un **campione**, ossia un insieme di dati osservati, che contiene informazione parziale sulla popolazione o sul modello.
+
+
 
 ## Campionamento
 
+Un campione casuale è un certo numero di $n$ di osservazioni prese a caso dalla popolazione $\mathscr{P}$. Nel quadro dell'inferenza statistica, il **campionamento** è il processo attraverso cui si seleziona un sottoinsieme di unità da una popolazione \(\mathscr{P}\), al fine di trarne informazioni utili. Il tipo di inferenza che si può condurre dipende in larga parte dal modo in cui è stato ottenuto il campione.
+
+### Campioni casuali
+
+La **casualità nella selezione** non è un espediente tecnico, ma un presupposto fondamentale per garantire che le conclusioni tratte dal campione siano generalizzabili alla popolazione. Solo un campione ottenuto in modo casuale consente di utilizzare il linguaggio probabilistico per quantificare l'incertezza delle stime. 
+
+In assenza di casualità, è difficile (o impossibile) distinguere ciò che è strutturale da ciò che è frutto di una selezione distorta. Le ipotesi matematiche, come l'indipendenza tra osservazioni o l'identica distribuzione, si fondano sull'idea che ogni unità della popolazione abbia avuto la stessa probabilità di essere inclusa, o comunque una probabilità nota e controllata.
+
+### Campionamento da popolazioni finite e note
+
+Quando la popolazione è **finita e nota**, il disegno di campionamento può essere esplicitamente definito e controllato. Questo è il caso tipico delle **statistiche ufficiali**, dove la popolazione di riferimento è costituita, ad esempio, da tutti i residenti, le famiglie, le imprese, gli studenti iscritti, ecc., elencati in una lista completa.
+
+In tali contesti, la selezione del campione non avviene semplicemente in modo casuale puro, ma attraverso un **piano di campionamento** (o **disegno**) strutturato, il cui obiettivo è garantire:
+
+- **buona rappresentatività**, anche su sottogruppi della popolazione;
+- **precisione accettabile** delle stime, cioè varianza bassa;
+- **contenimento del costo** e dell'ampiezza del campione \(n\).
+
+Per ottenere questi obiettivi, si ricorre a tecniche come il **campionamento stratificato**, il **campionamento a grappoli**, o il **campionamento multistadio**. In questi casi, la struttura stessa del disegno campionario influisce sul calcolo delle stime e sull'analisi dell'errore, ed è parte integrante del modello inferenziale.
 
 
-Un campione casuale è un certo numero di $n$ di osservazioni prese a caso dalla popolazione $\mathscr{P}$
+### Campionamento da un'urna con e senza reintroduzione
 
+Ogni meccanismo di generazione casuale può essere rappresentato da un opportuno **sistema d'urne**. La metafora dell'urna consente di astrarre la nozione di popolazione e di modellare sia fenomeni concreti sia schemi probabilistici più generali. 
 
-Un campione casuale è la migliore garanzia che abbiamo affinché la scelta dell'unità da rilevare non sia guidata da criteri che possano alterare i risultati.
+Un'urna può contenere elementi **in numero finito**, noti o ignoti, e l'estrazione può avvenire **con o senza reintroduzione**, modellando così diversi schemi di campionamento. Ma possiamo spingerci oltre: urne ideali possono rappresentare anche **meccanismi continui** (come una normale) o **conteggi** (come una Poisson), facendo dell'urna un **dispositivo concettuale** che cattura l'idea stessa di casualità controllata.
 
+In questa prospettiva:
 
-Alcune informazioni possono essere usate per suddividere la Popolazione di partenza in sottogruppi prima di estrarre campioni. La _Teoria Dei Campioni_ è quella disciplina della statistica che studia come costruire un campione che sia, al tempo stesso sufficientemente piccolo e sufficientemente rappresentativo.
+- le urne finite senza reintroduzione modellano il campionamento da **popolazioni finite note**, come nei censimenti o nelle statistiche ufficiali;
+- le urne con reintroduzione, eventualmente a composizione ignota, rappresentano **popolazioni concettualmente infinite**, come nei modelli Bernoulli o Poisson;
+- un'urna che genera numeri reali con legge normale o gamma rappresenta un **modello statistico continuo**, in cui ogni estrazione è una realizzazione di una variabile aleatoria.
 
+La potenza di questa rappresentazione sta nella sua **neutralità applicativa**: possiamo pensare a urne di oggetti fisici, ma anche a urne astratte che sintetizzano comportamenti, eventi, preferenze, misure. In ogni caso, descrivere bene l'urna equivale a **definire un modello statistico**.
 
-In questo corso guarderemo una sola forma di campionamento declinata in due modi
+Nel nostro percorso considereremo due situazioni fondamentali:
 
-  - Campionamento Casuale Semplice Senza reintroduzione (equivalente delle estrazioni SR)
-  - Campionamento Casuale Semplice Con reintroduzione (equivalente delle estrazioni CR)
+- Il **campionamento con reinserimento** (o con restituzione), dove ogni osservazione è estratta in modo indipendente dalla popolazione o dal modello.
+- Il **campionamento senza reinserimento**, dove le osservazioni non sono indipendenti e provengono da una popolazione finita di dimensione \( N \), da cui vengono estratti \( n \) elementi senza ripetizioni.
+
+Nel primo caso, \( X_1, ..., X_n \) sono **IID** (indipendenti e identicamente distribuite) e rappresentano il caso classico di inferenza da popolazioni infinite o da modelli. Nel secondo, si ha una struttura di **dipendenza debole** tra le unità campionarie, e l'inferenza deve tener conto della dimensione della popolazione e della frazione di campionamento \( n/N \).
 
 ### Lessico
 
@@ -45,81 +74,116 @@ Lo _Spazio dei Campioni_ $\mathcal{S}$ è il supporto della VC multipla $X_1,...
 
 ### Esempio al finito
 
-
 Si dispone di un'urna contente 4 bussolotti
 \[\{0,1,3,7\}\]
 
-Se estraiamo SR, lo spazio dei campioni è di dimensione $\#\mathcal{S}=4(\times 6)$ ed è descritto in tabella (\@ref(tab:csr)).
-Anziché tutti i 24 possibili campioni la tabella mostra solo i 4 campioni riordinati, perché il campione (0,1,3), ai nostri fini
-è identico al campione (3,1,0) e al campione (0,3,1), ecc.
+```{r 11-Stima-0,results="asis"}
+xp <- c(0,1,3,7)
+
+stat_(xp,semp = T)
+```
+
+
+Se estraiamo $n=2$ volte Senza Reinserimento, lo spazio dei campioni è di dimensione $\#\mathcal{S}=4\times 3$ ed è descritto in tabella (\@ref(tab:csr)).
 
 ```{r 11-Stima-1,results="asis"}
 xp <- c(0,1,3,7)
 
-camp <- combn(xp,3)
+camp <- combn(xp,2)
 
-dimnames(camp)[[1]]<- c("$x_{(1)}$","$x_{(2)}$","$x_{(3)}$")
-dimnames(camp)[[2]] <- paste("C.",1:ncol(camp))
-mu<-mean(xp) 
-sig<-mean(xp^2)-mean(xp)^2
-kable((camp),booktabs=T,escape=F,caption = "I 4 campioni riordinati nell'ipotesi di CCS SR",label = "csr") %>%
-column_spec (1:ncol(camp),border_left = F, border_right = T) 
+Coppia_sr <- function(x,y) ifelse(x==y,"-",paste0("(",x,",",y,")"))
+# two_way(xp,xp,c(1,1,1,1),c(1,1,1,1),Coppia_sr,EV = F)
+# togliere dal commento solo per generare la tabella qui sotto 
+
+
+# intestazioni di colonna
+header <- c(" ", "$0$ ; $\\color{blue}{1/3}$", "$1$ ; $\\color{blue}{1/3}$", 
+            "$3$ ; $\\color{blue}{1/3}$", "$7$ ; $\\color{blue}{1/3}$")
+
+# righe
+mat <- matrix(c(
+  "$0$ ; $\\color{blue}{1/4}$", "-", "$(0,1)$ ; $\\color{red}{1/12}$", "$(0,3)$ ; $\\color{red}{1/12}$", "$(0,7)$ ; $\\color{red}{1/12}$",
+  "$1$ ; $\\color{blue}{1/4}$", "$(1,0)$ ; $\\color{red}{1/12}$", "-", "$(1,3)$ ; $\\color{red}{1/12}$", "$(1,7)$ ; $\\color{red}{1/12}$",
+  "$3$ ; $\\color{blue}{1/4}$", "$(3,0)$ ; $\\color{red}{1/12}$", "$(3,1)$ ; $\\color{red}{1/12}$", "-", "$(3,7)$ ; $\\color{red}{1/12}$",
+  "$7$ ; $\\color{blue}{1/4}$", "$(7,0)$ ; $\\color{red}{1/12}$", "$(7,1)$ ; $\\color{red}{1/12}$", "$(7,3)$ ; $\\color{red}{1/12}$", "-"
+), ncol = 5, byrow = TRUE)
+
+colnames(mat) <- header
+
+kbl(mat, escape = FALSE, caption = "Campioni SR $n=2$",label = "csr") |>
+  kable_styling(full_width = FALSE, position = "center")
+
 ```
 
-Se invece estraiamo CR, lo spazio dei campioni è di dimensione $\#\mathcal{S}=64$ ed è descritto in tabella (\@ref(tab:ccr)).
+Se invece estraiamo CR, lo spazio dei campioni è di dimensione $\#\mathcal{S}=4^2=16$ ed è descritto in tabella (\@ref(tab:ccr)).
 
 ```{r 11-Stima-2,results="asis"}
 xp <- c(0,1,3,7)
-  
-xxx <- expand.grid(xp,xp,xp)
-xxx <- xxx[order(xxx[,1],xxx[,2],xxx[,3]),]
-xord <- t(apply(xxx,1,sort))[,3:1]
-cxord <- apply(xord,1,function(x)paste(x,collapse = ",") )
-# cxord <- apply(xord,1,function(x)paste(x,collapse = "") )
-nr <- tapply(rep(1,64),cxord,sum)
-pr <- nr/sum(nr)
-# 
 
-camp <- unique(xord)
+Coppia_cr <- function(x,y) paste0("(",x,",",y,")")
+# two_way(xp,xp,c(1,1,1,1),c(1,1,1,1),Coppia_cr,EV = F)
+# togliere dal commento solo per generare la tabella qui sotto 
 
-camp <- data.frame(camp)
-camp$nr <- factor(nr)
-camp$pr <- pr
-names(camp)<- c("$x_{(1)}$","$x_{(2)}$","$x_{(3)}$","$\\#$ c.","$P(C.)$")
-camp <- data.frame(t(camp))
-dimnames(camp)[[2]] <- paste("C.",1:ncol(camp))
-mu<-mean(xp) 
-sig<-mean(xp^2)-mean(xp)^2
-kable(t(camp),booktabs=T,escape=F,caption = "I 64 campioni riordinati estratti senza reinserimento.",label = "ccr") %>%
-row_spec (1:ncol(camp)) %>%
-#  column_spec(column = 4,background = "grey80",bold=F,col=iblue,align = 'c') %>%
-kable_styling(font_size = 8)
+
+# intestazioni
+header <- c(" ", 
+            "$0$ ; $\\color{blue}{1/4}$", 
+            "$1$ ; $\\color{blue}{1/4}$", 
+            "$3$ ; $\\color{blue}{1/4}$", 
+            "$7$ ; $\\color{blue}{1/4}$")
+
+# matrice dei valori
+mat <- matrix(c(
+  "$0$ ; $\\color{blue}{1/4}$", "$(0,0)$ ; $\\color{red}{1/16}$", "$(0,1)$ ; $\\color{red}{1/16}$", "$(0,3)$ ; $\\color{red}{1/16}$", "$(0,7)$ ; $\\color{red}{1/16}$",
+  "$1$ ; $\\color{blue}{1/4}$", "$(1,0)$ ; $\\color{red}{1/16}$", "$(1,1)$ ; $\\color{red}{1/16}$", "$(1,3)$ ; $\\color{red}{1/16}$", "$(1,7)$ ; $\\color{red}{1/16}$",
+  "$3$ ; $\\color{blue}{1/4}$", "$(3,0)$ ; $\\color{red}{1/16}$", "$(3,1)$ ; $\\color{red}{1/16}$", "$(3,3)$ ; $\\color{red}{1/16}$", "$(3,7)$ ; $\\color{red}{1/16}$",
+  "$7$ ; $\\color{blue}{1/4}$", "$(7,0)$ ; $\\color{red}{1/16}$", "$(7,1)$ ; $\\color{red}{1/16}$", "$(7,3)$ ; $\\color{red}{1/16}$", "$(7,7)$ ; $\\color{red}{1/16}$"
+), ncol = 5, byrow = TRUE)
+
+colnames(mat) <- header
+
+kbl(mat, escape = FALSE, caption = "Campionamento CR $n=2$",label="ccr") |>
+  kable_styling(full_width = FALSE, position = "center")
+
 ```
 
 
-### Lessico
+## Il Modello Statistico
+
+Un **modello statistico** descrive formalmente il processo che ha generato i dati osservati. È composto da due elementi principali:
+
+1. un **modello probabilistico**, che specifica la distribuzione delle osservazioni in funzione di uno o più parametri incogniti;
+2. un **piano di campionamento**, che determina le modalità con cui le osservazioni sono state ottenute dalla popolazione di riferimento.
+
+In queste pagine assumeremo sempre che le osservazioni \( X_1, ..., X_n \) siano **indipendenti e identicamente distribuite** (IID), ossia ottenute tramite **campionamento casuale semplice con reinserimento**. Questo tipo di campionamento è coerente con l'ipotesi che ogni unità del campione sia stata estratta in modo indipendente, e che tutte le unità della popolazione abbiano la stessa probabilità di essere selezionate.
+
+Nel nostro contesto, il modello probabilistico scriveremo con $X_1,..,X_n$, $n$ VC IID, replicazioni della stessa variabile $X\sim\mathscr{L}(\theta)$, $\theta\in\Theta$ 
+\[
+X_i \sim \mathscr{L}(\theta),\forall i=1,...,n \qquad \theta \in \Theta,
+\]
+dove \( \mathscr{L}(\theta) \) è una famiglia di distribuzioni parametrica e \( \theta \) è il parametro (o vettore di parametri) che descrive la popolazione e $\Theta$ lo spazio in cui $\theta$ è definito.
+
+Useremo le lettere greche per i parametri (incogniti) della popolazione e lettere latine per le osservazioni. 
 
 
-Siano $X_1,..,X_n$ $n$ VC IID, replicazioni della stessa variabile $X\sim\mathscr{L}(\theta)$, $\theta\in\Theta$
+### Esempi
 
-
-Lettere greche per i parametri (incogniti) della popolazione e lettere latine per le osservazioni. 
-
-
- - Bernoulli: $X_1,...,X_n$ VC IID, $X_i\sim \text{Ber}(\pi)$, $\theta\equiv\pi$, $\Theta\equiv[0,1]$.
- - Poisson: $X_1,...,X_n$ VC IID, $X_i\sim \text{Pois}(\lambda)$, $\theta\equiv\lambda$, $\Theta\equiv\mathbb{R}^+$
- - Normale: $X_1,...,X_n$ VC IID, $X_i\sim N(\mu,\sigma^2)$, $\theta\equiv(\mu,\sigma^2)$, $\Theta\equiv\mathbb{R}\times\mathbb{R}^+$
- - Generico: $X_1,..,X_n$ $n$ VC IID, replicazioni della stessa variabile $X\sim\mathscr{L}(\theta)$, $\theta\in\Theta$
-
+- \( X_i \sim \text{Ber}(\pi) \), con \( \pi \in [0,1] \): modello per variabili dicotomiche, adatto per rappresentare esiti binari (successo/insuccesso). In questo caso $\theta\equiv\pi$ e $\Theta\equiv [0,1]$.
+- \( X_i \sim \text{Pois}(\lambda) \), con \( \lambda \in \mathbb{R}^+ \): modello per conteggi, adatto a descrivere eventi rari su un intervallo fissato. In questo caso $\theta\equiv\lambda$ e $\Theta\equiv \mathbb{R}^+$.
+- \( X_i \sim N(\mu, \sigma^2) \), con \( \mu \in \mathbb{R}, \sigma^2 \in \mathbb{R}^+ \): modello per variabili continue, con distribuzione simmetrica e forma a campana. In questo caso $\theta\equiv(\mu,\sigma^2)$ e $\Theta\equiv \mathbb{R}\times\mathbb{R}^+$.
+- \( X_i \sim \mathscr{L}(\theta) \): notazione generica per una famiglia distribuzionale qualsiasi, dove \( \theta \in \Theta \) rappresenta i parametri che vogliamo stimare.
 
 Nel _paradigma classico_ la probabilità si assegna alle $X_i$, in quanto risultato di un sorteggio casuale
 \[P(X_1,...,X_n;\theta)\]
 
-
 Ma non è consentito trattare con lo strumento della probabilità l'incertezza sul parametro $\theta$ che governa la popolazione. Perché $\theta$ è incognito ma non è il frutto di una selezione casuale.
 
-
 Nel _paradigma Bayesiano_ l'incertezza sul parametro viene trattata con gli stessi strumenti dell'incertezza sui dati, dando vita ad un teoria coerente e molto utile per alcune applicazioni particolari.
+
+### Scopo del modello
+
+L'obiettivo dell'inferenza statistica è trarre conclusioni sul parametro \(\theta\), sulla base del campione osservato \( \mathbf{x} = (x_1, ..., x_n) \). Lo stesso campione può essere interpretato in modo diverso a seconda del modello adottato: per questo, esplicitare il modello è sempre il primo passo di un'analisi statistica.
+Perfetto, possiamo riformulare e ampliare il paragrafo sul campionamento, tenendo conto della necessità di collegarlo bene al discorso sull'inferenza e sul modello statistico. Ti propongo una bozza con tono sobrio e coerente con il resto del libro:
 
 ## Gli stimatori
 
@@ -127,57 +191,57 @@ _Stimare_, in statistica, significa scegliere un punto (stima puntuale) o una re
 
 :::: {.info data-latex=""}
 ::: {.definiton}
-Uno **stimatore** puntuale (point estimator) è una statistica $h$ che trasforma il campione $X_1,...,X_n$ in un punto dello spazio dei parametri:
-\[h:\mathcal{S}\to\Theta\]
+Uno **stimatore** puntuale (point estimator) è una statistica $\hat\theta$ che trasforma il campione $X_1,...,X_n$ in un punto dello spazio dei parametri:
+\[\hat\theta:\mathcal{S}\to\Theta\]
 :::
 ::::
 
-Il campione $X_1,...,X_n$ casuale viene trasformato attraverso $h$ in un punto specifico di $\Theta$
-\[h(X_1,...,X_n)=\hat\theta\in\Theta\]
+Il campione $X_1,...,X_n$ casuale viene trasformato attraverso $\hat\theta$ in un punto specifico di $\Theta$
+\[\hat\theta(X_1,...,X_n)=\hat\theta\in\Theta\]
 
 Uno **stimatore** è una variabile casuale in quanto funzione di valori casuali.
 
 :::: {.example}
 Da una popolazione che ha $E(X_i)=\mu$ incognita, potremmo proporre di _stimare_ $\mu$ con la media dei dati che _otterremo_:
-\[h(X_1,...,X_n)=\frac 1 n \sum_{i=1}^n X_i=\bar X=\hat \mu\]
+\[\hat\mu(X_1,...,X_n)=\frac 1 n \sum_{i=1}^n X_i=\bar X=\hat \mu\]
 ::::
 
 :::: {.example} 
 Da una popolazione di Poisson che ha $X_i\sim\text{Poiss}(\lambda)$, $\lambda$ incognita, potremmo proporre di _stimare_ $\lambda$ con la mediana dei dati che _otterremo_:
-\[h(X_1,...,X_n)=X_{0,5}=\hat\lambda\]
+\[\hat\lambda(X_1,...,X_n)=X_{0,5}=\hat\lambda\]
 ::::
 
 ### Stimatori e Stime
 
 ::: {.nota data-latex=""}
-- Uno **Stimatore**: $h(X_1,...,X_n)$ è funzione di $X_1,...,X_n$ è una **VC**
-- Una **Stima**: $h(x_1,...,x_n)$ è funzione di $x_1,...,x_n$ e dunque è un **numero**
+- Uno **Stimatore**: $\hat\theta(X_1,...,X_n)$ è funzione di $X_1,...,X_n$ è una **VC**
+- Una **Stima**: $\hat\theta(x_1,...,x_n)$ è funzione di $x_1,...,x_n$ e dunque è un **numero**
 :::
 
 :::: {.example}
 Da una popolazione che ha $E(X_i)=\mu$ incognita, potremmo proporre di _stimare_ $\mu$ con la media dei dati che _otterremo_:
-\[h(X_1,...,X_n)=\frac 1 n \sum_{i=1}^n X_i=\hat \mu\]
+\[\hat \mu(X_1,...,X_n)=\frac 1 n \sum_{i=1}^n X_i=\hat \mu\]
 
 Estraiamo $n=5$ individui dalla popolazione $x_1=2.1$, $x_2=2.4$, $x_3=3.2$, $x_4=1.7$, $x_5=3.0$,  
 ```{r 11-Stima-7}
 xs <- c(2.1,2.4,3.2,7.1,3.0)
 ```
 
-Per ottenere $\hat\mu$ la stima di $\mu$ applichiamo $h$ ai dati e otteniamo
-\[\hat\mu = \frac 1 5\sum_{i=1}^5x_i=\frac 1 5 `r sum(xs)`=`r mean(xs)`\]
+Per ottenere $\hat\mu$ la stima di $\mu$ applichiamo $\hat\theta$ ai dati e otteniamo
+\[\hat\mu(2.1,2.4,3.2,7.1,3.0) = \frac 1 5\sum_{i=1}^5x_i=\frac 1 5 `r sum(xs)`=`r mean(xs)`\]
 ::::
 
 :::: {.example} 
 Da una popolazione di Poisson che ha $X_i\sim\text{Poiss}(\lambda)$, $\lambda$ incognita, potremmo proporre di _stimare_ $\lambda$ con la mediana dei dati che _otterremo_:
-\[h(X_1,...,X_n)=X_{0,5}=\hat\lambda\]
+\[\hat\lambda(X_1,...,X_n)=X_{0,5}=\hat\lambda\]
 
 
-Osserviamo $n=5$ valori (già riordinati)<br/> 
+Osserviamo $n=7$ valori (già riordinati)<br/> 
 $x_{(1)}=0$, $x_{(2)}=0$, $x_{(3)}=2$, $x_{(4)}=2$, $x_{(5)}=3$, $x_{(6)}=4$, $x_{(7)}=7$,    
 
 
-Per ottenere $\hat\lambda$ la stima di $\lambda$ applichiamo $h$ ai dati e otteniamo
-\[\hat\lambda = x_{0.5}=x_{(4)}=2\]
+Per ottenere $\hat\lambda$ la stima di $\lambda$ applichiamo $\hat\theta$ ai dati e otteniamo
+\[\hat\lambda(x_1,...,x_7) = x_{0.5}=x_{(4)}=2\]
 ::::
 
 ### Come scegliere uno stimatore
@@ -198,43 +262,43 @@ Le proprietà auspicabili per uno stimatore sono di due tipi
 
 :::: {.info data-latex=""}
 ::: {.definition name="Correttezza di uno stimatore"}
-Siano $X_1,...,X_n$, $n$ VC, IID, replicazioni della stessa $X\sim\mathscr{L}(\theta)$, sia $h$ uno stimatore per $\theta$.
-Lo stimatore $h$ si dice **corretto** se
-\[E(h(X_1,...,X_n))=E(h)=\theta\]
+Siano $X_1,...,X_n$, $n$ VC, IID, replicazioni della stessa $X\sim\mathscr{L}(\theta)$, sia $\hat\theta$ uno stimatore per $\theta$.
+Lo stimatore $\hat\theta$ si dice **corretto** se
+\[E(\hat\theta(X_1,...,X_n))=E(\hat\theta)=\theta\]
 :::
 ::::
 
 :::: {.info data-latex=""}
 ::: {.definition name="Mean Squared Error di uno stimatore"}
 Si definisce **Errore Quadratico Medio** (_Mean Squared Error_) la quantità
-\[MSE(h)=E((h-\theta)^2)=V(h)+B^2(h)\]
+\[MSE(\hat\theta)=E((\hat\theta-\theta)^2)=V(\hat\theta)+B^2(\hat\theta)\]
 dove
-\[B(h)=|E(h)-\theta|\]
+\[B(\hat\theta)=|E(\hat\theta)-\theta|\]
 :::
 ::::
 
 :::: {.nota}
-se $h$ è corretto allora
-\[MSE(h)=V(h)\]
+se $\hat\theta$ è corretto allora
+\[MSE(\hat\theta)=V(\hat\theta)\]
 ::::
 
 :::: {.info data-latex=""}
 ::: {.definition name="Efficienza di uno stimatore"}
-Siano $h_1$ e $h_2$ due stimatori per $\theta$, si dice che $h_1$ è **più efficiente** di $h_2$ se e solo se
-\[MSE(h_1)<MSE(h_2)\]
+Siano $\hat\theta_1$ e $\hat\theta_2$ due stimatori per $\theta$, si dice che $\hat\theta_1$ è **più efficiente** di $\hat\theta_2$ se e solo se
+\[MSE(\hat\theta_1)<MSE(\hat\theta_2)\]
 :::
 ::::
 
 :::: {.nota data-latex=""}
-Se $h_1$ e $h_2$ sono entrambi corretti, allora, $h_1$ è **più efficiente** di $h_2$ se e solo se
-\[V(h_1)<V(h_2)\]
+Se $\hat\theta_1$ e $\hat\theta_2$ sono entrambi corretti, allora, $\hat\theta_1$ è **più efficiente** di $\hat\theta_2$ se e solo se
+\[V(\hat\theta_1)<V(\hat\theta_2)\]
 
 L'**errore** di uno stimatore è l'_inverso_ della sua **precisione**.
 ::::
 
 ### Media aritmetica e varianza campionaria caso IID
 
-Siano $X_1,...,X_n$, $n$ VC, IID, replicazioni della stessa $X$ tale che $E(X)=\mu$ e $V(X)=\sigma^2$, sia $h\equiv\hat \mu$ uno stimatore per $\mu$
+Siano $X_1,...,X_n$, $n$ VC, IID, replicazioni della stessa $X$ tale che $E(X)=\mu$ e $V(X)=\sigma^2$, sia $\hat\theta\equiv\hat \mu$ uno stimatore per $\mu$
 \[
 \hat \mu=\bar X=\frac 1 n \sum_{i=1}^n X_i
 \]
@@ -263,7 +327,7 @@ E(\hat \sigma^2)=\frac {n-1}n \sigma^2<\sigma^2
 
 ### Media aritmetica campionamento SR (popolazioni finite)
 
-Siano $X_1,...,X_n$, $n$ VC, osservazioni estratte SR da una popolazione $X$ di $N$ individui, tale che $E(X)=\mu$ e $V(X)=\sigma^2$, sia $h\equiv\hat \mu$ uno stimatore per $\mu$
+Siano $X_1,...,X_n$, $n$ VC, osservazioni estratte SR da una popolazione $X$ di $N$ individui, tale che $E(X)=\mu$ e $V(X)=\sigma^2$, sia $\hat\theta\equiv\hat \mu$ uno stimatore per $\mu$
 \[
 \hat \mu=\frac 1 n \sum_{i=1}^n X_i
 \]
@@ -287,249 +351,182 @@ dove $\frac{N-n}{N-1}$ è chiamato _coefficiente di correzione per popolazioni f
 Osserviamo che più alto è $n$ più il coefficiente tende ad 1.
 Se $n = N$ il coefficiente diventa zero il campione è diventato l'intera popolazione  e 
 l'incertezza sulla media è zero.
-  
-### Esempi
 
-:::: {.example name="Popolazione finita, estrazioni SR (Stima)"}
+### Esempio al finito
 
-```{r 11-Stima-3,results="asis"}
-xp <- c(0,1,3,7)
-
-camp <- combn(xp,3)
-
-dimnames(camp)[[1]]<- c("$x_1$","$x_2$","$x_2$")
-dimnames(camp)[[2]] <- paste("C.",1:ncol(camp))
-mu<-mean(xp) 
-sig2<-mean(xp^2)-mean(xp)^2
-# kable((camp)) %>%
-# column_spec (1:ncol(camp),border_left = F, border_right = T) %>%
-# kable_styling()
-
-
-```
-
-
-Si dispone di un'urna contente 4 bussolotti
+Riprendiamo il nostro esempio al finito con una popolazione di $N=4$
 \[\{0,1,3,7\}\]
 
-È immediato calcolare
-\[\mu=`r mu`, \qquad \sigma^2=`r sig2` \]
-
-Proponiamo due stime diverse di $\mu$
-\begin{eqnarray*}
-h_1 &=& \frac 1 3 \sum_{i=1}^3 x_i\\
-h_2 &=& x_{0.5}
-\end{eqnarray*}
-
-Se estraiamo SR, $\#\mathcal{S}=4(\times 6)$, lo spazio dei campioni è
-
-```{r stima-sr,results="asis"}
+```{r 11-Stima-01,results="asis"}
 xp <- c(0,1,3,7)
 
-camp <- combn(xp,3)
-h1 <- apply(camp,2,mean)
-h2 <- apply(camp,2,median)
-camp <- rbind(camp,h1,h2)+.000001
-dimnames(camp)[[1]]<- c("$x_{(1)}$","$x_{(2)}$","$x_{(3)}$","$h_1$","$h_2$")
-dimnames(camp)[[2]] <- paste("C.",1:ncol(camp))
-mu<-mean(xp) 
-sig2<-mean(xp^2)-mean(xp)^2
- kable((camp),booktabs=T,escape=F,caption = "Media e mediana dei campioni") %>%
- row_spec(row = 4:5,hline_after = T,bold=F,col=iblue) %>%
- column_spec (1:ncol(camp),border_left = F, border_right = T) %>%
-  kable_styling(latex_options = "hold_position",font_size = 8)
-
+stat_(xp,semp = T)
 ```
 
 
-In tabella \@ref(tab:stima-sr) la $h_1$ e $h_2$ associati ad ogni campione. Avremo che
-Otteniamo:
-\[E(h_1)=\frac 1{4}(`r camp[4,1]`+`r camp[4,2]`+`r camp[4,3]`+`r camp[4,4]`)=`r mean(camp[4,])`=\mu\]
-$h_1$ è **corretto** 
-mentre
-\[E(h_2)=\frac 1{4}(`r camp[5,1]`+`r camp[5,2]`+`r camp[5,3]`+`r camp[5,4]`)=`r mean(camp[5,])`\neq\mu\]
-non lo è.
-::::
+Se estraiamo $n=2$ volte Senza Reinserimento, lo spazio dei campioni è di dimensione $\#\mathcal{S}=4\times 3$ ed è descritto in tabella (\@ref(tab:csr)). Qui scegliamo
 
+$$
+\hat\mu = \frac{1}{2}(X_1+X_2)
+$$
 
-:::: {.example name="Popolazione finita, estrazioni SR (Efficienza)"}
-Ricordiamo che l'**Errore Quadratico Medio** (_Mean Squared Error_) per $\mu$ è
-\[MSE(h)=E((h-\mu)^2)=V(h)+B^2(h)\]
-dove
-\[B(h)=|E(h)-\mu|\]
+In tabella (\@ref(tab:csr-media)) la distribuzione della VC media aritmetica campionaria.
 
-Osserviamo la precisione di $h_1$:
-\[MSE(h_1)=\frac 1{4}\left((`r camp[4,1]`-`r mu`)^2+(`r camp[4,2]`-`r mu`)^2+(`r camp[4,3]`-`r mu`)^2+(`r camp[4,4]`-`r mu`)^2\right)=`r mean(camp[4,]^2)-mu^2`\]
+```{r 11-Stima-71,results="asis"}
+xp <- c(0, 1, 3, 7)
+#stat_(apply(combn(xp,2),2,mean),semp = T)
+x_mean <- apply(combn(xp,2),2,mean)
 
-Osserviamo la precisione di $h_2$:
-\[MSE(h_2)=\frac 1{4}((`r camp[5,1]`-`r mu`)^2+(`r camp[5,2]`-`r mu`)^2+(`r camp[5,3]`-`r mu`)^2+(`r camp[5,4]`-`r mu`)^2)=`r mean((camp[5,]-mu)^2)`\]
+# intestazioni di colonna
+header <- c(" ", 
+            "$0$ ; $\\color{blue}{1/3}$", 
+            "$1$ ; $\\color{blue}{1/3}$", 
+            "$3$ ; $\\color{blue}{1/3}$", 
+            "$7$ ; $\\color{blue}{1/3}$")
 
-E quindi essendo $MSE(h_1)=`r mean(camp[4,]^2)-mu^2`<`r mean(camp[5,]^2)-mean(camp[5,])^2 + (mean(camp[5,])-mu)^2`=MSE(h_2)$, e dunque $h_1$ è _più efficiente_ di $h_2$.
- 
-:::: {.nota data-latex=""}
-\[V(h_1)=V(\hat \mu)=\frac{N-n}{N-1}\frac{\sigma^2}{n}=\frac{4-3}{4-1}\frac{`r sig2`}{3}\]
-::::
-::::
+# funzione per costruire la cella: "-" sulla diagonale, altrimenti media
+Cella_sr_media <- function(x, y) {
+  if (x == y) {
+    return("-")
+  } else {
+    media <- (x + y) / 2
+    return(paste0("$", media, "$ ; $\\color{red}{1/12}$"))
+  }
+}
 
-:::: {.example name="Popolazione finita, estrazioni SR (Stima della Varianza)"}
-Proponiamo la varianza campionaria $\hat\sigma^2$ per stimare $\sigma^2=`r sig2`$
-\[\hat\sigma^2=\frac 1 3\sum_{i=1}^3(x_i-\hat \mu)^2\]
+# costruzione della matrice
+righe <- lapply(xp, function(r) {
+  c(paste0("$", r, "$ ; $\\color{blue}{1/4}$"), sapply(xp, function(c) Cella_sr_media(r, c)))
+})
 
+mat <- do.call(rbind, righe)
+colnames(mat) <- header
 
-```{r var-sr,results="asis"}
-xp <- c(0,1,3,7)
-
-camp <- combn(xp,3)
-hv <- apply(camp,2,vvv)
-camp <- rbind(camp,hv)
-dimnames(camp)[[1]]<- c("$x_{(1)}$","$x_{(2)}$","$x_{(3)}$","$\\hat\\sigma^2$")
-dimnames(camp)[[2]] <- paste("C.",1:ncol(camp))
-mu<-mean(xp) 
-sig2<-mean(xp^2)-mean(xp)^2
- kable((camp),booktabs=T,escape=F,caption = "Varianza dei campioni SR di ampiezza $n=3$") %>%
- row_spec(row = 4,hline_after = T,bold=F,col=iblue) %>%
- column_spec (1:ncol(camp),border_left = F, border_right = T)%>%
-  kableExtra::kable_styling(font_size = 8,latex_options = "hold_position")
-
-
+# generazione tabella
+kbl(mat, escape = FALSE, caption = "Valori medi dei campioni SR senza reinserimento di due elementi", label = "csr-media") |>
+  kable_styling(full_width = FALSE, position = "center")
 ```
 
+Ricaviamo la distribuzione di $\hat\mu$
 
-In tabella \@ref(tab:var-sr) la varianza associata ad ogni campione. Avremo che
-\[E(\hat\sigma^2)=\frac 1 4 (`r hv[1]`+`r hv[2]`+`r hv[3]`+`r hv[4]`)=`r mean(hv)`\]
+$$
+\begin{array}{r|rrrrrr}
+\hat\mu& 0.5 & 1.5 & 2 & 3.5 & 4 & 5 \\
+\hline
+P(\hat\mu) & \frac{2}{12} & \frac{2}{12} & \frac{2}{12} & \frac{2}{12} & \frac{2}{12} & \frac{2}{12} \\
+\end{array}
+$$
 
-:::: {.nota data-latex=""}
-$E(\hat\sigma^2)=`r mean(hv)`<`r sig2`=\sigma^2$, $\hat\sigma^2$ è distorto e, in media, sottostima la vera $\sigma^2$
-::::
-::::
+il suo valore atteso
 
-:::: {.example name="Popolazione finita, estrazioni CR (Stima)"}
-Se estraiamo CR, $\#\mathcal{S}=64$ lo spazio dei campioni è
-```{r stima-cr,results="asis"}
-xp <- c(0,1,3,7)
-  
-xxx <- expand.grid(xp,xp,xp)
-xxx <- xxx[order(xxx[,1],xxx[,2],xxx[,3]),]
-xord <- t(apply(xxx,1,sort))
-cxord <- apply(xord,1,function(x)paste(x,collapse = ",") )
-pr <- tapply(rep(1,64),cxord,sum)
-pr <- pr/sum(pr)
-# 
+$$
+E(\hat\mu) = \frac{2}{12} \cdot (0.5 + 1.5 + 2 + 3.5 + 4 + 5) = \frac{16.5}{6} = 2.75 = \mu
+$$
 
-xxm <- apply(xxx, 1, mean)
+lo stimatore è corretto. Ricaviamo il suo MSE
 
-
-camp <- unique(xord)
-
-camp <- cbind(camp,pr)
-h1 <- apply(camp[,1:3], 1, mean)
-h2 <- apply(camp[,1:3], 1, median)
-
-eh1 <- sum(pr*h1)
-eh2 <- sum(pr*h2)
-mse1 <- sum(pr*(h1-mu)^2)
-mse2 <- sum(pr*(h2-mu)^2)
-
-camp <- data.frame(unique(cxord),pr,h1,h2)
-names(camp)<- c("Camp.","$P(C.)$","$h_1$","$h_2$")
-#camp <- t(camp)
-dimnames(camp)[[1]] <- paste("C.",1:nrow(camp))
-mu<-mean(xp) 
-sig<-mean(xp^2)-mean(xp)^2
-kable((camp),booktabs=T,escape=F,caption = "Media e dediana dei campioni e probabilità associate") %>%
-#column_spec (1:ncol(camp),border_left = F, border_right = T) %>%
-  kableExtra::kable_styling(font_size = 8,latex_options = "hold_position")
-
-
-```
-
-:::: {.att data-latex=""}
-**Attenzione** i campioni qui non hanno tutti la stessa probabilità, in tabella \@ref(tab:stima-cr) i campioni, le loro probabilità e le corrispettive varianze. Otterremo:
-\[E(h)=h_\text{Camp. 1}P(\text{Camp. 1})+...+h_\text{Camp. 20}P(\text{Camp. 20})\]
-
-E dunque:
 \begin{eqnarray*}
-  E(h_1)  &=& `r h1[1]`\times`r pr[1]`+`r h1[2]`\times`r pr[2]`+...+`r h1[20]`\times`r pr[20]` = `r eh1`=\mu\\
-  E(h_2)  &=& `r h2[1]`\times`r pr[1]`+`r h2[2]`\times`r pr[2]`+...+`r h2[20]`\times`r pr[20]` = `r eh2`\neq\mu
-\end{eqnarray*}
-::::
-
-Anche nel CCS CR $h_1$ è corretto per $\mu$ e $h_2$ **non** è corretto per $\mu$
-::::
-
-:::: {.example name="Popolazione finita, estrazioni CR (Efficienza)"}
-Mentre l'errore
-\[MSE(h)=(h_\text{Camp. 1}-\mu)^2P(\text{Camp. 1})+...+(h_\text{Camp. 20}-\mu)^2P(\text{Camp. 20})\]
-
-
-E dunque
-\begin{eqnarray*}
-  MSE(h_1) &=& (`r h1[1]`-`r mu`)^2\times`r pr[1]`+(`r h1[2]`-`r mu`)^2\times`r pr[2]`+...+
-    (`r h1[20]`-`r mu`)^2\times`r pr[20]`=`r mse1`\\
-  MSE(h_2) &=& (`r h2[1]`-`r mu`)^2\times`r pr[1]`+(`r h2[2]`-`r mu`)^2\times`r pr[2]`+...+
-    (`r h2[20]`-`r mu`)^2\times`r pr[20]`=`r mse2`
+MSE(\hat\mu) &=& V(\hat\mu) + B^2(\hat\mu) \\
+             &=& V(\hat\mu) \qquad \text{in virtù della correttezza} \\
+             &=& \left(  0.5  ^2\frac { 1 }{ 6 }+ 1.5  ^2\frac { 1 }{ 6 }+ 2  ^2\frac { 1 }{ 6 }+ \right.\\
+             & & \left. + 3.5  ^2\frac { 1 }{ 6 }+ 4  ^2\frac { 1 }{ 6 }+ 5  ^2\frac { 1 }{ 6 } \right)-( 2.75 )^2\\
+             &=& `r s2c(x_mean)`\\
+             &=& \frac{4-2}{4-1}\frac{`r p(s2c(xp))`}{2}\\
+             &=& \frac{N-n}{N-1}\frac{\sigma^2} n
 \end{eqnarray*}
 
 
-Anche in questo caso, l'errore medio quadratico di $h_1$ è minore di quello di $h_2$, e quindi $h_1$ è più efficiente di $h_2$ ovvero più _preciso_.
+Se estraiamo $n=2$ volte **con reinserimento**, lo spazio dei campioni è di dimensione $\#\mathcal{S} = 4 \times 4$ ed è descritto in tabella (\@ref(tab:ccr)). Anche qui scegliamo:
 
-:::: {.nota data-latex=""}
-come definito dalla teoria abbiamo
-\[MSE(h_1)=MSE(\hat \mu)=V(\hat \mu)=\frac{\sigma^2}n=\frac{`r sig2`}{3}=`r mse1`\]
-::::
-::::
+$$
+\hat\mu = \frac{1}{2}(X_1 + X_2)
+$$
 
-:::: {.example name="Popolazione finita, estrazioni CR (Efficienza)"}
+In tabella qui sotto è riportata la distribuzione della variabile casuale media aritmetica campionaria.
 
-Proponiamo la varianza campionaria $\hat\sigma^2$ per stimare $\sigma^2=`r sig2`$
-\[\hat\sigma^2=\frac 1 3\sum_{i=1}^3(x_i-\hat \mu)^2\]
+$$
+\begin{array}{ r|rrrrrrrr }
+& 0 ;&\color{blue}{ \frac{ 1 } { 4 }} & 1 ;&\color{blue}{ \frac{ 1 } { 4 }} & 3 ;&\color{blue}{ \frac{ 1 } { 4 }} & 7 ;&\color{blue}{ \frac{ 1 } { 4 }} \\ 
+\hline 
+0 ;\color{blue}{ 1 / 4 }& 0;&\color{red}{\frac{1}{16}}& 0.5;&\color{red}{\frac{1}{16}}& 1.5;&\color{red}{\frac{1}{16}}& 3.5;&\color{red}{\frac{1}{16}}\\ 
+1 ;\color{blue}{ 1 / 4 }& 0.5;&\color{red}{\frac{1}{16}}& 1;&\color{red}{\frac{1}{16}}& 2;&\color{red}{\frac{1}{16}}& 4;&\color{red}{\frac{1}{16}}\\ 
+3 ;\color{blue}{ 1 / 4 }& 1.5;&\color{red}{\frac{1}{16}}& 2;&\color{red}{\frac{1}{16}}& 3;&\color{red}{\frac{1}{16}}& 5;&\color{red}{\frac{1}{16}}\\ 
+7 ;\color{blue}{ 1 / 4 }& 3.5;&\color{red}{\frac{1}{16}}& 4;&\color{red}{\frac{1}{16}}& 5;&\color{red}{\frac{1}{16}}& 7;&\color{red}{\frac{1}{16}}\\ 
+\end{array}
+$$
+
+E ricaviamo la distribuzione di, $\hat\mu$ 
+
+$$
+     \begin{array}{ r|rrrrrrrrrr }
+ \hat\mu  & 0& 0.5& 1& 1.5& 2& 3& 3.5& 4& 5& 7 \\ 
+ \hline 
+ P( \hat\mu ) & \frac{1}{16}& \frac{2}{16}& \frac{1}{16}& \frac{2}{16}& \frac{2}{16}& \frac{1}{16}& \frac{2}{16}& \frac{2}{16}& \frac{2}{16}& \frac{1}{16} \\ 
+ \end{array}
+$$
+
+Calcoliamo valore atteso e MSE.
 
 
-```{r 11-Stima-4,results="asis"}
-xp <- c(0,1,3,7)
-  
-xxx <- expand.grid(xp,xp,xp)
-xxx <- xxx[order(xxx[,1],xxx[,2],xxx[,3]),]
-xord <- t(apply(xxx,1,sort))
-cxord <- apply(xord,1,function(x)paste(x,collapse = ",") )
-pr <- tapply(rep(1,64),cxord,sum)
-pr <- pr/sum(pr)
-# 
-n <- 3
-xxm <- apply(xxx, 1, mean)
+\begin{eqnarray*}  
+  E(\hat\mu) &=& \sum_{\hat\mu}\hat\mu P(\hat\mu)\\ 
+ &=&  0  \frac { 1 }{ 16 }+ 0.5  \frac { 2 }{ 16 }+ 1  \frac { 1 }{ 16 }+ 1.5  \frac { 2 }{ 16 }+ 2  \frac { 2 }{ 16 }+ \\
+ & & +3  \frac { 1 }{ 16 }+ 3.5  \frac { 2 }{ 16 }+ 4  \frac { 2 }{ 16 }+ 5  \frac { 2 }{ 16 }+ 7  \frac { 1 }{ 16 } \\ 
+            &=& 2.75 = \mu \qquad\text{lo stimatore è corretto} \\ 
+ MSE(\hat\mu) &=& V(\hat\mu) + B^2(\hat\mu)\\ 
+              &=& V(\hat\mu)\\
+ &=&\left(  0  ^2\frac { 1 }{ 16 }+ 0.5  ^2\frac { 2 }{ 16 }+ 1  ^2\frac { 1 }{ 16 }+ 1.5  ^2\frac { 2 }{ 16 }+ 2  ^2\frac { 2 }{ 16 }+\right.\\
+ &+& \left.  3  ^2\frac { 1 }{ 16 }+ 3.5  ^2\frac { 2 }{ 16 }+ 4  ^2\frac { 2 }{ 16 }+ 5  ^2\frac { 2 }{ 16 }+ 7  ^2\frac { 1 }{ 16 } \right)-( 2.75 )^2\\ 
+            &=& 3.59375 \\
+            &=& \frac{`r s2c(xp)`}{2}\\
+            &=& \frac{\sigma^2}{n}
+\end{eqnarray*}
 
-camp <- unique(xord)
+Consideriamo la stima della varianza
+$$
+\hat\sigma^2=\frac 12\left((X_1-\hat\mu)^2+(X_2-\hat\mu)^2\right)
+$$
 
-camp <- cbind(camp,pr)
-hv <- apply(camp[,1:3], 1, vvv)
+```{r}
+x_var <- apply(expand.grid(xp,xp),1,s2c)
+var_2 <- function(x,y) .5*(x^2+y^2)-((x+y)/2)^2
+# outer(xp,xp,var_2)
+# two_way(xp,xp,xp*0+1,xp*0+1,op = var_2)
 
-ehv <- sum(pr*hv)
-
-camp <- data.frame(unique(cxord),pr,hv)
-names(camp)<- c("Camp.","$P(C.)$","$\\hat\\sigma^2$")
-# camp <- t(camp)
-dimnames(camp)[[1]] <- paste("C.",1:nrow(camp))
-mu<-mean(xp) 
-sig<-mean(xp^2)-mean(xp)^2
-kable((camp),booktabs=T,escape=F,caption = "Varianza dei campioni estratti CR di ampiezza $n=3$") %>%
-#column_spec (1:ncol(camp),border_left = F, border_right = T) %>%
-kable_styling(font_size = 8)
-   
 ```
 
-E quindi
-\[
-  E(\hat\sigma^2)  = `r hv[1]`\times`r pr[1]`+`r hv[2]`\times`r pr[2]`+...+`r hv[20]`\times`r pr[20]` = `r ehv`<
-  `r sig2`=\sigma^2
-\]
 
+$$
+\begin{array}{ r|rrrrrrrr }
+& 0 ;&\color{blue}{ \frac{ 1 } { 4 }} & 1 ;&\color{blue}{ \frac{ 1 } { 4 }} & 3 ;&\color{blue}{ \frac{ 1 } { 4 }} & 7 ;&\color{blue}{ \frac{ 1 } { 4 }} \\ 
+\hline 
+0 ;\color{blue}{ 1 / 4 }& 0;&\color{red}{\frac{1}{16}}& 0.25;&\color{red}{\frac{1}{16}}& 2.25;&\color{red}{\frac{1}{16}}& 12.25;&\color{red}{\frac{1}{16}}\\ 
+1 ;\color{blue}{ 1 / 4 }& 0.25;&\color{red}{\frac{1}{16}}& 0;&\color{red}{\frac{1}{16}}& 1;&\color{red}{\frac{1}{16}}& 9;&\color{red}{\frac{1}{16}}\\ 
+3 ;\color{blue}{ 1 / 4 }& 2.25;&\color{red}{\frac{1}{16}}& 1;&\color{red}{\frac{1}{16}}& 0;&\color{red}{\frac{1}{16}}& 4;&\color{red}{\frac{1}{16}}\\ 
+7 ;\color{blue}{ 1 / 4 }& 12.25;&\color{red}{\frac{1}{16}}& 9;&\color{red}{\frac{1}{16}}& 4;&\color{red}{\frac{1}{16}}& 0;&\color{red}{\frac{1}{16}}\\ 
+\end{array}
+$$
 
-Osserviamo che
-\[
-E(\hat\sigma^2)=\frac{n-1}n\sigma^2=\frac{`r n-1`}{`r n`}`r sig2`
-\]
+\normalsize E ricaviamo la distribuzione di, $\hat\sigma^2$ 
 
-:::: 
+$$
+\begin{array}{ r|rrrrrrr }
+ \hat\sigma^2  & 0& 0.25& 1& 2.25& 4& 9& 12.25 \\ 
+ \hline 
+ P( \hat\sigma^2 ) & \frac{4}{16}& \frac{2}{16}& \frac{2}{16}& \frac{2}{16}& \frac{2}{16}& \frac{2}{16}& \frac{2}{16} \\ 
+ \end{array}
+$$
+
+e osserviamo che
+
+\begin{eqnarray*} E(\hat\sigma^2) &=& \sum_{\hat\sigma^2}\hat\sigma^2 P(\hat\sigma^2)\\ 
+ &=&  0  \frac { 4 }{ 16 }+ 0.25  \frac { 2 }{ 16 }+ 1  \frac { 2 }{ 16 }+ 2.25  \frac { 2 }{ 16 }+ \\
+ &+&  4  \frac { 2 }{ 16 }+ 9  \frac { 2 }{ 16 }+ 12.25  \frac { 2 }{ 16 } \\ 
+ &=& 3.59375 \\
+ &=& \frac{1}{2}`r s2c(xp)`\\
+ &=& \frac{n-1}{n}\sigma^2
+\end{eqnarray*}
+
 
 ### Distribuzione delle statistiche
 
@@ -543,8 +540,8 @@ s2 <- vvv(xpop)
 ```
 
 
-Estraggo campioni di ampiezza $n=5$ da una popolazione di $N=10000$ individui con media $\mu=`r mu`$ e varianza $\sigma^2=`r s2`$.
-Osservo tre diversi stimatori per $\mu$: $h_1$, $h_2$ e $h_3$
+Supponiamo di estrarre campioni di ampiezza $n$ CR da una popolazione con media $\mu$ e varianza $\sigma^2$.
+Osservo tre diversi stimatori per $\mu$: $\hat\mu_1$, $\hat\mu_2$ e $\hat\mu_3$
 
 ```{r 11-Stima-6, echo=FALSE, results='asis'}
 
@@ -561,15 +558,15 @@ h2 <- h1+rnorm(20,0,1)
 h3 <- h2+rnorm(20,0,2)
 ```
 
-Se ripetessi l'estrazione un grande numero di volte potre vedere i tre stimatori nel grafico qui di seguito.
+Se si ripetesse l'estrazione un grande numero di volte potremmo vedere i tre stimatori nel grafico qui di seguito.
 Lo stimatore in con la distribuzione in blu è il più efficiente dei tre: la probabilità che si avveri lontano dal vero parametro è minore che per gli altri due.
-Mentre lo stimatore in con la distribuzione in verde è il meno efficiente dei tre: la probabilità che si avveri lontano dal vero parametro è ,aggiore che per gli altri due.
+Mentre lo stimatore in con la distribuzione in verde è il meno efficiente dei tre: la probabilità che si avveri lontano dal vero parametro è maggiore che per gli altri due.
 
 
 ```{r 11-Stima-8}
 par(mfrow=c(1,1),cex=cex)
 curve(dnorm(x,mu,se),mu-4*se,mu+4*se,xlab="x",ylab="",axes=F,col=4)
-axis(1,c(mu-4*se,mu,mu+4*se),c(round(mu-4*se,1),expression(mu),round(mu+4*se,2)))
+axis(1,c(mu-4*se,mu,mu+4*se),c("",expression(mu),""))
 axis(2)
 points(h1[1:20],rep(0,times=20),pch=4,col=4)
 points(h2[1:20],rep(0,times=20),pch=2,col=ared)
@@ -584,12 +581,12 @@ segments(mu,0,mu,dnorm(mu,mu,se),lty=2)
 ### Proprietà Auspicabili di uno stimatore (per $n\to\infty$)
 
 
-Siano $X_1,...,X_n$, $n$ VC, IID, replicazioni della stessa $X\sim\mathscr{L}(\theta)$, sia $h$ uno stimatore per $\theta$
+Siano $X_1,...,X_n$, $n$ VC, IID, replicazioni della stessa $X\sim\mathscr{L}(\theta)$, sia $\hat\theta$ uno stimatore per $\theta$.
 
 :::: {.info data-latex=""}
 ::: {.definition name="Correttezza Asintotica"}
-Lo stimatore $h$ si dice **asintoticamente corretto** se
-\[\lim_{n\to\infty}E(h(X_1,...,X_n))=E(h)=\theta\]
+Lo stimatore $\hat\theta$ si dice **asintoticamente corretto** se
+\[\lim_{n\to\infty}E(\hat\theta(X_1,...,X_n))=E(\hat\theta)=\theta\]
 :::
 ::::
    
@@ -599,13 +596,13 @@ Lo stimatore $h$ si dice **asintoticamente corretto** se
 
 :::: {.info data-latex=""}
 ::: {.definition name="Correttezza Asintotica"}
-Lo stimatore $h$ si dice **consistente** (in media quadratica) se e solo se
-\[\lim_{n\to\infty}MSE(h(X_1,...,X_n))=\lim_{n\to\infty}MSE(h)=0\]
+Lo stimatore $\hat\theta$ si dice **consistente** (in media quadratica) se e solo se
+\[\lim_{n\to\infty}MSE(\hat\theta(X_1,...,X_n))=\lim_{n\to\infty}MSE(\hat\theta)=0\]
 
 Essendo
-\[MSE(h)=V(h)+B^2(h)\]
+\[MSE(\hat\theta)=V(\hat\theta)+B^2(\hat\theta)\]
 allora
-\[\lim_{n\to\infty} MSE(h)=0, \text{ se e solo se} \lim_{n\to\infty} V(h)=0 \text{ e } \lim_{n\to\infty} B^2(h)=0\]
+\[\lim_{n\to\infty} MSE(\hat\theta)=0, \text{ se e solo se} \lim_{n\to\infty} V(\hat\theta)=0 \text{ e } \lim_{n\to\infty} B^2(\hat\theta)=0\]
 :::
 ::::
 
@@ -635,9 +632,9 @@ La _standard deviation_ (SD) $\sigma$, rappresenta la dispersione degli individu
 \[\sigma=\sqrt{\sigma^2}=\sqrt{\frac 1 N\sum_{i=1}^N(x_i-\mu)^2},\]
 la _deviazione standard_ $\sigma$ è la radice della varianza della popolazione $\sigma^2$.
 
-Lo _standard error_ $SE(h)$ di uno stimatore $h$ per $\theta$ è un indicatore della *variabilità* dello stimatore nello *spazio dei parametri*
-\[SE(h)=\sqrt{V(h)}\]
-Lo _standard error_ $SE(h)$ di uno stimatore $h$ per $\theta$ è la radice della varianza della VC $h$.
+Lo _standard error_ $SE(\hat\theta)$ di uno stimatore $\hat\theta$ per $\theta$ è un indicatore della *variabilità* dello stimatore nello *spazio dei parametri*
+\[SE(\hat\theta)=\sqrt{V(\hat\theta)}\]
+Lo _standard error_ $SE(\hat\theta)$ di uno stimatore $\hat\theta$ per $\theta$ è la radice della varianza della VC $\hat\theta$.
 
 La _standard deviation stimata_ $\sigma$, rappresenta la dispersione degli individui _del campione_ dalla media _del campione_, è un indicatore di *variabilità* del *campione*:
 \[\hat\sigma=\sqrt{\hat\sigma^2}=\sqrt{\frac 1 n\sum_{i=1}^n(x_i-\hat\mu)^2}\]

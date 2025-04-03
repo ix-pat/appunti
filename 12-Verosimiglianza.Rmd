@@ -146,13 +146,13 @@ for (i in 1:11){
 }
 ```
 
-Definiamo la **funzione di verosimiglianza** (Likelihood), la funzione $L$ del parametro incognito $\pi$ alla luce dei dati $X_1=0,X_2=1,X_3=1,X_4=1,X_5=1$ osservati:
+Definiamo la **funzione di verosimiglianza** (Likelihood), la funzione $L$ del parametro incognito $\pi$ alla luce dei dati $X_1=0,X_2=1,X_3=1,X_4=0,X_5=1$ osservati:
 \begin{multline*}
-  L(\pi;X_1=0,X_2=1,X_3=1,X_4=1,X_5=1) =  \\
+  L(\pi;X_1=0,X_2=1,X_3=1,X_4=0,X_5=1) =  \\
   \begin{array}{ll}
      = &L(\pi)\\
-     = &K\cdot P(X_1=0\cap X_2=1\cap X_3=1\cap X_4=1\cap X_5=1;\pi) \qquad \text{con $K> 0$}\\
-     \propto & P(X_1=0\cap X_2=1\cap X_3=1\cap X_4=1\cap X_5=1;\pi)\\
+     = &K\cdot P(X_1=0\cap X_2=1\cap X_3=1\cap X_4=0\cap X_5=1;\pi) \qquad \text{con $K> 0$}\\
+     \propto & P(X_1=0\cap X_2=1\cap X_3=1\cap X_4=0\cap X_5=1;\pi)\\
      \propto & \pi^3(1-\pi)^2
   \end{array}
 \end{multline*}
