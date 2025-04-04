@@ -35,7 +35,7 @@ alt  <- "{0pt}{\\faExclamationTriangle}{red!75!black}"
 # web vs pdf options
 
 html <- knitr::is_html_output()
-cex <- ifelse(html,1,.65)
+cex <- ifelse(html,.65,.65)
 
 fig.def <- function(height = 2.4, width = 6.5,titolo=TRUE){
   if (titolo) par(lwd=.5,col.main=iblue,mfrow=c(1,1),cex=cex,mar=c(5,4,4,2)) else par(lwd=.5,col.main=iblue,mfrow=c(1,1),cex=cex,mar=c(5,4,1,2))
