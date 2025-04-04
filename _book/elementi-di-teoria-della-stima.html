@@ -1254,9 +1254,8 @@ P(\hat\mu) &amp; \frac{2}{12} &amp; \frac{2}{12} &amp; \frac{2}{12} &amp; \frac{
 <p><span class="math display">\[
 E(\hat\mu) = \frac{2}{12} \cdot (0.5 + 1.5 + 2 + 3.5 + 4 + 5) = \frac{16.5}{6} = 2.75 = \mu
 \]</span></p>
-<p>lo stimatore è corretto. Ricaviamo il suo MSE
-<span class="math display">\[
-\begin{eqnarray*}
+<p>lo stimatore è corretto. Ricaviamo il suo MSE</p>
+<p><span class="math display">\[\begin{eqnarray*}
 MSE(\hat\mu) &amp;=&amp; V(\hat\mu) + B^2(\hat\mu) \\
              &amp;=&amp; V(\hat\mu) \qquad \text{in virtù della correttezza} \\
              &amp;=&amp; \left(  0.5  ^2\frac { 1 }{ 6 }+ 1.5  ^2\frac { 1 }{ 6 }+ 2  ^2\frac { 1 }{ 6 }+ \right.\\
@@ -1264,8 +1263,7 @@ MSE(\hat\mu) &amp;=&amp; V(\hat\mu) + B^2(\hat\mu) \\
              &amp;=&amp; 2.3958\\
              &amp;=&amp; \frac{4-2}{4-1}\frac{7.1875}{2}\\
              &amp;=&amp; \frac{N-n}{N-1}\frac{\sigma^2} n
-\end{eqnarray*}
-\]</span></p>
+\end{eqnarray*}\]</span></p>
 <p>Se estraiamo <span class="math inline">\(n=2\)</span> volte <strong>con reinserimento</strong>, lo spazio dei campioni è di dimensione <span class="math inline">\(\#\mathcal{S} = 4 \times 4\)</span> ed è descritto in tabella (<a href="elementi-di-teoria-della-stima.html#tab:ccr">11.2</a>). Anche qui scegliamo:</p>
 <p><span class="math display">\[
 \hat\mu = \frac{1}{2}(X_1 + X_2)
@@ -1281,7 +1279,7 @@ MSE(\hat\mu) &amp;=&amp; V(\hat\mu) + B^2(\hat\mu) \\
 7 ;\color{blue}{ 1 / 4 }&amp; 3.5;&amp;\color{red}{\frac{1}{16}}&amp; 4;&amp;\color{red}{\frac{1}{16}}&amp; 5;&amp;\color{red}{\frac{1}{16}}&amp; 7;&amp;\color{red}{\frac{1}{16}}\\
 \end{array}
 \]</span></p>
-<p>E ricaviamo la distribuzione di, </p>
+<p>E ricaviamo la distribuzione di, <span class="math inline">\(\hat\mu\)</span></p>
 <p><span class="math display">\[
      \begin{array}{ r|rrrrrrrrrr }
 \hat\mu  &amp; 0&amp; 0.5&amp; 1&amp; 1.5&amp; 2&amp; 3&amp; 3.5&amp; 4&amp; 5&amp; 7 \\
