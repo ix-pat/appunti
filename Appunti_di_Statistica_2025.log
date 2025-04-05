@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2022/dev/Debian) (preloaded format=xelatex 2024.3.16)  4 APR 2025 14:16
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2022/dev/Debian) (preloaded format=xelatex 2024.3.16)  5 APR 2025 19:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2464,22 +2464,32 @@ aphic file (type pdf)
 File: Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-10-1.pdf G
 raphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-10-1.pdf>
-[295]
+[295] [296]
 File: Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-1-1.pdf Gr
 aphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-1-1.pdf>
-[296] [297]
+[297]
 File: Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-12-1.pdf G
 raphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-12-1.pdf>
 File: Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-13-1.pdf G
 raphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-13-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[298]
 File: Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-14-1.pdf G
 raphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-14-1.pdf>
-[298]
-Overfull \hbox (36.93124pt too wide) in paragraph at lines 12196--12202
+File: Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-14a-1.pdf 
+Graphic file (type pdf)
+<use Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-14a-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[299]
+Overfull \hbox (36.93124pt too wide) in paragraph at lines 12210--12216
 [][] 
  []
 
@@ -2492,35 +2502,28 @@ aphic file (type pdf)
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[299]
+[300]
 File: Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-3-1.pdf Gr
 aphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-3-1.pdf>
 
 Underfull \vbox (badness 3323) has occurred while \output is active []
 
-[300]
+[301]
 File: Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-5-1.pdf Gr
 aphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-5-1.pdf>
 File: Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-17-1.pdf G
 raphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-17-1.pdf>
-[301]
+[302] [303]
 File: Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-18-1.pdf G
 raphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-18-1.pdf>
-
-Underfull \vbox (badness 3343) has occurred while \output is active []
-
-[302]
 File: Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-20-1.pdf G
 raphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-20-1.pdf>
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[303]
+[304]
 File: Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-20-2.pdf G
 raphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-20-2.pdf>
@@ -2530,7 +2533,7 @@ raphic file (type pdf)
 
 Underfull \vbox (badness 2119) has occurred while \output is active []
 
-[304]
+[305]
 File: Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-23-1.pdf G
 raphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-23-1.pdf>
@@ -2540,11 +2543,11 @@ raphic file (type pdf)
 
 Underfull \vbox (badness 1590) has occurred while \output is active []
 
-[305]
+[306]
 File: Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-26-1.pdf G
 raphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-26-1.pdf>
-[306]
+[307]
 File: Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-28-1.pdf G
 raphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-28-1.pdf>
@@ -2554,29 +2557,29 @@ raphic file (type pdf)
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[307]
+[308]
 File: Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-32-1.pdf G
 raphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-32-1.pdf>
-[308] [309] [310] [311]
+[309] [310] [311] [312]
 File: Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-34-1.pdf G
 raphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-34-1.pdf>
-[312]
+[313]
 File: Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-35-1.pdf G
 raphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-35-1.pdf>
 
 Underfull \vbox (badness 3557) has occurred while \output is active []
 
-[313]
+[314]
 File: Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-36-1.pdf G
 raphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-36-1.pdf>
 File: Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-37-1.pdf G
 raphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-37-1.pdf>
-[314] [315]
+[315] [316]
 File: Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-42-1.pdf G
 raphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-42-1.pdf>
@@ -2586,32 +2589,32 @@ raphic file (type pdf)
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[316]
+[317]
 File: Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-45-1.pdf G
 raphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-45-1.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[317] [318]
+[318] [319]
 File: Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-47-1.pdf G
 raphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-47-1.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[319]
+[320]
 File: Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-48-1.pdf G
 raphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-48-1.pdf>
-[320]
+[321]
 File: Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-49-1.pdf G
 raphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-49-1.pdf>
 
 Underfull \vbox (badness 5802) has occurred while \output is active []
 
-[321]
+[322]
 File: Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-50-1.pdf G
 raphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-50-1.pdf>
@@ -2621,7 +2624,7 @@ raphic file (type pdf)
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[322]
+[323]
 File: Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-52-1.pdf G
 raphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-52-1.pdf>
@@ -2631,7 +2634,7 @@ raphic file (type pdf)
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[323] [324] [325]
+[324] [325] [326]
 File: Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-56-1.pdf G
 raphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-56-1.pdf>
@@ -2641,7 +2644,7 @@ raphic file (type pdf)
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[326]
+[327]
 File: Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-58-1.pdf G
 raphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-58-1.pdf>
@@ -2651,7 +2654,7 @@ raphic file (type pdf)
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[327] [328]
+[328] [329]
 File: Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-62-1.pdf G
 raphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-62-1.pdf>
@@ -2661,11 +2664,11 @@ raphic file (type pdf)
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[329] [330] [331] [332
+[330] [331] [332]
+Capitolo 18.
+[333
 
 ]
-Capitolo 18.
-[333]
 File: Appunti_di_Statistica_2025_files/figure-latex/18-regressione-II-4-1.pdf G
 raphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/18-regressione-II-4-1.pdf>
@@ -2838,25 +2841,25 @@ SUL MODELLO DI REGRESSIONE LINEARE
 [352]
 Capitolo 19.
 
-LaTeX Font Warning: Command \tiny invalid in math mode on input line 13675.
+LaTeX Font Warning: Command \tiny invalid in math mode on input line 13709.
 
 
-LaTeX Font Warning: Command \tiny invalid in math mode on input line 13719.
+LaTeX Font Warning: Command \tiny invalid in math mode on input line 13753.
 
 [353
 
 ]
-Overfull \hbox (33.4938pt too wide) detected at line 13776
+Overfull \hbox (33.4938pt too wide) detected at line 13810
 []
  []
 
 [354] [355] [356] [357]
 
-LaTeX Font Warning: Command \tiny invalid in math mode on input line 14000.
+LaTeX Font Warning: Command \tiny invalid in math mode on input line 14034.
 
 [358]
 
-LaTeX Font Warning: Command \tiny invalid in math mode on input line 14048.
+LaTeX Font Warning: Command \tiny invalid in math mode on input line 14082.
 
 [359] [360] [361] [362] [363] [364] [365] [366] [367
 
@@ -2873,8 +2876,8 @@ File: Appunti_di_Statistica_2025_files/figure-latex/permutazioni-1.pdf Graphic
 file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/permutazioni-1.pdf>
 
-LaTeX Font Warning: Command \scriptsize invalid in math mode on input line 1474
-3.
+LaTeX Font Warning: Command \scriptsize invalid in math mode on input line 1477
+7.
 
 [374] [375] [376]
 Appendice C.
@@ -2883,11 +2886,11 @@ Appendice C.
 ] [378]
 Appendice D.
 LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10.95> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 14930.
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 14964.
 
 
 LaTeX Font Warning: Font shape `TU/lmtt/bx/it' in size <10.95> not available
-(Font)              Font shape `TU/lmtt/b/sl' tried instead on input line 14930
+(Font)              Font shape `TU/lmtt/b/sl' tried instead on input line 14964
 .
 
 File: Appunti_di_Statistica_2025_files/figure-latex/24-Libro-54-1.pdf Graphic f
@@ -2997,7 +3000,7 @@ ile (type pdf)
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [400]
-Overfull \hbox (5.11491pt too wide) in paragraph at lines 16286--16286
+Overfull \hbox (5.11491pt too wide) in paragraph at lines 16320--16320
 []\TU/lmtt/m/n/10.95 ## [1] "la mela è rossa e la pera è verde e la pesca è gia
 lla e la banana è gialla" 
  []
@@ -3010,7 +3013,7 @@ Appendice E.
 [407
 
 ] [408]
-Overfull \hbox (2.71814pt too wide) in paragraph at lines 16767--16779
+Overfull \hbox (2.71814pt too wide) in paragraph at lines 16801--16813
  [][] 
  []
 
@@ -3019,41 +3022,41 @@ raphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/25-test-functions-2-1.pdf>
 [409] [410]
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 9.0pt on input line 16896.
+(Font)              scaled to size 9.0pt on input line 16930.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 9.00082pt on input line 16896.
+(Font)              scaled to size 9.00082pt on input line 16930.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 8.99904pt on input line 16896.
-LaTeX Font Info:    Calculating math sizes for size <6.2748> on input line 1689
-7.
+(Font)              scaled to size 8.99904pt on input line 16930.
+LaTeX Font Info:    Calculating math sizes for size <6.2748> on input line 1693
+1.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 6.2748pt on input line 16897.
+(Font)              scaled to size 6.2748pt on input line 16931.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 4.39233pt on input line 16897.
+(Font)              scaled to size 4.39233pt on input line 16931.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 3.13739pt on input line 16897.
+(Font)              scaled to size 3.13739pt on input line 16931.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 6.27536pt on input line 16897.
+(Font)              scaled to size 6.27536pt on input line 16931.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 4.39273pt on input line 16897.
+(Font)              scaled to size 4.39273pt on input line 16931.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 3.13766pt on input line 16897.
+(Font)              scaled to size 3.13766pt on input line 16931.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 6.27412pt on input line 16897.
+(Font)              scaled to size 6.27412pt on input line 16931.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 4.39186pt on input line 16897.
+(Font)              scaled to size 4.39186pt on input line 16931.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 3.13705pt on input line 16897.
+(Font)              scaled to size 3.13705pt on input line 16931.
 
 LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <4.39233> not available
-(Font)              size <5> substituted on input line 16897.
+(Font)              size <5> substituted on input line 16931.
 
 
 LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <3.13739> not available
-(Font)              size <5> substituted on input line 16897.
+(Font)              size <5> substituted on input line 16931.
 
 [411]
-Overfull \hbox (31.07884pt too wide) in alignment at lines 16969--16975
+Overfull \hbox (31.07884pt too wide) in alignment at lines 17003--17009
  [][][] []
  []
 
@@ -3151,10 +3154,10 @@ LaTeX Font Warning: Size substitutions with differences
 
  ) 
 Here is how much of TeX's memory you used:
- 43921 strings out of 478175
- 1000084 string characters out of 5854103
+ 43931 strings out of 478175
+ 1000813 string characters out of 5854103
  1469783 words of memory out of 5000000
- 63396 multiletter control sequences out of 15000+600000
+ 63405 multiletter control sequences out of 15000+600000
  510719 words of font info for 395 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  86i,19n,121p,1215b,1000s stack positions out of 5000i,500n,10000p,200000b,80000s

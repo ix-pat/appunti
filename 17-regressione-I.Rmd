@@ -46,7 +46,7 @@ s2c <- function(x) round(mean(x^2)-mean(x)^2,4)
 sc  <- function(x) round(sqrt(s2c(x)),4)
 
 set.seed(5)
-ysamp2 <- round(rnorm(n,16,1),2)-15+28
+ysamp2 <- round(rnorm(n,29,1),2)
 ybar2 <- mean(ysamp2)
 epsh2 <- ybar2-ysamp2
 sbar2 <- round(sd(ysamp2),3)
@@ -244,7 +244,7 @@ n2 <- 10
 alpha <- 0.05
 h1 <- ">"
 
-cat(ttest_2c_om(mu1 = mu1,mu2 = mu2,s1h = s1h,s2h = s2h,n1 = n1,n2 = n2,h1 = ">",alpha = alpha,a = a,b = b))
+(ttest_2c_om(mu1 = mu1,mu2 = mu2,s1h = s1h,s2h = s2h,n1 = n1,n2 = n2,h1 = ">",a = a,b = b,))
 fig.def(3,3)
 ```
 :::
@@ -390,6 +390,46 @@ axis(2,c(27,28,yhat,31,32),c(27,28,round(yhat,2),31,32),las=2)
 
 title(main = "una suggestione")
 ```
+
+Il problema è che dobbiamo stimare 3 coppie di parametri $\mu_1,\sigma^2_1$, $\mu_2,\sigma^2_2$ e $\mu_3,\sigma^2_3$
+**senza** tenere conto della natura metrica della $x$.
+
+L'idea è di sostituire a $\mu_1$, $\mu_2$ e $\mu_3$ una funzione in $x$, $\mu(x)$ e stimarla coi dati $\hat\mu(x)$, 
+per ottenere qualcosa del tipo
+
+```{r 17-regressione-I-14a}
+n <- 10
+plot(rep(c(0,1.13,2.84),each=n),c(ysamp1,ysamp2,ysamp3),axes = F,xlab="",ylab="",pch=4,xlim=c(-.5,4),ylim = c(min(ysamp1),max(ysamp3)))
+
+reg_xy  <- lsfit(x <- rep(c(0,1.13,2.84),each=n),y <- c(ysamp1,ysamp2,ysamp3))
+
+
+abline(reg_xy,lwd=2,col=2)
+abline(v = 0,lty=3,col="grey")
+abline(v = 1.13,lty=3,col="grey")
+abline(v = 2.84,lty=3,col="grey")
+abline(v = 1.9,lty=3,col=ared)
+
+yhat <- reg_xy$coefficients[1]+reg_xy$coefficients[2]*1.9
+
+segments(-10,yhat,1.9,yhat,lty=3)
+
+points(0,mean(ysamp1),pch="-",col=4,cex=2)
+points(1.13,mean(ysamp2),pch="-",col=4,cex=2)
+points(2.84,mean(ysamp3),pch="-",col=4,cex=2)
+
+axis(side = 1,at = 1.9,col.ticks = 2,col.axis=2)
+axis(1,c(0,1.13,2.84))
+axis(2,c(27,28,yhat,31,32),c(27,28,round(yhat,2),31,32),las=2)
+
+# reg_sqrt <- lm(y ~ I(sqrt(x)))
+# xgrid <- seq(0, 3, length.out = 200)
+# yhat_sqrt <- predict(reg_sqrt, newdata = data.frame(x = xgrid))
+# lines(xgrid, yhat_sqrt, col="blue", lwd=2)
+
+title(main = "Regressioni")
+```
+
 :::
 
 ::: {.example}
@@ -417,7 +457,8 @@ fig.def(3)
 ```
 
 La previsione sembra più difficile, 
-la suggestione di prima non sembra funzionare
+la suggestione di prima non sembra funzionare, dobbiamo modellare il luogo delle medie $\mu$ con
+una funzione $\mu(x)$ e stimarla coi dati $\hat\mu(x)$.
 
 ```{r 17-regressione-I-2,results='asis'}
 opar <- par(no.readonly = T)
@@ -453,12 +494,12 @@ abline(lsfit(x,y),col=4)
 Vogliamo modellare la linea delle medie. Ci aspetteremmo una linea che passi tra i punti che 
 che sia, per ogni $x$ dato, il valore atteso di $Y$ condizionato a quella $x$.
 Cioè abbiamo bisogno di un modello per la media di $Y$ per un dato $X$
-\[E(Y_i|X=x_i)=f(x_i)\]
+\[E(Y_i|X=x_i)=\mu(x_i)\]
 
 E si legge che $Y$, in media, condizionato ad $X=x$ vale $f(x)$, dove $f$ è una funzione da scegliere.
 L'idea di base è che
-\[y_i=f(x_i)+\varepsilon_i\]
-la $y$ osservata in corrispondenza della $x$ è pari ad $f(x)$ a meno di un errore casuale.
+\[y_i=\mu(x_i)+\varepsilon_i\]
+la $y$ osservata in corrispondenza della $x$ è pari ad $\mu(x)$ a meno di un errore casuale.
 Dove si assume che l'errore abbia media zero
 \[E(\varepsilon_i)=0\]
 
@@ -480,7 +521,7 @@ axis(1)
 axis(2)
 
 
-text(9,40,expression(f(x)),col=ared)
+text(9,40,expression(mu(x)),col=ared)
 
 plot(x*2.5,y,pch=16,cex=.8,xlab="x",xlim = c(2,4),ylim = c(35,48),axes=F)
 lines(x*2.5,15*sin(x)+28,col=ared)
@@ -504,8 +545,10 @@ par(opar)
 ## La Regressione Lineare
 
 
-Tra le tante $f$ limitiamo l'attenzione alle funzioni lineari
-\[y_i=\beta_0+\beta_1x_i+\varepsilon_i\]
+Tra le tante $\mu(x)$ limitiamo l'attenzione alle funzioni lineari
+$$
+y_i=\mu(x_i)=\beta_0+\beta_1x_i+\varepsilon_i
+$$
 
 
 ```{r 17-regressione-I-5,results='asis'}
@@ -533,7 +576,9 @@ par(opar)
 ### Il modello di regressione lineare semplice
 
 Il modello di regressione (lineare semplice) è
-\[y_i=\beta_0+\beta_1x_i+\varepsilon_i,\qquad E(\varepsilon_i)=0,~V(\varepsilon_i)=\sigma^2_{\varepsilon_i}\]
+$$
+y_i=\beta_0+\beta_1x_i+\varepsilon_i,\qquad E(\varepsilon_i)=0,~V(\varepsilon_i)=\sigma^2_{\varepsilon_i}
+$$
 
 
 ::: {.nota data-latex=""}
@@ -582,40 +627,64 @@ fig.def(3,8)
 
 ### La Storia del Metodo
 
-
-https://en.wikipedia.org/wiki/Regression_toward_the_mean 
-
-```{r 17-regressione-I-18}
+```{r}
 par(cex=cex)
 galton <- read_dta("data/galton.dta")
 hf <- galton[galton$male==1,]$father*2.54
 hs <- galton[galton$male==1,]$height*2.54
-
-plot(hf,hs,xlab="statura dei padri",ylab="statura dei figli",pch=4,cex=.6,axes=F,asp=1,xlim=c(155,201),ylim=c(155,201))
-mf <- mean(hf)
-ms <- mean(hs)
-
-abline(v=mf,lty=2)
-abline(h=ms,lty=2)
-axis(1,c(160,165,mf,185,190,195,200),c(160,165,paste("media\n",round(mf,2)),185,190,195,200))
-axis(2,c(160,165,ms,185,190,195,200),c(160,165,paste("media\n",round(ms,2)),185,190,195,200),las=2)
-abline(lsfit(x = hf,y=hs))
-abline(0,1,lty=2,col=ared)
-text(190,200,"Ipotesi di Galton",col=ared)
-text(200,180,"Evidenza \n campionaria",col=1)
-arrows(195,194.5,195,97.177+0.4477*195,.09)
-title("I dati di Galton")
-ab <- round(lsfit(hf,hs)$coef,2)
+ab <- lsfit(hf, hs)$coef
 ```
 
-L'ipotesi di Galton:
+Nel 1886, Francis Galton pubblicò un articolo su *Nature* intitolato *Regression towards mediocrity in hereditary stature*. In quell’occasione, rese noti i dati raccolti su centinaia di coppie padre-figlio, relativi alla statura (convertita poi in centimetri). Galton ipotizzò inizialmente un modello molto semplice: l’altezza del figlio \( y_i \) doveva corrispondere a quella del padre \( x_i \), salvo errori casuali:
+
 \[
-y_i = x_i +\varepsilon_i
+y_i = x_i + \varepsilon_i
 \]
-fu smentita dai dati 
+
+In questo modello, l’errore medio sarebbe nullo, e la retta teorica che descrive la relazione padre-figlio sarebbe la bisettrice del primo quadrante. Tuttavia, una volta osservati i dati empirici, l’evidenza fu diversa.
+
+Nel campione considerato, la relazione stimata tra statura del padre e del figlio risultò essere:
+
 \[
-y_i = `r ab[1]`+`r ab[2]`\cdot x_i +\varepsilon_i
+y_i = `r ab[1]` + `r ab[2]` \cdot x_i + \varepsilon_i
 \]
+
+dove l'intercetta `r ab[1]` è positiva e il coefficiente angolare `r ab[2]` è **inferiore a 1**. Questo significa che:
+
+- i figli di padri molto alti tendono a essere sì più alti della media ma più bassi dei loro padri,
+- mentre i figli di padri molto bassi tendono a essere sì più bassi della media ma più alti dei loro padri.
+
+Il fenomeno fu battezzato da Galton stesso con il nome di **regressione verso la media**, e in seguito divenne uno dei concetti fondamentali della statistica.
+
+```{r 17-regressione-I-18}
+
+plot(hf, hs,
+     xlab = "statura dei padri",
+     ylab = "statura dei figli",
+     pch = 4, cex = .6, axes = FALSE,
+     asp = 1, xlim = c(155, 201), ylim = c(155, 201))
+
+mf <- mean(hf)
+ms <- mean(hs)
+abline(v = mf, lty = 2)
+abline(h = ms, lty = 2)
+
+axis(1, c(160, 165, mf, 185, 190, 195, 200),
+     c(160, 165, paste("media\n", round(mf, 2)), 185, 190, 195, 200))
+axis(2, c(160, 165, ms, 185, 190, 195, 200),
+     c(160, 165, paste("media\n", round(ms, 2)), 185, 190, 195, 200), las = 2)
+
+abline(lsfit(hf, hs))                  # retta stimata
+abline(0, 1, lty = 2, col = ared)      # bisettrice: ipotesi di Galton
+
+text(190, 200, "Ipotesi di Galton", col = ared)
+text(200, 180, "Evidenza \n campionaria", col = 1)
+
+arrows(195, 194.5, 195, 97.177 + 0.4477 * 195, .09)
+title("I dati di Galton")
+
+ab <- round(lsfit(hf, hs)$coef, 2)
+```
 
 
 ### Gli assunti del modello di regressione

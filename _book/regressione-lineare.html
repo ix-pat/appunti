@@ -795,14 +795,17 @@ S_{(X=1.3)}&amp;=&amp;0.952
   =   0.784 \, .
   \end{eqnarray*}\]</span></p>
 <p><span class="math inline">\(\fbox{C}\)</span> CONCLUSIONE</p>
-<p>La siginficatitività è <span class="math inline">\(\alpha=0.05\)</span>, dalle tavole osserviamo <span class="math inline">\(t_{20-2;0.05}=1.7341\)</span>.</p>
-<p>Essendo <span class="math inline">\(t_\text{obs}=0.784&lt;t_{20-2;0.05}=1.7341\)</span> allora <strong>non</strong> rifiuto <span class="math inline">\(H_0\)</span> al 5%.</p>
+<p>Consideriamo <span class="math inline">\(\alpha=0.1, 0.05, 0.01, 0.001\)</span></p>
+<p>I valori critici sono</p>
+<p><span class="math inline">\(t_{20-2;0.1}=1.3304\)</span>; <span class="math inline">\(t_{20-2;0.05}=1.7341\)</span>; <span class="math inline">\(t_{20-2;0.01}=2.5524\)</span>; <span class="math inline">\(t_{20-2;0.001}=3.6105\)</span></p>
+<p>Siccome <span class="math inline">\(t_\text{obs}=0.784&lt;t_{20-2;0.1}=1.3304\)</span>, quindi <strong>non</strong> rifiuto <span class="math inline">\(H_0\)</span> a <strong>nessun</strong> livello di significatività,</p>
+<p><span class="math inline">\(p_\text{value}&gt;0.1\)</span>, <em>non significativo</em></p>
 <p><img src="Appunti_di_Statistica_2025_files/figure-html/17-regressione-I-1-1.png" width="672" /></p>
 <p>Il <span class="math inline">\(p_{\text{value}}\)</span> è</p>
 <p><span class="math display">\[ p_{\text{value}} = P(T_{20-2}&gt;0.78)=0.221609 \]</span></p>
 <p>Attenzione il calcolo del <span class="math inline">\(p_\text{value}\)</span> con la <span class="math inline">\(T\)</span> è puramente illustrativo e non può essere riprodotto senza una calcolatrice statistica adeguata.<span class="math display">\[
 0.1 &lt; p_\text{value}= 0.221609 \leq 1
-\]</span></p>
+\]</span>NULL</p>
 </div>
 <div class="example">
 <p><span id="exm:unlabeled-div-202" class="example"><strong>Esempio 17.3  </strong></span>Supponiamo di aver piantato altri 10 ettari di questa varietà ma su terreni trattati con 2.84 hg (<span class="math inline">\(X=2.84\)</span>)
@@ -831,6 +834,11 @@ Non abbiamo tenuto conto della natura metrica della <span class="math inline">\(
 <p><strong>problema 2:</strong> alla luce di questi dati cosa possiamo dire sulla produzione media se usassimo 1.9 hg di concime per ettaro?
 Potremmo proporre di congiungere le medie con una spezzata</p>
 <p><img src="Appunti_di_Statistica_2025_files/figure-html/17-regressione-I-14-1.png" width="672" /></p>
+<p>Il problema è che dobbiamo stimare 3 coppie di parametri <span class="math inline">\(\mu_1,\sigma^2_1\)</span>, <span class="math inline">\(\mu_2,\sigma^2_2\)</span> e <span class="math inline">\(\mu_3,\sigma^2_3\)</span>
+<strong>senza</strong> tenere conto della natura metrica della <span class="math inline">\(x\)</span>.</p>
+<p>L’idea è di sostituire a <span class="math inline">\(\mu_1\)</span>, <span class="math inline">\(\mu_2\)</span> e <span class="math inline">\(\mu_3\)</span> una funzione in <span class="math inline">\(x\)</span>, <span class="math inline">\(\mu(x)\)</span> e stimarla coi dati <span class="math inline">\(\hat\mu(x)\)</span>,
+per ottenere qualcosa del tipo</p>
+<p><img src="Appunti_di_Statistica_2025_files/figure-html/17-regressione-I-14a-1.png" width="672" /></p>
 </div>
 <div class="example">
 <p><span id="exm:unlabeled-div-203" class="example"><strong>Esempio 17.4  </strong></span><strong>problema 3:</strong> Dobbiamo studiare un nuova varietà di riso, ma il budget è inferiore.
@@ -880,7 +888,8 @@ osserviamo 10 ettari</p>
 </table>
 <p><img src="Appunti_di_Statistica_2025_files/figure-html/17-regressione-I-15-1.png" width="672" /></p>
 <p>La previsione sembra più difficile,
-la suggestione di prima non sembra funzionare</p>
+la suggestione di prima non sembra funzionare, dobbiamo modellare il luogo delle medie <span class="math inline">\(\mu\)</span> con
+una funzione <span class="math inline">\(\mu(x)\)</span> e stimarla coi dati <span class="math inline">\(\hat\mu(x)\)</span>.</p>
 <p><img src="Appunti_di_Statistica_2025_files/figure-html/17-regressione-I-2-1.png" width="672" /></p>
 </div>
 </div>
@@ -890,11 +899,11 @@ la suggestione di prima non sembra funzionare</p>
 <p>Vogliamo modellare la linea delle medie. Ci aspetteremmo una linea che passi tra i punti che
 che sia, per ogni <span class="math inline">\(x\)</span> dato, il valore atteso di <span class="math inline">\(Y\)</span> condizionato a quella <span class="math inline">\(x\)</span>.
 Cioè abbiamo bisogno di un modello per la media di <span class="math inline">\(Y\)</span> per un dato <span class="math inline">\(X\)</span>
-<span class="math display">\[E(Y_i|X=x_i)=f(x_i)\]</span></p>
+<span class="math display">\[E(Y_i|X=x_i)=\mu(x_i)\]</span></p>
 <p>E si legge che <span class="math inline">\(Y\)</span>, in media, condizionato ad <span class="math inline">\(X=x\)</span> vale <span class="math inline">\(f(x)\)</span>, dove <span class="math inline">\(f\)</span> è una funzione da scegliere.
 L’idea di base è che
-<span class="math display">\[y_i=f(x_i)+\varepsilon_i\]</span>
-la <span class="math inline">\(y\)</span> osservata in corrispondenza della <span class="math inline">\(x\)</span> è pari ad <span class="math inline">\(f(x)\)</span> a meno di un errore casuale.
+<span class="math display">\[y_i=\mu(x_i)+\varepsilon_i\]</span>
+la <span class="math inline">\(y\)</span> osservata in corrispondenza della <span class="math inline">\(x\)</span> è pari ad <span class="math inline">\(\mu(x)\)</span> a meno di un errore casuale.
 Dove si assume che l’errore abbia media zero
 <span class="math display">\[E(\varepsilon_i)=0\]</span></p>
 <p>e varianza costante
@@ -910,13 +919,17 @@ Dove si assume che l’errore abbia media zero
 </div>
 <div id="la-regressione-lineare" class="section level2 hasAnchor" number="17.3">
 <h2><span class="header-section-number">17.3</span> La Regressione Lineare<a href="regressione-lineare.html#la-regressione-lineare" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Tra le tante <span class="math inline">\(f\)</span> limitiamo l’attenzione alle funzioni lineari
-<span class="math display">\[y_i=\beta_0+\beta_1x_i+\varepsilon_i\]</span></p>
+<p>Tra le tante <span class="math inline">\(\mu(x)\)</span> limitiamo l’attenzione alle funzioni lineari
+<span class="math display">\[
+y_i=\mu(x_i)=\beta_0+\beta_1x_i+\varepsilon_i
+\]</span></p>
 <p><img src="Appunti_di_Statistica_2025_files/figure-html/17-regressione-I-5-1.png" width="672" /></p>
 <div id="il-modello-di-regressione-lineare-semplice" class="section level3 hasAnchor" number="17.3.1">
 <h3><span class="header-section-number">17.3.1</span> Il modello di regressione lineare semplice<a href="regressione-lineare.html#il-modello-di-regressione-lineare-semplice" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Il modello di regressione (lineare semplice) è
-<span class="math display">\[y_i=\beta_0+\beta_1x_i+\varepsilon_i,\qquad E(\varepsilon_i)=0,~V(\varepsilon_i)=\sigma^2_{\varepsilon_i}\]</span></p>
+<span class="math display">\[
+y_i=\beta_0+\beta_1x_i+\varepsilon_i,\qquad E(\varepsilon_i)=0,~V(\varepsilon_i)=\sigma^2_{\varepsilon_i}
+\]</span></p>
 <div class="nota">
 <p>Le variabili sono chiamate:</p>
 <ul>
@@ -935,16 +948,22 @@ Dove si assume che l’errore abbia media zero
 </div>
 <div id="la-storia-del-metodo" class="section level3 hasAnchor" number="17.3.2">
 <h3><span class="header-section-number">17.3.2</span> La Storia del Metodo<a href="regressione-lineare.html#la-storia-del-metodo" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><a href="https://en.wikipedia.org/wiki/Regression_toward_the_mean" class="uri">https://en.wikipedia.org/wiki/Regression_toward_the_mean</a></p>
-<p><img src="Appunti_di_Statistica_2025_files/figure-html/17-regressione-I-18-1.png" width="672" /></p>
-<p>L’ipotesi di Galton:
-<span class="math display">\[
-y_i = x_i +\varepsilon_i
-\]</span>
-fu smentita dai dati
-<span class="math display">\[
-y_i = 97.18+0.45\cdot x_i +\varepsilon_i
+<p>Nel 1886, Francis Galton pubblicò un articolo su <em>Nature</em> intitolato <em>Regression towards mediocrity in hereditary stature</em>. In quell’occasione, rese noti i dati raccolti su centinaia di coppie padre-figlio, relativi alla statura (convertita poi in centimetri). Galton ipotizzò inizialmente un modello molto semplice: l’altezza del figlio <span class="math inline">\(y_i\)</span> doveva corrispondere a quella del padre <span class="math inline">\(x_i\)</span>, salvo errori casuali:</p>
+<p><span class="math display">\[
+y_i = x_i + \varepsilon_i
 \]</span></p>
+<p>In questo modello, l’errore medio sarebbe nullo, e la retta teorica che descrive la relazione padre-figlio sarebbe la bisettrice del primo quadrante. Tuttavia, una volta osservati i dati empirici, l’evidenza fu diversa.</p>
+<p>Nel campione considerato, la relazione stimata tra statura del padre e del figlio risultò essere:</p>
+<p><span class="math display">\[
+y_i = 97.1776 + 0.4477 \cdot x_i + \varepsilon_i
+\]</span></p>
+<p>dove l’intercetta 97.1776 è positiva e il coefficiente angolare 0.4477 è <strong>inferiore a 1</strong>. Questo significa che:</p>
+<ul>
+<li>i figli di padri molto alti tendono a essere sì più alti della media ma più bassi dei loro padri,</li>
+<li>mentre i figli di padri molto bassi tendono a essere sì più bassi della media ma più alti dei loro padri.</li>
+</ul>
+<p>Il fenomeno fu battezzato da Galton stesso con il nome di <strong>regressione verso la media</strong>, e in seguito divenne uno dei concetti fondamentali della statistica.</p>
+<p><img src="Appunti_di_Statistica_2025_files/figure-html/17-regressione-I-18-1.png" width="672" /></p>
 </div>
 <div id="gli-assunti-del-modello-di-regressione" class="section level3 hasAnchor" number="17.3.3">
 <h3><span class="header-section-number">17.3.3</span> Gli assunti del modello di regressione<a href="regressione-lineare.html#gli-assunti-del-modello-di-regressione" class="anchor-section" aria-label="Anchor link to header"></a></h3>

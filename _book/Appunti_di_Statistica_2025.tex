@@ -512,7 +512,7 @@ drop fuzzy shadow]
 \makeatother
 \subtitle{CLEAM AA 24/25}
 \author{Patrizio Frederic}
-\date{Aggiornato al 04-04-2025}
+\date{Aggiornato al 05-04-2025}
 
 \begin{document}
 \maketitle
@@ -570,7 +570,7 @@ costruisco le mie lezioni. Non è da ritenersi alternativo alle lezioni in aula 
 
 Un ringraziamento speciale va alle mie donne e a Michele Lalla, amico, collega e maestro.
 
-Bologna, il 04-04-2025.
+Bologna, il 05-04-2025.
 
 \part{Statistica Descrittiva}
 
@@ -12135,9 +12135,15 @@ L'ipotesi è di omogeneità e quindi calcoliamo:\[
 
 \(\fbox{C}\) CONCLUSIONE
 
-La siginficatitività è \(\alpha=0.05\), dalle tavole osserviamo \(t_{20-2;0.05}=1.7341\).
+Consideriamo \(\alpha=0.1, 0.05, 0.01, 0.001\)
 
-Essendo \(t_\text{obs}=0.784<t_{20-2;0.05}=1.7341\) allora \textbf{non} rifiuto \(H_0\) al 5\%.
+I valori critici sono
+
+\(t_{20-2;0.1}=1.3304\); \(t_{20-2;0.05}=1.7341\); \(t_{20-2;0.01}=2.5524\); \(t_{20-2;0.001}=3.6105\)
+
+Siccome \(t_\text{obs}=0.784<t_{20-2;0.1}=1.3304\), quindi \textbf{non} rifiuto \(H_0\) a \textbf{nessun} livello di significatività,
+
+\(p_\text{value}>0.1\), \emph{non significativo}
 
 \begin{center}\includegraphics{Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-1-1} \end{center}
 
@@ -12147,7 +12153,7 @@ Il \(p_{\text{value}}\) è
 
 Attenzione il calcolo del \(p_\text{value}\) con la \(T\) è puramente illustrativo e non può essere riprodotto senza una calcolatrice statistica adeguata.\[
  0.1 < p_\text{value}= 0.221609 \leq 1 
-\]
+\]NULL
 \end{example}
 
 \begin{example}
@@ -12186,6 +12192,14 @@ Potremmo proporre di congiungere le medie con una spezzata
 
 \begin{center}\includegraphics{Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-14-1} \end{center}
 
+Il problema è che dobbiamo stimare 3 coppie di parametri \(\mu_1,\sigma^2_1\), \(\mu_2,\sigma^2_2\) e \(\mu_3,\sigma^2_3\)
+\textbf{senza} tenere conto della natura metrica della \(x\).
+
+L'idea è di sostituire a \(\mu_1\), \(\mu_2\) e \(\mu_3\) una funzione in \(x\), \(\mu(x)\) e stimarla coi dati \(\hat\mu(x)\),
+per ottenere qualcosa del tipo
+
+\begin{center}\includegraphics{Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-14a-1} \end{center}
+
 \end{example}
 
 \begin{example}
@@ -12203,7 +12217,8 @@ $Y=$ Raccolto & 26.87 & 27.869 & 27.035 & 29.651 & 28.571 & 27.61 & 29.099 & 29.
 \begin{center}\includegraphics{Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-15-1} \end{center}
 
 La previsione sembra più difficile,
-la suggestione di prima non sembra funzionare
+la suggestione di prima non sembra funzionare, dobbiamo modellare il luogo delle medie \(\mu\) con
+una funzione \(\mu(x)\) e stimarla coi dati \(\hat\mu(x)\).
 
 \begin{center}\includegraphics{Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-2-1} \end{center}
 
@@ -12214,12 +12229,12 @@ la suggestione di prima non sembra funzionare
 Vogliamo modellare la linea delle medie. Ci aspetteremmo una linea che passi tra i punti che
 che sia, per ogni \(x\) dato, il valore atteso di \(Y\) condizionato a quella \(x\).
 Cioè abbiamo bisogno di un modello per la media di \(Y\) per un dato \(X\)
-\[E(Y_i|X=x_i)=f(x_i)\]
+\[E(Y_i|X=x_i)=\mu(x_i)\]
 
 E si legge che \(Y\), in media, condizionato ad \(X=x\) vale \(f(x)\), dove \(f\) è una funzione da scegliere.
 L'idea di base è che
-\[y_i=f(x_i)+\varepsilon_i\]
-la \(y\) osservata in corrispondenza della \(x\) è pari ad \(f(x)\) a meno di un errore casuale.
+\[y_i=\mu(x_i)+\varepsilon_i\]
+la \(y\) osservata in corrispondenza della \(x\) è pari ad \(\mu(x)\) a meno di un errore casuale.
 Dove si assume che l'errore abbia media zero
 \[E(\varepsilon_i)=0\]
 
@@ -12232,15 +12247,19 @@ Qui di seguito un paio di esempi grafici
 
 \section{La Regressione Lineare}\label{la-regressione-lineare}
 
-Tra le tante \(f\) limitiamo l'attenzione alle funzioni lineari
-\[y_i=\beta_0+\beta_1x_i+\varepsilon_i\]
+Tra le tante \(\mu(x)\) limitiamo l'attenzione alle funzioni lineari
+\[
+y_i=\mu(x_i)=\beta_0+\beta_1x_i+\varepsilon_i
+\]
 
 \begin{center}\includegraphics{Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-5-1} \end{center}
 
 \subsection{Il modello di regressione lineare semplice}\label{il-modello-di-regressione-lineare-semplice}
 
 Il modello di regressione (lineare semplice) è
-\[y_i=\beta_0+\beta_1x_i+\varepsilon_i,\qquad E(\varepsilon_i)=0,~V(\varepsilon_i)=\sigma^2_{\varepsilon_i}\]
+\[
+y_i=\beta_0+\beta_1x_i+\varepsilon_i,\qquad E(\varepsilon_i)=0,~V(\varepsilon_i)=\sigma^2_{\varepsilon_i}
+\]
 
 \begin{nota}
 
@@ -12274,18 +12293,33 @@ I parametri di popolazione sono \textbf{3}: \(\beta_0\), \(\beta_1\) e \(\sigma^
 
 \subsection{La Storia del Metodo}\label{la-storia-del-metodo}
 
-\url{https://en.wikipedia.org/wiki/Regression_toward_the_mean}
+Nel 1886, Francis Galton pubblicò un articolo su \emph{Nature} intitolato \emph{Regression towards mediocrity in hereditary stature}. In quell'occasione, rese noti i dati raccolti su centinaia di coppie padre-figlio, relativi alla statura (convertita poi in centimetri). Galton ipotizzò inizialmente un modello molto semplice: l'altezza del figlio \(y_i\) doveva corrispondere a quella del padre \(x_i\), salvo errori casuali:
+
+\[
+y_i = x_i + \varepsilon_i
+\]
+
+In questo modello, l'errore medio sarebbe nullo, e la retta teorica che descrive la relazione padre-figlio sarebbe la bisettrice del primo quadrante. Tuttavia, una volta osservati i dati empirici, l'evidenza fu diversa.
+
+Nel campione considerato, la relazione stimata tra statura del padre e del figlio risultò essere:
+
+\[
+y_i = 97.1776 + 0.4477 \cdot x_i + \varepsilon_i
+\]
+
+dove l'intercetta 97.1776 è positiva e il coefficiente angolare 0.4477 è \textbf{inferiore a 1}. Questo significa che:
+
+\begin{itemize}
+\tightlist
+\item
+  i figli di padri molto alti tendono a essere sì più alti della media ma più bassi dei loro padri,
+\item
+  mentre i figli di padri molto bassi tendono a essere sì più bassi della media ma più alti dei loro padri.
+\end{itemize}
+
+Il fenomeno fu battezzato da Galton stesso con il nome di \textbf{regressione verso la media}, e in seguito divenne uno dei concetti fondamentali della statistica.
 
 \begin{center}\includegraphics{Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-18-1} \end{center}
-
-L'ipotesi di Galton:
-\[
-y_i = x_i +\varepsilon_i
-\]
-fu smentita dai dati
-\[
-y_i = 97.18+0.45\cdot x_i +\varepsilon_i
-\]
 
 \subsection{Gli assunti del modello di regressione}\label{gli-assunti-del-modello-di-regressione}
 
