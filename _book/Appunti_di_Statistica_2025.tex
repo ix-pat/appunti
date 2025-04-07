@@ -512,7 +512,7 @@ drop fuzzy shadow]
 \makeatother
 \subtitle{CLEAM AA 24/25}
 \author{Patrizio Frederic}
-\date{Aggiornato al 05-04-2025}
+\date{Aggiornato al 07-04-2025}
 
 \begin{document}
 \maketitle
@@ -570,7 +570,7 @@ costruisco le mie lezioni. Non è da ritenersi alternativo alle lezioni in aula 
 
 Un ringraziamento speciale va alle mie donne e a Michele Lalla, amico, collega e maestro.
 
-Bologna, il 05-04-2025.
+Bologna, il 07-04-2025.
 
 \part{Statistica Descrittiva}
 
@@ -12805,10 +12805,23 @@ i punti SI ADDENSANO intorno alla retta.
   è simmetrico: \(r_{XY} = r_{YX} = r\)
 \item
   è invariante per cambiamenti di scala:
-  \[\text{se }W=a+bY,\text{allora }r_{X,W}=\text{sign}(b) r_{XY},\text{ dove la funzione sign}(b)=
-  \begin{cases}+1, &\text{se $b>0$}\\
-            -1, &\text{se $b<0$}
-  \end{cases}\]
+  Se \(W=a+bY\), allora
+\end{enumerate}
+
+\[
+r_{XW}=\text{sign}(b) r_{XY}
+\]
+dove
+\[
+\text{sign}(b)=\begin{cases}+1, &\text{se $b>0$}\\
+             -1, &\text{se $b<0$}
+\end{cases}
+\]
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{4}
+\tightlist
 \item
   \(r\) misura l'associazione lineare:
 
@@ -13393,13 +13406,24 @@ per il coefficiente \(\beta_1\)
 \section{Il modello di regressione lineare multiplo}\label{il-modello-di-regressione-lineare-multiplo}
 
 Si tratta di un'estensione del modello semplice ma con più variabili indipendenti
-\[Y_i=\beta_0+\beta_1X_{i1}+\beta_1X_{i2}+...++\beta_1X_{ik}+\varepsilon_i\]
+\[
+Y_i=\beta_0+\beta_1X_{i1}+\beta_2X_{i2}+...+\beta_kX_{ik}+\varepsilon_i
+\]
 
-La nube dei punti non può più essere rappresentata e le soluzioni dei minimi quadrati
+La nube dei punti non può più essere rappresentata per \(k>2\) e le soluzioni dei minimi quadrati
 tanto meno.
 Il coefficiente di determinazione lineare \(R^2\) soffre di grossi limiti all'aumentare del numero
-di \(x\).
+di \(k\).
 Per valutare quanto bene il modello si adatta ai dati si devo compiere analisi statistiche ulteriori.
+
+\begin{figure}[H]
+
+{\centering \includegraphics{Appunti_di_Statistica_2025_files/figure-latex/unnamed-chunk-13-1} 
+
+}
+
+\caption{Nube in 3D, i punti tali per cui $\hat y_i>y_i$ sono colorati in blu scuro, quelli per cui $\hat y_i<y_i$, sono colorati in azzuro chiaro}\label{fig:unnamed-chunk-13}
+\end{figure}
 
 \section{Analisi dei Residui}\label{analisi-dei-residui}
 
