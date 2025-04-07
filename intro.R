@@ -11,6 +11,8 @@ library(mvtnorm)
 library(pat.book)
 library(magick)
 library(reticulate)
+library(plot3D)
+library(MASS)
 
 use_python("/usr/bin/python3", required = TRUE)
 

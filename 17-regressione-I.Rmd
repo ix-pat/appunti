@@ -1561,10 +1561,18 @@ i punti SI ADDENSANO intorno alla retta.
 2. $r$ è un numero puro, ovvero è privo di unità di misura
 3. è simmetrico: $r_{XY} = r_{YX} = r$
 4. è invariante per cambiamenti di scala:
-\[\text{se }W=a+bY,\text{allora }r_{X,W}=\text{sign}(b) r_{XY},\text{ dove la funzione sign}(b)=
-\begin{cases}+1, &\text{se $b>0$}\\
+Se $W=a+bY$, allora 
+
+$$
+r_{XW}=\text{sign}(b) r_{XY}
+$$
+dove
+$$
+\text{sign}(b)=\begin{cases}+1, &\text{se $b>0$}\\
              -1, &\text{se $b<0$}
-\end{cases}\]
+\end{cases}
+$$
+
 5. $r$ misura l'associazione lineare:
     + $r$ misura come i punti si addensano intorno alla retta.
     + $f(x)$ **non lineare** $r$ è parzialmente inutile

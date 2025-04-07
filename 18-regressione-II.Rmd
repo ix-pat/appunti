@@ -158,7 +158,7 @@ fig.def(2.6)
 E ripeto le simulazioni ripetute 500 volte:
 
 ```{r 18-regressione-II-5}
-set.seed(1)
+set.seed(1000)
 sge <- .8
 x <- (1:10)/10
 y <- x+rnorm(10,0,sge)
@@ -169,18 +169,30 @@ C12<- -mean(x)*V1
 
 
 V <- matrix(c(V0,C12,C12,V1),2)
+
 #fpar <- nbvpdf.2(0,1,V0,V1,C12)
 
+nrep <- 5000
 
+# generazione delle Y replicate
+y_sim <- replicate(nrep, 0 + 1 * x + rnorm(length(x), sd=sge))
 
-b0gr <- seq(-3*sqrt(V0),+3*sqrt(V0),length.out = 101)
-b1gr <- seq(1-3*sqrt(V1),1+3*sqrt(V1),length.out = 101)
+# calcolo delle stime b0 e b1 per ciascuna simulazione
+X <- cbind(1, x)
+XX1 <- solve(t(X) %*% X)
+b_hat <- apply(y_sim, 2, function(y) XX1 %*% t(X) %*% y)
+b_hat <- t(b_hat)  # righe = simulazioni
+
+CS <- cov(b_hat)
+
+b0gr <- seq(-3*sqrt(CS[1,1]),+3*sqrt(CS[1,1]),length.out = 101)
+b1gr <- seq(1-3*sqrt(CS[2,2]),1+3*sqrt(CS[2,2]),length.out = 101)
 b01  <- expand.grid(b0gr,b1gr)
 
-dbe <- dmvnorm(b01,c(0,1),V)
+dbe <- dmvnorm(x = b01,mean = c(0,1),sigma = CS)
 
 #bde  <- apply(b01,1,function(x)fpar(x[1],x[2]))
-bde  <- matrix(dbe,101)
+bde  <- matrix(dbe,101,byrow = F)
 
 
 par(mfrow=c(1,2),cex=cex)
@@ -190,14 +202,10 @@ axis(1,x)
 axis(2)
 md <- lsfit(x,y)
 abline(md,col="Grey")
-ppp <- md$coefficients
+ppp <- matrix(nrow = 500,ncol=2)
 for(i in 1:500){
-  y <- x+rnorm(10,0,sge)
-#  points(x,y,pch=16,cex=1,col=i+1)
-  md <- lsfit(x,y)
+  md <- b_hat[i,]
   abline(md,col="Grey")
-  ppp <- cbind(ppp,md$coefficients)
-
 }
 abline(0,1,col="DarkRed",lwd=2)
 abline(v=mean(x),lty=2)
@@ -211,17 +219,21 @@ curve(x-1.96*sey(x,n=10),add=T,lty=2,col="DarkRed",lwd=2)
 
 
 
-image(b0gr,b1gr,bde,xlab =expression(hat(beta)[0]),ylab=expression(hat(beta))[1],col = rev(gray.colors(101)))
-points(ppp[1,],ppp[2,],pch=16,cex=.5,col="darkblue")
-contour(b0gr,b1gr,bde,xlab =expression(hat(beta)[0]),ylab=expression(hat(beta))[1],drawlabels = F,add = T,col="darkred",lty=2)
+kde <- kde2d(b_hat[,1],b_hat[,2],n=101,h = c(1,1))
+
+#image(b0gr,b1gr,bde,xlab =expression(hat(beta)[0]),ylab=expression(hat(beta))[1],col = rev(gray.colors(101)))
+image(kde,xlab =expression(hat(beta)[0]),ylab=expression(hat(beta))[1],col = rev(gray.colors(101)))
+
+points(b_hat[1:500,1],b_hat[1:500,2],pch=16,cex=.5,col="darkblue")
+contour(kde,xlab =expression(hat(beta)[0]),ylab=expression(hat(beta))[1],drawlabels = F,add = T,col="black",lty=1)
 ```
 
 ```{r 18-regressione-II-6}
 curve(dnorm(x,0,sqrt(V0)),range(b0gr)[1],range(b0gr)[2],xlab = expression(hat(beta)[0]),ylab = expression(f(hat(beta)[0])))
-points(ppp[1,],rep(0,times=501),pch=4,cex=.5)
+points(b_hat[1:500,1],rep(0,times=500),pch=4,cex=.5)
 
 curve(dnorm(x,1,sqrt(V1)),range(b1gr)[1],range(b1gr)[2],xlab = expression(hat(beta)[1]),ylab = expression(f(hat(beta)[1])))
-points(ppp[2,],rep(0,times=501),pch=4,cex=.5)
+points(b_hat[1:500,2],rep(0,times=500),pch=4,cex=.5)
 
 
 par(mfrow=c(1,1),cex=cex)
@@ -476,13 +488,55 @@ per il coefficiente $\beta_1$
 ## Il modello di regressione lineare multiplo
 
 Si tratta di un'estensione del modello semplice ma con più variabili indipendenti
-\[Y_i=\beta_0+\beta_1X_{i1}+\beta_1X_{i2}+...++\beta_1X_{ik}+\varepsilon_i\]
+$$
+Y_i=\beta_0+\beta_1X_{i1}+\beta_2X_{i2}+...+\beta_kX_{ik}+\varepsilon_i
+$$
 
-La nube dei punti non può più essere rappresentata e le soluzioni dei minimi quadrati
+La nube dei punti non può più essere rappresentata per $k>2$ e le soluzioni dei minimi quadrati
 tanto meno. 
 Il coefficiente di determinazione lineare $R^2$ soffre di grossi limiti all'aumentare del numero
-di $x$. 
+di $k$. 
 Per valutare quanto bene il modello si adatta ai dati si devo compiere analisi statistiche ulteriori.
+```{r,fig.cap="Nube in 3D, i punti tali per cui $\\hat y_i>y_i$ sono colorati in blu scuro, quelli per cui $\\hat y_i<y_i$, sono colorati in azzuro chiaro"}
+
+set.seed(0)
+n <- 50
+x1 <- runif(n, 0, 10)
+x2 <- runif(n, 0, 10)
+beta0 <- 5; beta1 <- +.8; beta2 <- +1.2
+eps <- rnorm(n,0,2)
+y <- beta0 + beta1*x1 + beta2*x2 + eps
+yhat <- beta0 + beta1*x1 + beta2*x2
+
+# Griglia del piano
+xg <- seq(0, 10, length=30)
+yg <- seq(0, 10, length=30)
+zmat <- outer(xg, yg, function(x, y) beta0 + beta1*x + beta2*y)
+
+# Plot del piano
+pmat <- persp(xg, yg, zmat, theta=-35, phi=30,zlim = c(0,30),ltheta = 30,shade = .05,
+              col="white", border=1,
+              xlab = "", ylab = "", zlab = "",
+              expand=0.5,box = F)
+
+# Aggiungiamo label sugli assi con text() + trans3d
+text(trans3d(9, -1, 0, pmat), labels = expression(x[1]),cex=2,col=iblue)
+text(trans3d(-1, 9, 0, pmat), labels = expression(x[2]),cex=2,col=iblue)
+text(trans3d(0.3, 0, 32, pmat), labels = expression(y),cex=2,col=iblue)
+text(trans3d(10, 10, 30, pmat), labels = expression(mu(x[1], x[2])),cex=2,col=ared)
+arrows(trans3d(0,0,0,pmat)$x,trans3d(0,0,0,pmat)$y,trans3d(0,10,0,pmat)$x,trans3d(0,10,0,pmat)$y,length = .1)
+arrows(trans3d(0,0,0,pmat)$x,trans3d(0,0,0,pmat)$y,trans3d(10,0,0,pmat)$x,trans3d(10,0,0,pmat)$y,length = .1)
+arrows(trans3d(0,0,0,pmat)$x,trans3d(0,0,0,pmat)$y,trans3d(0,0,35,pmat)$x,trans3d(0,0,35,pmat)$y,length = .1)
+
+pt1 <- trans3d(x1, x2, y, pmat)
+pt2 <- trans3d(x1, x2, yhat, pmat)
+
+points(pt1$x[y<yhat],pt1$y[y<yhat], pch=16,col=ablue)
+points(pt1$x[y>yhat],pt1$y[y>yhat], pch=16,col=iblue)
+segments(pt1$x[y<yhat], pt1$y[y<yhat], pt2$x[y<yhat], pt2$y[y<yhat], col=ared,lty=3)
+segments(pt1$x[y>yhat], pt1$y[y>yhat], pt2$x[y>yhat], pt2$y[y>yhat], col=iblue,lty=3)
+#points(trans3d(x1,x2,0,pmat),pch=4,col="grey")
+```
 
 ## Analisi dei Residui
 
