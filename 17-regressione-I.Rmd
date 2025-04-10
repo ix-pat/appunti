@@ -597,7 +597,7 @@ I parametri di popolazione sono **3**: $\beta_0$, $\beta_1$ e $\sigma^2_\varepsi
 - $\sigma^2_\varepsilon$ è la varianza dell'errore $\varepsilon$. $\sigma^2_\varepsilon$ rappresenta la variabilità dei punti intorno alla retta.
 
 ```{r 17-regressione-I-16}
-fig.def(2)
+fig.def(3)
 ```
 
 ```{r 17-regressione-I-17}

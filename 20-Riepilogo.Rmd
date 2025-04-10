@@ -11,12 +11,12 @@ source("intro.R")
 
 
 
-<!-- ```{r 23-APPENDICE-1} -->
-<!-- if (!html) cat("# (APPENDIX) Appendice {-} ") -->
-<!-- ``` -->
+```{r 23-APPENDICE-1}
+if (!html)  cat("# (APPENDIX) Appendice {-} ") 
+```
 
 
-# (APPENDIX) Appendice {-}
+
 
 
 # Glossario della notazione `r ifelse (html,"{-}","")` 
@@ -26,7 +26,7 @@ source("intro.R")
 | Simbolo | Significato |
 |---------|-------------|
 | $x_1, \dots, x_n$ | Dati nell'ordine di osservazione |
-| $x_(1), \dots, x_(n)$ | Dati ordinati, dal più piccolo al più grande |
+| $x_{(1)}, \dots, x_{(n)}$ | Dati ordinati, dal più piccolo al più grande |
 | $n$ | Ampiezza del collettivo |
 | $\bar{x}$ | Media aritmetica dei dati  |
 | $x_{p}$ | $p\times 100\%$ percentile  |
