@@ -5,10 +5,9 @@ editor_options:
 ---
 
 ```{r 24-Libro-1, echo=FALSE}
-rm(list = ls())
-
-
+html <- TRUE
 source("intro.R")
+opts_knit$set(global.par = TRUE)
 opts_knit$set(echo=T,results = "markup")
 virg <- "`"
 options(digits = 4,nsmall=4) # quanti decimali stampo
@@ -16,7 +15,7 @@ cat(par()$cex,html)
 fig.def(2.4)
 ```
 
-# Com'è Realizzato il Libro
+# Com'è Realizzato il Libro `r ifelse (html,"{-}","")` 
 
 Per scrivere queste pagine mi sono avvalso di diverse tecnologie che grazie all'ambiente integrato
 R-Studio (cita) è possibile combinare insieme con uno sforzo relativamente basso.
@@ -97,7 +96,7 @@ quello di approfondire passo, passo i software utilizzati. Farò solo una breve 
 per stimolare i lettori più curiosi a cercare documentazioni più approfondite dei
 principali ambienti che ho utilizzato.
 
-## R: A Language and Environment for Statistical Computing
+## R: A Language and Environment for Statistical Computing `r ifelse (html,"{-}","")` 
 
 L'ambiente open source R è una collezione software per analizzare, manipolare e rappresentare 
 dati. È sviluppato per tantissimi sistemi operativi tra cui Windows, Linux, Mac OS e 
@@ -111,7 +110,7 @@ nel quale si trovano diversi documenti di introduzione al software non solo ingl
 R è un interprete interattivo, l'utente scrive un comando e una volta premuto invio
 R restituisce il risultato. 
 
-### R come calcolatrice
+### R come calcolatrice `r ifelse (html,"{-}","")` 
 
 R è anzitutto una calcolatrice
 
@@ -133,7 +132,7 @@ pi # pi greco, la costante trigonometrica
 1/0 # 1 diviso zero restituisce  infinito
 ```
 
-### Operatori Speciali
+### Operatori Speciali `r ifelse (html,"{-}","")` 
 
 Alcuni caratteri speciali sono
 
@@ -171,7 +170,7 @@ cond1 & cond2 # vera se sono vere entrambe
 cond1 | cond2 # vera se almeno una delle due è vera
 ```
 
-### Vettori e matrici
+### Vettori e matrici `r ifelse (html,"{-}","")` 
 
 Con il comando ``c`` è possibile concatenare dei valori per creare un vettore, mentre 
 si possono assegnare etichette agli oggetti con l'operatore ``<-``
@@ -262,7 +261,7 @@ mat <- matrix(c("testo 1","testo 2","testo 3","testo 4"),nrow = 2)
 mat
 ```
 
-### Liste e dataframe
+### Liste e dataframe `r ifelse (html,"{-}","")` 
 
 Una lista è una collezione di diversi oggetti di R
 
@@ -293,7 +292,7 @@ dati$sesso
 dati$eta
 ```
 
-### Classi e Oggetti
+### Classi e Oggetti `r ifelse (html,"{-}","")` 
 
 R è un linguaggio funzionale, ogni elemento è un oggetto che ha un classe
 e metodi. Per esempio
@@ -321,7 +320,7 @@ class(dat)
 ```
 :::
 
-### I grafici
+### I grafici `r ifelse (html,"{-}","")` 
 
 La libraria grafica di R è particolarmente ricca. La funzione di base per
 realizzare un grafico è la funzione ``plot(x,y)``. La funzione, di default, disegna 
@@ -444,7 +443,7 @@ hist(
 
 
 
-### Le Funzioni in R
+### Le Funzioni in R `r ifelse (html,"{-}","")` 
 
 Essendo R un linguaggio funzionale ogni funzione (che è essa stessa un oggetto)
 si alimenta di uno o più oggetti di determinate classi e restituisce uno o 
@@ -475,7 +474,7 @@ matrix(data = x, ncol = 2)  #
 matrix(2, x)                # produce un risultato senza senso
 ```
 
-#### Le funzioni statistiche
+#### Le funzioni statistiche `r ifelse (html,"{-}","")` 
 
 Tra le funzioni di base ricordiamo ``mean(x)`` la media del vettore ``x``
 ``var(x)`` la varianza **corretta**, ``sd(x)`` la SD **corretta** , ``median(x)`` la mediana
@@ -531,7 +530,7 @@ abline(modello$coefficients,lwd=2,col=iblue)
 ```
 
 
-#### Le VC di maggiore interessa
+#### Le VC di maggiore interessa `r ifelse (html,"{-}","")` 
 
 In R sono tabulate tutte le distribuzioni di maggiore interesse, comprese, la binomiale, la Poisson,
 la Normale, la t di studente e il chi quadro, insieme a moltissime altre. La sintassi 
@@ -593,7 +592,7 @@ pnorm(3,mean = 2.5,sd = 1.5)-pnorm(0.5,mean = 2.5,sd = 1.5) #  P(0.5 < X < 3)
 rnorm(25,2.5,1.5) # 25 estrazioni da X
 ```
 
-#### Funzioni tra stringhe
+#### Funzioni tra stringhe `r ifelse (html,"{-}","")` 
 
 Una stringa è un vettore di testo, non numerico, la funzione ``paste`` consente 
 di incollare testi.
@@ -616,7 +615,7 @@ cat(vettore_testo1,"\t",vettore_testo2)
 cat(vettore_testo1,"\n",vettore_testo2)
 ```
 
-#### Cicli e Condizioni
+#### Cicli e Condizioni `r ifelse (html,"{-}","")` 
 
 I cicli si possono fare con ``for`` ma come vedremo si possono aggirare in molti modi
 
@@ -649,7 +648,8 @@ cond <- FALSE
 ifelse(cond,"VERO","FALSO")
 ```
 
-#### Funzioni per Ovviare ai Cicli
+#### Funzioni per Ovviare ai Cicli `r ifelse (html,"{-}","")` 
+
 R è un interprete e i cicli rallentano molto il funzionamento dei programmi
 alcune funzioni speciali quali ``apply``, ``tapply``, ``lapplay`` e ``sapply``
 applicano a diversi tipi di oggetti una funzione.
@@ -683,7 +683,7 @@ lapply(campione,FUN = function(x)c(mean(x),var(x)))
 sapply(campione,FUN = function(x)c(mean(x),var(x))) # come sopra ma in matrice
 ```
 
-#### Funzioni personalizzate
+#### Funzioni personalizzate `r ifelse (html,"{-}","")` 
 
 Le funzioni si possono creare con la funzione ``function``
 

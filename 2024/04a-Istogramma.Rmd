@@ -41,7 +41,7 @@ samp <- genera_dati(brk = brk,n = n,nnn = nnn,rand = F)
 ls2e(stat_base(samp,brk))
 ```
 
-:::: {.example}
+:::{.example}
 Il reddito di $n=$ 4700 famiglie (dati inventati)
 è rappresentato nella tabella di frequenza qui di seguito
 
@@ -61,7 +61,7 @@ Quindi disegniamo l'istogramma di densità percentuale, dove le $h$ sono usate c
 histp(T)
 ```
 
-:::: {.att data-latex=""}
+:::{.att data-latex=""}
 Se al posto delle $h$ usiamo le $f$ disegniamo l'istogramma _sbagliato_, . Notiamo che la classe $[20,50)$
 viene sovra rappresentata. Infatti è vero che il 45% delle famiglie si trova in quella classe, ma è anche vero che l'ampiezza della classe molto grande e l'istogramma non rappresenta i dati.
 
@@ -72,9 +72,9 @@ lines(c(0,90),c(0,0.4),col=ared,lwd=4)
 lines(c(0,90),c(0.4,0.0),col=ared,lwd=4)
 axis(side = 1,at = brk,labels = brk)
 ```
-::::
+:::
 
-:::: {.att data-latex=""}
+:::{.att data-latex=""}
 Per disegnare un istogramma di densità in modo corretto si devono rispettare le proporzioni
 tra le basi
 
@@ -89,7 +89,7 @@ title("Isogramma Sbagliato: le x sono disegnate male")
 lines(c(0,4),c(0,3),col=ared,lwd=4)
 lines(c(0,4),c(3,0.0),col=ared,lwd=4)
 ```
-::::
+:::
 
 Una volta che abbiamo ricostruito tutta la tabella e realizzato il grafico possiamo
 rispondere a tante domande sulla distribuzione dei dati, quali, per esempio:
@@ -270,10 +270,10 @@ i valori sono $(x_{0.025}, x_{0.975})=$(`r Q.int(c(.025,.975))`)
   + compreso tra `r Q.int(.5)` e `r Q.int(.975)`
   + compreso tra `r Q.int(.975)` e 100
   + minore di `r Q.int(.025)` o maggiore di `r Q.int(.975)`
-::::
+:::
 
 
-<!-- :::: {.example name="Temperature (C°)"} -->
+<!-- :::{.example name="Temperature (C°)"} -->
 
 <!-- ```{r setup2, include=FALSE} -->
 <!-- n <- 1000 -->
@@ -402,5 +402,5 @@ i valori sono $(x_{0.025}, x_{0.975})=$(`r Q.int(c(.025,.975))`)
 
 
 <!-- ``` -->
-<!-- :::: -->
+<!-- ::: -->
 

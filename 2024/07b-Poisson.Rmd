@@ -191,7 +191,7 @@ P(2\leq X\leq 4) &=& P(X=2\cup X=3 \cup X=4 )\\
 
 ### Proprietà della Poisson
 
-::: {.proposition name="Variabile Casuale di Poisson"}
+:::{.proposition name="Variabile Casuale di Poisson"}
 $\phantom{.}$
   
 1. Siano $X_1, X_2,...,X_n$, $n$ VC indipendenti, tali che
@@ -206,7 +206,7 @@ allora $\lim_{n\to\infty}X\sim \text{Pois}(\lambda)$.
 
 ### In Sintesi
 
-:::: {.info2 data-latex=""}
+:::{.info2 data-latex=""}
 Se $X$ è distribuita come una Poisson di parametro $\lambda$, allora
 
 \begin{align*}
@@ -223,4 +223,4 @@ Siano $X_1, X_2,...,X_n$, $n$ VC indipendenti, tali che
 \[X_i\sim\text{Pois}(\lambda_i)\]
 allora 
 \[X_1+X_2+...+X_n\sim\text{Pois}(\lambda_1+\lambda_2+...+\lambda_n)\]
-::::
+:::

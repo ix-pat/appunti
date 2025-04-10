@@ -111,7 +111,7 @@ La normale gode di molte proprietà interessanti, tutte le combinazioni lineari 
 una normale sono normali e anche la combinazione lineare di normali indipendenti 
 è normale. Più formalmente
 
-::: {.proposition name="Proprietà della Normale"}
+:::{.proposition name="Proprietà della Normale"}
 Le principali proprietà dell normale sono
 
 1. Sia $X\sim N(\mu,\sigma^2)$, posto
@@ -139,18 +139,18 @@ __Casi speciali per $n=2$ __
 Se $X_1\sim N(\mu_1,\sigma^2_1)$ e $X_2\sim N(\mu_2,\sigma^2_2)$ allora:
 \[X_1+X_2\sim N(\mu_1+\mu_2,\sigma^2_1+\sigma^2_2)\]
 
-::: {.att data-latex=""}
+:::{.att data-latex=""}
 **Attenzione**
 \[X_1-X_2\sim N(\mu_1-\mu_2,\sigma^2_1\color{red}+\color{black}\sigma^2_2)\]
 :::
 
-:::: {.example}
+:::{.example}
 Sia $X_1\sim N(2.1,3.4)$ e $X_2\sim N(5.2,2.7)$, allora
 \begin{eqnarray*}
   X_1 + X_2 &\sim& N(2.1+5.2=7.3,\quad 3.4+2.7=6.1)\\
   X_1 - X_2 &\sim& N(2.1-5.2=-3.1,\quad 3.4+2.7=6.1)
 \end{eqnarray*}
-::::
+:::
 
 **Spiegazione**
 
@@ -570,15 +570,15 @@ allora
 \text{se } z < 0, \qquad 1-\Phi(+|z|)
 \end{cases}\]
 
-:::: {.example}
+:::{.example}
 Calcolare $P(Z\leq 1.12)$: $1.12\geq 0$ e quindi dalle tavole 
 \[P(Z\leq 1.12)=\Phi(1.12)=`r pnorm(1.12)`\]
-::::
+:::
 
-:::: {.example}
+:::{.example}
 Calcolare $P(Z\leq -1.12)$: $-1.12< 0$ e quindi 
 \[P(Z\leq -1.12)=\Phi(-1.12)=1-\Phi(+1.12)=`r 1-pnorm(1.12)`\]
-::::
+:::
 
 #### Calcolo di $P(Z>z)$
 
@@ -599,7 +599,7 @@ z <- 1.5
 ```
 
 
-:::: {.example}
+:::{.example}
 calcolare la probabilità che $Z$ si maggiore di `r z` 
 
 \[P(Z > `r z`) = 1-\Phi(`r z`)=1-`r pnorm(z)`=`r 1-pnorm(z)`\]
@@ -618,9 +618,9 @@ axis(2)
 ```{r 07c-Normale-18,echo=F}
 z <- -1.5
 ```
-::::
+:::
 
-:::: {.example}
+:::{.example}
 Calcolare la probabilità che $Z$ si maggiore di `r z` 
 
 \[P(Z > `r z`) = 1-\Phi(`r z`)=1-(1-\Phi(+`r -z`))=\Phi(+`r -z`)=`r pnorm(-z)`\]
@@ -634,7 +634,7 @@ text(z+.7,.1,paste(round(1-pnorm(z),4)),cex=2)
 axis(1,c(-4,0,z,4))
 axis(2)
 ```
-::::
+:::
 
 #### Calcolo della probabilità di intervalli
 
@@ -647,7 +647,7 @@ Obiettivo: calcolare la probabilità che $Z$ si avveri nell'intervallo $(z_1,z_2
 Dalle proprietà della funzione di ripartizione abbiamo
 \[P(z_1<Z\leq z_2) = \Phi(z_2)-\Phi(z_1)\]
 
-:::: {.example}
+:::{.example}
 Calcolare la probabilità che $Z$ si avveri tra `r z1` e `r z2`
 \[P(`r z1`< Z \leq `r z2`) = \Phi(`r z2`)-\Phi(`r z1`)=`r pnorm(z2)`-`r pnorm(z1)`=`r pnorm(z2)-pnorm(z1)`\]
 
@@ -664,9 +664,9 @@ axis(2)
 ```{r 07c-Normale-22,echo=F}
 z1 <- -1.22; z2 <- 0.78
 ```
-::::
+:::
 
-:::: {.example}
+:::{.example}
 Calcolare la probabilità che $Z$ si avveri tra `r z1` e `r z2`
 \begin{eqnarray*}
 P(`r z1`< Z \leq `r z2`) &=& \Phi(`r z2`)-\Phi(`r z1`) \\
@@ -689,9 +689,9 @@ axis(2)
 z1 <- -2.8; z2 <- -0.12
 fig.def()
 ```
-::::
+:::
 
-:::: {.example}
+:::{.example}
 Calcolare la probabilità che $Z$ si avveri tra `r z1` e `r z2`
 \begin{eqnarray*}
 P(`r z1`< Z \leq `r z2`) &=& \Phi(`r z2`)-\Phi(`r z1`) \\
@@ -718,7 +718,7 @@ par(cex=cex)
 
 
 ```
-::::
+:::
 
 
 #### Calcolo su una normale qualunque $X\sim N(\mu,\sigma^2)$
@@ -738,7 +738,7 @@ P(x_1<X\leq x_2) &=& P\left( \frac {x_1 - \mu}\sigma < \frac {X - \mu}\sigma \le
 \end{eqnarray*}
 dove $z_1=\frac {x_1 - \mu}\sigma$ e $z_2=\frac {x_2 - \mu}\sigma$
 
-:::: {.example}
+:::{.example}
 
 Sia $X\sim N(10,4)$, calcolare la probabilità che $7<X\leq 11$
 \begin{eqnarray*}
@@ -782,7 +782,7 @@ par(cex=cex)
 
 ```
 
-::::
+:::
 
 Questa applicazione esemplifica l'uso delle tavole e risolve ogni tipo intervallo: [Normale](https://patrizio-frederic.shinyapps.io/normale/)
 
@@ -833,7 +833,7 @@ axis(2)
 par(cex=cex)
 ```
 
-:::: {.example}
+:::{.example}
 Per $\alpha$ qualunque. 
 Sia $\alpha=0.15$ cerchiamo quel valore $z_{0.15}$ tale che
 \[P(Z>z_{0.15})=0.15\]
@@ -880,7 +880,7 @@ axis(2)
 
 par(cex=cex)
 ```
-::::
+:::
 
 #### Alcuni valori speciali di $\alpha$
 
@@ -936,18 +936,18 @@ par(cex=cex)
 ```
 
 
-:::: {.example}
+:::{.example}
 Se $\alpha=0.1$ allora $z_{0.1}=1.2816$
 \[P(Z>1.2816)=0.1,\qquad P(Z\leq 1.2816)=0.9\]
 Se $\alpha=0.025$ allora $z_{0.025}=1.96$
 \[P(Z>1.96)=0.025,\qquad P(Z\leq 1.96)=0.975\]
-::::
+:::
 
 \clearpage
 
 ### In Sintesi
 
-:::: {.info2 data-latex=""}
+:::{.info2 data-latex=""}
 Se $X$ è distribuita come una Normale di parametri $\mu$ e $\sigma^2$, allora
 
 \begin{align*}
@@ -973,6 +973,6 @@ posto
 \[Y=a_1X_1+...+a_nX_n\]
 dove $a_1,...,a_n$ sono $n$ numeri reali qualunque, allora
 \[Y\sim N(a_1\mu_1+...+a_n\mu_n,a_1^2\sigma_1^2+...+a_n^2\sigma_n^2)\]
-::::
+:::
 
 \clearpage

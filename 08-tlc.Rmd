@@ -48,7 +48,7 @@ Esistono diversi tipi di convergenza e non entreremo nella trattazione
 sistematica del tema. Mostreremo solo le convergenze che ci interessano
 per sviluppare il resto della teoria.
 
-::: {.definition name="Convergenza in Distribuzione"}
+:::{.definition name="Convergenza in Distribuzione"}
 Si dice che la successione $\{X_1,X_2,...,X_n,...\}$ converge in
 distribuzione alla VC X se e solo se
 $$\lim_{n\to\infty}F_n(x)=F(x),~\forall x\in S_X$$ dove $F_n$ e $F$
@@ -56,14 +56,14 @@ rappresentano la funzione di ripartizione di $X_n$ e di $X$,
 rispettivamente. E si scrive $$X_n\operatorname*{\rightarrow}_{d} X$$
 :::
 
-::: {.definition name="Convergenza in Probabilità"}
+:::{.definition name="Convergenza in Probabilità"}
 Si dice che la successione $\{X_1,X_2,...,X_n,...\}$ converge in
 probabilità alla VC X se e solo se
 $$\lim_{n\to\infty}P(|X_n-X|<\varepsilon)=1$$e si scrive
 $$X_n\operatorname*{\rightarrow}_{P} X$$
 :::
 
-::: {.definition name="Convergenza in Media Quadratica"}
+:::{.definition name="Convergenza in Media Quadratica"}
 Si dice che la successione $\{X_1,X_2,...,X_n,...\}$ converge in media
 quadratica alla VC X se e solo se
 $$\lim_{n\to\infty}E\big((X_n-X)^2\big)=0$$e si scrive
@@ -98,13 +98,13 @@ Dalle proprietà del valore atteso e della varianza otteniamo
    &=& \frac {\sigma^2}n 
 \end{eqnarray*}
 
-::: {.att data-latex=""}
+:::{.att data-latex=""}
 Le VC $X_1,...,X_n$ sono VC qualunque non necessariamente normali, il
 fatto che chiamiamo $E(X_i)=\mu$ e $V(X_i)=\sigma^2$ è solo una
 convenzione e non deve fare pensare ai parametri della normale.
 :::
 
-::: {.theorem name="Legge dei Grandi Numeri"}
+:::{.theorem name="Legge dei Grandi Numeri"}
 Siano $X_1,...,X_n$ $n$ VC IID, tali che $E(X_i)=\mu$ e
 $V(X_i)=\sigma^2$. Posto
 $$\bar X= \frac{S_n}n =\frac{X_1+...+X_n}n=\frac 1n\sum_{i=1}^nX_i$$
@@ -141,8 +141,8 @@ grande, è approssimabile con una distribuzione normale. Enunciamo qui
 tre diversi teoremi che in realtà sono tre diverse declinazioni dello
 stesso. Iniziamo dal primo e più famoso.
 
-::: {.info data-latex=""}
-::: {.theorem name="TLC per la Somma"}
+:::{.info data-latex=""}
+:::{.theorem name="TLC per la Somma"}
 Siano $X_1....,X_n$, $n$ Variabili Casuali (VC) Indipendenti e
 Identicamente Distribuite (IID), tali che $E(X_i)=\mu$,
 $V(X_i)=\sigma^2$, $\forall i=1....,n$. Posto $$S_n=X_1+...+X_n,$$
@@ -157,8 +157,8 @@ semplificando notevolmente il calcolo.
 Siccome una media non è altro che una somma diviso $n$, valore atteso e
 varianza le abbiamo già ricavate, otteniamo
 
-::: {.info data-latex=""}
-::: {.theorem name="TLC per la Media"}
+:::{.info data-latex=""}
+:::{.theorem name="TLC per la Media"}
 Siano $X_1....,X_n$, $n$ Variabili Casuali (VC) Indipendenti e
 Identicamente Distribuite (IID), tali che $E(X_i)=\mu$,
 $V(X_i)=\sigma^2$, $\forall i=1....,n$. Posto
@@ -179,8 +179,8 @@ un simbolo speciale che sarà più chiaro più avanti.
 $$\hat \pi=\frac{X_1+...+X_n}{n}$$ sostituendo valore atteso e varianza
 nel TLC della media otteniamo:
 
-::: {.info data-latex=""}
-::: {.theorem name="TLC per la Proporzione"}
+:::{.info data-latex=""}
+:::{.theorem name="TLC per la Proporzione"}
 Siano $X_1....,X_n$, $n$ Variabili Casuali (VC) Indipendenti e
 Identicamente Distribuite (IID), tali che $X_i\sim\text{\rm Ber}(\pi)$,
 $\forall i=1....,n$. Posto
@@ -194,7 +194,7 @@ Bernoulli. Ci dice che la proporzione osservata su un campione di $n$ VC
 di Bernoulli è normale con media $\pi$ e varianza che va a zero con $n$
 che diverge.
 
-::: {.nota data-latex=""}
+:::{.nota data-latex=""}
 La notazione $\operatorname*{\sim}_{a}$ non è una notazione standard ma
 è diventata una prassi con i miei studenti per semplificare la notazione
 completa che sarebbe più elaborata. Per esempio nel caso del TLC della
@@ -576,7 +576,7 @@ papp <- 1-pnorm(0,mm,sqrt(ss))
 pexx <- sum(dbinom(51:100,100,pn))
 ```
 
-::: {.nota data-latex=""}
+:::{.nota data-latex=""}
 I due valori di probabilità esatta `r pexx` e quello approssimato
 `r papp` sono diversi nella seconda cifra decimale. Questo è dovuto al
 fatto che la normale calcola anche parte dell'istogramma della binomiale

@@ -29,16 +29,16 @@ Una _Variabile Statistica_ (VS) è una qualunque caratteristica osservabile sugl
 - $j$, indice che conta le modalità: prima, seconda, ..., $j$-esima,..., la $K$-esima.
 - $K$, numero di modalità.
 
-:::: {.example #vg name="Variabile: genere"}
+::: {.example #vg name="Variabile: genere"}
 $\phantom{.}$
 
 - $\mathbf{x}=(x_1 = M, x_2 =F, x_3 =M, x_4=F,x_5=F,x_6=F)$
 - $n=6$
 - $S_X=\{\mathrm{x}_1 = F,\mathrm{x}_2 = M\}$
 - $K=2$
-::::
+:::
 
-:::: {.example name="Variabile: titolo di studio"}
+::: {.example name="Variabile: titolo di studio"}
 $\phantom{.}$
 
 - $\mathbf{x}=(x_1 = E, x_2 =M, x_3 =L, x_4=S,x_5=S,x_6=S,
@@ -46,9 +46,9 @@ x_7=L,x_8=M,x_9=L,x_{10}=S)$
 - $n=10$
 - $S_X=\{\mathrm{x}_1 = E,\mathrm{x}_2 = M, \mathrm{x}_3=S,\mathrm{x}_4=L\}$
 - $K=4$
-::::
+:::
 
-:::: {.example name="Variabile: Numero di interventi di manutenzione giornalieri"}
+::: {.example name="Variabile: Numero di interventi di manutenzione giornalieri"}
 $\phantom{.}$
  
 - $\mathbf{x}=(x_1 = 0, x_2 =1, x_3 =0, x_4=2,x_5=1,x_6=1,
@@ -56,7 +56,7 @@ x_7=0,x_8=1,x_9=3,x_{10}=1)$
 - $n=10$
 - $S_X=\{\mathrm{x}_1 = 0,\mathrm{x}_2 = 1,\mathrm{x}_3=2,\mathrm{x}_4=3,...\}$
 - $K=+\infty$
-::::
+:::
 
 ### Ordinamento e conteggio
 
@@ -68,16 +68,16 @@ $$(x_{(1)},x_{(2)},...,x_{(i)},...,x_{(n)}),$$
 indica i dati riordinati, dal più piccolo, al più grande. Se i dati sono numerici
 l'ordinamento è univoco, se i dati sono categoriali l'ordinamento è arbitrario.
 
-:::: {.example name="Continua"}
+::: {.example name="Continua"}
 Continuiamo l'esempio della variabile genere discussa
 nell'esempio \@ref(exm:vg)
 
 - $\mathbf{x}=(x_1 = M, x_2 =F, x_3 =M, x_4=F,x_5=F,x_6=F)$
 - $S_X=\{\mathrm{x}_1 = F,\mathrm{x}_2 = M\}$
 - $x_{(1)}=F,x_{(2)}=F,x_{(3)}=F,x_{(4)}=F,x_{(5)}=M,x_{(6)}=M$
-::::
+:::
 
-:::: {.example name="Continua: codifica 0, 1"}
+::: {.example name="Continua: codifica 0, 1"}
 $\phantom{.}$
 
 - Variabile: genere {M -> 0,F-> 1}
@@ -86,9 +86,9 @@ $\phantom{.}$
 - $x_{(1)}=0,x_{(2)}=0,x_{(3)}=1,x_{(4)}=1,x_{(5)}=1,x_{(6)}=1$
 - **nota**: nella codifica 0, 1 ha senso sommare i dati:
 \[x_1+x_2+x_3+x_4+x_6=4,~~\text{Numero di femmine}\]
-::::
+:::
 
-:::: {.example name="Continua: Variabile titolo di studio"}
+::: {.example name="Continua: Variabile titolo di studio"}
 $\phantom{.}$
 
 - $\mathbf{x}=(x_1 = E, x_2 =M, x_3 =L, x_4=S,x_5=S,x_6=S,
@@ -97,9 +97,9 @@ x_7=L,x_8=M,x_9=L,x_{10}=S)$
 - $x_{(1)}=E,x_{(2)}=M,x_{(3)}=M,x_{(4)}=S,x_{(5)}=S,x_{(6)}=S,x_{(7)}=S,x_{(8)}=L,x_{(9)}=L,
 x_{(10)}=L$
 
-::::
+:::
 
-:::: {.example name="Continua: Codifica Numerica"}
+::: {.example name="Continua: Codifica Numerica"}
 $\phantom{.}$
 
 - Variabile: titolo di studio {E -> 1, M -> 2, S -> 3, L -> 4}
@@ -155,9 +155,9 @@ Per sapere il numero persone che ha al massimo le elementari basta fare 10 (nume
  10-(2+4+3)=1~~~\text{con le elemntari}
  \]
 
-::::
+:::
 
-:::: {.example name="Continua: Numero di interventi di manutenzione giornalieri"}
+::: {.example name="Continua: Numero di interventi di manutenzione giornalieri"}
 $\phantom{.}$
 
 - $\mathbf{x}=(x_1 = 0, x_2 =1, x_3 =0, x_4=2,x_5=1,x_6=1,
@@ -167,13 +167,13 @@ x_7=0,x_8=1,x_9=3,x_{10}=1)$
 x_{(10)}=3$
 - ha senso sommare i dati?
 - cosa rappresenta la somma dei dati?
-::::
+:::
 
 ## Distribuzione di Frequenza
 
 La frequenza indica quanto una modalità insiste sul collettivo. Le frequenze si dividono in:
 
-:::: {.info data-latex=""}
+::: {.info data-latex=""}
 ::: {.definition name="Frequenze Assolute"}
 Si definiscono le $n_j$ le __frequenze assolute__: il numero di individui che presentano la modalità $j$. 
 :::
@@ -185,9 +185,9 @@ Si definiscono le $f_j=n_j/n$ le __frequenze relative__: la proporzione di indiv
 ::: {.definition name="Frequenze Percentuali"}
 Si definiscono le $f_{\% j}=f_j\times 100$ le __frequenze percentuali__: la percentuale di individui che presentano la modalità $j$. 
 :::
-::::
+:::
 
-:::: {.info data-latex=""}
+::: {.info data-latex=""}
 ::: {.proposition}
 Le proprietà della frequenze assolute($n_{j}$) sono:
 
@@ -213,16 +213,16 @@ Le proprietà della frequenze percentuali ($f_{\% j}$) sono:
 -  $\sum_{j=1}^{K} f_{\%,\, j} = 100$.
 
 :::
-::::
+:::
 
-:::: {.info data-latex=""}
+::: {.info data-latex=""}
 ::: {.definition name="Distribuzione di Frequenza"}
 
 Una **distribuzione di frequenza** è una tabella a cui vengono associate le modalità e le frequenze
 :::
-::::
+:::
 
-:::: {.example name="Continua: Variabile: genere"}
+::: {.example name="Continua: Variabile: genere"}
 
 $$x_{(1)}=F,x_{(2)}=F,x_{(3)}=F,x_{(4)}=F,x_{(5)}=M,x_{(6)}=M$$
 
@@ -251,9 +251,9 @@ kable(prn,booktabs=T,escape=F,linesep="",align = c("lrrr"),
   kableExtra::kable_styling(latex_options = "hold_position")
 
 ```
-::::
+:::
 
-:::: {.example name="Continua: Variabile titolo di studio"}
+::: {.example name="Continua: Variabile titolo di studio"}
 $\phantom{.}$
 
 $x_{(1)}=E,x_{(2)}=M,x_{(3)}=M,x_{(4)}=S,x_{(5)}=S,x_{(6)}=S,x_{(7)}=S,x_{(8)}=L,x_{(9)}=L,
@@ -276,7 +276,7 @@ kable(prn,booktabs=T,escape=F,linesep="",align = c("lrrr"),
   kableExtra::kable_styling(latex_options = "hold_position")
 
 ```
-::::
+:::
 
 ### Dati quantitativi continui
 
@@ -285,7 +285,7 @@ gran lunga superiore al numero dei dati e non sempre è possibile fissare un lim
 in anticipo all'osservazione dei dati. Se per esempio volessi misurare il 
 reddito di una persona in centesimi, otterrei:
 
-:::: {.example name="Variabile: Reddito mensile lordo in migliaia di euro"}
+::: {.example name="Variabile: Reddito mensile lordo in migliaia di euro"}
 $\phantom{x}$
 
 - unità di rilevazione: famiglie del comune A a febbraio 2021
@@ -354,7 +354,7 @@ cat("\\hline","\n")
 <!-- ::: -->
 
 Come si osserva aver rimesso in ordine i dati non ci aiuta a capire la distribuzione del fenomeno.
-::::
+:::
 
 ### Raggruppamenti in Classi
 
@@ -411,7 +411,7 @@ Si definisce frequenza cumulata $F$ la seguente quantità:
 
 ovvero $F_j=f_1+...+f_j$ _cumula_ tutte le frequenze dalla 1 alla $j$.
 
-:::: {.example name="Continua: Variabile titolo di studio"}
+::: {.example name="Continua: Variabile titolo di studio"}
 $\phantom{.}$
 
 :::  {.center data-latex=""}
@@ -424,10 +424,10 @@ kbl(cbind("$n_j$"= n,"$f_j$" = n/sum(n),"$F_j$"= cumsum(n)/sum(n)),booktabs = T,
 ::: 
 
 E si legge: $F_1=0.1$ ci dice che il 10% del collettivo in esame ha come massimo titolo ha non più delle elementari. $F_1=0.3$ ci dice che il 30% del collettivo ha come massimo titolo ha non più delle medie. $F_4=0.7$ ci dice che il 30% del collettivo ha come massimo titolo ha non più delle superiori e $F_5=1$ che il 100% del collettivo ha, al massimo, la laurea.
-::::
+:::
 
 
-:::: {.example name="Continua: Reddito"}
+::: {.example name="Continua: Reddito"}
 $\phantom{.}$
 
 :::  {.center data-latex=""}
@@ -442,15 +442,15 @@ kbl((dat3[1:(k+1),c(1:2,4,7)]),digits = 2,booktabs = T, escape = F) %>%
 :::  
 
 E si legge: $F_1=0.21$ ci dice che il 20% del collettivo in esame guadagna al massimo 3 (mila euro); alternativamente leggiamo che il 20% del collettivo **non** guadagna più di 3 (mila euro). $F_2=0.56$ ci dice che il 56% del collettivo guadagna al massimo 5. $F_2=0.56$ ci dice che il 56% del collettivo guadagna al massimo 5 (mila euro); il 56% non guadagna più di 5 (mila euro).  $F_3=0.78$ ci dice che il 78% del collettivo guadagna 10 (mila euro); il 78% non guadagna più di 10 (mila euro). E infine il 100% del collettivo guadagna al massimo 20  (mila euro).
-::::
+:::
 
 ## Istogramma di Densità
 
 È grafico che rappresenta rettangoli contigui la cui area è la frequenza e la base è l'intervallo di raggruppamento. Usiamo il simbolo $b_j$ per denotare l'ampiezza della base del rettangolo, l'altezza dei rettangoli viene chiamata _densità_
 
-:::: {.info data-latex=""}
+::: {.info data-latex=""}
   \[h_j = Const.\times \frac {f_j} {b_j}\]
-::::
+:::
 
 Se $Const.=1$ si ottiene _l'istogramma di densità relativa_, la somma delle aree dei rettangoli è 1. Se $Const.=n$ si ottiene _l'istogramma di densità assoluta_, la somma delle aree dei rettangoli è $n$. Se $Const.=100$ si ottiene _l'istogramma di densità percentuale_, la somma delle aree dei rettangoli  è 100. Per comodità tutti gli esempi si riferiscono all'istogramma di densità percentuale.
 
@@ -471,7 +471,7 @@ kable(out,booktabs = T, escape = F, digits = 2,row.names = F,caption = "Come ric
 ```
 \normalsize
 
-:::: {.example }
+::: {.example }
 
 La tabella \@ref(tab:conti) mostra passo, passo lo sviluppo del calcolo. La figura \@ref(fig:hist) la corrispondente rappresentazione grafica.
 
@@ -491,7 +491,7 @@ text((dat3[,1]+dat3[,2])/2,dat3$`$h_j$`*5/8,round(dat3$`$f_j$`*100,2),cex=1/cex,
 segments(-1,dat3$`$h_j$`,brk[-5]+.2,dat3$`$h_j$`,lty=2)
 par(cex=cex)
 ```
-::::
+:::
 
 ## La Funzione di Ripartizione
 
@@ -618,7 +618,7 @@ Gli **indicatori di variabilità** misurano lo scostamento del fenomeno oggetto 
 
 ## Riepilogo
 
-:::: {.info2 data-latex=""}
+::: {.info2 data-latex=""}
 \vspace{10pt}\scriptsize
 :::  {.center data-latex=""}
 ```{r riepilogo distr}
@@ -655,5 +655,5 @@ kable(out,col.names = c("Estremo inf","Estremo sup","freq. ass.","freq. relativa
 
 ```
 :::  
-::::
+:::
 \normalsize

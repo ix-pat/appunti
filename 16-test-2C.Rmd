@@ -260,7 +260,7 @@ ztest_2c_pi(s1 = s1,s2 = s2,n1 = n1,n2 = n2,h1 = h1,a = a,b = b)
 
 ## Specchietto Finale per i Test ad Due Campioni
 
-::: {.info2 data-latex=""}
+:::{.info2 data-latex=""}
 <div style="font-size:0.9em;">
 ```{r 16-test-2C-4}
 if (!html) {

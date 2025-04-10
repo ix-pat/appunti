@@ -24,6 +24,7 @@ rmd_files: [
  "17-regressione-I.Rmd",
  "18-regressione-II.Rmd",
  "19-chi-quadro.Rmd",
+ "20-Riepilogo.Rmd",
  "23-APPENDICE.Rmd",
  "24-Libro.Rmd",
  "25-test-functions.Rmd"

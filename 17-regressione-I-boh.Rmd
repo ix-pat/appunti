@@ -80,7 +80,7 @@ ysamp <- ysamp1
 quad <-paste(paste(paste(ysamp[1:3],collapse = "^2+"),"^2",sep=""),"+...+",paste(paste(ysamp[9:10],collapse = "^2+"),"^2",sep=""))
 ```
 
-::: {.example}
+:::{.example}
 Stiamo studiando la produttività media di un ettaro coltivato ad una certa varietà di riso: 
 per prima cosa piantiamo 10 ettari **non** trattati con fertilizzante ($X=0$) con questa varietà e calcoliamo i quintali per ettaro, otteniamo (`r ysamp`)
 
@@ -163,7 +163,7 @@ E(\hat Y_{11})&=&E(\hat\mu_{(X=0)}+\varepsilon_{11})\\
 L'errore di previsione stimato è $S_{(X=0)}=`r sbar`$.
 :::
 
-::: {.example}
+:::{.example}
 
 ```{r}
 sbar <- sbar2
@@ -249,7 +249,7 @@ fig.def(3,3)
 ```
 :::
 
-::: {.example}
+:::{.example}
 
 ```{r}
 sbar <- sbar3
@@ -392,7 +392,7 @@ title(main = "una suggestione")
 ```
 :::
 
-::: {.example}
+:::{.example}
 
 **problema 3:** Dobbiamo studiare un nuova varietà di riso, ma il budget è inferiore.
 osserviamo 10 ettari
@@ -536,7 +536,7 @@ Il modello di regressione (lineare semplice) è
 \[y_i=\beta_0+\beta_1x_i+\varepsilon_i,\qquad E(\varepsilon_i)=0,~V(\varepsilon_i)=\sigma^2_{\varepsilon_i}\]
 
 
-::: {.nota data-latex=""}
+:::{.nota data-latex=""}
 
 Le variabili sono chiamate:
 
@@ -620,7 +620,7 @@ y_i = `r ab[1]`+`r ab[2]`\cdot x_i +\varepsilon_i
 
 ### Gli assunti del modello di regressione
 
-::: {.info data-latex=""}
+:::{.info data-latex=""}
 0.  Dati $(x_1,y_1),...,(x_n,y_n)$, $n$ coppie di punti, si assume che
 \[y_i=\beta_0+\beta_1x_i+\varepsilon_i\]
 1. Il valore atteso dell'errore è nullo
@@ -985,8 +985,8 @@ ovvero
 (\hat\beta_0,\hat\beta_1)=\operatorname*{argmin}_{(\beta_0,\beta_1)\in\mathbb{R}^2}G(\beta_0,\beta_1)
 \end{eqnarray*}
 
-:::: {.info data-latex=""}
-::: {.proposition name="Stimatori dei Minimi Quadrati"}
+:::{.info data-latex=""}
+:::{.proposition name="Stimatori dei Minimi Quadrati"}
 Gli stimatori dei minimi quadrati $\hat\beta_0$ e $\hat\beta_1$ sono
 \begin{eqnarray*}
 \hat\beta_1 &=& \frac{\frac 1 n\sum_{i=1}^n{(x_i-\bar x)(y_i-\bar y)}}{\frac 1 n\sum_{i=1}^n(x_i-\bar x)^2}=\frac{\text{ cov}(x,y)}{\hat\sigma^2_X}\\
@@ -999,9 +999,9 @@ e
 \text{ cov}(x,y) = \frac 1 n\sum_{i=1}^n(x_i-\bar x)(y_i-\bar y)
 \]
 :::
-::::
+:::
 
-::: {.proof}
+:::{.proof}
 \begin{eqnarray*}
   G(\beta_{0}, \beta_{1}) &=& \frac 1n \sum_{i=1}^{n} \left( y_{i} - (\beta_{0} + \beta_{1} x_{i})   \right)^2\\ 
   \frac{\partial G(\beta_{0}, \beta_{1})} {\partial \beta_{0}} 
@@ -1067,25 +1067,25 @@ Concludendo la prova.
 
 ## La covarianza
 
-:::: {.info data-latex=""}
-::: {.definition}
+:::{.info data-latex=""}
+:::{.definition}
 La Covarianza $\text{cov}(x,y)$ tra due variabili $x$ e $y$ è una misura della loro _covariazione_
 \[\text{cov}(x,y)=\frac 1 n\sum_{i=1}^n{(x_i-\bar x)(y_i-\bar y)}\]
 :::
-::::
+:::
 
 La covarianza è la _media degli scarti incrociati dalla media_
 Come per la varianza esiste una formula semplificata:
 
-:::: {.info data-latex=""}
-::: {.proposition}
+:::{.info data-latex=""}
+:::{.proposition}
 \[\text{cov}(x,y)=\frac 1 n\sum_{i=1}^nx_i~y_i-\bar x\bar y\]
 :::
-::::
+:::
 
-:::: {.nota data-latex=""}
+:::{.nota data-latex=""}
 La covarianza è _la media dei prodotti degli scarti dalla media_ può essere riletta come _la media dei prodotti_ meno _il prodotto delle medie_.
-::::
+:::
 
 ### Calcolo della covarianza
 
@@ -1318,7 +1318,7 @@ Calcolo di $\hat\sigma_X^2$
 ### Calcolo in colonna
 
 
-::: {.nota data-latex=""}
+:::{.nota data-latex=""}
 Molto più comodamente in colonna
 
 \begin{center}
@@ -1408,7 +1408,7 @@ Le stime degli errori
 
 Valgono le seguenti proprietà:
 
-::: {.info data-latex=""}
+:::{.info data-latex=""}
 $$
 \begin{aligned}
 y_i, & & \text{le $y$ osservate}\\
@@ -1465,13 +1465,13 @@ Quanto si adatta bene la retta ai punti?
 -1&\leq ~~~~~~~r &\leq& +1&
 \end{alignat*}
 
-::: {.info data-latex=""}
-::: {.definition}
+:::{.info data-latex=""}
+:::{.definition}
 Il coefficiente $r$ 
 \[r=\frac{\text{cov}(x,y)}{\hat\sigma_X\hat\sigma_Y}\]
 è chiamato _coefficiente di correlazione_.
 :::
-::::
+:::
 
 Nel nostro esempio
 \[r=\frac{`r cv`}{`r sx`\cdot`r sy`}=`r cv/(sx*sy)`\]
@@ -1482,7 +1482,7 @@ i punti SI ADDENSANO intorno alla retta.
 
 ### Proprietà di $r$
 
-::: {.info data-latex=""}
+:::{.info data-latex=""}
 1. $-1 \le r \le 1$.  Il segno indica la direzione della relazione;
     + $r>0$, al crescere di $X$, _in media_, cresce $Y$;
     + $r<0$, al crescere di $X$, _in media_, decresce $Y$;
@@ -1826,7 +1826,7 @@ y_i &\phantom{=}\text{ dati } &\hat y_i &= \hat \beta_0+\hat\beta_1x_i,& \hat\va
 0  &=\frac 1 n\sum_{i=1}^n\hat\varepsilon_i
 \end{aligned}\]
 
-::: {.definition name="Varianza Totale, Varianza Spiegata e Varianza Residua"}
+:::{.definition name="Varianza Totale, Varianza Spiegata e Varianza Residua"}
 La varianza di $y$ (senza osservare $x$) è
 \[\hat\sigma_Y^2=\frac{\sum_{i=1}^n(y_i-\bar y)^2}n=\frac{TSS}{n},\qquad\text{$TSS$ Total Sum of Squares}\]
 
@@ -1837,16 +1837,16 @@ La varianza di $\hat \varepsilon$ è
 \[\hat\sigma_{\varepsilon}^2=\frac{\sum_{i=1}^n(\hat \varepsilon_i-0)^2}n=\frac{\sum_{i=1}^n\hat \varepsilon_i^2}n=\frac{RSS}{n},\qquad\text{$RSS$ Residual Sum of Squares}\]
 :::
 
-:::: {.info data-latex=""}
-::: {.proposition}
+:::{.info data-latex=""}
+:::{.proposition}
 Vale la seguente relazione
 \[TSS = ESS + RSS\]
 :::
-::::
+:::
 
 La variabilità totale di $y$ (quella osservata senza $x$) e scomponibile nella somma di due parti
 
-:::: {.info data-latex=""}
+:::{.info data-latex=""}
 \[
 \left\{\begin{array}{cc}
 \text{varibilità di $y$}\\
@@ -1861,7 +1861,7 @@ La variabilità totale di $y$ (quella osservata senza $x$) e scomponibile nella 
 \text{intorno alla retta}
 \end{array} \right\}
 \]
-::::
+:::
 
 Dividendo ogni membro per $TSS$, si ottiene
 \begin{eqnarray*}
@@ -1878,14 +1878,14 @@ Dividendo ogni membro per $TSS$, si ottiene
 È un indicatore sintetico che indica la quota di varianza spiegata dal modello. 
 Nel caso della regressione lineare semplice
 
-:::: {.info data-latex=""}
-::: {.definition name="Indice di Determinazione Lineare"}
+:::{.info data-latex=""}
+:::{.definition name="Indice di Determinazione Lineare"}
 Si definisce 
 \[R^2=\left(\frac{ESS}{TSS}\right)=r^2=\left(\frac{\text{cov}(x,y)}{\hat\sigma_x\hat\sigma_y}\right)^2\]
 l'indice di determinazione lineare ed è, nel contesto della regressione lineare semplice, il quadrato dell'indice di correlazione
 \[0\leq R^2\leq 1\]
 :::
-::::
+:::
 
 Se $R^2=1$, allora $r=-1$ oppure $r=+1$, associazione lineare perfetta, 100% della variabilità spiegata, se $R^2=0$, allora $r=0$ associazione lineare nulla, 0% della variabilità spiegata, se $R^2>0.75$, allora considereremo l'associazione lineare _soddisfacente_.
 

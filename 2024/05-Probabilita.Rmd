@@ -60,15 +60,15 @@ Usiamo gli operatori dell'insiemistica per combinare gli eventi tra di
 loro, trasformando le operazioni sintattiche del linguaggio comune in
 unioni ed intersezioni di eventi.
 
-::: {.info data-latex=""}
-::: {.definition name="Unione tra Eventi"}
+:::{.info data-latex=""}
+:::{.definition name="Unione tra Eventi"}
 Siano $A$ e $B$ due eventi, l'espressione $$
 A\cup B
 $$ è vera se **almeno uno dei due** è vero.
 :::
 :::
 
-::: {.example}
+:::{.example}
 \begin{eqnarray*}
     A&=&  \text{Domani pioverà}\\
     B&=&  \text{Domani ci sarà traffico}
@@ -77,15 +77,15 @@ A\cup B\qquad\text{sarà vera se domani pioverà }\textbf{o}\text{ ci sarà traf
 $$
 :::
 
-::: {.info data-latex=""}
-::: {.definition name="Intersezione tra Eventi"}
+:::{.info data-latex=""}
+:::{.definition name="Intersezione tra Eventi"}
 Siano $A$ e $B$ due eventi, l'espressione $$
 A\cap B\qquad\text{è vera se è vero $A$ }\textbf{e}\text{  è vero $B$.}
 $$
 :::
 :::
 
-::: {.example}
+:::{.example}
 \begin{eqnarray*}
     A&=&  \text{Domani pioverà}\\
     B&=&  \text{Domani ci sarà traffico}
@@ -95,13 +95,13 @@ A\cap B\qquad\text{sarà vera se domani pioverà }\textbf{e}\text{ ci sarà traf
 $$
 :::
 
-::: {.info data-latex=""}
-::: {.definition name="Evento Complementare"}
+:::{.info data-latex=""}
+:::{.definition name="Evento Complementare"}
 Sia $A$ un evento, si definisce $\bar A$ l'evento complementare di $A$
 :::
 :::
 
-::: {.example}
+:::{.example}
 \begin{eqnarray*}
     A&=&  \text{Domani pioverà}\\
     \bar A&=&  \text{Domani }\textbf{non}\text{ pioverà}
@@ -112,8 +112,8 @@ Sia $A$ un evento, si definisce $\bar A$ l'evento complementare di $A$
 \text{domani}\textbf{ non}\text{ pioverà}
 \]
 
-::: {.info data-latex=""}
-::: {.definition name="Evento Certo"}
+:::{.info data-latex=""}
+:::{.definition name="Evento Certo"}
 Sia $A$ un evento, si definisce l'evento certo $\Omega$ l'evento:
 \begin{eqnarray*}
 \Omega &=& A\cup\bar A
@@ -121,7 +121,7 @@ Sia $A$ un evento, si definisce l'evento certo $\Omega$ l'evento:
 :::
 :::
 
-::: {.example}
+:::{.example}
 
 \begin{eqnarray*}
     A&=&  \text{Domani pioverà}\\
@@ -131,8 +131,8 @@ Sia $A$ un evento, si definisce l'evento certo $\Omega$ l'evento:
 
 :::
 
-::: {.info data-latex=""}
-::: {.definition name="Evento Impossibile"}
+:::{.info data-latex=""}
+:::{.definition name="Evento Impossibile"}
 Sia $A$ un evento, si definisce l'evento certo $\emptyset$ l'evento:
 \begin{eqnarray*}
 \emptyset &=& A\cap\bar A
@@ -140,7 +140,7 @@ Sia $A$ un evento, si definisce l'evento certo $\emptyset$ l'evento:
 :::
 :::
 
-::: {.example}
+:::{.example}
 
 \begin{eqnarray*}
     A&=&  \text{Domani pioverà}\\
@@ -152,7 +152,7 @@ Sia $A$ un evento, si definisce l'evento certo $\emptyset$ l'evento:
 
 ### Operazioni su insieme
 
-::: {.nota data-latex=""}
+:::{.nota data-latex=""}
 Gli operatori Unione $\cup$ e Intersezione $\cap$ si comportano sugli
 insiemi come somme $+$ e moltiplicazione $\times$ si comportano sui
 numeri. In particolare \begin{align*}
@@ -189,8 +189,8 @@ $$
 -   approccio frequentista
 -   approccio soggettivista
 
-::: {.info data-latex=""}
-::: {.definition name="Approccio Classico (Laplace)"}
+:::{.info data-latex=""}
+:::{.definition name="Approccio Classico (Laplace)"}
 la probabilità è il rapporto tra il numero dei casi favorevoli e il
 numero dei casi possibili, posto che gli eventi siano tutti
 equiprobabili.
@@ -201,7 +201,7 @@ $$
 :::
 :::
 
-::: {.example}
+:::{.example}
 Un'urna contiene 5 sfere Rosse, 3 sfere Blu e 2 Nere. La probabilità
 dell'evento 
 $$
@@ -213,8 +213,8 @@ P(R)=\frac{5}{5+3+2}=0.5
 $$
 :::
 
-::: {.info data-latex=""}
-::: {.definition name="Approccio Frequentista"}
+:::{.info data-latex=""}
+:::{.definition name="Approccio Frequentista"}
 **Postulato empirico del caso.**
 
 In un gruppo di prove ripetute più volte *nelle stesse condizioni*,
@@ -228,7 +228,7 @@ $$
 :::
 :::
 
-::: {.example}
+:::{.example}
 Viene lanciata 200 vole una moneta (che non sappiamo se è bilanciata
 oppure no), Si è osservato che 136 su 200 lanci sono TESTA La
 probabilità dell'evento $$
@@ -252,7 +252,7 @@ $$
 Ma saremo più *sicuri* che avendo lanciato solo 200 volte.
 :::
 
-::: {.definition name="Approccio Soggettivista"}
+:::{.definition name="Approccio Soggettivista"}
 <!-- In questo approccio la probabilità è la rappresentazione formale dell'ignoranza -->
 
 <!-- sulla previsione.  -->
@@ -317,7 +317,7 @@ $B\in\mathscr{A}$ allora
   \end{eqnarray*}
 
 
-::: {.example}
+:::{.example}
 Per illustrare l'idea di un'algebra degli eventi con un esempio finito, consideriamo un insieme $\Omega$ che rappresenta lo spazio campionario di un semplice lancio di due monete. $\Omega$ è dato da tutte le possibili combinazioni dei risultati di due lanci di moneta: $\Omega = {\text{(T, T)}, \text{(T, C)}, \text{(C, T)}, \text{(C, C)}}$.
 
 Certo, consideriamo ora il lancio di due monete. In questo caso, lo spazio campionario $\Omega$ è dato da tutte le possibili combinazioni dei risultati di due lanci di moneta: $\Omega = \{\text{(T, T)}, \text{(T, C)}, \text{(C, T)}, \text{(C, C)}\}$.
@@ -358,7 +358,7 @@ In definitiva
 
 ### Assiomi di Kolmogorov
 
-::: {.info data-latex=""}
+:::{.info data-latex=""}
 La probabilità $P$ è una funzione che trasforma ogni evento $A$ di
 $\mathscr{A}$ in un numero reale
 $$P:\mathscr{A}\to\mathbb{R},~~\forall A\in\mathscr{A}$$
@@ -382,8 +382,8 @@ Dagli assiomi precedenti possiamo ricavare diverse proprietà
 interessanti di $P$ che non sono scritte in modo esplicito negli assiomi
 ma si ricavano per dimostrazione.
 
-::: {.info data-latex=""}
-::: {.proposition name="Proprietà Principali di $P$"}
+:::{.info data-latex=""}
+:::{.proposition name="Proprietà Principali di $P$"}
 Tra le tante enunciamo le più immediate ed utili:
 
 1.  $0\le P(A) \le 1,~\forall A\in\mathscr{A}$
@@ -398,7 +398,7 @@ Tra le tante enunciamo le più immediate ed utili:
 :::
 :::
 
-::: {.proof}
+:::{.proof}
 Nell'ordine
 
 1.  Dall'assioma *i* sappiamo che $$P(A)>0$$ e dall'assioma *ii* che
@@ -461,8 +461,8 @@ text(5,5,expression(paste(A,intersect(B))),cex=2)
 text(8,5,expression(paste(B,intersect(bar(A)))),cex=2)
 ```
 
-::: {.info data-latex=""}
-::: {.definition name="Eventi Incompatibili"}
+:::{.info data-latex=""}
+:::{.definition name="Eventi Incompatibili"}
 $A$ e $B$ si dicono **incompatibili** se e solo se
 $$A\cap B = \emptyset$$ in figura \@ref(fig:incomp) una rappresentazione
 grafica.
@@ -483,7 +483,7 @@ fig.def()
 
 ```
 
-::: {.example}
+:::{.example}
 Un'urna ha 8 palline bianche numerate da 1 a 8 e 5 palline nere numerate
 da 5 a 9. L'evento $$A=\text{esce un numero inferiore a 4},$$ e l'evento
 $$B=\text{esce una pallina nera},$$ Sono chiaramente incompatibili.
@@ -496,8 +496,8 @@ alla domanda
 
 > *Se* $B$ fosse vero, con quale probabilità sarebbe vero $A$?
 
-::: {.info data-latex=""}
-::: {#pcond .definition name="Probabilità Condizionata"}
+:::{.info data-latex=""}
+:::{#pcond .definition name="Probabilità Condizionata"}
 Si definisce probabilità di $A$ condizionata a $B$ (probabilità di $A$
 dato $B$) la quantità $$
 P(A|B)=\frac{P(A\cap B)}{P(B)}
@@ -505,7 +505,7 @@ $$
 :::
 :::
 
-::: {.example}
+:::{.example}
 Un'urna ha 8 palline bianche numerate da 1 a 8 e 5 palline nere numerate
 da 5 a 9. Si considerino l'evento
 $$A=\text{esce un numero maggiore o uguale a 6},$$ e l'evento
@@ -557,8 +557,8 @@ L'**indipendenza** è un concetto estremamente importante in probabilità.
 Se due eventi $A$ e $B$ sono *indipendenti* significa che l'accadere o
 meno dell'uno non altera in alcun modo la probabilità dell'altro.
 
-::: {.info data-latex=""}
-::: {.definition name="Indipendenza tra Eventi"}
+:::{.info data-latex=""}
+:::{.definition name="Indipendenza tra Eventi"}
 Due eventi $A$ e $B$ si dicono **indipendenti** se e solo se
 \begin{eqnarray*}
 P(A|B)&=&P(A)\\
@@ -582,7 +582,7 @@ Se $A$ e $B$ sono **incompatibili** allora **non** sono
 **indipendenti**, vice versa se $A$ e $B$ sono **indipendenti** allora
 **non** sono **incompatibili**:
 
-::: {.att data-latex=""}
+:::{.att data-latex=""}
 -   Se $A\ne \emptyset$ e $B\ne \emptyset$ sono incompatibili, allora
     $P(A\cap B)=0\ne P(A)P(B)$
 -   Se $A$ e $B$ sono indipendenti, allora $P(A\cap B)=P(A)P(B)\ne 0$
@@ -596,7 +596,7 @@ $\bar A$ è il suo complementare è immediato che la coppia $\{A,\bar A\}$
 è una *partizione* in quanto $A\cup\bar A=\Omega$. In questo caso
 parleremo di *bipartizione*.
 
-::: {.definition name="Bipartizione"}
+:::{.definition name="Bipartizione"}
 Sia $A$ è un evento e $\bar A$ è il suo complementare, allora la coppia
 $\{A,\bar A\}$ è una *bipartizione* di $\Omega$.
 :::
@@ -605,7 +605,7 @@ $\{A,\bar A\}$ è una *bipartizione* di $\Omega$.
 
 Più in generale definiamo una *partizione finita*:
 
-::: {.definition name="Partizione finita"}
+:::{.definition name="Partizione finita"}
 Sia $\{A_1,...,A_n\}$, $n<+\infty$ una collezione di eventi di $\Omega$
 tali che
 
@@ -623,8 +623,8 @@ Il teorema dell probabilità totali permette di esprime la probabilità un
 evento come somma della probabilità delle intersezioni che lo
 compongono.
 
-::: {.info data-latex=""}
-::: {.theorem name="Probabilità Totali versione a coppie"}
+:::{.info data-latex=""}
+:::{.theorem name="Probabilità Totali versione a coppie"}
 Siano $A$ e $B$ due eventi diversi dal vuoto, allora \begin{eqnarray*}
 P(B)&=&P(A)P(B|A)+P(\bar A)P(B|\bar A)
 \end{eqnarray*}
@@ -633,7 +633,7 @@ P(B)&=&P(A)P(B|A)+P(\bar A)P(B|\bar A)
 
 ![](img/2x2.png)
 
-::: {.proof}
+:::{.proof}
 Si parte considerando l'identità insiemistica 
 $$
 B = (A\cap B) \cup (\bar A \cap B)
@@ -645,7 +645,7 @@ e quindi
 \end{eqnarray*}
 :::
 
-::: {.example}
+:::{.example}
 Quando piove Giulio arriva in ritardo con probabilità 0.18, mentre se
 non piove arriva in ritardo con probabilità 0.01. Le previsioni del
 tempo dicono che domani pioverà con probabilità 0.85. Calcolare la
@@ -682,8 +682,8 @@ P(B_2)&=&P(A_1)P(B_2|A_1)+P(A_2)P(B_2| A_2)+(A_3)P(B_2| A_3)\\
 P(B_3)&=&P(A_1)P(B_3|A_1)+P(A_2)P(B_3| A_2)+(A_3)P(B_3| A_3)\\
 \end{eqnarray*}
 
-::: {.info data-latex=""}
-::: {.theorem name="Probabilità Totali versione Generale"}
+:::{.info data-latex=""}
+:::{.theorem name="Probabilità Totali versione Generale"}
 Siano $\{A_1,...,A_n\}$ e $\{B_1,...,B_m\}$ due partizioni di $\Omega$, ovvero
 $A_i\cap A_j=\emptyset, ~\forall i\ne j$ e $\Omega=\bigcup_{i=1}^n A_i$ e 
 $B_i\cap B_j=\emptyset, ~\forall i\ne j$ e $\Omega=\bigcup_{i=1}^n B_i$
@@ -697,7 +697,7 @@ $$
 
 ![](img/nxm.png)
 
-::: {.proof}
+:::{.proof}
 Si parte considerando l'identità insiemistica
 
 $$
@@ -715,7 +715,7 @@ P(B_j)&=&P(A_1\cap B_j)+P( A_2\cap B_j)+...+P( A_n\cap B_j)\\
 
 :::
 
-::: {.example}
+:::{.example}
 Un'urna contiene 10 palline: due etichettate con $A$, tre etichettate
 con $B$ e le rimanenti cinque etichettate con $C$. Se si estrae la
 pallina $A$ si estrae da l'urna $\mathcal{A}$ che contiene 3 palline
@@ -748,8 +748,8 @@ esprimere le probabilità condizionate ed è utilizzato come base per
 quella che è nota come teoria statistica bayesiana, di cui non entreremo
 nel dettaglio.
 
-::: {.info data-latex=""}
-::: {.theorem name="Teorema di Bayes versione a coppie."}
+:::{.info data-latex=""}
+:::{.theorem name="Teorema di Bayes versione a coppie."}
 Si considerino due eventi $A$ e $B$ di cui sono note $P(A)$, $P(B|A)$ e
 $P(B|\bar A)$, allora
 
@@ -759,7 +759,7 @@ $$
 :::
 :::
 
-::: {.proof}
+:::{.proof}
 
 \begin{align*}
 P(A|B)&=\frac{P(A\cap B)}{P(B)}, &&\text{per definizione}\\
@@ -769,7 +769,7 @@ P(A|B)&=\frac{P(A\cap B)}{P(B)}, &&\text{per definizione}\\
 
 :::
 
-::: {.example}
+:::{.example}
 Quando piove Giulio arriva in ritardo con probabilità 0.18, mentre se
 non piove arriva in ritardo con probabilità 0.01. Le previsioni del
 tempo dicono che domani pioverà con probabilità 0.85. Se il giorno dopo
@@ -806,8 +806,8 @@ P(B|A)&=&\frac{P(A)P(B|A)}{P(A)P(B|A)+P(\bar A)P(B|\bar A)}\\
 
 :::
 
-::: {.info data-latex=""}
-::: {.theorem name="Teorema di Bayes versione Generale"}
+:::{.info data-latex=""}
+:::{.theorem name="Teorema di Bayes versione Generale"}
 Siano $\{A_1,...,A_n\}$ e $\{B_1,...,B_n\}$ due partizioni di $\Omega$,
 di cui sono note $P(A_i), \forall i$ e $P(B_j|A_i), \forall i,j$, allora
 $$
@@ -816,7 +816,7 @@ $$
 :::
 :::
 
-::: {.example}
+:::{.example}
 Un'urna contiene 10 palline: due etichettate con $A$, tre etichettate
 con $B$ e le rimanenti cinque etichettate con $C$. Se si estrae la
 pallina $A$ si estrae da l'urna $\mathcal{A}$ che contiene 3 palline
@@ -853,7 +853,7 @@ P(C|V)&=&\frac{P(C)P(V| C)}{P(A)P(V|A)+P(B)P(V| B)+P(C)P(V| C)}\\
 
 ## Specchietto finale utile per gli esercizi elementari
 
-::: {.info2 data-latex=""}
+:::{.info2 data-latex=""}
 <div style="font-size:0.8em;">
 ```{r 05-Probabilita-2, echo=F,results='asis'}
 # 

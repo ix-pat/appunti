@@ -60,7 +60,7 @@ $$Z=\frac{\hat\mu-\mu_0}{\sigma/\sqrt n}\sim N(0,1)$$
 $Z$ osservata sul campione misura l'evidenza contro $H_0$, tanto più è
 alto il valore di $Z$ tanto più $H_0$ è inverosimile.
 
-::: {.info data-latex=""}
+:::{.info data-latex=""}
 **Decisione sul campione.** Si decide un livello $\alpha$ e si ricava
 $z_\alpha$, si estrae un campione. Lo stimatore $\hat\mu$ si realizza
 nella media osservata del campione $\bar x$
@@ -119,7 +119,7 @@ title("Normale Standard")
 par(mfrow=c(1,1),cex=.7)
 ```
 
-::: {.example}
+:::{.example}
 In un laboratorio, vi sono cavie con peso medio uguale a 30g e una DS
 pari a 5g. Uno studente seleziona 25 cavie e ottiene un peso medio
 uguale a 32g con una $\hat\sigma$ pari a 7g. La selezione è casuale o il
@@ -137,7 +137,7 @@ cat(ztest_mu(muh = muh,s = s,n = n,mu0 = mu0,h1 = h1,alpha = alpha,pvalue = F))
 ```
 :::
 
-::: {.example}
+:::{.example}
 In un laboratorio, vi sono cavie con peso medio uguale a 30g e una DS
 pari a 5g. Uno studente seleziona 25 cavie e ottiene un peso medio
 uguale a 32g con una $\hat\sigma$ pari a 7g. La selezione è casuale o il
@@ -162,8 +162,8 @@ Il $p_\text{value}$ risponde a questa domanda: *Se nell'esempio
 precedente usassimo* $z_{\text{obs}}$ *come punto critico quale sarebbe
 la probabilità di significatività?*
 
-::: {.info data-latex=""}
-::: {.definition name="$p_\\text{value}$ caso unilaterale destro"}
+:::{.info data-latex=""}
+:::{.definition name="$p_\\text{value}$ caso unilaterale destro"}
 $$p_\text{value}=P(Z>z_{\text{obs}};H_0)$$
 :::
 :::
@@ -202,7 +202,7 @@ probabilità, *se fosse vera* $H_0$ di trovare un campione ancora più in
 favore di $H_1$ di quello che ho trovato. In altre parole ci dice, *se
 fosse vera* $H_0$, quanto sarebbe improbabile il nostro campione.
 
-::: {.nota data-latex=""}
+:::{.nota data-latex=""}
 Tanto più basso è il $p_\text{value}$ tanto più forte è l'evidenza dei
 dati contro $H_0$:
 
@@ -235,7 +235,7 @@ $$Z=\frac{\hat\mu-\mu_0}{\sigma/\sqrt n}\sim N(0,1)$$
 $Z$ osservata sul campione misura l'evidenza contro $H_0$, tanto più è
 basso il valore di $Z$ tanto più $H_0$ è inverosimile
 
-::: {.info data-latex=""}
+:::{.info data-latex=""}
 **Decisione sul campione.** Si decide un livello $\alpha$ e si ricava
 $z_\alpha$, si estrae un campione. Lo stimatore $\hat\mu$ si realizza
 nella media osservata del campione $\bar x$
@@ -259,7 +259,7 @@ title("Normale Standard")
 ```
 :::
 
-::: {.example}
+:::{.example}
 La durata, in ore, della resistenza di un transistor alle alte
 temperature sia $X \,\sim\, N(\mu,\, \sigma^{2})$ e, in base
 all'esperienza, sia $\mu_{0}=6$ ore e $\sigma_{0}=0.5$ ore. Si apportano
@@ -283,7 +283,7 @@ ztest_mu(muh = muh,s = s,n = n,mu0 = mu0,h1 = h1,alpha = 0.01,um = um,pvalue = F
 
 #### La probabilità di significatività osservata il $p_\text{value}$
 
-::: {.definition name="$p_\\text{value}$ caso unilaterale sinistro"}
+:::{.definition name="$p_\\text{value}$ caso unilaterale sinistro"}
 Nel caso di ipotesi unilaterale sinistra abbiamo
 $$p_\text{value}=P(Z<z_{\text{obs}};H_0)$$
 :::
@@ -323,7 +323,7 @@ $$Z=\frac{\hat\mu-\mu_0}{\sigma/\sqrt n}\sim N(0,1)$$
 $Z$ osservata sul campione misura l'evidenza contro $H_0$, tanto più è
 il valore di $Z$ è **diverso** da zero tanto più $H_0$ è inverosimile
 
-::: {.info data-latex=""}
+:::{.info data-latex=""}
 **Decisione sul campione.** Si decide un livello $\alpha$ e si ricava
 $z_{\alpha/2}$, si estrae un campione. Lo stimatore $\hat\mu$ si
 realizza nella media osservata del campione $\bar x$
@@ -350,7 +350,7 @@ title("Normale Standard")
 ```
 :::
 
-::: {.example}
+:::{.example}
 Un produttore di semiconduttori afferma che la durata media dei suoi chip è di 300 ore con una deviazione standard di 3 ore. Un'azienda decide di testare la qualità dei chip e conduce un esperimento con 16 chip, ottenendo una durata media di 298 ore e una deviazione standard di 4 ore. I risultati di questo test sono coerenti con l'affermazione del produttore i chip tendono a durare in modo diverso dalla durata dichiarata, al 5%?
 
 ```{r 15-test-mu-pi-4, results='asis'}
@@ -367,8 +367,8 @@ ztest_mu(muh = muh,s = s,n = n,mu0 = mu0,h1 = h1,um = um,pvalue = T,pv_only=F,al
 
 #### La probabilità di significatività osservata il $p_\text{value}$
 
-::: {.info data-latex=""}
-::: {.definition name="$p_\\text{value}$ caso bilaterale"}
+:::{.info data-latex=""}
+:::{.definition name="$p_\\text{value}$ caso bilaterale"}
 Nel caso di ipotesi bilaterale abbiamo
 $$p_\text{value}=P(|Z|>|z_{\text{obs}}|;H_0)$$
 :::
@@ -414,7 +414,7 @@ in anticipo $\alpha$ il ricercatore di trova a discutere se il $p_\text{value}$
 è sufficientemente piccolo da rigettare l'ipotesi nulla. 
 Il prossimo esempio esemplifica l'approccio
 
-::: {.example}
+:::{.example}
 Un'azienda farmaceutica afferma che la concentrazione media di principio attivo 
 in una certa medicina è di 50 mg con una deviazione standard di 2 mg. Un 
 laboratorio indipendente decide di verificare questa affermazione eseguendo 
@@ -461,7 +461,7 @@ $$T=\frac{\hat \mu-\mu_0}{S/\sqrt n}\sim t_{n-1}$$
 La $T$ osservata sul campione misura l'evidenza contro $H_0$, tanto più
 è alto il valore di $Z$ tanto più $H_0$ è inverosimile
 
-::: {.info data-latex=""}
+:::{.info data-latex=""}
 **Decisione sul campione** Si decide un livello $\alpha$ e si ricava
 $t_{n-1;\alpha}$, si estrae un campione. Lo stimatore $\hat\mu$ si
 realizza nella media osservata del campione $\bar x$
@@ -484,7 +484,7 @@ title(expression(t[n-1]))
 ```
 :::
 
-::: {.example}
+:::{.example}
 Un produttore di aspirine afferma che il prodotto lenisce il mal di
 testa in 30 minuti. Un campione casuale di 25 persone la usa. Risultato:
 $\bar{x}=31.4$m con $\hat{\sigma}= 4.2$m. Verificare l'affermazione del
@@ -517,7 +517,7 @@ $$T=\frac{\hat \mu-\mu_0}{S/\sqrt n}\sim t_{n-1}$$
 Lo stimatore $\hat\mu$ si realizza nella media osservata del campione
 $\bar x$ $$t_{\text{obs}}=\frac{\bar x -\mu_0}{S/\sqrt n}$$
 
-::: {.info data-latex=""}
+:::{.info data-latex=""}
 **Decisione sul campione** Si decide un livello $\alpha$ e si ricava
 $t_{n-1;\alpha}$, si estrae un campione. Lo stimatore $\hat\mu$ si
 realizza nella media osservata del campione $\bar x$
@@ -540,7 +540,7 @@ text(-3,.05,expression(alpha),cex=acex)
 title(expression(t[n-1]))
 ```
 
-::: {.example}
+:::{.example}
 Un Centro dietetico afferma che con i loro programmi si perdono in media
 2kg nella prima settimana. Si selezionano casualmente 25 soggetti, tra
 gli iscritti al programma.
@@ -572,7 +572,7 @@ H_1:\mu\neq\mu_0
 Sotto $H_0$ la statistica
 $$T=\frac{\hat \mu-\mu_0}{S/\sqrt n}\sim t_{n-1}$$
 
-::: {.info data-latex=""}
+:::{.info data-latex=""}
 **Decisione sul campione.** Si decide un livello $\alpha$ e si ricava
 $t_{n-1;\alpha}$, si estrae un campione. Lo stimatore $\hat\mu$ si
 realizza nella media osservata del campione $\bar x$
@@ -599,7 +599,7 @@ title(expression(t[n-1]))
 ```
 :::
 
-::: {.example}
+:::{.example}
 Eseguite 17 misure di resistenza su 17 campioni di filo. Risultato: la
 media è 7.5N (Newton) con $\hat\sigma=$ 1.2N.
 
@@ -637,7 +637,7 @@ $$
 ricavare dalle tavole i rispettivi $t_{n-1,\alpha}$ ($t_{n-1,\alpha/2}$, se il 
 test è bilaterale) e vedere dove cade il $t_\text{obs}$
 
-::: {.example}
+:::{.example}
 Un'azienda farmaceutica afferma che la concentrazione media di principio attivo 
 in una certa medicina è di 50 mg. Un laboratorio indipendente decide di 
 verificare questa affermazione eseguendo 25 analisi e ottiene una concentrazione 
@@ -677,7 +677,7 @@ Se $n>100$ il $t$-test diventa lo $z$-test.
 
 ## Test per $\pi$
 
-::: {.info data-latex=""}
+:::{.info data-latex=""}
 Siano $X_1,...,X_n$ $n$ VC IID, replicazioni di $X\sim\text{Ber}(\pi)$.
 Lo stimatore di massima verosimiglianza
 $$\hat\pi=\frac 1 n \sum_{i=1}^n X_i\operatorname*{\sim}_a N\left(\pi,\frac{\pi(1-\pi)}{n}\right)$$
@@ -694,7 +694,7 @@ $$z_{\text{obs}}=\frac{\hat\pi_{\text{obs}}-\pi_0}{\sqrt{\pi_0(1-\pi_0)/n}}$$
 A seconda di $H_1$ decideremo con le solite regole
 :::
 
-::: {.example}
+:::{.example}
 Lanciamo $n=50$ un moneta di cui non siamo sicuri se è truccata oppure
 no. Osserviamo 30 successi su 50 lanci. Verificare l'ipotesi che la moneta sia 
 bilanciata ($\pi=0.5$), contro l'alternativa che sia maggiore.
@@ -712,7 +712,7 @@ ztest_pi(sn = sn,n = n,p0 = p0,h1 = h1)
 ```
 :::
 
-::: {.example}
+:::{.example}
 Lanciamo $n=100$ un moneta di cui non siamo sicuri se è truccata oppure
 no. Osserviamo 60 successi su 50 lanci. Verificare l'ipotesi che la moneta sia bilanciata ($\pi=0.5$), contro
 l'alternativa che sia maggiore.
@@ -730,7 +730,7 @@ ztest_pi(sn = sn,n = n,p0 = p0,h1 = h1)
 ```
 :::
 
-::: {.example}
+:::{.example}
 Lanciamo $n=1000$ un moneta di cui non siamo sicuri se è truccata oppure
 no. Osserviamo 600 successi su 50 lanci. Verificare l'ipotesi che la moneta sia bilanciata ($\pi=0.5$), contro
 l'alternativa che sia maggiore.
@@ -748,7 +748,7 @@ ztest_pi(sn = sn,n = n,p0 = p0,h1 = h1)
 ```
 :::
 
-::: {.example}
+:::{.example}
 In una indagine su 100 imprese, si ha che 30 imprese decentrano la
 lavorazione tipo A. Il censimento precedente aveva rilevato una
 proporzione di decentramento, $\pi = 0.4$. Verificare l'ipotesi 
@@ -766,7 +766,7 @@ ztest_pi(sn = sn,n = n,p0 = p0,h1 = h1)
 ```
 :::
 
-::: {.example}
+:::{.example}
 Una città è composta da 50000 soggetti. Si estrae un campione casuale di
 100 soggetti e si trova che 20 soggetti possiedono una connessione a
 banda ultra-larga. La proporzione posseduta a livello nazionale è pari
@@ -788,7 +788,7 @@ ztest_pi(sn = sn,n = n,p0 = p0,h1 = h1)
 
 ## Specchietto Finale per i Test ad un Campione
 
-::: {.info2 data-latex=""}
+:::{.info2 data-latex=""}
 <div style="font-size:0.75em;">
 \small
 \begin{align*}

@@ -125,36 +125,36 @@ Nel _paradigma Bayesiano_ l'incertezza sul parametro viene trattata con gli stes
 
 _Stimare_, in statistica, significa scegliere un punto (stima puntuale) o una regione (stima intervallare) dello spazio dei parametri $\Theta$ alla luce dei dati $x_1,...,x_n$.
 
-:::: {.info data-latex=""}
-::: {.definiton}
+:::{.info data-latex=""}
+:::{.definiton}
 Uno **stimatore** puntuale (point estimator) è una statistica $h$ che trasforma il campione $X_1,...,X_n$ in un punto dello spazio dei parametri:
 \[h:\mathcal{S}\to\Theta\]
 :::
-::::
+:::
 
 Il campione $X_1,...,X_n$ casuale viene trasformato attraverso $h$ in un punto specifico di $\Theta$
 \[h(X_1,...,X_n)=\hat\theta\in\Theta\]
 
 Uno **stimatore** è una variabile casuale in quanto funzione di valori casuali.
 
-:::: {.example}
+:::{.example}
 Da una popolazione che ha $E(X_i)=\mu$ incognita, potremmo proporre di _stimare_ $\mu$ con la media dei dati che _otterremo_:
 \[h(X_1,...,X_n)=\frac 1 n \sum_{i=1}^n X_i=\bar X=\hat \mu\]
-::::
+:::
 
-:::: {.example} 
+:::{.example} 
 Da una popolazione di Poisson che ha $X_i\sim\text{Poiss}(\lambda)$, $\lambda$ incognita, potremmo proporre di _stimare_ $\lambda$ con la mediana dei dati che _otterremo_:
 \[h(X_1,...,X_n)=X_{0,5}=\hat\lambda\]
-::::
+:::
 
 ### Stimatori e Stime
 
-::: {.nota data-latex=""}
+:::{.nota data-latex=""}
 - Uno **Stimatore**: $h(X_1,...,X_n)$ è funzione di $X_1,...,X_n$ è una **VC**
 - Una **Stima**: $h(x_1,...,x_n)$ è funzione di $x_1,...,x_n$ e dunque è un **numero**
 :::
 
-:::: {.example}
+:::{.example}
 Da una popolazione che ha $E(X_i)=\mu$ incognita, potremmo proporre di _stimare_ $\mu$ con la media dei dati che _otterremo_:
 \[h(X_1,...,X_n)=\frac 1 n \sum_{i=1}^n X_i=\hat \mu\]
 
@@ -165,9 +165,9 @@ xs <- c(2.1,2.4,3.2,7.1,3.0)
 
 Per ottenere $\hat\mu$ la stima di $\mu$ applichiamo $h$ ai dati e otteniamo
 \[\hat\mu = \frac 1 5\sum_{i=1}^5x_i=\frac 1 5 `r sum(xs)`=`r mean(xs)`\]
-::::
+:::
 
-:::: {.example} 
+:::{.example} 
 Da una popolazione di Poisson che ha $X_i\sim\text{Poiss}(\lambda)$, $\lambda$ incognita, potremmo proporre di _stimare_ $\lambda$ con la mediana dei dati che _otterremo_:
 \[h(X_1,...,X_n)=X_{0,5}=\hat\lambda\]
 
@@ -178,7 +178,7 @@ $x_{(1)}=0$, $x_{(2)}=0$, $x_{(3)}=2$, $x_{(4)}=2$, $x_{(5)}=3$, $x_{(6)}=4$, $x
 
 Per ottenere $\hat\lambda$ la stima di $\lambda$ applichiamo $h$ ai dati e otteniamo
 \[\hat\lambda = x_{0.5}=x_{(4)}=2\]
-::::
+:::
 
 ### Come scegliere uno stimatore
 
@@ -196,41 +196,41 @@ Le proprietà auspicabili per uno stimatore sono di due tipi
 ### Proprietà Auspicabili di uno stimatore (per $n$ finito)
 
 
-:::: {.info data-latex=""}
-::: {.definition name="Correttezza di uno stimatore"}
+:::{.info data-latex=""}
+:::{.definition name="Correttezza di uno stimatore"}
 Siano $X_1,...,X_n$, $n$ VC, IID, replicazioni della stessa $X\sim\mathscr{L}(\theta)$, sia $h$ uno stimatore per $\theta$.
 Lo stimatore $h$ si dice **corretto** se
 \[E(h(X_1,...,X_n))=E(h)=\theta\]
 :::
-::::
+:::
 
-:::: {.info data-latex=""}
-::: {.definition name="Mean Squared Error di uno stimatore"}
+:::{.info data-latex=""}
+:::{.definition name="Mean Squared Error di uno stimatore"}
 Si definisce **Errore Quadratico Medio** (_Mean Squared Error_) la quantità
 \[MSE(h)=E((h-\theta)^2)=V(h)+B^2(h)\]
 dove
 \[B(h)=|E(h)-\theta|\]
 :::
-::::
+:::
 
-:::: {.nota}
+:::{.nota}
 se $h$ è corretto allora
 \[MSE(h)=V(h)\]
-::::
+:::
 
-:::: {.info data-latex=""}
-::: {.definition name="Efficienza di uno stimatore"}
+:::{.info data-latex=""}
+:::{.definition name="Efficienza di uno stimatore"}
 Siano $h_1$ e $h_2$ due stimatori per $\theta$, si dice che $h_1$ è **più efficiente** di $h_2$ se e solo se
 \[MSE(h_1)<MSE(h_2)\]
 :::
-::::
+:::
 
-:::: {.nota data-latex=""}
+:::{.nota data-latex=""}
 Se $h_1$ e $h_2$ sono entrambi corretti, allora, $h_1$ è **più efficiente** di $h_2$ se e solo se
 \[V(h_1)<V(h_2)\]
 
 L'**errore** di uno stimatore è l'_inverso_ della sua **precisione**.
-::::
+:::
 
 ### Media aritmetica e varianza campionaria caso IID
 
@@ -255,11 +255,11 @@ Si consideri la varianza campionaria:
 
 Si può dimostrare che
 
-:::: {.info data-latex=""}
+:::{.info data-latex=""}
 \[
 E(\hat \sigma^2)=\frac {n-1}n \sigma^2<\sigma^2
 \]
-::::
+:::
 
 ### Media aritmetica campionamento SR (popolazioni finite)
 
@@ -277,11 +277,11 @@ Essendo $\hat \mu$ corretto per $\mu$ allora
 
 Per calcolare $V(\hat \mu)$ dobbiamo tenere conto della _frazione di campionamento_ $n/N$
 
-:::: {.info data-latex=""}
+:::{.info data-latex=""}
 \[
 MSE(\hat \mu)=\frac{N-n}{N-1}\frac{\sigma^2} n
 \]
-::::
+:::
 
 dove $\frac{N-n}{N-1}$ è chiamato _coefficiente di correzione per popolazioni finite_.
 Osserviamo che più alto è $n$ più il coefficiente tende ad 1.
@@ -290,7 +290,7 @@ l'incertezza sulla media è zero.
   
 ### Esempi
 
-:::: {.example name="Popolazione finita, estrazioni SR (Stima)"}
+:::{.example name="Popolazione finita, estrazioni SR (Stima)"}
 
 ```{r 11-Stima-3,results="asis"}
 xp <- c(0,1,3,7)
@@ -349,10 +349,10 @@ $h_1$ è **corretto**
 mentre
 \[E(h_2)=\frac 1{4}(`r camp[5,1]`+`r camp[5,2]`+`r camp[5,3]`+`r camp[5,4]`)=`r mean(camp[5,])`\neq\mu\]
 non lo è.
-::::
+:::
 
 
-:::: {.example name="Popolazione finita, estrazioni SR (Efficienza)"}
+:::{.example name="Popolazione finita, estrazioni SR (Efficienza)"}
 Ricordiamo che l'**Errore Quadratico Medio** (_Mean Squared Error_) per $\mu$ è
 \[MSE(h)=E((h-\mu)^2)=V(h)+B^2(h)\]
 dove
@@ -366,12 +366,12 @@ Osserviamo la precisione di $h_2$:
 
 E quindi essendo $MSE(h_1)=`r mean(camp[4,]^2)-mu^2`<`r mean(camp[5,]^2)-mean(camp[5,])^2 + (mean(camp[5,])-mu)^2`=MSE(h_2)$, e dunque $h_1$ è _più efficiente_ di $h_2$.
  
-:::: {.nota data-latex=""}
+:::{.nota data-latex=""}
 \[V(h_1)=V(\hat \mu)=\frac{N-n}{N-1}\frac{\sigma^2}{n}=\frac{4-3}{4-1}\frac{`r sig2`}{3}\]
-::::
-::::
+:::
+:::
 
-:::: {.example name="Popolazione finita, estrazioni SR (Stima della Varianza)"}
+:::{.example name="Popolazione finita, estrazioni SR (Stima della Varianza)"}
 Proponiamo la varianza campionaria $\hat\sigma^2$ per stimare $\sigma^2=`r sig2`$
 \[\hat\sigma^2=\frac 1 3\sum_{i=1}^3(x_i-\hat \mu)^2\]
 
@@ -398,12 +398,12 @@ sig2<-mean(xp^2)-mean(xp)^2
 In tabella \@ref(tab:var-sr) la varianza associata ad ogni campione. Avremo che
 \[E(\hat\sigma^2)=\frac 1 4 (`r hv[1]`+`r hv[2]`+`r hv[3]`+`r hv[4]`)=`r mean(hv)`\]
 
-:::: {.nota data-latex=""}
+:::{.nota data-latex=""}
 $E(\hat\sigma^2)=`r mean(hv)`<`r sig2`=\sigma^2$, $\hat\sigma^2$ è distorto e, in media, sottostima la vera $\sigma^2$
-::::
-::::
+:::
+:::
 
-:::: {.example name="Popolazione finita, estrazioni CR (Stima)"}
+:::{.example name="Popolazione finita, estrazioni CR (Stima)"}
 Se estraiamo CR, $\#\mathcal{S}=64$ lo spazio dei campioni è
 ```{r stima-cr,results="asis"}
 xp <- c(0,1,3,7)
@@ -443,7 +443,7 @@ kable((camp),booktabs=T,escape=F,caption = "Media e dediana dei campioni e proba
 
 ```
 
-:::: {.att data-latex=""}
+:::{.att data-latex=""}
 **Attenzione** i campioni qui non hanno tutti la stessa probabilità, in tabella \@ref(tab:stima-cr) i campioni, le loro probabilità e le corrispettive varianze. Otterremo:
 \[E(h)=h_\text{Camp. 1}P(\text{Camp. 1})+...+h_\text{Camp. 20}P(\text{Camp. 20})\]
 
@@ -452,12 +452,12 @@ E dunque:
   E(h_1)  &=& `r h1[1]`\times`r pr[1]`+`r h1[2]`\times`r pr[2]`+...+`r h1[20]`\times`r pr[20]` = `r eh1`=\mu\\
   E(h_2)  &=& `r h2[1]`\times`r pr[1]`+`r h2[2]`\times`r pr[2]`+...+`r h2[20]`\times`r pr[20]` = `r eh2`\neq\mu
 \end{eqnarray*}
-::::
+:::
 
 Anche nel CCS CR $h_1$ è corretto per $\mu$ e $h_2$ **non** è corretto per $\mu$
-::::
+:::
 
-:::: {.example name="Popolazione finita, estrazioni CR (Efficienza)"}
+:::{.example name="Popolazione finita, estrazioni CR (Efficienza)"}
 Mentre l'errore
 \[MSE(h)=(h_\text{Camp. 1}-\mu)^2P(\text{Camp. 1})+...+(h_\text{Camp. 20}-\mu)^2P(\text{Camp. 20})\]
 
@@ -473,13 +473,13 @@ E dunque
 
 Anche in questo caso, l'errore medio quadratico di $h_1$ è minore di quello di $h_2$, e quindi $h_1$ è più efficiente di $h_2$ ovvero più _preciso_.
 
-:::: {.nota data-latex=""}
+:::{.nota data-latex=""}
 come definito dalla teoria abbiamo
 \[MSE(h_1)=MSE(\hat \mu)=V(\hat \mu)=\frac{\sigma^2}n=\frac{`r sig2`}{3}=`r mse1`\]
-::::
-::::
+:::
+:::
 
-:::: {.example name="Popolazione finita, estrazioni CR (Efficienza)"}
+:::{.example name="Popolazione finita, estrazioni CR (Efficienza)"}
 
 Proponiamo la varianza campionaria $\hat\sigma^2$ per stimare $\sigma^2=`r sig2`$
 \[\hat\sigma^2=\frac 1 3\sum_{i=1}^3(x_i-\hat \mu)^2\]
@@ -529,7 +529,7 @@ Osserviamo che
 E(\hat\sigma^2)=\frac{n-1}n\sigma^2=\frac{`r n-1`}{`r n`}`r sig2`
 \]
 
-:::: 
+::: 
 
 ### Distribuzione delle statistiche
 
@@ -586,19 +586,19 @@ segments(mu,0,mu,dnorm(mu,mu,se),lty=2)
 
 Siano $X_1,...,X_n$, $n$ VC, IID, replicazioni della stessa $X\sim\mathscr{L}(\theta)$, sia $h$ uno stimatore per $\theta$
 
-:::: {.info data-latex=""}
-::: {.definition name="Correttezza Asintotica"}
+:::{.info data-latex=""}
+:::{.definition name="Correttezza Asintotica"}
 Lo stimatore $h$ si dice **asintoticamente corretto** se
 \[\lim_{n\to\infty}E(h(X_1,...,X_n))=E(h)=\theta\]
 :::
-::::
+:::
    
-:::: {.example}
+:::{.example}
   \[\lim_{n\to\infty}E(\hat\sigma^2)=\lim_{n\to\infty}\frac{n-1}n\sigma^2=\sigma^2\]
-::::
+:::
 
-:::: {.info data-latex=""}
-::: {.definition name="Correttezza Asintotica"}
+:::{.info data-latex=""}
+:::{.definition name="Correttezza Asintotica"}
 Lo stimatore $h$ si dice **consistente** (in media quadratica) se e solo se
 \[\lim_{n\to\infty}MSE(h(X_1,...,X_n))=\lim_{n\to\infty}MSE(h)=0\]
 
@@ -607,9 +607,9 @@ Essendo
 allora
 \[\lim_{n\to\infty} MSE(h)=0, \text{ se e solo se} \lim_{n\to\infty} V(h)=0 \text{ e } \lim_{n\to\infty} B^2(h)=0\]
 :::
-::::
+:::
 
-:::: {.example name="Consistenza"}
+:::{.example name="Consistenza"}
 Siano $X_1,...,X_n$, $n$ VC, IID, replicazioni della stessa VC $X$ con $E(X)=\mu$ e $V(X)=\sigma^2$
 Usiamo $\hat \mu$ per stimare $\mu$:
 \[\hat \mu=\frac 1 n \sum_{i=1}^n X_i=\frac {S_n}n\]
@@ -626,11 +626,11 @@ Al divergere di $n$
 \[\lim_{n\to \infty}MSE(\hat \mu)=\lim_{n\to\infty}\frac{\sigma^2}n=0\]
 
 Lo stimatore $\hat \mu$ per $\mu$ è stimatore **corretto** e **consistente**.
-::::
+:::
 
 ## La $SD$ e lo $SE$
 
-:::: {.info data-latex=""}
+:::{.info data-latex=""}
 La _standard deviation_ (SD) $\sigma$, rappresenta la dispersione degli individui dalla media, è un indicatore di *variabilità* della *popolazione*, per esempio in una popolazione finita di $N$ individui:
 \[\sigma=\sqrt{\sigma^2}=\sqrt{\frac 1 N\sum_{i=1}^N(x_i-\mu)^2},\]
 la _deviazione standard_ $\sigma$ è la radice della varianza della popolazione $\sigma^2$.
@@ -642,9 +642,9 @@ Lo _standard error_ $SE(h)$ di uno stimatore $h$ per $\theta$ è la radice della
 La _standard deviation stimata_ $\sigma$, rappresenta la dispersione degli individui _del campione_ dalla media _del campione_, è un indicatore di *variabilità* del *campione*:
 \[\hat\sigma=\sqrt{\hat\sigma^2}=\sqrt{\frac 1 n\sum_{i=1}^n(x_i-\hat\mu)^2}\]
 La _deviazione standard stimata_ $\hat\sigma$ è la radice della varianza del campione $\hat\sigma^2$.
-::::
+:::
 
-:::: {.example}
+:::{.example}
 Lo standard error dello stimatore media aritmetica campionaria $\hat\mu$ per $\mu$
 \[SE(\hat \mu)=\sqrt\frac{\sigma^2} n=\frac\sigma {\sqrt{n}}\]
 
@@ -658,4 +658,4 @@ Se $\sigma$ è incognito viene stimato da (come vedremo nel paragrafo (\@ref(vno
 
 Ottenendo
 \[\widehat{SE(\hat\mu)}=\frac S {\sqrt n}\]
-::::
+:::

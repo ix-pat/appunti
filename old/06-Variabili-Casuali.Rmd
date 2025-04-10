@@ -330,7 +330,7 @@ Il valore atteso di una VC è un numero.
 La **varianza** di una VC è del tutto analoga alla varianza di una VS.
 
 :::: {.info data-latex=""}
-::::{.definition name="Varianza di una VC discreta"}
+:::{.definition name="Varianza di una VC discreta"}
 Si definisce $V(X)$ la varianza della VC $X$ con supporto $S_X$ e funzione di probabilita $f$:
 \begin{eqnarray*} 
 V(X)&=&E\left(\big(X-E(X)\big)^2\right)\\ 

@@ -71,7 +71,7 @@ La _funzione di verosimiglianza_ è la una funzione di probabilità dei dati,
 fissata sul campione osservato, in cui la variabile è il parametro. La verosimiglianza è
 indicata con la lettera $L$ (_Likelihood_) e si scrive
 
-::: {.info data-latex=""}
+:::{.info data-latex=""}
 \[
 L(\theta;\text{Dati})\propto P(\text{Dati};\theta)
 \]
@@ -380,12 +380,12 @@ questa tabella, letta per righe ci indica la probabilità, letta per colonne ci 
 
 ## La Funzione di Verosimiglianza 
 
-:::: {.info data-latex=""}
-::: {.definition name="Funzione di Verosimiglianza"}
+:::{.info data-latex=""}
+:::{.definition name="Funzione di Verosimiglianza"}
 Siano $x_1,...,x_n$ $n$ osservazioni di $X\sim \mathscr{L}(\theta)$, $\theta\in\Theta$, si definisce la verosimiglianza $L$ di $\theta$ la funzione:
 \[L(\theta;x_1,...,x_n)=L(\theta)\propto P(X_1=x_1,...,X_n=x_n;\theta)\]
 :::
-::::
+:::
 
 La funzione di verosimiglianza è una funzione in $\theta$ (la variabile) per 
 $x_1,...,x_n$ fissi. Indica quanto un particolare valore di $\theta$ è supportato dai dati.
@@ -397,8 +397,8 @@ L(\theta) &\propto& P(X_1=x_1;\theta)\cdot...\cdot P(X_n=x_n;\theta) \\
           &\propto& \prod_{i=1}^n f(x_i;\theta)
 \end{eqnarray*}
 
-:::: {.info data-latex=""}
-::: {.definition name="Log Verosimiglianza"}
+:::{.info data-latex=""}
+:::{.definition name="Log Verosimiglianza"}
 Si definisce la log-verosimiglianza $\ell$:
 \begin{eqnarray*}
 \ell(\theta) &=& \log L(\theta) \\
@@ -406,13 +406,13 @@ Si definisce la log-verosimiglianza $\ell$:
              &=& \sum_{i=1}^n \log f(x_i;\theta)
 \end{eqnarray*}
 :::
-::::
+:::
 
 ## La Stimatore di massima Verosimiglianza 
 
 
-:::: {.info data-latex=""}
-::: {.definition name="Stimatore du Massima Verosimiglianza"}
+:::{.info data-latex=""}
+:::{.definition name="Stimatore du Massima Verosimiglianza"}
 Lo stimatore di *massima verosimiglianza* per $\theta$ è
 \begin{eqnarray*}
 \hat\theta &=& \operatorname*{\text{argmax}}_{\theta\in\Theta} L(\theta)\\
@@ -421,7 +421,7 @@ Lo stimatore di *massima verosimiglianza* per $\theta$ è
 
 \[\hat\theta:L(\hat\theta)>L(\theta), \forall\theta\neq\hat\theta, \qquad\ell(\hat\theta)>\ell(\theta), \forall\theta\neq\hat\theta\]
 :::
-::::
+:::
 
 ## Il Principio di Verosimiglianza
 
@@ -510,49 +510,49 @@ par(cex=cex)
 
 Dunque
 
-:::: {.info data-latex=""}
+:::{.info data-latex=""}
 Siano $X_1,...X_n$ $n$ VC IID, tali che $X_i\sim\text{Ber}(\pi)$ lo stimatore
 di massima verosimiglianza per $\pi$ è
 \[\hat \pi=\frac 1n \sum_{i=1}^nX_i\]
-::::
+:::
 
 Il _vero_ valore di $\pi$ è incognito ma sappiamo che:
 
-:::: {.info data-latex=""}
+:::{.info data-latex=""}
 $\hat\pi$ è corretto per $\pi$, infatti
 \[E(\hat\pi)=E\left(\frac{1}n\sum_{i=1}^n X_i\right)=\frac{1}n\sum_{i=1}^nE(X_i)=\frac{\pi+...+\pi}{n}=\frac n n\pi=\pi\]
 
 E quindi
 \[MSE(\hat\pi)=V(\hat\pi)=\frac{\pi(1-\pi)}{n}\]
 che è ancora funzione di $\pi$.
-::::
+:::
 
-:::: {.info data-latex=""}
+:::{.info data-latex=""}
 Lo stimatore $\hat\pi$ per $\pi$ è _consistente_, infatti
 \[\lim_{n\to +\infty}MSE(\hat\pi)=\lim_{n\to +\infty}\frac{\pi(1-\pi)}{n}=0\]
 
 $\hat\pi$ è _corretto_ e _consistente_ per $\pi$.
-::::
+:::
 
 Osserviamo che:
 
-:::: {.info data-latex=""}
+:::{.info data-latex=""}
 \[SE(\hat\pi)=\sqrt{\frac{\pi(1-\pi)}{n}}\]
-::::
+:::
 
 È un risultato teorico che dipende dal _vero_ $\pi$, che non conosciamo.
 
-:::: {.info data-latex=""}
+:::{.info data-latex=""}
 L'errore di stima si stima sostituendo a $\pi$ la sua stima $\hat\pi$
 \[\widehat{SE(\hat\pi)}=\sqrt{\frac{\hat\pi(1-\hat\pi)}{n}}\]
-::::
+:::
 
 Se $\hat\pi=0.6$ e $n=5$
 \[\widehat{SE(\hat\pi)}=\sqrt{\frac{0.6(1-0.6)}{5}}=`r sqrt(.6*(1-.6)/5)`\]
 
-:::: {.nota data-latex=""}
+:::{.nota data-latex=""}
 Lo Standard Error è l'ordine di grandezza dell'errore commesso.
-::::
+:::
 
 ### Se $n$ aumenta e $\hat\pi=0.6$
 
@@ -733,20 +733,20 @@ E dunque
 
 Dunque
 
-:::: {.info data-latex=""}
+:::{.info data-latex=""}
 Siano $X_1,...X_n$ $n$ VC IID, tali che $X_i\sim\text{Pois}(\lambda)$ lo stimatore
 di massima verosimiglianza per $\pi$ è
 \[\hat \lambda=\frac 1n \sum_{i=1}^nX_i\]
-::::
+:::
 
-:::: {.info data-latex=""}
+:::{.info data-latex=""}
 Correttezza:
 \[
   E(\hat\lambda) =  E\left(\frac{1}n\sum_{i=1}^n X_i\right) = \frac 1 n \sum_{i=1}^n E(X_i) = \frac 1 n \sum_{i=1}^n \lambda = \lambda
 \]
-::::
+:::
 
-:::: {.info data-latex=""}
+:::{.info data-latex=""}
 Mean Squared Error:
 \[
   MSE(\hat\lambda) = V(\hat\lambda)
@@ -755,22 +755,22 @@ Mean Squared Error:
                  = \frac n {n^2} \lambda
                  = \frac {\lambda}n
 \]
-::::
+:::
 
-:::: {.info data-latex=""}
+:::{.info data-latex=""}
 Consistenza:
 \[
   \lim_{n\to+\infty} MSE(\hat\lambda) = \lim_{n\to+\infty} \frac {\lambda}n = 0
 \]
-::::
+:::
 
-:::: {.info data-latex=""}
+:::{.info data-latex=""}
 Standard Error
 \[SE(\hat\lambda)=\sqrt{\frac {\lambda}n}\]
 
 Standard Error stimato
 \[\widehat{SE(\hat\lambda)}=\sqrt{\frac {\hat\lambda}n}\]
-::::
+:::
 
 ### Esempio $n=5$
 
@@ -849,12 +849,12 @@ segments(sn/n,-100,sn/n,l(sn/n),lty=2)
 Siano $X_1,...,X_n$ $n$ VC IID, replicazioni della stessa $X\sim N(\mu,\sigma^2)$, e dunque con funzione di probabilità:
 \[f(x_i;\mu,\sigma^2)\]
 
-:::: {.info data-latex=""}
+:::{.info data-latex=""}
 La verosimiglianza per $(\mu,\sigma^2)$ è
 \begin{eqnarray*}
   L(\lambda) &=& \prod_{i=1}^n f(x_i;\mu,\sigma^2)
 \end{eqnarray*}
-::::
+:::
 
 La log-verosimiglianza della Normale
 
@@ -1031,20 +1031,20 @@ equazioni di derivate di $\ell(\mu,\sigma^2)$ rispetto a $\mu$ e $\sigma^2$
 \end{cases}
 \]
 
-:::: {.info data-latex=""}
-::: {.proposition}
+:::{.info data-latex=""}
+:::{.proposition}
 \begin{eqnarray*}
   \hat\mu            &=& \frac 1 n \sum_{i=1}^n x_i\\
   \hat\sigma^2       &=& \frac 1 n \sum_{i=1}^n(x_i-\hat\mu)^2\\
                      &=& \frac 1 n \sum_{i=1}^n x_i^2 -\hat\mu^2
 \end{eqnarray*}
 :::
-::::
+:::
 
 Tutta l'**informazione** del campione è contenuta nelle statistiche $\sum_{i=1}^n x_i$ 
 e $\sum_{i=1}^n x_i^2$.
 
-::: {.proof}
+:::{.proof}
 \begin{eqnarray*}
   L(\mu,\sigma^2;\,\mathbf{x}) &=&  \prod_{i=1}^n \frac{1}{\sqrt{2\pi\sigma^2}}e^
   {-\frac 12\left(\frac{(x_i-\mu)^2}{\sigma^2}\right)}\\
@@ -1068,14 +1068,14 @@ e $\sum_{i=1}^n x_i^2$.
 
 ### Proprietà di $\hat\mu$
 
-:::: {.info data-latex=""}
+:::{.info data-latex=""}
 Correttezza per $\mu$:
 \[
   E(\hat\mu) =  E\left(\frac{1}n\sum_{i=1}^n X_i\right) = \frac 1 n \sum_{i=1}^n E(X_i) = \frac 1 n \sum_{i=1}^n \mu = \mu
 \]
-::::
+:::
 
-:::: {.info data-latex=""}
+:::{.info data-latex=""}
 Mean Squared Error per $\mu$:
 \[
   MSE(\hat\mu) = V(\hat\mu)
@@ -1084,9 +1084,9 @@ Mean Squared Error per $\mu$:
                  = \frac n {n^2} \sigma^2
                  = \frac {\sigma^2}n
 \]
-::::
+:::
 
-:::: {.info data-latex=""}
+:::{.info data-latex=""}
 Consistenza per $\mu$:
 \[
   \lim_{n\to+\infty} MSE(\hat\mu) = \lim_{n\to+\infty} \frac {\sigma^2}n = 0
@@ -1094,26 +1094,26 @@ Consistenza per $\mu$:
 
 E lo Standard Error:
 \[SE(\hat\mu)=\sqrt{\frac {\sigma^2}n}\]
-::::
+:::
 
 Standard Error stimato tra poco verrà ricavato \@ref(ssem).
 
 ### Proprietà di $\hat\sigma^2$ {#vnorm}
 
-:::: {.info data-latex=""}
+:::{.info data-latex=""}
 Correttezza per $\hat\sigma^2$:
 \[
   E(\hat\sigma^2) =  \frac {n-1}{n}\sigma^2
 \]
 $\hat\sigma^2$ non è stimatore corretto per $\sigma^2$.
-::::
+:::
 
-:::: {.info data-latex=""}
+:::{.info data-latex=""}
 Correzione di $\hat\sigma^2$
 \[
   S^2=\frac{n}{n-1}\hat\sigma^2=\frac{n}{n-1}\frac{1}n\sum_{i=1}^n(X_i-\hat\mu)^2=\frac{1}{n-1}\sum_{i=1}^n(X_i-\hat\mu)^2
 \]
-::::
+:::
 
 Osserviamo che
 \[
@@ -1124,13 +1124,13 @@ $S^2$ è stimatore corretto per $\sigma^2$.
 
 ### Lo $SE$ di $\hat\mu$ {#ssem}
 
-:::: {.info data-latex=""}
+:::{.info data-latex=""}
 Standard Error
 \[SE(\hat\mu)=\sqrt{\frac {\sigma^2}n}\]
 
 Standard Error stimato.
 \[\widehat{SE(\hat\mu)}=\sqrt{\frac {S^2}n}=\sqrt{\frac {\hat\sigma^2}{n-1}}\]
-::::
+:::
 
 In quanto
 \[\frac {S^2}{n}=\frac 1 nS^2=\frac 1 n \frac{n}{n-1}\hat\sigma^2=\frac{\hat\sigma^2}{n-1}\]
@@ -1198,8 +1198,8 @@ Fissata la somma il sistema _ha perso un grado di libertà_.
 
 ## Proprietà degli stimatori di massima verosimiglianza
 
-:::: {.info data-latex=""}
-::: {.proposition name="Stimatori di massima verosimgilianza"}
+:::{.info data-latex=""}
+:::{.proposition name="Stimatori di massima verosimgilianza"}
 Siano $X_1,...,X_n$ $n$ VC IID, replicazioni di $X\sim \mathscr{L}(\theta)$ e sia $\hat\theta$ lo stimatore di massima verosimiglianza per per $\theta$, allora
 
 1. $\hat\theta$ non è sempre stimatore corretto ma è sempre corretto asintoticamente:
@@ -1218,7 +1218,7 @@ dove $I(\theta)$ è l'infromazione di Fisher.
   
   \[ \text{se } \psi=g(\theta), \text{ allora } \hat\psi = g(\hat\psi)\]
 :::
-::::
+:::
 
   1. La proprietà uno riguarda la correttezza. Non sempre gli SMV sono corretti
   ma lo sono sempre asintoticamente. Esempio: lo stimatore $\hat\sigma^2$ di $\sigma^2$ non è corretto solo asintoticamente

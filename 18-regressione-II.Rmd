@@ -58,8 +58,8 @@ vb1 <- se2 / (n*vx)
 
 ## Teorema di Gauss-Markov
 
-:::: {.info data-latex=""}
-::: {.theorem name="Gauss-Markov"}
+:::{.info data-latex=""}
+:::{.theorem name="Gauss-Markov"}
 Sotto gli assunti dallo 0 al 5,
 gli stimatori dei minimi quadrati sono corretti
 \[E(\hat\beta_1)=\beta_1,\qquad E(\hat\beta_0)=\beta_0\]
@@ -76,7 +76,7 @@ La loro varianza è:
 Gli stimatori $\hat\beta_{0}$ e $\hat\beta_{1}$ di $\beta_{0}$ e $\beta_{1}$
 sono _BLUE (Best Linear Unbiased Estimators)_.
 :::
-::::
+:::
 
 ## La previsione $\hat Y$
 
@@ -113,7 +113,7 @@ Ricordando che
 
 Otteniamo le stime campionarie per gli Standard Errors
 
-::: {.info data-latex=""}
+:::{.info data-latex=""}
 \begin{eqnarray*}
 \widehat{SE(\hat\beta_{0})} &=& \sqrt{S_{\varepsilon}^{2} \left( \frac{1} {n} +  \frac{\bar{x}^{2}} {n \hat{\sigma}^{2}_{X}} \right)}\\
 \widehat{SE(\hat\beta_{1})}           &=& \sqrt{\frac{S_{\varepsilon}^{2}} {n\hat{\sigma}^{2}_{X}} }\\
@@ -125,7 +125,7 @@ Otteniamo le stime campionarie per gli Standard Errors
 
 Se l'assunto 6. (normalità dei residui)  è rispettato, allora
 
-::: {.info data-latex=""}
+:::{.info data-latex=""}
 \[\hat\beta_1\sim N(\beta_1,V(\hat\beta_1)), ~~\hat\beta_0\sim N(\beta_0,V(\hat\beta_0)), ~~\hat Y_{(X=x)}\sim N\left(\beta_0+\beta_1 x,V(\hat Y_{(X=x)})\right)\]
 :::
 
@@ -248,7 +248,7 @@ La varianza di $\hat Y$ è l'_errore di previsione_
 ### Interpolazione e Estrapolazione
 
 
-::: {.info data-latex=""}
+:::{.info data-latex=""}
 Parliamo di _interpolazione_ dei punti se $\hat Y_{(X=x)}$ è calcolato per
 \[\min\{x_i\}\leq x \leq\max\{x_i\}\]
 
@@ -342,7 +342,7 @@ Sapendo che
 \]
 
 
-::: {.info data-latex=""}
+:::{.info data-latex=""}
 Sotto $H_0$
 
 \begin{eqnarray*}

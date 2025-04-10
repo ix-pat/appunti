@@ -64,7 +64,7 @@ mx <- mean(data) # chiamo mx la media dei dati
 vx <- var(data) # chiamo vx la varianza dei dati
 ```
 
-::: {.minip data-latex=""}
+:::{.minip data-latex=""}
 Abbiamo analizzato $n=`r n`$ individui, abbiamo osservato una media pari a 
 $\bar x =`r mx`$ e una varianza pari a $\sigma^2=`r vx`$.
 ```{r 24-Libro-54}
@@ -307,7 +307,7 @@ x <- list(1:3,c("a","b"))
 class(x)
 ```
 
-::: {.att data-latex=""}
+:::{.att data-latex=""}
 Alcuni oggetti possono assomigliarsi ma essere diversi ad esempio
 ```{r 24-Libro-23,echo=TRUE,results='markup'}
 x1 <- 1;3

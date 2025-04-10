@@ -83,8 +83,8 @@ Ogni decisione ha delle conseguenze
 La _tavola della verità_ è una tabella simbolica in cui sulle righe viene scritto il _vero stato di natura_ cioè, se $H_0$ è vera o falsa. Per colonna viene scritta la decisione, cioè
 se scelgo di tenere $H_0$ o di rifiutarla in favore di $H_1$.
 
-:::: {.info data-latex=""}
-::: {.center data-latex=""}
+:::{.info data-latex=""}
+:::{.center data-latex=""}
 ```{r 14-test-intro-1, results='asis'}
 
 t.ver <- data.frame(s.n.="stato di natura",pi=c("$H_0$","$H_1$"),matrix(c("Corretta","Errore II tipo","Errore I tipo","Corretta"),2))
@@ -101,12 +101,12 @@ n <- 10
 
 ```
 :::
-::::
+:::
 
 Dunque:
 
-:::: {.info data-latex=""}
-::: {.definition name="Errori di primo e secondo tipo"}
+:::{.info data-latex=""}
+:::{.definition name="Errori di primo e secondo tipo"}
 
 Si definiscono
 
@@ -114,12 +114,12 @@ Si definiscono
 - L'**errore di secondo tipo** è l'errore che si commette scegliendo $H_0$ quando è vera $H_1$.
 
 :::
-::::
+:::
 
 Dunque ad ogni decisione corrisponde un possibile errore. 
 Per valutare un test si devono calcolare le probabilità di errore
 
-::: {.center data-latex=""}
+:::{.center data-latex=""}
 ```{r 14-test-intro-2, results='asis'}
 
 t.ver <- data.frame(s.n.="stato di natura",pi=c("$H_0$","$H_1$"),matrix(c("$1-\\alpha$","$\\beta$","$\\alpha$","$1-\\beta$"),2))
@@ -135,8 +135,8 @@ kable(t.ver,row.names = F,col.names = c("","","decido $H_0$","decido $H_1$"),ali
 
 Dove
 
-:::: {.info data-latex=""}
-::: {.definition name="Probabilità degli Errori di primo e secondo tipo"}
+:::{.info data-latex=""}
+:::{.definition name="Probabilità degli Errori di primo e secondo tipo"}
 
 \[\alpha=P(\text{Errore I tipo})=P(\text{Decidere $H_1$};H_0)=P(X_1,...,X_n\in\mathcal{S}_1;H_0)\]
 
@@ -146,16 +146,16 @@ $\alpha$ è il livello di **significatività** del test, $\alpha$ è la probabil
 $\beta$ è la probabilità di scegliere $H_0$ quando invece è vera $H_1$. 
 
 :::
-::::
+:::
 
 Infine
 
-:::: {.info data-latex=""}
-::: {.definition name="Potenza di un Test"}
+:::{.info data-latex=""}
+:::{.definition name="Potenza di un Test"}
 \[1-\beta =P(\text{Decidere $H_1$}; H_1)=P(X_1,...,X_n\in\mathcal{S}_1;H_1)\]
 $1-\beta$ è la **potenza del test**, $1-\beta$ è la probabilità di scegliere $H_1$ quando $H_1$ è vera.
 :::
-::::
+:::
 
 
 <!-- ## Esempio: COVID-19 e Tamponi -->
@@ -192,7 +192,7 @@ $1-\beta$ è la **potenza del test**, $1-\beta$ è la probabilità di scegliere 
 <!-- - Il test del _tampone_ non è un test statistico, non possiamo agire sulla scelta di $\alpha$ né di $\beta$. -->
 
 
-:::: {.example name="Spam e Filtri email"}
+:::{.example name="Spam e Filtri email"}
 Il Un filtro delle email che separa lo _spam_ dal _non spam_ **non** è una _procedura certa_
 \begin{align*}
 P(\text{Falso Positivo}) =& P(\text{filtrata spam} ; \text{non è spam})= \alpha \\
@@ -201,7 +201,7 @@ P(\text{Falso Negativo}) =& P(\text{filtrata non spam} ; \text{è spam})= \beta 
 
 La tavola della verità
 
-::: {.center data-latex=""}
+:::{.center data-latex=""}
 ```{r 14-test-intro-4, results='asis'}
 alpha <- .02
 bbeta <- .3
@@ -218,7 +218,7 @@ kable(t.ver,row.names = F,col.names = c("","","Non Spam","Spam"),align = 'c',
 Obiettivo: costruire il filtro in modo tale che
 $\alpha$ sia fissato ad un valore arbitrariamente piccolo
 $1-\beta$ sia la più alta possibile, per $\alpha$ fissato
-::::
+:::
 
 
 ```{r 14-test-intro-5,echo=FALSE,include=FALSE}
@@ -433,7 +433,7 @@ Decisione A: $\mathcal{S}_0=\{S_{10}\geq 8\}$ e $\mathcal{S}_1=\{S_{10}< 8\}$
 La significatività del test A è $\alpha=`r tvA[1,4]`$.
 La potenza del test A è $1-\beta=`r tvA[2,4]`$
 
-::: {.center data-latex=""}
+:::{.center data-latex=""}
 ```{r 14-test-intro-8, results='asis'}
 kable(tvA,row.names = F,col.names = c("","","$H_0$","$H_1$"),
       booktabs = T, escape = F,linesep = "", digits = 4) %>%
@@ -468,7 +468,7 @@ Decisione B: $\mathcal{S}_0=\{S_{10}\geq 6\}$ e $\mathcal{S}_1=\{S_{10}< 6\}$
 La significatività del test B è $\alpha=`r tvB[1,4]`$.
 La potenza del test B è $1-\beta=`r tvB[2,4]`$
 
-::: {.center data-latex=""}
+:::{.center data-latex=""}
 ```{r 14-test-intro-10, results='asis'}
 kable(tvB,row.names = F,col.names = c("","","$H_0$","$H_1$"),
       booktabs = T, escape = F,linesep = "", digits = 4) %>%
@@ -504,7 +504,7 @@ Decisione C: $\mathcal{S}_0=\{2\leq S_{10}\leq 8\}$ e $\mathcal{S}_1=\{S_{10}< 2
 La significatività del test C è $\alpha=`r tvC[1,4]`$,
 la potenza del test C è $1-\beta=`r tvC[2,4]`$
 
-::: {.center data-latex=""}
+:::{.center data-latex=""}
 ```{r 14-test-intro-12, results='asis'}
 kable(tvC,row.names = F,col.names = c("","","$H_0$","$H_1$"),
       booktabs = T, escape = F,linesep = "", digits = 4) %>%
@@ -517,7 +517,7 @@ kable(tvC,row.names = F,col.names = c("","","$H_0$","$H_1$"),
 
 ### Confronto
 
-::: {.center data-latex=""}
+:::{.center data-latex=""}
 ```{r 14-test-intro-13, results='asis'}
 kable(tvA,row.names = F,col.names = c("","","$H_0$","$H_1$"),
       booktabs = T, escape = F,linesep = "", digits = 4) %>%
@@ -528,7 +528,7 @@ kable(tvA,row.names = F,col.names = c("","","$H_0$","$H_1$"),
 ```
 :::
 
-::: {.center data-latex=""}
+:::{.center data-latex=""}
 ```{r 14-test-intro-14, results='asis'}
 kable(tvB,row.names = F,col.names = c("","","$H_0$","$H_1$"),
       booktabs = T, escape = F,linesep = "", digits = 4) %>%
@@ -539,7 +539,7 @@ kable(tvB,row.names = F,col.names = c("","","$H_0$","$H_1$"),
 ```
 :::
 
-::: {.center data-latex=""}
+:::{.center data-latex=""}
 ```{r 14-test-intro-15, results='asis'}
 kable(tvC,row.names = F,col.names = c("","","$H_0$","$H_1$"),
       booktabs = T, escape = F,linesep = "", digits = 4) %>%
@@ -808,7 +808,7 @@ $\mathcal{S}$.
 Calcolata sul campione osservato consente di decidere immediatamente se
 il campione porta più evidenza ad $H_0$ oppure ad $H_1$. 
 
-::: {.nota data-latex=""}
+:::{.nota data-latex=""}
 Se $\hat\theta$ è stimatore per $\theta$, con errore di stima
 $SE(\hat\theta)$, una pratica comune è la statistica test
 $$T=\frac{\hat\theta-\theta_0}{SE(\hat\theta)}$$ 

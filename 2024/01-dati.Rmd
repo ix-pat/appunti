@@ -196,7 +196,7 @@ Sulle COLONNE i CARATTERI: si leggono le modalità delle unità statistiche asso
 
 ## Riepilogo sulle Variabili
 
-:::: {.info data-latex=""}
+:::{.info data-latex=""}
 -   **Qualitativa**, la variabile è espressa attraverso etichette qualitative
     -   *Qualitative sconnesse*: le caratteristiche che la VS può assumere hanno un ordinamento soggettivo;
         -   genere,
@@ -215,4 +215,4 @@ Sulle COLONNE i CARATTERI: si leggono le modalità delle unità statistiche asso
         -   misure di lunghezza, capienza e peso,
         -   temperature,
         -   reddito.
-::::
+:::

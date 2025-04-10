@@ -21,14 +21,14 @@ s2 <- 0
 La _Mediana_, _Me_ o $x_{0.5}$, è il valore centrale della serie dei dati riordinati in due: metà dei dati sono minori della mediana e metà dei dati sono maggiori della mediana. 
 In simboli: sia $x_{1},...,x_{n}$ la serie dei dati e $x_{(1)},...,x_{(n)}$ i dati riordinati in modo crescente, allora:
 
-:::: {.info data-latex=""}
+::: {.info data-latex=""}
 1. se $n$ è dispari
 \[x_{0.5}=x_{\left(\frac{n+1}{2}\right)}\]
 2. se $n$ è pari
 \[x_{0.5}=\frac 1 2 \left(x_{\left(\frac{n}{2}\right)}+x_{\left(\frac{n}{2}+1\right)}\right)\]
-:::: 
+::: 
 
-:::: {.example}
+::: {.example}
 
 Sia 
 $$(x_1=2.9,x_2=3.5,x_3=1.2,x_4=2.7, x_5=4.2)$$ 
@@ -38,9 +38,9 @@ $$(x_{(1)}=1.2, x_{(2)}=2.7, x_{(3)}=2.9, x_{(4)}=3.5,x_{(5)}=4.2),$$
 $n=5$ è dispari e dunque
 
 \[x_{0.5}=x_{\left(\frac{n+1}{2}\right)}=x_{\left(\frac{5+1}{2}\right)}=x_{\left(3\right)}=2.9\]
-::::
+:::
 
-:::: {.example}
+::: {.example}
 
 Sia 
 \[(x_1=2.9,x_2=3.5,x_3=1.2,x_4=2.7, x_5=4.2, x_6=4.2)\] 
@@ -52,13 +52,13 @@ $n=6$ è pari e dunque
 \[x_{0.5}=\frac 1 2 \left(x_{\left(\frac{n}{2}\right)}+x_{\left(\frac{n}{2}+1\right)}\right)=
 \frac 1 2 \left(x_{\left(\frac{6}{2}\right)}+x_{\left(\frac{6}{2}+1\right)}\right)=
 \frac 1 2 \left(x_{\left(3\right)}+x_{\left(4\right)}\right)=\frac{2.9+3.5}2=3.2\]
-::::
+:::
 
 ### Dati espressi in distribuzione di frequenza
 Se il fenomeno è espresso in una tabella di distribuzione di frequenza, allora la _modalità mediana_ è la prima modalità tale per cui la frequenza cumulata è maggiore di 0.5
 
 
-:::: {.example}
+::: {.example}
 Fenomeno _Titolo di Studio_, $n=350$, numero di modalità $k=5$.
 
 ```{r titolo di studio,echo=F}
@@ -78,13 +78,13 @@ kable(Y[,],booktabs = T, escape = F,linesep = "", digits = 4) %>%
 ```
 
 La modalità mediana è la terza $j=3$, dunque _Media Superiore_, infatti $F_3=0.82>0.50$.
-::::
+:::
 
 ### Dati espressi in classi 
 
 Se il fenomeno è espresso in classi, allora l'_intervallo mediano_ è la primo intervallo tale per cui la frequenza cumulata è maggiore di 0.5.
 
-:::: {.example}
+::: {.example}
 
 ```{r dati in classi,echo=F,include=F}
 n <- 4700
@@ -103,26 +103,26 @@ tabl(cbind(`$j$`=c(1:k,NA),dat3[,1:7]))
 ```
 
 La classe mediana è la terza classe $j=3$, ovvero la classe [15,20), in quanto $F_3=0.71>0.50$.
-::::
+:::
 
 Il _valore approssimato della mediana_ è un valore che si trova all'interno dell'intervallo mediano e si ottiene dalla formula
 
-:::: {.info data-latex=""}
+::: {.info data-latex=""}
 \[x_{0.5}=x_{\inf;m}+\frac{0.5-F_{m-1}}{f_m}\cdot \left(x_{\sup;m}-x_{\inf;m} \right),\]
-::::
+:::
 
 dove $m$ è l'indicatore della classe mediana, $x_{\inf;m}$ e $x_{\sup;m}$ sono, rispettivamente l'estremo inferiore e quello superiore dell'intervallo che contiene la mediana.
 
-:::: {.example}
+::: {.example}
 Nell'esempio precedente l'intervallo mediano è [15,20) otterremo:
 
 ```{r}
 percentile()
 ```
 
-::::
+:::
 
-:::: {.nota data-latex=""}
+::: {.nota data-latex=""}
 La mediana è quel valore che taglia l'istogramma in due parti, entrambe di area pari al 50% dell'area totale
 
 
@@ -149,11 +149,11 @@ axis(2,.5,col.axis=ared,las=2,pos = 0)
 ```
 
 L'area tratteggiata è il 50% dell'area totale.
-::::
+:::
 
 ### Proprietà della Mediana 
 
-:::: {.info}
+::: {.info}
 ::: {.proposition name="della Mediana"}
 La mediana di una distribuzione, $x_{0.5}$, è quel valore della per
 $X$ il quale si ha $F(x_{0.5}) = 0.5$. Le proprietà della mediana
@@ -166,7 +166,7 @@ $X$ il quale si ha $F(x_{0.5}) = 0.5$. Le proprietà della mediana
     - Distribuzione con coda lunga a destra $\rightarrow$ $x_{0.5} < \bar{x}$ 
     - Distribuzione con coda lunga a sinistra $\rightarrow$ $x_{0.5} > \bar{x}$ 
 :::
-::::
+:::
 
 ## I Percentili
 
@@ -174,7 +174,7 @@ Il $p$-esimo percentile $x_p$, $0\leq p\leq 1$, è qual valore che divide la ser
 Se per esempio $p=0.30$ allora il trentesimo percentile è quel valore che ha il 30% dei dati inferiore il 70% dei dati superiore.
 Il $p$-esimo percentile di una serie di dati è il valore che occupa la posizione $\lfloor {p\times n}\rfloor+1$, dove $\lfloor x\rfloor$ è l'operatore che estrae la parte intera di un numero decimale, ad esempio $\lfloor 3.001\rfloor=\lfloor 3.21\rfloor=\lfloor 3.94\rfloor=3$.
 
-:::: {.example}
+::: {.example}
 Si considerino $n=21$ osservazioni di una variabile categoriale ordinata che assume 7 valori: $-2$, $-1$, $0$, $1$, $2$ (ad esempio una scala del tipo $-2=$_in totale disaccordo_, $-1=$_più in disaccordo che in accordo_, $0=$_né d'accordo, né in disaccordo_, $1=$_più d'accordo che in disaccordo_, $2=$_totalmente d'accordo_). Qui di seguito i dati riordinati:
 
 ```{r, include=FALSE}
@@ -198,13 +198,13 @@ kable(t(tab),booktabs = T, escape = F,linesep = "", digits = 4)
 
 Il 15-esimo percentile è il dato che occupa la $\lfloor n\times p \rfloor+1 =\lfloor `r n`\times 0.15\rfloor+1= `r floor(0.15*n)`+1=`r floor(0.15*n)+1`$, e dunque il 15-esimo percentile è il quarto dato $x_{(`r floor(0.15*n)+1`)}=`r xdat[floor(.15*n)+1]`$.
 È chiaro che la mediana è il 50-esimo percentile. In questo caso $x_{0.5}=x_{\left(\lfloor`r n`\times 0.5\rfloor +1\right)}=x_{(11)}=0$.
-::::
+:::
 
 ### Dati espressi in distribuzione di frequenza
 
 Se il fenomeno è espresso in una tabella di distribuzione di frequenza, allora il $p$-esimo percentile è la prima modalità tale per cui la frequenza cumulata è maggiore di $p$.
 
-:::: {.example}
+::: {.example}
 
 Fenomeno _Titolo di Studio_, $n=350$, numero di modalità $k=5$.
 
@@ -224,9 +224,9 @@ kable(Y[,],booktabs = T, escape = F,linesep = "", digits = 4)
 ```
 
 Il 90-esimo percentile $x_{0.90}$ è la quarta modalità, $x_{4}=$Laurea.
-::::
+:::
 
-:::: {.example}
+::: {.example}
 Fenomeno: Numero di volte che si è cercato lavoro negli ultimi 3 mesi, $n=322$
 
 ```{r,echo=F}
@@ -251,18 +251,18 @@ kable(Y[,],booktabs = T, escape = F,linesep = "", digits = 4) %>%
 ```
 
 Il 25-esimo percentile è la terza modalità in quanto $F_3=0.45>0.25$, $x_{0.25}=x_3=2$. Il 50-esimo percentile, la mediana, è $x_{0.5}=x_4=3$ e il 75-esimo percentile è $x_{0.75}=x_5=4$.
-::::
+:::
 
 ### Dati espressi in classi 
 
 Se il fenomeno è espresso in classi, allora l'_intervallo che contiene il $p$-esimo percentile_ è il primo intervallo tale per cui la frequenza cumulata è maggiore di $p$. Il _valore approssimato del percentile_ è un valore che si trova all'interno dell'intervallo e si ottiene dalla formula
 
-:::: {.info data-latex=""}
+::: {.info data-latex=""}
 \[x_{p}=x_{\inf;j_p}+\frac{p-F_{j_p-1}}{f_{j_p}}\cdot \left(x_{\sup;j_p}-x_{\inf;j_p} \right)\]
-::::
+:::
 dove $j_p$ è l'indicatore della classe che contiene il $p$-esimo percentile, $x_{\inf;j_p}$ e $x_{\sup;j_p}$ sono, rispettivamente, l'estremo inferiore e quello superiore.
 
-:::: {.example}
+::: {.example}
 
 ```{r,echo=F,include=F}
 n <- 4700
@@ -286,9 +286,9 @@ La classe che contiene il $25$-esimo percentile è la seconda classe $j_{0.25}=2
 X <- dat2
 percentile(p=.25)
 ```
-::::
+:::
 
-:::: {.nota data-latex=""}
+::: {.nota data-latex=""}
 Il $p$-esimo percentile $x_p$ è quel valore che taglia l'istogramma in due parti, l'area dell'istogramma alla sinistra di $x_p$ è pari a $p\times 100\%$, mentre l'area la sua destra è $(1-p)\times 100\%$
 
 ```{r, echo=FALSE}
@@ -314,7 +314,7 @@ axis(2,.25,col.axis=ared,las=2,pos = 0)
 ```
 
 L'area in blue è il 25% dell'area totale, quella in grigio il 75%.
-::::
+:::
 
 ### I Quartili
 
@@ -364,11 +364,11 @@ SI = x_{0.75}-x_{0.25}
 
 ## La Moda {#moda}
 
-:::: {.info data-latex=""}
+::: {.info data-latex=""}
 Si definisce la **moda**, $x_{Mo}$ la modalità cui compete frequenza maggiore.
-::::
+:::
 
-:::: {.example}
+::: {.example}
 Consideriamo la distribuzione del colore dei capelli
 
 
@@ -381,9 +381,9 @@ kable(t(prn),booktabs = T, escape = F,linesep = "", digits = 4,col.names = NA,al
 ```
 
 La modalità modale (la moda) è $x_{Mo}$=Castano.
-::::
+:::
 
-:::: {.example} 
+::: {.example} 
 Titolo di studio:
 
 ```{r,echo=FALSE}
@@ -395,9 +395,9 @@ kable(t(prn),booktabs = T, escape = F,linesep = "", digits = 4,col.names = NA,al
 ```
 
 La modalità modale (la moda) è $x_{Mo}=$M. sup.
-::::
+:::
 
-:::: {.example}
+::: {.example}
 $\phantom{2}$
 
 ```{r,echo=FALSE}
@@ -410,15 +410,15 @@ kable(t(table(x)),booktabs=T,escape = F,col.names =NA,align = "r")
 ```
 
 La modalità modale è $\mathrm{x} = 1$ e osserviamo che la media è `r mean(x)` e la mediana è `r median(x)`
-::::
+:::
 
 ### La Moda per dati raccolti in classi
 
-:::: {.info data-latex=""}
+::: {.info data-latex=""}
 Se i dati sono sono raccolti in classi, non c'è un valore modale ma una classe modale ed è la **classe cui compete densità maggiore**. 
-:::: 
+::: 
 
-:::: {.example}
+::: {.example}
 $\phantom{2}$
 
 ```{r, echo=FALSE, results="asis"}
@@ -426,11 +426,11 @@ tabl(cbind("$j$"=c(1:k,NA),dat3[,c(1:7)]))
 ```
 
 la classe modale è la terza classe, la classe $[15,20)$
-::::
+:::
 
 ## Relazione tra Media, Moda e Mediana
 
-:::: {.info data-latex=""}
+::: {.info data-latex=""}
 Se la VS $X$ ha una sola classe modale, allora valgono le seguenti relazioni:
 
 - Se la distribuzione presenta un'asimmetria negativa (coda lunga a sx) allora
@@ -439,7 +439,7 @@ Se la VS $X$ ha una sola classe modale, allora valgono le seguenti relazioni:
 \[x_{mo}\approx x_{0.5}\approx \bar x\]
 - Se la distribuzione presenta un'asimmetria positiva (coda lunga a dx) allora
 \[x_{mo}\le x_{0.5}\le \bar x\]
-::::
+:::
 
 La figura \@ref(fig:mmm) ne offre una rappresentazione grafica.
 

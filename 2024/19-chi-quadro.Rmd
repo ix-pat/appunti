@@ -42,7 +42,7 @@ Come misurare l'associazione tra $x$ e $y$ se sono entrambe categoriali?
 
 Sono tabelle che consentono di vedere le _frequenze congiunte_ delle osservazioni a coppie
 
-:::: {.example}
+:::{.example}
 100 individui dalla città $A$, 100 dalla città $B$ e 100 dalla città $C$. 
 Abbiamo misurato $X=$ Genere ($M$, $F$), $Y=$ abbonamento allo stadio (Sì, No).
 In tutte e tre le città abbiamo osservato 50 $M$ e 50 $F$, e abbiamo osservato 50 abbonati
@@ -84,9 +84,9 @@ e 50 non abbonati.
   **Non** c'è associazione tra Genere e Abbonamento.
 
 Ma, come vedremo nel prossimo esempio, non è sempre facile individuare dove non c'è associazione.
-::::
+:::
 
-:::: {.example name="Popolazione finita, estrazioni SR (Efficienza)"}
+:::{.example name="Popolazione finita, estrazioni SR (Efficienza)"}
 
 100 individui dalla città $A$, 100 dalla città $B$ e 100 dalla città $C$. 
 Abbiamo misurato $X=$ Genere ($M$, $F$), $Y=$ abbonamento allo stadio (Sì, No).
@@ -125,7 +125,7 @@ e 40 non abbonati.
  c'è associazione tra Genere e Abbonamento.
  Nella città $C$ non c'è distinzione tra genere e passione per il pallone 
   **non** c'è associazione tra Genere e Abbonamento ma non è evidente da vedere.
-::::
+:::
 
 ### Un passo indietro: il concetto di indipendenza
 
@@ -629,7 +629,7 @@ Disoccupato & `r nds[2,1]`     & `r nds[2,2]`     & `r nds[2,3]`     & `r sum(nd
 
 ### I gradi di libertà
 
-:::: {.example name="Tabella $2\times 2$"}
+:::{.example name="Tabella $2\times 2$"}
 
  Supponiamo di voler riempire la tabella di contingenza coi totali fissati
 \[
@@ -651,9 +651,9 @@ F & 25     & 15     & 40\\ \hline
          & 60 & 40 & 100
 \end{array}
 \]
-::::
+:::
 
-:::: {.example name="Tabella $2\times 3$"}
+:::{.example name="Tabella $2\times 3$"}
 
 
  Se la tabella è
@@ -691,7 +691,7 @@ Disoccupato & 15     & 35     & 10     & `r sum(nxy[2,])`\\ \hline
          & `r sum(nxy[,1])` & `r sum(nxy[,2])` & `r sum(nxy[,3])` & `r n`
 \end{array}
 \]
-::::
+:::
 
 ## Misure di Conformità
 
@@ -730,7 +730,7 @@ Ovvero
 
 Dove le $n_j^*$ sono le frequenze attese 
 
-:::: {.example}
+:::{.example}
 
 Lanciamo un dado 100 volte e otteniamo 
 
@@ -766,9 +766,9 @@ rownames(prn) <-c(1:6,"tot.")
 names(prn) <- c("$n_j$","$\\hat\\pi_j$","$\\hat\\pi_j^*$","$n_j^*$")
 kable(t(prn),booktabs = T, escape = F,linesep = "", digits = 4)
 ```
-::::
+:::
 
-:::: {.example}
+:::{.example}
 
 Faccio lanciare il dado a un'altra persona e osservo su 100 lanci 
 
@@ -795,7 +795,7 @@ rownames(prn) <-c(1:6,"tot.")
 names(prn) <- c("$n_j$","$\\hat\\pi_j$","$\\hat\\pi_j^*$","$n_j^*$")
 kable(t(prn),booktabs = T, escape = F,linesep = "", digits = 4)
 ```
-::::
+:::
 
 ## Il $\chi^2$ come misura di conformità
 

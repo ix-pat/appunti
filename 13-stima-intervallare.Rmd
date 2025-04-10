@@ -306,7 +306,7 @@ Algebricamente, osserviamo
 
 ## Intervalli casuali
 
-::: {.att data-latex=""}
+:::{.att data-latex=""}
 \[  P\left(\hat \mu- `r za2`~\frac\sigma{\sqrt n}<\mu<\hat \mu+`r za2`~\frac\sigma{\sqrt n}\right) = 0.95\]
 **non** è la probabilità che $\mu$ si trovi tra $\hat \mu- `r za2`~\frac\sigma{\sqrt n}$ e $\hat \mu+ `r za2`~\frac\sigma{\sqrt n}$,
 
@@ -335,7 +335,7 @@ Se $\hat \mu = `r xbar`$ l'intervallo
 \end{eqnarray*}
 è chiamato *intervallo di confidenza* per $\mu$ al 95%.
 
-::: {.nota data-latex=""}
+:::{.nota data-latex=""}
 Infelice traduzione di _Confidence Interval_,
 
   - _to be confident that the real parameter is in $\left[`r xbar- za2*se`,`r xbar+ za2*se`\right]$, with a confidence level of 95%_.
@@ -409,12 +409,12 @@ L'intervallo
 $$[L_1,L_2]$$
 è un *intervallo casuale*.
 
-:::: {.info data-latex=""}
-::: {.definition}
+:::{.info data-latex=""}
+:::{.definition}
 Un  __intervallo di confidenza__ per $\theta$ al livello $(1-\alpha)\times 100\%$ è costruito su quella coppia di statistiche $L_1$ e $L_2$ tali che
 \[P(L_1<\theta<L_2)=1-\alpha\]
 :::
-::::
+:::
 
 
 Un  _intervallo di confidenza_ per $\theta$ al livello $(1-\alpha)\times 100\%$ è l'intervallo $[L_1,L_2]$ calcolato sui dati del campione.
@@ -442,12 +442,12 @@ Sia $0<\alpha<1$, osserviamo che
   P\left(\hat \mu- z_{\alpha/2}~\frac\sigma{\sqrt n}<\mu<\hat \mu+z_{\alpha/2}~\frac\sigma{\sqrt n}\right) &=& 1-\alpha
 \end{eqnarray*}
 
-:::: {.info data-latex=""}
-::: {.definition name="Intervallo di Confidenza per $\mu$ ($\sigma^2$ nota)"}
+:::{.info data-latex=""}
+:::{.definition name="Intervallo di Confidenza per $\mu$ ($\sigma^2$ nota)"}
 Si definisce L'IdC al livello $(1-\alpha)\times100\%$ per $\mu$ con $\sigma^2$ nota, l'intervallo
 \[IdC:~~\left[\hat \mu- z_{\alpha/2}~\frac\sigma{\sqrt n},\hat \mu+ z_{\alpha/2}~\frac\sigma{\sqrt n}\right]\]
 :::
-::::
+:::
 
 Dove $z_{\alpha/2}$ è quel valore tale che $P(Z>z_{\alpha/2})=\alpha/2$
 
@@ -477,7 +477,7 @@ za2 <- qnorm(.995)
 ```
 
 
-:::: {.example}
+:::{.example}
 Intervallo al 99\%, $\hat \mu=2.6$, $n=5$, $\sigma^2=`r s2`$.
 L'intervallo al 99% implica un $\alpha=0.01$, infatti
 \[1-\alpha=0.99\]
@@ -496,14 +496,14 @@ Se quindi $\hat \mu = `r xbar`$ l'intervallo
 \end{eqnarray*}
 
 È l'intervallo di confidenza per $\mu$ al $99\%$
-::::
+:::
 
 ```{r 13-stima-intervallare-15}
 za2 <- qnorm(.95)
 fig.def()
 ```
 
-:::: {.example }
+:::{.example }
 Intervallo al $99\%$, $\hat \mu=2.6$, $n=5$, $\sigma^2=`r s2`$. L'intervallo al 90% implica un $\alpha=0.1$, infatti
 \[1-\alpha=0.90\]
 
@@ -521,7 +521,7 @@ Se quindi $\hat \mu = `r xbar`$ l'intervallo
 \end{eqnarray*}
 
 È l'intervallo di confidenza per $\mu$ al $90\%$.
-::::
+:::
 
 Osserviamo graficamente gli intervalli di confidenza per $\mu$ con $\hat \mu=`r xbar`$, $n=`r n`$ e $\sigma^2=`r s2`$, al 90%, 95%, 99% e 99.9%.
 
@@ -548,7 +548,7 @@ kable(tb,row.names = T,booktabs = T, escape = F,linesep = "", digits = 4)
 ```
 
 
-:::: {.example}
+:::{.example}
 
 ```{r 13-stima-intervallare-16}
 xbar <- 19
@@ -573,7 +573,7 @@ Determinare un IdC al livello di $(1-\alpha)=0.99$ per $\mu$.
 
 Notare la modalità di indicare la SD della $\cal{P}$ e dei dati.
 Vi sono due informazioni su $\sigma$ e bisogna scegliere quella giusta.
-::::
+:::
 
 
 ## Intervalli di Confidenza per $\mu$ al livello $(1-\alpha)\times 100$, $\sigma^2$ incognita
@@ -612,18 +612,18 @@ Sia $0<\alpha<1$, osserviamo che
 
 Dove $t_{n-1;\alpha/2}$ è quel valore tale che $P(T>t_{n-1;\alpha/2})=\alpha/2,\qquad T\sim t_{n-1}$
 
-:::: {.info data-latex=""}
-::: {.definition name="Intervallo di Confidenza per $\mu$ ($\sigma^2$ incognita)"}
+:::{.info data-latex=""}
+:::{.definition name="Intervallo di Confidenza per $\mu$ ($\sigma^2$ incognita)"}
 Si definisce L'IdC al livello $(1-\alpha)\times100\%$ per $\mu$ con $\sigma^2$ incognita, l'intervallo
 \[IdC:~~\left[\hat \mu- t_{n-1;\alpha/2}~\frac S{\sqrt n},\hat \mu+ t_{n-1;\alpha/2}~\frac S{\sqrt n}\right]\]
 :::
-::::
+:::
 
 \[  P\left(\hat \mu- t_{n-1;\alpha/2}~\frac S{\sqrt n}<\mu<\hat \mu+t_{n-1;\alpha/2}~\frac S{\sqrt n}\right) = 1-\alpha\]
 è la probabilità che **l'intervallo casuale** $\left[\hat \mu- t_{n-1;\alpha/2}~\frac S{\sqrt n},\hat \mu+ t_{n-1;\alpha/2}~\frac S{\sqrt n}\right]$  cada su $\mu$.
 
 
-:::: {.example}
+:::{.example}
 Un venditore di bustine di tè assicura che ogni bustina ha un
 peso medio pari a 20g.
 L'acquirente esegue 6 misure di controllo e ottiene i seguenti
@@ -646,9 +646,9 @@ Determinare un IdC al livello di $(1-\alpha)=0.99$ per $\mu$.
 
 Si noti che la mancanza di informazioni sulla varianza rende più
 incerto il risultato; infatti, la lunghezza dell'IdC aumenta.
-::::
+:::
 
-:::: {.example}
+:::{.example}
 Si sono rilevati i tempi dedicati a ciascun cliente da un impiegato
 di banca in 49 casi e si è ottenuta una media $\bar{x}=3.5$ minuti
 con una SD pari a 0.5 minuti.
@@ -668,7 +668,7 @@ Determinare un IdC al livello di $(1-\alpha)=0.95$ per $\mu$.
 \end{eqnarray*}
 
 Si noti che per $n>120$ si può approssimare con una normale.
-::::
+:::
 
 
 
@@ -702,16 +702,16 @@ Condizioni per l'approssimazione
 
 e quindi l'IdC al livello $(1-\alpha)\times 100$ per $\hat\pi$ è:
 
-:::: {.info data-latex=""}
-::: {.definition name="Intervallo di Confidenza per $\pi$"}
+:::{.info data-latex=""}
+:::{.definition name="Intervallo di Confidenza per $\pi$"}
 Si definisce L'IdC al livello $(1-\alpha)\times100\%$ per $\pi$ l'intervallo
 \[\left[\,\hat\pi-z_{\alpha/2}\sqrt\frac{\hat\pi(1-\hat\pi)}{n};\hat\pi+z_{\alpha/2}\sqrt\frac{\hat\pi(1-\hat\pi)}{n}\,\right]\]
 :::
-::::
+:::
 
 
 
-:::: {.example}
+:::{.example}
 Una indagine sulle intenzioni di voto degli italiani per lo schieramento $A$ ha mostrato
 che 240 su 500 lo voterebbero. Determinare un IdC al livello di $(1-\alpha)=0.99$ per $\pi$.
 \[\alpha=0.01,\qquad \alpha/2=0.005,\qquad z_{0.005}=`r round(qnorm(1-.005),4)`\]
@@ -727,9 +727,9 @@ che 240 su 500 lo voterebbero. Determinare un IdC al livello di $(1-\alpha)=0.99
 &=& \left[ 0.48 - `r qnorm(.995)*sqrt(.48*(1-.48)/500)`; 0.48 + `r qnorm(.995)*sqrt(.48*(1-.48)/500)`\right]                     \\
 &=& \left[ `r .48-qnorm(.995)*sqrt(.48*(1-.48)/500)`; `r .48+qnorm(.995)*sqrt(.48*(1-.48)/500)` \right]
 \end{eqnarray*}
-::::
+:::
 
-:::: {.example}
+:::{.example}
 Una indagine sulle intenzioni di voto degli italiani per lo schieramento $A$ ha mostrato
 che 2400 su 5000 lo voterebbero. Determinare un IdC al livello di $(1-\alpha)=0.99$ per $\pi$.
 
@@ -744,7 +744,7 @@ che 2400 su 5000 lo voterebbero. Determinare un IdC al livello di $(1-\alpha)=0.
 &=& \left[ 0.48 - `r qnorm(.995)*sqrt(.48*(1-.48)/5000)`; 0.48 + `r qnorm(.995)*sqrt(.48*(1-.48)/5000)`\right]                     \\
 &=& \left[ `r .48-qnorm(.995)*sqrt(.48*(1-.48)/5000)`; `r .48+qnorm(.995)*sqrt(.48*(1-.48)/5000)` \right]
 \end{eqnarray*}
-::::
+:::
 
 ### IdC per $\pi$ per $\alpha$ ed $n$ fissati
 
@@ -787,7 +787,7 @@ par(op)
 
 ## Specchietto Finale per gli IdC
 
-::: {.info2 data-latex=""}
+:::{.info2 data-latex=""}
 
 - Si definisce L'IdC al livello $(1-\alpha)\times100\%$ per $\mu$ con $\sigma^2$ nota, l'intervallo
 \[IdC:~~\left[\hat \mu- z_{\alpha/2}~\frac\sigma{\sqrt n},\hat \mu+ z_{\alpha/2}~\frac\sigma{\sqrt n}\right]\]

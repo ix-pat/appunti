@@ -200,7 +200,7 @@ L'operatore sommatoria somma gli elementi
 \[\sum_{i=1}^n a_i=a_1+ a_2+ ...+ a_n\],
 allo stesso modo, l'operatore _produttoria_ opera il prodotto dei dati 
 
-::: {.definition name="Produttoria"}
+:::{.definition name="Produttoria"}
 L'operatore produttoria moltiplica gli elementi
 \[\prod_{i=1}^n a_i=a_1\cdot a_2\cdot ...\cdot a_n\]
 :::

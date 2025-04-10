@@ -340,7 +340,7 @@ Sulle COLONNE i CARATTERI: si leggono le modalità delle unità statistiche asso
 
 ## Riepilogo sulle Variabili
 
-:::: {.info data-latex=""}
+:::{.info data-latex=""}
 -   **Qualitativa**, la variabile è espressa attraverso etichette qualitative
     -   *Qualitative sconnesse*: le caratteristiche che la VS può assumere hanno un ordinamento soggettivo;
         -   genere,
@@ -359,7 +359,7 @@ Sulle COLONNE i CARATTERI: si leggono le modalità delle unità statistiche asso
         -   misure di lunghezza, capienza e peso,
         -   temperature,
         -   reddito.
-::::
+:::
 
 <!--chapter:end:01-dati.Rmd-->
 
@@ -406,16 +406,16 @@ Una _Variabile Statistica_ (VS) è una qualunque caratteristica osservabile sugl
 - $j$, indice che conta le modalità: prima, seconda, ..., $j$-esima,..., la $K$-esima.
 - $K$, numero di modalità.
 
-:::: {.example #vg name="Variabile: genere"}
+:::{.example #vg name="Variabile: genere"}
 $\phantom{.}$
 
 - $\mathbf{x}=(x_1 = M, x_2 =F, x_3 =M, x_4=F,x_5=F,x_6=F)$
 - $n=6$
 - $S_X=\{\mathrm{x}_1 = F,\mathrm{x}_2 = M\}$
 - $K=2$
-::::
+:::
 
-:::: {.example name="Variabile: titolo di studio"}
+:::{.example name="Variabile: titolo di studio"}
 $\phantom{.}$
 
 - $\mathbf{x}=(x_1 = E, x_2 =M, x_3 =L, x_4=S,x_5=S,x_6=S,
@@ -423,9 +423,9 @@ x_7=L,x_8=M,x_9=L,x_{10}=S)$
 - $n=10$
 - $S_X=\{\mathrm{x}_1 = E,\mathrm{x}_2 = M, \mathrm{x}_3=S,\mathrm{x}_4=L\}$
 - $K=4$
-::::
+:::
 
-:::: {.example name="Variabile: Numero di interventi di manutenzione giornalieri"}
+:::{.example name="Variabile: Numero di interventi di manutenzione giornalieri"}
 $\phantom{.}$
  
 - $\mathbf{x}=(x_1 = 0, x_2 =1, x_3 =0, x_4=2,x_5=1,x_6=1,
@@ -433,7 +433,7 @@ x_7=0,x_8=1,x_9=3,x_{10}=1)$
 - $n=10$
 - $S_X=\{\mathrm{x}_1 = 0,\mathrm{x}_2 = 1,\mathrm{x}_3=2,\mathrm{x}_4=3,...\}$
 - $K=+\infty$
-::::
+:::
 
 ### Ordinamento e conteggio
 
@@ -445,16 +445,16 @@ $$(x_{(1)},x_{(2)},...,x_{(i)},...,x_{(n)}),$$
 indica i dati riordinati, dal più piccolo, al più grande. Se i dati sono numerici
 l'ordinamento è univoco, se i dati sono categoriali l'ordinamento è arbitrario.
 
-:::: {.example name="Continua"}
+:::{.example name="Continua"}
 Continuiamo l'esempio della variabile genere discussa
 nell'esempio \@ref(exm:vg)
 
 - $\mathbf{x}=(x_1 = M, x_2 =F, x_3 =M, x_4=F,x_5=F,x_6=F)$
 - $S_X=\{\mathrm{x}_1 = F,\mathrm{x}_2 = M\}$
 - $x_{(1)}=F,x_{(2)}=F,x_{(3)}=F,x_{(4)}=F,x_{(5)}=M,x_{(6)}=M$
-::::
+:::
 
-:::: {.example name="Continua: codifica 0, 1"}
+:::{.example name="Continua: codifica 0, 1"}
 $\phantom{.}$
 
 - Variabile: genere {M -> 0,F-> 1}
@@ -463,9 +463,9 @@ $\phantom{.}$
 - $x_{(1)}=0,x_{(2)}=0,x_{(3)}=1,x_{(4)}=1,x_{(5)}=1,x_{(6)}=1$
 - **nota**: nella codifica 0, 1 ha senso sommare i dati:
 \[x_1+x_2+x_3+x_4+x_6=4,~~\text{Numero di femmine}\]
-::::
+:::
 
-:::: {.example name="Continua: Variabile titolo di studio"}
+:::{.example name="Continua: Variabile titolo di studio"}
 $\phantom{.}$
 
 - $\mathbf{x}=(x_1 = E, x_2 =M, x_3 =L, x_4=S,x_5=S,x_6=S,
@@ -474,9 +474,9 @@ x_7=L,x_8=M,x_9=L,x_{10}=S)$
 - $x_{(1)}=E,x_{(2)}=M,x_{(3)}=M,x_{(4)}=S,x_{(5)}=S,x_{(6)}=S,x_{(7)}=S,x_{(8)}=L,x_{(9)}=L,
 x_{(10)}=L$
 
-::::
+:::
 
-:::: {.example name="Continua: Codifica Numerica"}
+:::{.example name="Continua: Codifica Numerica"}
 $\phantom{.}$
 
 - Variabile: titolo di studio {E -> 1, M -> 2, S -> 3, L -> 4}
@@ -532,9 +532,9 @@ Per sapere il numero persone che ha al massimo le elementari basta fare 10 (nume
  10-(2+4+3)=1~~~\text{con le elemntari}
  \]
 
-::::
+:::
 
-:::: {.example name="Continua: Numero di interventi di manutenzione giornalieri"}
+:::{.example name="Continua: Numero di interventi di manutenzione giornalieri"}
 $\phantom{.}$
 
 - $\mathbf{x}=(x_1 = 0, x_2 =1, x_3 =0, x_4=2,x_5=1,x_6=1,
@@ -544,9 +544,9 @@ x_7=0,x_8=1,x_9=3,x_{10}=1)$
 x_{(10)}=3$
 - ha senso sommare i dati?
 - cosa rappresenta la somma dei dati?
-::::
+:::
 
-:::: {.example name="Ore uomo dedicate a interventi di manutenzione"}
+:::{.example name="Ore uomo dedicate a interventi di manutenzione"}
 $\phantom{.}$
 
 Supponiamo di aver collezionato il numero di ore uomo (e frazioni di ora) dedicate
@@ -558,7 +558,7 @@ x_7=0.2,x_8=1.9,x_9=3.4,x_{10}=0.1)$
 - $x_{(1)}=0.1, x_{(2)}=0.2, x_{(3)}=0.4, x_{(4)}=1.4, x_{(5)}=1.9, x_{(6)}=2.7, x_{(7)}=3.4, x_{(8)}=3.5, x_{(9)}=4.3, x_{(10)}=4.6$
 - ha senso sommare i dati?
 - cosa rappresenta la somma dei dati?
-::::
+:::
 
 ### Le unità di misura
 
@@ -612,7 +612,7 @@ Geometricamente, il termine \( a \) trasla il grafico lungo l'asse verticale sen
 
 Un cambiamento di scala è una trasformazione lineare applicata a ogni misura i-esima del dato, che permette di adattare l'unità di misura senza alterare i rapporti tra le osservazioni. Vediamo alcuni esempi pratici.
 
-:::: {.example name="Ore uomo dedicate a interventi di manutenzione"}
+:::{.example name="Ore uomo dedicate a interventi di manutenzione"}
 
 Supponiamo di avere i dati su diverse spese in euro e di volerli esprimere in migliaia di euro per facilitare la lettura. La trasformazione è:
 
@@ -627,9 +627,9 @@ y_4 = \frac{1}{1000} \cdot 12~000 = 12
 \]
 
 Quindi, invece di esprimere la quarta misura come $12~000$ euro, la rappresentiamo come 12 _migliaia_ di euro, semplificando la gestione e la comparabilità dei dati.
-:::: 
+::: 
 
-:::: {.example name="Ore uomo dedicate a interventi di manutenzione"}
+:::{.example name="Ore uomo dedicate a interventi di manutenzione"}
 
 Anche la conversione da gradi Celsius (\( C \)) a gradi Fahrenheit (\( F \)) segue una trasformazione lineare, espressa come:
 
@@ -644,7 +644,7 @@ F_2 = 32 + \frac{9}{5} \cdot 25 = 32 + 45 = 77
 \]
 
 Questa trasformazione mantiene la proporzionalità tra le temperature, adattando la scala e le unità di misura.
-::::
+:::
 
 #### Rappresentazione grafica delle trasformazioni lineari
 
@@ -784,61 +784,61 @@ Osserviamo che i dati sono stati traslati a destra di uno, i dati originari vann
 
 La frequenza indica quanto una modalità insiste sul collettivo. Le frequenze si dividono in:
 
-:::: {.info data-latex=""}
-::: {.definition name="Frequenze Assolute"}
+:::{.info data-latex=""}
+:::{.definition name="Frequenze Assolute"}
 Si definiscono le $n_j$ le __frequenze assolute__: il numero di individui che presentano la modalità $j$. 
 :::
-::::
+:::
 
-:::: {.info data-latex=""}
-::: {.definition name="Frequenze Relative"}
+:::{.info data-latex=""}
+:::{.definition name="Frequenze Relative"}
 Si definiscono le $f_j=n_j/n$ le __frequenze relative__: la proporzione di individui che presentano la modalità $j$. 
 :::
-::::
+:::
 
-:::: {.info data-latex=""}
-::: {.definition name="Frequenze Percentuali"}
+:::{.info data-latex=""}
+:::{.definition name="Frequenze Percentuali"}
 Si definiscono le $f_{\% j}=f_j\times 100$ le __frequenze percentuali__: la percentuale di individui che presentano la modalità $j$. 
 :::
-::::
+:::
 
-:::: {.info data-latex=""}
-::: {.proposition}
+:::{.info data-latex=""}
+:::{.proposition}
 Le proprietà della frequenze assolute($n_{j}$) sono:
 
 -  $0\leq n_{j} \leq n, \forall j=1,...,K$,
 -  $\sum_{j=1}^{K} n_{j} = n$.
 
 :::
-::::
+:::
 
-:::: {.info data-latex=""}
-::: {.proposition}
+:::{.info data-latex=""}
+:::{.proposition}
 Le proprietà della frequenze relative ($f_{j}$) sono:
 
 -  $0\leq f_{j} \leq 1, \forall j=1,...,K$,
 -  $\sum_{j=1}^{K} f_{j} = 1$.
 
 :::
-::::
+:::
 
-:::: {.info data-latex=""}
-::: {.proposition}
+:::{.info data-latex=""}
+:::{.proposition}
 Le proprietà della frequenze percentuali ($f_{\% j}$) sono:
 
 -  $0\leq f_{\%,\, j} \leq 100, \forall j=1,...,K$,
 -  $\sum_{j=1}^{K} f_{\%,\, j} = 100$.
 :::
-::::
+:::
 
-:::: {.info data-latex=""}
-::: {.definition name="Distribuzione di Frequenza"}
+:::{.info data-latex=""}
+:::{.definition name="Distribuzione di Frequenza"}
 
 Una **distribuzione di frequenza** è una tabella a cui vengono associate le modalità e le frequenze
 :::
-::::
+:::
 
-:::: {.example name="Continua: Variabile: genere"}
+:::{.example name="Continua: Variabile: genere"}
 
 $$x_{(1)}=F,x_{(2)}=F,x_{(3)}=F,x_{(4)}=F,x_{(5)}=M,x_{(6)}=M$$
 
@@ -867,9 +867,9 @@ kable(prn,booktabs=T,escape=F,linesep="",align = c("lrrr"),
   kableExtra::kable_styling(latex_options = "hold_position")
 
 ```
-::::
+:::
 
-:::: {.example name="Continua: Variabile titolo di studio"}
+:::{.example name="Continua: Variabile titolo di studio"}
 $\phantom{.}$
 
 $x_{(1)}=E,x_{(2)}=M,x_{(3)}=M,x_{(4)}=S,x_{(5)}=S,x_{(6)}=S,x_{(7)}=S,x_{(8)}=L,x_{(9)}=L,
@@ -892,7 +892,7 @@ kable(prn,booktabs=T,escape=F,linesep="",align = c("lrrr"),
   kableExtra::kable_styling(latex_options = "hold_position")
 
 ```
-::::
+:::
 
 ### Dati quantitativi continui
 
@@ -901,7 +901,7 @@ gran lunga superiore al numero dei dati e non sempre è possibile fissare un lim
 in anticipo all'osservazione dei dati. Se per esempio volessi misurare il 
 reddito di una persona in centesimi, otterrei:
 
-:::: {.example name="Variabile: Reddito mensile lordo in migliaia di euro"}
+:::{.example name="Variabile: Reddito mensile lordo in migliaia di euro"}
 $\phantom{x}$
 
 - unità di rilevazione: famiglie del comune A a febbraio 2021
@@ -911,7 +911,7 @@ $\phantom{x}$
 Qui di seguito i dati nell'ordine in cui sono stati raccolti è sono mostrati sopra, mentre
 i dati riordinati sono mostrati sotto:
 
-<!-- ::: {.center data-latex=""} -->
+<!-- :::{.center data-latex=""} -->
 
 \vspace{10pt}
 <!-- \fontsize{6}{4}\selectfont -->
@@ -970,7 +970,7 @@ cat("\\hline","\n")
 <!-- ::: -->
 
 Come si osserva aver rimesso in ordine i dati non ci aiuta a capire la distribuzione del fenomeno.
-::::
+:::
 
 ### Raggruppamenti in Classi
 
@@ -1027,7 +1027,7 @@ Si definisce frequenza cumulata $F$ la seguente quantità:
 
 ovvero $F_j=f_1+...+f_j$ _cumula_ tutte le frequenze dalla 1 alla $j$.
 
-:::: {.example name="Continua: Variabile titolo di studio"}
+:::{.example name="Continua: Variabile titolo di studio"}
 $\phantom{.}$
 
 :::  {.center data-latex=""}
@@ -1040,10 +1040,10 @@ kbl(cbind("$n_j$"= n,"$f_j$" = n/sum(n),"$F_j$"= cumsum(n)/sum(n)),booktabs = T,
 ::: 
 
 E si legge: $F_1=0.1$ ci dice che il 10% del collettivo in esame ha come massimo titolo ha non più delle elementari. $F_1=0.3$ ci dice che il 30% del collettivo ha come massimo titolo ha non più delle medie. $F_4=0.7$ ci dice che il 30% del collettivo ha come massimo titolo ha non più delle superiori e $F_5=1$ che il 100% del collettivo ha, al massimo, la laurea.
-::::
+:::
 
 
-:::: {.example name="Continua: Reddito"}
+:::{.example name="Continua: Reddito"}
 $\phantom{.}$
 
 :::  {.center data-latex=""}
@@ -1058,15 +1058,15 @@ kbl((dat3[1:(k+1),c(1:2,4,7)]),digits = 2,booktabs = T, escape = F) %>%
 :::  
 
 E si legge: $F_1=0.21$ ci dice che il 20% del collettivo in esame guadagna al massimo 3 (mila euro); alternativamente leggiamo che il 20% del collettivo **non** guadagna più di 3 (mila euro). $F_2=0.56$ ci dice che il 56% del collettivo guadagna al massimo 5. $F_2=0.56$ ci dice che il 56% del collettivo guadagna al massimo 5 (mila euro); il 56% non guadagna più di 5 (mila euro).  $F_3=0.78$ ci dice che il 78% del collettivo guadagna 10 (mila euro); il 78% non guadagna più di 10 (mila euro). E infine il 100% del collettivo guadagna al massimo 20  (mila euro).
-::::
+:::
 
 ## Istogramma di Densità
 
 È grafico che rappresenta rettangoli contigui la cui area è la frequenza e la base è l'intervallo di raggruppamento. Usiamo il simbolo $b_j$ per denotare l'ampiezza della base del rettangolo, l'altezza dei rettangoli viene chiamata _densità_
 
-:::: {.info data-latex=""}
+:::{.info data-latex=""}
   \[h_j = Const.\times \frac {f_j} {b_j}\]
-::::
+:::
 
 Se $Const.=1$ si ottiene _l'istogramma di densità relativa_, la somma delle aree dei rettangoli è 1. Se $Const.=n$ si ottiene _l'istogramma di densità assoluta_, la somma delle aree dei rettangoli è $n$. Se $Const.=100$ si ottiene _l'istogramma di densità percentuale_, la somma delle aree dei rettangoli  è 100. Per comodità tutti gli esempi si riferiscono all'istogramma di densità percentuale.
 
@@ -1087,7 +1087,7 @@ kable(out,booktabs = T, escape = F, digits = 2,row.names = F,caption = "Come ric
 ```
 \normalsize
 
-:::: {.example }
+:::{.example }
 
 La tabella \@ref(tab:conti) mostra passo, passo lo sviluppo del calcolo. La figura \@ref(fig:hist) la corrispondente rappresentazione grafica.
 
@@ -1107,7 +1107,7 @@ text((dat3[,1]+dat3[,2])/2,dat3$`$h_j$`*5/8,round(dat3$`$f_j$`*100,2),cex=1/cex,
 segments(-1,dat3$`$h_j$`,brk[-5]+.2,dat3$`$h_j$`,lty=2)
 par(cex=cex)
 ```
-::::
+:::
 
 ## La Funzione di Ripartizione
 
@@ -1234,7 +1234,7 @@ Gli **indicatori di variabilità** misurano lo scostamento del fenomeno oggetto 
 
 ## Riepilogo
 
-:::: {.info2 data-latex=""}
+:::{.info2 data-latex=""}
 \vspace{10pt}\scriptsize
 :::  {.center data-latex=""}
 ```{r riepilogo distr}
@@ -1271,7 +1271,7 @@ kable(out,col.names = c("Estremo inf","Estremo sup","freq. ass.","freq. relativa
 
 ```
 :::  
-::::
+:::
 \normalsize
 
 <!--chapter:end:02-distr-freq.Rmd-->
@@ -1329,16 +1329,16 @@ par(mar=c(5, 4, 4, 2) + 0.1)
 ```
 :::
 
-:::: {.info data-latex=""}
+:::{.info data-latex=""}
 
-:::: {.definition name="Media Aritmetica"}
+:::{.definition name="Media Aritmetica"}
 Consideriamo la serie dei dati $\mathbf{x}=(x_1,...,x_i,...,x_n)$, si definisce la media aritmetica:
 \[
 \bar x =\frac 1 n \sum_{i=1}^nx_i 
 \]
-::::
+:::
 
-::::
+:::
 
 Ovvero la media tra $n$ numeri $x_1, x_2,...,x_n$ è definita da
 
@@ -1463,16 +1463,16 @@ tab <- data.frame("Modalità"=y1,"Frequenze"=n)
 kbl(t(tab),booktabs = T, escape = F,linesep = "", digits = 4,col.names=NA)
 ```
 
-:::: {.info data-latex=""}
-:::: {.definition name="Media Artimetica per Dati Raccolti in Classi"}
+:::{.info data-latex=""}
+:::{.definition name="Media Artimetica per Dati Raccolti in Classi"}
 \[
 \bar x =\frac 1 n \sum_{j=1}^K\mathrm{x}_j n_j 
 \]
-::::
-::::
+:::
+:::
 
 
-:::: {.example}
+:::{.example}
 Osserviamo i seguenti dati:
 ```{r 03-media-varianza-4,results='asis',echo=FALSE}
 set.seed(112)
@@ -1517,12 +1517,12 @@ la media:
          &=& \frac{`r sum(samp)`} {`r n`} \\
          &=& `r mean(samp)`
 \end{eqnarray*}
-::::
+:::
 
 ### Proprietà della Media Aritmetica
 
-:::: {.info data-latex=""}
-:::: {.proposition name="della media aritmetica"}
+:::{.info data-latex=""}
+:::{.proposition name="della media aritmetica"}
 Le principale proprietà della media aritmetica sono:
 
 0. Internalità: $x_{\min} = x_{(1)} \le \bar{x} \le x_{(n)} = x_{\max}$
@@ -1551,10 +1551,10 @@ la media totale $\bar{x}_{T}$ di $\mathscr{P}=$ è data da
 = \frac{n_{1}\ \bar{x}_{1} + \cdots + n_{K}\ \bar{x}_{K}}
        {n_{1} + \cdots + n_{K}}
 \]
-::::
-::::
+:::
+:::
 
-:::: {.proof} 
+:::{.proof} 
 Qui di seguito le dimostrazioni
 
 0. La proprietà di internalità deriva dal fatto che la somma dei dati è maggiore della
@@ -1612,7 +1612,7 @@ E quindi la media
 = \frac{n_{1}\ \bar{x}_{1} + \cdots + n_{K}\ \bar{x}_{K}}
        {n_{1} + \cdots + n_{K}}
 \]
-::::
+:::
 
 
 ## La varianza {#var}
@@ -1631,29 +1631,29 @@ la media, nel secondo chi poco e chi tanto, nel terzo caso uno possiede il total
 
 La varianza misura la distanza dei dati dalla media.
 
-:::: {.info data-latex=""}
-:::: {.definition name="Varianza"}
+:::{.info data-latex=""}
+:::{.definition name="Varianza"}
 Si definisce la varianza la quantità:
 \[
 \sigma^2=\frac 1 n \sum_{1=1}^n(x_i-\bar x)^2
 \]
-::::
-::::
+:::
+:::
 
 La varianza misura lo scostamento medio quadratico dei dati dalla media aritmetica;
 ovvero è la media del quadrato degli scarti.
 
 Con un po' di algebra si dimostra che
 
-:::: {.info data-latex=""}
-:::: {.proposition name="Formula Calcolatoria della Varianza"}
+:::{.info data-latex=""}
+:::{.proposition name="Formula Calcolatoria della Varianza"}
 \[
 \sigma^2=\frac 1 n \sum_{1=1}^n x_i^2 -\bar x^2
 \]
-::::
-::::
+:::
+:::
 
-:::: {.proof}
+:::{.proof}
 \begin{eqnarray*}
    \sigma^2 &=&  \frac 1 n \sum_{1=1}^n(x_i-\bar x)^2\\
    &=& \frac 1n\sum_{1=1}^n(x_i^2+\bar x^2-2\cdot x_i\cdot \bar x)\\
@@ -1661,11 +1661,11 @@ Con un po' di algebra si dimostra che
    &=& \frac 1n\sum_{1=1}^n x_i^2+\frac nn \bar x^2-\frac 2n\bar x \cdot n\cdot \bar x\\
    &=& \frac 1 n \sum_{1=1}^n x_i^2 -\bar x^2
 \end{eqnarray*}
-::::
+:::
 
 Quindi la varianza si può calcolare o come media del quadrato degli scarti dalla media o come media dei quadrati meno il quadrato della media.
 
-:::: {.example}
+:::{.example}
 Posto $x_1=2$, $x_2=2$, $x_3=2$, $x_4=2$ allora
 \[\bar x =\frac{2+2+2+2}{4}=2\]
 
@@ -1674,9 +1674,9 @@ Posto $x_1=2$, $x_2=2$, $x_3=2$, $x_4=2$ allora
 \]
 
 Tutti gli individui hanno la stessa quantità che è pari alla media, non c'è variabilità, la varianza vale zero.
-::::
+:::
 
-:::: {.example}
+:::{.example}
 Posto $x_1=1$, $x_2=2$, $x_3=2$, $x_4=3$ allora
 \[\bar x =\frac{2+2+2+2}{4}=2\]
 
@@ -1685,9 +1685,9 @@ Posto $x_1=1$, $x_2=2$, $x_3=2$, $x_4=3$ allora
 \]
 
 Non tutti gli individui hanno la stessa quantità, c'è variabilità, la varianza è diversa da zero.
-::::
+:::
 
-:::: {.example}
+:::{.example}
 Posto $x_1=0$, $x_2=0$, $x_3=0$, $x_4=8$ allora
 \[\bar x =\frac{0+0+0+8}{4}=2\]
 
@@ -1696,7 +1696,7 @@ Posto $x_1=0$, $x_2=0$, $x_3=0$, $x_4=8$ allora
 \]
 
 Tutto il totale è posseduto da un solo individuo, c'è massima variabilità.
-::::
+:::
 
 ### Calcolo per Distribuzioni di Frequenza
 
@@ -1714,26 +1714,26 @@ kbl(t(tab),booktabs = T, escape = F,linesep = "", digits = 4,col.names = NA)%>%
 ```
 la varianza si può calcolare
 
-:::: {.info data-latex=""}
-:::: {.proposition name="Varianza per Dati in Distribuzione di Frequenza"}
+:::{.info data-latex=""}
+:::{.proposition name="Varianza per Dati in Distribuzione di Frequenza"}
 \[
 \sigma^2=\frac 1 n\sum_{j=1}^k(\mathrm{x}_j-\bar x)^2n_j
 \]
-::::
-::::
+:::
+:::
 
 e di conseguenza, con un po' di algebra otteniamo:
 
-:::: {.info data-latex=""}
-:::: {.proposition name="Formula Calcolatoria per la Varianza per Dati in Distribuzione di Frequenza"}
+:::{.info data-latex=""}
+:::{.proposition name="Formula Calcolatoria per la Varianza per Dati in Distribuzione di Frequenza"}
 \[
 \sigma^2=\frac 1 n\sum_{j=1}^k\mathrm{x}_j^2n_j-\bar x^2
 \]
-::::
-::::
+:::
+:::
 
 
-:::: {.example}
+:::{.example}
 
 ```{r 03-media-varianza-7,results='asis',echo=FALSE}
 set.seed(112)
@@ -1826,9 +1826,9 @@ o alternativamente
          &=& \frac 1 {`r n`}\times `r sum(x^2)`-`r m^2`\\
          &=& `r s2c(x)`
 \end{eqnarray*}
-::::
+:::
 
-:::: {.example}
+:::{.example}
 
 ```{r 03-media-varianza-9, results='asis'}
 set.seed(12)
@@ -1886,21 +1886,21 @@ e che
        &=& \frac 1 {21} `r sum(x^2)` - `r mean(x)`^2\\
        &=& `r mean(x^2)-mean(x)`
 \end{eqnarray*}
-::::
+:::
 
 ### Proprietà della Varianza
 
-:::: {.info data-latex=""}
-:::: {.proposition name="della varianza $\\sigma^{2}$"}
+:::{.info data-latex=""}
+:::{.proposition name="della varianza $\\sigma^{2}$"}
 Le principale proprietà della varianza sono:
 
 1.  $\sigma^{2} \ge 0$.
 2.  $\sigma^{2}=0$, se e solo se $X$ è costante.
 3.  Se $y_i=a+bx_i$ allora $\sigma^{2}_Y = b^{2} \sigma^{2}_X$.
-::::
-::::
+:::
+:::
 
-:::: {.proof} 
+:::{.proof} 
 Le dimostrazioni qui di seguito.
 
 1. $\sigma^{2} \ge 0$ deriva direttamente dalla definizione, essendo $\sigma^{2}$
@@ -1918,7 +1918,7 @@ i dati sono uguali alla media, ovvero se i dati sono tutti uguali tra di loro e 
 &=& b^2\sigma_X^2
 \end{eqnarray*}
   
-::::
+:::
 
 
 ## La Standard Deviation {#sd}
@@ -1932,16 +1932,16 @@ Si definisce la _standard deviation_ (deviazione standard, scarto quadratico med
 
 ### Proprietà della Standard Deviation
 
-:::: {.info data-latex=""}
-:::: {.proposition name="della deviazione standard $\\sigma$"}
+:::{.info data-latex=""}
+:::{.proposition name="della deviazione standard $\\sigma$"}
 Le principale proprietà della deviazione standard sono:
 
 1.  $\sigma\ge 0$.
 2.  $\sigma=0$, se e solo se $X$ è costante.
 3.  Se $y_i=a+bx_i$ allora allora $\sigma_Y = |b|\sigma_X$
 
-::::
-::::
+:::
+:::
 
 Se la distribuzione della $X$ è abbastanza simmetrica e di forma campanulare, allora
 
@@ -1978,7 +1978,7 @@ la figura La figura \@ref(fig:sd) la corrispondente rappresentazione grafica.
 
 ## Esempi
 
-::::{.example}
+:::{.example}
 
 Si si è chiesta l'età a 37500 uomini e 38100 donne di un determinato collettivo, ed è risultato 
 che gli uomini di quel collettivo hanno un'età media di 45 anni e le donne un'età media di 49 anni. La sintesi dei dati qui di seguito:
@@ -2013,9 +2013,9 @@ L'età media per l'intera popolazione è
 = \frac{37500 \times 45 + 38100 \times 49} {37500 + 38100}
 = 47.02 .
 \end{displaymath}
-::::
+:::
 
-:::: {.example}
+:::{.example}
 Uno studente iscritto al secondo anno di un CdL, ha superato 7
 esami con un voto medio pari a 26/30. Sostiene un nuovo esame
 ottenendo un voto pari a 28/30. Qual è il voto medio dopo
@@ -2036,10 +2036,10 @@ Sia $\bar{x}_{8}$ il voto medio dopo l'8$^{o}$ esame.
  =  \frac{182 + 28} {8}
  =  26.25  .
 \end{eqnarray*}
-::::
+:::
 
 
-:::: {.example}
+:::{.example}
 In una contrattazione sindacale, il rappresentante
 del governo propone di alzare di un ammontare fisso di 100 euro
 lo stipendio degli impiegati statali.
@@ -2072,9 +2072,9 @@ y_{i}   &=& x_{i} + \frac{5} {100}\ x_{i} = 1.05\ x_{i}  \\
 \end{eqnarray*}
  
 La MEDIA aumenta del 5\%, la varianza aumenta in modo quadratico.
-::::
+:::
 
-::::{.example}
+:::{.example}
 La spesa per le vacanze estive (in migliaia di euro) sostenuta
 da 12 famiglie di un condominio è stata di:
 
@@ -2111,9 +2111,9 @@ x <- c(0 , 0 , 2 , 2.5 , 4 , 5.1 , 5.8 , 6 , 7 , 12 , 15 , 21)
  \sigma_{X}^2 &=& \frac{2^2+...+21^2}{10}-(8.04)^2\\
  &=& `r s2c(x[x>0])`
 \end{eqnarray*}
-::::
+:::
 
-::::{.example}
+:::{.example}
 
 ```{r 03-media-varianza-18}
 i2 <- 0
@@ -2173,7 +2173,7 @@ Determinare media, mediana e varianza dell'età di servizio dell'industria.
 \sigma_X^2 &=& \frac{1}{115}`r sum(dat2$x2n)`-(11.04)^2\\
 &=& `r sum(dat2$x2n)/115-sum(dat2$xn)/115`
 \end{eqnarray*}
-::::
+:::
 
 <!--chapter:end:03-media-varianza.Rmd-->
 
@@ -2200,14 +2200,14 @@ s2 <- 0
 La _Mediana_, _Me_ o $x_{0.5}$, è il valore centrale della serie dei dati riordinati in due: metà dei dati sono minori della mediana e metà dei dati sono maggiori della mediana. 
 In simboli: sia $x_{1},...,x_{n}$ la serie dei dati e $x_{(1)},...,x_{(n)}$ i dati riordinati in modo crescente, allora:
 
-:::: {.info data-latex=""}
+:::{.info data-latex=""}
 1. se $n$ è dispari
 \[x_{0.5}=x_{\left(\frac{n+1}{2}\right)}\]
 2. se $n$ è pari
 \[x_{0.5}=\frac 1 2 \left(x_{\left(\frac{n}{2}\right)}+x_{\left(\frac{n}{2}+1\right)}\right)\]
-:::: 
+::: 
 
-:::: {.example}
+:::{.example}
 
 Sia 
 $$(x_1=2.9,x_2=3.5,x_3=1.2,x_4=2.7, x_5=4.2)$$ 
@@ -2217,9 +2217,9 @@ $$(x_{(1)}=1.2, x_{(2)}=2.7, x_{(3)}=2.9, x_{(4)}=3.5,x_{(5)}=4.2),$$
 $n=5$ è dispari e dunque
 
 \[x_{0.5}=x_{\left(\frac{n+1}{2}\right)}=x_{\left(\frac{5+1}{2}\right)}=x_{\left(3\right)}=2.9\]
-::::
+:::
 
-:::: {.example}
+:::{.example}
 
 Sia 
 \[(x_1=2.9,x_2=3.5,x_3=1.2,x_4=2.7, x_5=4.2, x_6=4.2)\] 
@@ -2231,13 +2231,13 @@ $n=6$ è pari e dunque
 \[x_{0.5}=\frac 1 2 \left(x_{\left(\frac{n}{2}\right)}+x_{\left(\frac{n}{2}+1\right)}\right)=
 \frac 1 2 \left(x_{\left(\frac{6}{2}\right)}+x_{\left(\frac{6}{2}+1\right)}\right)=
 \frac 1 2 \left(x_{\left(3\right)}+x_{\left(4\right)}\right)=\frac{2.9+3.5}2=3.2\]
-::::
+:::
 
 ### Dati espressi in distribuzione di frequenza
 Se il fenomeno è espresso in una tabella di distribuzione di frequenza, allora la _modalità mediana_ è la prima modalità tale per cui la frequenza cumulata è maggiore di 0.5
 
 
-:::: {.example}
+:::{.example}
 Fenomeno _Titolo di Studio_, $n=350$, numero di modalità $k=5$.
 
 ```{r titolo di studio,echo=F}
@@ -2257,13 +2257,13 @@ kable(Y[,],booktabs = T, escape = F,linesep = "", digits = 4) %>%
 ```
 
 La modalità mediana è la terza $j=3$, dunque _Media Superiore_, infatti $F_3=0.82>0.50$.
-::::
+:::
 
 ### Dati espressi in classi 
 
 Se il fenomeno è espresso in classi, allora l'_intervallo mediano_ è la primo intervallo tale per cui la frequenza cumulata è maggiore di 0.5.
 
-:::: {.example}
+:::{.example}
 
 ```{r dati in classi,echo=F,include=F}
 n <- 4700
@@ -2282,26 +2282,26 @@ tabl(cbind(`$j$`=c(1:k,NA),dat3[,1:7]))
 ```
 
 La classe mediana è la terza classe $j=3$, ovvero la classe [15,20), in quanto $F_3=0.71>0.50$.
-::::
+:::
 
 Il _valore approssimato della mediana_ è un valore che si trova all'interno dell'intervallo mediano e si ottiene dalla formula
 
-:::: {.info data-latex=""}
+:::{.info data-latex=""}
 \[x_{0.5}=x_{\inf;m}+\frac{0.5-F_{m-1}}{f_m}\cdot \left(x_{\sup;m}-x_{\inf;m} \right),\]
-::::
+:::
 
 dove $m$ è l'indicatore della classe mediana, $x_{\inf;m}$ e $x_{\sup;m}$ sono, rispettivamente l'estremo inferiore e quello superiore dell'intervallo che contiene la mediana.
 
-:::: {.example}
+:::{.example}
 Nell'esempio precedente l'intervallo mediano è [15,20) otterremo:
 
 ```{r 04-mediana-percentili-15}
 percentile()
 ```
 
-::::
+:::
 
-:::: {.nota data-latex=""}
+:::{.nota data-latex=""}
 La mediana è quel valore che taglia l'istogramma in due parti, entrambe di area pari al 50% dell'area totale
 
 
@@ -2328,12 +2328,12 @@ axis(2,.5,col.axis=ared,las=2,pos = 0)
 ```
 
 L'area tratteggiata è il 50% dell'area totale.
-::::
+:::
 
 ### Proprietà della Mediana 
 
-:::: {.info}
-::: {.proposition name="della Mediana"}
+:::{.info}
+:::{.proposition name="della Mediana"}
 La mediana di una distribuzione, $x_{0.5}$, è quel valore della per
 $X$ il quale si ha $F(x_{0.5}) = 0.5$. Le proprietà della mediana
 ($x_{0.5}$) sono:
@@ -2345,7 +2345,7 @@ $X$ il quale si ha $F(x_{0.5}) = 0.5$. Le proprietà della mediana
     - Distribuzione con coda lunga a destra $\rightarrow$ $x_{0.5} < \bar{x}$ 
     - Distribuzione con coda lunga a sinistra $\rightarrow$ $x_{0.5} > \bar{x}$ 
 :::
-::::
+:::
 
 ## I Percentili
 
@@ -2353,7 +2353,7 @@ Il $p$-esimo percentile $x_p$, $0\leq p\leq 1$, è qual valore che divide la ser
 Se per esempio $p=0.30$ allora il trentesimo percentile è quel valore che ha il 30% dei dati inferiore il 70% dei dati superiore.
 Il $p$-esimo percentile di una serie di dati è il valore che occupa la posizione $\lfloor {p\times n}\rfloor+1$, dove $\lfloor x\rfloor$ è l'operatore che estrae la parte intera di un numero decimale, ad esempio $\lfloor 3.001\rfloor=\lfloor 3.21\rfloor=\lfloor 3.94\rfloor=3$.
 
-:::: {.example}
+:::{.example}
 Si considerino $n=21$ osservazioni di una variabile categoriale ordinata che assume 7 valori: $-2$, $-1$, $0$, $1$, $2$ (ad esempio una scala del tipo $-2=$_in totale disaccordo_, $-1=$_più in disaccordo che in accordo_, $0=$_né d'accordo, né in disaccordo_, $1=$_più d'accordo che in disaccordo_, $2=$_totalmente d'accordo_). Qui di seguito i dati riordinati:
 
 ```{r 04-mediana-percentili-2, include=FALSE}
@@ -2377,13 +2377,13 @@ kable(t(tab),booktabs = T, escape = F,linesep = "", digits = 4)
 
 Il 15-esimo percentile è il dato che occupa la $\lfloor n\times p \rfloor+1 =\lfloor `r n`\times 0.15\rfloor+1= `r floor(0.15*n)`+1=`r floor(0.15*n)+1`$, e dunque il 15-esimo percentile è il quarto dato $x_{(`r floor(0.15*n)+1`)}=`r xdat[floor(.15*n)+1]`$.
 È chiaro che la mediana è il 50-esimo percentile. In questo caso $x_{0.5}=x_{\left(\lfloor`r n`\times 0.5\rfloor +1\right)}=x_{(11)}=0$.
-::::
+:::
 
 ### Dati espressi in distribuzione di frequenza
 
 Se il fenomeno è espresso in una tabella di distribuzione di frequenza, allora il $p$-esimo percentile è la prima modalità tale per cui la frequenza cumulata è maggiore di $p$.
 
-:::: {.example}
+:::{.example}
 
 Fenomeno _Titolo di Studio_, $n=350$, numero di modalità $k=5$.
 
@@ -2403,9 +2403,9 @@ kable(Y[,],booktabs = T, escape = F,linesep = "", digits = 4)
 ```
 
 Il 90-esimo percentile $x_{0.90}$ è la quarta modalità, $x_{4}=$Laurea.
-::::
+:::
 
-:::: {.example}
+:::{.example}
 Fenomeno: Numero di volte che si è cercato lavoro negli ultimi 3 mesi, $n=322$
 
 ```{r 04-mediana-percentili-5,echo=F}
@@ -2430,18 +2430,18 @@ kable(Y[,],booktabs = T, escape = F,linesep = "", digits = 4) %>%
 ```
 
 Il 25-esimo percentile è la terza modalità in quanto $F_3=0.45>0.25$, $x_{0.25}=x_3=2$. Il 50-esimo percentile, la mediana, è $x_{0.5}=x_4=3$ e il 75-esimo percentile è $x_{0.75}=x_5=4$.
-::::
+:::
 
 ### Dati espressi in classi 
 
 Se il fenomeno è espresso in classi, allora l'_intervallo che contiene il $p$-esimo percentile_ è il primo intervallo tale per cui la frequenza cumulata è maggiore di $p$. Il _valore approssimato del percentile_ è un valore che si trova all'interno dell'intervallo e si ottiene dalla formula
 
-:::: {.info data-latex=""}
+:::{.info data-latex=""}
 \[x_{p}=x_{\inf;j_p}+\frac{p-F_{j_p-1}}{f_{j_p}}\cdot \left(x_{\sup;j_p}-x_{\inf;j_p} \right)\]
-::::
+:::
 dove $j_p$ è l'indicatore della classe che contiene il $p$-esimo percentile, $x_{\inf;j_p}$ e $x_{\sup;j_p}$ sono, rispettivamente, l'estremo inferiore e quello superiore.
 
-:::: {.example}
+:::{.example}
 
 ```{r 04-mediana-percentili-6,echo=F,include=F}
 n <- 4700
@@ -2465,9 +2465,9 @@ La classe che contiene il $25$-esimo percentile è la seconda classe $j_{0.25}=2
 X <- dat2
 percentile(p=.25)
 ```
-::::
+:::
 
-:::: {.nota data-latex=""}
+:::{.nota data-latex=""}
 Il $p$-esimo percentile $x_p$ è quel valore che taglia l'istogramma in due parti, l'area dell'istogramma alla sinistra di $x_p$ è pari a $p\times 100\%$, mentre l'area la sua destra è $(1-p)\times 100\%$
 
 ```{r 04-mediana-percentili-9, echo=FALSE}
@@ -2493,7 +2493,7 @@ axis(2,.25,col.axis=ared,las=2,pos = 0)
 ```
 
 L'area in blue è il 25% dell'area totale, quella in grigio il 75%.
-::::
+:::
 
 ### I Quartili
 
@@ -2543,11 +2543,11 @@ SI = x_{0.75}-x_{0.25}
 
 ## La Moda {#moda}
 
-:::: {.info data-latex=""}
+:::{.info data-latex=""}
 Si definisce la **moda**, $x_{Mo}$ la modalità cui compete frequenza maggiore.
-::::
+:::
 
-:::: {.example}
+:::{.example}
 Consideriamo la distribuzione del colore dei capelli
 
 
@@ -2560,9 +2560,9 @@ kable(t(prn),booktabs = T, escape = F,linesep = "", digits = 4,col.names = NA,al
 ```
 
 La modalità modale (la moda) è $x_{Mo}$=Castano.
-::::
+:::
 
-:::: {.example} 
+:::{.example} 
 Titolo di studio:
 
 ```{r 04-mediana-percentili-11,echo=FALSE}
@@ -2574,9 +2574,9 @@ kable(t(prn),booktabs = T, escape = F,linesep = "", digits = 4,col.names = NA,al
 ```
 
 La modalità modale (la moda) è $x_{Mo}=$M. sup.
-::::
+:::
 
-:::: {.example}
+:::{.example}
 $\phantom{2}$
 
 ```{r 04-mediana-percentili-12,echo=FALSE}
@@ -2589,15 +2589,15 @@ kable(t(table(x)),booktabs=T,escape = F,col.names =NA,align = "r")
 ```
 
 La modalità modale è $\mathrm{x} = 1$ e osserviamo che la media è `r mean(x)` e la mediana è `r median(x)`
-::::
+:::
 
 ### La Moda per dati raccolti in classi
 
-:::: {.info data-latex=""}
+:::{.info data-latex=""}
 Se i dati sono sono raccolti in classi, non c'è un valore modale ma una classe modale ed è la **classe cui compete densità maggiore**. 
-:::: 
+::: 
 
-:::: {.example}
+:::{.example}
 $\phantom{2}$
 
 ```{r 04-mediana-percentili-13, echo=FALSE, results="asis"}
@@ -2605,11 +2605,11 @@ tabl(cbind("$j$"=c(1:k,NA),dat3[,c(1:7)]))
 ```
 
 la classe modale è la terza classe, la classe $[15,20)$
-::::
+:::
 
 ## Relazione tra Media, Moda e Mediana
 
-:::: {.info data-latex=""}
+:::{.info data-latex=""}
 Se la VS $X$ ha una sola classe modale, allora valgono le seguenti relazioni:
 
 - Se la distribuzione presenta un'asimmetria negativa (coda lunga a sx) allora
@@ -2618,7 +2618,7 @@ Se la VS $X$ ha una sola classe modale, allora valgono le seguenti relazioni:
 \[x_{mo}\approx x_{0.5}\approx \bar x\]
 - Se la distribuzione presenta un'asimmetria positiva (coda lunga a dx) allora
 \[x_{mo}\le x_{0.5}\le \bar x\]
-::::
+:::
 
 La figura \@ref(fig:mmm) ne offre una rappresentazione grafica.
 
@@ -2723,15 +2723,15 @@ Usiamo gli operatori dell'insiemistica per combinare gli eventi tra di
 loro, trasformando le operazioni sintattiche del linguaggio comune in
 unioni ed intersezioni di eventi.
 
-::: {.info data-latex=""}
-::: {.definition name="Unione tra Eventi"}
+:::{.info data-latex=""}
+:::{.definition name="Unione tra Eventi"}
 Siano $A$ e $B$ due eventi, l'espressione $$
 A\cup B
 $$ è vera se **almeno uno dei due** è vero.
 :::
 :::
 
-::: {.example}
+:::{.example}
 \begin{eqnarray*}
     A&=&  \text{Domani pioverà}\\
     B&=&  \text{Domani ci sarà traffico}
@@ -2740,15 +2740,15 @@ A\cup B\qquad\text{sarà vera se domani pioverà }\textbf{o}\text{ ci sarà traf
 $$
 :::
 
-::: {.info data-latex=""}
-::: {.definition name="Intersezione tra Eventi"}
+:::{.info data-latex=""}
+:::{.definition name="Intersezione tra Eventi"}
 Siano $A$ e $B$ due eventi, l'espressione $$
 A\cap B\qquad\text{è vera se è vero $A$ }\textbf{e}\text{  è vero $B$.}
 $$
 :::
 :::
 
-::: {.example}
+:::{.example}
 \begin{eqnarray*}
     A&=&  \text{Domani pioverà}\\
     B&=&  \text{Domani ci sarà traffico}
@@ -2758,13 +2758,13 @@ A\cap B\qquad\text{sarà vera se domani pioverà }\textbf{e}\text{ ci sarà traf
 $$
 :::
 
-::: {.info data-latex=""}
-::: {.definition name="Evento Complementare"}
+:::{.info data-latex=""}
+:::{.definition name="Evento Complementare"}
 Sia $A$ un evento, si definisce $\bar A$ l'evento complementare di $A$
 :::
 :::
 
-::: {.example}
+:::{.example}
 \begin{eqnarray*}
     A&=&  \text{Domani pioverà}\\
     \bar A&=&  \text{Domani }\textbf{non}\text{ pioverà}
@@ -2775,8 +2775,8 @@ Sia $A$ un evento, si definisce $\bar A$ l'evento complementare di $A$
 \text{domani}\textbf{ non}\text{ pioverà}
 \]
 
-::: {.info data-latex=""}
-::: {.definition name="Evento Certo"}
+:::{.info data-latex=""}
+:::{.definition name="Evento Certo"}
 Sia $A$ un evento, si definisce l'evento certo $\Omega$ l'evento:
 \begin{eqnarray*}
 \Omega &=& A\cup\bar A
@@ -2784,7 +2784,7 @@ Sia $A$ un evento, si definisce l'evento certo $\Omega$ l'evento:
 :::
 :::
 
-::: {.example}
+:::{.example}
 
 \begin{eqnarray*}
     A&=&  \text{Domani pioverà}\\
@@ -2794,8 +2794,8 @@ Sia $A$ un evento, si definisce l'evento certo $\Omega$ l'evento:
 
 :::
 
-::: {.info data-latex=""}
-::: {.definition name="Evento Impossibile"}
+:::{.info data-latex=""}
+:::{.definition name="Evento Impossibile"}
 Sia $A$ un evento, si definisce l'evento certo $\emptyset$ l'evento:
 \begin{eqnarray*}
 \emptyset &=& A\cap\bar A
@@ -2803,7 +2803,7 @@ Sia $A$ un evento, si definisce l'evento certo $\emptyset$ l'evento:
 :::
 :::
 
-::: {.example}
+:::{.example}
 
 \begin{eqnarray*}
     A&=&  \text{Domani pioverà}\\
@@ -2815,7 +2815,7 @@ Sia $A$ un evento, si definisce l'evento certo $\emptyset$ l'evento:
 
 ### Operazioni su insieme
 
-::: {.nota data-latex=""}
+:::{.nota data-latex=""}
 Gli operatori Unione $\cup$ e Intersezione $\cap$ si comportano sugli
 insiemi come somme $+$ e moltiplicazione $\times$ si comportano sui
 numeri. In particolare \begin{align*}
@@ -2852,8 +2852,8 @@ $$
 -   approccio frequentista
 -   approccio soggettivista
 
-::: {.info data-latex=""}
-::: {.definition name="Approccio Classico (Laplace)"}
+:::{.info data-latex=""}
+:::{.definition name="Approccio Classico (Laplace)"}
 la probabilità è il rapporto tra il numero dei casi favorevoli e il
 numero dei casi possibili, posto che gli eventi siano tutti
 equiprobabili.
@@ -2864,7 +2864,7 @@ $$
 :::
 :::
 
-::: {.example}
+:::{.example}
 Un'urna contiene 5 sfere Rosse, 3 sfere Blu e 2 Nere. La probabilità
 dell'evento 
 $$
@@ -2876,8 +2876,8 @@ P(R)=\frac{5}{5+3+2}=0.5
 $$
 :::
 
-::: {.info data-latex=""}
-::: {.definition name="Approccio Frequentista"}
+:::{.info data-latex=""}
+:::{.definition name="Approccio Frequentista"}
 **Postulato empirico del caso.**
 
 In un gruppo di prove ripetute più volte *nelle stesse condizioni*,
@@ -2891,7 +2891,7 @@ $$
 :::
 :::
 
-::: {.example}
+:::{.example}
 Viene lanciata 200 vole una moneta (che non sappiamo se è bilanciata
 oppure no), Si è osservato che 136 su 200 lanci sono TESTA La
 probabilità dell'evento $$
@@ -3605,7 +3605,7 @@ $$
 
 *Una variabile casuale* $X$ è un numero che ancora non sappiamo quanto varrà, potrà assumere uno qualunque dei valori $x$ del supporto $S_X$ e lo assumerà con una data probabilità $f(x)=P(X=x)$.
 
-:::: {.example}
+::: {.example}
 Consideriamo il lancio di due monete identiche, la partizione associata è
 
 - $E_1=\{T,T\}$, la prima e la seconda moneta mostrano Testa.
@@ -3653,7 +3653,7 @@ P(X=1) &=& P(E_2\cup E_3)\\
 P(X=2) &=& P(E_4) \\ 
     &=&\frac 14.
 \end{eqnarray*}
-::::
+:::
 
 ### Descrizione di una VC
 
@@ -3664,41 +3664,41 @@ la Funzione di Ripartizione che, anziché cumulare le frequenze, cumula le proba
 il Valore Atteso che è l'analogo della media e la Varianza che è l'analogo della varianza
 descrittiva. In sintesi
 
-:::: {.nota data-latex=""}
+::: {.nota data-latex=""}
 Una VC discreta è **identificata** in maniera univoca da
 
 - Il suo supporto $S_X$.
 - La sua funzione di probabilità $f(x)$ o la su funzione di ripartizione $F$.
 - Il suo valore atteso $E(X)$.
 - La sua varianza $V(X).$
-::::
+:::
 
 
-:::: {.info data-latex=""}
-:::: {.definition name="Supporto"} 
+::: {.info data-latex=""}
+::: {.definition name="Supporto"} 
 Sia $X$ una VC, si definisce $S_X$ il supporto di $X$, l'insieme di tutti i possibili valori che $X$ è suscettibile di assumere.
-::::
-::::
+:::
+:::
 
-:::: {.example}
+::: {.example}
 Lancio una moneta due volte e definisco $X$ la VC che _conta il numero di volte che osservo Testa in due lanci_. La VC $X$
 potrà assumete solo 3 valori: 0 (zero volte Testa in due lanci), 1 (una volta Testa in due lanci), e 2 (2 volte Testa in due lanci). E quindi
 \[
 S_X=\{0,1,2\}
 \]
-::::
+:::
 
-:::: {.info data-latex=""}
-:::: {.definition name="Funzione di Probabilità"} 
+::: {.info data-latex=""}
+::: {.definition name="Funzione di Probabilità"} 
 Sia $X$ una VC con supporto $S_X$, si definisce $f$ la funzione di probabilità: 
 è la probabilità che la VC $X$ assuma esattamente il valore $x$
 \[
 f(x)=P(X=x), ~x\in S_X
 \]
-::::
-::::
+:::
+:::
 
-:::: {.example}
+::: {.example}
 Si consideri un'urna che contiene 4 palline: $$E_1=\fbox{1},E_2=\fbox{2},E_3=\fbox{2},E_4=\fbox{3}$$ Sia $X$ la VC che rappresenta il numero sulla pallina: 
 
 \begin{eqnarray*}
@@ -3714,32 +3714,32 @@ f(1)&=&P(X=1)=P(E_1)=\frac 1 4\\
 f(2)&=&P(X=2)=P(E_2\cup E_3)=\frac 1 4+\frac 1 4=\frac 2 4\\
 f(3)&=&P(X=3)=P(E_3)=\frac 1 4
 \end{eqnarray*} 
-::::
+:::
 
 La funzione di probabilità $f$ si comporta come le frequenze relative, 
 la $f$ è compresa tra zero e uno, per ogni $x$ e 
 la somma della $f$ calcolata su ogni $x$ dà uno.
 
-:::: {.info data-latex=""}
-:::: {.proposition name="Funzione di probabilità"} 
+::: {.info data-latex=""}
+::: {.proposition name="Funzione di probabilità"} 
 Sia $X$ una VC con supporto $S_X$ e funzione di probabilità $f$, allora
 
 - $0\le f(x)\le1,\forall x\in S_X$
 - $\sum_{x\in S_X} f(x) = 1.$
-::::
-::::
+:::
+:::
 
 La Funzione di Ripartizione $F$ di una VC $X$ cumula tutta la probabilità fino ad $x$:
 
-:::: {.info data-latex=""}
-:::: {.definition name="Funzione di Ripartizione di una VC"}
+::: {.info data-latex=""}
+::: {.definition name="Funzione di Ripartizione di una VC"}
 $$
 F(x)=P(X\le x)=\sum_{x^*\le x} f(x^*)
 $$
-::::
-::::
+:::
+:::
 
-:::: {.example name="Continua"} 
+::: {.example name="Continua"} 
 Continuando l'esempio precedente:
 \begin{eqnarray*}
 F(x)&=&P(X\le x)\\
@@ -3750,13 +3750,13 @@ F(x)&=&P(X\le x)\\
     \frac 4 4 & x\ge 3
     \end{cases}
 \end{eqnarray*}
-::::
+:::
 
 La funzione di ripartizione gode di diverse proprietà. Una, in particolare sarà utilissima
 per il calcolo delle probabilità della VC continua che vedremo più avanti.
 
-:::: {.info data-latex=""}
-:::: {.proposition name="Funzione di Ripartizione"} 
+::: {.info data-latex=""}
+::: {.proposition name="Funzione di Ripartizione"} 
  La funzione di ripartizione $F$ di una VC $X$ è, per definizione:
  \[F(x)=P(X\leq x)\]
 $F$ gode delle seguenti proprietà:
@@ -3765,8 +3765,8 @@ $F$ gode delle seguenti proprietà:
 2. $\lim_{x\to -\infty} F(x) = 0$, \qquad $\lim_{x\to\infty} F(x) = 1$.
 3. Continua a destra, ossia $\lim_{x\to x_{0}^{+}} F(x) = F(x_{0})$.
 4. $P(a < X \le b) = F(b) - F(a)$.
-::::
-::::
+:::
+:::
 
 La funzione di ripartizione di una VC si comporta la funzione di ripartizione di
 una VS. 
@@ -3775,14 +3775,14 @@ Altre caratteristiche si possono calcolare, come i **percentili** di ordine $p$:
 $P(X\le x_p)=p,~~~P(X>x_p)=1-p$
 
 
-:::: {.info data-latex=""}
-:::: {.definition name="Percentie di una VC"}
+::: {.info data-latex=""}
+::: {.definition name="Percentie di una VC"}
 Sia $X$ una VC con support $S_X$ e con Fuzione di Ripartizione $F$, si definisce il $p$-esimo percentile di $X$, il vaolre $x_p$, tale che:
 $$
 x_p:F(x_p)=p
 $$
-::::
-:::: 
+:::
+::: 
 
 La distribuzione può essere rappresentata graficamente con un istogramma di densità.
 Esattamente come per la VC quantitative discrete una VC può essere rappresentata 
@@ -3839,7 +3839,7 @@ Le VC sono numeri che non sappiamo in anticipo che valore assumeranno. Ma siccom
 diventeranno numeri li potremo sommare, sottrarre, moltiplicare, ecc. sia con numeri
 costanti che con altre VC.
 
-:::: {.example}
+::: {.example}
 Sia $X$ la VC con supporto $S_X=\{-1,0,+1\}$ e con funzione di probabilità
 \begin{eqnarray*}
    f(-1)&=&  \frac 15\\
@@ -3877,31 +3877,31 @@ colnames(out) <- paste("$Y=",sy,"$",sep="")
 
 res <- two_way(S_1 = sx,S_2 = sy,num1 = c(1,3,1),num2 = c(1,1),op = `+`,EV = F,vnam = "S")
 ```
-::::
+:::
 
 ## Valore Atteso, e Varianza di una VC
 
 Il **valore atteso** di una VC $X$ è l'analogo della media aritmetica di una VC,
 le modalità di $X$ vengono pesate con le probabilità invece che con le frequenze.
 
-:::: {.info data-latex=""}
-:::: {.definition name="Valore Atteso di una VC discreta"} 
+::: {.info data-latex=""}
+::: {.definition name="Valore Atteso di una VC discreta"} 
 Si definisce $E(X)$ il valore atteso della VC $X$ con supporto $S_X$ e funzione di probabilita $f$:
 $$
 E(X)=\sum_{x\in S_x}xf(x)
 $$
-::::
-::::
+:::
+:::
 
 
-:::: {.att data-latex=""}
+::: {.att data-latex=""}
 Il valore atteso di una VC è un numero.
-::::
+:::
 
 La **varianza** di una VC è del tutto analoga alla varianza di una VS.
 
-:::: {.info data-latex=""}
-::::{.definition name="Varianza di una VC discreta"}
+::: {.info data-latex=""}
+:::{.definition name="Varianza di una VC discreta"}
 Si definisce $V(X)$ la varianza della VC $X$ con supporto $S_X$ e funzione di probabilita $f$:
 \begin{eqnarray*} 
 V(X)&=&E\left(\big(X-E(X)\big)^2\right)\\ 
@@ -3909,22 +3909,22 @@ V(X)&=&E\left(\big(X-E(X)\big)^2\right)\\
     &=& E(X^2)-E^2(X)\\
     &=&\sum_{x\in S_X}x^2f(x)-E^2(X). 
 \end{eqnarray*}
-::::
-::::
+:::
+:::
 
 così come la sua standard deviation.
 
-:::: {.info data-latex=""}
-:::: {.definition name="Standard Deviation di una VC discreta"}
+::: {.info data-latex=""}
+::: {.definition name="Standard Deviation di una VC discreta"}
 Si definisce $SD(X)$ la Standard Deviation della VC $X$ con supporto $S_X$ e funzione di probabilita $f$,
 la radice della sua varianza
 \begin{eqnarray*} 
 SD(X)&=&\sqrt{V(X)}
 \end{eqnarray*}
-::::
-::::
+:::
+:::
 
-:::: {.example name="Continua"}
+::: {.example name="Continua"}
 Continuiamo l'esempio precedente e otteniamo, il valore atteso: 
 $$
 E(X)=1\cdot\frac 1 4 +2\cdot\frac 2 4+3\cdot\frac 1 4=2
@@ -3933,12 +3933,12 @@ e la varianza di $X$
 $$
 V(X)=1^2\cdot\frac 1 4 +2^2\cdot\frac 2 4+3^2\cdot\frac 1 4 - 2^2= 0.5
 $$
-::::
+:::
 
 Le proprietà di valore atteso e varianza di una VC sono del tutto analoghe alle rispettive di una VS.
 
-:::: {.info data-latex=""}
-:::: {.proposition name="Proprietà del Valore Atteso di una VC"}
+::: {.info data-latex=""}
+::: {.proposition name="Proprietà del Valore Atteso di una VC"}
 Le proprietà del valore atteso, $E(X)$ sono:
 
 1. $x_{\min} \leq E(X) \leq x_{\max}, \quad x_{\min},\ x_{\max}\in S_{X}$,
@@ -3946,8 +3946,8 @@ Le proprietà del valore atteso, $E(X)$ sono:
 3. $E\Big(X - E(X)\Big)^{2} < E(X - d)^{2} \quad\forall\ d \ne E(X)$,
 4.  $E(a + b X) = a + b\ E(X)$.
 5. $E(aX+bY)=aE(X)+bE(Y)$
-::::
-::::
+:::
+:::
 
 
 Esiste anche l'analogo della proprietà di associatività per il valore atteso, ma richiede
@@ -3956,8 +3956,8 @@ alcuni risultati che esulano dallo scopo di questi appunti e non verrà riportat
 
 Anche per la varianza di una VC valgono le stesse proprietà della varianza di una VS. In particolare
 
-:::: {.info data-latex=""}
-:::: {.proposition name="Proprietà della Varianza di una VC"}
+::: {.info data-latex=""}
+::: {.proposition name="Proprietà della Varianza di una VC"}
 Le proprietà della Varianza, $V(X)$ sono:
 
 1.  $V(X)\geq 0$,
@@ -3965,32 +3965,32 @@ Le proprietà della Varianza, $V(X)$ sono:
 3.  $$V(a+bX)=b^2V(X)$$
 4.  Se $X$ e $Y$ sono **indipendenti**, allora 
 $$V(aX+bY)=V(aX-bY)=a^2V(X)+b^2V(Y), \forall~a,b\in\mathbb{R}$$
-::::
-::::
+:::
+:::
 
 Notiamo che nel caso di una VC $X$ la sua varianza vale zero se e solo se la VC
 assume un solo valore con probabilità uno. Quindi una VC che non varia, ovvero una costante.
 
-:::: {.att data-latex=""}
+::: {.att data-latex=""}
 Se $a=1$ e $b=1$ allora $$V(X+Y)=V(X-Y)=V(X)+V(Y)$$
 le varianze non si sottraggono mai.
 :::
 
-:::: {.info data-latex=""}
-:::: {.proposition name="Proprietà della SD di una VC"}
+::: {.info data-latex=""}
+::: {.proposition name="Proprietà della SD di una VC"}
 Le proprietà della Standard Deviation di $X$, $SD(X)$ sono:
 
 1.  $SD(X)\geq 0$,
 2.  $SD(X)=0$ se e solo se $P(X=x)=1$
 3.  $$SD(a+bX)=|b|V(X)$$
 4.  Se $X$ e $Y$ sono **indipendenti**, allora $$SD(aX+bY)=SD(aX-bY)=\sqrt{a^2V(X)+b^2V(Y)}, \forall~a,b\in\mathbb{R}$$
-::::
-::::
+:::
+:::
 
-:::: {.att data-latex=""}
+::: {.att data-latex=""}
 Se $a=1$ e $b=1$ allora $$SD(X+Y)=SD(X-Y)=\sqrt{V(X)+V(Y)}$$
 la SD di una somma non si esprime come la comma delle SD degli addendi.
-::::
+:::
 
 ## Indipendenza tra VC
 
@@ -4048,7 +4048,7 @@ rownames(out) <- c("$Y=-1$","$Y=+1$")
 
 \scriptsize
 \vspace{10pt}
-:::: {.info2 data-latex=""}
+::: {.info2 data-latex=""}
 <div style="font-size:0.75em;">
 ```{r 06-Variabili-Casuali-3,results='asis'}
 rig1 <- c(" S_X&", "\\text{il supporto della VC $X$:}")
@@ -4092,7 +4092,7 @@ cat(get(nig[n])[1],"& &",get(nig[n])[2]," \n")
 cat("\\end{align*}\n")
 ```
 </div>
-::::
+:::
 
 \normalsize
 
@@ -4391,7 +4391,7 @@ $$
 $$
 Allora $Y$ è una VC.
 
-:::: {.example}
+::: {.example}
 Sia $X$ una VC con supporto $\{-1,0,1\}$ r con funzione di probabilità
 $$
 f(x)= \begin{cases}
@@ -4418,9 +4418,9 @@ f_Y(y)= \begin{cases}
 \frac 14,~~\text{se $x=+5$}\\
 \end{cases}
 $$
-::::
+:::
 
-:::: {.example}
+::: {.example}
 Sia $X$ una VC con supporto $\{-1,0,1\}$ r con funzione di probabilità
 $$
 f(x)= \begin{cases}
@@ -4449,9 +4449,9 @@ f_Y(y)= \begin{cases}
 \frac 12,~~\text{se $y=1$}\\
 \end{cases}
 $$
-::::
+:::
 
-:::: {.example}
+::: {.example}
 Sia $X$ una VC con supporto $\{-1,0,1\}$ r con funzione di probabilità
 $$
 f(x)= \begin{cases}
@@ -4480,9 +4480,9 @@ f_Y(y)= \begin{cases}
 \frac 12,~~\text{se $y=1$}\\
 \end{cases}
 $$
-::::
+:::
 
-:::: {.example}
+::: {.example}
 Sia $X$ un VC continua con supporto $S_X=[0,1]$ e funzione di densità $f(x)$. Posto
 $$
 Y=0.5+1.5\cdot X
@@ -4514,7 +4514,7 @@ text(2.44,-.2,"y")
 arrows(0+.01,ymax/2-.2,.5-.01,0+.1,length = .2,col = 2)
 arrows(1+.01,ymax/2-.2,2-.01,0+.1,length = .2,col = 2)
 ```
-::::
+:::
 
 <!--chapter:end:06-Variabili-Casuali.Rmd-->
 
@@ -5207,12 +5207,12 @@ source("intro.R")
 Consideriamo $n$ variabili casuali, $X_1,...,X_n$, IID, con valore atteso e varianza, rispettivamente, $\mu$ e $\sigma^2$. Sono dati che stiamo per osservare e quindi sono casuali.
 
 
-:::: {.info data-latex=""}
+::: {.info data-latex=""}
 ::: {.definition}
 Una **statistica campionaria**, $S$, è una funzione dei dati $X_1,...,X_n$
 \[S(X_1,...,X_n)=s\in\mathbb{R}\]
 :::
-::::
+:::
 
 Come funzione di VC $S=S(X_1,...,X_n)$ è una VC. Ad esempio la _media_ dei dati è una statistica, il _25-esimo percentile_ è una statistica,
 la _mediana_ dei dati, la _varianza_, ecc.
@@ -5229,13 +5229,13 @@ dove, $E(\hat\mu)=\mu$, $V(\hat\mu)=\frac{\sigma^2}n$
 
 ## La distribuzione Chi-quadro $\chi^2$
 
-:::: {.info data-latex=""}
+::: {.info data-latex=""}
 ::: {.definition}
 Siano $Z_1,...,Z_n$, $n$ VC, IID, $Z_i\sim N(0,1)$, posto,
 \[Y=Z_1^2+...+Z_n^2, \qquad \text{allora} \qquad Y\sim \chi^2_n\]
 La distribuzione della somma del quadrato di $n$ normali standard è distribuita come un chi-quadro con $n$ _gradi di libertà_
 :::
-::::
+:::
 
 ::: {.info data-latex=""}
 La VC ha come supporto tutta la retta reale positiva:
@@ -5365,15 +5365,15 @@ e quindi
 
 ## La distribuzione $t$-di Student
 
-:::: {.info data-latex=""}
+::: {.info data-latex=""}
 ::: {.definition}
 Siano $Z\sim N(0,1)$ e $Y\sim\chi^2_n$, $Z$ e $Y$ indipendenti, posto,
 \[T=\frac Z{\sqrt{Y/n}} \qquad \text{allora} \qquad T\sim t_n\]
 Il rapporto tra una normale standard e un la radice di un chi-quadro diviso per i suoi gradi di libertà è distribuito come una $t$-Student con $n$ _gradi di libertà_
 :::
-::::
+:::
 
-:::: {.info data-latex=""}
+::: {.info data-latex=""}
 La VC ha come supporto tutta la retta reale:
 \[S_T=\mathbb{R}\]
 Lo spazio dei parametri non ha interesse statistico
@@ -5387,7 +5387,7 @@ Funzione di probabilista o densità.
   - Se $n\to\infty$, allora $t_n\to N(0,1)$
 
 \[E(Y)=0,\qquad V(Y)=\frac{n}{n-2}\]
-::::
+:::
 
 In figura \@ref(fig:t-student1) e \@ref(fig:t-student2) il confronto tra la $t$-di Student e la normale standard, per diversi valori di $n$.
 
@@ -5504,7 +5504,7 @@ options(digits = 4)
 Dunque $t_{49;0.001}=`r qt(1-.001,49)`$
 
 
-:::: {.nota data-latex=""}
+::: {.nota data-latex=""}
 L'ultima riga della $t$, per un numero infinito di GdL, coincide con la tabella aggiuntiva della $Z$. Infatti
 \scriptsize\vspace{10 pt}
 
@@ -5538,7 +5538,7 @@ La tabella dei percentili della normale è
 \hline
 \end{array}\]
 
-::::
+:::
 
 \normalsize
 ## La distribuzione di $\hat\sigma^2$
@@ -5955,27 +5955,27 @@ Nel _paradigma Bayesiano_ l'incertezza sul parametro viene trattata con gli stes
 
 _Stimare_, in statistica, significa scegliere un punto (stima puntuale) o una regione (stima intervallare) dello spazio dei parametri $\Theta$ alla luce dei dati $x_1,...,x_n$.
 
-:::: {.info data-latex=""}
+::: {.info data-latex=""}
 ::: {.definiton}
 Uno **stimatore** puntuale (point estimator) è una statistica $h$ che trasforma il campione $X_1,...,X_n$ in un punto dello spazio dei parametri:
 \[h:\mathcal{S}\to\Theta\]
 :::
-::::
+:::
 
 Il campione $X_1,...,X_n$ casuale viene trasformato attraverso $h$ in un punto specifico di $\Theta$
 \[h(X_1,...,X_n)=\hat\theta\in\Theta\]
 
 Uno **stimatore** è una variabile casuale in quanto funzione di valori casuali.
 
-:::: {.example}
+::: {.example}
 Da una popolazione che ha $E(X_i)=\mu$ incognita, potremmo proporre di _stimare_ $\mu$ con la media dei dati che _otterremo_:
 \[h(X_1,...,X_n)=\frac 1 n \sum_{i=1}^n X_i=\bar X=\hat \mu\]
-::::
+:::
 
-:::: {.example} 
+::: {.example} 
 Da una popolazione di Poisson che ha $X_i\sim\text{Poiss}(\lambda)$, $\lambda$ incognita, potremmo proporre di _stimare_ $\lambda$ con la mediana dei dati che _otterremo_:
 \[h(X_1,...,X_n)=X_{0,5}=\hat\lambda\]
-::::
+:::
 
 ### Stimatori e Stime
 
@@ -5984,7 +5984,7 @@ Da una popolazione di Poisson che ha $X_i\sim\text{Poiss}(\lambda)$, $\lambda$ i
 - Una **Stima**: $h(x_1,...,x_n)$ è funzione di $x_1,...,x_n$ e dunque è un **numero**
 :::
 
-:::: {.example}
+::: {.example}
 Da una popolazione che ha $E(X_i)=\mu$ incognita, potremmo proporre di _stimare_ $\mu$ con la media dei dati che _otterremo_:
 \[h(X_1,...,X_n)=\frac 1 n \sum_{i=1}^n X_i=\hat \mu\]
 
@@ -5995,9 +5995,9 @@ xs <- c(2.1,2.4,3.2,7.1,3.0)
 
 Per ottenere $\hat\mu$ la stima di $\mu$ applichiamo $h$ ai dati e otteniamo
 \[\hat\mu = \frac 1 5\sum_{i=1}^5x_i=\frac 1 5 `r sum(xs)`=`r mean(xs)`\]
-::::
+:::
 
-:::: {.example} 
+::: {.example} 
 Da una popolazione di Poisson che ha $X_i\sim\text{Poiss}(\lambda)$, $\lambda$ incognita, potremmo proporre di _stimare_ $\lambda$ con la mediana dei dati che _otterremo_:
 \[h(X_1,...,X_n)=X_{0,5}=\hat\lambda\]
 
@@ -6008,7 +6008,7 @@ $x_{(1)}=0$, $x_{(2)}=0$, $x_{(3)}=2$, $x_{(4)}=2$, $x_{(5)}=3$, $x_{(6)}=4$, $x
 
 Per ottenere $\hat\lambda$ la stima di $\lambda$ applichiamo $h$ ai dati e otteniamo
 \[\hat\lambda = x_{0.5}=x_{(4)}=2\]
-::::
+:::
 
 ### Come scegliere uno stimatore
 
@@ -6026,41 +6026,41 @@ Le proprietà auspicabili per uno stimatore sono di due tipi
 ### Proprietà Auspicabili di uno stimatore (per $n$ finito)
 
 
-:::: {.info data-latex=""}
+::: {.info data-latex=""}
 ::: {.definition name="Correttezza di uno stimatore"}
 Siano $X_1,...,X_n$, $n$ VC, IID, replicazioni della stessa $X\sim\mathscr{L}(\theta)$, sia $h$ uno stimatore per $\theta$.
 Lo stimatore $h$ si dice **corretto** se
 \[E(h(X_1,...,X_n))=E(h)=\theta\]
 :::
-::::
+:::
 
-:::: {.info data-latex=""}
+::: {.info data-latex=""}
 ::: {.definition name="Mean Squared Error di uno stimatore"}
 Si definisce **Errore Quadratico Medio** (_Mean Squared Error_) la quantità
 \[MSE(h)=E((h-\theta)^2)=V(h)+B^2(h)\]
 dove
 \[B(h)=|E(h)-\theta|\]
 :::
-::::
+:::
 
-:::: {.nota}
+::: {.nota}
 se $h$ è corretto allora
 \[MSE(h)=V(h)\]
-::::
+:::
 
-:::: {.info data-latex=""}
+::: {.info data-latex=""}
 ::: {.definition name="Efficienza di uno stimatore"}
 Siano $h_1$ e $h_2$ due stimatori per $\theta$, si dice che $h_1$ è **più efficiente** di $h_2$ se e solo se
 \[MSE(h_1)<MSE(h_2)\]
 :::
-::::
+:::
 
-:::: {.nota data-latex=""}
+::: {.nota data-latex=""}
 Se $h_1$ e $h_2$ sono entrambi corretti, allora, $h_1$ è **più efficiente** di $h_2$ se e solo se
 \[V(h_1)<V(h_2)\]
 
 L'**errore** di uno stimatore è l'_inverso_ della sua **precisione**.
-::::
+:::
 
 ### Media aritmetica e varianza campionaria caso IID
 
@@ -6085,11 +6085,11 @@ Si consideri la varianza campionaria:
 
 Si può dimostrare che
 
-:::: {.info data-latex=""}
+::: {.info data-latex=""}
 \[
 E(\hat \sigma^2)=\frac {n-1}n \sigma^2<\sigma^2
 \]
-::::
+:::
 
 ### Media aritmetica campionamento SR (popolazioni finite)
 
@@ -6107,11 +6107,11 @@ Essendo $\hat \mu$ corretto per $\mu$ allora
 
 Per calcolare $V(\hat \mu)$ dobbiamo tenere conto della _frazione di campionamento_ $n/N$
 
-:::: {.info data-latex=""}
+::: {.info data-latex=""}
 \[
 MSE(\hat \mu)=\frac{N-n}{N-1}\frac{\sigma^2} n
 \]
-::::
+:::
 
 dove $\frac{N-n}{N-1}$ è chiamato _coefficiente di correzione per popolazioni finite_.
 Osserviamo che più alto è $n$ più il coefficiente tende ad 1.
@@ -6120,7 +6120,7 @@ l'incertezza sulla media è zero.
   
 ### Esempi
 
-:::: {.example name="Popolazione finita, estrazioni SR (Stima)"}
+::: {.example name="Popolazione finita, estrazioni SR (Stima)"}
 
 ```{r 11-Stima-3,results="asis"}
 xp <- c(0,1,3,7)
@@ -6179,10 +6179,10 @@ $h_1$ è **corretto**
 mentre
 \[E(h_2)=\frac 1{4}(`r camp[5,1]`+`r camp[5,2]`+`r camp[5,3]`+`r camp[5,4]`)=`r mean(camp[5,])`\neq\mu\]
 non lo è.
-::::
+:::
 
 
-:::: {.example name="Popolazione finita, estrazioni SR (Efficienza)"}
+::: {.example name="Popolazione finita, estrazioni SR (Efficienza)"}
 Ricordiamo che l'**Errore Quadratico Medio** (_Mean Squared Error_) per $\mu$ è
 \[MSE(h)=E((h-\mu)^2)=V(h)+B^2(h)\]
 dove
@@ -6196,12 +6196,12 @@ Osserviamo la precisione di $h_2$:
 
 E quindi essendo $MSE(h_1)=`r mean(camp[4,]^2)-mu^2`<`r mean(camp[5,]^2)-mean(camp[5,])^2 + (mean(camp[5,])-mu)^2`=MSE(h_2)$, e dunque $h_1$ è _più efficiente_ di $h_2$.
  
-:::: {.nota data-latex=""}
+::: {.nota data-latex=""}
 \[V(h_1)=V(\hat \mu)=\frac{N-n}{N-1}\frac{\sigma^2}{n}=\frac{4-3}{4-1}\frac{`r sig2`}{3}\]
-::::
-::::
+:::
+:::
 
-:::: {.example name="Popolazione finita, estrazioni SR (Stima della Varianza)"}
+::: {.example name="Popolazione finita, estrazioni SR (Stima della Varianza)"}
 Proponiamo la varianza campionaria $\hat\sigma^2$ per stimare $\sigma^2=`r sig2`$
 \[\hat\sigma^2=\frac 1 3\sum_{i=1}^3(x_i-\hat \mu)^2\]
 
@@ -6228,12 +6228,12 @@ sig2<-mean(xp^2)-mean(xp)^2
 In tabella \@ref(tab:var-sr) la varianza associata ad ogni campione. Avremo che
 \[E(\hat\sigma^2)=\frac 1 4 (`r hv[1]`+`r hv[2]`+`r hv[3]`+`r hv[4]`)=`r mean(hv)`\]
 
-:::: {.nota data-latex=""}
+::: {.nota data-latex=""}
 $E(\hat\sigma^2)=`r mean(hv)`<`r sig2`=\sigma^2$, $\hat\sigma^2$ è distorto e, in media, sottostima la vera $\sigma^2$
-::::
-::::
+:::
+:::
 
-:::: {.example name="Popolazione finita, estrazioni CR (Stima)"}
+::: {.example name="Popolazione finita, estrazioni CR (Stima)"}
 Se estraiamo CR, $\#\mathcal{S}=64$ lo spazio dei campioni è
 ```{r stima-cr,results="asis"}
 xp <- c(0,1,3,7)
@@ -6273,7 +6273,7 @@ kable((camp),booktabs=T,escape=F,caption = "Media e dediana dei campioni e proba
 
 ```
 
-:::: {.att data-latex=""}
+::: {.att data-latex=""}
 **Attenzione** i campioni qui non hanno tutti la stessa probabilità, in tabella \@ref(tab:stima-cr) i campioni, le loro probabilità e le corrispettive varianze. Otterremo:
 \[E(h)=h_\text{Camp. 1}P(\text{Camp. 1})+...+h_\text{Camp. 20}P(\text{Camp. 20})\]
 
@@ -6282,12 +6282,12 @@ E dunque:
   E(h_1)  &=& `r h1[1]`\times`r pr[1]`+`r h1[2]`\times`r pr[2]`+...+`r h1[20]`\times`r pr[20]` = `r eh1`=\mu\\
   E(h_2)  &=& `r h2[1]`\times`r pr[1]`+`r h2[2]`\times`r pr[2]`+...+`r h2[20]`\times`r pr[20]` = `r eh2`\neq\mu
 \end{eqnarray*}
-::::
+:::
 
 Anche nel CCS CR $h_1$ è corretto per $\mu$ e $h_2$ **non** è corretto per $\mu$
-::::
+:::
 
-:::: {.example name="Popolazione finita, estrazioni CR (Efficienza)"}
+::: {.example name="Popolazione finita, estrazioni CR (Efficienza)"}
 Mentre l'errore
 \[MSE(h)=(h_\text{Camp. 1}-\mu)^2P(\text{Camp. 1})+...+(h_\text{Camp. 20}-\mu)^2P(\text{Camp. 20})\]
 
@@ -6303,13 +6303,13 @@ E dunque
 
 Anche in questo caso, l'errore medio quadratico di $h_1$ è minore di quello di $h_2$, e quindi $h_1$ è più efficiente di $h_2$ ovvero più _preciso_.
 
-:::: {.nota data-latex=""}
+::: {.nota data-latex=""}
 come definito dalla teoria abbiamo
 \[MSE(h_1)=MSE(\hat \mu)=V(\hat \mu)=\frac{\sigma^2}n=\frac{`r sig2`}{3}=`r mse1`\]
-::::
-::::
+:::
+:::
 
-:::: {.example name="Popolazione finita, estrazioni CR (Efficienza)"}
+::: {.example name="Popolazione finita, estrazioni CR (Efficienza)"}
 
 Proponiamo la varianza campionaria $\hat\sigma^2$ per stimare $\sigma^2=`r sig2`$
 \[\hat\sigma^2=\frac 1 3\sum_{i=1}^3(x_i-\hat \mu)^2\]
@@ -6359,7 +6359,7 @@ Osserviamo che
 E(\hat\sigma^2)=\frac{n-1}n\sigma^2=\frac{`r n-1`}{`r n`}`r sig2`
 \]
 
-:::: 
+::: 
 
 ### Distribuzione delle statistiche
 
@@ -6416,18 +6416,18 @@ segments(mu,0,mu,dnorm(mu,mu,se),lty=2)
 
 Siano $X_1,...,X_n$, $n$ VC, IID, replicazioni della stessa $X\sim\mathscr{L}(\theta)$, sia $h$ uno stimatore per $\theta$
 
-:::: {.info data-latex=""}
+::: {.info data-latex=""}
 ::: {.definition name="Correttezza Asintotica"}
 Lo stimatore $h$ si dice **asintoticamente corretto** se
 \[\lim_{n\to\infty}E(h(X_1,...,X_n))=E(h)=\theta\]
 :::
-::::
+:::
    
-:::: {.example}
+::: {.example}
   \[\lim_{n\to\infty}E(\hat\sigma^2)=\lim_{n\to\infty}\frac{n-1}n\sigma^2=\sigma^2\]
-::::
+:::
 
-:::: {.info data-latex=""}
+::: {.info data-latex=""}
 ::: {.definition name="Correttezza Asintotica"}
 Lo stimatore $h$ si dice **consistente** (in media quadratica) se e solo se
 \[\lim_{n\to\infty}MSE(h(X_1,...,X_n))=\lim_{n\to\infty}MSE(h)=0\]
@@ -6437,9 +6437,9 @@ Essendo
 allora
 \[\lim_{n\to\infty} MSE(h)=0, \text{ se e solo se} \lim_{n\to\infty} V(h)=0 \text{ e } \lim_{n\to\infty} B^2(h)=0\]
 :::
-::::
+:::
 
-:::: {.example name="Consistenza"}
+::: {.example name="Consistenza"}
 Siano $X_1,...,X_n$, $n$ VC, IID, replicazioni della stessa VC $X$ con $E(X)=\mu$ e $V(X)=\sigma^2$
 Usiamo $\hat \mu$ per stimare $\mu$:
 \[\hat \mu=\frac 1 n \sum_{i=1}^n X_i=\frac {S_n}n\]
@@ -6456,11 +6456,11 @@ Al divergere di $n$
 \[\lim_{n\to \infty}MSE(\hat \mu)=\lim_{n\to\infty}\frac{\sigma^2}n=0\]
 
 Lo stimatore $\hat \mu$ per $\mu$ è stimatore **corretto** e **consistente**.
-::::
+:::
 
 ## La $SD$ e lo $SE$
 
-:::: {.info data-latex=""}
+::: {.info data-latex=""}
 La _standard deviation_ (SD) $\sigma$, rappresenta la dispersione degli individui dalla media, è un indicatore di *variabilità* della *popolazione*, per esempio in una popolazione finita di $N$ individui:
 \[\sigma=\sqrt{\sigma^2}=\sqrt{\frac 1 N\sum_{i=1}^N(x_i-\mu)^2},\]
 la _deviazione standard_ $\sigma$ è la radice della varianza della popolazione $\sigma^2$.
@@ -6472,9 +6472,9 @@ Lo _standard error_ $SE(h)$ di uno stimatore $h$ per $\theta$ è la radice della
 La _standard deviation stimata_ $\sigma$, rappresenta la dispersione degli individui _del campione_ dalla media _del campione_, è un indicatore di *variabilità* del *campione*:
 \[\hat\sigma=\sqrt{\hat\sigma^2}=\sqrt{\frac 1 n\sum_{i=1}^n(x_i-\hat\mu)^2}\]
 La _deviazione standard stimata_ $\hat\sigma$ è la radice della varianza del campione $\hat\sigma^2$.
-::::
+:::
 
-:::: {.example}
+::: {.example}
 Lo standard error dello stimatore media aritmetica campionaria $\hat\mu$ per $\mu$
 \[SE(\hat \mu)=\sqrt\frac{\sigma^2} n=\frac\sigma {\sqrt{n}}\]
 
@@ -6488,7 +6488,7 @@ Se $\sigma$ è incognito viene stimato da (come vedremo nel paragrafo (\@ref(vno
 
 Ottenendo
 \[\widehat{SE(\hat\mu)}=\frac S {\sqrt n}\]
-::::
+:::
 
 <!--chapter:end:11-Stima.Rmd-->
 
@@ -6874,12 +6874,12 @@ questa tabella, letta per righe ci indica la probabilità, letta per colonne ci 
 
 ## La Funzione di Verosimiglianza 
 
-:::: {.info data-latex=""}
+::: {.info data-latex=""}
 ::: {.definition name="Funzione di Verosimiglianza"}
 Siano $x_1,...,x_n$ $n$ osservazioni di $X\sim \mathscr{L}(\theta)$, $\theta\in\Theta$, si definisce la verosimiglianza $L$ di $\theta$ la funzione:
 \[L(\theta;x_1,...,x_n)=L(\theta)\propto P(X_1=x_1,...,X_n=x_n;\theta)\]
 :::
-::::
+:::
 
 La funzione di verosimiglianza è una funzione in $\theta$ (la variabile) per 
 $x_1,...,x_n$ fissi. Indica quanto un particolare valore di $\theta$ è supportato dai dati.
@@ -6891,7 +6891,7 @@ L(\theta) &\propto& P(X_1=x_1;\theta)\cdot...\cdot P(X_n=x_n;\theta) \\
           &\propto& \prod_{i=1}^n f(x_i;\theta)
 \end{eqnarray*}
 
-:::: {.info data-latex=""}
+::: {.info data-latex=""}
 ::: {.definition name="Log Verosimiglianza"}
 Si definisce la log-verosimiglianza $\ell$:
 \begin{eqnarray*}
@@ -6900,12 +6900,12 @@ Si definisce la log-verosimiglianza $\ell$:
              &=& \sum_{i=1}^n \log f(x_i;\theta)
 \end{eqnarray*}
 :::
-::::
+:::
 
 ## La Stimatore di massima Verosimiglianza 
 
 
-:::: {.info data-latex=""}
+::: {.info data-latex=""}
 ::: {.definition name="Stimatore du Massima Verosimiglianza"}
 Lo stimatore di *massima verosimiglianza* per $\theta$ è
 \begin{eqnarray*}
@@ -6915,7 +6915,7 @@ Lo stimatore di *massima verosimiglianza* per $\theta$ è
 
 \[\hat\theta:L(\hat\theta)>L(\theta), \forall\theta\neq\hat\theta, \qquad\ell(\hat\theta)>\ell(\theta), \forall\theta\neq\hat\theta\]
 :::
-::::
+:::
 
 ## Il Principio di Verosimiglianza
 
@@ -7004,49 +7004,49 @@ par(cex=cex)
 
 Dunque
 
-:::: {.info data-latex=""}
+::: {.info data-latex=""}
 Siano $X_1,...X_n$ $n$ VC IID, tali che $X_i\sim\text{Ber}(\pi)$ lo stimatore
 di massima verosimiglianza per $\pi$ è
 \[\hat \pi=\frac 1n \sum_{i=1}^nX_i\]
-::::
+:::
 
 Il _vero_ valore di $\pi$ è incognito ma sappiamo che:
 
-:::: {.info data-latex=""}
+::: {.info data-latex=""}
 $\hat\pi$ è corretto per $\pi$, infatti
 \[E(\hat\pi)=E\left(\frac{1}n\sum_{i=1}^n X_i\right)=\frac{1}n\sum_{i=1}^nE(X_i)=\frac{\pi+...+\pi}{n}=\frac n n\pi=\pi\]
 
 E quindi
 \[MSE(\hat\pi)=V(\hat\pi)=\frac{\pi(1-\pi)}{n}\]
 che è ancora funzione di $\pi$.
-::::
+:::
 
-:::: {.info data-latex=""}
+::: {.info data-latex=""}
 Lo stimatore $\hat\pi$ per $\pi$ è _consistente_, infatti
 \[\lim_{n\to +\infty}MSE(\hat\pi)=\lim_{n\to +\infty}\frac{\pi(1-\pi)}{n}=0\]
 
 $\hat\pi$ è _corretto_ e _consistente_ per $\pi$.
-::::
+:::
 
 Osserviamo che:
 
-:::: {.info data-latex=""}
+::: {.info data-latex=""}
 \[SE(\hat\pi)=\sqrt{\frac{\pi(1-\pi)}{n}}\]
-::::
+:::
 
 È un risultato teorico che dipende dal _vero_ $\pi$, che non conosciamo.
 
-:::: {.info data-latex=""}
+::: {.info data-latex=""}
 L'errore di stima si stima sostituendo a $\pi$ la sua stima $\hat\pi$
 \[\widehat{SE(\hat\pi)}=\sqrt{\frac{\hat\pi(1-\hat\pi)}{n}}\]
-::::
+:::
 
 Se $\hat\pi=0.6$ e $n=5$
 \[\widehat{SE(\hat\pi)}=\sqrt{\frac{0.6(1-0.6)}{5}}=`r sqrt(.6*(1-.6)/5)`\]
 
-:::: {.nota data-latex=""}
+::: {.nota data-latex=""}
 Lo Standard Error è l'ordine di grandezza dell'errore commesso.
-::::
+:::
 
 ### Se $n$ aumenta e $\hat\pi=0.6$
 
@@ -7227,20 +7227,20 @@ E dunque
 
 Dunque
 
-:::: {.info data-latex=""}
+::: {.info data-latex=""}
 Siano $X_1,...X_n$ $n$ VC IID, tali che $X_i\sim\text{Pois}(\lambda)$ lo stimatore
 di massima verosimiglianza per $\pi$ è
 \[\hat \lambda=\frac 1n \sum_{i=1}^nX_i\]
-::::
+:::
 
-:::: {.info data-latex=""}
+::: {.info data-latex=""}
 Correttezza:
 \[
   E(\hat\lambda) =  E\left(\frac{1}n\sum_{i=1}^n X_i\right) = \frac 1 n \sum_{i=1}^n E(X_i) = \frac 1 n \sum_{i=1}^n \lambda = \lambda
 \]
-::::
+:::
 
-:::: {.info data-latex=""}
+::: {.info data-latex=""}
 Mean Squared Error:
 \[
   MSE(\hat\lambda) = V(\hat\lambda)
@@ -7249,22 +7249,22 @@ Mean Squared Error:
                  = \frac n {n^2} \lambda
                  = \frac {\lambda}n
 \]
-::::
+:::
 
-:::: {.info data-latex=""}
+::: {.info data-latex=""}
 Consistenza:
 \[
   \lim_{n\to+\infty} MSE(\hat\lambda) = \lim_{n\to+\infty} \frac {\lambda}n = 0
 \]
-::::
+:::
 
-:::: {.info data-latex=""}
+::: {.info data-latex=""}
 Standard Error
 \[SE(\hat\lambda)=\sqrt{\frac {\lambda}n}\]
 
 Standard Error stimato
 \[\widehat{SE(\hat\lambda)}=\sqrt{\frac {\hat\lambda}n}\]
-::::
+:::
 
 ### Esempio $n=5$
 
@@ -7343,12 +7343,12 @@ segments(sn/n,-100,sn/n,l(sn/n),lty=2)
 Siano $X_1,...,X_n$ $n$ VC IID, replicazioni della stessa $X\sim N(\mu,\sigma^2)$, e dunque con funzione di probabilità:
 \[f(x_i;\mu,\sigma^2)\]
 
-:::: {.info data-latex=""}
+::: {.info data-latex=""}
 La verosimiglianza per $(\mu,\sigma^2)$ è
 \begin{eqnarray*}
   L(\lambda) &=& \prod_{i=1}^n f(x_i;\mu,\sigma^2)
 \end{eqnarray*}
-::::
+:::
 
 La log-verosimiglianza della Normale
 
@@ -7525,7 +7525,7 @@ equazioni di derivate di $\ell(\mu,\sigma^2)$ rispetto a $\mu$ e $\sigma^2$
 \end{cases}
 \]
 
-:::: {.info data-latex=""}
+::: {.info data-latex=""}
 ::: {.proposition}
 \begin{eqnarray*}
   \hat\mu            &=& \frac 1 n \sum_{i=1}^n x_i\\
@@ -7533,7 +7533,7 @@ equazioni di derivate di $\ell(\mu,\sigma^2)$ rispetto a $\mu$ e $\sigma^2$
                      &=& \frac 1 n \sum_{i=1}^n x_i^2 -\hat\mu^2
 \end{eqnarray*}
 :::
-::::
+:::
 
 Tutta l'**informazione** del campione è contenuta nelle statistiche $\sum_{i=1}^n x_i$ 
 e $\sum_{i=1}^n x_i^2$.
@@ -7562,14 +7562,14 @@ e $\sum_{i=1}^n x_i^2$.
 
 ### Proprietà di $\hat\mu$
 
-:::: {.info data-latex=""}
+::: {.info data-latex=""}
 Correttezza per $\mu$:
 \[
   E(\hat\mu) =  E\left(\frac{1}n\sum_{i=1}^n X_i\right) = \frac 1 n \sum_{i=1}^n E(X_i) = \frac 1 n \sum_{i=1}^n \mu = \mu
 \]
-::::
+:::
 
-:::: {.info data-latex=""}
+::: {.info data-latex=""}
 Mean Squared Error per $\mu$:
 \[
   MSE(\hat\mu) = V(\hat\mu)
@@ -7578,9 +7578,9 @@ Mean Squared Error per $\mu$:
                  = \frac n {n^2} \sigma^2
                  = \frac {\sigma^2}n
 \]
-::::
+:::
 
-:::: {.info data-latex=""}
+::: {.info data-latex=""}
 Consistenza per $\mu$:
 \[
   \lim_{n\to+\infty} MSE(\hat\mu) = \lim_{n\to+\infty} \frac {\sigma^2}n = 0
@@ -7588,26 +7588,26 @@ Consistenza per $\mu$:
 
 E lo Standard Error:
 \[SE(\hat\mu)=\sqrt{\frac {\sigma^2}n}\]
-::::
+:::
 
 Standard Error stimato tra poco verrà ricavato \@ref(ssem).
 
 ### Proprietà di $\hat\sigma^2$ {#vnorm}
 
-:::: {.info data-latex=""}
+::: {.info data-latex=""}
 Correttezza per $\hat\sigma^2$:
 \[
   E(\hat\sigma^2) =  \frac {n-1}{n}\sigma^2
 \]
 $\hat\sigma^2$ non è stimatore corretto per $\sigma^2$.
-::::
+:::
 
-:::: {.info data-latex=""}
+::: {.info data-latex=""}
 Correzione di $\hat\sigma^2$
 \[
   S^2=\frac{n}{n-1}\hat\sigma^2=\frac{n}{n-1}\frac{1}n\sum_{i=1}^n(X_i-\hat\mu)^2=\frac{1}{n-1}\sum_{i=1}^n(X_i-\hat\mu)^2
 \]
-::::
+:::
 
 Osserviamo che
 \[
@@ -7618,13 +7618,13 @@ $S^2$ è stimatore corretto per $\sigma^2$.
 
 ### Lo $SE$ di $\hat\mu$ {#ssem}
 
-:::: {.info data-latex=""}
+::: {.info data-latex=""}
 Standard Error
 \[SE(\hat\mu)=\sqrt{\frac {\sigma^2}n}\]
 
 Standard Error stimato.
 \[\widehat{SE(\hat\mu)}=\sqrt{\frac {S^2}n}=\sqrt{\frac {\hat\sigma^2}{n-1}}\]
-::::
+:::
 
 In quanto
 \[\frac {S^2}{n}=\frac 1 nS^2=\frac 1 n \frac{n}{n-1}\hat\sigma^2=\frac{\hat\sigma^2}{n-1}\]
@@ -7692,7 +7692,7 @@ Fissata la somma il sistema _ha perso un grado di libertà_.
 
 ## Proprietà degli stimatori di massima verosimiglianza
 
-:::: {.info data-latex=""}
+::: {.info data-latex=""}
 ::: {.proposition name="Stimatori di massima verosimgilianza"}
 Siano $X_1,...,X_n$ $n$ VC IID, replicazioni di $X\sim \mathscr{L}(\theta)$ e sia $\hat\theta$ lo stimatore di massima verosimiglianza per per $\theta$, allora
 
@@ -7712,7 +7712,7 @@ dove $I(\theta)$ è l'infromazione di Fisher.
   
   \[ \text{se } \psi=g(\theta), \text{ allora } \hat\psi = g(\hat\psi)\]
 :::
-::::
+:::
 
   1. La proprietà uno riguarda la correttezza. Non sempre gli SMV sono corretti
   ma lo sono sempre asintoticamente. Esempio: lo stimatore $\hat\sigma^2$ di $\sigma^2$ non è corretto solo asintoticamente
@@ -8163,12 +8163,12 @@ L'intervallo
 $$[L_1,L_2]$$
 è un *intervallo casuale*.
 
-:::: {.info data-latex=""}
+::: {.info data-latex=""}
 ::: {.definition}
 Un  __intervallo di confidenza__ per $\theta$ al livello $(1-\alpha)\times 100\%$ è costruito su quella coppia di statistiche $L_1$ e $L_2$ tali che
 \[P(L_1<\theta<L_2)=1-\alpha\]
 :::
-::::
+:::
 
 
 Un  _intervallo di confidenza_ per $\theta$ al livello $(1-\alpha)\times 100\%$ è l'intervallo $[L_1,L_2]$ calcolato sui dati del campione.
@@ -8196,12 +8196,12 @@ Sia $0<\alpha<1$, osserviamo che
   P\left(\hat \mu- z_{\alpha/2}~\frac\sigma{\sqrt n}<\mu<\hat \mu+z_{\alpha/2}~\frac\sigma{\sqrt n}\right) &=& 1-\alpha
 \end{eqnarray*}
 
-:::: {.info data-latex=""}
+::: {.info data-latex=""}
 ::: {.definition name="Intervallo di Confidenza per $\mu$ ($\sigma^2$ nota)"}
 Si definisce L'IdC al livello $(1-\alpha)\times100\%$ per $\mu$ con $\sigma^2$ nota, l'intervallo
 \[IdC:~~\left[\hat \mu- z_{\alpha/2}~\frac\sigma{\sqrt n},\hat \mu+ z_{\alpha/2}~\frac\sigma{\sqrt n}\right]\]
 :::
-::::
+:::
 
 Dove $z_{\alpha/2}$ è quel valore tale che $P(Z>z_{\alpha/2})=\alpha/2$
 
@@ -8230,7 +8230,7 @@ za2 <- qnorm(.995)
 ```
 
 
-:::: {.example}
+::: {.example}
 Intervallo al 99\%, $\hat \mu=2.6$, $n=5$, $\sigma^2=`r s2`$.
 L'intervallo al 99% implica un $\alpha=0.01$, infatti
 \[1-\alpha=0.99\]
@@ -8249,14 +8249,14 @@ Se quindi $\hat \mu = `r xbar`$ l'intervallo
 \end{eqnarray*}
 
 È l'intervallo di confidenza per $\mu$ al $99\%$
-::::
+:::
 
 ```{r 13-stima-intervallare-15}
 za2 <- qnorm(.95)
 fig.def()
 ```
 
-:::: {.example }
+::: {.example }
 Intervallo al $99\%$, $\hat \mu=2.6$, $n=5$, $\sigma^2=`r s2`$. L'intervallo al 90% implica un $\alpha=0.1$, infatti
 \[1-\alpha=0.90\]
 
@@ -8274,7 +8274,7 @@ Se quindi $\hat \mu = `r xbar`$ l'intervallo
 \end{eqnarray*}
 
 È l'intervallo di confidenza per $\mu$ al $90\%$.
-::::
+:::
 
 Osserviamo graficamente gli intervalli di confidenza per $\mu$ con $\hat \mu=`r xbar`$, $n=`r n`$ e $\sigma^2=`r s2`$, al 90%, 95%, 99% e 99.9%.
 
@@ -8301,7 +8301,7 @@ kable(tb,row.names = T,booktabs = T, escape = F,linesep = "", digits = 4)
 ```
 
 
-:::: {.example}
+::: {.example}
 
 ```{r 13-stima-intervallare-16}
 xbar <- 19
@@ -8326,7 +8326,7 @@ Determinare un IdC al livello di $(1-\alpha)=0.99$ per $\mu$.
 
 Notare la modalità di indicare la SD della $\cal{P}$ e dei dati.
 Vi sono due informazioni su $\sigma$ e bisogna scegliere quella giusta.
-::::
+:::
 
 
 ## Intervalli di Confidenza per $\mu$ al livello $(1-\alpha)\times 100$, $\sigma^2$ incognita
@@ -8365,18 +8365,18 @@ Sia $0<\alpha<1$, osserviamo che
 
 Dove $t_{n-1;\alpha/2}$ è quel valore tale che $P(T>t_{n-1;\alpha/2})=\alpha/2,\qquad T\sim t_{n-1}$
 
-:::: {.info data-latex=""}
+::: {.info data-latex=""}
 ::: {.definition name="Intervallo di Confidenza per $\mu$ ($\sigma^2$ incognita)"}
 Si definisce L'IdC al livello $(1-\alpha)\times100\%$ per $\mu$ con $\sigma^2$ incognita, l'intervallo
 \[IdC:~~\left[\hat \mu- t_{n-1;\alpha/2}~\frac S{\sqrt n},\hat \mu+ t_{n-1;\alpha/2}~\frac S{\sqrt n}\right]\]
 :::
-::::
+:::
 
 \[  P\left(\hat \mu- t_{n-1;\alpha/2}~\frac S{\sqrt n}<\mu<\hat \mu+t_{n-1;\alpha/2}~\frac S{\sqrt n}\right) = 1-\alpha\]
 è la probabilità che **l'intervallo casuale** $\left[\hat \mu- t_{n-1;\alpha/2}~\frac S{\sqrt n},\hat \mu+ t_{n-1;\alpha/2}~\frac S{\sqrt n}\right]$  cada su $\mu$.
 
 
-:::: {.example}
+::: {.example}
 Un venditore di bustine di tè assicura che ogni bustina ha un
 peso medio pari a 20g.
 L'acquirente esegue 6 misure di controllo e ottiene i seguenti
@@ -8399,9 +8399,9 @@ Determinare un IdC al livello di $(1-\alpha)=0.99$ per $\mu$.
 
 Si noti che la mancanza di informazioni sulla varianza rende più
 incerto il risultato; infatti, la lunghezza dell'IdC aumenta.
-::::
+:::
 
-:::: {.example}
+::: {.example}
 Si sono rilevati i tempi dedicati a ciascun cliente da un impiegato
 di banca in 49 casi e si è ottenuta una media $\bar{x}=3.5$ minuti
 con una SD pari a 0.5 minuti.
@@ -8421,7 +8421,7 @@ Determinare un IdC al livello di $(1-\alpha)=0.95$ per $\mu$.
 \end{eqnarray*}
 
 Si noti che per $n>120$ si può approssimare con una normale.
-::::
+:::
 
 
 
@@ -8455,16 +8455,16 @@ Condizioni per l'approssimazione
 
 e quindi l'IdC al livello $(1-\alpha)\times 100$ per $\hat\pi$ è:
 
-:::: {.info data-latex=""}
+::: {.info data-latex=""}
 ::: {.definition name="Intervallo di Confidenza per $\pi$"}
 Si definisce L'IdC al livello $(1-\alpha)\times100\%$ per $\pi$ l'intervallo
 \[\left[\,\hat\pi-z_{\alpha/2}\sqrt\frac{\hat\pi(1-\hat\pi)}{n};\hat\pi+z_{\alpha/2}\sqrt\frac{\hat\pi(1-\hat\pi)}{n}\,\right]\]
 :::
-::::
+:::
 
 
 
-:::: {.example}
+::: {.example}
 Una indagine sulle intenzioni di voto degli italiani per lo schieramento $A$ ha mostrato
 che 240 su 500 lo voterebbero. Determinare un IdC al livello di $(1-\alpha)=0.99$ per $\pi$.
 \[\alpha=0.01,\qquad \alpha/2=0.005,\qquad z_{0.005}=`r round(qnorm(1-.005),4)`\]
@@ -8480,9 +8480,9 @@ che 240 su 500 lo voterebbero. Determinare un IdC al livello di $(1-\alpha)=0.99
 &=& \left[ 0.48 - `r qnorm(.995)*sqrt(.48*(1-.48)/500)`; 0.48 + `r qnorm(.995)*sqrt(.48*(1-.48)/500)`\right]                     \\
 &=& \left[ `r .48-qnorm(.995)*sqrt(.48*(1-.48)/500)`; `r .48+qnorm(.995)*sqrt(.48*(1-.48)/500)` \right]
 \end{eqnarray*}
-::::
+:::
 
-:::: {.example}
+::: {.example}
 Una indagine sulle intenzioni di voto degli italiani per lo schieramento $A$ ha mostrato
 che 2400 su 5000 lo voterebbero. Determinare un IdC al livello di $(1-\alpha)=0.99$ per $\pi$.
 
@@ -8497,7 +8497,7 @@ che 2400 su 5000 lo voterebbero. Determinare un IdC al livello di $(1-\alpha)=0.
 &=& \left[ 0.48 - `r qnorm(.995)*sqrt(.48*(1-.48)/5000)`; 0.48 + `r qnorm(.995)*sqrt(.48*(1-.48)/5000)`\right]                     \\
 &=& \left[ `r .48-qnorm(.995)*sqrt(.48*(1-.48)/5000)`; `r .48+qnorm(.995)*sqrt(.48*(1-.48)/5000)` \right]
 \end{eqnarray*}
-::::
+:::
 
 ### IdC per $\pi$ per $\alpha$ ed $n$ fissati
 
@@ -8637,7 +8637,7 @@ Ogni decisione ha delle conseguenze
 La _tavola della verità_ è una tabella simbolica in cui sulle righe viene scritto il _vero stato di natura_ cioè, se $H_0$ è vera o falsa. Per colonna viene scritta la decisione, cioè
 se scelgo di tenere $H_0$ o di rifiutarla in favore di $H_1$.
 
-:::: {.info data-latex=""}
+::: {.info data-latex=""}
 ::: {.center data-latex=""}
 ```{r 14-test-intro-1, results='asis'}
 
@@ -8655,11 +8655,11 @@ n <- 10
 
 ```
 :::
-::::
+:::
 
 Dunque:
 
-:::: {.info data-latex=""}
+::: {.info data-latex=""}
 ::: {.definition name="Errori di primo e secondo tipo"}
 
 Si definiscono
@@ -8668,7 +8668,7 @@ Si definiscono
 - L'**errore di secondo tipo** è l'errore che si commette scegliendo $H_0$ quando è vera $H_1$.
 
 :::
-::::
+:::
 
 Dunque ad ogni decisione corrisponde un possibile errore. 
 Per valutare un test si devono calcolare le probabilità di errore
@@ -8689,7 +8689,7 @@ kable(t.ver,row.names = F,col.names = c("","","decido $H_0$","decido $H_1$"),ali
 
 Dove
 
-:::: {.info data-latex=""}
+::: {.info data-latex=""}
 ::: {.definition name="Probabilità degli Errori di primo e secondo tipo"}
 
 \[\alpha=P(\text{Errore I tipo})=P(\text{Decidere $H_1$};H_0)=P(X_1,...,X_n\in\mathcal{S}_1;H_0)\]
@@ -8700,16 +8700,16 @@ $\alpha$ è il livello di **significatività** del test, $\alpha$ è la probabil
 $\beta$ è la probabilità di scegliere $H_0$ quando invece è vera $H_1$. 
 
 :::
-::::
+:::
 
 Infine
 
-:::: {.info data-latex=""}
+::: {.info data-latex=""}
 ::: {.definition name="Potenza di un Test"}
 \[1-\beta =P(\text{Decidere $H_1$}; H_1)=P(X_1,...,X_n\in\mathcal{S}_1;H_1)\]
 $1-\beta$ è la **potenza del test**, $1-\beta$ è la probabilità di scegliere $H_1$ quando $H_1$ è vera.
 :::
-::::
+:::
 
 
 <!-- ## Esempio: COVID-19 e Tamponi -->
@@ -8746,7 +8746,7 @@ $1-\beta$ è la **potenza del test**, $1-\beta$ è la probabilità di scegliere 
 <!-- - Il test del _tampone_ non è un test statistico, non possiamo agire sulla scelta di $\alpha$ né di $\beta$. -->
 
 
-:::: {.example name="Spam e Filtri email"}
+::: {.example name="Spam e Filtri email"}
 Il Un filtro delle email che separa lo _spam_ dal _non spam_ **non** è una _procedura certa_
 \begin{align*}
 P(\text{Falso Positivo}) =& P(\text{filtrata spam} ; \text{non è spam})= \alpha \\
@@ -8772,7 +8772,7 @@ kable(t.ver,row.names = F,col.names = c("","","Non Spam","Spam"),align = 'c',
 Obiettivo: costruire il filtro in modo tale che
 $\alpha$ sia fissato ad un valore arbitrariamente piccolo
 $1-\beta$ sia la più alta possibile, per $\alpha$ fissato
-::::
+:::
 
 
 ```{r 14-test-intro-5,echo=FALSE,include=FALSE}
@@ -11515,7 +11515,7 @@ ovvero
 (\hat\beta_0,\hat\beta_1)=\operatorname*{argmin}_{(\beta_0,\beta_1)\in\mathbb{R}^2}G(\beta_0,\beta_1)
 \end{eqnarray*}
 
-:::: {.info data-latex=""}
+::: {.info data-latex=""}
 ::: {.proposition name="Stimatori dei Minimi Quadrati"}
 Gli stimatori dei minimi quadrati $\hat\beta_0$ e $\hat\beta_1$ sono
 \begin{eqnarray*}
@@ -11529,7 +11529,7 @@ e
 \text{ cov}(x,y) = \frac 1 n\sum_{i=1}^n(x_i-\bar x)(y_i-\bar y)
 \]
 :::
-::::
+:::
 
 ::: {.proof}
 \begin{eqnarray*}
@@ -11597,25 +11597,25 @@ Concludendo la prova.
 
 ## La covarianza
 
-:::: {.info data-latex=""}
+::: {.info data-latex=""}
 ::: {.definition}
 La Covarianza $\text{cov}(x,y)$ tra due variabili $x$ e $y$ è una misura della loro _covariazione_
 \[\text{cov}(x,y)=\frac 1 n\sum_{i=1}^n{(x_i-\bar x)(y_i-\bar y)}\]
 :::
-::::
+:::
 
 La covarianza è la _media degli scarti incrociati dalla media_
 Come per la varianza esiste una formula semplificata:
 
-:::: {.info data-latex=""}
+::: {.info data-latex=""}
 ::: {.proposition}
 \[\text{cov}(x,y)=\frac 1 n\sum_{i=1}^nx_i~y_i-\bar x\bar y\]
 :::
-::::
+:::
 
-:::: {.nota data-latex=""}
+::: {.nota data-latex=""}
 La covarianza è _la media dei prodotti degli scarti dalla media_ può essere riletta come _la media dei prodotti_ meno _il prodotto delle medie_.
-::::
+:::
 
 ### Calcolo della covarianza
 
@@ -12001,7 +12001,7 @@ Il coefficiente $r$
 \[r=\frac{\text{cov}(x,y)}{\hat\sigma_X\hat\sigma_Y}\]
 è chiamato _coefficiente di correlazione_.
 :::
-::::
+:::
 
 Nel nostro esempio
 \[r=\frac{`r cv`}{`r sx`\cdot`r sy`}=`r cv/(sx*sy)`\]
@@ -12367,16 +12367,16 @@ La varianza di $\hat \varepsilon$ è
 \[\hat\sigma_{\varepsilon}^2=\frac{\sum_{i=1}^n(\hat \varepsilon_i-0)^2}n=\frac{\sum_{i=1}^n\hat \varepsilon_i^2}n=\frac{RSS}{n},\qquad\text{$RSS$ Residual Sum of Squares}\]
 :::
 
-:::: {.info data-latex=""}
+::: {.info data-latex=""}
 ::: {.proposition}
 Vale la seguente relazione
 \[TSS = ESS + RSS\]
 :::
-::::
+:::
 
 La variabilità totale di $y$ (quella osservata senza $x$) e scomponibile nella somma di due parti
 
-:::: {.info data-latex=""}
+::: {.info data-latex=""}
 \[
 \left\{\begin{array}{cc}
 \text{varibilità di $y$}\\
@@ -12391,7 +12391,7 @@ La variabilità totale di $y$ (quella osservata senza $x$) e scomponibile nella 
 \text{intorno alla retta}
 \end{array} \right\}
 \]
-::::
+:::
 
 Dividendo ogni membro per $TSS$, si ottiene
 \begin{eqnarray*}
@@ -12408,14 +12408,14 @@ Dividendo ogni membro per $TSS$, si ottiene
 È un indicatore sintetico che indica la quota di varianza spiegata dal modello. 
 Nel caso della regressione lineare semplice
 
-:::: {.info data-latex=""}
+::: {.info data-latex=""}
 ::: {.definition name="Indice di Determinazione Lineare"}
 Si definisce 
 \[R^2=\left(\frac{ESS}{TSS}\right)=r^2=\left(\frac{\text{cov}(x,y)}{\hat\sigma_x\hat\sigma_y}\right)^2\]
 l'indice di determinazione lineare ed è, nel contesto della regressione lineare semplice, il quadrato dell'indice di correlazione
 \[0\leq R^2\leq 1\]
 :::
-::::
+:::
 
 Se $R^2=1$, allora $r=-1$ oppure $r=+1$, associazione lineare perfetta, 100% della variabilità spiegata, se $R^2=0$, allora $r=0$ associazione lineare nulla, 0% della variabilità spiegata, se $R^2>0.75$, allora considereremo l'associazione lineare _soddisfacente_.
 
@@ -12831,7 +12831,7 @@ vb1 <- se2 / (n*vx)
 
 ## Teorema di Gauss-Markov
 
-:::: {.info data-latex=""}
+::: {.info data-latex=""}
 ::: {.theorem name="Gauss-Markov"}
 Sotto gli assunti dallo 0 al 5,
 gli stimatori dei minimi quadrati sono corretti
@@ -12849,7 +12849,7 @@ La loro varianza è:
 Gli stimatori $\hat\beta_{0}$ e $\hat\beta_{1}$ di $\beta_{0}$ e $\beta_{1}$
 sono _BLUE (Best Linear Unbiased Estimators)_.
 :::
-::::
+:::
 
 ## La previsione $\hat Y$
 
@@ -14058,7 +14058,7 @@ Come misurare l'associazione tra $x$ e $y$ se sono entrambe categoriali?
 
 Sono tabelle che consentono di vedere le _frequenze congiunte_ delle osservazioni a coppie
 
-:::: {.example}
+::: {.example}
 100 individui dalla città $A$, 100 dalla città $B$ e 100 dalla città $C$. 
 Abbiamo misurato $X=$ Genere ($M$, $F$), $Y=$ abbonamento allo stadio (Sì, No).
 In tutte e tre le città abbiamo osservato 50 $M$ e 50 $F$, e abbiamo osservato 50 abbonati
@@ -14100,9 +14100,9 @@ e 50 non abbonati.
   **Non** c'è associazione tra Genere e Abbonamento.
 
 Ma, come vedremo nel prossimo esempio, non è sempre facile individuare dove non c'è associazione.
-::::
+:::
 
-:::: {.example name="Popolazione finita, estrazioni SR (Efficienza)"}
+::: {.example name="Popolazione finita, estrazioni SR (Efficienza)"}
 
 100 individui dalla città $A$, 100 dalla città $B$ e 100 dalla città $C$. 
 Abbiamo misurato $X=$ Genere ($M$, $F$), $Y=$ abbonamento allo stadio (Sì, No).
@@ -14141,7 +14141,7 @@ e 40 non abbonati.
  c'è associazione tra Genere e Abbonamento.
  Nella città $C$ non c'è distinzione tra genere e passione per il pallone 
   **non** c'è associazione tra Genere e Abbonamento ma non è evidente da vedere.
-::::
+:::
 
 ### Un passo indietro: il concetto di indipendenza
 
@@ -14645,7 +14645,7 @@ Disoccupato & `r nds[2,1]`     & `r nds[2,2]`     & `r nds[2,3]`     & `r sum(nd
 
 ### I gradi di libertà
 
-:::: {.example name="Tabella $2\times 2$"}
+::: {.example name="Tabella $2\times 2$"}
 
  Supponiamo di voler riempire la tabella di contingenza coi totali fissati
 \[
@@ -14667,9 +14667,9 @@ F & 25     & 15     & 40\\ \hline
          & 60 & 40 & 100
 \end{array}
 \]
-::::
+:::
 
-:::: {.example name="Tabella $2\times 3$"}
+::: {.example name="Tabella $2\times 3$"}
 
 
  Se la tabella è
@@ -14707,7 +14707,7 @@ Disoccupato & 15     & 35     & 10     & `r sum(nxy[2,])`\\ \hline
          & `r sum(nxy[,1])` & `r sum(nxy[,2])` & `r sum(nxy[,3])` & `r n`
 \end{array}
 \]
-::::
+:::
 
 ## Misure di Conformità
 
@@ -14746,7 +14746,7 @@ Ovvero
 
 Dove le $n_j^*$ sono le frequenze attese 
 
-:::: {.example}
+::: {.example}
 
 Lanciamo un dado 100 volte e otteniamo 
 
@@ -14782,9 +14782,9 @@ rownames(prn) <-c(1:6,"tot.")
 names(prn) <- c("$n_j$","$\\hat\\pi_j$","$\\hat\\pi_j^*$","$n_j^*$")
 kable(t(prn),booktabs = T, escape = F,linesep = "", digits = 4)
 ```
-::::
+:::
 
-:::: {.example}
+::: {.example}
 
 Faccio lanciare il dado a un'altra persona e osservo su 100 lanci 
 
@@ -14811,7 +14811,7 @@ rownames(prn) <-c(1:6,"tot.")
 names(prn) <- c("$n_j$","$\\hat\\pi_j$","$\\hat\\pi_j^*$","$n_j^*$")
 kable(t(prn),booktabs = T, escape = F,linesep = "", digits = 4)
 ```
-::::
+:::
 
 ## Il $\chi^2$ come misura di conformità
 

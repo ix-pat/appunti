@@ -40,7 +40,7 @@ $$
 
 *Una variabile casuale* $X$ è un numero che ancora non sappiamo quanto varrà, potrà assumere uno qualunque dei valori $x$ del supporto $S_X$ e lo assumerà con una data probabilità $f(x)=P(X=x)$.
 
-:::: {.example}
+:::{.example}
 Consideriamo il lancio di due monete identiche, la partizione associata è
 
 - $E_1=\{T,T\}$, la prima e la seconda moneta mostrano Testa.
@@ -88,7 +88,7 @@ P(X=1) &=& P(E_2\cup E_3)\\
 P(X=2) &=& P(E_4) \\ 
     &=&\frac 14.
 \end{eqnarray*}
-::::
+:::
 
 ### Descrizione di una VC
 
@@ -99,41 +99,41 @@ la Funzione di Ripartizione che, anziché cumulare le frequenze, cumula le proba
 il Valore Atteso che è l'analogo della media e la Varianza che è l'analogo della varianza
 descrittiva. In sintesi
 
-:::: {.nota data-latex=""}
+:::{.nota data-latex=""}
 Una VC discreta è **identificata** in maniera univoca da
 
 - Il suo supporto $S_X$.
 - La sua funzione di probabilità $f(x)$ o la su funzione di ripartizione $F$.
 - Il suo valore atteso $E(X)$.
 - La sua varianza $V(X).$
-::::
+:::
 
 
-:::: {.info data-latex=""}
-:::: {.definition name="Supporto"} 
+:::{.info data-latex=""}
+:::{.definition name="Supporto"} 
 Sia $X$ una VC, si definisce $S_X$ il supporto di $X$, l'insieme di tutti i possibili valori che $X$ è suscettibile di assumere.
-::::
-::::
+:::
+:::
 
-:::: {.example}
+:::{.example}
 Lancio una moneta due volte e definisco $X$ la VC che _conta il numero di volte che osservo Testa in due lanci_. La VC $X$
 potrà assumete solo 3 valori: 0 (zero volte Testa in due lanci), 1 (una volta Testa in due lanci), e 2 (2 volte Testa in due lanci). E quindi
 \[
 S_X=\{0,1,2\}
 \]
-::::
+:::
 
-:::: {.info data-latex=""}
-:::: {.definition name="Funzione di Probabilità"} 
+:::{.info data-latex=""}
+:::{.definition name="Funzione di Probabilità"} 
 Sia $X$ una VC con supporto $S_X$, si definisce $f$ la funzione di probabilità: 
 è la probabilità che la VC $X$ assuma esattamente il valore $x$
 \[
 f(x)=P(X=x), ~x\in S_X
 \]
-::::
-::::
+:::
+:::
 
-:::: {.example}
+:::{.example}
 Si consideri un'urna che contiene 4 palline: $$E_1=\fbox{1},E_2=\fbox{2},E_3=\fbox{2},E_4=\fbox{3}$$ Sia $X$ la VC che rappresenta il numero sulla pallina: 
 
 \begin{eqnarray*}
@@ -149,32 +149,32 @@ f(1)&=&P(X=1)=P(E_1)=\frac 1 4\\
 f(2)&=&P(X=2)=P(E_2\cup E_3)=\frac 1 4+\frac 1 4=\frac 2 4\\
 f(3)&=&P(X=3)=P(E_3)=\frac 1 4
 \end{eqnarray*} 
-::::
+:::
 
 La funzione di probabilità $f$ si comporta come le frequenze relative, 
 la $f$ è compresa tra zero e uno, per ogni $x$ e 
 la somma della $f$ calcolata su ogni $x$ dà uno.
 
-:::: {.info data-latex=""}
-:::: {.proposition name="Funzione di probabilità"} 
+:::{.info data-latex=""}
+:::{.proposition name="Funzione di probabilità"} 
 Sia $X$ una VC con supporto $S_X$ e funzione di probabilità $f$, allora
 
 - $0\le f(x)\le1,\forall x\in S_X$
 - $\sum_{x\in S_X} f(x) = 1.$
-::::
-::::
+:::
+:::
 
 La Funzione di Ripartizione $F$ di una VC $X$ cumula tutta la probabilità fino ad $x$:
 
-:::: {.info data-latex=""}
-:::: {.definition name="Funzione di Ripartizione di una VC"}
+:::{.info data-latex=""}
+:::{.definition name="Funzione di Ripartizione di una VC"}
 $$
 F(x)=P(X\le x)=\sum_{x^*\le x} f(x^*)
 $$
-::::
-::::
+:::
+:::
 
-:::: {.example name="Continua"} 
+:::{.example name="Continua"} 
 Continuando l'esempio precedente:
 \begin{eqnarray*}
 F(x)&=&P(X\le x)\\
@@ -185,13 +185,13 @@ F(x)&=&P(X\le x)\\
     \frac 4 4 & x\ge 3
     \end{cases}
 \end{eqnarray*}
-::::
+:::
 
 La funzione di ripartizione gode di diverse proprietà. Una, in particolare sarà utilissima
 per il calcolo delle probabilità della VC continua che vedremo più avanti.
 
-:::: {.info data-latex=""}
-:::: {.proposition name="Funzione di Ripartizione"} 
+:::{.info data-latex=""}
+:::{.proposition name="Funzione di Ripartizione"} 
  La funzione di ripartizione $F$ di una VC $X$ è, per definizione:
  \[F(x)=P(X\leq x)\]
 $F$ gode delle seguenti proprietà:
@@ -200,8 +200,8 @@ $F$ gode delle seguenti proprietà:
 2. $\lim_{x\to -\infty} F(x) = 0$, \qquad $\lim_{x\to\infty} F(x) = 1$.
 3. Continua a destra, ossia $\lim_{x\to x_{0}^{+}} F(x) = F(x_{0})$.
 4. $P(a < X \le b) = F(b) - F(a)$.
-::::
-::::
+:::
+:::
 
 La funzione di ripartizione di una VC si comporta la funzione di ripartizione di
 una VS. 
@@ -210,14 +210,14 @@ Altre caratteristiche si possono calcolare, come i **percentili** di ordine $p$:
 $P(X\le x_p)=p,~~~P(X>x_p)=1-p$
 
 
-:::: {.info data-latex=""}
-:::: {.definition name="Percentie di una VC"}
+:::{.info data-latex=""}
+:::{.definition name="Percentie di una VC"}
 Sia $X$ una VC con support $S_X$ e con Fuzione di Ripartizione $F$, si definisce il $p$-esimo percentile di $X$, il vaolre $x_p$, tale che:
 $$
 x_p:F(x_p)=p
 $$
-::::
-:::: 
+:::
+::: 
 
 La distribuzione può essere rappresentata graficamente con un istogramma di densità.
 Esattamente come per la VC quantitative discrete una VC può essere rappresentata 
@@ -274,7 +274,7 @@ Le VC sono numeri che non sappiamo in anticipo che valore assumeranno. Ma siccom
 diventeranno numeri li potremo sommare, sottrarre, moltiplicare, ecc. sia con numeri
 costanti che con altre VC.
 
-:::: {.example}
+:::{.example}
 Sia $X$ la VC con supporto $S_X=\{-1,0,+1\}$ e con funzione di probabilità
 \begin{eqnarray*}
    f(-1)&=&  \frac 15\\
@@ -312,31 +312,31 @@ colnames(out) <- paste("$Y=",sy,"$",sep="")
 
 res <- two_way(S_1 = sx,S_2 = sy,num1 = c(1,3,1),num2 = c(1,1),op = `+`,EV = F,vnam = "S")
 ```
-::::
+:::
 
 ## Valore Atteso, e Varianza di una VC
 
 Il **valore atteso** di una VC $X$ è l'analogo della media aritmetica di una VC,
 le modalità di $X$ vengono pesate con le probabilità invece che con le frequenze.
 
-:::: {.info data-latex=""}
-:::: {.definition name="Valore Atteso di una VC discreta"} 
+:::{.info data-latex=""}
+:::{.definition name="Valore Atteso di una VC discreta"} 
 Si definisce $E(X)$ il valore atteso della VC $X$ con supporto $S_X$ e funzione di probabilita $f$:
 $$
 E(X)=\sum_{x\in S_x}xf(x)
 $$
-::::
-::::
+:::
+:::
 
 
-:::: {.att data-latex=""}
+:::{.att data-latex=""}
 Il valore atteso di una VC è un numero.
-::::
+:::
 
 La **varianza** di una VC è del tutto analoga alla varianza di una VS.
 
-:::: {.info data-latex=""}
-::::{.definition name="Varianza di una VC discreta"}
+:::{.info data-latex=""}
+:::{.definition name="Varianza di una VC discreta"}
 Si definisce $V(X)$ la varianza della VC $X$ con supporto $S_X$ e funzione di probabilita $f$:
 \begin{eqnarray*} 
 V(X)&=&E\left(\big(X-E(X)\big)^2\right)\\ 
@@ -344,22 +344,22 @@ V(X)&=&E\left(\big(X-E(X)\big)^2\right)\\
     &=& E(X^2)-E^2(X)\\
     &=&\sum_{x\in S_X}x^2f(x)-E^2(X). 
 \end{eqnarray*}
-::::
-::::
+:::
+:::
 
 così come la sua standard deviation.
 
-:::: {.info data-latex=""}
-:::: {.definition name="Standard Deviation di una VC discreta"}
+:::{.info data-latex=""}
+:::{.definition name="Standard Deviation di una VC discreta"}
 Si definisce $SD(X)$ la Standard Deviation della VC $X$ con supporto $S_X$ e funzione di probabilita $f$,
 la radice della sua varianza
 \begin{eqnarray*} 
 SD(X)&=&\sqrt{V(X)}
 \end{eqnarray*}
-::::
-::::
+:::
+:::
 
-:::: {.example name="Continua"}
+:::{.example name="Continua"}
 Continuiamo l'esempio precedente e otteniamo, il valore atteso: 
 $$
 E(X)=1\cdot\frac 1 4 +2\cdot\frac 2 4+3\cdot\frac 1 4=2
@@ -368,12 +368,12 @@ e la varianza di $X$
 $$
 V(X)=1^2\cdot\frac 1 4 +2^2\cdot\frac 2 4+3^2\cdot\frac 1 4 - 2^2= 0.5
 $$
-::::
+:::
 
 Le proprietà di valore atteso e varianza di una VC sono del tutto analoghe alle rispettive di una VS.
 
-:::: {.info data-latex=""}
-:::: {.proposition name="Proprietà del Valore Atteso di una VC"}
+:::{.info data-latex=""}
+:::{.proposition name="Proprietà del Valore Atteso di una VC"}
 Le proprietà del valore atteso, $E(X)$ sono:
 
 1. $x_{\min} \leq E(X) \leq x_{\max}, \quad x_{\min},\ x_{\max}\in S_{X}$,
@@ -381,8 +381,8 @@ Le proprietà del valore atteso, $E(X)$ sono:
 3. $E\Big(X - E(X)\Big)^{2} < E(X - d)^{2} \quad\forall\ d \ne E(X)$,
 4.  $E(a + b X) = a + b\ E(X)$.
 5. $E(aX+bY)=aE(X)+bE(Y)$
-::::
-::::
+:::
+:::
 
 
 Esiste anche l'analogo della proprietà di associatività per il valore atteso, ma richiede
@@ -391,8 +391,8 @@ alcuni risultati che esulano dallo scopo di questi appunti e non verrà riportat
 
 Anche per la varianza di una VC valgono le stesse proprietà della varianza di una VS. In particolare
 
-:::: {.info data-latex=""}
-:::: {.proposition name="Proprietà della Varianza di una VC"}
+:::{.info data-latex=""}
+:::{.proposition name="Proprietà della Varianza di una VC"}
 Le proprietà della Varianza, $V(X)$ sono:
 
 1.  $V(X)\geq 0$,
@@ -400,32 +400,32 @@ Le proprietà della Varianza, $V(X)$ sono:
 3.  $$V(a+bX)=b^2V(X)$$
 4.  Se $X$ e $Y$ sono **indipendenti**, allora 
 $$V(aX+bY)=V(aX-bY)=a^2V(X)+b^2V(Y), \forall~a,b\in\mathbb{R}$$
-::::
-::::
+:::
+:::
 
 Notiamo che nel caso di una VC $X$ la sua varianza vale zero se e solo se la VC
 assume un solo valore con probabilità uno. Quindi una VC che non varia, ovvero una costante.
 
-:::: {.att data-latex=""}
+:::{.att data-latex=""}
 Se $a=1$ e $b=1$ allora $$V(X+Y)=V(X-Y)=V(X)+V(Y)$$
 le varianze non si sottraggono mai.
 :::
 
-:::: {.info data-latex=""}
-:::: {.proposition name="Proprietà della SD di una VC"}
+:::{.info data-latex=""}
+:::{.proposition name="Proprietà della SD di una VC"}
 Le proprietà della Standard Deviation di $X$, $SD(X)$ sono:
 
 1.  $SD(X)\geq 0$,
 2.  $SD(X)=0$ se e solo se $P(X=x)=1$
 3.  $$SD(a+bX)=|b|V(X)$$
 4.  Se $X$ e $Y$ sono **indipendenti**, allora $$SD(aX+bY)=SD(aX-bY)=\sqrt{a^2V(X)+b^2V(Y)}, \forall~a,b\in\mathbb{R}$$
-::::
-::::
+:::
+:::
 
-:::: {.att data-latex=""}
+:::{.att data-latex=""}
 Se $a=1$ e $b=1$ allora $$SD(X+Y)=SD(X-Y)=\sqrt{V(X)+V(Y)}$$
 la SD di una somma non si esprime come la comma delle SD degli addendi.
-::::
+:::
 
 ## Indipendenza tra VC
 
@@ -483,7 +483,7 @@ rownames(out) <- c("$Y=-1$","$Y=+1$")
 
 \scriptsize
 \vspace{10pt}
-:::: {.info2 data-latex=""}
+:::{.info2 data-latex=""}
 <div style="font-size:0.75em;">
 ```{r 06-Variabili-Casuali-3,results='asis'}
 rig1 <- c(" S_X&", "\\text{il supporto della VC $X$:}")
@@ -527,7 +527,7 @@ cat(get(nig[n])[1],"& &",get(nig[n])[2]," \n")
 cat("\\end{align*}\n")
 ```
 </div>
-::::
+:::
 
 \normalsize
 
@@ -826,7 +826,7 @@ $$
 $$
 Allora $Y$ è una VC.
 
-:::: {.example}
+:::{.example}
 Sia $X$ una VC con supporto $\{-1,0,1\}$ r con funzione di probabilità
 $$
 f(x)= \begin{cases}
@@ -853,9 +853,9 @@ f_Y(y)= \begin{cases}
 \frac 14,~~\text{se $x=+5$}\\
 \end{cases}
 $$
-::::
+:::
 
-:::: {.example}
+:::{.example}
 Sia $X$ una VC con supporto $\{-1,0,1\}$ r con funzione di probabilità
 $$
 f(x)= \begin{cases}
@@ -884,9 +884,9 @@ f_Y(y)= \begin{cases}
 \frac 12,~~\text{se $y=1$}\\
 \end{cases}
 $$
-::::
+:::
 
-:::: {.example}
+:::{.example}
 Sia $X$ una VC con supporto $\{-1,0,1\}$ r con funzione di probabilità
 $$
 f(x)= \begin{cases}
@@ -915,9 +915,9 @@ f_Y(y)= \begin{cases}
 \frac 12,~~\text{se $y=1$}\\
 \end{cases}
 $$
-::::
+:::
 
-:::: {.example}
+:::{.example}
 Sia $X$ un VC continua con supporto $S_X=[0,1]$ e funzione di densità $f(x)$. Posto
 $$
 Y=0.5+1.5\cdot X
@@ -949,4 +949,4 @@ text(2.44,-.2,"y")
 arrows(0+.01,ymax/2-.2,.5-.01,0+.1,length = .2,col = 2)
 arrows(1+.01,ymax/2-.2,2-.01,0+.1,length = .2,col = 2)
 ```
-::::
+:::

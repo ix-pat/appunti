@@ -69,7 +69,7 @@ V(X) &=& \sum_{x\in S_X} (x-E(X))^2f(x)\\
 
 ### In Sintesi
 
-:::: {.info data-latex=""}
+:::{.info data-latex=""}
 Se $X$ è distribuita come una Bernoulli di parametro $\pi$, allora
 \begin{align*}
 \text{Notazione} & & X&\sim\text{\rm Ber}(\pi)\\
@@ -79,7 +79,7 @@ Se $X$ è distribuita come una Bernoulli di parametro $\pi$, allora
 \text{Valore Atteso} & & E(X)&=\pi\\
 \text{Varianza} & & V(X)&=\pi(1-\pi)
 \end{align*}
-::::
+:::
 
 ## La VC Binomiale
 
@@ -368,7 +368,7 @@ P(X\geq 2) &=& P(X=2 \cup X=3 \cup X=4 \cup X=5)\\
 
 ### Proprietà
 
-::: {.proposition name="Variabile Casuale Binomiale"}
+:::{.proposition name="Variabile Casuale Binomiale"}
 Sia $X\sim\text{\rm Binom}(n;\pi)$, allora:
 
 1. $E(X)$ e $V(X)$ crescono al crescere di $n$
@@ -379,7 +379,7 @@ Sia $X\sim\text{\rm Binom}(n;\pi)$, allora:
 \[X_1+...+X_m\sim\text{\rm Binom}(n_1+...+n_m;\pi)\]
 :::
 
-:::: {.nota}
+:::{.nota}
 Si osservi che una Binomiale per $n=1$ e $\pi$ equivale ad una Bernoulli di 
 parametro $\pi$
 
@@ -392,13 +392,13 @@ e quindi dalla proprietà riproduttiva abbiamo che se $X_1,X_2,...,X_n$ sono $n$
 \[X_1+...+X_m\sim\text{Binom}(n;\pi)\]
 
 Lanciare 5 volte la stessa moneta e contare il numero di teste equivale, dal punto di vista probabilistico, a lanciare 5 monete identiche e contare il numero di teste.
-::::
+:::
 
 \clearpage
 
 ### In Sintesi
 
-:::: {.info2 data-latex=""}
+:::{.info2 data-latex=""}
 Se $X$ è distribuita come una Binomiale di parametro $\pi$, allora
 
 \begin{align*}
@@ -415,4 +415,4 @@ Siano $X_1,X_2,...,X_m$ $m$ VC indipendenti, ognuna $X\sim\text{Binom}(n_i,\pi),
 
 \[X_1+...+X_m\sim\text{Binom}(n_1+...+n_m;\pi)\]
 
-::::
+:::

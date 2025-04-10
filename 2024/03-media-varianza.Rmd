@@ -51,16 +51,16 @@ par(mar=c(5, 4, 4, 2) + 0.1)
 ```
 :::
 
-:::: {.info data-latex=""}
+:::{.info data-latex=""}
 
-:::: {.definition name="Media Aritmetica"}
+:::{.definition name="Media Aritmetica"}
 Consideriamo la serie dei dati $\mathbf{x}=(x_1,...,x_i,...,x_n)$, si definisce la media aritmetica:
 \[
 \bar x =\frac 1 n \sum_{i=1}^nx_i 
 \]
-::::
+:::
 
-::::
+:::
 
 Ovvero la media tra $n$ numeri $x_1, x_2,...,x_n$ è definita da
 
@@ -185,16 +185,16 @@ tab <- data.frame("Modalità"=y1,"Frequenze"=n)
 kbl(t(tab),booktabs = T, escape = F,linesep = "", digits = 4,col.names=NA)
 ```
 
-:::: {.info data-latex=""}
-:::: {.definition name="Media Artimetica per Dati Raccolti in Classi"}
+:::{.info data-latex=""}
+:::{.definition name="Media Artimetica per Dati Raccolti in Classi"}
 \[
 \bar x =\frac 1 n \sum_{j=1}^K\mathrm{x}_j n_j 
 \]
-::::
-::::
+:::
+:::
 
 
-:::: {.example}
+:::{.example}
 Osserviamo i seguenti dati:
 ```{r 03-media-varianza-4,results='asis',echo=FALSE}
 set.seed(112)
@@ -239,12 +239,12 @@ la media:
          &=& \frac{`r sum(samp)`} {`r n`} \\
          &=& `r mean(samp)`
 \end{eqnarray*}
-::::
+:::
 
 ### Proprietà della Media Aritmetica
 
-:::: {.info data-latex=""}
-:::: {.proposition name="della media aritmetica"}
+:::{.info data-latex=""}
+:::{.proposition name="della media aritmetica"}
 Le principale proprietà della media aritmetica sono:
 
 0. Internalità: $x_{\min} = x_{(1)} \le \bar{x} \le x_{(n)} = x_{\max}$
@@ -273,10 +273,10 @@ la media totale $\bar{x}_{T}$ di $\mathscr{P}=$ è data da
 = \frac{n_{1}\ \bar{x}_{1} + \cdots + n_{K}\ \bar{x}_{K}}
        {n_{1} + \cdots + n_{K}}
 \]
-::::
-::::
+:::
+:::
 
-:::: {.proof} 
+:::{.proof} 
 Qui di seguito le dimostrazioni
 
 0. La proprietà di internalità deriva dal fatto che la somma dei dati è maggiore della
@@ -334,7 +334,7 @@ E quindi la media
 = \frac{n_{1}\ \bar{x}_{1} + \cdots + n_{K}\ \bar{x}_{K}}
        {n_{1} + \cdots + n_{K}}
 \]
-::::
+:::
 
 
 ## La varianza {#var}
@@ -353,29 +353,29 @@ la media, nel secondo chi poco e chi tanto, nel terzo caso uno possiede il total
 
 La varianza misura la distanza dei dati dalla media.
 
-:::: {.info data-latex=""}
-:::: {.definition name="Varianza"}
+:::{.info data-latex=""}
+:::{.definition name="Varianza"}
 Si definisce la varianza la quantità:
 \[
 \sigma^2=\frac 1 n \sum_{1=1}^n(x_i-\bar x)^2
 \]
-::::
-::::
+:::
+:::
 
 La varianza misura lo scostamento medio quadratico dei dati dalla media aritmetica;
 ovvero è la media del quadrato degli scarti.
 
 Con un po' di algebra si dimostra che
 
-:::: {.info data-latex=""}
-:::: {.proposition name="Formula Calcolatoria della Varianza"}
+:::{.info data-latex=""}
+:::{.proposition name="Formula Calcolatoria della Varianza"}
 \[
 \sigma^2=\frac 1 n \sum_{1=1}^n x_i^2 -\bar x^2
 \]
-::::
-::::
+:::
+:::
 
-:::: {.proof}
+:::{.proof}
 \begin{eqnarray*}
    \sigma^2 &=&  \frac 1 n \sum_{1=1}^n(x_i-\bar x)^2\\
    &=& \frac 1n\sum_{1=1}^n(x_i^2+\bar x^2-2\cdot x_i\cdot \bar x)\\
@@ -383,11 +383,11 @@ Con un po' di algebra si dimostra che
    &=& \frac 1n\sum_{1=1}^n x_i^2+\frac nn \bar x^2-\frac 2n\bar x \cdot n\cdot \bar x\\
    &=& \frac 1 n \sum_{1=1}^n x_i^2 -\bar x^2
 \end{eqnarray*}
-::::
+:::
 
 Quindi la varianza si può calcolare o come media del quadrato degli scarti dalla media o come media dei quadrati meno il quadrato della media.
 
-:::: {.example}
+:::{.example}
 Posto $x_1=2$, $x_2=2$, $x_3=2$, $x_4=2$ allora
 \[\bar x =\frac{2+2+2+2}{4}=2\]
 
@@ -396,9 +396,9 @@ Posto $x_1=2$, $x_2=2$, $x_3=2$, $x_4=2$ allora
 \]
 
 Tutti gli individui hanno la stessa quantità che è pari alla media, non c'è variabilità, la varianza vale zero.
-::::
+:::
 
-:::: {.example}
+:::{.example}
 Posto $x_1=1$, $x_2=2$, $x_3=2$, $x_4=3$ allora
 \[\bar x =\frac{2+2+2+2}{4}=2\]
 
@@ -407,9 +407,9 @@ Posto $x_1=1$, $x_2=2$, $x_3=2$, $x_4=3$ allora
 \]
 
 Non tutti gli individui hanno la stessa quantità, c'è variabilità, la varianza è diversa da zero.
-::::
+:::
 
-:::: {.example}
+:::{.example}
 Posto $x_1=0$, $x_2=0$, $x_3=0$, $x_4=8$ allora
 \[\bar x =\frac{0+0+0+8}{4}=2\]
 
@@ -418,7 +418,7 @@ Posto $x_1=0$, $x_2=0$, $x_3=0$, $x_4=8$ allora
 \]
 
 Tutto il totale è posseduto da un solo individuo, c'è massima variabilità.
-::::
+:::
 
 ### Calcolo per Distribuzioni di Frequenza
 
@@ -436,26 +436,26 @@ kbl(t(tab),booktabs = T, escape = F,linesep = "", digits = 4,col.names = NA)%>%
 ```
 la varianza si può calcolare
 
-:::: {.info data-latex=""}
-:::: {.proposition name="Varianza per Dati in Distribuzione di Frequenza"}
+:::{.info data-latex=""}
+:::{.proposition name="Varianza per Dati in Distribuzione di Frequenza"}
 \[
 \sigma^2=\frac 1 n\sum_{j=1}^k(\mathrm{x}_j-\bar x)^2n_j
 \]
-::::
-::::
+:::
+:::
 
 e di conseguenza, con un po' di algebra otteniamo:
 
-:::: {.info data-latex=""}
-:::: {.proposition name="Formula Calcolatoria per la Varianza per Dati in Distribuzione di Frequenza"}
+:::{.info data-latex=""}
+:::{.proposition name="Formula Calcolatoria per la Varianza per Dati in Distribuzione di Frequenza"}
 \[
 \sigma^2=\frac 1 n\sum_{j=1}^k\mathrm{x}_j^2n_j-\bar x^2
 \]
-::::
-::::
+:::
+:::
 
 
-:::: {.example}
+:::{.example}
 
 ```{r 03-media-varianza-7,results='asis',echo=FALSE}
 set.seed(112)
@@ -548,9 +548,9 @@ o alternativamente
          &=& \frac 1 {`r n`}\times `r sum(x^2)`-`r m^2`\\
          &=& `r s2c(x)`
 \end{eqnarray*}
-::::
+:::
 
-:::: {.example}
+:::{.example}
 
 ```{r 03-media-varianza-9, results='asis'}
 set.seed(12)
@@ -608,21 +608,21 @@ e che
        &=& \frac 1 {21} `r sum(x^2)` - `r mean(x)`^2\\
        &=& `r mean(x^2)-mean(x)`
 \end{eqnarray*}
-::::
+:::
 
 ### Proprietà della Varianza
 
-:::: {.info data-latex=""}
-:::: {.proposition name="della varianza $\\sigma^{2}$"}
+:::{.info data-latex=""}
+:::{.proposition name="della varianza $\\sigma^{2}$"}
 Le principale proprietà della varianza sono:
 
 1.  $\sigma^{2} \ge 0$.
 2.  $\sigma^{2}=0$, se e solo se $X$ è costante.
 3.  Se $y_i=a+bx_i$ allora $\sigma^{2}_Y = b^{2} \sigma^{2}_X$.
-::::
-::::
+:::
+:::
 
-:::: {.proof} 
+:::{.proof} 
 Le dimostrazioni qui di seguito.
 
 1. $\sigma^{2} \ge 0$ deriva direttamente dalla definizione, essendo $\sigma^{2}$
@@ -640,7 +640,7 @@ i dati sono uguali alla media, ovvero se i dati sono tutti uguali tra di loro e 
 &=& b^2\sigma_X^2
 \end{eqnarray*}
   
-::::
+:::
 
 
 ## La Standard Deviation {#sd}
@@ -654,16 +654,16 @@ Si definisce la _standard deviation_ (deviazione standard, scarto quadratico med
 
 ### Proprietà della Standard Deviation
 
-:::: {.info data-latex=""}
-:::: {.proposition name="della deviazione standard $\\sigma$"}
+:::{.info data-latex=""}
+:::{.proposition name="della deviazione standard $\\sigma$"}
 Le principale proprietà della deviazione standard sono:
 
 1.  $\sigma\ge 0$.
 2.  $\sigma=0$, se e solo se $X$ è costante.
 3.  Se $y_i=a+bx_i$ allora allora $\sigma_Y = |b|\sigma_X$
 
-::::
-::::
+:::
+:::
 
 Se la distribuzione della $X$ è abbastanza simmetrica e di forma campanulare, allora
 
@@ -700,7 +700,7 @@ la figura La figura \@ref(fig:sd) la corrispondente rappresentazione grafica.
 
 ## Esempi
 
-::::{.example}
+:::{.example}
 
 Si si è chiesta l'età a 37500 uomini e 38100 donne di un determinato collettivo, ed è risultato 
 che gli uomini di quel collettivo hanno un'età media di 45 anni e le donne un'età media di 49 anni. La sintesi dei dati qui di seguito:
@@ -735,9 +735,9 @@ L'età media per l'intera popolazione è
 = \frac{37500 \times 45 + 38100 \times 49} {37500 + 38100}
 = 47.02 .
 \end{displaymath}
-::::
+:::
 
-:::: {.example}
+:::{.example}
 Uno studente iscritto al secondo anno di un CdL, ha superato 7
 esami con un voto medio pari a 26/30. Sostiene un nuovo esame
 ottenendo un voto pari a 28/30. Qual è il voto medio dopo
@@ -758,10 +758,10 @@ Sia $\bar{x}_{8}$ il voto medio dopo l'8$^{o}$ esame.
  =  \frac{182 + 28} {8}
  =  26.25  .
 \end{eqnarray*}
-::::
+:::
 
 
-:::: {.example}
+:::{.example}
 In una contrattazione sindacale, il rappresentante
 del governo propone di alzare di un ammontare fisso di 100 euro
 lo stipendio degli impiegati statali.
@@ -794,9 +794,9 @@ y_{i}   &=& x_{i} + \frac{5} {100}\ x_{i} = 1.05\ x_{i}  \\
 \end{eqnarray*}
  
 La MEDIA aumenta del 5\%, la varianza aumenta in modo quadratico.
-::::
+:::
 
-::::{.example}
+:::{.example}
 La spesa per le vacanze estive (in migliaia di euro) sostenuta
 da 12 famiglie di un condominio è stata di:
 
@@ -833,9 +833,9 @@ x <- c(0 , 0 , 2 , 2.5 , 4 , 5.1 , 5.8 , 6 , 7 , 12 , 15 , 21)
  \sigma_{X}^2 &=& \frac{2^2+...+21^2}{10}-(8.04)^2\\
  &=& `r s2c(x[x>0])`
 \end{eqnarray*}
-::::
+:::
 
-::::{.example}
+:::{.example}
 
 ```{r 03-media-varianza-18}
 i2 <- 0
@@ -895,4 +895,4 @@ Determinare media, mediana e varianza dell'età di servizio dell'industria.
 \sigma_X^2 &=& \frac{1}{115}`r sum(dat2$x2n)`-(11.04)^2\\
 &=& `r sum(dat2$x2n)/115-sum(dat2$xn)/115`
 \end{eqnarray*}
-::::
+:::

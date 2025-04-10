@@ -41,7 +41,7 @@ samp <- genera_dati(brk = brk,n = n,nnn = nnn,rand = F)
 ls2e(stat_base(samp,brk))
 ```
 
-:::: {.example}
+::: {.example}
 Il reddito di $n=$ 4700 famiglie (dati inventati)
 è rappresentato nella tabella di frequenza qui di seguito
 
@@ -61,7 +61,7 @@ Quindi disegniamo l'istogramma di densità percentuale, dove le $h$ sono usate c
 histp(T)
 ```
 
-:::: {.att data-latex=""}
+::: {.att data-latex=""}
 Se al posto delle $h$ usiamo le $f$ disegniamo l'istogramma _sbagliato_, . Notiamo che la classe $[20,50)$
 viene sovra rappresentata. Infatti è vero che il 45% delle famiglie si trova in quella classe, ma è anche vero che l'ampiezza della classe molto grande e l'istogramma non rappresenta i dati.
 

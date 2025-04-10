@@ -12,15 +12,10 @@ options(digits=4)
 opts_knit$set(global.par = TRUE)
 ```
 
-\part{Appendice}
 
-```{r 23-APPENDICE-1}
-if (!html) cat("# (APPENDIX) Appendice {-} ")
-```
+# Richiami sugli Operatori Sommatoria e Produttorio `r ifelse (html,"{-}","")` 
 
-# Richiami sugli Operatori Sommatoria e Produttorio
-
-## Operatore Sommatoria
+## Operatore Sommatoria `r ifelse (html,"{-}","")` 
 
 È una forma simbolica per rappresentare somme di un numero qualunque di addendi.
 Si consideri un insieme di numeri indicizzati con $i$
@@ -72,7 +67,7 @@ allora la _Sommatoria per $a$ che varia in $S$_
 \]
 
 
-**Proprietà della Sommatoria**
+**Proprietà della Sommatoria** 
 
 1. Se $k$ è una costatante, allora
 \[
@@ -190,7 +185,7 @@ Posto $S_X=\{x_1 = 3.1,x_2 = 4.1, x_3 = 1.4\}$,
 
 
 
-## Operatore Produttorio
+## Operatore Produttorio `r ifelse (html,"{-}","")` 
 
 ```{r 23-APPENDICE-5} 
 a <- c(1.1,0.9,1.3)
@@ -213,11 +208,11 @@ Esempio: $a_1=1.1$, $a_2=0.9$, $a_3=1.3$
 \end{eqnarray*}
 
 
-# Richiami di Calcolo Combinatorio
+# Richiami di Calcolo Combinatorio `r ifelse (html,"{-}","")` 
 
 Il **calcolo combinatorio** ha come scopo principale **il conteggio del numero di modi in cui possono verificarsi determinati eventi**, senza doverli enumerare uno per uno. Questo permette di risolvere problemi legati alla disposizione, alla scelta e alla distribuzione di oggetti in modo efficiente e rigoroso.  
 
-Un modello efficace per affrontare queste situazioni è quello delle **\( n \) scatole numerate** e delle **\( k \) palline**, che permette di classificare i problemi combinatori in base a due aspetti fondamentali:  
+Un modello efficace per affrontare queste situazioni è quello delle **$n$ scatole numerate** e delle **$k$ palline**, che permette di classificare i problemi combinatori in base a due aspetti fondamentali:  
 1. Le **palline** possono essere numerate (distinguibili) o non numerate (indistinguibili).  
 2. Il **numero di scatole rispetto alle palline** determina se tutte possono essere sistemate senza vincoli o se vi è un limite.  
 
@@ -226,9 +221,9 @@ A partire da questa impostazione, si sviluppano le formule fondamentali della co
 Quando ogni scatola può contenere al massimo una pallina, si individuano quattro casi principali, ciascuno con una specifica formula combinatoria.
 
 
-## Scelte indipendenti con ripetizione: \( k^n \)
+## Scelte indipendenti con ripetizione: $k^n$ `r ifelse (html,"{-}","")` 
 
-Si consideri il caso in cui abbiamo \( k \) palline numerate e **ogni pallina può essere collocata indipendentemente in una qualsiasi delle \( n \) scatole disponibili**, senza restrizioni sul numero di volte in cui una scatola può essere scelta.  
+Si consideri il caso in cui abbiamo $k$ palline numerate e **ogni pallina può essere collocata indipendentemente in una qualsiasi delle $n$ scatole disponibili**, senza restrizioni sul numero di volte in cui una scatola può essere scelta.  
 
 Il numero totale di distribuzioni è dato da:
 
@@ -236,7 +231,7 @@ Il numero totale di distribuzioni è dato da:
 n^k
 \]
 
-che rappresenta il numero di **sequenze ordinate** di \( n \) elementi scelti tra \( k \) possibilità.
+che rappresenta il numero di **sequenze ordinate** di $n$ elementi scelti tra $k$ possibilità.
 
 :::{.example name="Valigetta"}
 Un sistema di sicurezza utilizza un codice a tre cifre, in cui ciascun numero può variare da 1 a 9. Il codice è quindi una sequenza ordinata di tre elementi, scelti tra 9 possibilità:
@@ -248,9 +243,9 @@ Un sistema di sicurezza utilizza un codice a tre cifre, in cui ciascun numero pu
 Esistono 729 possibili codici di apertura.
 :::
 
-## \( n = k \) Palline numerate: permutazioni
+## $n = k$ Palline numerate: permutazioni `r ifelse (html,"{-}","")` 
 
-Quando il numero di palline è uguale al numero di scatole e ogni pallina è distinguibile, il problema diventa quello di **ordinare \( n \) elementi distinti**. Il numero di modi in cui ciò è possibile è dato dal **fattoriale**.
+Quando il numero di palline è uguale al numero di scatole e ogni pallina è distinguibile, il problema diventa quello di **ordinare $n$ elementi distinti**. Il numero di modi in cui ciò è possibile è dato dal **fattoriale**.
 
 Sia $n\in\mathbb{N}$ un numero naturale, si definisce $n$ fattoriale, il numero 
 
@@ -355,21 +350,21 @@ $$
 52! = \scriptsize `r format(factorial(52),scientific = 100,big.mark = "\\\\hspace{0.9pt}")`
 $$
 
-che è un numero estremamente grande, pari a circa \( 8.0658 \times 10^{67} \). Questo valore evidenzia come, ogni volta che un mazzo di carte viene mescolato, sia altamente improbabile che l’ordine ottenuto sia mai stato realizzato prima.
+che è un numero estremamente grande, pari a circa $8.0658 \times 10^{67}$. Questo valore evidenzia come, ogni volta che un mazzo di carte viene mescolato, sia altamente improbabile che l'ordine ottenuto sia mai stato realizzato prima.
 :::
 
 
 
 
-## \( n > k \) Palline numerate: disposizioni senza ripetizione
+## $n > k$ Palline numerate: disposizioni senza ripetizione `r ifelse (html,"{-}","")` 
 
-Se \( n \) è maggiore di \( k \) e le palline sono numerate, il problema diventa quello di scegliere \( k \) elementi distinti da un insieme di \( n \) e disporli in un ordine specifico. In questo caso, la formula è:
+Se $n$ è maggiore di $k$ e le palline sono numerate, il problema diventa quello di scegliere $k$ elementi distinti da un insieme di $n$ e disporli in un ordine specifico. In questo caso, la formula è:
 
 \[
 \frac{n!}{(n-k)!}
 \]
 
-che rappresenta il numero di **sequenze ordinate** di \( k \) elementi scelti da un insieme di \( n \) elementi distinti.
+che rappresenta il numero di **sequenze ordinate** di $k$ elementi scelti da un insieme di $n$ elementi distinti.
 
 :::{.example}
 Se si estrae una mano di 5 carte da un mazzo di 52 e si considera l'ordine di estrazione, il numero di possibili sequenze è:
@@ -381,9 +376,9 @@ Se si estrae una mano di 5 carte da un mazzo di 52 e si considera l'ordine di es
 che fornisce $311\,875\,200$ possibili sequenze.
 :::
 
-## \( n > k \) Palline non numerate: coefficienti binomiale
+## $n > k$ Palline non numerate: coefficienti binomiale `r ifelse (html,"{-}","")` 
 
-Se \( n > k \) e le palline sono **non numerate**, il problema si riduce alla **scelta di \( k \) scatole tra \( n \) disponibili**, senza considerare l'ordine. Questo corrisponde al numero di **combinazioni** di \( k \) elementi scelti tra \( n \), dato dal coefficiente binomiale:
+Se $n > k$ e le palline sono **non numerate**, il problema si riduce alla **scelta di $k$ scatole tra $n$ disponibili**, senza considerare l'ordine. Questo corrisponde al numero di **combinazioni** di $k$ elementi scelti tra $n$, dato dal coefficiente binomiale:
 
 \[
 \binom{n}{k} = \frac{n!}{k!(n-k)!}
@@ -399,7 +394,7 @@ Nel Superenalotto, si scelgono 6 numeri tra 90, senza che l'ordine abbia rilevan
 che fornisce $622\,614\,630$ possibilità. Questo spiega l'estrema difficoltà di vincere il jackpot.
 :::
 
-## Il coefficiente binomiale
+## Il coefficiente binomiale `r ifelse (html,"{-}","")` 
 
 Il coefficiente binomiale $\binom{n}{k}$ conta in quanti modi posso disporre $k$ oggetti indistinguibili in $n\ge k$ posti:
 \[\binom{n}{ k}=\frac {n!}{k!(n-k)!}\]
@@ -432,9 +427,9 @@ kable(trg,row.names = T,align = 'c',
 
 
 
-# Richiami di Matematica
+# Richiami di Matematica `r ifelse (html,"{-}","")` 
 
-## Richiami sui logaritmi
+## Richiami sui logaritmi `r ifelse (html,"{-}","")` 
 
 Si definisce $\log x$ il logaritmo naturale di $x>0$
   - $\lim_{x\to 0}\log x = -\infty$
@@ -467,9 +462,9 @@ Inoltre
 
 
 
-## Richiami di Analisi
+## Richiami di Analisi `r ifelse (html,"{-}","")` 
 
-### Note sulla cardinalità degli insiemi
+### Note sulla cardinalità degli insiemi `r ifelse (html,"{-}","")` 
 
 In matematica la cardinalità di un insieme indica il numero dei suoi elementi.
 
@@ -477,7 +472,7 @@ L'insieme $E=\{a,b,c\}$ ha *cardinalità* finita $$\text{card} (E)=\# E = 3$$ L'
 \mathbb{N}=\{0,1,2,3,...\}
 $$ ha **cardinalità infinita numerabile** $$\# \mathbb{N} = \aleph_0,\qquad \text{infinito numerabile}$$ L'insieme dei reali $$\mathbb{R}=\mathbb{Q}\cup\mathbb{I}, \qquad\text{i numeri reali sono dati dall'unione dei razionali $\mathbb{Q}$ e degli irrazionali $\mathbb{I}$}$$ ha **cardinalità infinita più che numerabile** $$\# \mathbb{R} = \aleph_1,\qquad \text{infinito più che numerabile}$$
 
-### Funzioni Reali e loro derivate
+### Funzioni Reali e loro derivate `r ifelse (html,"{-}","")` 
 
 Solitamente in analisi matematica si studia una generica funzione $f$, dove la variabile è $x$.
 La maggior parte degli esercizi riguardano 
@@ -494,19 +489,24 @@ restano per individuare i dati e le variabili sono i parametri del modello.
 
 Quindi scriveremo, per esempio,
 
-\[
-g(\theta)=\log \theta,~~~ \theta\in\Theta
-\]
+$$
+\ell(\theta)=\log \theta,~~~ \theta\in\Theta
+$$
 
-e leggeremo: $g$ è funzione di $\theta$ e se dobbiamo derivare la funzione
+e leggeremo: $\ell$ è funzione di $\theta$ e se dobbiamo derivare la funzione
 lo facciamo rispetto a $\theta$:
-\[g'(\theta)=\frac{1}\theta\]
+\[\ell'(\theta)=\frac{1}\theta\]
 
 Ricordiamo qualche semplice regola di derivazione:
 
-Se $f(\theta)=g(h(\theta))$
-\[f'(\theta)=g'(h(\theta))h'(\theta)\]
+Se $\ell(\theta)=g(h(\theta))$
+$$
+\ell'(\theta)=g'(h(\theta))h'(\theta)
+$$
 
-Se $f(\theta)=\log h(\theta)$
-\[f'(\theta)=\frac{h'(\theta)}{h(\theta)}\]
+Se $\ell(\theta)=\log h(\theta)$
+
+$$
+\ell'(\theta)=\frac{h'(\theta)}{h(\theta)}
+$$
 
