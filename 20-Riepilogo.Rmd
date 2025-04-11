@@ -96,7 +96,7 @@ if (!html)  cat("# (APPENDIX) Appendice {-} ")
 | $\mathbb{R}^+$ | Numeri reali positivi $0\le x<+\infty$ |
 | $\mathbb{R}^2$ | Piano cartesiano: insieme delle coppie ordinate di numeri reali $(x_1,x_2)$, $\mathbb{R}^2 = \mathbb{R} \times \mathbb{R}$ |
 | $\mathbb{R}^n$ | Insieme delle $n$-ple ordinate di numeri reali $(x_1,...,x_n)$, $\mathbb{R}^n = \mathbb{R} \times ... \times \mathbb{R}$ |
-| $\binom{n}{k}$ | Coefficiente binomiale $n$ su $k$ |
+| $\displaystyle \binom{n}{k}$ | Coefficiente binomiale $n$ su $k$ |
 | $\text{sign}(x)$ | segno di $x$, $+1$ se $x>0$ e $-1$ se $x<0$ e $0$ se $x=0$ |
 | $\lfloor x \rfloor$ | è la parte intera di $x$, es $\lfloor 3. 7 \rfloor =3$ |
 | $\lceil x \rceil$ | è la parte intera superiore di $x$, es $\lceil 3.2 \rceil = 4$ |
