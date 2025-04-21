@@ -19,13 +19,16 @@ source("intro.R")
 
 <!-- Questa definizione si adatta perfettamente al contesto statistico, dove l'attenzione è focalizzata sull'interpretazione e sulle implicazioni dei dati raccolti. -->
 
-Dalla Treccani si definisce l'atto di inferire come: 
+
+Dalla Treccani si definisce l'atto di inferire come:
 
 > Trarre, partendo da una determinata premessa o dalla constatazione di un fatto, una conseguenza, un giudizio, una conclusione.
 
-Inferire è un atto fondamentale non solo del pensiero umano, ma anche della vita stessa. Gran parte delle specie evolute possiede un istinto innato per trarre conclusioni a partire dall'osservazione dell'ambiente circostante. Che si tratti di un animale che associa il rumore di un predatore al pericolo o di una pianta che risponde agli stimoli luminosi per orientare la crescita, l'inferenza è una strategia essenziale per adattarsi e sopravvivere.
+Inferire è l'operazione mentale con cui si collegano osservazioni a conclusioni, esperienze passate a previsioni future. Non si tratta di una semplice reazione automatica, ma di un processo che implica riconoscimento, elaborazione e astrazione. È grazie a questa facoltà che siamo in grado di orientare le nostre decisioni nel tempo, non soltanto nel presente.
 
-L'uomo, tuttavia, si distingue per un aspetto cruciale: la capacità di prendere coscienza di questo processo, di formalizzarlo e di costruirci sopra un linguaggio. La riflessione sull'inferenza, il tentativo di comprendere e replicare consapevolmente ciò che molte specie fanno istintivamente, ha dato origine a discipline come la logica, la matematica e, infine, la statistica. Studiando l'inferenza, l'uomo è riuscito a trasformare un'abilità naturale in un processo razionale, formale e comunicabile, che non solo migliora la comprensione del mondo, ma rende possibile la condivisione e la riproduzione di quel sapere.
+Questa capacità non è esclusiva dell'uomo: molte specie evolute sono in grado di apprendere dall'esperienza e di adattare il proprio comportamento in base a regolarità osservate nell'ambiente. Un animale che riconosce nel rumore tra i cespugli un potenziale pericolo non agisce meccanicamente: sta operando una forma di inferenza, per quanto priva di consapevolezza riflessiva.
+
+L'uomo, tuttavia, si distingue per un aspetto cruciale: la possibilità di prendere coscienza di questo processo, di rappresentarlo simbolicamente, di formalizzarlo e di costruirci sopra un linguaggio. È da questa consapevolezza che nascono la logica, la matematica e, infine, la statistica. Studiando l'inferenza, l'uomo ha trasformato un'attitudine naturale in un procedimento rigoroso, replicabile e comunicabile, capace di estendere la conoscenza oltre il singolo caso o il vissuto individuale.
 
 Esistono diverse modalità di inferenza, che riflettono modi distinti di trarre conclusioni: **deduttiva**, **induttiva diretta** e **induttiva inversa**.
 
@@ -39,7 +42,6 @@ Ciò che rende l'inferenza statistica così straordinaria è proprio la sua capa
 
 In definitiva, l'inferenza statistica è l'espressione più raffinata di una capacità condivisa con molte specie, ma che l'uomo ha elevato a strumento consapevole e rigoroso. Essa rappresenta un ponte tra l'istinto naturale e la razionalità formale, dimostrando come un processo profondamente radicato nella biologia possa essere trasformato in un metodo universale per comprendere il mondo.
 
-Per comprendere la differenza tra inferenza induttiva diretta e inversa, consideriamo il classico esempio di un'urna contenente bussolotti di due colori: rosso e blu.
 
 
 
