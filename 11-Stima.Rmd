@@ -16,50 +16,19 @@ Il problema della **stima** nasce quando si vuole assegnare un valore numerico a
 Nel nostro contesto, un parametro può essere, ad esempio, la media \(\mu\), la varianza \(\sigma^2\), una proporzione \(\pi\), un tasso \(\lambda\), o più in generale un elemento \(\theta\) di uno spazio dei parametri \(\Theta\). La stima si basa sull'uso di un **campione**, ossia un insieme di dati osservati, che contiene informazione parziale sulla popolazione o sul modello.
 
 
-
 ## Campionamento
 
 Un campione casuale è un certo numero di $n$ di osservazioni prese a caso dalla popolazione $\mathscr{P}$. Nel quadro dell'inferenza statistica, il **campionamento** è il processo attraverso cui si seleziona un sottoinsieme di unità da una popolazione \(\mathscr{P}\), al fine di trarne informazioni utili. Il tipo di inferenza che si può condurre dipende in larga parte dal modo in cui è stato ottenuto il campione.
 
 ### Campioni casuali
 
-La **casualità nella selezione** non è un espediente tecnico, ma un presupposto fondamentale per garantire che le conclusioni tratte dal campione siano generalizzabili alla popolazione. Solo un campione ottenuto in modo casuale consente di utilizzare il linguaggio probabilistico per quantificare l'incertezza delle stime. 
-
-In assenza di casualità, è difficile (o impossibile) distinguere ciò che è strutturale da ciò che è frutto di una selezione distorta. Le ipotesi matematiche, come l'indipendenza tra osservazioni o l'identica distribuzione, si fondano sull'idea che ogni unità della popolazione abbia avuto la stessa probabilità di essere inclusa, o comunque una probabilità nota e controllata.
-
-### Campionamento da popolazioni finite e note
-
-Quando la popolazione è **finita e nota**, il disegno di campionamento può essere esplicitamente definito e controllato. Questo è il caso tipico delle **statistiche ufficiali**, dove la popolazione di riferimento è costituita, ad esempio, da tutti i residenti, le famiglie, le imprese, gli studenti iscritti, ecc., elencati in una lista completa.
-
-In tali contesti, la selezione del campione non avviene semplicemente in modo casuale puro, ma attraverso un **piano di campionamento** (o **disegno**) strutturato, il cui obiettivo è garantire:
-
-- **buona rappresentatività**, anche su sottogruppi della popolazione;
-- **precisione accettabile** delle stime, cioè varianza bassa;
-- **contenimento del costo** e dell'ampiezza del campione \(n\).
-
-Per ottenere questi obiettivi, si ricorre a tecniche come il **campionamento stratificato**, il **campionamento a grappoli**, o il **campionamento multistadio**. In questi casi, la struttura stessa del disegno campionario influisce sul calcolo delle stime e sull'analisi dell'errore, ed è parte integrante del modello inferenziale.
-
-
-### Campionamento da un'urna con e senza reintroduzione
-
-Ogni meccanismo di generazione casuale può essere rappresentato da un opportuno **sistema d'urne**. La metafora dell'urna consente di astrarre la nozione di popolazione e di modellare sia fenomeni concreti sia schemi probabilistici più generali. 
-
-Un'urna può contenere elementi **in numero finito**, noti o ignoti, e l'estrazione può avvenire **con o senza reintroduzione**, modellando così diversi schemi di campionamento. Ma possiamo spingerci oltre: urne ideali possono rappresentare anche **meccanismi continui** (come una normale) o **conteggi** (come una Poisson), facendo dell'urna un **dispositivo concettuale** che cattura l'idea stessa di casualità controllata.
-
-In questa prospettiva:
-
-- le urne finite senza reintroduzione modellano il campionamento da **popolazioni finite note**, come nei censimenti o nelle statistiche ufficiali;
-- le urne con reintroduzione, eventualmente a composizione ignota, rappresentano **popolazioni concettualmente infinite**, come nei modelli Bernoulli o Poisson;
-- un'urna che genera numeri reali con legge normale o gamma rappresenta un **modello statistico continuo**, in cui ogni estrazione è una realizzazione di una variabile aleatoria.
-
-La potenza di questa rappresentazione sta nella sua **neutralità applicativa**: possiamo pensare a urne di oggetti fisici, ma anche a urne astratte che sintetizzano comportamenti, eventi, preferenze, misure. In ogni caso, descrivere bene l'urna equivale a **definire un modello statistico**.
 
 Nel nostro percorso considereremo due situazioni fondamentali:
 
 - Il **campionamento con reinserimento** (o con restituzione), dove ogni osservazione è estratta in modo indipendente dalla popolazione o dal modello.
 - Il **campionamento senza reinserimento**, dove le osservazioni non sono indipendenti e provengono da una popolazione finita di dimensione \( N \), da cui vengono estratti \( n \) elementi senza ripetizioni.
 
-Nel primo caso, \( X_1, ..., X_n \) sono **IID** (indipendenti e identicamente distribuite) e rappresentano il caso classico di inferenza da popolazioni infinite o da modelli. Nel secondo, si ha una struttura di **dipendenza debole** tra le unità campionarie, e l'inferenza deve tener conto della dimensione della popolazione e della frazione di campionamento \( n/N \).
+Nel primo caso, $X_1, ..., X_n$ sono **IID** (indipendenti e identicamente distribuite) e rappresentano il caso classico di inferenza da popolazioni infinite o da modelli. Nel secondo, si ha una struttura di **dipendenza debole** tra le unità campionarie, e l'inferenza deve tener conto della dimensione della popolazione e della frazione di campionamento \( n/N \).
 
 ### Lessico
 
@@ -71,6 +40,8 @@ un campione osservato è un insieme di numeri
 
 Lo _Spazio dei Campioni_ $\mathcal{S}$ è il supporto della VC multipla $X_1,...,X_n$
 è l'insieme di tutti i possibili campioni di ampiezza $n$: $(x_1,...,x_n)$ che possiamo osservare.
+
+
 
 ### Esempio al finito
 
@@ -196,6 +167,8 @@ Uno **stimatore** puntuale (point estimator) è una statistica $\hat\theta$ che 
 :::
 :::
 
+![](img/inferenza1-1.png)
+
 Il campione $X_1,...,X_n$ casuale viene trasformato attraverso $\hat\theta$ in un punto specifico di $\Theta$
 \[\hat\theta(X_1,...,X_n)=\hat\theta\in\Theta\]
 
@@ -205,6 +178,8 @@ Uno **stimatore** è una variabile casuale in quanto funzione di valori casuali.
 Da una popolazione che ha $E(X_i)=\mu$ incognita, potremmo proporre di _stimare_ $\mu$ con la media dei dati che _otterremo_:
 \[\hat\mu(X_1,...,X_n)=\frac 1 n \sum_{i=1}^n X_i=\bar X=\hat \mu\]
 :::
+
+![](img/inferenza2-2.png)
 
 :::{.example} 
 Da una popolazione di Poisson che ha $X_i\sim\text{Poiss}(\lambda)$, $\lambda$ incognita, potremmo proporre di _stimare_ $\lambda$ con la mediana dei dati che _otterremo_:

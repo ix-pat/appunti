@@ -1,4 +1,4 @@
-\documentclass{standalone}
+\documentclass[tikz]{standalone}
 \usepackage{tikz}
 \usepackage{amsmath,amsthm,amssymb}
 \usepackage{mathrsfs}
@@ -32,5 +32,107 @@
 
 
 \end{tikzpicture}
+
+% 
+% 
+% \begin{tikzpicture}[scale=3.5]
+% 
+% % Ellissi
+% \draw    (-1,1) ellipse (.75 and 0.5);
+% \draw   ( 1,1) ellipse (.75 and 0.5);
+% \draw     ( 0,-.5) ellipse (.75 and 0.5);
+% 
+% % Testo nei tre ovali
+% \node at (-1.3,1.5)    {$\mathscr{P}$};
+% \node at ( 1.3,1.5)    {$\mathcal{S}$};
+% \node at ( -.5,0) {$\Theta$};
+% \filldraw (1.025,1.15) circle (.5pt);
+% \filldraw[fill=red, draw=red] (1.12,.7) circle (0.5pt);
+% \node[align=left,below] at (1,1.2) {$\left(x_1^{(1)},...,x_n^{(1)}\right)$};
+% \node[align=left,above,text=red] at (1.1 ,.7) {$\left(x_1^{(2)},...,x_n^{(2)}\right)$};
+% 
+% % Freccia osservazione
+% \draw[->, thick, dashed] (-1 ,1.2) to [bend left=60] (1 ,1.2);
+% \draw[->, thick, dashed] (-1.2 ,1.1) to [bend left=60] (1 ,1.2);
+% \draw[->, thick, dashed] (-.9 ,1) to [bend left=60] (1 ,1.2);
+% \draw[->, thick, dashed, draw=red] (-1. ,.85) to [bend left=-60] (1.1 ,.65);
+% \draw[->, thick, dashed, draw=red] (-.7 ,.7) to [bend left=-60] (1.1 ,.65);
+% \draw[->, thick, dashed, draw=red] (-1 ,.76) to [bend left=-60] (1.1 ,.65);
+% \node[below] at (0,1.9) {Campionamento};
+% 
+% \end{tikzpicture}
+
+\Sexpr{knitr::opts_chunk$set(include=FALSE)}
+
+<<>>=
+# Coordinate ovali
+xpop <- -1; ypop <- 1
+xsam <-  1; ysam <- 1
+xtheta <- 0; ytheta <- -0.5
+
+# Coordinate label ovali
+labP <- c(-1.3, 1.5)
+labS <- c( 1.3, 1.5)
+labT <- c(-0.5, 0)
+
+# Campioni
+pt1 <- c(.8, 1.15)
+pt2 <- c(1.12, 0.7)
+lab1 <- c(1.2, 1.2)
+lab2 <- c(1.1, 0.7)
+
+om1 <- c(-0.5,-.5)
+om2 <- c(+0.5,-.2)
+
+# Frecce nere
+arrows1 <- list(c(-1.0, 1.2), c(-1.2, 1.1), c(-0.9, 1.0))
+# Frecce rosse
+arrows2 <- list(c(-1.5, 1), c(-0.9, 0.9), c(-1.3, 1.2))
+
+# Etichetta
+lab_camp <- c(0, 1.9)
+@
+
+\begin{tikzpicture}[scale=3.5]
+
+% Ellissi
+\draw    (\Sexpr{xpop},\Sexpr{ypop}) ellipse (.75 and 0.5);
+\draw    (\Sexpr{xsam},\Sexpr{ysam}) ellipse (.75 and 0.5);
+\draw    (\Sexpr{xtheta},\Sexpr{ytheta}) ellipse (.75 and 0.5);
+
+% Etichette ovali
+\node at (\Sexpr{labP[1]},\Sexpr{labP[2]}) {$\mathscr{P}$};
+\node at (\Sexpr{labS[1]},\Sexpr{labS[2]}) {$\mathcal{S}$};
+\node at (\Sexpr{labT[1]},\Sexpr{labT[2]}) {$\Theta$};
+\node at (0,-.5) {$\theta_\text{vero}$};
+
+% Punti osservati
+\filldraw (\Sexpr{pt1[1]+.02},\Sexpr{pt1[2]-.02}) circle (.5pt);
+\filldraw[fill=red, draw=red] (\Sexpr{pt2[1]+.02},\Sexpr{pt2[2]}+.02) circle (.5pt);
+
+% Etichette osservazioni
+\node[align=left, below] at (\Sexpr{lab1[1]},\Sexpr{lab1[2]}) {$\left(x_1^{(1)},\dots,x_n^{(1)}\right)$};
+\node[align=left, above, text=red] at (\Sexpr{lab2[1]},\Sexpr{lab2[2]}) {$\left(x_1^{(2)},\dots,x_n^{(2)}\right)$};
+\node[align=left, right] at (\Sexpr{om1[1]+.02},\Sexpr{om1[2]-.02}) {$\hat\theta^{(1)}$};
+\node[align=left, left,text=red] at (\Sexpr{om2[1]-.02},\Sexpr{om2[2]}) {$\hat\theta^{(2)}$};
+% Frecce nere (campionamento)
+\Sexpr{
+  paste0("  \\draw[->, thick, dashed] (", sapply(arrows1, function(p) paste(p[1], p[2], sep=",")), ") to [bend left=60] (", pt1[1], ",", pt1[2], ");", collapse = "\n")
+}
+
+\draw[->, thick] (\Sexpr{pt1[1]}-.02,\Sexpr{pt1[2]-.02}) to [bend left=-60] (\Sexpr{om1[1]},\Sexpr{om1[2]});
+\draw[->, thick,draw=red] (\Sexpr{pt2[1]}+.04,\Sexpr{pt2[2]-.02}) to [bend left=+60] (\Sexpr{om2[1]},\Sexpr{om2[2]});
+% Frecce rosse (secondo campione)
+\Sexpr{
+  paste0("  \\draw[->, thick, dashed, draw=red] (", sapply(arrows2, function(p) paste(p[1], p[2], sep=",")), ") to [bend left=-60] (", pt2[1], ",", pt2[2], ");", collapse = "\n")
+}
+
+% Etichetta del processo
+\node[below] at (\Sexpr{lab_camp[1]},\Sexpr{lab_camp[2]}) {Campionamento};
+
+\end{tikzpicture}
+  
+  
+
 
 \end{document}

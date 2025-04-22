@@ -7608,7 +7608,7 @@ Allora
 
 \chapter{Inferenza: concetti introduttivi}\label{inferenza-concetti-introduttivi}
 
-\subsection{Inferire: dalla reazione istintiva al linguaggio formale}\label{inferire-dalla-reazione-istintiva-al-linguaggio-formale}
+\section{Inferire: dalla reazione istintiva al linguaggio formale}\label{inferire-dalla-reazione-istintiva-al-linguaggio-formale}
 
 Inferire significa trarre una conclusione a partire da qualcosa di noto. Secondo la Treccani:
 
@@ -7638,7 +7638,33 @@ Ciò che rende l'inferenza statistica così straordinaria è proprio la sua capa
 
 In definitiva, l'inferenza statistica è l'espressione più raffinata di una capacità condivisa con molte specie, ma che l'uomo ha elevato a strumento consapevole e rigoroso. Essa rappresenta un ponte tra l'istinto naturale e la razionalità formale, dimostrando come un processo profondamente radicato nella biologia possa essere trasformato in un metodo universale per comprendere il mondo.
 
-\section{Inferenza da popolazioni finite}\label{inferenza-da-popolazioni-finite}
+\section{L'inferenza Statistica}\label{linferenza-statistica}
+
+\subsection{Il campione e il campionamento}\label{il-campione-e-il-campionamento}
+
+Qualsiasi ragionamento inferenziale parte da un \textbf{insieme di dati osservati}, ottenuti attraverso un processo di raccolta più o meno strutturato. Questo insieme viene chiamato \textbf{campione}.
+
+Un campione è una collezione di osservazioni che rappresentano, in qualche modo, una porzione di un fenomeno più ampio. Nella pratica, può trattarsi di persone, oggetti, eventi, misurazioni, scelte, comportamenti: ciò che accomuna questi elementi è che vengono \textbf{osservati e registrati}, con l'intenzione di trarne informazioni generalizzabili.
+
+L'inferenza statistica nasce proprio da questa intenzione: \textbf{risalire da ciò che è osservato a ciò che non lo è}, o non lo è ancora. In questo passaggio, il campione gioca un ruolo centrale: è la principale fonte informativa di cui disponiamo.
+
+Affinché un campione possa davvero rappresentare un contesto più ampio, è essenziale che sia stato \textbf{selezionato in modo casuale}. La casualità non è una garanzia, ma è l'unico strumento che abbiamo per \textbf{trattare l'incertezza in modo formale}.
+
+Un campione \textbf{casuale} è quello in cui ogni unità ha avuto una \textbf{probabilità nota e non nulla} di essere inclusa. Questa ipotesi rende possibile l'uso del linguaggio probabilistico per quantificare il margine di errore delle conclusioni, valutare la variabilità delle stime, e costruire intervalli di confidenza o test d'ipotesi.
+
+In assenza di casualità, non esiste una base teorica solida per distinguere ciò che è strutturale da ciò che è contingente, o frutto di una distorsione nella selezione. È per questo che i modelli statistici --- anche i più semplici --- assumono che le osservazioni siano state ottenute da un \textbf{campione casuale}, o da un processo che può essere trattato come tale.
+
+Nel corso di questo testo considereremo due principali prospettive sul campione.
+
+Nella prima, la popolazione è un \textbf{insieme finito} che sia noto: come l'elenco degli studenti iscritti a un corso, delle famiglie residenti in un comune o delle aziende registrate in una banca dati, oppure no: le aziende che hanno un gestionale che ha più di 10 anni, i consumatori abituali degli spaghetti Barilla. In questo caso, il campione è un sottoinsieme selezionato secondo un criterio che può essere casuale (campionamento probabilistico) o deterministico. L'inferenza consiste nel trarre conclusioni sulle statistiche descrittive della popolazione (come una media o una proporzione), basandosi sul campione osservato.
+
+Nella seconda prospettiva, i dati sono visti come \textbf{realizzazioni di un esperimento aleatorio}, governato da una legge probabilistica sconosciuta. La popolazione in questo caso non è un elenco finito di unità, ma un \textbf{modello} che descrive come i dati vengono generati. Il campione è una sequenza di variabili casuali, generalmente considerate \textbf{indipendenti e identicamente distribuite (IID)}. L'inferenza si concentra allora sui \textbf{parametri del modello} che meglio spiegano il comportamento osservato.
+
+In entrambe le impostazioni, la probabilità gioca un ruolo cruciale. Non perché ogni fenomeno sia necessariamente aleatorio, ma perché trattare l'incertezza come se fosse il risultato di un meccanismo probabilistico ci permette di ragionare in modo sistematico e controllato.
+
+La probabilità, in questo contesto, non è solo uno strumento di calcolo: è una lingua formale per parlare dell'ignoto, che rende possibile quantificare l'incertezza, dichiarare con quali margini ci si fida di una conclusione, e soprattutto rendere trasparente e replicabile il processo inferenziale.
+
+\subsection{Inferenza da popolazioni finite}\label{inferenza-da-popolazioni-finite}
 
 Le popolazioni finite rappresentano il contesto più vicino all'intuizione comune. Si tratta di insiemi chiusi e completamente enumerabili di unità, come le persone registrate in un censimento o gli studenti iscritti a un corso. In questi casi, ogni elemento della popolazione può essere associato a una lista, e il campione rappresenta una frazione precisa della popolazione. Questo contesto è tipico delle statistiche ufficiali, come quelle prodotte dall'ISTAT, dall'Eurostat e dall'OCSE.
 
@@ -7663,7 +7689,7 @@ Ecco alcuni esempi concreti di indagini campionarie su popolazioni finite:
 
 Queste analisi si basano su campioni estratti da popolazioni note e completamente enumerate. Il disegno campionario, il calcolo dei pesi e l'analisi dei dati tengono esplicitamente conto della struttura finita della popolazione e della complessità del piano di campionamento. La qualità dell'inferenza dipende in larga parte dalla precisione con cui questi aspetti sono progettati e implementati.
 
-\section{Inferenza da popolazioni infinite}\label{inferenza-da-popolazioni-infinite}
+\subsection{Inferenza da popolazioni infinite}\label{inferenza-da-popolazioni-infinite}
 
 Nel lavoro statistico reale, capita spesso di trovarsi in contesti in cui la popolazione non è elencabile né finita, o non è nemmeno definibile in modo operativo. In questi casi si adotta un approccio diverso: si assume che i dati osservati derivino da una \textbf{popolazione concettualmente infinita}, e si modellano come realizzazioni di una variabile aleatoria. Si tratta di una rappresentazione idealizzata, ma estremamente potente e spesso necessaria per dare senso e struttura all'analisi dei dati.
 
@@ -7687,7 +7713,7 @@ Esempi classici includono:
 
 Anche quando i dati provengono da una popolazione finita, può essere utile (o necessario) adottare il punto di vista modellistico, trattando i dati come esiti casuali di un esperimento teorico. È una scelta metodologica che consente di rispondere a domande su effetti, relazioni, rischi, scenari ipotetici.
 
-\section{Inferenza non parametrica e inferenza parametrica}\label{inferenza-non-parametrica-e-inferenza-parametrica}
+\subsection{Inferenza non parametrica e inferenza parametrica}\label{inferenza-non-parametrica-e-inferenza-parametrica}
 
 Una volta accettato il quadro modellistico, si aprono due grandi strade a seconda del grado di struttura imposto al modello probabilistico:
 
@@ -7719,6 +7745,24 @@ Questa classificazione dei contesti di inferenza aiuta a chiarire il tipo di dom
 \section{Dalle popolazioni ai modelli: la metafora dell'urna}\label{dalle-popolazioni-ai-modelli-la-metafora-dellurna}
 
 Per fissare le idee sui diversi schemi inferenziali che incontreremo nel corso, possiamo fare ricorso alla metafora dell'urna, già utilizzata nello studio della probabilità. In ciascun caso, l'urna rappresenta un meccanismo stocastico, idealmente realizzabile o puramente concettuale, da cui si ottengono osservazioni mediante un campionamento probabilistico. La metafora non suggerisce un'applicazione, ma si concentra sul \textbf{meccanismo probabilistico} alla base di ciascun tipo di inferenza.
+
+Ogni meccanismo di generazione casuale può essere rappresentato da un opportuno \textbf{sistema d'urne}. La metafora dell'urna consente di astrarre la nozione di popolazione e di modellare sia fenomeni concreti sia schemi probabilistici più generali.
+
+Un'urna può contenere elementi \textbf{in numero finito}, noti o ignoti, e l'estrazione può avvenire \textbf{con o senza reintroduzione}, modellando così diversi schemi di campionamento. Ma possiamo spingerci oltre: urne ideali possono rappresentare anche \textbf{meccanismi continui} (come una normale) o \textbf{conteggi} (come una Poisson), facendo dell'urna un \textbf{dispositivo concettuale} che cattura l'idea stessa di casualità controllata.
+
+In questa prospettiva:
+
+\begin{itemize}
+\tightlist
+\item
+  le urne finite senza reintroduzione modellano il campionamento da \textbf{popolazioni finite note}, come nei censimenti o nelle statistiche ufficiali;
+\item
+  le urne con reintroduzione, eventualmente a composizione ignota, rappresentano \textbf{popolazioni concettualmente infinite}, come nei modelli Bernoulli o Poisson;
+\item
+  un'urna che genera numeri reali con legge normale o gamma rappresenta un \textbf{modello statistico continuo}, in cui ogni estrazione è una realizzazione di una variabile aleatoria.
+\end{itemize}
+
+La potenza di questa rappresentazione sta nella sua \textbf{neutralità applicativa}: possiamo pensare a urne di oggetti fisici, ma anche a urne astratte che sintetizzano comportamenti, eventi, preferenze, misure. In ogni caso, descrivere bene l'urna equivale a \textbf{definire un modello statistico}.
 
 \subsection{\texorpdfstring{Campionamento da un'urna di dimensione nota, senza reinserimento \textbf{(popolazioni finite)}}{Campionamento da un'urna di dimensione nota, senza reinserimento (popolazioni finite)}}\label{campionamento-da-unurna-di-dimensione-nota-senza-reinserimento-popolazioni-finite}
 
@@ -7841,48 +7885,6 @@ Nel nostro contesto, un parametro può essere, ad esempio, la media \(\mu\), la 
 Un campione casuale è un certo numero di \(n\) di osservazioni prese a caso dalla popolazione \(\mathscr{P}\). Nel quadro dell'inferenza statistica, il \textbf{campionamento} è il processo attraverso cui si seleziona un sottoinsieme di unità da una popolazione \(\mathscr{P}\), al fine di trarne informazioni utili. Il tipo di inferenza che si può condurre dipende in larga parte dal modo in cui è stato ottenuto il campione.
 
 \subsection{Campioni casuali}\label{campioni-casuali}
-
-La \textbf{casualità nella selezione} non è un espediente tecnico, ma un presupposto fondamentale per garantire che le conclusioni tratte dal campione siano generalizzabili alla popolazione. Solo un campione ottenuto in modo casuale consente di utilizzare il linguaggio probabilistico per quantificare l'incertezza delle stime.
-
-In assenza di casualità, è difficile (o impossibile) distinguere ciò che è strutturale da ciò che è frutto di una selezione distorta. Le ipotesi matematiche, come l'indipendenza tra osservazioni o l'identica distribuzione, si fondano sull'idea che ogni unità della popolazione abbia avuto la stessa probabilità di essere inclusa, o comunque una probabilità nota e controllata.
-
-\subsection{Campionamento da popolazioni finite e note}\label{campionamento-da-popolazioni-finite-e-note}
-
-Quando la popolazione è \textbf{finita e nota}, il disegno di campionamento può essere esplicitamente definito e controllato. Questo è il caso tipico delle \textbf{statistiche ufficiali}, dove la popolazione di riferimento è costituita, ad esempio, da tutti i residenti, le famiglie, le imprese, gli studenti iscritti, ecc., elencati in una lista completa.
-
-In tali contesti, la selezione del campione non avviene semplicemente in modo casuale puro, ma attraverso un \textbf{piano di campionamento} (o \textbf{disegno}) strutturato, il cui obiettivo è garantire:
-
-\begin{itemize}
-\tightlist
-\item
-  \textbf{buona rappresentatività}, anche su sottogruppi della popolazione;
-\item
-  \textbf{precisione accettabile} delle stime, cioè varianza bassa;
-\item
-  \textbf{contenimento del costo} e dell'ampiezza del campione \(n\).
-\end{itemize}
-
-Per ottenere questi obiettivi, si ricorre a tecniche come il \textbf{campionamento stratificato}, il \textbf{campionamento a grappoli}, o il \textbf{campionamento multistadio}. In questi casi, la struttura stessa del disegno campionario influisce sul calcolo delle stime e sull'analisi dell'errore, ed è parte integrante del modello inferenziale.
-
-\subsection{Campionamento da un'urna con e senza reintroduzione}\label{campionamento-da-unurna-con-e-senza-reintroduzione}
-
-Ogni meccanismo di generazione casuale può essere rappresentato da un opportuno \textbf{sistema d'urne}. La metafora dell'urna consente di astrarre la nozione di popolazione e di modellare sia fenomeni concreti sia schemi probabilistici più generali.
-
-Un'urna può contenere elementi \textbf{in numero finito}, noti o ignoti, e l'estrazione può avvenire \textbf{con o senza reintroduzione}, modellando così diversi schemi di campionamento. Ma possiamo spingerci oltre: urne ideali possono rappresentare anche \textbf{meccanismi continui} (come una normale) o \textbf{conteggi} (come una Poisson), facendo dell'urna un \textbf{dispositivo concettuale} che cattura l'idea stessa di casualità controllata.
-
-In questa prospettiva:
-
-\begin{itemize}
-\tightlist
-\item
-  le urne finite senza reintroduzione modellano il campionamento da \textbf{popolazioni finite note}, come nei censimenti o nelle statistiche ufficiali;
-\item
-  le urne con reintroduzione, eventualmente a composizione ignota, rappresentano \textbf{popolazioni concettualmente infinite}, come nei modelli Bernoulli o Poisson;
-\item
-  un'urna che genera numeri reali con legge normale o gamma rappresenta un \textbf{modello statistico continuo}, in cui ogni estrazione è una realizzazione di una variabile aleatoria.
-\end{itemize}
-
-La potenza di questa rappresentazione sta nella sua \textbf{neutralità applicativa}: possiamo pensare a urne di oggetti fisici, ma anche a urne astratte che sintetizzano comportamenti, eventi, preferenze, misure. In ogni caso, descrivere bene l'urna equivale a \textbf{definire un modello statistico}.
 
 Nel nostro percorso considereremo due situazioni fondamentali:
 
@@ -8022,6 +8024,8 @@ Uno \textbf{stimatore} puntuale (point estimator) è una statistica \(\hat\theta
 
 \end{info}
 
+\includegraphics{img/inferenza1-1.png}
+
 Il campione \(X_1,...,X_n\) casuale viene trasformato attraverso \(\hat\theta\) in un punto specifico di \(\Theta\)
 \[\hat\theta(X_1,...,X_n)=\hat\theta\in\Theta\]
 
@@ -8031,6 +8035,8 @@ Uno \textbf{stimatore} è una variabile casuale in quanto funzione di valori cas
 Da una popolazione che ha \(E(X_i)=\mu\) incognita, potremmo proporre di \emph{stimare} \(\mu\) con la media dei dati che \emph{otterremo}:
 \[\hat\mu(X_1,...,X_n)=\frac 1 n \sum_{i=1}^n X_i=\bar X=\hat \mu\]
 \end{example}
+
+\includegraphics{img/inferenza2-2.png}
 
 \begin{example}
 Da una popolazione di Poisson che ha \(X_i\sim\text{Poiss}(\lambda)\), \(\lambda\) incognita, potremmo proporre di \emph{stimare} \(\lambda\) con la mediana dei dati che \emph{otterremo}:
