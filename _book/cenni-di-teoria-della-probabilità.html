@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Capitolo 5 Cenni di Teoria della probabilità | Appunti di Statistica</title>
   <meta name="description" content="Appunti sparsi" />
-  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.43 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Capitolo 5 Cenni di Teoria della probabilità | Appunti di Statistica" />
   <meta property="og:type" content="book" />
@@ -333,6 +333,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="10" data-path="inferenza-concetti-introduttivi.html"><a href="inferenza-concetti-introduttivi.html"><i class="fa fa-check"></i><b>10</b> Inferenza: concetti introduttivi</a>
 <ul>
+<li class="chapter" data-level="10.0.1" data-path="inferenza-concetti-introduttivi.html"><a href="inferenza-concetti-introduttivi.html#inferire-dalla-reazione-istintiva-al-linguaggio-formale"><i class="fa fa-check"></i><b>10.0.1</b> Inferire: dalla reazione istintiva al linguaggio formale</a></li>
 <li class="chapter" data-level="10.1" data-path="inferenza-concetti-introduttivi.html"><a href="inferenza-concetti-introduttivi.html#inferenza-da-popolazioni-finite"><i class="fa fa-check"></i><b>10.1</b> Inferenza da popolazioni finite</a></li>
 <li class="chapter" data-level="10.2" data-path="inferenza-concetti-introduttivi.html"><a href="inferenza-concetti-introduttivi.html#inferenza-da-popolazioni-infinite"><i class="fa fa-check"></i><b>10.2</b> Inferenza da popolazioni infinite</a></li>
 <li class="chapter" data-level="10.3" data-path="inferenza-concetti-introduttivi.html"><a href="inferenza-concetti-introduttivi.html#inferenza-non-parametrica-e-inferenza-parametrica"><i class="fa fa-check"></i><b>10.3</b> Inferenza non parametrica e inferenza parametrica</a></li>
@@ -857,16 +858,26 @@ A\cap B\qquad\text{sarà vera se domani pioverà }\textbf{e}\text{ ci sarà traf
 <div class="nota">
 <p>Gli operatori Unione <span class="math inline">\(\cup\)</span> e Intersezione <span class="math inline">\(\cap\)</span> si comportano sugli
 insiemi come somme <span class="math inline">\(+\)</span> e moltiplicazione <span class="math inline">\(\times\)</span> si comportano sui
-numeri. In particolare
-<span class="math display">\[\begin{align*}
-  A\cup B &amp;=  B\cup A ,&amp;&amp;\text{prorietà commutativa}\\
-  A\cap B &amp;=  B\cap A ,&amp;&amp;\text{prorietà commutativa}\\
-  (A\cup B)\cup C &amp;=   A\cup (B\cup C),       &amp;&amp;\text{prorietà associativa}\\
-  (A\cap B)\cap C &amp;=   A\cap (B\cap C),       &amp;&amp;\text{prorietà associativa}\\
-  (A\cup B)\cap C &amp;=  (A\cap C)\cup(B\cap C), &amp;&amp;\text{prorietà distributiva}\\
-  A\cup B\cap C   &amp;=   A\cup (B\cap C),       &amp;&amp;\text{l&#39;intersezione ha priorità sull&#39;unione...}\\
-  (A\cup B)\cap C &amp;\ne A\cup (B\cap C),       &amp;&amp;\text{a meno di opportune parentesi}
+numeri. In particolare</p>
+<div style="font-size:85%">
+<p><span class="math display">\[\begin{align*}
+  A\cup B &amp;=  B\cup A ,&amp;&amp;\text{proprietà commutativa dell&#39;unione}\\
+  A\cap B &amp;=  B\cap A ,&amp;&amp;\text{proprietà commutativa dell&#39;intersezione}\\
+  (A\cup B)\cup C &amp;=   A\cup (B\cup C),       &amp;&amp;\text{proprietà associativa dell&#39;unione}\\
+  (A\cap B)\cap C &amp;=   A\cap (B\cap C),       &amp;&amp;\text{proprietà associativa dell&#39;intersezione}\\
+  (A\cup B)\cap C &amp;=  (A\cap C)\cup(B\cap C), &amp;&amp;\text{proprietà distributiva dell&#39;intersezione}\\
+  A\cup B\cap C   &amp;=   A\cup (B\cap C),       &amp;&amp;\text{l&#39;intersezione ha precedenza sull&#39;unione}\\
+  (A\cup B)\cap C &amp;\ne A\cup (B\cap C),       &amp;&amp;\text{a meno di opportune parentesi}\\
+  A\cup B &amp;= \overline{\bar A\cap\bar B},     &amp;&amp;\text{almeno uno dei due è vero $=$}\\
+  &amp;&amp;&amp; \text{non è vero che sono entrambi falsi}\\
+  \overline{A\cup B} &amp;= \bar A \cap \bar B,   &amp;&amp;\text{non è vero che almeno uno dei due è vero $=$}\\
+  &amp;&amp;&amp; \text{sono entrambi falsi}\\
+  \bar A\cup \bar B &amp;= \overline{ A\cap B},   &amp;&amp;\text{almeno uno dei due è falso $=$}\\
+  &amp;&amp;&amp; \text{non è vero che sono entrambi veri}\\
+  \overline{ \bar A\cup \bar B} &amp;= A\cap B,   &amp;&amp;\text{non è vero che almeno uno dei due è falso $=$}\\
+  &amp;&amp;&amp; \text{sono entrambi veri}\\
 \end{align*}\]</span></p>
+</div>
 </div>
 </div>
 <div id="la-probabilità-è-una-funzione" class="section level3 hasAnchor" number="5.1.4">

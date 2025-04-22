@@ -1,0 +1,36 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows.meta}
+
+\begin{document}
+
+\begin{tikzpicture}[scale=3.5]
+
+% Ellissi
+\draw    (-1,1) ellipse (.75 and 0.5);
+\draw   ( 1,1) ellipse (.75 and 0.5);
+\draw     ( 0,-.5) ellipse (.75 and 0.5);
+
+% Testo nei tre ovali
+\node at (-1,1)    {Popolazione  $\mathscr{P}$};
+\node at ( 1,1)    {Spazio dei Campioni $\mathcal{S}$};
+\node at ( 0,-.5) {Spazio dei parametri $\Theta$};
+
+% Freccia osservazione
+\draw[->, thick, dashed] (-1 ,1.5) to [bend left=60] (1 ,1.5);
+\node[below] at (0,1.9) {Campionamento};
+
+% Freccia inferenza (campione -> modello)
+\draw[->, thick, dashed] (1.5 ,0.6) to [bend left=60] (0.75,-0.5);
+\node[align=left, right] at (0.95,0) {inferenza};
+
+% Freccia simulazione (modello -> popolazione)
+\draw[<->, thick, dashed] (-0.75,-0.5) to [bend left=60] (-1.5 ,0.6);
+\node[align=left] at (-1,0) {generazione\\descrizione};
+
+
+\end{tikzpicture}
+
+\end{document}
