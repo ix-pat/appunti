@@ -167,19 +167,23 @@ Uno **stimatore** puntuale (point estimator) è una statistica $\hat\theta$ che 
 :::
 :::
 
-![](img/inferenza1-1.png)
+```{r fig-inferenza1, fig.cap="Schema concettuale dell'inferenza statistica", out.width="90%"}
+knitr::include_graphics("img/inferenza1-1.png")
+```
 
 Il campione $X_1,...,X_n$ casuale viene trasformato attraverso $\hat\theta$ in un punto specifico di $\Theta$
 \[\hat\theta(X_1,...,X_n)=\hat\theta\in\Theta\]
 
 Uno **stimatore** è una variabile casuale in quanto funzione di valori casuali.
 
+```{r fig-inferenza2, fig.cap="Ogni campione è un punto nello spazio dei campioni, ad ogni campione corrisponde una stima nello spazio dei parametri", out.width="90%"}
+knitr::include_graphics("img/inferenza2-2.png")
+```
+
 :::{.example}
 Da una popolazione che ha $E(X_i)=\mu$ incognita, potremmo proporre di _stimare_ $\mu$ con la media dei dati che _otterremo_:
 \[\hat\mu(X_1,...,X_n)=\frac 1 n \sum_{i=1}^n X_i=\bar X=\hat \mu\]
 :::
-
-![](img/inferenza2-2.png)
 
 :::{.example} 
 Da una popolazione di Poisson che ha $X_i\sim\text{Poiss}(\lambda)$, $\lambda$ incognita, potremmo proporre di _stimare_ $\lambda$ con la mediana dei dati che _otterremo_:
@@ -189,8 +193,22 @@ Da una popolazione di Poisson che ha $X_i\sim\text{Poiss}(\lambda)$, $\lambda$ i
 ### Stimatori e Stime
 
 :::{.nota data-latex=""}
-- Uno **Stimatore**: $\hat\theta(X_1,...,X_n)$ è funzione di $X_1,...,X_n$ è una **VC**
-- Una **Stima**: $\hat\theta(x_1,...,x_n)$ è funzione di $x_1,...,x_n$ e dunque è un **numero**
+- Uno **Stimatore**: $\hat\theta=\hat\theta(X_1,...,X_n)$ è funzione di $X_1,...,X_n$ è una **VC**
+- Una **Stima**: $\hat\theta_\text{obs}=\hat\theta(x_1,...,x_n)$ è funzione di $x_1,...,x_n$ e dunque è un **numero**
+:::
+
+:::{.example}
+Lanciamo una moneta e non sappiamo se è bilanciata, cioè $\pi$, la probabilità di ottenere testa, è incognita, potremmo proporre di _stimare_ $\pi$ con la proporzione dei dati e _otterremo_:
+$$
+\hat \pi(X_1,...,X_n)=\frac {S_n} n =\hat\pi
+$$
+
+Estraiamo $n=5$ individui dalla popolazione $x_1=0$, $x_2=1$, $x_3=0$, $x_4=1$, $x_5=1$,  
+
+Per ottenere $\hat\mu$ la stima di $\mu$ applichiamo $\hat\theta$ ai dati e otteniamo
+$$
+\hat\pi_\text{obs}=\hat\pi(0,1,0,1,1) = \frac 3 5=0.6
+$$
 :::
 
 :::{.example}
@@ -203,7 +221,9 @@ xs <- c(2.1,2.4,3.2,7.1,3.0)
 ```
 
 Per ottenere $\hat\mu$ la stima di $\mu$ applichiamo $\hat\theta$ ai dati e otteniamo
-\[\hat\mu(2.1,2.4,3.2,7.1,3.0) = \frac 1 5\sum_{i=1}^5x_i=\frac 1 5 `r sum(xs)`=`r mean(xs)`\]
+$$
+\hat\mu_\text{obs}=\hat\mu(2.1,2.4,3.2,7.1,3.0) = \frac 1 5\sum_{i=1}^5x_i=\frac 1 5 `r sum(xs)`=`r mean(xs)`
+$$
 :::
 
 :::{.example} 
@@ -216,7 +236,9 @@ $x_{(1)}=0$, $x_{(2)}=0$, $x_{(3)}=2$, $x_{(4)}=2$, $x_{(5)}=3$, $x_{(6)}=4$, $x
 
 
 Per ottenere $\hat\lambda$ la stima di $\lambda$ applichiamo $\hat\theta$ ai dati e otteniamo
-\[\hat\lambda(x_1,...,x_7) = x_{0.5}=x_{(4)}=2\]
+$$
+\hat\lambda(x_1,...,x_7) = x_{0.5}=x_{(4)}=2
+$$
 :::
 
 ### Come scegliere uno stimatore
@@ -234,14 +256,19 @@ Le proprietà auspicabili per uno stimatore sono di due tipi
 
 ### Proprietà Auspicabili di uno stimatore (per $n$ finito)
 
+Uno stimatore si dice _corretto_ (_unbiased_) se in media cade sul parametro vero.
 
 :::{.info data-latex=""}
 :::{.definition name="Correttezza di uno stimatore"}
 Siano $X_1,...,X_n$, $n$ VC, IID, replicazioni della stessa $X\sim\mathscr{L}(\theta)$, sia $\hat\theta$ uno stimatore per $\theta$.
 Lo stimatore $\hat\theta$ si dice **corretto** se
-\[E(\hat\theta(X_1,...,X_n))=E(\hat\theta)=\theta\]
+$$
+E(\hat\theta(X_1,...,X_n))=E(\hat\theta)=\theta
+$$
 :::
 :::
+
+La misura dell'errore di stima è data dalla distanza quadratica media delle stime dal valore vero.
 
 :::{.info data-latex=""}
 :::{.definition name="Mean Squared Error di uno stimatore"}
@@ -252,10 +279,14 @@ dove
 :::
 :::
 
+Se lo stimatore è corretto allora il $MSE$ coincide con la varianza dello stimatore.
+
 :::{.nota}
 se $\hat\theta$ è corretto allora
 \[MSE(\hat\theta)=V(\hat\theta)\]
 :::
+
+L'efficienza è una quantità teorica che dipende da quantità incognite, ma il suo calcolo teorico può essere utilizzato per confrontare diversi stimatori.
 
 :::{.info data-latex=""}
 :::{.definition name="Efficienza di uno stimatore"}

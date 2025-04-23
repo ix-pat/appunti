@@ -1002,15 +1002,25 @@ Perfetto, possiamo riformulare e ampliare il paragrafo sul campionamento, tenend
 <span class="math display">\[\hat\theta:\mathcal{S}\to\Theta\]</span></p>
 </div>
 </div>
-<p><img src="img/inferenza1-1.png" /></p>
+<div class="figure"><span style="display:block;" id="fig:fig-inferenza1"></span>
+<img src="img/inferenza1-1.png" alt="Schema concettuale dell'inferenza statistica" width="90%" />
+<p class="caption">
+Figura 11.1: Schema concettuale dell’inferenza statistica
+</p>
+</div>
 <p>Il campione <span class="math inline">\(X_1,...,X_n\)</span> casuale viene trasformato attraverso <span class="math inline">\(\hat\theta\)</span> in un punto specifico di <span class="math inline">\(\Theta\)</span>
 <span class="math display">\[\hat\theta(X_1,...,X_n)=\hat\theta\in\Theta\]</span></p>
 <p>Uno <strong>stimatore</strong> è una variabile casuale in quanto funzione di valori casuali.</p>
+<div class="figure"><span style="display:block;" id="fig:fig-inferenza2"></span>
+<img src="img/inferenza2-2.png" alt="Ogni campione è un punto nello spazio dei campioni, ad ogni campione corrisponde una stima nello spazio dei parametri" width="90%" />
+<p class="caption">
+Figura 11.2: Ogni campione è un punto nello spazio dei campioni, ad ogni campione corrisponde una stima nello spazio dei parametri
+</p>
+</div>
 <div class="example">
 <p><span id="exm:unlabeled-div-152" class="example"><strong>Esempio 11.1  </strong></span>Da una popolazione che ha <span class="math inline">\(E(X_i)=\mu\)</span> incognita, potremmo proporre di <em>stimare</em> <span class="math inline">\(\mu\)</span> con la media dei dati che <em>otterremo</em>:
 <span class="math display">\[\hat\mu(X_1,...,X_n)=\frac 1 n \sum_{i=1}^n X_i=\bar X=\hat \mu\]</span></p>
 </div>
-<p><img src="img/inferenza2-2.png" /></p>
 <div class="example">
 <p><span id="exm:unlabeled-div-153" class="example"><strong>Esempio 11.2  </strong></span>Da una popolazione di Poisson che ha <span class="math inline">\(X_i\sim\text{Poiss}(\lambda)\)</span>, <span class="math inline">\(\lambda\)</span> incognita, potremmo proporre di <em>stimare</em> <span class="math inline">\(\lambda\)</span> con la mediana dei dati che <em>otterremo</em>:
 <span class="math display">\[\hat\lambda(X_1,...,X_n)=X_{0,5}=\hat\lambda\]</span></p>
@@ -1019,24 +1029,39 @@ Perfetto, possiamo riformulare e ampliare il paragrafo sul campionamento, tenend
 <h3><span class="header-section-number">11.3.1</span> Stimatori e Stime<a href="elementi-di-teoria-della-stima.html#stimatori-e-stime" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div class="nota">
 <ul>
-<li>Uno <strong>Stimatore</strong>: <span class="math inline">\(\hat\theta(X_1,...,X_n)\)</span> è funzione di <span class="math inline">\(X_1,...,X_n\)</span> è una <strong>VC</strong></li>
-<li>Una <strong>Stima</strong>: <span class="math inline">\(\hat\theta(x_1,...,x_n)\)</span> è funzione di <span class="math inline">\(x_1,...,x_n\)</span> e dunque è un <strong>numero</strong></li>
+<li>Uno <strong>Stimatore</strong>: <span class="math inline">\(\hat\theta=\hat\theta(X_1,...,X_n)\)</span> è funzione di <span class="math inline">\(X_1,...,X_n\)</span> è una <strong>VC</strong></li>
+<li>Una <strong>Stima</strong>: <span class="math inline">\(\hat\theta_\text{obs}=\hat\theta(x_1,...,x_n)\)</span> è funzione di <span class="math inline">\(x_1,...,x_n\)</span> e dunque è un <strong>numero</strong></li>
 </ul>
 </div>
 <div class="example">
-<p><span id="exm:unlabeled-div-154" class="example"><strong>Esempio 11.3  </strong></span>Da una popolazione che ha <span class="math inline">\(E(X_i)=\mu\)</span> incognita, potremmo proporre di <em>stimare</em> <span class="math inline">\(\mu\)</span> con la media dei dati che <em>otterremo</em>:
+<p><span id="exm:unlabeled-div-154" class="example"><strong>Esempio 11.3  </strong></span>Lanciamo una moneta e non sappiamo se è bilanciata, cioè <span class="math inline">\(\pi\)</span>, la probabilità di ottenere testa, è incognita, potremmo proporre di <em>stimare</em> <span class="math inline">\(\pi\)</span> con la proporzione dei dati e <em>otterremo</em>:
+<span class="math display">\[
+\hat \pi(X_1,...,X_n)=\frac {S_n} n =\hat\pi
+\]</span></p>
+<p>Estraiamo <span class="math inline">\(n=5\)</span> individui dalla popolazione <span class="math inline">\(x_1=0\)</span>, <span class="math inline">\(x_2=1\)</span>, <span class="math inline">\(x_3=0\)</span>, <span class="math inline">\(x_4=1\)</span>, <span class="math inline">\(x_5=1\)</span>,</p>
+<p>Per ottenere <span class="math inline">\(\hat\mu\)</span> la stima di <span class="math inline">\(\mu\)</span> applichiamo <span class="math inline">\(\hat\theta\)</span> ai dati e otteniamo
+<span class="math display">\[
+\hat\pi_\text{obs}=\hat\pi(0,1,0,1,1) = \frac 3 5=0.6
+\]</span></p>
+</div>
+<div class="example">
+<p><span id="exm:unlabeled-div-155" class="example"><strong>Esempio 11.4  </strong></span>Da una popolazione che ha <span class="math inline">\(E(X_i)=\mu\)</span> incognita, potremmo proporre di <em>stimare</em> <span class="math inline">\(\mu\)</span> con la media dei dati che <em>otterremo</em>:
 <span class="math display">\[\hat \mu(X_1,...,X_n)=\frac 1 n \sum_{i=1}^n X_i=\hat \mu\]</span></p>
 <p>Estraiamo <span class="math inline">\(n=5\)</span> individui dalla popolazione <span class="math inline">\(x_1=2.1\)</span>, <span class="math inline">\(x_2=2.4\)</span>, <span class="math inline">\(x_3=3.2\)</span>, <span class="math inline">\(x_4=1.7\)</span>, <span class="math inline">\(x_5=3.0\)</span>,</p>
 <p>Per ottenere <span class="math inline">\(\hat\mu\)</span> la stima di <span class="math inline">\(\mu\)</span> applichiamo <span class="math inline">\(\hat\theta\)</span> ai dati e otteniamo
-<span class="math display">\[\hat\mu(2.1,2.4,3.2,7.1,3.0) = \frac 1 5\sum_{i=1}^5x_i=\frac 1 5 17.8=3.56\]</span></p>
+<span class="math display">\[
+\hat\mu_\text{obs}=\hat\mu(2.1,2.4,3.2,7.1,3.0) = \frac 1 5\sum_{i=1}^5x_i=\frac 1 5 17.8=3.56
+\]</span></p>
 </div>
 <div class="example">
-<p><span id="exm:unlabeled-div-155" class="example"><strong>Esempio 11.4  </strong></span>Da una popolazione di Poisson che ha <span class="math inline">\(X_i\sim\text{Poiss}(\lambda)\)</span>, <span class="math inline">\(\lambda\)</span> incognita, potremmo proporre di <em>stimare</em> <span class="math inline">\(\lambda\)</span> con la mediana dei dati che <em>otterremo</em>:
+<p><span id="exm:unlabeled-div-156" class="example"><strong>Esempio 11.5  </strong></span>Da una popolazione di Poisson che ha <span class="math inline">\(X_i\sim\text{Poiss}(\lambda)\)</span>, <span class="math inline">\(\lambda\)</span> incognita, potremmo proporre di <em>stimare</em> <span class="math inline">\(\lambda\)</span> con la mediana dei dati che <em>otterremo</em>:
 <span class="math display">\[\hat\lambda(X_1,...,X_n)=X_{0,5}=\hat\lambda\]</span></p>
 <p>Osserviamo <span class="math inline">\(n=7\)</span> valori (già riordinati)<br/>
 <span class="math inline">\(x_{(1)}=0\)</span>, <span class="math inline">\(x_{(2)}=0\)</span>, <span class="math inline">\(x_{(3)}=2\)</span>, <span class="math inline">\(x_{(4)}=2\)</span>, <span class="math inline">\(x_{(5)}=3\)</span>, <span class="math inline">\(x_{(6)}=4\)</span>, <span class="math inline">\(x_{(7)}=7\)</span>,</p>
 <p>Per ottenere <span class="math inline">\(\hat\lambda\)</span> la stima di <span class="math inline">\(\lambda\)</span> applichiamo <span class="math inline">\(\hat\theta\)</span> ai dati e otteniamo
-<span class="math display">\[\hat\lambda(x_1,...,x_7) = x_{0.5}=x_{(4)}=2\]</span></p>
+<span class="math display">\[
+\hat\lambda(x_1,...,x_7) = x_{0.5}=x_{(4)}=2
+\]</span></p>
 </div>
 </div>
 <div id="come-scegliere-uno-stimatore" class="section level3 hasAnchor" number="11.3.2">
@@ -1053,28 +1078,34 @@ prima di osservare i dati, le proprietà probabilistiche dello <em>stimatore</em
 </div>
 <div id="proprietà-auspicabili-di-uno-stimatore-per-n-finito" class="section level3 hasAnchor" number="11.3.3">
 <h3><span class="header-section-number">11.3.3</span> Proprietà Auspicabili di uno stimatore (per <span class="math inline">\(n\)</span> finito)<a href="elementi-di-teoria-della-stima.html#proprietà-auspicabili-di-uno-stimatore-per-n-finito" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Uno stimatore si dice <em>corretto</em> (<em>unbiased</em>) se in media cade sul parametro vero.</p>
 <div class="info">
 <div class="definition">
-<p><span id="def:unlabeled-div-156" class="definition"><strong>Definizione 11.1  (Correttezza di uno stimatore) </strong></span>Siano <span class="math inline">\(X_1,...,X_n\)</span>, <span class="math inline">\(n\)</span> VC, IID, replicazioni della stessa <span class="math inline">\(X\sim\mathscr{L}(\theta)\)</span>, sia <span class="math inline">\(\hat\theta\)</span> uno stimatore per <span class="math inline">\(\theta\)</span>.
+<p><span id="def:unlabeled-div-157" class="definition"><strong>Definizione 11.1  (Correttezza di uno stimatore) </strong></span>Siano <span class="math inline">\(X_1,...,X_n\)</span>, <span class="math inline">\(n\)</span> VC, IID, replicazioni della stessa <span class="math inline">\(X\sim\mathscr{L}(\theta)\)</span>, sia <span class="math inline">\(\hat\theta\)</span> uno stimatore per <span class="math inline">\(\theta\)</span>.
 Lo stimatore <span class="math inline">\(\hat\theta\)</span> si dice <strong>corretto</strong> se
-<span class="math display">\[E(\hat\theta(X_1,...,X_n))=E(\hat\theta)=\theta\]</span></p>
+<span class="math display">\[
+E(\hat\theta(X_1,...,X_n))=E(\hat\theta)=\theta
+\]</span></p>
 </div>
 </div>
+<p>La misura dell’errore di stima è data dalla distanza quadratica media delle stime dal valore vero.</p>
 <div class="info">
 <div class="definition">
-<p><span id="def:unlabeled-div-157" class="definition"><strong>Definizione 11.2  (Mean Squared Error di uno stimatore) </strong></span>Si definisce <strong>Errore Quadratico Medio</strong> (<em>Mean Squared Error</em>) la quantità
+<p><span id="def:unlabeled-div-158" class="definition"><strong>Definizione 11.2  (Mean Squared Error di uno stimatore) </strong></span>Si definisce <strong>Errore Quadratico Medio</strong> (<em>Mean Squared Error</em>) la quantità
 <span class="math display">\[MSE(\hat\theta)=E((\hat\theta-\theta)^2)=V(\hat\theta)+B^2(\hat\theta)\]</span>
 dove
 <span class="math display">\[B(\hat\theta)=|E(\hat\theta)-\theta|\]</span></p>
 </div>
 </div>
+<p>Se lo stimatore è corretto allora il <span class="math inline">\(MSE\)</span> coincide con la varianza dello stimatore.</p>
 <div class="nota">
 <p>se <span class="math inline">\(\hat\theta\)</span> è corretto allora
 <span class="math display">\[MSE(\hat\theta)=V(\hat\theta)\]</span></p>
 </div>
+<p>L’efficienza è una quantità teorica che dipende da quantità incognite, ma il suo calcolo teorico può essere utilizzato per confrontare diversi stimatori.</p>
 <div class="info">
 <div class="definition">
-<p><span id="def:unlabeled-div-158" class="definition"><strong>Definizione 11.3  (Efficienza di uno stimatore) </strong></span>Siano <span class="math inline">\(\hat\theta_1\)</span> e <span class="math inline">\(\hat\theta_2\)</span> due stimatori per <span class="math inline">\(\theta\)</span>, si dice che <span class="math inline">\(\hat\theta_1\)</span> è <strong>più efficiente</strong> di <span class="math inline">\(\hat\theta_2\)</span> se e solo se
+<p><span id="def:unlabeled-div-159" class="definition"><strong>Definizione 11.3  (Efficienza di uno stimatore) </strong></span>Siano <span class="math inline">\(\hat\theta_1\)</span> e <span class="math inline">\(\hat\theta_2\)</span> due stimatori per <span class="math inline">\(\theta\)</span>, si dice che <span class="math inline">\(\hat\theta_1\)</span> è <strong>più efficiente</strong> di <span class="math inline">\(\hat\theta_2\)</span> se e solo se
 <span class="math display">\[MSE(\hat\theta_1)&lt;MSE(\hat\theta_2)\]</span></p>
 </div>
 </div>
@@ -1349,16 +1380,16 @@ Mentre lo stimatore in con la distribuzione in verde è il meno efficiente dei t
 <p>Siano <span class="math inline">\(X_1,...,X_n\)</span>, <span class="math inline">\(n\)</span> VC, IID, replicazioni della stessa <span class="math inline">\(X\sim\mathscr{L}(\theta)\)</span>, sia <span class="math inline">\(\hat\theta\)</span> uno stimatore per <span class="math inline">\(\theta\)</span>.</p>
 <div class="info">
 <div class="definition">
-<p><span id="def:unlabeled-div-159" class="definition"><strong>Definizione 11.4  (Correttezza Asintotica) </strong></span>Lo stimatore <span class="math inline">\(\hat\theta\)</span> si dice <strong>asintoticamente corretto</strong> se
+<p><span id="def:unlabeled-div-160" class="definition"><strong>Definizione 11.4  (Correttezza Asintotica) </strong></span>Lo stimatore <span class="math inline">\(\hat\theta\)</span> si dice <strong>asintoticamente corretto</strong> se
 <span class="math display">\[\lim_{n\to\infty}E(\hat\theta(X_1,...,X_n))=E(\hat\theta)=\theta\]</span></p>
 </div>
 </div>
 <div class="example">
-<p><span id="exm:unlabeled-div-160" class="example"><strong>Esempio 11.5  </strong></span><span class="math display">\[\lim_{n\to\infty}E(\hat\sigma^2)=\lim_{n\to\infty}\frac{n-1}n\sigma^2=\sigma^2\]</span></p>
+<p><span id="exm:unlabeled-div-161" class="example"><strong>Esempio 11.6  </strong></span><span class="math display">\[\lim_{n\to\infty}E(\hat\sigma^2)=\lim_{n\to\infty}\frac{n-1}n\sigma^2=\sigma^2\]</span></p>
 </div>
 <div class="info">
 <div class="definition">
-<p><span id="def:unlabeled-div-161" class="definition"><strong>Definizione 11.5  (Correttezza Asintotica) </strong></span>Lo stimatore <span class="math inline">\(\hat\theta\)</span> si dice <strong>consistente</strong> (in media quadratica) se e solo se
+<p><span id="def:unlabeled-div-162" class="definition"><strong>Definizione 11.5  (Correttezza Asintotica) </strong></span>Lo stimatore <span class="math inline">\(\hat\theta\)</span> si dice <strong>consistente</strong> (in media quadratica) se e solo se
 <span class="math display">\[\lim_{n\to\infty}MSE(\hat\theta(X_1,...,X_n))=\lim_{n\to\infty}MSE(\hat\theta)=0\]</span></p>
 <p>Essendo
 <span class="math display">\[MSE(\hat\theta)=V(\hat\theta)+B^2(\hat\theta)\]</span>
@@ -1367,7 +1398,7 @@ allora
 </div>
 </div>
 <div class="example">
-<p><span id="exm:unlabeled-div-162" class="example"><strong>Esempio 11.6  (Consistenza) </strong></span>Siano <span class="math inline">\(X_1,...,X_n\)</span>, <span class="math inline">\(n\)</span> VC, IID, replicazioni della stessa VC <span class="math inline">\(X\)</span> con <span class="math inline">\(E(X)=\mu\)</span> e <span class="math inline">\(V(X)=\sigma^2\)</span>
+<p><span id="exm:unlabeled-div-163" class="example"><strong>Esempio 11.7  (Consistenza) </strong></span>Siano <span class="math inline">\(X_1,...,X_n\)</span>, <span class="math inline">\(n\)</span> VC, IID, replicazioni della stessa VC <span class="math inline">\(X\)</span> con <span class="math inline">\(E(X)=\mu\)</span> e <span class="math inline">\(V(X)=\sigma^2\)</span>
 Usiamo <span class="math inline">\(\hat \mu\)</span> per stimare <span class="math inline">\(\mu\)</span>:
 <span class="math display">\[\hat \mu=\frac 1 n \sum_{i=1}^n X_i=\frac {S_n}n\]</span></p>
 <p>Siccome <span class="math inline">\(\hat \mu\)</span> è stimatore corretto per <span class="math inline">\(\mu\)</span>:
@@ -1394,7 +1425,7 @@ Lo <em>standard error</em> <span class="math inline">\(SE(\hat\theta)\)</span> d
 La <em>deviazione standard stimata</em> <span class="math inline">\(\hat\sigma\)</span> è la radice della varianza del campione <span class="math inline">\(\hat\sigma^2\)</span>.</p>
 </div>
 <div class="example">
-<p><span id="exm:unlabeled-div-163" class="example"><strong>Esempio 11.7  </strong></span>Lo standard error dello stimatore media aritmetica campionaria <span class="math inline">\(\hat\mu\)</span> per <span class="math inline">\(\mu\)</span>
+<p><span id="exm:unlabeled-div-164" class="example"><strong>Esempio 11.8  </strong></span>Lo standard error dello stimatore media aritmetica campionaria <span class="math inline">\(\hat\mu\)</span> per <span class="math inline">\(\mu\)</span>
 <span class="math display">\[SE(\hat \mu)=\sqrt\frac{\sigma^2} n=\frac\sigma {\sqrt{n}}\]</span></p>
 <p>L’errore che si commette nello stimare una media dipende da due fattori</p>
 <ul>
