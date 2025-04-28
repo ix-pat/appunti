@@ -601,7 +601,7 @@ Lo stimatore $\hat\theta$ si dice **asintoticamente corretto** se
 :::
 
 :::{.info data-latex=""}
-:::{.definition name="Correttezza Asintotica"}
+:::{.definition name="Consistenza"}
 Lo stimatore $\hat\theta$ si dice **consistente** (in media quadratica) se e solo se
 \[\lim_{n\to\infty}MSE(\hat\theta(X_1,...,X_n))=\lim_{n\to\infty}MSE(\hat\theta)=0\]
 
