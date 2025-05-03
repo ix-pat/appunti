@@ -342,6 +342,18 @@ drop fuzzy shadow
 \end{tcolorbox}
   }
 
+
+\newenvironment{sol}
+  {
+  \begin{tcolorbox}[enhanced,breakable,arc=0.1mm,boxrule=1pt,colback=white,colframe=iblue,
+  title=\bf \fontfamily{lmss}\selectfont \hspace{.5 cm} Soluzione,drop fuzzy shadow]
+
+}{
+\end{tcolorbox}
+  }
+
+
+
 \newtcolorbox{titolo}{
 enhanced,
 beforeafter skip=0pt,
@@ -512,7 +524,7 @@ drop fuzzy shadow]
 \makeatother
 \subtitle{CLEAM AA 24/25}
 \author{Patrizio Frederic}
-\date{Aggiornato al 28-04-2025}
+\date{Aggiornato al 03-05-2025}
 
 \begin{document}
 \maketitle
@@ -570,7 +582,7 @@ costruisco le mie lezioni. Non è da ritenersi alternativo alle lezioni in aula 
 
 Un ringraziamento speciale va alle mie donne e a Michele Lalla, amico, collega e maestro.
 
-Bologna, il 28-04-2025.
+Bologna, il 03-05-2025.
 
 \part{Statistica Descrittiva}
 
@@ -5948,11 +5960,19 @@ L'errore di misura è, in tantissimo casi, simmetrico rispetto allo zero:
 
 La VC \emph{Normale}, \(X\sim N(\mu,\sigma^2)\) è una distribuzione \emph{continua} con supporto
 con supporto
-\[S_X=[-\infty,+\infty]=\mathbb{R}\]
+\[
+S_X=[-\infty,+\infty]=\mathbb{R}
+\]
 Dipende da due parametri \(\mu\) e \(\sigma^2\). Lo spazio dei parametri è
-\[\Theta=\{(-\infty<\mu<+\infty)\cap(\sigma^2>0)\}=\mathbb{R}\times\mathbb{R}^+\]
+\[
+\Theta=\{(-\infty<\mu<+\infty)\cap(\sigma^2>0)\}=\mathbb{R}\times\mathbb{R}^+
+\]
 Con densità di probabilità (non richiesta all'esame)
-\[f(x)=\frac 1 {\sqrt{2\pi\sigma^2}}e^{-\frac 1 2 \left(\frac{x-\mu}{\sigma}\right)^2}, \qquad \text{Attenzione, in questo caso $\pi=3.1415...$ è la costante trigonometrica}\]
+\[
+f(x)=\frac {1}{\sqrt{2\pi\sigma^2}}e^{-\frac 1 2 \left(\frac{x-\mu}{\sigma}\right)^2}, 
+\]
+
+Attenzione, in questo caso \(\pi=3.1415...\) è la costante trigonometrica.
 Descrizione:
 
 \begin{itemize}
@@ -5966,7 +5986,9 @@ Descrizione:
 \end{itemize}
 
 Con valore atteso e varianza:
-\[E(X)=\mu, \qquad V(X)=\sigma^2\]
+\[
+E(X)=\mu, \qquad V(X)=\sigma^2
+\]
 
 \textbf{Esempi}
 
@@ -19768,6 +19790,20 @@ Attenzione il calcolo del \(p_\text{value}\) con la \(T\) è puramente illustrat
 
 \section{Esempi}\label{esempi-3}
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{punti }\OtherTok{\textless{}{-}} \FunctionTok{list}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\DecValTok{14}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{),}\FunctionTok{c}\NormalTok{(}\DecValTok{14}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{),}\DecValTok{14}\NormalTok{,}\FunctionTok{c}\NormalTok{(}\DecValTok{3}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{3}\NormalTok{),}\FunctionTok{c}\NormalTok{(}\DecValTok{10}\NormalTok{,}\DecValTok{4}\NormalTok{),}\FunctionTok{c}\NormalTok{(}\DecValTok{14}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{))}
+\NormalTok{punt\_p }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(}\AttributeTok{start=}\NormalTok{F,}\AttributeTok{nex=}\NormalTok{F,}\AttributeTok{num=}\NormalTok{F)\{}
+\NormalTok{  tot }\OtherTok{\textless{}{-}} \FunctionTok{sum}\NormalTok{(}\FunctionTok{unlist}\NormalTok{(punti))}
+\NormalTok{  it }\OtherTok{\textless{}{-}} \FunctionTok{ifelse}\NormalTok{(start,}\FunctionTok{item\_start}\NormalTok{(num),}\FunctionTok{item\_}\NormalTok{(num))}
+\NormalTok{  it }\OtherTok{\textless{}{-}} \FunctionTok{ifelse}\NormalTok{(nex,}\FunctionTok{item\_next}\NormalTok{(num),it)}
+\NormalTok{  ptt }\OtherTok{\textless{}{-}}\NormalTok{ punti[[i1]][i2]}
+\NormalTok{  ptt\_30 }\OtherTok{\textless{}{-}} \FunctionTok{round}\NormalTok{(ptt}\SpecialCharTok{/}\NormalTok{tot}\SpecialCharTok{*}\DecValTok{31}\NormalTok{,}\DecValTok{2}\NormalTok{)}
+  \FunctionTok{paste}\NormalTok{(it,}\StringTok{"**(Punti "}\NormalTok{,ptt,}\StringTok{")**"}\NormalTok{,}\AttributeTok{sep=}\StringTok{""}\NormalTok{)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
 \subsubsection{Esercizio 1}\label{esercizio-1}
 
 \begin{Shaded}
@@ -19789,37 +19825,35 @@ Attenzione il calcolo del \(p_\text{value}\) con la \(T\) è puramente illustrat
 \NormalTok{rilevata la spesa mensile in telecomunicazioni (in euro), qui di seguito la }
 \NormalTok{distribuzione delle frequenze relative:}
 
-\InformationTok{\textasciigrave{}\textasciigrave{}\textasciigrave{}\{r 25{-}test{-}functions{-}13, echo=FALSE\} }
+\InformationTok{\textasciigrave{}\textasciigrave{}\textasciigrave{}\{r , echo=FALSE\} }
 \InformationTok{kable(dat3[,c(1,2,4)]) \%\textgreater{}\%}
 \InformationTok{  kable\_styling(full\_width = F)}
 \InformationTok{\textasciigrave{}\textasciigrave{}\textasciigrave{}}
 
-\NormalTok{1.a (**Punti 14**) Disegnare l\textquotesingle{}istogramma di densità }
+\InformationTok{\textasciigrave{}r punt\_p(nex = T, start = T)\textasciigrave{}}\NormalTok{ Disegnare l\textquotesingle{}istogramma di densità }
 \NormalTok{percentuale.}
 
-\NormalTok{**Soluzione**}
-
+\NormalTok{:::\{.sol data{-}latex=""\}}
 \InformationTok{\textasciigrave{}\textasciigrave{}\textasciigrave{}\{r 25{-}test{-}functions{-}14, echo=FALSE\} }
 \InformationTok{kable(dat3) \%\textgreater{}\%            \# Stampa la tabella}
 \InformationTok{  kable\_styling(full\_width = F)}
 \InformationTok{histp(axes = T)}
 \InformationTok{h.int(60,250,density=20)}
 \InformationTok{\textasciigrave{}\textasciigrave{}\textasciigrave{}}
+\NormalTok{:::}
 
-\NormalTok{1.b (**Punti 3**) Qual è la percentuale di famiglie con }
+\InformationTok{\textasciigrave{}r punt\_p()\textasciigrave{}}\NormalTok{ Qual è la percentuale di famiglie con }
 \NormalTok{spesa superiore a 60 euro?}
 
-\NormalTok{**Soluzione**}
-
+\NormalTok{:::\{.sol data{-}latex=""\}}
 \InformationTok{\textasciigrave{}\textasciigrave{}\textasciigrave{}\{r 25{-}test{-}functions{-}15, echo=FALSE\} }
 \InformationTok{F\_print(60,verso="\textgreater{}")}
 \InformationTok{\textasciigrave{}\textasciigrave{}\textasciigrave{}}
+\NormalTok{:::}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
-\newpage
 
 Su un campione di \(250\) famiglie della provincia di Modena è stato rilevata la spesa mensile in telecomunicazioni (in euro), qui di seguito
 la distribuzione delle frequenze relative:
@@ -19840,9 +19874,9 @@ $[\text{x}_j,$ & $\text{x}_{j+1})$ & $f_j$\\
 \end{tabular}
 \end{table}
 
-1.a (\textbf{Punti 14}) Disegnare l'istogramma di densità percentuale.
+2.a \textbf{(Punti 14)} Disegnare l'istogramma di densità percentuale.
 
-\textbf{Soluzione}
+\begin{sol}
 
 \begin{table}[H]
 \centering
@@ -19862,16 +19896,19 @@ $[\text{x}_j,$ & $\text{x}_{j+1})$ & $n_j$ & $f_j$ & $b_j$ & $h_j$ & $F_j$ & $f_
 
 \begin{center}\includegraphics{Appunti_di_Statistica_2025_files/figure-latex/25-test-functions-18-1} \end{center}
 
-1.b (\textbf{Punti 3}) Qual è la percentuale di famiglie con spesa superiore a 60 euro?
+\end{sol}
 
-\textbf{Soluzione}
+2.b \textbf{(Punti 3)} Qual è la percentuale di famiglie con spesa superiore a 60 euro?
 
+\begin{sol}
 \begin{eqnarray*}
      \%(X> 60 ) &=& ( 100 - 60 )\times h_{ 4 }+ f_{ 5 }\times 100 \\
               &=& ( 40 )\times 0.616 + ( 0.184 )\times 100 \\
               &=&  0.4304 \times(100)\\
      \#(X> 60 ) &\approx& 108 
          \end{eqnarray*}
+
+\end{sol}
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
@@ -19887,40 +19924,37 @@ $[\text{x}_j,$ & $\text{x}_{j+1})$ & $n_j$ & $f_j$ & $b_j$ & $h_j$ & $F_j$ & $f_
 \InformationTok{h1 \textless{}{-} "\textbackslash{}\textbackslash{}neq"}
 \InformationTok{\textasciigrave{}\textasciigrave{}\textasciigrave{}}
 
-\InformationTok{\textasciigrave{}r i2 \textless{}{-} i2+1;item()\textasciigrave{}}\NormalTok{ Sono stati intervistati }\InformationTok{\textasciigrave{}r n1\textasciigrave{}}\NormalTok{ uomini }
+\InformationTok{\textasciigrave{}r punt\_p(nex = T)\textasciigrave{}}\NormalTok{ Sono stati intervistati }\InformationTok{\textasciigrave{}r n1\textasciigrave{}}\NormalTok{ uomini }
 \NormalTok{e }\InformationTok{\textasciigrave{}r n2\textasciigrave{}}\NormalTok{ donne, }\InformationTok{\textasciigrave{}r s1\textasciigrave{}}\NormalTok{ su }\InformationTok{\textasciigrave{}r n1\textasciigrave{}}\NormalTok{ uomini si sono }
 \NormalTok{dichiarati favorevoli, mentre sono favorevoli }\InformationTok{\textasciigrave{}r s2\textasciigrave{}}\NormalTok{ su }\InformationTok{\textasciigrave{}r n2\textasciigrave{}} 
 \NormalTok{donne. Testare al livello di significatività del 5\% l\textquotesingle{}ipotesi che uomini e }
 \NormalTok{donna abbiano lo stesso parare contro l\textquotesingle{}alternativa che siano diversi.}
 
-\NormalTok{**Soluzione**}
-
-\InformationTok{\textasciigrave{}\textasciigrave{}\textasciigrave{}\{r 25{-}test{-}functions{-}22,results=\textquotesingle{}asis\textquotesingle{}, echo=FALSE\} }
+\NormalTok{:::\{.sol data{-}latex=""\}}
+\InformationTok{\textasciigrave{}\textasciigrave{}\textasciigrave{}\{r ,results=\textquotesingle{}asis\textquotesingle{}, echo=FALSE\} }
 \InformationTok{ztest\_2c\_pi(s1 = s1,s2 = s2,n1 = n1,n2 = n2,}
 \InformationTok{                h1 = h1,alpha = alpha,a = "U",b = "D")}
 \InformationTok{\textasciigrave{}\textasciigrave{}\textasciigrave{}}
+\NormalTok{:::}
 
-\InformationTok{\textasciigrave{}r i2 \textless{}{-} i2+1;item()\textasciigrave{}}\NormalTok{ Costruire un intervallo di confidenza al 95\% per }
+\InformationTok{\textasciigrave{}r punt\_p()\textasciigrave{}}\NormalTok{ Costruire un intervallo di confidenza al 95\% per }
 \NormalTok{la proporzione di uomini favorevoli}
 
-\NormalTok{**Soluzione**}
-
-\InformationTok{\textasciigrave{}\textasciigrave{}\textasciigrave{}\{r 25{-}test{-}functions{-}23,results=\textquotesingle{}asis\textquotesingle{}, echo=FALSE\} }
+\NormalTok{:::\{.sol data{-}latex=""\}}
+\InformationTok{\textasciigrave{}\textasciigrave{}\textasciigrave{}\{r ,results=\textquotesingle{}asis\textquotesingle{}, echo=FALSE\} }
 \InformationTok{idc(xm = s1,alpha = .95,n = n1 ,dist\_ = "z")}
 \InformationTok{\textasciigrave{}\textasciigrave{}\textasciigrave{}}
+\NormalTok{:::}
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
-5.a Sono stati intervistati 37 uomini e 45 donne,
+4.a \textbf{(Punti 3)} Sono stati intervistati 37 uomini e 45 donne,
 27 su 37 uomini si sono dichiarati favorevoli, mentre sono favorevoli
 30 su 45 donne. Testare al livello di significatività del 5\% l'ipotesi
 che uomini e donna abbiano lo stesso parare contro l'alternativa che siano
 diversi.
 
-\textbf{Soluzione}
-
+\begin{sol}
 \textbf{Test \(Z\) per due proporzioni}
 
 \(\fbox{A}\) FORMULAZIONE DELLE IPOTESI
@@ -19955,7 +19989,7 @@ Il \(p_{\text{value}}\) è
  0.1 < p_\text{value}= 0.537051 \leq 1 
 \]
 
-\begin{center}\includegraphics{Appunti_di_Statistica_2025_files/figure-latex/25-test-functions-24-1} \end{center}
+\begin{center}\includegraphics{Appunti_di_Statistica_2025_files/figure-latex/unnamed-chunk-19-1} \end{center}
 
 \textbf{Non} rifiuto \(H_0\) a \textbf{nessun}
 livello di significatività,
@@ -19963,11 +19997,12 @@ livello di significatività,
 \(p_\text{value}>0.1\),
 \emph{non significativo}
 
-5.b Costruire un intervallo di confidenza al 95\% per la proporzione di uomini
+\end{sol}
+
+4.b \textbf{(Punti 3)} Costruire un intervallo di confidenza al 95\% per la proporzione di uomini
 favorevoli
 
-\textbf{Soluzione}
-
+\begin{sol}
 \(1-\alpha =0.05\) e quindi \(\alpha=0.95\rightarrow \alpha/2=0.475\)
 
 \[
@@ -19981,6 +20016,6 @@ favorevoli
      & & [ 0.7252 ,  0.7343 ]
 \end{eqnarray*}
 
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+\end{sol}
 
 \end{document}

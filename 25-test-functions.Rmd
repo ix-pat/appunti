@@ -231,6 +231,17 @@ ttest_beta(cof = 1,bj0 = 0,h1 = "\\neq",alpha = 0.01)
 
 ## Esempi`r ifelse(html,"{-}","")` 
 
+```{r}
+punti <- list(c(14,3,2,2),c(14,3,2,2),14,c(3,3,3,3),c(10,4),c(14,3,2,2,2))
+punt_p <- function(start=F,nex=F,num=F){
+  tot <- sum(unlist(punti))
+  it <- ifelse(start,item_start(num),item_(num))
+  it <- ifelse(nex,item_next(num),it)
+  ptt <- punti[[i1]][i2]
+  ptt_30 <- round(ptt/tot*31,2)
+  paste(it,"**(Punti ",ptt,")**",sep="")
+}
+```
 
 #### Esercizio 1`r ifelse(html,"{-}","")` 
 
@@ -253,31 +264,31 @@ Su un campione di $`r virg`r n`$ famiglie della provincia di Modena è stato
 rilevata la spesa mensile in telecomunicazioni (in euro), qui di seguito la 
 distribuzione delle frequenze relative:
 
-```{r 25-test-functions-13, echo=FALSE}`r ' '`
+```{r , echo=FALSE}`r ' '`
 kable(dat3[,c(1,2,4)]) %>%
   kable_styling(full_width = F)
 ```
 
-`r i2 <- i2+1;item()` (**Punti 14**) Disegnare l'istogramma di densità 
+`r virg`r punt_p(nex = T, start = T)` Disegnare l'istogramma di densità 
 percentuale.
 
-**Soluzione**
-
+:::{.sol data-latex=""}
 ```{r 25-test-functions-14, echo=FALSE}`r ' '`
 kable(dat3) %>%            # Stampa la tabella
   kable_styling(full_width = F)
 histp(axes = T)
 h.int(60,250,density=20)
 ```
+:::
 
-`r i2 <- i2+1;item()` (**Punti 3**) Qual è la percentuale di famiglie con 
+`r virg`r punt_p()` Qual è la percentuale di famiglie con 
 spesa superiore a 60 euro?
 
-**Soluzione**
-
+:::{.sol data-latex=""}
 ```{r 25-test-functions-15, echo=FALSE}`r ' '`
 F_print(60,verso=">")
 ```
+:::
 ````
 _________________________________________________________
 
@@ -296,7 +307,7 @@ i1 <- 1
 i2 <- 0
 
 ```
-\newpage
+
 Su un campione di $`r n`$ famiglie della provincia di Modena è stato rilevata la spesa mensile in telecomunicazioni (in euro), qui di seguito 
 la distribuzione delle frequenze relative:
 
@@ -306,10 +317,9 @@ kable(dat3[,c(1,2,4)],booktab=T,            # Stampa la tabella
   kable_styling(full_width = F,latex_options = "HOLD_position")
 ```
 
-`r i2 <- i2+1;item()` (**Punti 14**) Disegnare l'istogramma di densità percentuale.
+`r punt_p(nex = T, start = T)` Disegnare l'istogramma di densità percentuale.
 
-**Soluzione**
-
+:::{.sol data-latex=""}
 ```{r 25-test-functions-18,echo=FALSE}
 kable(dat3[,c(1:7,12)],booktab=T,            # Stampa la tabella  
       escape = F,linesep = "") %>%            
@@ -317,15 +327,15 @@ kable(dat3[,c(1:7,12)],booktab=T,            # Stampa la tabella
 histp(axes = T)
 h.int(60,250,density=20)
 ```
+:::
 
-`r i2 <- i2+1;item()` (**Punti 3**) Qual è la percentuale di famiglie con spesa superiore a 60 euro?
+`r punt_p()` Qual è la percentuale di famiglie con spesa superiore a 60 euro?
 
-**Soluzione**
-
+:::{.sol data-latex=""}
 ```{r 25-test-functions-19,results='asis',echo=FALSE}
 F_print(60,verso=">")
 ```
-
+:::
 
 ```{r 25-test-functions-20,echo=FALSE}
 # preparo i parametri
@@ -335,7 +345,7 @@ s2 <- 30
 n2 <- 45
 alpha <- 0.05
 h1 <- "\\neq"
-i1 <- 5
+i1 <- 4
 i2 <- 0
 ```
 
@@ -352,53 +362,49 @@ alpha <- 0.05
 h1 <- "\\neq"
 ```
 
-`r virg`r i2 <- i2+1;item()` Sono stati intervistati `r virg`r n1` uomini 
+`r virg`r punt_p(nex = T)` Sono stati intervistati `r virg`r n1` uomini 
 e `r virg`r n2` donne, `r virg`r s1` su `r virg`r n1` uomini si sono 
 dichiarati favorevoli, mentre sono favorevoli `r virg`r s2` su `r virg`r n2` 
 donne. Testare al livello di significatività del 5% l'ipotesi che uomini e 
 donna abbiano lo stesso parare contro l'alternativa che siano diversi.
 
-**Soluzione**
-
-```{r 25-test-functions-22,results='asis', echo=FALSE}`r ' '`
+:::{.sol data-latex=""}
+```{r ,results='asis', echo=FALSE}`r ' '`
 ztest_2c_pi(s1 = s1,s2 = s2,n1 = n1,n2 = n2,
                 h1 = h1,alpha = alpha,a = "U",b = "D")
 ```
+:::
 
-`r virg`r i2 <- i2+1;item()` Costruire un intervallo di confidenza al 95% per 
+`r virg`r punt_p()` Costruire un intervallo di confidenza al 95% per 
 la proporzione di uomini favorevoli
 
-**Soluzione**
-
-```{r 25-test-functions-23,results='asis', echo=FALSE}`r ' '`
+:::{.sol data-latex=""}
+```{r ,results='asis', echo=FALSE}`r ' '`
 idc(xm = s1,alpha = .95,n = n1 ,dist_ = "z")
 ```
+:::
 ````
 
-_________________________________
-
-`r i2 <- i2+1;item()` Sono stati intervistati `r n1` uomini e `r n2` donne, 
+`r punt_p()` Sono stati intervistati `r n1` uomini e `r n2` donne, 
 `r s1` su `r n1` uomini si sono dichiarati favorevoli, mentre sono favorevoli 
 `r s2` su `r n2` donne. Testare al livello di significatività del 5% l'ipotesi 
 che uomini e donna abbiano lo stesso parare contro l'alternativa che siano 
 diversi. 
 
-
-**Soluzione**
-
-```{r 25-test-functions-24,results='asis',echo=FALSE}
+:::{.sol data-latex=""}
+```{r ,results='asis',echo=FALSE}
 ztest_2c_pi(s1 = s1,s2 = s2,n1 = n1,n2 = n2,
                 h1 = h1,alpha = alpha,a = "U",b = "D")
 ```
+:::
 
-`r i2 <- i2+1;item()` Costruire un intervallo di confidenza al 95% per la proporzione di uomini 
+`r punt_p()` Costruire un intervallo di confidenza al 95% per la proporzione di uomini 
 favorevoli 
 
-**Soluzione**
-
-```{r 25-test-functions-25,results='asis',echo=FALSE}
+:::{.sol data-latex=""}
+```{r ,results='asis',echo=FALSE}
 idc(xm = s1,alpha = .95,n = n1 ,dist_ = "z")
 ```
+:::
 
-_______________________________
 

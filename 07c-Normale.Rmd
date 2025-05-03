@@ -48,11 +48,19 @@ L'errore di misura è, in tantissimo casi, simmetrico rispetto allo zero:
 
 La VC _Normale_, $X\sim N(\mu,\sigma^2)$ è una distribuzione _continua_ con supporto
 con supporto
-\[S_X=[-\infty,+\infty]=\mathbb{R}\]
+$$
+S_X=[-\infty,+\infty]=\mathbb{R}
+$$
 Dipende da due parametri $\mu$ e $\sigma^2$. Lo spazio dei parametri è
-\[\Theta=\{(-\infty<\mu<+\infty)\cap(\sigma^2>0)\}=\mathbb{R}\times\mathbb{R}^+\]
+$$
+\Theta=\{(-\infty<\mu<+\infty)\cap(\sigma^2>0)\}=\mathbb{R}\times\mathbb{R}^+
+$$
 Con densità di probabilità (non richiesta all'esame)
-\[f(x)=\frac 1 {\sqrt{2\pi\sigma^2}}e^{-\frac 1 2 \left(\frac{x-\mu}{\sigma}\right)^2}, \qquad \text{Attenzione, in questo caso $\pi=3.1415...$ è la costante trigonometrica}\]
+$$
+f(x)=\frac {1}{\sqrt{2\pi\sigma^2}}e^{-\frac 1 2 \left(\frac{x-\mu}{\sigma}\right)^2}, 
+$$
+
+Attenzione, in questo caso $\pi=3.1415...$ è la costante trigonometrica. 
 Descrizione:
 
   - ha forma _campanulare_;
@@ -60,7 +68,9 @@ Descrizione:
   - ha due punti di flesso in $\mu\pm\sigma$;
 
 Con valore atteso e varianza:
-\[E(X)=\mu, \qquad V(X)=\sigma^2\]
+$$
+E(X)=\mu, \qquad V(X)=\sigma^2
+$$
 
 
 __Esempi__

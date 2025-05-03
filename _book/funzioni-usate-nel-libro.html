@@ -1894,52 +1894,60 @@ Test su un coefficiente di regressione: <span class="math inline">\(\Rightarrow\
 </div>
 <div id="esempi-3" class="section level2 unnumbered hasAnchor">
 <h2>Esempi<a href="funzioni-usate-nel-libro.html#esempi-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb290"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb290-1"><a href="funzioni-usate-nel-libro.html#cb290-1" tabindex="-1"></a>punti <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="fu">c</span>(<span class="dv">14</span>,<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">2</span>),<span class="fu">c</span>(<span class="dv">14</span>,<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">2</span>),<span class="dv">14</span>,<span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>),<span class="fu">c</span>(<span class="dv">10</span>,<span class="dv">4</span>),<span class="fu">c</span>(<span class="dv">14</span>,<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>))</span>
+<span id="cb290-2"><a href="funzioni-usate-nel-libro.html#cb290-2" tabindex="-1"></a>punt_p <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">start=</span>F,<span class="at">nex=</span>F,<span class="at">num=</span>F){</span>
+<span id="cb290-3"><a href="funzioni-usate-nel-libro.html#cb290-3" tabindex="-1"></a>  tot <span class="ot">&lt;-</span> <span class="fu">sum</span>(<span class="fu">unlist</span>(punti))</span>
+<span id="cb290-4"><a href="funzioni-usate-nel-libro.html#cb290-4" tabindex="-1"></a>  it <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(start,<span class="fu">item_start</span>(num),<span class="fu">item_</span>(num))</span>
+<span id="cb290-5"><a href="funzioni-usate-nel-libro.html#cb290-5" tabindex="-1"></a>  it <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(nex,<span class="fu">item_next</span>(num),it)</span>
+<span id="cb290-6"><a href="funzioni-usate-nel-libro.html#cb290-6" tabindex="-1"></a>  ptt <span class="ot">&lt;-</span> punti[[i1]][i2]</span>
+<span id="cb290-7"><a href="funzioni-usate-nel-libro.html#cb290-7" tabindex="-1"></a>  ptt_30 <span class="ot">&lt;-</span> <span class="fu">round</span>(ptt<span class="sc">/</span>tot<span class="sc">*</span><span class="dv">31</span>,<span class="dv">2</span>)</span>
+<span id="cb290-8"><a href="funzioni-usate-nel-libro.html#cb290-8" tabindex="-1"></a>  <span class="fu">paste</span>(it,<span class="st">&quot;**(Punti &quot;</span>,ptt,<span class="st">&quot;)**&quot;</span>,<span class="at">sep=</span><span class="st">&quot;&quot;</span>)</span>
+<span id="cb290-9"><a href="funzioni-usate-nel-libro.html#cb290-9" tabindex="-1"></a>}</span></code></pre></div>
 <div id="esercizio-1" class="section level4 unnumbered hasAnchor">
 <h4>Esercizio 1<a href="funzioni-usate-nel-libro.html#esercizio-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div class="sourceCode" id="cb290"><pre class="sourceCode .markdown"><code class="sourceCode markdown"><span id="cb290-1"><a href="funzioni-usate-nel-libro.html#cb290-1" tabindex="-1"></a><span class="in">```{r 25-test-functions-12, echo=FALSE} </span></span>
-<span id="cb290-2"><a href="funzioni-usate-nel-libro.html#cb290-2" tabindex="-1"></a><span class="in">set.seed(1)                      # per ottenere sempre la stessa simulazione</span></span>
-<span id="cb290-3"><a href="funzioni-usate-nel-libro.html#cb290-3" tabindex="-1"></a><span class="in">n &lt;- 250                         # ampiezza campionaria</span></span>
-<span id="cb290-4"><a href="funzioni-usate-nel-libro.html#cb290-4" tabindex="-1"></a></span>
-<span id="cb290-5"><a href="funzioni-usate-nel-libro.html#cb290-5" tabindex="-1"></a><span class="in">brk  &lt;- c(0,15,30,50,100,250)          # intervalli (breaks)</span></span>
-<span id="cb290-6"><a href="funzioni-usate-nel-libro.html#cb290-6" tabindex="-1"></a><span class="in">hhh  &lt;- c( 20,120,100, 50,10)       # aspetto presunto istogramma</span></span>
-<span id="cb290-7"><a href="funzioni-usate-nel-libro.html#cb290-7" tabindex="-1"></a></span>
-<span id="cb290-8"><a href="funzioni-usate-nel-libro.html#cb290-8" tabindex="-1"></a><span class="in">nomex &lt;- &quot;Spesa&quot;</span></span>
-<span id="cb290-9"><a href="funzioni-usate-nel-libro.html#cb290-9" tabindex="-1"></a><span class="in">samp &lt;- genera_dati(brk = brk,hhh = hhh,n = n)</span></span>
-<span id="cb290-10"><a href="funzioni-usate-nel-libro.html#cb290-10" tabindex="-1"></a></span>
-<span id="cb290-11"><a href="funzioni-usate-nel-libro.html#cb290-11" tabindex="-1"></a><span class="in">ls2e(stat_base(samp,brk))        # crea il data set e la tabella dat3</span></span>
-<span id="cb290-12"><a href="funzioni-usate-nel-libro.html#cb290-12" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb290-13"><a href="funzioni-usate-nel-libro.html#cb290-13" tabindex="-1"></a></span>
-<span id="cb290-14"><a href="funzioni-usate-nel-libro.html#cb290-14" tabindex="-1"></a>Su un campione di $<span class="in">`r n`</span>$ famiglie della provincia di Modena è stato </span>
-<span id="cb290-15"><a href="funzioni-usate-nel-libro.html#cb290-15" tabindex="-1"></a>rilevata la spesa mensile in telecomunicazioni (in euro), qui di seguito la </span>
-<span id="cb290-16"><a href="funzioni-usate-nel-libro.html#cb290-16" tabindex="-1"></a>distribuzione delle frequenze relative:</span>
-<span id="cb290-17"><a href="funzioni-usate-nel-libro.html#cb290-17" tabindex="-1"></a></span>
-<span id="cb290-18"><a href="funzioni-usate-nel-libro.html#cb290-18" tabindex="-1"></a><span class="in">```{r 25-test-functions-13, echo=FALSE} </span></span>
-<span id="cb290-19"><a href="funzioni-usate-nel-libro.html#cb290-19" tabindex="-1"></a><span class="in">kable(dat3[,c(1,2,4)]) %&gt;%</span></span>
-<span id="cb290-20"><a href="funzioni-usate-nel-libro.html#cb290-20" tabindex="-1"></a><span class="in">  kable_styling(full_width = F)</span></span>
-<span id="cb290-21"><a href="funzioni-usate-nel-libro.html#cb290-21" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb290-22"><a href="funzioni-usate-nel-libro.html#cb290-22" tabindex="-1"></a></span>
-<span id="cb290-23"><a href="funzioni-usate-nel-libro.html#cb290-23" tabindex="-1"></a>1.a (**Punti 14**) Disegnare l&#39;istogramma di densità </span>
-<span id="cb290-24"><a href="funzioni-usate-nel-libro.html#cb290-24" tabindex="-1"></a>percentuale.</span>
-<span id="cb290-25"><a href="funzioni-usate-nel-libro.html#cb290-25" tabindex="-1"></a></span>
-<span id="cb290-26"><a href="funzioni-usate-nel-libro.html#cb290-26" tabindex="-1"></a>**Soluzione**</span>
-<span id="cb290-27"><a href="funzioni-usate-nel-libro.html#cb290-27" tabindex="-1"></a></span>
-<span id="cb290-28"><a href="funzioni-usate-nel-libro.html#cb290-28" tabindex="-1"></a><span class="in">```{r 25-test-functions-14, echo=FALSE} </span></span>
-<span id="cb290-29"><a href="funzioni-usate-nel-libro.html#cb290-29" tabindex="-1"></a><span class="in">kable(dat3) %&gt;%            # Stampa la tabella</span></span>
-<span id="cb290-30"><a href="funzioni-usate-nel-libro.html#cb290-30" tabindex="-1"></a><span class="in">  kable_styling(full_width = F)</span></span>
-<span id="cb290-31"><a href="funzioni-usate-nel-libro.html#cb290-31" tabindex="-1"></a><span class="in">histp(axes = T)</span></span>
-<span id="cb290-32"><a href="funzioni-usate-nel-libro.html#cb290-32" tabindex="-1"></a><span class="in">h.int(60,250,density=20)</span></span>
-<span id="cb290-33"><a href="funzioni-usate-nel-libro.html#cb290-33" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb290-34"><a href="funzioni-usate-nel-libro.html#cb290-34" tabindex="-1"></a></span>
-<span id="cb290-35"><a href="funzioni-usate-nel-libro.html#cb290-35" tabindex="-1"></a>1.b (**Punti 3**) Qual è la percentuale di famiglie con </span>
-<span id="cb290-36"><a href="funzioni-usate-nel-libro.html#cb290-36" tabindex="-1"></a>spesa superiore a 60 euro?</span>
-<span id="cb290-37"><a href="funzioni-usate-nel-libro.html#cb290-37" tabindex="-1"></a></span>
-<span id="cb290-38"><a href="funzioni-usate-nel-libro.html#cb290-38" tabindex="-1"></a>**Soluzione**</span>
-<span id="cb290-39"><a href="funzioni-usate-nel-libro.html#cb290-39" tabindex="-1"></a></span>
-<span id="cb290-40"><a href="funzioni-usate-nel-libro.html#cb290-40" tabindex="-1"></a><span class="in">```{r 25-test-functions-15, echo=FALSE} </span></span>
-<span id="cb290-41"><a href="funzioni-usate-nel-libro.html#cb290-41" tabindex="-1"></a><span class="in">F_print(60,verso=&quot;&gt;&quot;)</span></span>
-<span id="cb290-42"><a href="funzioni-usate-nel-libro.html#cb290-42" tabindex="-1"></a><span class="in">```</span></span></code></pre></div>
+<div class="sourceCode" id="cb291"><pre class="sourceCode .markdown"><code class="sourceCode markdown"><span id="cb291-1"><a href="funzioni-usate-nel-libro.html#cb291-1" tabindex="-1"></a><span class="in">```{r 25-test-functions-12, echo=FALSE} </span></span>
+<span id="cb291-2"><a href="funzioni-usate-nel-libro.html#cb291-2" tabindex="-1"></a><span class="in">set.seed(1)                      # per ottenere sempre la stessa simulazione</span></span>
+<span id="cb291-3"><a href="funzioni-usate-nel-libro.html#cb291-3" tabindex="-1"></a><span class="in">n &lt;- 250                         # ampiezza campionaria</span></span>
+<span id="cb291-4"><a href="funzioni-usate-nel-libro.html#cb291-4" tabindex="-1"></a></span>
+<span id="cb291-5"><a href="funzioni-usate-nel-libro.html#cb291-5" tabindex="-1"></a><span class="in">brk  &lt;- c(0,15,30,50,100,250)          # intervalli (breaks)</span></span>
+<span id="cb291-6"><a href="funzioni-usate-nel-libro.html#cb291-6" tabindex="-1"></a><span class="in">hhh  &lt;- c( 20,120,100, 50,10)       # aspetto presunto istogramma</span></span>
+<span id="cb291-7"><a href="funzioni-usate-nel-libro.html#cb291-7" tabindex="-1"></a></span>
+<span id="cb291-8"><a href="funzioni-usate-nel-libro.html#cb291-8" tabindex="-1"></a><span class="in">nomex &lt;- &quot;Spesa&quot;</span></span>
+<span id="cb291-9"><a href="funzioni-usate-nel-libro.html#cb291-9" tabindex="-1"></a><span class="in">samp &lt;- genera_dati(brk = brk,hhh = hhh,n = n)</span></span>
+<span id="cb291-10"><a href="funzioni-usate-nel-libro.html#cb291-10" tabindex="-1"></a></span>
+<span id="cb291-11"><a href="funzioni-usate-nel-libro.html#cb291-11" tabindex="-1"></a><span class="in">ls2e(stat_base(samp,brk))        # crea il data set e la tabella dat3</span></span>
+<span id="cb291-12"><a href="funzioni-usate-nel-libro.html#cb291-12" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb291-13"><a href="funzioni-usate-nel-libro.html#cb291-13" tabindex="-1"></a></span>
+<span id="cb291-14"><a href="funzioni-usate-nel-libro.html#cb291-14" tabindex="-1"></a>Su un campione di $<span class="in">`r n`</span>$ famiglie della provincia di Modena è stato </span>
+<span id="cb291-15"><a href="funzioni-usate-nel-libro.html#cb291-15" tabindex="-1"></a>rilevata la spesa mensile in telecomunicazioni (in euro), qui di seguito la </span>
+<span id="cb291-16"><a href="funzioni-usate-nel-libro.html#cb291-16" tabindex="-1"></a>distribuzione delle frequenze relative:</span>
+<span id="cb291-17"><a href="funzioni-usate-nel-libro.html#cb291-17" tabindex="-1"></a></span>
+<span id="cb291-18"><a href="funzioni-usate-nel-libro.html#cb291-18" tabindex="-1"></a><span class="in">```{r , echo=FALSE} </span></span>
+<span id="cb291-19"><a href="funzioni-usate-nel-libro.html#cb291-19" tabindex="-1"></a><span class="in">kable(dat3[,c(1,2,4)]) %&gt;%</span></span>
+<span id="cb291-20"><a href="funzioni-usate-nel-libro.html#cb291-20" tabindex="-1"></a><span class="in">  kable_styling(full_width = F)</span></span>
+<span id="cb291-21"><a href="funzioni-usate-nel-libro.html#cb291-21" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb291-22"><a href="funzioni-usate-nel-libro.html#cb291-22" tabindex="-1"></a></span>
+<span id="cb291-23"><a href="funzioni-usate-nel-libro.html#cb291-23" tabindex="-1"></a><span class="in">`r punt_p(nex = T, start = T)`</span> Disegnare l&#39;istogramma di densità </span>
+<span id="cb291-24"><a href="funzioni-usate-nel-libro.html#cb291-24" tabindex="-1"></a>percentuale.</span>
+<span id="cb291-25"><a href="funzioni-usate-nel-libro.html#cb291-25" tabindex="-1"></a></span>
+<span id="cb291-26"><a href="funzioni-usate-nel-libro.html#cb291-26" tabindex="-1"></a>:::{.sol data-latex=&quot;&quot;}</span>
+<span id="cb291-27"><a href="funzioni-usate-nel-libro.html#cb291-27" tabindex="-1"></a><span class="in">```{r 25-test-functions-14, echo=FALSE} </span></span>
+<span id="cb291-28"><a href="funzioni-usate-nel-libro.html#cb291-28" tabindex="-1"></a><span class="in">kable(dat3) %&gt;%            # Stampa la tabella</span></span>
+<span id="cb291-29"><a href="funzioni-usate-nel-libro.html#cb291-29" tabindex="-1"></a><span class="in">  kable_styling(full_width = F)</span></span>
+<span id="cb291-30"><a href="funzioni-usate-nel-libro.html#cb291-30" tabindex="-1"></a><span class="in">histp(axes = T)</span></span>
+<span id="cb291-31"><a href="funzioni-usate-nel-libro.html#cb291-31" tabindex="-1"></a><span class="in">h.int(60,250,density=20)</span></span>
+<span id="cb291-32"><a href="funzioni-usate-nel-libro.html#cb291-32" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb291-33"><a href="funzioni-usate-nel-libro.html#cb291-33" tabindex="-1"></a>:::</span>
+<span id="cb291-34"><a href="funzioni-usate-nel-libro.html#cb291-34" tabindex="-1"></a></span>
+<span id="cb291-35"><a href="funzioni-usate-nel-libro.html#cb291-35" tabindex="-1"></a><span class="in">`r punt_p()`</span> Qual è la percentuale di famiglie con </span>
+<span id="cb291-36"><a href="funzioni-usate-nel-libro.html#cb291-36" tabindex="-1"></a>spesa superiore a 60 euro?</span>
+<span id="cb291-37"><a href="funzioni-usate-nel-libro.html#cb291-37" tabindex="-1"></a></span>
+<span id="cb291-38"><a href="funzioni-usate-nel-libro.html#cb291-38" tabindex="-1"></a>:::{.sol data-latex=&quot;&quot;}</span>
+<span id="cb291-39"><a href="funzioni-usate-nel-libro.html#cb291-39" tabindex="-1"></a><span class="in">```{r 25-test-functions-15, echo=FALSE} </span></span>
+<span id="cb291-40"><a href="funzioni-usate-nel-libro.html#cb291-40" tabindex="-1"></a><span class="in">F_print(60,verso=&quot;&gt;&quot;)</span></span>
+<span id="cb291-41"><a href="funzioni-usate-nel-libro.html#cb291-41" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb291-42"><a href="funzioni-usate-nel-libro.html#cb291-42" tabindex="-1"></a>:::</span></code></pre></div>
 <hr />
-<div style="page-break-after: always;"></div>
 <p>Su un campione di <span class="math inline">\(250\)</span> famiglie della provincia di Modena è stato rilevata la spesa mensile in telecomunicazioni (in euro), qui di seguito
 la distribuzione delle frequenze relative:</p>
 <table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
@@ -2023,8 +2031,8 @@ la distribuzione delle frequenze relative:</p>
 </tr>
 </tbody>
 </table>
-<p>1.a (<strong>Punti 14</strong>) Disegnare l’istogramma di densità percentuale.</p>
-<p><strong>Soluzione</strong></p>
+<p>2.a <strong>(Punti 14)</strong> Disegnare l’istogramma di densità percentuale.</p>
+<div class="sol">
 <table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -2210,53 +2218,54 @@ la distribuzione delle frequenze relative:</p>
 </tbody>
 </table>
 <p><img src="Appunti_di_Statistica_2025_files/figure-html/25-test-functions-18-1.png" width="672" /></p>
-<p>1.b (<strong>Punti 3</strong>) Qual è la percentuale di famiglie con spesa superiore a 60 euro?</p>
-<p><strong>Soluzione</strong></p>
+</div>
+<p>2.b <strong>(Punti 3)</strong> Qual è la percentuale di famiglie con spesa superiore a 60 euro?</p>
+<div class="sol">
 <p><span class="math display">\[\begin{eqnarray*}
      \%(X&gt; 60 ) &amp;=&amp; ( 100 - 60 )\times h_{ 4 }+ f_{ 5 }\times 100 \\
               &amp;=&amp; ( 40 )\times 0.616 + ( 0.184 )\times 100 \\
               &amp;=&amp;  0.4304 \times(100)\\
      \#(X&gt; 60 ) &amp;\approx&amp; 108
          \end{eqnarray*}\]</span></p>
+</div>
 <hr />
-<div class="sourceCode" id="cb291"><pre class="sourceCode .markdown"><code class="sourceCode markdown"><span id="cb291-1"><a href="funzioni-usate-nel-libro.html#cb291-1" tabindex="-1"></a><span class="in">```{r 25-test-functions-21, echo=FALSE} </span></span>
-<span id="cb291-2"><a href="funzioni-usate-nel-libro.html#cb291-2" tabindex="-1"></a><span class="in"># preparo i parametri</span></span>
-<span id="cb291-3"><a href="funzioni-usate-nel-libro.html#cb291-3" tabindex="-1"></a><span class="in">s1 &lt;- 27</span></span>
-<span id="cb291-4"><a href="funzioni-usate-nel-libro.html#cb291-4" tabindex="-1"></a><span class="in">n1 &lt;- 37</span></span>
-<span id="cb291-5"><a href="funzioni-usate-nel-libro.html#cb291-5" tabindex="-1"></a><span class="in">s2 &lt;- 30</span></span>
-<span id="cb291-6"><a href="funzioni-usate-nel-libro.html#cb291-6" tabindex="-1"></a><span class="in">n2 &lt;- 45</span></span>
-<span id="cb291-7"><a href="funzioni-usate-nel-libro.html#cb291-7" tabindex="-1"></a><span class="in">alpha &lt;- 0.05</span></span>
-<span id="cb291-8"><a href="funzioni-usate-nel-libro.html#cb291-8" tabindex="-1"></a><span class="in">h1 &lt;- &quot;\\neq&quot;</span></span>
-<span id="cb291-9"><a href="funzioni-usate-nel-libro.html#cb291-9" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb291-10"><a href="funzioni-usate-nel-libro.html#cb291-10" tabindex="-1"></a></span>
-<span id="cb291-11"><a href="funzioni-usate-nel-libro.html#cb291-11" tabindex="-1"></a><span class="in">`r i2 &lt;- i2+1;item()`</span> Sono stati intervistati <span class="in">`r n1`</span> uomini </span>
-<span id="cb291-12"><a href="funzioni-usate-nel-libro.html#cb291-12" tabindex="-1"></a>e <span class="in">`r n2`</span> donne, <span class="in">`r s1`</span> su <span class="in">`r n1`</span> uomini si sono </span>
-<span id="cb291-13"><a href="funzioni-usate-nel-libro.html#cb291-13" tabindex="-1"></a>dichiarati favorevoli, mentre sono favorevoli <span class="in">`r s2`</span> su <span class="in">`r n2`</span> </span>
-<span id="cb291-14"><a href="funzioni-usate-nel-libro.html#cb291-14" tabindex="-1"></a>donne. Testare al livello di significatività del 5% l&#39;ipotesi che uomini e </span>
-<span id="cb291-15"><a href="funzioni-usate-nel-libro.html#cb291-15" tabindex="-1"></a>donna abbiano lo stesso parare contro l&#39;alternativa che siano diversi.</span>
-<span id="cb291-16"><a href="funzioni-usate-nel-libro.html#cb291-16" tabindex="-1"></a></span>
-<span id="cb291-17"><a href="funzioni-usate-nel-libro.html#cb291-17" tabindex="-1"></a>**Soluzione**</span>
-<span id="cb291-18"><a href="funzioni-usate-nel-libro.html#cb291-18" tabindex="-1"></a></span>
-<span id="cb291-19"><a href="funzioni-usate-nel-libro.html#cb291-19" tabindex="-1"></a><span class="in">```{r 25-test-functions-22,results=&#39;asis&#39;, echo=FALSE} </span></span>
-<span id="cb291-20"><a href="funzioni-usate-nel-libro.html#cb291-20" tabindex="-1"></a><span class="in">ztest_2c_pi(s1 = s1,s2 = s2,n1 = n1,n2 = n2,</span></span>
-<span id="cb291-21"><a href="funzioni-usate-nel-libro.html#cb291-21" tabindex="-1"></a><span class="in">                h1 = h1,alpha = alpha,a = &quot;U&quot;,b = &quot;D&quot;)</span></span>
-<span id="cb291-22"><a href="funzioni-usate-nel-libro.html#cb291-22" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb291-23"><a href="funzioni-usate-nel-libro.html#cb291-23" tabindex="-1"></a></span>
-<span id="cb291-24"><a href="funzioni-usate-nel-libro.html#cb291-24" tabindex="-1"></a><span class="in">`r i2 &lt;- i2+1;item()`</span> Costruire un intervallo di confidenza al 95% per </span>
-<span id="cb291-25"><a href="funzioni-usate-nel-libro.html#cb291-25" tabindex="-1"></a>la proporzione di uomini favorevoli</span>
-<span id="cb291-26"><a href="funzioni-usate-nel-libro.html#cb291-26" tabindex="-1"></a></span>
-<span id="cb291-27"><a href="funzioni-usate-nel-libro.html#cb291-27" tabindex="-1"></a>**Soluzione**</span>
-<span id="cb291-28"><a href="funzioni-usate-nel-libro.html#cb291-28" tabindex="-1"></a></span>
-<span id="cb291-29"><a href="funzioni-usate-nel-libro.html#cb291-29" tabindex="-1"></a><span class="in">```{r 25-test-functions-23,results=&#39;asis&#39;, echo=FALSE} </span></span>
-<span id="cb291-30"><a href="funzioni-usate-nel-libro.html#cb291-30" tabindex="-1"></a><span class="in">idc(xm = s1,alpha = .95,n = n1 ,dist_ = &quot;z&quot;)</span></span>
-<span id="cb291-31"><a href="funzioni-usate-nel-libro.html#cb291-31" tabindex="-1"></a><span class="in">```</span></span></code></pre></div>
-<hr />
-<p>5.a Sono stati intervistati 37 uomini e 45 donne,
+<div class="sourceCode" id="cb292"><pre class="sourceCode .markdown"><code class="sourceCode markdown"><span id="cb292-1"><a href="funzioni-usate-nel-libro.html#cb292-1" tabindex="-1"></a><span class="in">```{r 25-test-functions-21, echo=FALSE} </span></span>
+<span id="cb292-2"><a href="funzioni-usate-nel-libro.html#cb292-2" tabindex="-1"></a><span class="in"># preparo i parametri</span></span>
+<span id="cb292-3"><a href="funzioni-usate-nel-libro.html#cb292-3" tabindex="-1"></a><span class="in">s1 &lt;- 27</span></span>
+<span id="cb292-4"><a href="funzioni-usate-nel-libro.html#cb292-4" tabindex="-1"></a><span class="in">n1 &lt;- 37</span></span>
+<span id="cb292-5"><a href="funzioni-usate-nel-libro.html#cb292-5" tabindex="-1"></a><span class="in">s2 &lt;- 30</span></span>
+<span id="cb292-6"><a href="funzioni-usate-nel-libro.html#cb292-6" tabindex="-1"></a><span class="in">n2 &lt;- 45</span></span>
+<span id="cb292-7"><a href="funzioni-usate-nel-libro.html#cb292-7" tabindex="-1"></a><span class="in">alpha &lt;- 0.05</span></span>
+<span id="cb292-8"><a href="funzioni-usate-nel-libro.html#cb292-8" tabindex="-1"></a><span class="in">h1 &lt;- &quot;\\neq&quot;</span></span>
+<span id="cb292-9"><a href="funzioni-usate-nel-libro.html#cb292-9" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb292-10"><a href="funzioni-usate-nel-libro.html#cb292-10" tabindex="-1"></a></span>
+<span id="cb292-11"><a href="funzioni-usate-nel-libro.html#cb292-11" tabindex="-1"></a><span class="in">`r punt_p(nex = T)`</span> Sono stati intervistati <span class="in">`r n1`</span> uomini </span>
+<span id="cb292-12"><a href="funzioni-usate-nel-libro.html#cb292-12" tabindex="-1"></a>e <span class="in">`r n2`</span> donne, <span class="in">`r s1`</span> su <span class="in">`r n1`</span> uomini si sono </span>
+<span id="cb292-13"><a href="funzioni-usate-nel-libro.html#cb292-13" tabindex="-1"></a>dichiarati favorevoli, mentre sono favorevoli <span class="in">`r s2`</span> su <span class="in">`r n2`</span> </span>
+<span id="cb292-14"><a href="funzioni-usate-nel-libro.html#cb292-14" tabindex="-1"></a>donne. Testare al livello di significatività del 5% l&#39;ipotesi che uomini e </span>
+<span id="cb292-15"><a href="funzioni-usate-nel-libro.html#cb292-15" tabindex="-1"></a>donna abbiano lo stesso parare contro l&#39;alternativa che siano diversi.</span>
+<span id="cb292-16"><a href="funzioni-usate-nel-libro.html#cb292-16" tabindex="-1"></a></span>
+<span id="cb292-17"><a href="funzioni-usate-nel-libro.html#cb292-17" tabindex="-1"></a>:::{.sol data-latex=&quot;&quot;}</span>
+<span id="cb292-18"><a href="funzioni-usate-nel-libro.html#cb292-18" tabindex="-1"></a><span class="in">```{r ,results=&#39;asis&#39;, echo=FALSE} </span></span>
+<span id="cb292-19"><a href="funzioni-usate-nel-libro.html#cb292-19" tabindex="-1"></a><span class="in">ztest_2c_pi(s1 = s1,s2 = s2,n1 = n1,n2 = n2,</span></span>
+<span id="cb292-20"><a href="funzioni-usate-nel-libro.html#cb292-20" tabindex="-1"></a><span class="in">                h1 = h1,alpha = alpha,a = &quot;U&quot;,b = &quot;D&quot;)</span></span>
+<span id="cb292-21"><a href="funzioni-usate-nel-libro.html#cb292-21" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb292-22"><a href="funzioni-usate-nel-libro.html#cb292-22" tabindex="-1"></a>:::</span>
+<span id="cb292-23"><a href="funzioni-usate-nel-libro.html#cb292-23" tabindex="-1"></a></span>
+<span id="cb292-24"><a href="funzioni-usate-nel-libro.html#cb292-24" tabindex="-1"></a><span class="in">`r punt_p()`</span> Costruire un intervallo di confidenza al 95% per </span>
+<span id="cb292-25"><a href="funzioni-usate-nel-libro.html#cb292-25" tabindex="-1"></a>la proporzione di uomini favorevoli</span>
+<span id="cb292-26"><a href="funzioni-usate-nel-libro.html#cb292-26" tabindex="-1"></a></span>
+<span id="cb292-27"><a href="funzioni-usate-nel-libro.html#cb292-27" tabindex="-1"></a>:::{.sol data-latex=&quot;&quot;}</span>
+<span id="cb292-28"><a href="funzioni-usate-nel-libro.html#cb292-28" tabindex="-1"></a><span class="in">```{r ,results=&#39;asis&#39;, echo=FALSE} </span></span>
+<span id="cb292-29"><a href="funzioni-usate-nel-libro.html#cb292-29" tabindex="-1"></a><span class="in">idc(xm = s1,alpha = .95,n = n1 ,dist_ = &quot;z&quot;)</span></span>
+<span id="cb292-30"><a href="funzioni-usate-nel-libro.html#cb292-30" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb292-31"><a href="funzioni-usate-nel-libro.html#cb292-31" tabindex="-1"></a>:::</span></code></pre></div>
+<p>4.a <strong>(Punti 3)</strong> Sono stati intervistati 37 uomini e 45 donne,
 27 su 37 uomini si sono dichiarati favorevoli, mentre sono favorevoli
 30 su 45 donne. Testare al livello di significatività del 5% l’ipotesi
 che uomini e donna abbiano lo stesso parare contro l’alternativa che siano
 diversi.</p>
-<p><strong>Soluzione</strong></p>
+<div class="sol">
 <p><strong>Test <span class="math inline">\(Z\)</span> per due proporzioni</strong></p>
 <p><span class="math inline">\(\fbox{A}\)</span> FORMULAZIONE DELLE IPOTESI</p>
 <p><span class="math display">\[\begin{cases}
@@ -2281,14 +2290,15 @@ diversi.</p>
 <p><span class="math display">\[ p_{\text{value}} = P(|Z|&gt;|0.62|)=2P(Z&gt;0.62)=0.537051 \]</span></p>
 <p><span class="math display">\[
 0.1 &lt; p_\text{value}= 0.537051 \leq 1
-\]</span><img src="Appunti_di_Statistica_2025_files/figure-html/25-test-functions-24-1.png" width="672" /></p>
+\]</span><img src="Appunti_di_Statistica_2025_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
 <p><strong>Non</strong> rifiuto <span class="math inline">\(H_0\)</span> a <strong>nessun</strong>
 livello di significatività,</p>
 <p><span class="math inline">\(p_\text{value}&gt;0.1\)</span>,
 <em>non significativo</em></p>
-<p>5.b Costruire un intervallo di confidenza al 95% per la proporzione di uomini
+</div>
+<p>4.b <strong>(Punti 3)</strong> Costruire un intervallo di confidenza al 95% per la proporzione di uomini
 favorevoli</p>
-<p><strong>Soluzione</strong></p>
+<div class="sol">
 <p><span class="math inline">\(1-\alpha =0.05\)</span> e quindi <span class="math inline">\(\alpha=0.95\rightarrow \alpha/2=0.475\)</span></p>
 <p><span class="math display">\[
   \hat\pi = \frac{S_n}n = \frac{ 27 }{ 37 }= 0.7297
@@ -2299,7 +2309,7 @@ favorevoli</p>
      &amp; &amp;  0.7297 \pm  0.06271 \times  0.07301 \\
      &amp; &amp; [ 0.7252 ,  0.7343 ]
 \end{eqnarray*}\]</span></p>
-<hr />
+</div>
 
 </div>
 </div>
