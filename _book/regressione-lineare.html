@@ -768,13 +768,12 @@ S_{(X=0)}&amp;=&amp;1.048
 <p>E quindi potremmo proporre la <strong>previsione</strong>:
 quanta produzione ci aspetteremo sul prossimo ettaro che pianteremo con quella varietà di riso?
 <span class="math display">\[\begin{eqnarray*}
-E(\hat Y_{11})&amp;=&amp;E(\hat\mu_{(X=0)}+\varepsilon_{11})\\
-&amp;=&amp;28.569+E(\varepsilon_{11})\\
-&amp;=&amp;28.569\qquad \text{poiché }
-\varepsilon_{11}\sim N\left(0,\sigma_\varepsilon^2\right)
+\hat Y_{11}&amp;=&amp;\hat\mu_{(X=0)}+\varepsilon_{11}\\
 \end{eqnarray*}\]</span></p>
-<p>È una <em>previsione</em> corretta?
-<span class="math display">\[E(\hat Y_{11})=E(\hat\mu+\varepsilon_{11})=E(\hat\mu)+E(\varepsilon_{11})=\mu+0=\mu\]</span></p>
+<p>Il valore atteso della previsione è?</p>
+<p><span class="math display">\[\begin{eqnarray*}
+E(\hat Y_{11}) &amp;=&amp; E(\hat\mu_{(X=0)} + \varepsilon_{11}) \\ &amp;=&amp; E(\hat\mu_{(X=0)}) + E(\varepsilon_{11}) \\ &amp;=&amp; \mu + 0 = \mu
+\end{eqnarray*}\]</span></p>
 <p>L’errore di previsione stimato è <span class="math inline">\(S_{(X=0)}=1.048\)</span>.</p>
 </div>
 <div class="example">
@@ -831,7 +830,7 @@ S_{(X=1.3)}&amp;=&amp;0.952
 <p><span class="math display">\[ p_{\text{value}} = P(T_{20-2}&gt;0.78)=0.221609 \]</span></p>
 <p>Attenzione il calcolo del <span class="math inline">\(p_\text{value}\)</span> con la <span class="math inline">\(T\)</span> è puramente illustrativo e non può essere riprodotto senza una calcolatrice statistica adeguata.<span class="math display">\[
 0.1 &lt; p_\text{value}= 0.221609 \leq 1
-\]</span>NULL</p>
+\]</span></p>
 </div>
 <div class="example">
 <p><span id="exm:unlabeled-div-205" class="example"><strong>Esempio 17.3  </strong></span>Supponiamo di aver piantato altri 10 ettari di questa varietà ma su terreni trattati con 2.84 hg (<span class="math inline">\(X=2.84\)</span>)
@@ -926,7 +925,7 @@ una funzione <span class="math inline">\(\mu(x)\)</span> e stimarla coi dati <sp
 che sia, per ogni <span class="math inline">\(x\)</span> dato, il valore atteso di <span class="math inline">\(Y\)</span> condizionato a quella <span class="math inline">\(x\)</span>.
 Cioè abbiamo bisogno di un modello per la media di <span class="math inline">\(Y\)</span> per un dato <span class="math inline">\(X\)</span>
 <span class="math display">\[E(Y_i|X=x_i)=\mu(x_i)\]</span></p>
-<p>E si legge che <span class="math inline">\(Y\)</span>, in media, condizionato ad <span class="math inline">\(X=x\)</span> vale <span class="math inline">\(f(x)\)</span>, dove <span class="math inline">\(f\)</span> è una funzione da scegliere.
+<p>E si legge che <span class="math inline">\(Y\)</span>, in media, condizionato ad <span class="math inline">\(X=x\)</span> vale <span class="math inline">\(\mu(x)\)</span>, dove <span class="math inline">\(\mu\)</span> è una funzione da scegliere.
 L’idea di base è che
 <span class="math display">\[y_i=\mu(x_i)+\varepsilon_i\]</span>
 la <span class="math inline">\(y\)</span> osservata in corrispondenza della <span class="math inline">\(x\)</span> è pari ad <span class="math inline">\(\mu(x)\)</span> a meno di un errore casuale.
@@ -1319,7 +1318,7 @@ Come per la varianza esiste una formula semplificata:</p>
 <span class="math display">\[\bar y=\frac 1 4(2+3.5+2.5+4)=\frac{12}{4}=3\]</span></p>
 <p>Per la covarianza:
 <span class="math display">\[\begin{eqnarray*}
-\text{cov}(x,y)&amp;=&amp;\frac 1 4\Big(( 0-1.5 ) ( 2-3 )+( 1-1.5 ) ( 3.5-3 )+( 2-1.5 ) ( 2.5-3 )+( 3-1.5 ) ( 4-3 )\Big)\\
+\text{cov}(x,y)&amp;=&amp;\scriptsize\frac 1 4\Big(( 0-1.5 ) ( 2-3 )+( 1-1.5 ) ( 3.5-3 )+( 2-1.5 ) ( 2.5-3 )+( 3-1.5 ) ( 4-3 )\Big)\\
 &amp;=&amp; \frac 1 4(0 \times 2+1 \times 3.5+2 \times 2.5+3 \times 4)-1.5\times3\\
 &amp;=&amp; \frac 1 4(20.5)-4.5\\
 &amp;=&amp; 0.625
@@ -1349,7 +1348,7 @@ La covarianza estende il concetto di varianza quando le variabili sono due.</p>
 <p><span class="math display">\[-\hat\sigma_X\hat\sigma_Y\leq\text{cov}(x,y)\leq + \hat\sigma_X\hat\sigma_Y\]</span></p>
 <p><img src="Appunti_di_Statistica_2025_files/figure-html/17-regressione-I-36-1.png" width="672" /></p>
 <p><img src="Appunti_di_Statistica_2025_files/figure-html/17-regressione-I-37-1.png" width="672" /></p>
-<p>Stimiamo di <span class="math inline">\(\sigma_X\)</span> e <span class="math inline">\(\sigma_Y\)</span></p>
+<p>Quindi stimiamo di <span class="math inline">\(\sigma_X\)</span> e <span class="math inline">\(\sigma_Y\)</span></p>
 <p>Calcolo di <span class="math inline">\(\hat\sigma_X^2\)</span>
 <span class="math display">\[\begin{eqnarray*}
 \hat\sigma_X^2&amp;=&amp;\frac 1 n\sum_{i=1}^n x_i^2-\hat\mu_X^2\\
@@ -1357,7 +1356,7 @@ La covarianza estende il concetto di varianza quando le variabili sono due.</p>
 &amp;=&amp;1.25\\
 \hat\sigma_X &amp;=&amp; 1.118
 \end{eqnarray*}\]</span></p>
-<p>Calcolo di <span class="math inline">\(\hat\sigma_X^2\)</span>
+<p>Calcolo di <span class="math inline">\(\hat\sigma_Y^2\)</span>
 <span class="math display">\[\begin{eqnarray*}
 \hat\sigma_Y^2&amp;=&amp;\frac 1 n\sum_{i=1}^n y_i^2-\hat\mu_Y^2\\
 &amp;=&amp;\frac 1 {4}(2^2+3.5^2+2.5^2+4^2)-3^2\\
@@ -1369,6 +1368,152 @@ La covarianza estende il concetto di varianza quando le variabili sono due.</p>
 <h3><span class="header-section-number">17.4.5</span> Calcolo in colonna<a href="regressione-lineare.html#calcolo-in-colonna" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div class="nota">
 <p>Molto più comodamente in colonna</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+<span class="math inline">\(i\)</span>
+</th>
+<th style="text-align:right;">
+<span class="math inline">\(x_i\)</span>
+</th>
+<th style="text-align:right;">
+<span class="math inline">\(y_i\)</span>
+</th>
+<th style="text-align:right;">
+<span class="math inline">\(x_i^2\)</span>
+</th>
+<th style="text-align:right;">
+<span class="math inline">\(y_i^2\)</span>
+</th>
+<th style="text-align:right;">
+<span class="math inline">\(x_i\cdot y_i\)</span>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:right;">
+0.0
+</td>
+<td style="text-align:right;">
+2.0
+</td>
+<td style="text-align:right;">
+0.0
+</td>
+<td style="text-align:right;">
+4.000
+</td>
+<td style="text-align:right;">
+0.000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:right;">
+1.0
+</td>
+<td style="text-align:right;">
+3.5
+</td>
+<td style="text-align:right;">
+1.0
+</td>
+<td style="text-align:right;">
+12.250
+</td>
+<td style="text-align:right;">
+3.500
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+3
+</td>
+<td style="text-align:right;">
+2.0
+</td>
+<td style="text-align:right;">
+2.5
+</td>
+<td style="text-align:right;">
+4.0
+</td>
+<td style="text-align:right;">
+6.250
+</td>
+<td style="text-align:right;">
+5.000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+4
+</td>
+<td style="text-align:right;">
+3.0
+</td>
+<td style="text-align:right;">
+4.0
+</td>
+<td style="text-align:right;">
+9.0
+</td>
+<td style="text-align:right;">
+16.000
+</td>
+<td style="text-align:right;">
+12.000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;color: white !important;background-color: gray !important;">
+Totale
+</td>
+<td style="text-align:right;font-weight: bold;color: white !important;background-color: gray !important;">
+6.0
+</td>
+<td style="text-align:right;font-weight: bold;color: white !important;background-color: gray !important;">
+12.0
+</td>
+<td style="text-align:right;font-weight: bold;color: white !important;background-color: gray !important;">
+14.0
+</td>
+<td style="text-align:right;font-weight: bold;color: white !important;background-color: gray !important;">
+38.500
+</td>
+<td style="text-align:right;font-weight: bold;color: white !important;background-color: gray !important;">
+20.500
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Totale/n
+</td>
+<td style="text-align:right;">
+1.5
+</td>
+<td style="text-align:right;">
+3.0
+</td>
+<td style="text-align:right;">
+3.5
+</td>
+<td style="text-align:right;">
+9.625
+</td>
+<td style="text-align:right;">
+5.125
+</td>
+</tr>
+</tbody>
+</table>
 <p><span class="math display">\[\begin{eqnarray*}
 \hat\sigma_X^2&amp;=&amp;\frac 1 n\sum_{i=1}^nx_i^2-\bar x^2=3.5-1.5^2=1.25\\
 \hat\sigma_Y^2&amp;=&amp;\frac 1 n\sum_{i=1}^ny_i^2-\bar y^2=9.625-3^2=0.625\\
@@ -1407,7 +1552,8 @@ y_i, &amp; &amp; \text{le $y$ osservate}\\
 \hat\varepsilon_i &amp;= y_i-\hat y_i,&amp;\text{gli errori stimati}\\
 \bar y &amp;= \frac 1 n\sum_{i=1}^n y_i, &amp;\text{la media degli $y$}\\
 \bar y &amp;= \frac 1 n\sum_{i=1}^n \hat y_i, &amp;\text{la media degli $\hat y$ coince con qeulla degli $y$}\\
-0 &amp;=\frac 1 n\sum_{i=1}^n\hat\varepsilon_i , &amp;\text{la media degli scarti dalla retta è zero}
+0 &amp;=\frac 1 n\sum_{i=1}^n\hat\varepsilon_i , &amp;\text{la media degli scarti dalla retta è zero}\\
+\bar y &amp;= \hat\beta_0+\hat\beta_1 \bar x , &amp;\text{la retta passa per il baricentro della nube}
 \end{aligned}
 \]</span></p>
 </div>
@@ -1729,7 +1875,7 @@ i punti sono allineati sul di essa.</p>
 <span class="math display">\[TSS = RSS\Rightarrow ESS=0\Rightarrow r^2=0\]</span>
 la retta è orizzontale e coincide con <span class="math inline">\(\hat\mu_Y\)</span></p>
 <p><img src="Appunti_di_Statistica_2025_files/figure-html/17-regressione-I-57-1.png" width="672" /></p>
-<p>Se la retta è parallela all’asse dell <span class="math inline">\(x\)</span> non spiega nulla della variabilità di <span class="math inline">\(y\)</span>.</p>
+<p>Se la retta è parallela all’asse dell <span class="math inline">\(x\)</span> non spiega nulla della variabilità di <span class="math inline">\(y\)</span>, ma non è detto che non esista relazione tra <span class="math inline">\(x\)</span> ed <span class="math inline">\(y\)</span>.</p>
 </div>
 <div id="scomposizione-della-varianza-sui-dati-di-esempio" class="section level3 hasAnchor" number="17.8.2">
 <h3><span class="header-section-number">17.8.2</span> Scomposizione della varianza sui dati di esempio<a href="regressione-lineare.html#scomposizione-della-varianza-sui-dati-di-esempio" class="anchor-section" aria-label="Anchor link to header"></a></h3>

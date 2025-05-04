@@ -524,7 +524,7 @@ drop fuzzy shadow]
 \makeatother
 \subtitle{CLEAM AA 24/25}
 \author{Patrizio Frederic}
-\date{Aggiornato al 03-05-2025}
+\date{Aggiornato al 04-05-2025}
 
 \begin{document}
 \maketitle
@@ -582,7 +582,7 @@ costruisco le mie lezioni. Non è da ritenersi alternativo alle lezioni in aula 
 
 Un ringraziamento speciale va alle mie donne e a Michele Lalla, amico, collega e maestro.
 
-Bologna, il 03-05-2025.
+Bologna, il 04-05-2025.
 
 \part{Statistica Descrittiva}
 
@@ -12167,14 +12167,14 @@ L'intervallo di confidenza al 95\% per \(\mu_{(X=0)}\) è
 E quindi potremmo proporre la \textbf{previsione}:
 quanta produzione ci aspetteremo sul prossimo ettaro che pianteremo con quella varietà di riso?
 \begin{eqnarray*}
-E(\hat Y_{11})&=&E(\hat\mu_{(X=0)}+\varepsilon_{11})\\
-&=&28.569+E(\varepsilon_{11})\\ 
-&=&28.569\qquad \text{poiché } 
-\varepsilon_{11}\sim N\left(0,\sigma_\varepsilon^2\right)
+\hat Y_{11}&=&\hat\mu_{(X=0)}+\varepsilon_{11}\\
 \end{eqnarray*}
 
-È una \emph{previsione} corretta?
-\[E(\hat Y_{11})=E(\hat\mu+\varepsilon_{11})=E(\hat\mu)+E(\varepsilon_{11})=\mu+0=\mu\]
+Il valore atteso della previsione è?
+
+\begin{eqnarray*} 
+E(\hat Y_{11}) &=& E(\hat\mu_{(X=0)} + \varepsilon_{11}) \\ &=& E(\hat\mu_{(X=0)}) + E(\varepsilon_{11}) \\ &=& \mu + 0 = \mu 
+\end{eqnarray*}
 
 L'errore di previsione stimato è \(S_{(X=0)}=1.048\).
 \end{example}
@@ -12255,7 +12255,7 @@ Il \(p_{\text{value}}\) è
 
 Attenzione il calcolo del \(p_\text{value}\) con la \(T\) è puramente illustrativo e non può essere riprodotto senza una calcolatrice statistica adeguata.\[
  0.1 < p_\text{value}= 0.221609 \leq 1 
-\]NULL
+\]
 \end{example}
 
 \begin{example}
@@ -12333,7 +12333,7 @@ che sia, per ogni \(x\) dato, il valore atteso di \(Y\) condizionato a quella \(
 Cioè abbiamo bisogno di un modello per la media di \(Y\) per un dato \(X\)
 \[E(Y_i|X=x_i)=\mu(x_i)\]
 
-E si legge che \(Y\), in media, condizionato ad \(X=x\) vale \(f(x)\), dove \(f\) è una funzione da scegliere.
+E si legge che \(Y\), in media, condizionato ad \(X=x\) vale \(\mu(x)\), dove \(\mu\) è una funzione da scegliere.
 L'idea di base è che
 \[y_i=\mu(x_i)+\varepsilon_i\]
 la \(y\) osservata in corrispondenza della \(x\) è pari ad \(\mu(x)\) a meno di un errore casuale.
@@ -12710,7 +12710,7 @@ Nel caso in esame
 
 Per la covarianza:
 \begin{eqnarray*}
-\text{cov}(x,y)&=&\frac 1 4\Big(( 0-1.5 ) ( 2-3 )+( 1-1.5 ) ( 3.5-3 )+( 2-1.5 ) ( 2.5-3 )+( 3-1.5 ) ( 4-3 )\Big)\\
+\text{cov}(x,y)&=&\scriptsize\frac 1 4\Big(( 0-1.5 ) ( 2-3 )+( 1-1.5 ) ( 3.5-3 )+( 2-1.5 ) ( 2.5-3 )+( 3-1.5 ) ( 4-3 )\Big)\\
 &=& \frac 1 4(0 \times 2+1 \times 3.5+2 \times 2.5+3 \times 4)-1.5\times3\\
 &=& \frac 1 4(20.5)-4.5\\
 &=& 0.625
@@ -12747,7 +12747,7 @@ La covarianza estende il concetto di varianza quando le variabili sono due.
 
 \begin{center}\includegraphics{Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-37-1} \end{center}
 
-Stimiamo di \(\sigma_X\) e \(\sigma_Y\)
+Quindi stimiamo di \(\sigma_X\) e \(\sigma_Y\)
 
 Calcolo di \(\hat\sigma_X^2\)
 \begin{eqnarray*}
@@ -12757,7 +12757,7 @@ Calcolo di \(\hat\sigma_X^2\)
 \hat\sigma_X &=& 1.118
 \end{eqnarray*}
 
-Calcolo di \(\hat\sigma_X^2\)
+Calcolo di \(\hat\sigma_Y^2\)
 \begin{eqnarray*}
 \hat\sigma_Y^2&=&\frac 1 n\sum_{i=1}^n y_i^2-\hat\mu_Y^2\\
 &=&\frac 1 {4}(2^2+3.5^2+2.5^2+4^2)-3^2\\
@@ -12769,8 +12769,6 @@ Calcolo di \(\hat\sigma_X^2\)
 
 \begin{nota}
 Molto più comodamente in colonna
-
-\begin{center}
 
 \begin{tabular}{lrrrrr}
 \toprule
@@ -12784,7 +12782,6 @@ $i$ & $x_i$ & $y_i$ & $x_i^2$ & $y_i^2$ & $x_i\cdot y_i$\\
 Totale/n & 1.5 & 3.0 & 3.5 & 9.625 & 5.125\\
 \bottomrule
 \end{tabular}
-\end{center}
 
 \begin{eqnarray*}
 \hat\sigma_X^2&=&\frac 1 n\sum_{i=1}^nx_i^2-\bar x^2=3.5-1.5^2=1.25\\
@@ -12832,7 +12829,8 @@ y_i, & & \text{le $y$ osservate}\\
 \hat\varepsilon_i &= y_i-\hat y_i,&\text{gli errori stimati}\\
 \bar y &= \frac 1 n\sum_{i=1}^n y_i, &\text{la media degli $y$}\\
 \bar y &= \frac 1 n\sum_{i=1}^n \hat y_i, &\text{la media degli $\hat y$ coince con qeulla degli $y$}\\
-0 &=\frac 1 n\sum_{i=1}^n\hat\varepsilon_i , &\text{la media degli scarti dalla retta è zero}
+0 &=\frac 1 n\sum_{i=1}^n\hat\varepsilon_i , &\text{la media degli scarti dalla retta è zero}\\
+\bar y &= \hat\beta_0+\hat\beta_1 \bar x , &\text{la retta passa per il baricentro della nube}
 \end{aligned}
 \]
 
@@ -13121,7 +13119,7 @@ la retta è orizzontale e coincide con \(\hat\mu_Y\)
 
 \begin{center}\includegraphics{Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-57-1} \end{center}
 
-Se la retta è parallela all'asse dell \(x\) non spiega nulla della variabilità di \(y\).
+Se la retta è parallela all'asse dell \(x\) non spiega nulla della variabilità di \(y\), ma non è detto che non esista relazione tra \(x\) ed \(y\).
 
 \subsection{Scomposizione della varianza sui dati di esempio}\label{scomposizione-della-varianza-sui-dati-di-esempio}
 

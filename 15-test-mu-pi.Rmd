@@ -789,7 +789,7 @@ ztest_pi(sn = sn,n = n,p0 = p0,h1 = h1)
 ## Specchietto Finale per i Test ad un Campione
 
 :::{.info2 data-latex=""}
-<div style="font-size:0.75em;">
+<div style="font-size:0.6em;">
 \small
 \begin{align*}
 \hline 
