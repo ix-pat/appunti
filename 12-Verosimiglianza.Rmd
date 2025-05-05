@@ -1143,9 +1143,15 @@ muh <- muh + 2
 
 
 ```
-Il fatturato mensile del negozio $A$ è distribuito come una Normale di parametri $\mu$ e $\sigma^2$ incogniti. Dopo $n=`r n`$ mesi di osservazione si sono osservati i seguenti fatturati $\small (`r paste("x_{",1:n,"}=",round(xnorm,3),sep="")`)$.
+Il fatturato mensile del negozio $A$ è distribuito come una Normale di parametri $\mu$ e $\sigma^2$ incogniti. Dopo $n=`r n`$ mesi di osservazione si sono osservati i seguenti fatturati 
+$$
+ \Big(`r paste("x_{",1:(n/2),"}=",round(xnorm[1:(n/2)],3),sep="")`,\\`r paste("x_{",(n/2+1):n,"}=",round(xnorm[(n/2+1):n],3),sep="")`\Big).
+$$
+
 La stima $\hat\mu$ di  $\mu$ è
-\[\hat\mu=\frac 1 {`r n`}`r sum(xnorm)`=`r muh `\]
+$$
+\hat\mu=\frac 1 {`r n`}`r sum(xnorm)`=`r muh `
+$$
 
 La varianza campionaria $\hat\sigma^2$
 \[\hat\sigma^2=\frac 1 n \sum_{i=1}^n(x_i-\hat\mu)^2=\frac 1 n \sum_{i=1}^n x_i^2-\hat\mu^2=\frac{`r sum(xnorm^2)`}{`r n`}-`r muh`^2=`r sh2`\]
@@ -1200,7 +1206,7 @@ Fissata la somma il sistema _ha perso un grado di libertà_.
 
 :::{.info data-latex=""}
 :::{.proposition name="Stimatori di massima verosimgilianza"}
-Siano $X_1,...,X_n$ $n$ VC IID, replicazioni di $X\sim \mathscr{L}(\theta)$ e sia $\hat\theta$ lo stimatore di massima verosimiglianza per per $\theta$, allora
+Siano $X_1,...,X_n$ $n$ VC IID, replicazioni di $X\sim \mathscr{L}(\theta)$ e sia $\hat\theta$ lo stimatore di massima verosimiglianza per $\theta$, allora
 
 1. $\hat\theta$ non è sempre stimatore corretto ma è sempre corretto asintoticamente:
 \[E(\hat\theta)\xrightarrow{n\to\infty}\theta\]
@@ -1208,7 +1214,7 @@ Siano $X_1,...,X_n$ $n$ VC IID, replicazioni di $X\sim \mathscr{L}(\theta)$ e si
 
 2. $\hat\theta$ non è sempre stimatore a _massima efficienza_ ma lo è sempre asintoticamente:
 \[V(\hat\theta)\xrightarrow{n\to\infty}I^{-1}(\theta)\]
-dove $I(\theta)$ è l'infromazione di Fisher.   
+dove $I(\theta)$ è l'informazione di Fisher.   
   
 3. $\hat\theta$ è asintoticamente distribuito normalmente
 \[\hat\theta\operatorname*{\sim}_a N(\theta,I^{-1}(\theta))\]
@@ -1216,39 +1222,48 @@ dove $I(\theta)$ è l'infromazione di Fisher.
 
 4. Lo stimatore di massima verosimiglianza è invariante alle trasformazioni monotone invertibili $g$:
   
-  \[ \text{se } \psi=g(\theta), \text{ allora } \hat\psi = g(\hat\psi)\]
+  \[ \text{se } \psi=g(\theta), \text{ allora } \hat\psi = g(\hat\theta)\]
 :::
 :::
 
   1. La proprietà uno riguarda la correttezza. Non sempre gli SMV sono corretti
   ma lo sono sempre asintoticamente. Esempio: lo stimatore $\hat\sigma^2$ di $\sigma^2$ non è corretto solo asintoticamente
   \[E(\hat\sigma^2)=\frac{n-1}{n}\sigma^2\xrightarrow{n\to\infty}\sigma^2\]
-  2. La proprietà due riguarda l'efficienza dello stimatore: non sempre lo
-  SMV è il più efficiente per piccoli campioni, ma se il campione diventa grande, lo
-  SMV è lo stimatore che raggiunge la varianza minima. La varianza minima è chiamata Informazione di Fisher ed è indicata con $I^{-1}(\theta)$:
-\[
-  I(\theta)=-E\left(\ell''(\theta)\right)
-\]
-dove $\ell''(\theta)$ è la derivata seconda della log verosimiglianza calcolata in $\theta$.
+  2. La seconda proprietà riguarda l'efficienza dello stimatore: non sempre lo SMV è il più efficiente per piccoli campioni, ma quando la numerosità aumenta, lo SMV tende a raggiungere la **massima efficienza possibile**. La quantità
 
-  - $I(\theta)$ è la curvatura media della log verosimiglianza intorno al punto $\theta$.
-  - $I^{-1}(\theta)$ è un risultato teorico ed un limite sotto al quale nessuno stimatore può scendere.
-  - Se esiste lo stimatore più efficiente allora è quello di _massima verosimiglianza_.
-  - Esempio: $\hat\pi$, $\hat\lambda$ e $\hat\mu$ sono stimatori a efficienza massima.
+$$
+I(\theta) = -E(\ell''(\theta))
+$$
 
-\begin{eqnarray*}
-   I^{-1}(\pi) &=&  \frac{\pi(1-\pi)}{n}\\
-   I^{-1}(\lambda) &=&  \frac{\lambda}{n}\\
-   I^{-1}(\mu) &=&  \frac{\sigma^2}{n}
-\end{eqnarray*}
+dove $\ell''(\theta)$ è la derivata seconda della log-verosimiglianza calcolata in $\theta$, è chiamata **informazione di Fisher**: misura quanta informazione sul parametro è contenuta nei dati osservati. Tanto maggiore è $I(\theta)$, tanto più preciso sarà lo stimatore.
+
+- $I(\theta)$ rappresenta la curvatura media della log-verosimiglianza intorno al punto $\theta$.
+- $I^{-1}(\theta)$ è un limite teorico: è la soglia sotto la quale la varianza di nessuno stimatore può scendere, e definisce quindi il massimo grado di efficienza raggiungibile.
+- Se esiste uno stimatore che raggiunge tale soglia, allora è quello di **massima verosimiglianza**.
+- Esempi: $\hat\pi$, $\hat\lambda$ e $\hat\mu$ sono stimatori a efficienza massima (anche per $n$ finito).
+
+$$
+\begin{aligned}
+I^{-1}(\hat\pi) &= \frac{\pi(1 - \pi)}{n} \\
+I^{-1}(\hat\lambda) &= \frac{\lambda}{n} \\
+I^{-1}(\hat\mu) &= \frac{\sigma^2}{n}
+\end{aligned}
+$$
 
   3. La proprietà tre ci garantisce che, per $n$ sufficientemente alto, sappiamo 
   la distribuzione degli SMV
   
   - Esempio: lo stimatore $\hat\pi$ di $\pi$, dal TLC
-  \[\hat\pi\operatorname*{\sim}_a N\left(\pi,\frac{\pi(1-\pi)}{n}\right)\]
+  
+  $$
+  \hat\pi\mathop{\sim}_a N\left(\pi,\frac{\pi(1-\pi)}{n}\right)
+  $$
+  
   - Esempio: lo stimatore $\hat\lambda$ di $\lambda$, dal TLC
-  \[\hat\lambda\operatorname*{\sim}_a N\left(\lambda,\frac{\lambda}{n}\right)\]
+  
+  $$
+  \hat\lambda\mathop{\sim}_a N\left(\lambda,\frac{\lambda}{n}\right)
+  $$
   
   4. La proprietà 4 garantisce che trasformazioni invertibili dei parametri non 
   richiedono di ricalcolare la SMV.

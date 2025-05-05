@@ -130,16 +130,12 @@ succede? A questa domanda rispondono i teoremi centrali del limite.
 I *Teoremi del Limite Centrale* (TLC), central limit theorems, sono una
 famiglia di teoremi sul limite delle somme di VC. Occupano un posto
 centrale nella teoria della probabilità e dell'inferenza statistica.
-Esistono molti enunciati a seconda delle ipotesi di partenza. In questo
-corso mostriamo il teorema più noto e lo decliniamo in tre casi
-particolari.
-
-I TLC riguardano la convergenza in distribuzione di una successione di
-somme di una VC. La potenza del teorema è che, non importa quale sia la
+Esistono molti enunciati a seconda delle ipotesi di partenza. 
+La potenza del teorema è che, non importa quale sia la
 distribuzione di partenza delle $X_i$, la loro somma, per $n$ abbastanza
-grande, è approssimabile con una distribuzione normale. Enunciamo qui
-tre diversi teoremi che in realtà sono tre diverse declinazioni dello
-stesso. Iniziamo dal primo e più famoso.
+grande, è approssimabile con una distribuzione normale.
+In questo corso mostriamo il teorema più noto e lo decliniamo in tre casi
+particolari.
 
 :::{.info data-latex=""}
 :::{.theorem name="TLC per la Somma"}
@@ -176,7 +172,10 @@ ci riporta alla legge dei grandi numeri.
 Se consideriamo le $X_i$ tutte Bernoulli di parametro $\pi$ sappiamo che
 $E(X_i)=\pi$ e $V(X_i)=\pi(1-\pi)$. Dedichiamo alla media di Bernoulli
 un simbolo speciale che sarà più chiaro più avanti.
-$$\hat \pi=\frac{X_1+...+X_n}{n}$$ sostituendo valore atteso e varianza
+$$
+\hat \pi=\frac{X_1+...+X_n}{n}
+$$ 
+sostituendo valore atteso e varianza
 nel TLC della media otteniamo:
 
 :::{.info data-latex=""}

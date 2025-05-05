@@ -1600,9 +1600,14 @@ e <span class="math inline">\(\sum_{i=1}^n x_i^2\)</span>.</p>
 </div>
 <div id="esempio-n10" class="section level3 hasAnchor" number="12.9.6">
 <h3><span class="header-section-number">12.9.6</span> Esempio <span class="math inline">\(n=10\)</span><a href="teoria-della-verosimiglianza.html#esempio-n10" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Il fatturato mensile del negozio <span class="math inline">\(A\)</span> è distribuito come una Normale di parametri <span class="math inline">\(\mu\)</span> e <span class="math inline">\(\sigma^2\)</span> incogniti. Dopo <span class="math inline">\(n=10\)</span> mesi di osservazione si sono osservati i seguenti fatturati <span class="math inline">\(\small (x_{1}=2.103, x_{2}=3.185, x_{3}=4.588, x_{4}=1.87, x_{5}=2.92, x_{6}=3.132, x_{7}=3.708, x_{8}=2.76, x_{9}=4.984, x_{10}=2.861)\)</span>.
-La stima <span class="math inline">\(\hat\mu\)</span> di <span class="math inline">\(\mu\)</span> è
-<span class="math display">\[\hat\mu=\frac 1 {10}32.1115=3.2112\]</span></p>
+<p>Il fatturato mensile del negozio <span class="math inline">\(A\)</span> è distribuito come una Normale di parametri <span class="math inline">\(\mu\)</span> e <span class="math inline">\(\sigma^2\)</span> incogniti. Dopo <span class="math inline">\(n=10\)</span> mesi di osservazione si sono osservati i seguenti fatturati
+<span class="math display">\[
+\Big(x_{1}=2.103, x_{2}=3.185, x_{3}=4.588, x_{4}=1.87, x_{5}=2.92,\\x_{6}=3.132, x_{7}=3.708, x_{8}=2.76, x_{9}=4.984, x_{10}=2.861\Big).
+\]</span></p>
+<p>La stima <span class="math inline">\(\hat\mu\)</span> di <span class="math inline">\(\mu\)</span> è
+<span class="math display">\[
+\hat\mu=\frac 1 {10}32.1115=3.2112
+\]</span></p>
 <p>La varianza campionaria <span class="math inline">\(\hat\sigma^2\)</span>
 <span class="math display">\[\hat\sigma^2=\frac 1 n \sum_{i=1}^n(x_i-\hat\mu)^2=\frac 1 n \sum_{i=1}^n x_i^2-\hat\mu^2=\frac{111.8468}{10}-3.2112^2=0.8732\]</span></p>
 <p><span class="math inline">\(S^2\)</span> la stima corretta di <span class="math inline">\(\sigma^2\)</span>
@@ -1643,53 +1648,59 @@ Il terzo <strong>è vincolato</strong>:
 <h2><span class="header-section-number">12.10</span> Proprietà degli stimatori di massima verosimiglianza<a href="teoria-della-verosimiglianza.html#proprietà-degli-stimatori-di-massima-verosimiglianza" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="info">
 <div class="proposition">
-<p><span id="prp:unlabeled-div-170" class="proposition"><strong>Proprietà 12.2  (Stimatori di massima verosimgilianza) </strong></span>Siano <span class="math inline">\(X_1,...,X_n\)</span> <span class="math inline">\(n\)</span> VC IID, replicazioni di <span class="math inline">\(X\sim \mathscr{L}(\theta)\)</span> e sia <span class="math inline">\(\hat\theta\)</span> lo stimatore di massima verosimiglianza per per <span class="math inline">\(\theta\)</span>, allora</p>
+<p><span id="prp:unlabeled-div-170" class="proposition"><strong>Proprietà 12.2  (Stimatori di massima verosimgilianza) </strong></span>Siano <span class="math inline">\(X_1,...,X_n\)</span> <span class="math inline">\(n\)</span> VC IID, replicazioni di <span class="math inline">\(X\sim \mathscr{L}(\theta)\)</span> e sia <span class="math inline">\(\hat\theta\)</span> lo stimatore di massima verosimiglianza per <span class="math inline">\(\theta\)</span>, allora</p>
 <ol style="list-style-type: decimal">
 <li><p><span class="math inline">\(\hat\theta\)</span> non è sempre stimatore corretto ma è sempre corretto asintoticamente:
 <span class="math display">\[E(\hat\theta)\xrightarrow{n\to\infty}\theta\]</span></p></li>
 <li><p><span class="math inline">\(\hat\theta\)</span> non è sempre stimatore a <em>massima efficienza</em> ma lo è sempre asintoticamente:
 <span class="math display">\[V(\hat\theta)\xrightarrow{n\to\infty}I^{-1}(\theta)\]</span>
-dove <span class="math inline">\(I(\theta)\)</span> è l’infromazione di Fisher.</p></li>
+dove <span class="math inline">\(I(\theta)\)</span> è l’informazione di Fisher.</p></li>
 <li><p><span class="math inline">\(\hat\theta\)</span> è asintoticamente distribuito normalmente
 <span class="math display">\[\hat\theta\operatorname*{\sim}_a N(\theta,I^{-1}(\theta))\]</span></p></li>
 <li><p>Lo stimatore di massima verosimiglianza è invariante alle trasformazioni monotone invertibili <span class="math inline">\(g\)</span>:</p></li>
 </ol>
-<p><span class="math display">\[ \text{se } \psi=g(\theta), \text{ allora } \hat\psi = g(\hat\psi)\]</span></p>
+<p><span class="math display">\[ \text{se } \psi=g(\theta), \text{ allora } \hat\psi = g(\hat\theta)\]</span></p>
 </div>
 </div>
 <ol style="list-style-type: decimal">
 <li>La proprietà uno riguarda la correttezza. Non sempre gli SMV sono corretti
 ma lo sono sempre asintoticamente. Esempio: lo stimatore <span class="math inline">\(\hat\sigma^2\)</span> di <span class="math inline">\(\sigma^2\)</span> non è corretto solo asintoticamente
 <span class="math display">\[E(\hat\sigma^2)=\frac{n-1}{n}\sigma^2\xrightarrow{n\to\infty}\sigma^2\]</span></li>
-<li>La proprietà due riguarda l’efficienza dello stimatore: non sempre lo
-SMV è il più efficiente per piccoli campioni, ma se il campione diventa grande, lo
-SMV è lo stimatore che raggiunge la varianza minima. La varianza minima è chiamata Informazione di Fisher ed è indicata con <span class="math inline">\(I^{-1}(\theta)\)</span>:
-<span class="math display">\[
-  I(\theta)=-E\left(\ell&#39;&#39;(\theta)\right)
-\]</span>
-dove <span class="math inline">\(\ell&#39;&#39;(\theta)\)</span> è la derivata seconda della log verosimiglianza calcolata in <span class="math inline">\(\theta\)</span>.</li>
+<li>La seconda proprietà riguarda l’efficienza dello stimatore: non sempre lo SMV è il più efficiente per piccoli campioni, ma quando la numerosità aumenta, lo SMV tende a raggiungere la <strong>massima efficienza possibile</strong>. La quantità</li>
 </ol>
+<p><span class="math display">\[
+I(\theta) = -E(\ell&#39;&#39;(\theta))
+\]</span></p>
+<p>dove <span class="math inline">\(\ell&#39;&#39;(\theta)\)</span> è la derivata seconda della log-verosimiglianza calcolata in <span class="math inline">\(\theta\)</span>, è chiamata <strong>informazione di Fisher</strong>: misura quanta informazione sul parametro è contenuta nei dati osservati. Tanto maggiore è <span class="math inline">\(I(\theta)\)</span>, tanto più preciso sarà lo stimatore.</p>
 <ul>
-<li><span class="math inline">\(I(\theta)\)</span> è la curvatura media della log verosimiglianza intorno al punto <span class="math inline">\(\theta\)</span>.</li>
-<li><span class="math inline">\(I^{-1}(\theta)\)</span> è un risultato teorico ed un limite sotto al quale nessuno stimatore può scendere.</li>
-<li>Se esiste lo stimatore più efficiente allora è quello di <em>massima verosimiglianza</em>.</li>
-<li>Esempio: <span class="math inline">\(\hat\pi\)</span>, <span class="math inline">\(\hat\lambda\)</span> e <span class="math inline">\(\hat\mu\)</span> sono stimatori a efficienza massima.</li>
+<li><span class="math inline">\(I(\theta)\)</span> rappresenta la curvatura media della log-verosimiglianza intorno al punto <span class="math inline">\(\theta\)</span>.</li>
+<li><span class="math inline">\(I^{-1}(\theta)\)</span> è un limite teorico: è la soglia sotto la quale la varianza di nessuno stimatore può scendere, e definisce quindi il massimo grado di efficienza raggiungibile.</li>
+<li>Se esiste uno stimatore che raggiunge tale soglia, allora è quello di <strong>massima verosimiglianza</strong>.</li>
+<li>Esempi: <span class="math inline">\(\hat\pi\)</span>, <span class="math inline">\(\hat\lambda\)</span> e <span class="math inline">\(\hat\mu\)</span> sono stimatori a efficienza massima (anche per <span class="math inline">\(n\)</span> finito).</li>
 </ul>
-<p><span class="math display">\[\begin{eqnarray*}
-   I^{-1}(\pi) &amp;=&amp;  \frac{\pi(1-\pi)}{n}\\
-   I^{-1}(\lambda) &amp;=&amp;  \frac{\lambda}{n}\\
-   I^{-1}(\mu) &amp;=&amp;  \frac{\sigma^2}{n}
-\end{eqnarray*}\]</span></p>
+<p><span class="math display">\[
+\begin{aligned}
+I^{-1}(\hat\pi) &amp;= \frac{\pi(1 - \pi)}{n} \\
+I^{-1}(\hat\lambda) &amp;= \frac{\lambda}{n} \\
+I^{-1}(\hat\mu) &amp;= \frac{\sigma^2}{n}
+\end{aligned}
+\]</span></p>
 <ol start="3" style="list-style-type: decimal">
 <li>La proprietà tre ci garantisce che, per <span class="math inline">\(n\)</span> sufficientemente alto, sappiamo
 la distribuzione degli SMV</li>
 </ol>
 <ul>
-<li>Esempio: lo stimatore <span class="math inline">\(\hat\pi\)</span> di <span class="math inline">\(\pi\)</span>, dal TLC
-<span class="math display">\[\hat\pi\operatorname*{\sim}_a N\left(\pi,\frac{\pi(1-\pi)}{n}\right)\]</span></li>
-<li>Esempio: lo stimatore <span class="math inline">\(\hat\lambda\)</span> di <span class="math inline">\(\lambda\)</span>, dal TLC
-<span class="math display">\[\hat\lambda\operatorname*{\sim}_a N\left(\lambda,\frac{\lambda}{n}\right)\]</span></li>
+<li>Esempio: lo stimatore <span class="math inline">\(\hat\pi\)</span> di <span class="math inline">\(\pi\)</span>, dal TLC</li>
 </ul>
+<p><span class="math display">\[
+  \hat\pi\mathop{\sim}_a N\left(\pi,\frac{\pi(1-\pi)}{n}\right)
+  \]</span></p>
+<ul>
+<li>Esempio: lo stimatore <span class="math inline">\(\hat\lambda\)</span> di <span class="math inline">\(\lambda\)</span>, dal TLC</li>
+</ul>
+<p><span class="math display">\[
+  \hat\lambda\mathop{\sim}_a N\left(\lambda,\frac{\lambda}{n}\right)
+  \]</span></p>
 <ol start="4" style="list-style-type: decimal">
 <li>La proprietà 4 garantisce che trasformazioni invertibili dei parametri non
 richiedono di ricalcolare la SMV.</li>

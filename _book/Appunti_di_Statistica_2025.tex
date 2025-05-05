@@ -6877,16 +6877,12 @@ succede? A questa domanda rispondono i teoremi centrali del limite.
 I \emph{Teoremi del Limite Centrale} (TLC), central limit theorems, sono una
 famiglia di teoremi sul limite delle somme di VC. Occupano un posto
 centrale nella teoria della probabilità e dell'inferenza statistica.
-Esistono molti enunciati a seconda delle ipotesi di partenza. In questo
-corso mostriamo il teorema più noto e lo decliniamo in tre casi
-particolari.
-
-I TLC riguardano la convergenza in distribuzione di una successione di
-somme di una VC. La potenza del teorema è che, non importa quale sia la
+Esistono molti enunciati a seconda delle ipotesi di partenza.
+La potenza del teorema è che, non importa quale sia la
 distribuzione di partenza delle \(X_i\), la loro somma, per \(n\) abbastanza
-grande, è approssimabile con una distribuzione normale. Enunciamo qui
-tre diversi teoremi che in realtà sono tre diverse declinazioni dello
-stesso. Iniziamo dal primo e più famoso.
+grande, è approssimabile con una distribuzione normale.
+In questo corso mostriamo il teorema più noto e lo decliniamo in tre casi
+particolari.
 
 \begin{info}
 
@@ -6927,7 +6923,10 @@ ci riporta alla legge dei grandi numeri.
 Se consideriamo le \(X_i\) tutte Bernoulli di parametro \(\pi\) sappiamo che
 \(E(X_i)=\pi\) e \(V(X_i)=\pi(1-\pi)\). Dedichiamo alla media di Bernoulli
 un simbolo speciale che sarà più chiaro più avanti.
-\[\hat \pi=\frac{X_1+...+X_n}{n}\] sostituendo valore atteso e varianza
+\[
+\hat \pi=\frac{X_1+...+X_n}{n}
+\]
+sostituendo valore atteso e varianza
 nel TLC della media otteniamo:
 
 \begin{info}
@@ -9301,9 +9300,15 @@ In quanto
 
 \subsection{\texorpdfstring{Esempio \(n=10\)}{Esempio n=10}}\label{esempio-n10}
 
-Il fatturato mensile del negozio \(A\) è distribuito come una Normale di parametri \(\mu\) e \(\sigma^2\) incogniti. Dopo \(n=10\) mesi di osservazione si sono osservati i seguenti fatturati \(\small (x_{1}=2.103, x_{2}=3.185, x_{3}=4.588, x_{4}=1.87, x_{5}=2.92, x_{6}=3.132, x_{7}=3.708, x_{8}=2.76, x_{9}=4.984, x_{10}=2.861)\).
+Il fatturato mensile del negozio \(A\) è distribuito come una Normale di parametri \(\mu\) e \(\sigma^2\) incogniti. Dopo \(n=10\) mesi di osservazione si sono osservati i seguenti fatturati
+\[
+ \Big(x_{1}=2.103, x_{2}=3.185, x_{3}=4.588, x_{4}=1.87, x_{5}=2.92,\\x_{6}=3.132, x_{7}=3.708, x_{8}=2.76, x_{9}=4.984, x_{10}=2.861\Big).
+\]
+
 La stima \(\hat\mu\) di \(\mu\) è
-\[\hat\mu=\frac 1 {10}32.1115=3.2112\]
+\[
+\hat\mu=\frac 1 {10}32.1115=3.2112
+\]
 
 La varianza campionaria \(\hat\sigma^2\)
 \[\hat\sigma^2=\frac 1 n \sum_{i=1}^n(x_i-\hat\mu)^2=\frac 1 n \sum_{i=1}^n x_i^2-\hat\mu^2=\frac{111.8468}{10}-3.2112^2=0.8732\]
@@ -9352,7 +9357,7 @@ Fissata la somma il sistema \emph{ha perso un grado di libertà}.
 \begin{info}
 
 \begin{proposition}[Stimatori di massima verosimgilianza]
-Siano \(X_1,...,X_n\) \(n\) VC IID, replicazioni di \(X\sim \mathscr{L}(\theta)\) e sia \(\hat\theta\) lo stimatore di massima verosimiglianza per per \(\theta\), allora
+Siano \(X_1,...,X_n\) \(n\) VC IID, replicazioni di \(X\sim \mathscr{L}(\theta)\) e sia \(\hat\theta\) lo stimatore di massima verosimiglianza per \(\theta\), allora
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -9362,7 +9367,7 @@ Siano \(X_1,...,X_n\) \(n\) VC IID, replicazioni di \(X\sim \mathscr{L}(\theta)\
 \item
   \(\hat\theta\) non è sempre stimatore a \emph{massima efficienza} ma lo è sempre asintoticamente:
   \[V(\hat\theta)\xrightarrow{n\to\infty}I^{-1}(\theta)\]
-  dove \(I(\theta)\) è l'infromazione di Fisher.
+  dove \(I(\theta)\) è l'informazione di Fisher.
 \item
   \(\hat\theta\) è asintoticamente distribuito normalmente
   \[\hat\theta\operatorname*{\sim}_a N(\theta,I^{-1}(\theta))\]
@@ -9370,7 +9375,7 @@ Siano \(X_1,...,X_n\) \(n\) VC IID, replicazioni di \(X\sim \mathscr{L}(\theta)\
   Lo stimatore di massima verosimiglianza è invariante alle trasformazioni monotone invertibili \(g\):
 \end{enumerate}
 
-\[ \text{se } \psi=g(\theta), \text{ allora } \hat\psi = g(\hat\psi)\]
+\[ \text{se } \psi=g(\theta), \text{ allora } \hat\psi = g(\hat\theta)\]
 \end{proposition}
 
 \end{info}
@@ -9383,32 +9388,34 @@ Siano \(X_1,...,X_n\) \(n\) VC IID, replicazioni di \(X\sim \mathscr{L}(\theta)\
   ma lo sono sempre asintoticamente. Esempio: lo stimatore \(\hat\sigma^2\) di \(\sigma^2\) non è corretto solo asintoticamente
   \[E(\hat\sigma^2)=\frac{n-1}{n}\sigma^2\xrightarrow{n\to\infty}\sigma^2\]
 \item
-  La proprietà due riguarda l'efficienza dello stimatore: non sempre lo
-  SMV è il più efficiente per piccoli campioni, ma se il campione diventa grande, lo
-  SMV è lo stimatore che raggiunge la varianza minima. La varianza minima è chiamata Informazione di Fisher ed è indicata con \(I^{-1}(\theta)\):
-  \[
-    I(\theta)=-E\left(\ell''(\theta)\right)
-  \]
-  dove \(\ell''(\theta)\) è la derivata seconda della log verosimiglianza calcolata in \(\theta\).
+  La seconda proprietà riguarda l'efficienza dello stimatore: non sempre lo SMV è il più efficiente per piccoli campioni, ma quando la numerosità aumenta, lo SMV tende a raggiungere la \textbf{massima efficienza possibile}. La quantità
 \end{enumerate}
+
+\[
+I(\theta) = -E(\ell''(\theta))
+\]
+
+dove \(\ell''(\theta)\) è la derivata seconda della log-verosimiglianza calcolata in \(\theta\), è chiamata \textbf{informazione di Fisher}: misura quanta informazione sul parametro è contenuta nei dati osservati. Tanto maggiore è \(I(\theta)\), tanto più preciso sarà lo stimatore.
 
 \begin{itemize}
 \tightlist
 \item
-  \(I(\theta)\) è la curvatura media della log verosimiglianza intorno al punto \(\theta\).
+  \(I(\theta)\) rappresenta la curvatura media della log-verosimiglianza intorno al punto \(\theta\).
 \item
-  \(I^{-1}(\theta)\) è un risultato teorico ed un limite sotto al quale nessuno stimatore può scendere.
+  \(I^{-1}(\theta)\) è un limite teorico: è la soglia sotto la quale la varianza di nessuno stimatore può scendere, e definisce quindi il massimo grado di efficienza raggiungibile.
 \item
-  Se esiste lo stimatore più efficiente allora è quello di \emph{massima verosimiglianza}.
+  Se esiste uno stimatore che raggiunge tale soglia, allora è quello di \textbf{massima verosimiglianza}.
 \item
-  Esempio: \(\hat\pi\), \(\hat\lambda\) e \(\hat\mu\) sono stimatori a efficienza massima.
+  Esempi: \(\hat\pi\), \(\hat\lambda\) e \(\hat\mu\) sono stimatori a efficienza massima (anche per \(n\) finito).
 \end{itemize}
 
-\begin{eqnarray*}
-   I^{-1}(\pi) &=&  \frac{\pi(1-\pi)}{n}\\
-   I^{-1}(\lambda) &=&  \frac{\lambda}{n}\\
-   I^{-1}(\mu) &=&  \frac{\sigma^2}{n}
-\end{eqnarray*}
+\[
+\begin{aligned}
+I^{-1}(\hat\pi) &= \frac{\pi(1 - \pi)}{n} \\
+I^{-1}(\hat\lambda) &= \frac{\lambda}{n} \\
+I^{-1}(\hat\mu) &= \frac{\sigma^2}{n}
+\end{aligned}
+\]
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -9423,11 +9430,21 @@ Siano \(X_1,...,X_n\) \(n\) VC IID, replicazioni di \(X\sim \mathscr{L}(\theta)\
 \tightlist
 \item
   Esempio: lo stimatore \(\hat\pi\) di \(\pi\), dal TLC
-  \[\hat\pi\operatorname*{\sim}_a N\left(\pi,\frac{\pi(1-\pi)}{n}\right)\]
+\end{itemize}
+
+\[
+  \hat\pi\mathop{\sim}_a N\left(\pi,\frac{\pi(1-\pi)}{n}\right)
+  \]
+
+\begin{itemize}
+\tightlist
 \item
   Esempio: lo stimatore \(\hat\lambda\) di \(\lambda\), dal TLC
-  \[\hat\lambda\operatorname*{\sim}_a N\left(\lambda,\frac{\lambda}{n}\right)\]
 \end{itemize}
+
+\[
+  \hat\lambda\mathop{\sim}_a N\left(\lambda,\frac{\lambda}{n}\right)
+  \]
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -13170,9 +13187,13 @@ Se osservati rispetto ai soli valori, in ipotesi IID, sono fenomeni indistinguib
 \begin{center}\includegraphics{Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-62-1} \end{center}
 
 La varianza di \(y\) è dunque
-\[\hat\sigma_Y^2=\frac 1 n\sum_i (y_i - \bar y)^2 =\frac 1 n\sum_i y_i^2 - \bar y^2 =9.625 - (3)^2=0.625\]
+\[
+\hat\sigma_Y^2=\frac 1 n\sum_i (y_i - \bar y)^2 =\frac 1 n\sum_i y_i^2 - \bar y^2 =9.625 - (3)^2=0.625
+\]
 e quella di \(w\)
-\[\hat\sigma_W^2=\frac 1 n\sum_i (w_i - \bar w)^2 =\frac 1 n\sum_i w_i^2 - \bar w^2 =9.625 - (3)^2=0.625\]
+\[
+\hat\sigma_W^2=\frac 1 n\sum_i (w_i - \bar w)^2 =\frac 1 n\sum_i w_i^2 - \bar w^2 =9.625 - (3)^2=0.625.
+\]
 
 Ma la variabile \(X\) non spiega nello stesso modo \(Y\) e \(W\). Infatti se osserviamo la relazione tra \(x\) ed \(Y\) e la relazione tra \(x\) e \(w\) ci accorgiamo che i fenomeni sono diversi.
 
