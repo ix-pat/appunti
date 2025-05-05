@@ -913,6 +913,7 @@ Se mettiamo <span class="math inline">\(\pi\)</span> in ascissa e <span class="m
 <span class="math display">\[\hat\pi=0.6=\frac 3 5\]</span></p>
 <p>Consideriamo <span class="math inline">\(\ell\)</span>, il logaritmo di <span class="math inline">\(L\)</span>
 <span class="math display">\[\ell(\pi)=\log L(\pi)\]</span></p>
+<div style="font-size:0.65em;">
 <table>
 <colgroup>
 <col width="12%" />
@@ -973,6 +974,7 @@ Se mettiamo <span class="math inline">\(\pi\)</span> in ascissa e <span class="m
 </tr>
 </tbody>
 </table>
+</div>
 <p><img src="Appunti_di_Statistica_2025_files/figure-html/12-Verosimiglianza-7-1.png" width="672" /></p>
 </div>
 <div id="esempio-iid-da-popolazione-finita-parte-due" class="section level3 hasAnchor" number="12.2.5">
@@ -1005,6 +1007,7 @@ P(X=3;\pi) =   \binom{5}{3}\pi^3(1-\pi)^{5-3} =10\cdot \pi^3(1-\pi)^2
             &amp;\propto&amp; \pi^3(1-\pi)^2
 \end{eqnarray*}\]</span></p>
 <p>La tabella</p>
+<div style="font-size:0.65em;">
 <table style="width:100%;">
 <colgroup>
 <col width="15%" />
@@ -1065,6 +1068,7 @@ P(X=3;\pi) =   \binom{5}{3}\pi^3(1-\pi)^{5-3} =10\cdot \pi^3(1-\pi)^2
 </tr>
 </tbody>
 </table>
+</div>
 <p>e il grafico</p>
 <p><img src="Appunti_di_Statistica_2025_files/figure-html/12-Verosimiglianza-9-1.png" width="672" /></p>
 </div>
@@ -1367,13 +1371,13 @@ che è ancora funzione di <span class="math inline">\(\pi\)</span>.</p>
 <p>Se <span class="math inline">\(n=5\)</span>, <span class="math inline">\(s_n=3\)</span> il valore <span class="math inline">\(\hat\pi=0.6\)</span> è il <span class="math inline">\(10.592\%\)</span> <em>più verosimile</em> di <span class="math inline">\(\pi=0.5\)</span>.
 <span class="math display">\[\frac{L(0.6;s_5=3)}{L(0.5;s_5=3)}=\frac{0.6^{3}(1-0.6)^{2}}{0.5^{3}(1-0.5)^{2}}=1.1059\]</span></p>
 <p>Se <span class="math inline">\(n=10\)</span>, <span class="math inline">\(s_n=6\)</span> il valore <span class="math inline">\(\hat\pi=0.6\)</span> è il <span class="math inline">\(22.3059\%\)</span> <em>più verosimile</em> di <span class="math inline">\(\pi=0.5\)</span>.
-<span class="math display">\[\frac{L(0.6;s_5=3)}{L(0.5;s_5=3)}=\frac{0.6^{6}(1-0.6)^{4}}{0.5^{6}(1-0.5)^{4}}=1.2231\]</span></p>
+<span class="math display">\[\frac{L(0.6;s_{10}=6)}{L(0.5;s_{10}=6)}=\frac{0.6^{6}(1-0.6)^{4}}{0.5^{6}(1-0.5)^{4}}=1.2231\]</span></p>
 <p>Se <span class="math inline">\(n=20\)</span>, <span class="math inline">\(s_n=12\)</span> il valore <span class="math inline">\(\hat\pi=0.6\)</span> è il <span class="math inline">\(49.5873\%\)</span> <em>più verosimile</em> di <span class="math inline">\(\pi=0.5\)</span>.
-<span class="math display">\[\frac{L(0.6;s_5=3)}{L(0.5;s_5=3)}=\frac{0.6^{12}(1-0.6)^{8}}{0.5^{12}(1-0.5)^{8}}=1.4959\]</span></p>
+<span class="math display">\[\frac{L(0.6;s_{20}=6)}{L(0.5;s_{20}=6)}=\frac{0.6^{12}(1-0.6)^{8}}{0.5^{12}(1-0.5)^{8}}=1.4959\]</span></p>
 <p>Se <span class="math inline">\(n=100\)</span>, <span class="math inline">\(s_n=60\)</span> il valore <span class="math inline">\(\hat\pi=0.6\)</span> è il <span class="math inline">\(648.9869\%\)</span> <em>più verosimile</em> di <span class="math inline">\(\pi=0.5\)</span>.
-<span class="math display">\[\frac{L(0.6;s_5=3)}{L(0.5;s_5=3)}=\frac{0.6^{60}(1-0.6)^{40}}{0.5^{60}(1-0.5)^{40}}=7.4899\]</span></p>
-<p>Se <span class="math inline">\(n=1000\)</span>, <span class="math inline">\(s_n=600\)</span> il valore <span class="math inline">\(\hat\pi=0.6\)</span> è il <span class="math inline">\(55557465413.0872\%\)</span> <em>più verosimile</em> di <span class="math inline">\(\pi=0.5\)</span>.
-<span class="math display">\[\frac{L(0.6;s_5=3)}{L(0.5;s_5=3)}=\frac{0.6^{600}(1-0.6)^{400}}{0.5^{600}(1-0.5)^{400}}=555574655.1309\]</span></p>
+<span class="math display">\[\frac{L(0.6;s_{100}=60)}{L(0.5;s_{100}=60)}=\frac{0.6^{60}(1-0.6)^{40}}{0.5^{60}(1-0.5)^{40}}=7.4899\]</span></p>
+<p>Se <span class="math inline">\(n=1000\)</span>, <span class="math inline">\(s_n=600\)</span> il valore <span class="math inline">\(\hat\pi=0.6\)</span> è il <span class="math inline">\(55~557~465~413.09\%\)</span> <em>più verosimile</em> di <span class="math inline">\(\pi=0.5\)</span>.
+<span class="math display">\[\frac{L(0.6;s_{1000}=600)}{L(0.5;s_{1000}=600)}=\frac{0.6^{600}(1-0.6)^{400}}{0.5^{600}(1-0.5)^{400}}=555~574~655.13\]</span></p>
 </div>
 </div>
 <div id="il-modello-poisson" class="section level2 hasAnchor" number="12.8">

@@ -223,7 +223,7 @@ E quindi:
 Consideriamo $\ell$, il logaritmo di $L$
 \[\ell(\pi)=\log L(\pi)\]
 
-
+<div style="font-size:0.65em;">
 ```{r 12-Verosimiglianza-6}
 xs <- c(0,1,1,0,1)
 n <- length(xs)
@@ -237,6 +237,7 @@ kable(t(Lp),booktabs=T, escape = F,linesep = "", digits = 4,col.names = NULL)
 
 fig.def()
 ```
+</div>
 
 ```{r 12-Verosimiglianza-7}
 par(mfrow=c(1,2),cex=cex)
@@ -295,6 +296,7 @@ Definiamo la funzione di verosimiglianza (Likelihood), la funzione $L$ del param
 
 La tabella
 
+<div style="font-size:0.65em;">
 ```{r two-column, results='asis', echo=FALSE, out.extra=''}
 xs <- c(0,1,1,0,1)
 n <- length(xs)
@@ -308,6 +310,7 @@ names(Lp) <- c("$\\pi=$","$L(\\pi)$","$\\log(L(\\pi))$")
 
 kable(t(Lp),col.names = NULL ,booktabs=T, escape = F,linesep = "", digits = 4)
 ```
+</div>
 
 e il grafico
 
@@ -653,7 +656,7 @@ sn <- .6*n
 ```
 
 Se $n=`r n`$, $s_n=`r sn`$ il valore $\hat\pi=0.6$ è il $`r (dbinom(sn,n,.6)/dbinom(sn,n,.5)-1)*100`\%$ _più verosimile_ di $\pi=0.5$.
-\[\frac{L(0.6;s_5=3)}{L(0.5;s_5=3)}=\frac{0.6^{`r sn`}(1-0.6)^{`r n-sn`}}{0.5^{`r sn`}(1-0.5)^{`r n-sn`}}=`r dbinom(sn,n,.6)/dbinom(sn,n,.5)`\]
+\[\frac{L(0.6;s_{10}=6)}{L(0.5;s_{10}=6)}=\frac{0.6^{`r sn`}(1-0.6)^{`r n-sn`}}{0.5^{`r sn`}(1-0.5)^{`r n-sn`}}=`r dbinom(sn,n,.6)/dbinom(sn,n,.5)`\]
 
 ```{r 12-Verosimiglianza-16}
 n  <- 20
@@ -661,7 +664,7 @@ sn <- .6*n
 ```
 
 Se $n=`r n`$, $s_n=`r sn`$ il valore $\hat\pi=0.6$ è il $`r (dbinom(sn,n,.6)/dbinom(sn,n,.5)-1)*100`\%$ _più verosimile_ di $\pi=0.5$.
-\[\frac{L(0.6;s_5=3)}{L(0.5;s_5=3)}=\frac{0.6^{`r sn`}(1-0.6)^{`r n-sn`}}{0.5^{`r sn`}(1-0.5)^{`r n-sn`}}=`r dbinom(sn,n,.6)/dbinom(sn,n,.5)`\]
+\[\frac{L(0.6;s_{20}=6)}{L(0.5;s_{20}=6)}=\frac{0.6^{`r sn`}(1-0.6)^{`r n-sn`}}{0.5^{`r sn`}(1-0.5)^{`r n-sn`}}=`r dbinom(sn,n,.6)/dbinom(sn,n,.5)`\]
 
 ```{r 12-Verosimiglianza-17}
 n  <- 100
@@ -669,15 +672,15 @@ sn <- .6*n
 ```
 
 Se $n=`r n`$, $s_n=`r sn`$ il valore $\hat\pi=0.6$ è il $`r (dbinom(sn,n,.6)/dbinom(sn,n,.5)-1)*100`\%$ _più verosimile_ di $\pi=0.5$.
-\[\frac{L(0.6;s_5=3)}{L(0.5;s_5=3)}=\frac{0.6^{`r sn`}(1-0.6)^{`r n-sn`}}{0.5^{`r sn`}(1-0.5)^{`r n-sn`}}=`r dbinom(sn,n,.6)/dbinom(sn,n,.5)`\]
+\[\frac{L(0.6;s_{100}=60)}{L(0.5;s_{100}=60)}=\frac{0.6^{`r sn`}(1-0.6)^{`r n-sn`}}{0.5^{`r sn`}(1-0.5)^{`r n-sn`}}=`r dbinom(sn,n,.6)/dbinom(sn,n,.5)`\]
 
 ```{r 12-Verosimiglianza-18}
 n  <- 1000
 sn <- .6*n
 ```
 
-Se $n=`r n`$, $s_n=`r sn`$ il valore $\hat\pi=0.6$ è il $`r (dbinom(sn,n,.6)/dbinom(sn,n,.5)-1)*100`\%$ _più verosimile_ di $\pi=0.5$.
-\[\frac{L(0.6;s_5=3)}{L(0.5;s_5=3)}=\frac{0.6^{`r sn`}(1-0.6)^{`r n-sn`}}{0.5^{`r sn`}(1-0.5)^{`r n-sn`}}=`r dbinom(sn,n,.6)/dbinom(sn,n,.5)`\]
+Se $n=`r n`$, $s_n=`r sn`$ il valore $\hat\pi=0.6$ è il $`r format((dbinom(sn,n,.6)/dbinom(sn,n,.5)-1)*100,big.mark="~",nsmall=2)`\%$ _più verosimile_ di $\pi=0.5$.
+\[\frac{L(0.6;s_{1000}=600)}{L(0.5;s_{1000}=600)}=\frac{0.6^{`r sn`}(1-0.6)^{`r n-sn`}}{0.5^{`r sn`}(1-0.5)^{`r n-sn`}}=`r format(dbinom(sn,n,.6)/dbinom(sn,n,.5),big.mark="~",nsmall=2)`\]
 
 ## Il modello Poisson
 
