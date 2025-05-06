@@ -1,0 +1,99 @@
+---
+title: "Esponenziale"
+author: "Patrizio Frederic"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+## Il modello statistico
+
+Siano $X_1, \dots, X_n$ n VC IID tc \(X_i\sim \text{Exp}(\lambda) \) con densità:
+
+\[
+f(x_i; \lambda) = \lambda e^{-\lambda x_i}, \quad x \ge 0, \lambda > 0
+\]
+
+## Funzione di verosimiglianza
+
+La funzione di verosimiglianza \( L(\lambda) \) è il prodotto delle densità valutate sui dati osservati:
+
+\[
+L(\lambda) = \prod_{i=1}^n f(x_i; \lambda) = \prod_{i=1}^n \lambda e^{-\lambda x_i}
+\]
+
+Esplicitiamo il prodotto:
+
+\[
+L(\lambda) = (\lambda e^{-\lambda x_1}) \cdot (\lambda e^{-\lambda x_2}) \cdot \dots \cdot (\lambda e^{-\lambda x_n})
+\]
+
+Raggruppiamo i fattori:
+
+- i fattori \( \lambda \) compaiono \( n \) volte → \( \lambda^n \)
+- gli esponenziali si sommano nell’esponente: \( e^{-\lambda (x_1 + x_2 + \dots + x_n)} \)
+
+Quindi:
+
+\[
+L(\lambda) = \lambda^n \cdot e^{-\lambda \sum_{i=1}^n x_i}
+\]
+
+oppure, in notazione compatta:
+
+\[
+L(\lambda) = \lambda^n \cdot e^{-\lambda \cdot s_n}, \quad \text{dove } s_n = \sum_{i=1}^n x_i
+\]
+
+
+## Log-verosimiglianza
+
+La funzione di verosimiglianza osservata è:
+
+\[
+L(\lambda) = \lambda^n \cdot e^{-\lambda s_n}
+\]
+
+Prendiamo il logaritmo naturale (log-verosimiglianza):
+
+\[
+\ell(\lambda) = \log L(\lambda) = \log(\lambda^n \cdot e^{-\lambda s_n}) = \log(\lambda^n) + \log(e^{-\lambda s_n})
+\]
+
+\[
+\ell(\lambda) = n \log \lambda - \lambda s_n
+\]
+
+## Derivata della log-verosimiglianza
+
+Deriviamo rispetto a \( \lambda \):
+
+\[
+\frac{d\ell}{d\lambda} = \frac{n}{\lambda} - s_n
+\]
+
+
+## Condizione di massimo
+
+Poniamo la derivata uguale a zero:
+
+\[
+\frac{n}{\lambda} - s_n = 0 \quad \Rightarrow \quad \frac{n}{\lambda} = s_n \quad \Rightarrow \quad \lambda = \frac{n}{s_n}
+\]
+
+
+
+## Risultato
+
+Lo **stimatore di massima verosimiglianza** di \( \lambda \) è:
+
+\[
+\hat{\lambda}_{\text{MLE}} = \frac{n}{s_n}
+\]
+
+cioè il reciproco della media campionaria.
+
