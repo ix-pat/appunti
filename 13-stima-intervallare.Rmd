@@ -23,7 +23,7 @@ Nel gergo dei sondaggisti viene chiamata forbice.
 
 La teoria della verosimiglianza offre tutti gli strumenti per la derivazione coerente di intervalli per una classe molto ampia di modelli di probabilità. La trattazione sistematica attraverso la verosimiglianza esula dagli scopi di questo corso.
 
-
+In termini più generali per stima intervallare si intende l'indicazione di un intorno di \( \hat\theta \), costruito in modo tale da contenere il valore del parametro incognito con un certo **grado di fiducia** o **livello di affidabilità** associato al metodo di costruzione.
 
 ## Il Contesto Probabilistico
 
@@ -38,13 +38,12 @@ za2 <- round(qnorm(.975),2)
 
 ```
 
-Siano $X_1,...X_`r n`$, $n=`r n`$ VC IID, $X_i\sim N(\mu=`r mu`,\sigma^2=`r s2`)$
+Supponiamo un caso molto speciale, vogliamo stimaare la media di una normale nell'ipotesi di conoscere la sua varianza. Siano $X_1,...X_`r n`$, $n=`r n`$ VC IID, $X_i\sim N(\mu,\sigma^2=`r s2`)$, come $\mu$ incognita.
 
 Dalle proprietà della normale
 \[\frac 1 n \sum_{i=1}^n X_i=\bar X=\hat\mu\sim N\left(\mu,\frac{\sigma^2}{n}\right), \qquad\text{ovvero }\hat \mu\sim N\left(\mu,SE^2(\hat \mu)\right) \]
 
-
-In questo caso
+Se per esempio $\mu$ fosse $\mu=`r mu`$, avremmo
 \begin{eqnarray*}
 \hat \mu &\sim& N\left(`r mu`,\frac{`r s2`}{`r n`}\right)\\
        &\sim& N\left(`r mu`,\left(\frac{`r s`}{\sqrt{`r n`}}\right)^2\right)\\
@@ -106,18 +105,17 @@ e quindi
   P(\mu-`r za2`~SE(\hat \mu)<\hat \mu<\mu+`r za2`~SE(\hat \mu)) &=& 0.95
 \end{eqnarray*}
 
-Numericamente
+Se per esempio $\mu$ fosse $\mu=`r mu`$, avremmo
 \begin{eqnarray*}
   P\left(`r mu`-`r za2`~\frac{`r s`}{\sqrt{`r n`}}<\hat \mu < `r mu`+`r za2`~\frac{`r s`}{\sqrt{`r n`}}\right) &=& 0.95 \\
   P\left(`r mu`-`r za2`\times`r se`<\hat \mu < `r mu`+`r za2`\times`r se`\right) &=& 0.95 \\
   P(`r mu-za2*se` < \hat \mu < `r mu+za2*se`) &=& 0.95 
 \end{eqnarray*}
 
-### $n$ e $\sigma^2$ rimangono fissi, cambiamo $\mu$
 ```{r 13-stima-intervallare-5}
 mu <- 1.2
 ```
-Se $n=`r n`$ e $\sigma^2=`r s2`$, ma per esempio $\mu= `r mu`$ allora
+Se invece $\mu= `r mu`$ allora
 \begin{eqnarray*}
   P(\mu-`r za2`~SE(\hat \mu)<\hat \mu<\mu+`r za2`~SE(\hat \mu)) &=& 0.95\\
   P\left(\mu-`r za2`~\frac{\sigma}{\sqrt n}<\hat \mu < \mu+`r za2`~\frac{\sigma}{\sqrt n}\right) &=& 0.95 \\
@@ -130,7 +128,7 @@ Se $n=`r n`$ e $\sigma^2=`r s2`$, ma per esempio $\mu= `r mu`$ allora
 ```{r 13-stima-intervallare-6}
 mu <- 3.4
 ```
-Se $n=`r n`$ e $\sigma^2=`r s2`$, ma per esempio $\mu= `r mu`$ allora
+Se $\mu= `r mu`$ allora
 \begin{eqnarray*}
   P\left(`r mu`-`r za2`~\frac{`r s`}{\sqrt{`r n`}}<\hat \mu < `r mu`+`r za2`~\frac{`r s`}{\sqrt{`r n`}}\right) &=& 0.95 \\
   P\left(`r mu`-`r za2`\times`r se`<\hat \mu < `r mu`+`r za2`\times`r se`\right) &=& 0.95 \\
@@ -142,7 +140,7 @@ Se $n=`r n`$ e $\sigma^2=`r s2`$, ma per esempio $\mu= `r mu`$ allora
 mu <- 0.6
 fig.def(4)
 ```
-Se $n=`r n`$ e $\sigma^2=`r s2`$, ma per esempio $\mu= `r mu`$ allora
+Se  $\mu= `r mu`$ allora
 \begin{eqnarray*}
   P\left(`r mu`-`r za2`\times`r se`<\hat \mu < `r mu`+`r za2`\times`r se`\right) &=& 0.95 \\
   P(`r mu-za2*se` < \hat \mu < `r mu+za2*se`) &=& 095 
@@ -254,8 +252,17 @@ par(op)
 fig.def(4.5)
 ```
 
+In sostanza
 
-### $n$ e $\sigma^2$ rimangono fissi e noti, $\mu$ incognita $\hat \mu=2.6$
+\begin{eqnarray*}
+  P(\mu - 1.96 SE(\hat\mu)<\hat\mu<\mu + 1.96 SE(\hat\mu)) &=& 0.95\\
+  P\left(\mu - 1.96 \frac\sigma {\sqrt n}<\hat\mu<\mu + 1.96 \frac\sigma {\sqrt n}\right) &=& 0.95
+\end{eqnarray*}
+
+Significa che la VC $\hat\mu$ si avvererà nell'intervallo $[\mu-1.96\cdot SE(\hat\mu),\mu+1.96\cdot SE(\hat\mu)]$ con probabilità 0.95.
+
+
+### Invertiamo $\mu$ con $\hat\mu$
 
 ```{r 13-stima-intervallare-10}
 if (!html) par(cex=.5)
@@ -291,18 +298,21 @@ text(xbar+za2*se/2,.65,paste(za2,"x",round(se,3)))
 ```
 
 
+
 Algebricamente, osserviamo
+
+
 \begin{eqnarray*}
-  P(-`r za2`<Z<+`r za2`) &=& 0.95 \\
-  P\left(-`r za2`<\frac{\hat \mu -\mu}{SE(\hat \mu)}< +`r za2`\right) &=& 0.95 \\
-  P\left(- `r za2`~SE(\hat \mu)<\hat \mu-\mu<+`r za2`~SE(\hat \mu)\right) &=& 0.95\\
-  P\left( - `r za2`~\frac\sigma{\sqrt n}<\hat \mu-\mu<\mu+`r za2`~\frac\sigma{\sqrt n}\right) &=& 0.95\\
-  P\left(-\hat \mu - `r za2`~\frac\sigma{\sqrt n}< -\hat \mu+\hat \mu-\mu<-\hat \mu+`r za2`~\frac\sigma{\sqrt n}\right) &=& 0.95 \qquad\text{sottraggo $\hat \mu$}\\
+  P\left(\mu - 1.96 \frac\sigma {\sqrt n}<\hat\mu<\mu + 1.96 \frac\sigma {\sqrt n}\right) &=& 0.95\\
+  \text{sottraggo $\hat \mu$ e $\mu$}\\
+  P\left(\mu - `r za2`~\frac\sigma{\sqrt n}-\mu-\hat \mu< \mu-\mu-\hat \mu<-\hat \mu+`r za2`~\frac\sigma{\sqrt n}-\mu-\hat \mu\right) &=& 0.95 \\
   P\left(-\hat \mu- `r za2`~\frac\sigma{\sqrt n}<-\mu<-\hat \mu+`r za2`~\frac\sigma{\sqrt n}\right) &=& 0.95\\
   \left(+\hat \mu+ `r za2`~\frac\sigma{\sqrt n}>+\mu>+\hat \mu-`r za2`~\frac\sigma{\sqrt n}\right) &=& 0.95\qquad\text{cambio segno e verso}\\
   P\left(\hat \mu- `r za2`~\frac\sigma{\sqrt n}<\mu<\hat \mu+`r za2`~\frac\sigma{\sqrt n}\right) &=& 0.95\\
 \end{eqnarray*}
 
+
+Questa identità vale per qualunque valore di $\mu$ e quindi $\left[\hat \mu- `r za2`~\frac\sigma{\sqrt n},\hat \mu+ `r za2`~\frac\sigma{\sqrt n}\right]$ è un intervallo dagli estremi casuali che cade su $\mu$ 95 volte su 100, in media.
 
 ## Intervalli casuali
 
@@ -396,7 +406,7 @@ intc(3.5); i <- i+1
 ## Stimatori e intervalli di confidenza
 
 Se $\theta$ è il parametro da stimare uno stimatore puntuale $h$ è una VC
-\[h(X_1,...,X_n)=h=\hat\theta\]
+\[\hat\theta(X_1,...,X_n)=\hat\theta\]
 
 Siano $L_1(X_1,...,X_n)=L_1$ e $L_2(X_1,...,X_n)=L_2$ due statistiche tali che 
   $L_1\leq L_2$ per ogni campione $X_1,...,X_n$.
@@ -411,8 +421,7 @@ Un  __intervallo di confidenza__ per $\theta$ al livello $(1-\alpha)\times 100\%
 :::
 :::
 
-
-Un  _intervallo di confidenza_ per $\theta$ al livello $(1-\alpha)\times 100\%$ è l'intervallo $[L_1,L_2]$ calcolato sui dati del campione.
+Un _intervallo di confidenza_ per $\theta$ al livello $(1-\alpha)\times 100\%$ è l'intervallo $[L_1,L_2]$ calcolato sui dati del campione.
 
 ## Massima Verosimiglianza e intervalli di confidenza
 

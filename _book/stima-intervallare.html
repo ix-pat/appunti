@@ -434,8 +434,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="13.2" data-path="stima-intervallare.html"><a href="stima-intervallare.html#il-contesto-probabilistico"><i class="fa fa-check"></i><b>13.2</b> Il Contesto Probabilistico</a>
 <ul>
 <li class="chapter" data-level="13.2.1" data-path="stima-intervallare.html"><a href="stima-intervallare.html#un-intervallo-per-hat-mu"><i class="fa fa-check"></i><b>13.2.1</b> Un intervallo per <span class="math inline">\(\hat \mu\)</span></a></li>
-<li class="chapter" data-level="13.2.2" data-path="stima-intervallare.html"><a href="stima-intervallare.html#n-e-sigma2-rimangono-fissi-cambiamo-mu"><i class="fa fa-check"></i><b>13.2.2</b> <span class="math inline">\(n\)</span> e <span class="math inline">\(\sigma^2\)</span> rimangono fissi, cambiamo <span class="math inline">\(\mu\)</span></a></li>
-<li class="chapter" data-level="13.2.3" data-path="stima-intervallare.html"><a href="stima-intervallare.html#n-e-sigma2-rimangono-fissi-e-noti-mu-incognita-hat-mu2.6"><i class="fa fa-check"></i><b>13.2.3</b> <span class="math inline">\(n\)</span> e <span class="math inline">\(\sigma^2\)</span> rimangono fissi e noti, <span class="math inline">\(\mu\)</span> incognita <span class="math inline">\(\hat \mu=2.6\)</span></a></li>
+<li class="chapter" data-level="13.2.2" data-path="stima-intervallare.html"><a href="stima-intervallare.html#invertiamo-mu-con-hatmu"><i class="fa fa-check"></i><b>13.2.2</b> Invertiamo <span class="math inline">\(\mu\)</span> con <span class="math inline">\(\hat\mu\)</span></a></li>
 </ul></li>
 <li class="chapter" data-level="13.3" data-path="stima-intervallare.html"><a href="stima-intervallare.html#intervalli-casuali"><i class="fa fa-check"></i><b>13.3</b> Intervalli casuali</a></li>
 <li class="chapter" data-level="13.4" data-path="stima-intervallare.html"><a href="stima-intervallare.html#intervallo-di-confidenza-per-mu-al-95-n5-e-sigma22.25."><i class="fa fa-check"></i><b>13.4</b> Intervallo di confidenza per <span class="math inline">\(\mu\)</span> al 95%, <span class="math inline">\(n=5\)</span> e <span class="math inline">\(\sigma^2=2.25\)</span>.</a></li>
@@ -738,13 +737,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>L’obiettivo è di stimare un intervallo nel quale pensiamo <em>verosimilmente</em> si collochi il vero <span class="math inline">\(\theta\)</span> alla luce dei dati.</p>
 <p>Nel gergo dei sondaggisti viene chiamata forbice.</p>
 <p>La teoria della verosimiglianza offre tutti gli strumenti per la derivazione coerente di intervalli per una classe molto ampia di modelli di probabilità. La trattazione sistematica attraverso la verosimiglianza esula dagli scopi di questo corso.</p>
+<p>In termini più generali per stima intervallare si intende l’indicazione di un intorno di <span class="math inline">\(\hat\theta\)</span>, costruito in modo tale da contenere il valore del parametro incognito con un certo <strong>grado di fiducia</strong> o <strong>livello di affidabilità</strong> associato al metodo di costruzione.</p>
 </div>
 <div id="il-contesto-probabilistico" class="section level2 hasAnchor" number="13.2">
 <h2><span class="header-section-number">13.2</span> Il Contesto Probabilistico<a href="stima-intervallare.html#il-contesto-probabilistico" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Siano <span class="math inline">\(X_1,...X_5\)</span>, <span class="math inline">\(n=5\)</span> VC IID, <span class="math inline">\(X_i\sim N(\mu=2.5,\sigma^2=2.25)\)</span></p>
+<p>Supponiamo un caso molto speciale, vogliamo stimaare la media di una normale nell’ipotesi di conoscere la sua varianza. Siano <span class="math inline">\(X_1,...X_5\)</span>, <span class="math inline">\(n=5\)</span> VC IID, <span class="math inline">\(X_i\sim N(\mu,\sigma^2=2.25)\)</span>, come <span class="math inline">\(\mu\)</span> incognita.</p>
 <p>Dalle proprietà della normale
 <span class="math display">\[\frac 1 n \sum_{i=1}^n X_i=\bar X=\hat\mu\sim N\left(\mu,\frac{\sigma^2}{n}\right), \qquad\text{ovvero }\hat \mu\sim N\left(\mu,SE^2(\hat \mu)\right) \]</span></p>
-<p>In questo caso
+<p>Se per esempio <span class="math inline">\(\mu\)</span> fosse <span class="math inline">\(\mu=2.5\)</span>, avremmo
 <span class="math display">\[\begin{eqnarray*}
 \hat \mu &amp;\sim&amp; N\left(2.5,\frac{2.25}{5}\right)\\
        &amp;\sim&amp; N\left(2.5,\left(\frac{1.5}{\sqrt{5}}\right)^2\right)\\
@@ -777,16 +777,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   P\left(\mu-1.96~SE(\hat \mu)&lt;\mu+\hat \mu -\mu&lt; \mu+1.96~SE(\hat \mu)\right) &amp;=&amp; 0.95 \\    
   P(\mu-1.96~SE(\hat \mu)&lt;\hat \mu&lt;\mu+1.96~SE(\hat \mu)) &amp;=&amp; 0.95
 \end{eqnarray*}\]</span></p>
-<p>Numericamente
+<p>Se per esempio <span class="math inline">\(\mu\)</span> fosse <span class="math inline">\(\mu=2.5\)</span>, avremmo
 <span class="math display">\[\begin{eqnarray*}
   P\left(2.5-1.96~\frac{1.5}{\sqrt{5}}&lt;\hat \mu &lt; 2.5+1.96~\frac{1.5}{\sqrt{5}}\right) &amp;=&amp; 0.95 \\
   P\left(2.5-1.96\times0.6708&lt;\hat \mu &lt; 2.5+1.96\times0.6708\right) &amp;=&amp; 0.95 \\
   P(1.1852 &lt; \hat \mu &lt; 3.8148) &amp;=&amp; 0.95
 \end{eqnarray*}\]</span></p>
-</div>
-<div id="n-e-sigma2-rimangono-fissi-cambiamo-mu" class="section level3 hasAnchor" number="13.2.2">
-<h3><span class="header-section-number">13.2.2</span> <span class="math inline">\(n\)</span> e <span class="math inline">\(\sigma^2\)</span> rimangono fissi, cambiamo <span class="math inline">\(\mu\)</span><a href="stima-intervallare.html#n-e-sigma2-rimangono-fissi-cambiamo-mu" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Se <span class="math inline">\(n=5\)</span> e <span class="math inline">\(\sigma^2=2.25\)</span>, ma per esempio <span class="math inline">\(\mu= 1.2\)</span> allora
+<p>Se invece <span class="math inline">\(\mu= 1.2\)</span> allora
 <span class="math display">\[\begin{eqnarray*}
   P(\mu-1.96~SE(\hat \mu)&lt;\hat \mu&lt;\mu+1.96~SE(\hat \mu)) &amp;=&amp; 0.95\\
   P\left(\mu-1.96~\frac{\sigma}{\sqrt n}&lt;\hat \mu &lt; \mu+1.96~\frac{\sigma}{\sqrt n}\right) &amp;=&amp; 0.95 \\
@@ -794,34 +791,39 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   P\left(1.2-1.96\times0.6708&lt;\hat \mu &lt; 1.2+1.96\times0.6708\right) &amp;=&amp; 0.95 \\
   P(-0.1148 &lt; \hat \mu &lt; 2.5148) &amp;=&amp; 0.95
 \end{eqnarray*}\]</span></p>
-<p>Se <span class="math inline">\(n=5\)</span> e <span class="math inline">\(\sigma^2=2.25\)</span>, ma per esempio <span class="math inline">\(\mu= 3.4\)</span> allora
+<p>Se <span class="math inline">\(\mu= 3.4\)</span> allora
 <span class="math display">\[\begin{eqnarray*}
   P\left(3.4-1.96~\frac{1.5}{\sqrt{5}}&lt;\hat \mu &lt; 3.4+1.96~\frac{1.5}{\sqrt{5}}\right) &amp;=&amp; 0.95 \\
   P\left(3.4-1.96\times0.6708&lt;\hat \mu &lt; 3.4+1.96\times0.6708\right) &amp;=&amp; 0.95 \\
   P(2.0852 &lt; \hat \mu &lt; 4.7148) &amp;=&amp; 0.95
 \end{eqnarray*}\]</span></p>
-<p>Se <span class="math inline">\(n=5\)</span> e <span class="math inline">\(\sigma^2=2.25\)</span>, ma per esempio <span class="math inline">\(\mu= 0.6\)</span> allora
+<p>Se <span class="math inline">\(\mu= 0.6\)</span> allora
 <span class="math display">\[\begin{eqnarray*}
   P\left(0.6-1.96\times0.6708&lt;\hat \mu &lt; 0.6+1.96\times0.6708\right) &amp;=&amp; 0.95 \\
   P(-0.7148 &lt; \hat \mu &lt; 1.9148) &amp;=&amp; 095
 \end{eqnarray*}\]</span></p>
 <p>Rimangono fissi <span class="math inline">\(n\)</span> e <span class="math inline">\(\sigma^2\)</span> , cambiamo <span class="math inline">\(\mu\)</span></p>
 <p><img src="Appunti_di_Statistica_2025_files/figure-html/13-stima-intervallare-9-1.png" width="672" /></p>
+<p>In sostanza</p>
+<p><span class="math display">\[\begin{eqnarray*}
+  P(\mu - 1.96 SE(\hat\mu)&lt;\hat\mu&lt;\mu + 1.96 SE(\hat\mu)) &amp;=&amp; 0.95\\
+  P\left(\mu - 1.96 \frac\sigma {\sqrt n}&lt;\hat\mu&lt;\mu + 1.96 \frac\sigma {\sqrt n}\right) &amp;=&amp; 0.95
+\end{eqnarray*}\]</span></p>
+<p>Significa che la VC <span class="math inline">\(\hat\mu\)</span> si avvererà nell’intervallo <span class="math inline">\([\mu-1.96\cdot SE(\hat\mu),\mu+1.96\cdot SE(\hat\mu)]\)</span> con probabilità 0.95.</p>
 </div>
-<div id="n-e-sigma2-rimangono-fissi-e-noti-mu-incognita-hat-mu2.6" class="section level3 hasAnchor" number="13.2.3">
-<h3><span class="header-section-number">13.2.3</span> <span class="math inline">\(n\)</span> e <span class="math inline">\(\sigma^2\)</span> rimangono fissi e noti, <span class="math inline">\(\mu\)</span> incognita <span class="math inline">\(\hat \mu=2.6\)</span><a href="stima-intervallare.html#n-e-sigma2-rimangono-fissi-e-noti-mu-incognita-hat-mu2.6" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="invertiamo-mu-con-hatmu" class="section level3 hasAnchor" number="13.2.2">
+<h3><span class="header-section-number">13.2.2</span> Invertiamo <span class="math inline">\(\mu\)</span> con <span class="math inline">\(\hat\mu\)</span><a href="stima-intervallare.html#invertiamo-mu-con-hatmu" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><img src="Appunti_di_Statistica_2025_files/figure-html/13-stima-intervallare-10-1.png" width="672" /></p>
-<p>Algebricamente, osserviamo
-<span class="math display">\[\begin{eqnarray*}
-  P(-1.96&lt;Z&lt;+1.96) &amp;=&amp; 0.95 \\
-  P\left(-1.96&lt;\frac{\hat \mu -\mu}{SE(\hat \mu)}&lt; +1.96\right) &amp;=&amp; 0.95 \\
-  P\left(- 1.96~SE(\hat \mu)&lt;\hat \mu-\mu&lt;+1.96~SE(\hat \mu)\right) &amp;=&amp; 0.95\\
-  P\left( - 1.96~\frac\sigma{\sqrt n}&lt;\hat \mu-\mu&lt;\mu+1.96~\frac\sigma{\sqrt n}\right) &amp;=&amp; 0.95\\
-  P\left(-\hat \mu - 1.96~\frac\sigma{\sqrt n}&lt; -\hat \mu+\hat \mu-\mu&lt;-\hat \mu+1.96~\frac\sigma{\sqrt n}\right) &amp;=&amp; 0.95 \qquad\text{sottraggo $\hat \mu$}\\
+<p>Algebricamente, osserviamo</p>
+<p><span class="math display">\[\begin{eqnarray*}
+  P\left(\mu - 1.96 \frac\sigma {\sqrt n}&lt;\hat\mu&lt;\mu + 1.96 \frac\sigma {\sqrt n}\right) &amp;=&amp; 0.95\\
+  \text{sottraggo $\hat \mu$ e $\mu$}\\
+  P\left(\mu - 1.96~\frac\sigma{\sqrt n}-\mu-\hat \mu&lt; \mu-\mu-\hat \mu&lt;-\hat \mu+1.96~\frac\sigma{\sqrt n}-\mu-\hat \mu\right) &amp;=&amp; 0.95 \\
   P\left(-\hat \mu- 1.96~\frac\sigma{\sqrt n}&lt;-\mu&lt;-\hat \mu+1.96~\frac\sigma{\sqrt n}\right) &amp;=&amp; 0.95\\
   \left(+\hat \mu+ 1.96~\frac\sigma{\sqrt n}&gt;+\mu&gt;+\hat \mu-1.96~\frac\sigma{\sqrt n}\right) &amp;=&amp; 0.95\qquad\text{cambio segno e verso}\\
   P\left(\hat \mu- 1.96~\frac\sigma{\sqrt n}&lt;\mu&lt;\hat \mu+1.96~\frac\sigma{\sqrt n}\right) &amp;=&amp; 0.95\\
 \end{eqnarray*}\]</span></p>
+<p>Questa identità vale per qualunque valore di <span class="math inline">\(\mu\)</span> e quindi <span class="math inline">\(\left[\hat \mu- 1.96~\frac\sigma{\sqrt n},\hat \mu+ 1.96~\frac\sigma{\sqrt n}\right]\)</span> è un intervallo dagli estremi casuali che cade su <span class="math inline">\(\mu\)</span> 95 volte su 100, in media.</p>
 </div>
 </div>
 <div id="intervalli-casuali" class="section level2 hasAnchor" number="13.3">
@@ -863,7 +865,7 @@ Il long run:</p>
 <div id="stimatori-e-intervalli-di-confidenza" class="section level2 hasAnchor" number="13.5">
 <h2><span class="header-section-number">13.5</span> Stimatori e intervalli di confidenza<a href="stima-intervallare.html#stimatori-e-intervalli-di-confidenza" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Se <span class="math inline">\(\theta\)</span> è il parametro da stimare uno stimatore puntuale <span class="math inline">\(h\)</span> è una VC
-<span class="math display">\[h(X_1,...,X_n)=h=\hat\theta\]</span></p>
+<span class="math display">\[\hat\theta(X_1,...,X_n)=\hat\theta\]</span></p>
 <p>Siano <span class="math inline">\(L_1(X_1,...,X_n)=L_1\)</span> e <span class="math inline">\(L_2(X_1,...,X_n)=L_2\)</span> due statistiche tali che
 <span class="math inline">\(L_1\leq L_2\)</span> per ogni campione <span class="math inline">\(X_1,...,X_n\)</span>.
 L’intervallo

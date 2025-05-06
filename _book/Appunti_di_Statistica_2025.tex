@@ -9473,14 +9473,16 @@ Nel gergo dei sondaggisti viene chiamata forbice.
 
 La teoria della verosimiglianza offre tutti gli strumenti per la derivazione coerente di intervalli per una classe molto ampia di modelli di probabilità. La trattazione sistematica attraverso la verosimiglianza esula dagli scopi di questo corso.
 
+In termini più generali per stima intervallare si intende l'indicazione di un intorno di \(\hat\theta\), costruito in modo tale da contenere il valore del parametro incognito con un certo \textbf{grado di fiducia} o \textbf{livello di affidabilità} associato al metodo di costruzione.
+
 \section{Il Contesto Probabilistico}\label{il-contesto-probabilistico}
 
-Siano \(X_1,...X_5\), \(n=5\) VC IID, \(X_i\sim N(\mu=2.5,\sigma^2=2.25)\)
+Supponiamo un caso molto speciale, vogliamo stimaare la media di una normale nell'ipotesi di conoscere la sua varianza. Siano \(X_1,...X_5\), \(n=5\) VC IID, \(X_i\sim N(\mu,\sigma^2=2.25)\), come \(\mu\) incognita.
 
 Dalle proprietà della normale
 \[\frac 1 n \sum_{i=1}^n X_i=\bar X=\hat\mu\sim N\left(\mu,\frac{\sigma^2}{n}\right), \qquad\text{ovvero }\hat \mu\sim N\left(\mu,SE^2(\hat \mu)\right) \]
 
-In questo caso
+Se per esempio \(\mu\) fosse \(\mu=2.5\), avremmo
 \begin{eqnarray*}
 \hat \mu &\sim& N\left(2.5,\frac{2.25}{5}\right)\\
        &\sim& N\left(2.5,\left(\frac{1.5}{\sqrt{5}}\right)^2\right)\\
@@ -9526,16 +9528,14 @@ e quindi
   P(\mu-1.96~SE(\hat \mu)<\hat \mu<\mu+1.96~SE(\hat \mu)) &=& 0.95
 \end{eqnarray*}
 
-Numericamente
+Se per esempio \(\mu\) fosse \(\mu=2.5\), avremmo
 \begin{eqnarray*}
   P\left(2.5-1.96~\frac{1.5}{\sqrt{5}}<\hat \mu < 2.5+1.96~\frac{1.5}{\sqrt{5}}\right) &=& 0.95 \\
   P\left(2.5-1.96\times0.6708<\hat \mu < 2.5+1.96\times0.6708\right) &=& 0.95 \\
   P(1.1852 < \hat \mu < 3.8148) &=& 0.95 
 \end{eqnarray*}
 
-\subsection{\texorpdfstring{\(n\) e \(\sigma^2\) rimangono fissi, cambiamo \(\mu\)}{n e \textbackslash sigma\^{}2 rimangono fissi, cambiamo \textbackslash mu}}\label{n-e-sigma2-rimangono-fissi-cambiamo-mu}
-
-Se \(n=5\) e \(\sigma^2=2.25\), ma per esempio \(\mu= 1.2\) allora
+Se invece \(\mu= 1.2\) allora
 \begin{eqnarray*}
   P(\mu-1.96~SE(\hat \mu)<\hat \mu<\mu+1.96~SE(\hat \mu)) &=& 0.95\\
   P\left(\mu-1.96~\frac{\sigma}{\sqrt n}<\hat \mu < \mu+1.96~\frac{\sigma}{\sqrt n}\right) &=& 0.95 \\
@@ -9544,14 +9544,14 @@ Se \(n=5\) e \(\sigma^2=2.25\), ma per esempio \(\mu= 1.2\) allora
   P(-0.1148 < \hat \mu < 2.5148) &=& 0.95 
 \end{eqnarray*}
 
-Se \(n=5\) e \(\sigma^2=2.25\), ma per esempio \(\mu= 3.4\) allora
+Se \(\mu= 3.4\) allora
 \begin{eqnarray*}
   P\left(3.4-1.96~\frac{1.5}{\sqrt{5}}<\hat \mu < 3.4+1.96~\frac{1.5}{\sqrt{5}}\right) &=& 0.95 \\
   P\left(3.4-1.96\times0.6708<\hat \mu < 3.4+1.96\times0.6708\right) &=& 0.95 \\
   P(2.0852 < \hat \mu < 4.7148) &=& 0.95 
 \end{eqnarray*}
 
-Se \(n=5\) e \(\sigma^2=2.25\), ma per esempio \(\mu= 0.6\) allora
+Se \(\mu= 0.6\) allora
 \begin{eqnarray*}
   P\left(0.6-1.96\times0.6708<\hat \mu < 0.6+1.96\times0.6708\right) &=& 0.95 \\
   P(-0.7148 < \hat \mu < 1.9148) &=& 095 
@@ -9561,21 +9561,31 @@ Rimangono fissi \(n\) e \(\sigma^2\) , cambiamo \(\mu\)
 
 \begin{center}\includegraphics{Appunti_di_Statistica_2025_files/figure-latex/13-stima-intervallare-9-1} \end{center}
 
-\subsection{\texorpdfstring{\(n\) e \(\sigma^2\) rimangono fissi e noti, \(\mu\) incognita \(\hat \mu=2.6\)}{n e \textbackslash sigma\^{}2 rimangono fissi e noti, \textbackslash mu incognita \textbackslash hat \textbackslash mu=2.6}}\label{n-e-sigma2-rimangono-fissi-e-noti-mu-incognita-hat-mu2.6}
+In sostanza
+
+\begin{eqnarray*}
+  P(\mu - 1.96 SE(\hat\mu)<\hat\mu<\mu + 1.96 SE(\hat\mu)) &=& 0.95\\
+  P\left(\mu - 1.96 \frac\sigma {\sqrt n}<\hat\mu<\mu + 1.96 \frac\sigma {\sqrt n}\right) &=& 0.95
+\end{eqnarray*}
+
+Significa che la VC \(\hat\mu\) si avvererà nell'intervallo \([\mu-1.96\cdot SE(\hat\mu),\mu+1.96\cdot SE(\hat\mu)]\) con probabilità 0.95.
+
+\subsection{\texorpdfstring{Invertiamo \(\mu\) con \(\hat\mu\)}{Invertiamo \textbackslash mu con \textbackslash hat\textbackslash mu}}\label{invertiamo-mu-con-hatmu}
 
 \begin{center}\includegraphics{Appunti_di_Statistica_2025_files/figure-latex/13-stima-intervallare-10-1} \end{center}
 
 Algebricamente, osserviamo
+
 \begin{eqnarray*}
-  P(-1.96<Z<+1.96) &=& 0.95 \\
-  P\left(-1.96<\frac{\hat \mu -\mu}{SE(\hat \mu)}< +1.96\right) &=& 0.95 \\
-  P\left(- 1.96~SE(\hat \mu)<\hat \mu-\mu<+1.96~SE(\hat \mu)\right) &=& 0.95\\
-  P\left( - 1.96~\frac\sigma{\sqrt n}<\hat \mu-\mu<\mu+1.96~\frac\sigma{\sqrt n}\right) &=& 0.95\\
-  P\left(-\hat \mu - 1.96~\frac\sigma{\sqrt n}< -\hat \mu+\hat \mu-\mu<-\hat \mu+1.96~\frac\sigma{\sqrt n}\right) &=& 0.95 \qquad\text{sottraggo $\hat \mu$}\\
+  P\left(\mu - 1.96 \frac\sigma {\sqrt n}<\hat\mu<\mu + 1.96 \frac\sigma {\sqrt n}\right) &=& 0.95\\
+  \text{sottraggo $\hat \mu$ e $\mu$}\\
+  P\left(\mu - 1.96~\frac\sigma{\sqrt n}-\mu-\hat \mu< \mu-\mu-\hat \mu<-\hat \mu+1.96~\frac\sigma{\sqrt n}-\mu-\hat \mu\right) &=& 0.95 \\
   P\left(-\hat \mu- 1.96~\frac\sigma{\sqrt n}<-\mu<-\hat \mu+1.96~\frac\sigma{\sqrt n}\right) &=& 0.95\\
   \left(+\hat \mu+ 1.96~\frac\sigma{\sqrt n}>+\mu>+\hat \mu-1.96~\frac\sigma{\sqrt n}\right) &=& 0.95\qquad\text{cambio segno e verso}\\
   P\left(\hat \mu- 1.96~\frac\sigma{\sqrt n}<\mu<\hat \mu+1.96~\frac\sigma{\sqrt n}\right) &=& 0.95\\
 \end{eqnarray*}
+
+Questa identità vale per qualunque valore di \(\mu\) e quindi \(\left[\hat \mu- 1.96~\frac\sigma{\sqrt n},\hat \mu+ 1.96~\frac\sigma{\sqrt n}\right]\) è un intervallo dagli estremi casuali che cade su \(\mu\) 95 volte su 100, in media.
 
 \section{Intervalli casuali}\label{intervalli-casuali}
 
@@ -9629,7 +9639,7 @@ Il long run:
 \section{Stimatori e intervalli di confidenza}\label{stimatori-e-intervalli-di-confidenza}
 
 Se \(\theta\) è il parametro da stimare uno stimatore puntuale \(h\) è una VC
-\[h(X_1,...,X_n)=h=\hat\theta\]
+\[\hat\theta(X_1,...,X_n)=\hat\theta\]
 
 Siano \(L_1(X_1,...,X_n)=L_1\) e \(L_2(X_1,...,X_n)=L_2\) due statistiche tali che
 \(L_1\leq L_2\) per ogni campione \(X_1,...,X_n\).
