@@ -524,7 +524,7 @@ drop fuzzy shadow]
 \makeatother
 \subtitle{CLEAM AA 24/25}
 \author{Patrizio Frederic}
-\date{Aggiornato al 06-05-2025}
+\date{Aggiornato al 07-05-2025}
 
 \begin{document}
 \maketitle
@@ -582,7 +582,7 @@ costruisco le mie lezioni. Non è da ritenersi alternativo alle lezioni in aula 
 
 Un ringraziamento speciale va alle mie donne e a Michele Lalla, amico, collega e maestro.
 
-Bologna, il 06-05-2025.
+Bologna, il 07-05-2025.
 
 \part{Statistica Descrittiva}
 
@@ -10699,8 +10699,8 @@ in automatico. In tutti i casi considereremo un solo campione
 
 Il sistema di ipotesi porrà sempre \(H_0:\mu=\mu_0\) e si leggerà: la vera
 media che ha generato i dati è \(\mu_0\), il fatto che la media dei dati
-sia \(\bar x\ne\mu_0\) è dovuto all'effetto del campionamento e la
-differenza tra \(\bar x\) e \(\mu_0\) \textbf{non è significativa}. L'ipotesi
+sia \(\hat\mu_\text{obs}=\bar x\ne\mu_0\) è dovuto all'effetto del campionamento e la
+differenza tra \(\hat\mu_\text{obs}\) e \(\mu_0\) \textbf{non è significativa}. L'ipotesi
 alternativa \(H_1\), che sarà unilaterale o bilaterale, si legge al
 contrario: la differenza tra la media osservata e la media prescritta da
 \(H_0\) \textbf{è significativa} e il campione proviene da una popolazione che
@@ -10742,9 +10742,9 @@ alto il valore di \(Z\) tanto più \(H_0\) è inverosimile.
 
 \textbf{Decisione sul campione.} Si decide un livello \(\alpha\) e si ricava
 \(z_\alpha\), si estrae un campione. Lo stimatore \(\hat\mu\) si realizza
-nella media osservata del campione \(\bar x\)
+nella media osservata del campione \(\hat\mu_\text{obs}\)
 
-\[z_{\text{obs}}=\frac{\bar x -\mu_0}{\sigma/\sqrt n}\]
+\[z_{\text{obs}}=\frac{\hat\mu_\text{obs} -\mu_0}{\sigma/\sqrt n}\]
 
 \begin{itemize}
 \tightlist
@@ -10773,7 +10773,6 @@ Se \(\alpha=0.01\) allora
 \begin{center}\includegraphics{Appunti_di_Statistica_2025_files/figure-latex/15-test-mu-pi-15-1} \end{center}
 
 \begin{example}
-
 In un laboratorio, vi sono cavie con peso medio uguale a 30g e una DS
 pari a 5g. Uno studente seleziona 25 cavie e ottiene un peso medio
 uguale a 32g con una \(\hat\sigma\) pari a 7g. La selezione è casuale o il
@@ -10807,10 +10806,21 @@ Essendo \(z_\text{obs}=2>z_{0.05}=1.6449\) allora \textbf{rifiuto} \(H_0\) al 5\
 
 \begin{center}\includegraphics{Appunti_di_Statistica_2025_files/figure-latex/15-test-mu-pi-1-1} \end{center}
 
+Cioè rifiutiamo \(H_0\) se
+\begin{eqnarray*}
+Z &>& z_\alpha \\
+Z &>& 1.6449 \\
+   \frac{\hat\mu - \mu_{0}} {\sigma/\sqrt{n}}&>&1.6449 \\
+   \hat\mu - \mu_{0} &>&1.6449\frac\sigma{\sqrt{n}} \\
+   \hat\mu &>& \mu_{0} + 1.6449\frac\sigma{\sqrt{n}} \\   
+   &>&   30 + 1.6449\frac 5{ \sqrt{ 25 }}\\
+   &>&   31.6449
+   \end{eqnarray*}
+Se \(H_0\) fosse vera \(\mu=30\), 5 volte su 100, un campione di ampiezza \(n=25\)
+ha una media che supera \(31.6449\).
 \end{example}
 
 \begin{example}
-
 In un laboratorio, vi sono cavie con peso medio uguale a 30g e una DS
 pari a 5g. Uno studente seleziona 25 cavie e ottiene un peso medio
 uguale a 32g con una \(\hat\sigma\) pari a 7g. La selezione è casuale o il
@@ -10844,6 +10854,18 @@ Essendo \(z_\text{obs}=2<z_{0.01}=2.3263\) allora \textbf{non} rifiuto \(H_0\) a
 
 \begin{center}\includegraphics{Appunti_di_Statistica_2025_files/figure-latex/15-test-mu-pi-2-1} \end{center}
 
+Cioè rifiutiamo \(H_0\) se
+\begin{eqnarray*}
+Z &>& z_\alpha \\
+Z &>& 2.3263 \\
+   \frac{\hat\mu - \mu_{0}} {\sigma/\sqrt{n}}&>&2.3263 \\
+   \hat\mu - \mu_{0} &>&2.3263\frac\sigma{\sqrt{n}} \\
+   \hat\mu &>& \mu_{0} + 2.3263\frac\sigma{\sqrt{n}} \\   
+   &>&   30 + 2.3263\frac 5{ \sqrt{ 25 }}\\
+   &>&   32.3263
+   \end{eqnarray*}
+Se \(H_0\) fosse vera \(\mu=30\), 5 volte su 100, un campione di ampiezza \(n=25\)
+ha una media che supera \(32.3263\).
 \end{example}
 
 \subsection{\texorpdfstring{La probabilità di significatività osservata il \(p_\text{value}\)}{La probabilità di significatività osservata il p\_\textbackslash text\{value\}}}\label{la-probabilituxe0-di-significativituxe0-osservata-il-p_textvalue}
@@ -10899,6 +10921,87 @@ dati contro \(H_0\):
 
 \end{nota}
 
+\begin{example}
+In un laboratorio, vi sono cavie con peso medio uguale a 30g e una DS
+pari a 5g. Uno studente seleziona 50 cavie e ottiene un peso medio
+uguale a 32g con una \(\hat\sigma\) pari a 7g. La selezione è casuale o il
+valore ottenuto della media è troppo alto?
+
+\textbf{Test \(Z\) per una media, variazna nota}
+
+\(\fbox{A}\) FORMULAZIONE DELLE IPOTESI
+
+\[\begin{cases}
+   H_0: \mu = \mu_0=30g \\
+   H_1: \mu > \mu_0=30g 
+   \end{cases}\]
+
+\(\fbox{B}\) SCELTA E CALCOLO STATISTICA-TEST, \(Z\)
+
+\(\sigma^{2}\) di \(\cal{P}\) è nota: \(\Rightarrow\) z-Test.
+
+\begin{eqnarray*}
+   \frac{\hat\mu - \mu_{0}} {\sigma/\sqrt{n}}&\sim&N(0,1)\\
+   z_{\text{obs}}
+   &=& \frac{ ( 32 -  30 )} { 5 /\sqrt{ 50 }}
+   =   2.828 \, .
+   \end{eqnarray*}
+
+\(\fbox{C}\) CONCLUSIONE
+
+Il \(p_{\text{value}}\) è
+
+\[ p_{\text{value}} = P(Z>2.83)=0.002339 \]
+
+\[
+ 0.001 < p_\text{value}= 0.002339 \leq 0.01 
+\]
+
+\begin{center}\includegraphics{Appunti_di_Statistica_2025_files/figure-latex/unnamed-chunk-12-1} \end{center}
+
+\textbf{Rifiuto} \(H_0\) all'1\%,
+
+\(0.001<p_\text{value}<0.01\), \emph{molto significativo} \(\fbox{**}\).
+
+Se a parità di stastistiche le cavie fossero state \(n=100\)
+
+\textbf{Test \(Z\) per una media, variazna nota}
+
+\(\fbox{A}\) FORMULAZIONE DELLE IPOTESI
+
+\[\begin{cases}
+   H_0: \mu = \mu_0=30g \\
+   H_1: \mu > \mu_0=30g 
+   \end{cases}\]
+
+\(\fbox{B}\) SCELTA E CALCOLO STATISTICA-TEST, \(Z\)
+
+\(\sigma^{2}\) di \(\cal{P}\) è nota: \(\Rightarrow\) z-Test.
+
+\begin{eqnarray*}
+   \frac{\hat\mu - \mu_{0}} {\sigma/\sqrt{n}}&\sim&N(0,1)\\
+   z_{\text{obs}}
+   &=& \frac{ ( 32 -  30 )} { 5 /\sqrt{ 100 }}
+   =   4 \, .
+   \end{eqnarray*}
+
+\(\fbox{C}\) CONCLUSIONE
+
+Il \(p_{\text{value}}\) è
+
+\[ p_{\text{value}} = P(Z>4)=0.000032 \]
+
+\[
+ 0 < p_\text{value}= 0.000032 \leq 0.001 
+\]
+
+\begin{center}\includegraphics{Appunti_di_Statistica_2025_files/figure-latex/unnamed-chunk-13-1} \end{center}
+
+\textbf{Rifiuto} \(H_0\) sotto all'1‰,
+
+\(p_\text{value}<0.001\), \emph{estremamente significativo} \(\fbox{***}\).
+\end{example}
+
 \subsection{\texorpdfstring{Test sulla media, ipotesi unilaterale sinistra, \(\sigma^2\) noto}{Test sulla media, ipotesi unilaterale sinistra, \textbackslash sigma\^{}2 noto}}\label{test-sulla-media-ipotesi-unilaterale-sinistra-sigma2-noto}
 
 Siano \(X_1,...X_n\) \(n\) VC, IID: \(X_i\sim N(\mu,\sigma^2)\) con \(\sigma^2\)
@@ -10924,9 +11027,9 @@ basso il valore di \(Z\) tanto più \(H_0\) è inverosimile
 
 \textbf{Decisione sul campione.} Si decide un livello \(\alpha\) e si ricava
 \(z_\alpha\), si estrae un campione. Lo stimatore \(\hat\mu\) si realizza
-nella media osservata del campione \(\bar x\)
+nella media osservata del campione \(\hat\mu_\text{obs}\)
 
-\[z_{\text{obs}}=\frac{\bar x -\mu_0}{\sigma/\sqrt n}\]
+\[z_{\text{obs}}=\frac{\hat\mu_\text{obs} -\mu_0}{\sigma/\sqrt n}\]
 
 \begin{itemize}
 \tightlist
@@ -10949,7 +11052,7 @@ temperature sia \(X \,\sim\, N(\mu,\, \sigma^{2})\) e, in base
 all'esperienza, sia \(\mu_{0}=6\) ore e \(\sigma_{0}=0.5\) ore. Si apportano
 modifiche alla composizione dei materiali per fare diminuire la durata
 della resistenza alla temperatura. Si eseguono 16 osservazioni, dalle
-quali si ottiene una durata media \(\bar{x}=5.7\) e uno deviazione
+quali si ottiene una durata media \(\mu_\text{obs}=5.7\) e uno deviazione
 standard \(s=0.6\). Verificare l'ipotesi, al LdS dell'1\%, che la
 resistenza sia rimasta invariata contro l'alternativa che sia diminuita.
 
@@ -11018,8 +11121,8 @@ il valore di \(Z\) è \textbf{diverso} da zero tanto più \(H_0\) è inverosimil
 
 \textbf{Decisione sul campione.} Si decide un livello \(\alpha\) e si ricava
 \(z_{\alpha/2}\), si estrae un campione. Lo stimatore \(\hat\mu\) si
-realizza nella media osservata del campione \(\bar x\)
-\[z_{\text{obs}}=\frac{\bar x -\mu_0}{\sigma/\sqrt n}\]
+realizza nella media osservata del campione \(\hat\mu_\text{obs}\)
+\[z_{\text{obs}}=\frac{\hat\mu_\text{obs} -\mu_0}{\sigma/\sqrt n}\]
 
 \begin{itemize}
 \tightlist
@@ -11196,8 +11299,8 @@ La \(T\) osservata sul campione misura l'evidenza contro \(H_0\), tanto più
 
 \textbf{Decisione sul campione} Si decide un livello \(\alpha\) e si ricava
 \(t_{n-1;\alpha}\), si estrae un campione. Lo stimatore \(\hat\mu\) si
-realizza nella media osservata del campione \(\bar x\)
-\[t_{\text{obs}}=\frac{\bar x -\mu_0}{S/\sqrt n}\]
+realizza nella media osservata del campione \(\hat\mu_\text{obs}\)
+\[t_{\text{obs}}=\frac{\hat\mu_\text{obs} -\mu_0}{S/\sqrt n}\]
 
 \begin{itemize}
 \tightlist
@@ -11216,7 +11319,7 @@ realizza nella media osservata del campione \(\bar x\)
 \begin{example}
 Un produttore di aspirine afferma che il prodotto lenisce il mal di
 testa in 30 minuti. Un campione casuale di 25 persone la usa. Risultato:
-\(\bar{x}=31.4\)m con \(\hat{\sigma}= 4.2\)m. Verificare l'affermazione del
+\(\mu_\text{obs}=31.4\)m con \(\hat{\sigma}= 4.2\)m. Verificare l'affermazione del
 produttore a un LdS del 5\%.
 
 \textbf{Test \(t\) per una media, varianza incognita}
@@ -11268,14 +11371,14 @@ Sotto \(H_0\) la statistica
 \[T=\frac{\hat \mu-\mu_0}{S/\sqrt n}\sim t_{n-1}\]
 
 Lo stimatore \(\hat\mu\) si realizza nella media osservata del campione
-\(\bar x\) \[t_{\text{obs}}=\frac{\bar x -\mu_0}{S/\sqrt n}\]
+\(\hat\mu_\text{obs}\) \[t_{\text{obs}}=\frac{\hat\mu_\text{obs} -\mu_0}{S/\sqrt n}\]
 
 \begin{info}
 
 \textbf{Decisione sul campione} Si decide un livello \(\alpha\) e si ricava
 \(t_{n-1;\alpha}\), si estrae un campione. Lo stimatore \(\hat\mu\) si
-realizza nella media osservata del campione \(\bar x\)
-\[t_{\text{obs}}=\frac{\bar x -\mu_0}{S/\sqrt n}\]
+realizza nella media osservata del campione \(\hat\mu_\text{obs}\)
+\[t_{\text{obs}}=\frac{\hat\mu_\text{obs} -\mu_0}{S/\sqrt n}\]
 
 \begin{itemize}
 \tightlist
@@ -11351,8 +11454,8 @@ Sotto \(H_0\) la statistica
 
 \textbf{Decisione sul campione.} Si decide un livello \(\alpha\) e si ricava
 \(t_{n-1;\alpha}\), si estrae un campione. Lo stimatore \(\hat\mu\) si
-realizza nella media osservata del campione \(\bar x\)
-\[t_{\text{obs}}=\frac{\bar x -\mu_0}{S/\sqrt n}\]
+realizza nella media osservata del campione \(\hat\mu_\text{obs}\)
+\[t_{\text{obs}}=\frac{\hat\mu_\text{obs} -\mu_0}{S/\sqrt n}\]
 
 \begin{itemize}
 \tightlist
@@ -11771,18 +11874,18 @@ livello di significatività,
 \hline 
 H_0:\mu&=\mu_0 &&\text{$\sigma^2$} &\text{Dist.}   & && \text{Statistica Test} &&   \text{Zona Rifiuto} &&p_\text{value}\\
 \hline\\
-H_1:\mu&>\mu_0 & \text{Noto} &&  Z && z_\text{obs}&=\frac{\hat \mu-\mu_0}{\sigma/\sqrt{n}} & z_\text{obs}&>z_\alpha & p_\text{value}&= P(Z>z_\text{obs})\\
-H_1:\mu&<\mu_0 & \text{Noto} &&  Z && z_\text{obs}&=\frac{\hat \mu-\mu_0}{\sigma/\sqrt{n}} & z_\text{obs}&<-z_\alpha& p_\text{value}&= P(Z<z_\text{obs})\\
-H_1:\mu&\ne\mu_0 & \text{Noto} &&  Z && z_\text{obs}&=\frac{\hat \mu-\mu_0}{\sigma/\sqrt{n}} & |z_\text{obs}|&>|z_{\alpha/2}| & p_\text{value}&= 2P(Z>|z_\text{obs}|)\\
-H_1:\mu&>\mu_0 & \text{Incognito} &&  t_{n-1} && z_\text{obs}&=\frac{\hat \mu-\mu_0}{S/\sqrt{n}} & t_\text{obs}&>t_{n-1;~\alpha}& p_\text{value}&= P(T>t_\text{obs})\\
-H_1:\mu&<\mu_0 & \text{Incognito} &&  t_{n-1} && z_\text{obs}&=\frac{\hat \mu-\mu_0}{S/\sqrt{n}} & t_\text{obs}&<-t_{n-1;~\alpha}& p_\text{value}&= P(T<t_\text{obs})\\
-H_1:\mu&\ne\mu_0 & \text{Incognito} &&  t_{n-1} && z_\text{obs}&=\frac{\hat \mu-\mu_0}{S/\sqrt{n}} & |t_\text{obs}|&>|t_{n-1;~\alpha/2}|& p_\text{value}&= 2P(T>|t_\text{obs}|)\\
+H_1:\mu&>\mu_0 & \text{Noto} &&  Z && z_\text{obs}&=\frac{\hat \mu_\text{obs}-\mu_0}{\sigma/\sqrt{n}} & z_\text{obs}&>z_\alpha & p_\text{value}&= P(Z>z_\text{obs})\\
+H_1:\mu&<\mu_0 & \text{Noto} &&  Z && z_\text{obs}&=\frac{\hat \mu_\text{obs}-\mu_0}{\sigma/\sqrt{n}} & z_\text{obs}&<-z_\alpha& p_\text{value}&= P(Z<z_\text{obs})\\
+H_1:\mu&\ne\mu_0 & \text{Noto} &&  Z && z_\text{obs}&=\frac{\hat \mu_\text{obs}-\mu_0}{\sigma/\sqrt{n}} & |z_\text{obs}|&>|z_{\alpha/2}| & p_\text{value}&= 2P(Z>|z_\text{obs}|)\\
+H_1:\mu&>\mu_0 & \text{Incognito} &&  t_{n-1} && z_\text{obs}&=\frac{\hat \mu_\text{obs}-\mu_0}{S/\sqrt{n}} & t_\text{obs}&>t_{n-1;~\alpha}& p_\text{value}&= P(T>t_\text{obs})\\
+H_1:\mu&<\mu_0 & \text{Incognito} &&  t_{n-1} && z_\text{obs}&=\frac{\hat \mu_\text{obs}-\mu_0}{S/\sqrt{n}} & t_\text{obs}&<-t_{n-1;~\alpha}& p_\text{value}&= P(T<t_\text{obs})\\
+H_1:\mu&\ne\mu_0 & \text{Incognito} &&  t_{n-1} && z_\text{obs}&=\frac{\hat \mu_\text{obs}-\mu_0}{S/\sqrt{n}} & |t_\text{obs}|&>|t_{n-1;~\alpha/2}|& p_\text{value}&= 2P(T>|t_\text{obs}|)\\
 \hline
 H_0:\pi&=\pi_0 && &\text{Dist.}   && &\text{Statistica Test} &&   \text{Zona Rifiuto} &&p_\text{value}\\
 \hline\\
-H_1:\pi&>\pi_0 &  &&  Z && z_\text{obs}&=\frac{\hat \pi-\pi_0}{\sqrt{\pi(/1-\pi)}/\sqrt{n}} & z_\text{obs}&>z_\alpha& p_\text{value}&= P(Z>z_\text{obs})\\
-H_1:\pi&<\pi_0 &  &&  Z && z_\text{obs}&=\frac{\hat \pi-\pi_0}{\sqrt{\pi(/1-\pi)}/\sqrt{n}} & z_\text{obs}&<-z_\alpha& p_\text{value}&= P(Z<z_\text{obs})\\
-H_1:\pi&\ne\pi_0 &  &&  Z && z_\text{obs}&=\frac{\hat \pi-\pi_0}{\sqrt{\pi(/1-\pi)}/\sqrt{n}} & |z_\text{obs}|&>|z_{\alpha/2}| & p_\text{value}&= 2P(Z>|z_\text{obs}|)\\
+H_1:\pi&>\pi_0 &  &&  Z && z_\text{obs}&=\frac{\hat \pi_\text{obs}-\pi_0}{\sqrt{\pi(/1-\pi)}/\sqrt{n}} & z_\text{obs}&>z_\alpha& p_\text{value}&= P(Z>z_\text{obs})\\
+H_1:\pi&<\pi_0 &  &&  Z && z_\text{obs}&=\frac{\hat \pi_\text{obs}-\pi_0}{\sqrt{\pi(/1-\pi)}/\sqrt{n}} & z_\text{obs}&<-z_\alpha& p_\text{value}&= P(Z<z_\text{obs})\\
+H_1:\pi&\ne\pi_0 &  &&  Z && z_\text{obs}&=\frac{\hat \pi_\text{obs}-\pi_0}{\sqrt{\pi(/1-\pi)}/\sqrt{n}} & |z_\text{obs}|&>|z_{\alpha/2}| & p_\text{value}&= 2P(Z>|z_\text{obs}|)\\
 \hline
 \end{align*}
 
@@ -13549,11 +13652,11 @@ Per valutare quanto bene il modello si adatta ai dati si devo compiere analisi s
 
 \begin{figure}[H]
 
-{\centering \includegraphics{Appunti_di_Statistica_2025_files/figure-latex/unnamed-chunk-13-1} 
+{\centering \includegraphics{Appunti_di_Statistica_2025_files/figure-latex/unnamed-chunk-15-1} 
 
 }
 
-\caption{Nube in 3D, i punti tali per cui $\hat y_i>y_i$ sono colorati in blu scuro, quelli per cui $\hat y_i<y_i$, sono colorati in azzuro chiaro}\label{fig:unnamed-chunk-13}
+\caption{Nube in 3D, i punti tali per cui $\hat y_i>y_i$ sono colorati in blu scuro, quelli per cui $\hat y_i<y_i$, sono colorati in azzuro chiaro}\label{fig:unnamed-chunk-15}
 \end{figure}
 
 \section{Analisi dei Residui}\label{analisi-dei-residui}
@@ -20018,7 +20121,7 @@ Il \(p_{\text{value}}\) è
  0.1 < p_\text{value}= 0.537051 \leq 1 
 \]
 
-\begin{center}\includegraphics{Appunti_di_Statistica_2025_files/figure-latex/unnamed-chunk-19-1} \end{center}
+\begin{center}\includegraphics{Appunti_di_Statistica_2025_files/figure-latex/unnamed-chunk-21-1} \end{center}
 
 \textbf{Non} rifiuto \(H_0\) a \textbf{nessun}
 livello di significatività,

@@ -738,8 +738,8 @@ in automatico. In tutti i casi considereremo un solo campione
 <span class="math inline">\(E(X_i)=\mu, \forall i\)</span> e <span class="math inline">\(V(X_i)=\sigma^2, \forall i\)</span>.</p>
 <p>Il sistema di ipotesi porrà sempre <span class="math inline">\(H_0:\mu=\mu_0\)</span> e si leggerà: la vera
 media che ha generato i dati è <span class="math inline">\(\mu_0\)</span>, il fatto che la media dei dati
-sia <span class="math inline">\(\bar x\ne\mu_0\)</span> è dovuto all’effetto del campionamento e la
-differenza tra <span class="math inline">\(\bar x\)</span> e <span class="math inline">\(\mu_0\)</span> <strong>non è significativa</strong>. L’ipotesi
+sia <span class="math inline">\(\hat\mu_\text{obs}=\bar x\ne\mu_0\)</span> è dovuto all’effetto del campionamento e la
+differenza tra <span class="math inline">\(\hat\mu_\text{obs}\)</span> e <span class="math inline">\(\mu_0\)</span> <strong>non è significativa</strong>. L’ipotesi
 alternativa <span class="math inline">\(H_1\)</span>, che sarà unilaterale o bilaterale, si legge al
 contrario: la differenza tra la media osservata e la media prescritta da
 <span class="math inline">\(H_0\)</span> <strong>è significativa</strong> e il campione proviene da una popolazione che
@@ -769,8 +769,8 @@ alto il valore di <span class="math inline">\(Z\)</span> tanto più <span class=
 <div class="info">
 <p><strong>Decisione sul campione.</strong> Si decide un livello <span class="math inline">\(\alpha\)</span> e si ricava
 <span class="math inline">\(z_\alpha\)</span>, si estrae un campione. Lo stimatore <span class="math inline">\(\hat\mu\)</span> si realizza
-nella media osservata del campione <span class="math inline">\(\bar x\)</span></p>
-<p><span class="math display">\[z_{\text{obs}}=\frac{\bar x -\mu_0}{\sigma/\sqrt n}\]</span></p>
+nella media osservata del campione <span class="math inline">\(\hat\mu_\text{obs}\)</span></p>
+<p><span class="math display">\[z_{\text{obs}}=\frac{\hat\mu_\text{obs} -\mu_0}{\sigma/\sqrt n}\]</span></p>
 <ul>
 <li>Se <span class="math inline">\(z_{\text{obs}}&lt;z_\alpha\)</span> <span class="math inline">\(H_0\)</span> <strong>non viene rifiutata</strong> al
 livello di significatività <span class="math inline">\(\alpha\times100\%\)</span></li>
@@ -812,6 +812,18 @@ valore ottenuto della media è troppo alto, a un LdS del 5%?</p>
 <p>La siginficatitività è <span class="math inline">\(\alpha=0.05\)</span>, dalle tavole osserviamo <span class="math inline">\(z_{0.05}=1.6449\)</span>.</p>
 <p>Essendo <span class="math inline">\(z_\text{obs}=2&gt;z_{0.05}=1.6449\)</span> allora <strong>rifiuto</strong> <span class="math inline">\(H_0\)</span> al 5%.</p>
 <p><img src="Appunti_di_Statistica_2025_files/figure-html/15-test-mu-pi-1-1.png" width="672" /></p>
+<p>Cioè rifiutiamo <span class="math inline">\(H_0\)</span> se
+<span class="math display">\[\begin{eqnarray*}
+Z &amp;&gt;&amp; z_\alpha \\
+Z &amp;&gt;&amp; 1.6449 \\
+   \frac{\hat\mu - \mu_{0}} {\sigma/\sqrt{n}}&amp;&gt;&amp;1.6449 \\
+   \hat\mu - \mu_{0} &amp;&gt;&amp;1.6449\frac\sigma{\sqrt{n}} \\
+   \hat\mu &amp;&gt;&amp; \mu_{0} + 1.6449\frac\sigma{\sqrt{n}} \\   
+   &amp;&gt;&amp;   30 + 1.6449\frac 5{ \sqrt{ 25 }}\\
+   &amp;&gt;&amp;   31.6449
+   \end{eqnarray*}\]</span>
+Se <span class="math inline">\(H_0\)</span> fosse vera <span class="math inline">\(\mu=30\)</span>, 5 volte su 100, un campione di ampiezza <span class="math inline">\(n=25\)</span>
+ha una media che supera <span class="math inline">\(31.6449\)</span>.</p>
 </div>
 <div class="example">
 <p><span id="exm:unlabeled-div-187" class="example"><strong>Esempio 15.2  </strong></span>In un laboratorio, vi sono cavie con peso medio uguale a 30g e una DS
@@ -836,6 +848,18 @@ valore ottenuto della media è troppo alto, a un LdS del 1%?</p>
 <p>La siginficatitività è <span class="math inline">\(\alpha=0.01\)</span>, dalle tavole osserviamo <span class="math inline">\(z_{0.01}=2.3263\)</span>.</p>
 <p>Essendo <span class="math inline">\(z_\text{obs}=2&lt;z_{0.01}=2.3263\)</span> allora <strong>non</strong> rifiuto <span class="math inline">\(H_0\)</span> al 1%.</p>
 <p><img src="Appunti_di_Statistica_2025_files/figure-html/15-test-mu-pi-2-1.png" width="672" /></p>
+<p>Cioè rifiutiamo <span class="math inline">\(H_0\)</span> se
+<span class="math display">\[\begin{eqnarray*}
+Z &amp;&gt;&amp; z_\alpha \\
+Z &amp;&gt;&amp; 2.3263 \\
+   \frac{\hat\mu - \mu_{0}} {\sigma/\sqrt{n}}&amp;&gt;&amp;2.3263 \\
+   \hat\mu - \mu_{0} &amp;&gt;&amp;2.3263\frac\sigma{\sqrt{n}} \\
+   \hat\mu &amp;&gt;&amp; \mu_{0} + 2.3263\frac\sigma{\sqrt{n}} \\   
+   &amp;&gt;&amp;   30 + 2.3263\frac 5{ \sqrt{ 25 }}\\
+   &amp;&gt;&amp;   32.3263
+   \end{eqnarray*}\]</span>
+Se <span class="math inline">\(H_0\)</span> fosse vera <span class="math inline">\(\mu=30\)</span>, 5 volte su 100, un campione di ampiezza <span class="math inline">\(n=25\)</span>
+ha una media che supera <span class="math inline">\(32.3263\)</span>.</p>
 </div>
 </div>
 <div id="la-probabilità-di-significatività-osservata-il-p_textvalue" class="section level3 hasAnchor" number="15.1.3">
@@ -875,6 +899,57 @@ dati contro <span class="math inline">\(H_0\)</span>:</p>
 <li>Se <span class="math inline">\(p_\text{value}\le 0.001\rightarrow\)</span> il test è <em>estremamente</em> significativo <span class="math inline">\(\rightarrow\)</span> significativo sotto all’1‰ <span class="math inline">\(\fbox{***}\)</span></li>
 </ul>
 </div>
+<div class="example">
+<p><span id="exm:unlabeled-div-189" class="example"><strong>Esempio 15.3  </strong></span>In un laboratorio, vi sono cavie con peso medio uguale a 30g e una DS
+pari a 5g. Uno studente seleziona 50 cavie e ottiene un peso medio
+uguale a 32g con una <span class="math inline">\(\hat\sigma\)</span> pari a 7g. La selezione è casuale o il
+valore ottenuto della media è troppo alto?</p>
+<p><strong>Test <span class="math inline">\(Z\)</span> per una media, variazna nota</strong></p>
+<p><span class="math inline">\(\fbox{A}\)</span> FORMULAZIONE DELLE IPOTESI</p>
+<p><span class="math display">\[\begin{cases}
+   H_0: \mu = \mu_0=30g \\
+   H_1: \mu &gt; \mu_0=30g
+   \end{cases}\]</span></p>
+<p><span class="math inline">\(\fbox{B}\)</span> SCELTA E CALCOLO STATISTICA-TEST, <span class="math inline">\(Z\)</span></p>
+<p><span class="math inline">\(\sigma^{2}\)</span> di <span class="math inline">\(\cal{P}\)</span> è nota: <span class="math inline">\(\Rightarrow\)</span> z-Test.</p>
+<p><span class="math display">\[\begin{eqnarray*}
+   \frac{\hat\mu - \mu_{0}} {\sigma/\sqrt{n}}&amp;\sim&amp;N(0,1)\\
+   z_{\text{obs}}
+   &amp;=&amp; \frac{ ( 32 -  30 )} { 5 /\sqrt{ 50 }}
+   =   2.828 \, .
+   \end{eqnarray*}\]</span></p>
+<p><span class="math inline">\(\fbox{C}\)</span> CONCLUSIONE</p>
+<p>Il <span class="math inline">\(p_{\text{value}}\)</span> è</p>
+<p><span class="math display">\[ p_{\text{value}} = P(Z&gt;2.83)=0.002339 \]</span></p>
+<p><span class="math display">\[
+0.001 &lt; p_\text{value}= 0.002339 \leq 0.01
+\]</span><img src="Appunti_di_Statistica_2025_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<p><strong>Rifiuto</strong> <span class="math inline">\(H_0\)</span> all’1%,</p>
+<p><span class="math inline">\(0.001&lt;p_\text{value}&lt;0.01\)</span>, <em>molto significativo</em> <span class="math inline">\(\fbox{**}\)</span>.</p>
+<p>Se a parità di stastistiche le cavie fossero state <span class="math inline">\(n=100\)</span></p>
+<p><strong>Test <span class="math inline">\(Z\)</span> per una media, variazna nota</strong></p>
+<p><span class="math inline">\(\fbox{A}\)</span> FORMULAZIONE DELLE IPOTESI</p>
+<p><span class="math display">\[\begin{cases}
+   H_0: \mu = \mu_0=30g \\
+   H_1: \mu &gt; \mu_0=30g
+   \end{cases}\]</span></p>
+<p><span class="math inline">\(\fbox{B}\)</span> SCELTA E CALCOLO STATISTICA-TEST, <span class="math inline">\(Z\)</span></p>
+<p><span class="math inline">\(\sigma^{2}\)</span> di <span class="math inline">\(\cal{P}\)</span> è nota: <span class="math inline">\(\Rightarrow\)</span> z-Test.</p>
+<p><span class="math display">\[\begin{eqnarray*}
+   \frac{\hat\mu - \mu_{0}} {\sigma/\sqrt{n}}&amp;\sim&amp;N(0,1)\\
+   z_{\text{obs}}
+   &amp;=&amp; \frac{ ( 32 -  30 )} { 5 /\sqrt{ 100 }}
+   =   4 \, .
+   \end{eqnarray*}\]</span></p>
+<p><span class="math inline">\(\fbox{C}\)</span> CONCLUSIONE</p>
+<p>Il <span class="math inline">\(p_{\text{value}}\)</span> è</p>
+<p><span class="math display">\[ p_{\text{value}} = P(Z&gt;4)=0.000032 \]</span></p>
+<p><span class="math display">\[
+0 &lt; p_\text{value}= 0.000032 \leq 0.001
+\]</span><img src="Appunti_di_Statistica_2025_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<p><strong>Rifiuto</strong> <span class="math inline">\(H_0\)</span> sotto all’1‰,</p>
+<p><span class="math inline">\(p_\text{value}&lt;0.001\)</span>, <em>estremamente significativo</em> <span class="math inline">\(\fbox{***}\)</span>.</p>
+</div>
 </div>
 <div id="test-sulla-media-ipotesi-unilaterale-sinistra-sigma2-noto" class="section level3 hasAnchor" number="15.1.5">
 <h3><span class="header-section-number">15.1.5</span> Test sulla media, ipotesi unilaterale sinistra, <span class="math inline">\(\sigma^2\)</span> noto<a href="test-per-una-media-e-una-proporzione.html#test-sulla-media-ipotesi-unilaterale-sinistra-sigma2-noto" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -894,8 +969,8 @@ basso il valore di <span class="math inline">\(Z\)</span> tanto più <span class
 <div class="info">
 <p><strong>Decisione sul campione.</strong> Si decide un livello <span class="math inline">\(\alpha\)</span> e si ricava
 <span class="math inline">\(z_\alpha\)</span>, si estrae un campione. Lo stimatore <span class="math inline">\(\hat\mu\)</span> si realizza
-nella media osservata del campione <span class="math inline">\(\bar x\)</span></p>
-<p><span class="math display">\[z_{\text{obs}}=\frac{\bar x -\mu_0}{\sigma/\sqrt n}\]</span></p>
+nella media osservata del campione <span class="math inline">\(\hat\mu_\text{obs}\)</span></p>
+<p><span class="math display">\[z_{\text{obs}}=\frac{\hat\mu_\text{obs} -\mu_0}{\sigma/\sqrt n}\]</span></p>
 <ul>
 <li>Se <span class="math inline">\(z_{\text{obs}}&gt;-z_\alpha\)</span> <span class="math inline">\(H_0\)</span> <strong>non viene rifiutata</strong> al
 livello di significatività <span class="math inline">\(\alpha\times100\%\)</span></li>
@@ -905,12 +980,12 @@ di significatività <span class="math inline">\(\alpha\times100\%\)</span></li>
 <p><img src="Appunti_di_Statistica_2025_files/figure-html/15-test-mu-pi-17-1.png" width="672" /></p>
 </div>
 <div class="example">
-<p><span id="exm:unlabeled-div-189" class="example"><strong>Esempio 15.3  </strong></span>La durata, in ore, della resistenza di un transistor alle alte
+<p><span id="exm:unlabeled-div-190" class="example"><strong>Esempio 15.4  </strong></span>La durata, in ore, della resistenza di un transistor alle alte
 temperature sia <span class="math inline">\(X \,\sim\, N(\mu,\, \sigma^{2})\)</span> e, in base
 all’esperienza, sia <span class="math inline">\(\mu_{0}=6\)</span> ore e <span class="math inline">\(\sigma_{0}=0.5\)</span> ore. Si apportano
 modifiche alla composizione dei materiali per fare diminuire la durata
 della resistenza alla temperatura. Si eseguono 16 osservazioni, dalle
-quali si ottiene una durata media <span class="math inline">\(\bar{x}=5.7\)</span> e uno deviazione
+quali si ottiene una durata media <span class="math inline">\(\mu_\text{obs}=5.7\)</span> e uno deviazione
 standard <span class="math inline">\(s=0.6\)</span>. Verificare l’ipotesi, al LdS dell’1%, che la
 resistenza sia rimasta invariata contro l’alternativa che sia diminuita.</p>
 <p><strong>Test <span class="math inline">\(Z\)</span> per una media, variazna nota</strong></p>
@@ -935,7 +1010,7 @@ resistenza sia rimasta invariata contro l’alternativa che sia diminuita.</p>
 <div id="la-probabilità-di-significatività-osservata-il-p_textvalue-1" class="section level4 hasAnchor" number="15.1.5.1">
 <h4><span class="header-section-number">15.1.5.1</span> La probabilità di significatività osservata il <span class="math inline">\(p_\text{value}\)</span><a href="test-per-una-media-e-una-proporzione.html#la-probabilità-di-significatività-osservata-il-p_textvalue-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <div class="definition">
-<p><span id="def:unlabeled-div-190" class="definition"><strong>Definizione 15.2  ($p_\text{value}$ caso unilaterale sinistro) </strong></span>Nel caso di ipotesi unilaterale sinistra abbiamo
+<p><span id="def:unlabeled-div-191" class="definition"><strong>Definizione 15.2  ($p_\text{value}$ caso unilaterale sinistro) </strong></span>Nel caso di ipotesi unilaterale sinistra abbiamo
 <span class="math display">\[p_\text{value}=P(Z&lt;z_{\text{obs}};H_0)\]</span></p>
 </div>
 <p><img src="Appunti_di_Statistica_2025_files/figure-html/15-test-mu-pi-18-1.png" width="672" /></p>
@@ -962,8 +1037,8 @@ il valore di <span class="math inline">\(Z\)</span> è <strong>diverso</strong> 
 <div class="info">
 <p><strong>Decisione sul campione.</strong> Si decide un livello <span class="math inline">\(\alpha\)</span> e si ricava
 <span class="math inline">\(z_{\alpha/2}\)</span>, si estrae un campione. Lo stimatore <span class="math inline">\(\hat\mu\)</span> si
-realizza nella media osservata del campione <span class="math inline">\(\bar x\)</span>
-<span class="math display">\[z_{\text{obs}}=\frac{\bar x -\mu_0}{\sigma/\sqrt n}\]</span></p>
+realizza nella media osservata del campione <span class="math inline">\(\hat\mu_\text{obs}\)</span>
+<span class="math display">\[z_{\text{obs}}=\frac{\hat\mu_\text{obs} -\mu_0}{\sigma/\sqrt n}\]</span></p>
 <ul>
 <li>Se <span class="math inline">\(-z_{\alpha/2}\leq z_{\text{obs}}\leq z_{\alpha/2}\)</span> <span class="math inline">\(H_0\)</span> <strong>non
 viene rifiutata</strong> al livello di significatività <span class="math inline">\(\alpha\times100\%\)</span></li>
@@ -974,7 +1049,7 @@ viene rifiutata</strong> al livello di significatività <span class="math inline
 <p><img src="Appunti_di_Statistica_2025_files/figure-html/15-test-mu-pi-19-1.png" width="672" /></p>
 </div>
 <div class="example">
-<p><span id="exm:unlabeled-div-191" class="example"><strong>Esempio 15.4  </strong></span>Un produttore di semiconduttori afferma che la durata media dei suoi chip è di 300 ore con una deviazione standard di 3 ore. Un’azienda decide di testare la qualità dei chip e conduce un esperimento con 16 chip, ottenendo una durata media di 298 ore e una deviazione standard di 4 ore. I risultati di questo test sono coerenti con l’affermazione del produttore i chip tendono a durare in modo diverso dalla durata dichiarata, al 5%?</p>
+<p><span id="exm:unlabeled-div-192" class="example"><strong>Esempio 15.5  </strong></span>Un produttore di semiconduttori afferma che la durata media dei suoi chip è di 300 ore con una deviazione standard di 3 ore. Un’azienda decide di testare la qualità dei chip e conduce un esperimento con 16 chip, ottenendo una durata media di 298 ore e una deviazione standard di 4 ore. I risultati di questo test sono coerenti con l’affermazione del produttore i chip tendono a durare in modo diverso dalla durata dichiarata, al 5%?</p>
 <p><strong>Test <span class="math inline">\(Z\)</span> per una media, variazna nota</strong></p>
 <p><span class="math inline">\(\fbox{A}\)</span> FORMULAZIONE DELLE IPOTESI</p>
 <p><span class="math display">\[\begin{cases}
@@ -1003,7 +1078,7 @@ viene rifiutata</strong> al livello di significatività <span class="math inline
 <h4><span class="header-section-number">15.1.6.1</span> La probabilità di significatività osservata il <span class="math inline">\(p_\text{value}\)</span><a href="test-per-una-media-e-una-proporzione.html#la-probabilità-di-significatività-osservata-il-p_textvalue-2" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <div class="info">
 <div class="definition">
-<p><span id="def:unlabeled-div-192" class="definition"><strong>Definizione 15.3  ($p_\text{value}$ caso bilaterale) </strong></span>Nel caso di ipotesi bilaterale abbiamo
+<p><span id="def:unlabeled-div-193" class="definition"><strong>Definizione 15.3  ($p_\text{value}$ caso bilaterale) </strong></span>Nel caso di ipotesi bilaterale abbiamo
 <span class="math display">\[p_\text{value}=P(|Z|&gt;|z_{\text{obs}}|;H_0)\]</span></p>
 </div>
 </div>
@@ -1033,7 +1108,7 @@ in anticipo <span class="math inline">\(\alpha\)</span> il ricercatore di trova 
 è sufficientemente piccolo da rigettare l’ipotesi nulla.
 Il prossimo esempio esemplifica l’approccio</p>
 <div class="example">
-<p><span id="exm:unlabeled-div-193" class="example"><strong>Esempio 15.5  </strong></span>Un’azienda farmaceutica afferma che la concentrazione media di principio attivo
+<p><span id="exm:unlabeled-div-194" class="example"><strong>Esempio 15.6  </strong></span>Un’azienda farmaceutica afferma che la concentrazione media di principio attivo
 in una certa medicina è di 50 mg con una deviazione standard di 2 mg. Un
 laboratorio indipendente decide di verificare questa affermazione eseguendo
 25 analisi e ottiene una concentrazione media di 51 mg e una deviazione standard
@@ -1091,8 +1166,8 @@ H_1:\mu&gt;\mu_0
 <div class="info">
 <p><strong>Decisione sul campione</strong> Si decide un livello <span class="math inline">\(\alpha\)</span> e si ricava
 <span class="math inline">\(t_{n-1;\alpha}\)</span>, si estrae un campione. Lo stimatore <span class="math inline">\(\hat\mu\)</span> si
-realizza nella media osservata del campione <span class="math inline">\(\bar x\)</span>
-<span class="math display">\[t_{\text{obs}}=\frac{\bar x -\mu_0}{S/\sqrt n}\]</span></p>
+realizza nella media osservata del campione <span class="math inline">\(\hat\mu_\text{obs}\)</span>
+<span class="math display">\[t_{\text{obs}}=\frac{\hat\mu_\text{obs} -\mu_0}{S/\sqrt n}\]</span></p>
 <ul>
 <li>Se <span class="math inline">\(t_{\text{obs}}&lt;t_{n-1;\alpha}\)</span> <span class="math inline">\(H_0\)</span> <strong>non viene rifiutata</strong> al
 livello di significatività <span class="math inline">\(\alpha\times100\%\)</span></li>
@@ -1102,9 +1177,9 @@ livello di significatività <span class="math inline">\(\alpha\times100\%\)</spa
 <p><img src="Appunti_di_Statistica_2025_files/figure-html/15-test-mu-pi-22-1.png" width="672" /></p>
 </div>
 <div class="example">
-<p><span id="exm:unlabeled-div-194" class="example"><strong>Esempio 15.6  </strong></span>Un produttore di aspirine afferma che il prodotto lenisce il mal di
+<p><span id="exm:unlabeled-div-195" class="example"><strong>Esempio 15.7  </strong></span>Un produttore di aspirine afferma che il prodotto lenisce il mal di
 testa in 30 minuti. Un campione casuale di 25 persone la usa. Risultato:
-<span class="math inline">\(\bar{x}=31.4\)</span>m con <span class="math inline">\(\hat{\sigma}= 4.2\)</span>m. Verificare l’affermazione del
+<span class="math inline">\(\mu_\text{obs}=31.4\)</span>m con <span class="math inline">\(\hat{\sigma}= 4.2\)</span>m. Verificare l’affermazione del
 produttore a un LdS del 5%.</p>
 <p><strong>Test <span class="math inline">\(t\)</span> per una media, varianza incognita</strong></p>
 <p><span class="math inline">\(\fbox{A}\)</span> FORMULAZIONE DELLE IPOTESI</p>
@@ -1143,12 +1218,12 @@ H_1:\mu&lt;\mu_0
 <p>Sotto <span class="math inline">\(H_0\)</span> la statistica
 <span class="math display">\[T=\frac{\hat \mu-\mu_0}{S/\sqrt n}\sim t_{n-1}\]</span></p>
 <p>Lo stimatore <span class="math inline">\(\hat\mu\)</span> si realizza nella media osservata del campione
-<span class="math inline">\(\bar x\)</span> <span class="math display">\[t_{\text{obs}}=\frac{\bar x -\mu_0}{S/\sqrt n}\]</span></p>
+<span class="math inline">\(\hat\mu_\text{obs}\)</span> <span class="math display">\[t_{\text{obs}}=\frac{\hat\mu_\text{obs} -\mu_0}{S/\sqrt n}\]</span></p>
 <div class="info">
 <p><strong>Decisione sul campione</strong> Si decide un livello <span class="math inline">\(\alpha\)</span> e si ricava
 <span class="math inline">\(t_{n-1;\alpha}\)</span>, si estrae un campione. Lo stimatore <span class="math inline">\(\hat\mu\)</span> si
-realizza nella media osservata del campione <span class="math inline">\(\bar x\)</span>
-<span class="math display">\[t_{\text{obs}}=\frac{\bar x -\mu_0}{S/\sqrt n}\]</span></p>
+realizza nella media osservata del campione <span class="math inline">\(\hat\mu_\text{obs}\)</span>
+<span class="math display">\[t_{\text{obs}}=\frac{\hat\mu_\text{obs} -\mu_0}{S/\sqrt n}\]</span></p>
 <ul>
 <li>Se <span class="math inline">\(t_{\text{obs}}&gt;-t_{n-1;\alpha}\)</span> <span class="math inline">\(H_0\)</span> <strong>non viene rifiutata</strong> al
 livello di significatività <span class="math inline">\(\alpha\times100\%\)</span></li>
@@ -1158,7 +1233,7 @@ livello di significatività <span class="math inline">\(\alpha\times100\%\)</spa
 </div>
 <p><img src="Appunti_di_Statistica_2025_files/figure-html/15-test-mu-pi-23-1.png" width="672" /></p>
 <div class="example">
-<p><span id="exm:unlabeled-div-195" class="example"><strong>Esempio 15.7  </strong></span>Un Centro dietetico afferma che con i loro programmi si perdono in media
+<p><span id="exm:unlabeled-div-196" class="example"><strong>Esempio 15.8  </strong></span>Un Centro dietetico afferma che con i loro programmi si perdono in media
 2kg nella prima settimana. Si selezionano casualmente 25 soggetti, tra
 gli iscritti al programma.</p>
 <p>Risultato: <span class="math inline">\(\overline{\Delta x}=1.5\)</span>kg con <span class="math inline">\(\hat\sigma=1.4\)</span>kg.
@@ -1202,8 +1277,8 @@ H_1:\mu\neq\mu_0
 <div class="info">
 <p><strong>Decisione sul campione.</strong> Si decide un livello <span class="math inline">\(\alpha\)</span> e si ricava
 <span class="math inline">\(t_{n-1;\alpha}\)</span>, si estrae un campione. Lo stimatore <span class="math inline">\(\hat\mu\)</span> si
-realizza nella media osservata del campione <span class="math inline">\(\bar x\)</span>
-<span class="math display">\[t_{\text{obs}}=\frac{\bar x -\mu_0}{S/\sqrt n}\]</span></p>
+realizza nella media osservata del campione <span class="math inline">\(\hat\mu_\text{obs}\)</span>
+<span class="math display">\[t_{\text{obs}}=\frac{\hat\mu_\text{obs} -\mu_0}{S/\sqrt n}\]</span></p>
 <ul>
 <li>Se <span class="math inline">\(-t_{n-1;\alpha/2}&lt;t_{\text{obs}}&lt;t_{n-1;\alpha/2}\)</span> <span class="math inline">\(H_0\)</span> <strong>non
 viene rifiutata</strong> al livello di significatività <span class="math inline">\(\alpha\times100\%\)</span></li>
@@ -1214,7 +1289,7 @@ livello di significatività <span class="math inline">\(\alpha\times100\%\)</spa
 <p><img src="Appunti_di_Statistica_2025_files/figure-html/15-test-mu-pi-24-1.png" width="672" /></p>
 </div>
 <div class="example">
-<p><span id="exm:unlabeled-div-196" class="example"><strong>Esempio 15.8  </strong></span>Eseguite 17 misure di resistenza su 17 campioni di filo. Risultato: la
+<p><span id="exm:unlabeled-div-197" class="example"><strong>Esempio 15.9  </strong></span>Eseguite 17 misure di resistenza su 17 campioni di filo. Risultato: la
 media è 7.5N (Newton) con <span class="math inline">\(\hat\sigma=\)</span> 1.2N.</p>
 <p>Il filo è stato ottenuto con un nuovo procedimento, ma non si conoscono
 i possibili effetti sulla resistenza. Verificare, a un LdS del 5%,
@@ -1260,7 +1335,7 @@ e ricavare le soglie critiche per diversi <span class="math inline">\(\alpha\)</
 <p>ricavare dalle tavole i rispettivi <span class="math inline">\(t_{n-1,\alpha}\)</span> (<span class="math inline">\(t_{n-1,\alpha/2}\)</span>, se il
 test è bilaterale) e vedere dove cade il <span class="math inline">\(t_\text{obs}\)</span></p>
 <div class="example">
-<p><span id="exm:unlabeled-div-197" class="example"><strong>Esempio 15.9  </strong></span>Un’azienda farmaceutica afferma che la concentrazione media di principio attivo
+<p><span id="exm:unlabeled-div-198" class="example"><strong>Esempio 15.10  </strong></span>Un’azienda farmaceutica afferma che la concentrazione media di principio attivo
 in una certa medicina è di 50 mg. Un laboratorio indipendente decide di
 verificare questa affermazione eseguendo 25 analisi e ottiene una concentrazione
 media di 51 mg e una deviazione standard di 2.5 mg.
@@ -1327,7 +1402,7 @@ Lo stimatore di massima verosimiglianza
 <p>A seconda di <span class="math inline">\(H_1\)</span> decideremo con le solite regole</p>
 </div>
 <div class="example">
-<p><span id="exm:unlabeled-div-198" class="example"><strong>Esempio 15.10  </strong></span>Lanciamo <span class="math inline">\(n=50\)</span> un moneta di cui non siamo sicuri se è truccata oppure
+<p><span id="exm:unlabeled-div-199" class="example"><strong>Esempio 15.11  </strong></span>Lanciamo <span class="math inline">\(n=50\)</span> un moneta di cui non siamo sicuri se è truccata oppure
 no. Osserviamo 30 successi su 50 lanci. Verificare l’ipotesi che la moneta sia
 bilanciata (<span class="math inline">\(\pi=0.5\)</span>), contro l’alternativa che sia maggiore.</p>
 <p>Lo stimatore di massima verosimiglianza è
@@ -1358,7 +1433,7 @@ Test Binomiale per <span class="math inline">\(n\)</span> grande: <span class="m
 <p><span class="math inline">\(0.05&lt;p_\text{value}&lt;0.1\)</span>, <em>marginalmente significativo</em> <span class="math inline">\(\fbox{.}\)</span>.</p>
 </div>
 <div class="example">
-<p><span id="exm:unlabeled-div-199" class="example"><strong>Esempio 15.11  </strong></span>Lanciamo <span class="math inline">\(n=100\)</span> un moneta di cui non siamo sicuri se è truccata oppure
+<p><span id="exm:unlabeled-div-200" class="example"><strong>Esempio 15.12  </strong></span>Lanciamo <span class="math inline">\(n=100\)</span> un moneta di cui non siamo sicuri se è truccata oppure
 no. Osserviamo 60 successi su 50 lanci. Verificare l’ipotesi che la moneta sia bilanciata (<span class="math inline">\(\pi=0.5\)</span>), contro
 l’alternativa che sia maggiore.</p>
 <p>Lo stimatore di massima verosimiglianza è
@@ -1389,7 +1464,7 @@ Test Binomiale per <span class="math inline">\(n\)</span> grande: <span class="m
 <p><span class="math inline">\(0.01&lt;p_\text{value}&lt;0.05\)</span>, <em>significativo</em> <span class="math inline">\(\fbox{*}\)</span>.</p>
 </div>
 <div class="example">
-<p><span id="exm:unlabeled-div-200" class="example"><strong>Esempio 15.12  </strong></span>Lanciamo <span class="math inline">\(n=1000\)</span> un moneta di cui non siamo sicuri se è truccata oppure
+<p><span id="exm:unlabeled-div-201" class="example"><strong>Esempio 15.13  </strong></span>Lanciamo <span class="math inline">\(n=1000\)</span> un moneta di cui non siamo sicuri se è truccata oppure
 no. Osserviamo 600 successi su 50 lanci. Verificare l’ipotesi che la moneta sia bilanciata (<span class="math inline">\(\pi=0.5\)</span>), contro
 l’alternativa che sia maggiore.</p>
 <p>Lo stimatore di massima verosimiglianza è
@@ -1420,7 +1495,7 @@ Test Binomiale per <span class="math inline">\(n\)</span> grande: <span class="m
 <p><span class="math inline">\(p_\text{value}&lt;0.001\)</span>, <em>estremamente significativo</em> <span class="math inline">\(\fbox{***}\)</span>.</p>
 </div>
 <div class="example">
-<p><span id="exm:unlabeled-div-201" class="example"><strong>Esempio 15.13  </strong></span>In una indagine su 100 imprese, si ha che 30 imprese decentrano la
+<p><span id="exm:unlabeled-div-202" class="example"><strong>Esempio 15.14  </strong></span>In una indagine su 100 imprese, si ha che 30 imprese decentrano la
 lavorazione tipo A. Il censimento precedente aveva rilevato una
 proporzione di decentramento, <span class="math inline">\(\pi = 0.4\)</span>. Verificare l’ipotesi
 che il valore osservato sia dovuto al caso, contro
@@ -1452,7 +1527,7 @@ Test Binomiale per <span class="math inline">\(n\)</span> grande: <span class="m
 <p><span class="math inline">\(0.01&lt;p_\text{value}&lt;0.05\)</span>, <em>significativo</em> <span class="math inline">\(\fbox{*}\)</span>.</p>
 </div>
 <div class="example">
-<p><span id="exm:unlabeled-div-202" class="example"><strong>Esempio 15.14  </strong></span>Una città è composta da 50000 soggetti. Si estrae un campione casuale di
+<p><span id="exm:unlabeled-div-203" class="example"><strong>Esempio 15.15  </strong></span>Una città è composta da 50000 soggetti. Si estrae un campione casuale di
 100 soggetti e si trova che 20 soggetti possiedono una connessione a
 banda ultra-larga. La proporzione posseduta a livello nazionale è pari
 al 25%. Verificare che nella città la
@@ -1493,18 +1568,18 @@ livello di significatività,</p>
 \hline
 H_0:\mu&amp;=\mu_0 &amp;&amp;\text{$\sigma^2$} &amp;\text{Dist.}   &amp; &amp;&amp; \text{Statistica Test} &amp;&amp;   \text{Zona Rifiuto} &amp;&amp;p_\text{value}\\
 \hline\\
-H_1:\mu&amp;&gt;\mu_0 &amp; \text{Noto} &amp;&amp;  Z &amp;&amp; z_\text{obs}&amp;=\frac{\hat \mu-\mu_0}{\sigma/\sqrt{n}} &amp; z_\text{obs}&amp;&gt;z_\alpha &amp; p_\text{value}&amp;= P(Z&gt;z_\text{obs})\\
-H_1:\mu&amp;&lt;\mu_0 &amp; \text{Noto} &amp;&amp;  Z &amp;&amp; z_\text{obs}&amp;=\frac{\hat \mu-\mu_0}{\sigma/\sqrt{n}} &amp; z_\text{obs}&amp;&lt;-z_\alpha&amp; p_\text{value}&amp;= P(Z&lt;z_\text{obs})\\
-H_1:\mu&amp;\ne\mu_0 &amp; \text{Noto} &amp;&amp;  Z &amp;&amp; z_\text{obs}&amp;=\frac{\hat \mu-\mu_0}{\sigma/\sqrt{n}} &amp; |z_\text{obs}|&amp;&gt;|z_{\alpha/2}| &amp; p_\text{value}&amp;= 2P(Z&gt;|z_\text{obs}|)\\
-H_1:\mu&amp;&gt;\mu_0 &amp; \text{Incognito} &amp;&amp;  t_{n-1} &amp;&amp; z_\text{obs}&amp;=\frac{\hat \mu-\mu_0}{S/\sqrt{n}} &amp; t_\text{obs}&amp;&gt;t_{n-1;~\alpha}&amp; p_\text{value}&amp;= P(T&gt;t_\text{obs})\\
-H_1:\mu&amp;&lt;\mu_0 &amp; \text{Incognito} &amp;&amp;  t_{n-1} &amp;&amp; z_\text{obs}&amp;=\frac{\hat \mu-\mu_0}{S/\sqrt{n}} &amp; t_\text{obs}&amp;&lt;-t_{n-1;~\alpha}&amp; p_\text{value}&amp;= P(T&lt;t_\text{obs})\\
-H_1:\mu&amp;\ne\mu_0 &amp; \text{Incognito} &amp;&amp;  t_{n-1} &amp;&amp; z_\text{obs}&amp;=\frac{\hat \mu-\mu_0}{S/\sqrt{n}} &amp; |t_\text{obs}|&amp;&gt;|t_{n-1;~\alpha/2}|&amp; p_\text{value}&amp;= 2P(T&gt;|t_\text{obs}|)\\
+H_1:\mu&amp;&gt;\mu_0 &amp; \text{Noto} &amp;&amp;  Z &amp;&amp; z_\text{obs}&amp;=\frac{\hat \mu_\text{obs}-\mu_0}{\sigma/\sqrt{n}} &amp; z_\text{obs}&amp;&gt;z_\alpha &amp; p_\text{value}&amp;= P(Z&gt;z_\text{obs})\\
+H_1:\mu&amp;&lt;\mu_0 &amp; \text{Noto} &amp;&amp;  Z &amp;&amp; z_\text{obs}&amp;=\frac{\hat \mu_\text{obs}-\mu_0}{\sigma/\sqrt{n}} &amp; z_\text{obs}&amp;&lt;-z_\alpha&amp; p_\text{value}&amp;= P(Z&lt;z_\text{obs})\\
+H_1:\mu&amp;\ne\mu_0 &amp; \text{Noto} &amp;&amp;  Z &amp;&amp; z_\text{obs}&amp;=\frac{\hat \mu_\text{obs}-\mu_0}{\sigma/\sqrt{n}} &amp; |z_\text{obs}|&amp;&gt;|z_{\alpha/2}| &amp; p_\text{value}&amp;= 2P(Z&gt;|z_\text{obs}|)\\
+H_1:\mu&amp;&gt;\mu_0 &amp; \text{Incognito} &amp;&amp;  t_{n-1} &amp;&amp; z_\text{obs}&amp;=\frac{\hat \mu_\text{obs}-\mu_0}{S/\sqrt{n}} &amp; t_\text{obs}&amp;&gt;t_{n-1;~\alpha}&amp; p_\text{value}&amp;= P(T&gt;t_\text{obs})\\
+H_1:\mu&amp;&lt;\mu_0 &amp; \text{Incognito} &amp;&amp;  t_{n-1} &amp;&amp; z_\text{obs}&amp;=\frac{\hat \mu_\text{obs}-\mu_0}{S/\sqrt{n}} &amp; t_\text{obs}&amp;&lt;-t_{n-1;~\alpha}&amp; p_\text{value}&amp;= P(T&lt;t_\text{obs})\\
+H_1:\mu&amp;\ne\mu_0 &amp; \text{Incognito} &amp;&amp;  t_{n-1} &amp;&amp; z_\text{obs}&amp;=\frac{\hat \mu_\text{obs}-\mu_0}{S/\sqrt{n}} &amp; |t_\text{obs}|&amp;&gt;|t_{n-1;~\alpha/2}|&amp; p_\text{value}&amp;= 2P(T&gt;|t_\text{obs}|)\\
 \hline
 H_0:\pi&amp;=\pi_0 &amp;&amp; &amp;\text{Dist.}   &amp;&amp; &amp;\text{Statistica Test} &amp;&amp;   \text{Zona Rifiuto} &amp;&amp;p_\text{value}\\
 \hline\\
-H_1:\pi&amp;&gt;\pi_0 &amp;  &amp;&amp;  Z &amp;&amp; z_\text{obs}&amp;=\frac{\hat \pi-\pi_0}{\sqrt{\pi(/1-\pi)}/\sqrt{n}} &amp; z_\text{obs}&amp;&gt;z_\alpha&amp; p_\text{value}&amp;= P(Z&gt;z_\text{obs})\\
-H_1:\pi&amp;&lt;\pi_0 &amp;  &amp;&amp;  Z &amp;&amp; z_\text{obs}&amp;=\frac{\hat \pi-\pi_0}{\sqrt{\pi(/1-\pi)}/\sqrt{n}} &amp; z_\text{obs}&amp;&lt;-z_\alpha&amp; p_\text{value}&amp;= P(Z&lt;z_\text{obs})\\
-H_1:\pi&amp;\ne\pi_0 &amp;  &amp;&amp;  Z &amp;&amp; z_\text{obs}&amp;=\frac{\hat \pi-\pi_0}{\sqrt{\pi(/1-\pi)}/\sqrt{n}} &amp; |z_\text{obs}|&amp;&gt;|z_{\alpha/2}| &amp; p_\text{value}&amp;= 2P(Z&gt;|z_\text{obs}|)\\
+H_1:\pi&amp;&gt;\pi_0 &amp;  &amp;&amp;  Z &amp;&amp; z_\text{obs}&amp;=\frac{\hat \pi_\text{obs}-\pi_0}{\sqrt{\pi(/1-\pi)}/\sqrt{n}} &amp; z_\text{obs}&amp;&gt;z_\alpha&amp; p_\text{value}&amp;= P(Z&gt;z_\text{obs})\\
+H_1:\pi&amp;&lt;\pi_0 &amp;  &amp;&amp;  Z &amp;&amp; z_\text{obs}&amp;=\frac{\hat \pi_\text{obs}-\pi_0}{\sqrt{\pi(/1-\pi)}/\sqrt{n}} &amp; z_\text{obs}&amp;&lt;-z_\alpha&amp; p_\text{value}&amp;= P(Z&lt;z_\text{obs})\\
+H_1:\pi&amp;\ne\pi_0 &amp;  &amp;&amp;  Z &amp;&amp; z_\text{obs}&amp;=\frac{\hat \pi_\text{obs}-\pi_0}{\sqrt{\pi(/1-\pi)}/\sqrt{n}} &amp; |z_\text{obs}|&amp;&gt;|z_{\alpha/2}| &amp; p_\text{value}&amp;= 2P(Z&gt;|z_\text{obs}|)\\
 \hline
 \end{align*}\]</span></p>
 </div>

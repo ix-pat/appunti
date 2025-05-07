@@ -22,8 +22,8 @@ $E(X_i)=\mu, \forall i$ e $V(X_i)=\sigma^2, \forall i$.
 
 Il sistema di ipotesi porrà sempre $H_0:\mu=\mu_0$ e si leggerà: la vera
 media che ha generato i dati è $\mu_0$, il fatto che la media dei dati
-sia $\bar x\ne\mu_0$ è dovuto all'effetto del campionamento e la
-differenza tra $\bar x$ e $\mu_0$ **non è significativa**. L'ipotesi
+sia $\hat\mu_\text{obs}=\bar x\ne\mu_0$ è dovuto all'effetto del campionamento e la
+differenza tra $\hat\mu_\text{obs}$ e $\mu_0$ **non è significativa**. L'ipotesi
 alternativa $H_1$, che sarà unilaterale o bilaterale, si legge al
 contrario: la differenza tra la media osservata e la media prescritta da
 $H_0$ **è significativa** e il campione proviene da una popolazione che
@@ -63,9 +63,9 @@ alto il valore di $Z$ tanto più $H_0$ è inverosimile.
 :::{.info data-latex=""}
 **Decisione sul campione.** Si decide un livello $\alpha$ e si ricava
 $z_\alpha$, si estrae un campione. Lo stimatore $\hat\mu$ si realizza
-nella media osservata del campione $\bar x$
+nella media osservata del campione $\hat\mu_\text{obs}$
 
-$$z_{\text{obs}}=\frac{\bar x -\mu_0}{\sigma/\sqrt n}$$
+$$z_{\text{obs}}=\frac{\hat\mu_\text{obs} -\mu_0}{\sigma/\sqrt n}$$
 
 -   Se $z_{\text{obs}}<z_\alpha$ $H_0$ **non viene rifiutata** al
     livello di significatività $\alpha\times100\%$
@@ -135,6 +135,19 @@ h1 <- ">"
 
 cat(ztest_mu(muh = muh,s = s,n = n,mu0 = mu0,h1 = h1,alpha = alpha,pvalue = F))
 ```
+
+Cioè rifiutiamo $H_0$ se 
+\begin{eqnarray*}
+Z &>& z_\alpha \\
+Z &>& `r qnorm(.95)` \\
+   \frac{\hat\mu - \mu_{0}} {\sigma/\sqrt{n}}&>&`r qnorm(.95)` \\
+   \hat\mu - \mu_{0} &>&`r qnorm(.95)`\frac\sigma{\sqrt{n}} \\
+   \hat\mu &>& \mu_{0} + `r qnorm(.95)`\frac\sigma{\sqrt{n}} \\   
+   &>&   30 + `r qnorm(.95)`\frac 5{ \sqrt{ 25 }}\\
+   &>&   `r 30+qnorm(.95)`
+   \end{eqnarray*}
+Se $H_0$ fosse vera $\mu=30$, 5 volte su 100, un campione di ampiezza $n=25$
+ha una media che supera $`r 30+qnorm(.95)`$.
 :::
 
 :::{.example}
@@ -154,7 +167,21 @@ um <- "g"
 
 cat(ztest_mu(muh = muh,s = s,n = n,mu0 = mu0,h1 = h1,alpha = alpha,um = um,pvalue = F))
 ```
+
+Cioè rifiutiamo $H_0$ se 
+\begin{eqnarray*}
+Z &>& z_\alpha \\
+Z &>& `r qnorm(.99)` \\
+   \frac{\hat\mu - \mu_{0}} {\sigma/\sqrt{n}}&>&`r qnorm(.99)` \\
+   \hat\mu - \mu_{0} &>&`r qnorm(.99)`\frac\sigma{\sqrt{n}} \\
+   \hat\mu &>& \mu_{0} + `r qnorm(.99)`\frac\sigma{\sqrt{n}} \\   
+   &>&   30 + `r qnorm(.99)`\frac 5{ \sqrt{ 25 }}\\
+   &>&   `r 30+qnorm(.99)`
+   \end{eqnarray*}
+Se $H_0$ fosse vera $\mu=30$, 5 volte su 100, un campione di ampiezza $n=25$
+ha una media che supera $`r 30+qnorm(.99)`$.
 :::
+
 
 ### La probabilità di significatività osservata il $p_\text{value}$
 
@@ -214,6 +241,38 @@ $\rightarrow$ significativo al 5% $\fbox{*}$
 -   Se $p_\text{value}\le 0.001\rightarrow$ il test è _estremamente_ significativo $\rightarrow$ significativo sotto all'1‰ $\fbox{***}$
 :::
 
+:::{.example}
+In un laboratorio, vi sono cavie con peso medio uguale a 30g e una DS
+pari a 5g. Uno studente seleziona 50 cavie e ottiene un peso medio
+uguale a 32g con una $\hat\sigma$ pari a 7g. La selezione è casuale o il
+valore ottenuto della media è troppo alto?
+
+```{r, results='asis'}
+muh <- 32
+mu0 <- 30
+s   <- 5
+n   <- 50
+alpha <- 0.01
+h1 <- ">"
+um <- "g"
+cat(ztest_mu(muh = muh,s = s,n = n,mu0 = mu0,h1 = h1,pv_only = T,um = um,pvalue = F))
+```
+
+Se a parità di stastistiche le cavie fossero state $n=100$
+
+```{r, results='asis'}
+muh <- 32
+mu0 <- 30
+s   <- 5
+n   <- 100
+alpha <- 0.01
+h1 <- ">"
+um <- "g"
+cat(ztest_mu(muh = muh,s = s,n = n,mu0 = mu0,h1 = h1,pv_only = T,um = um,pvalue = F))
+```
+
+:::
+
 ### Test sulla media, ipotesi unilaterale sinistra, $\sigma^2$ noto
 
 Siano $X_1,...X_n$ $n$ VC, IID: $X_i\sim N(\mu,\sigma^2)$ con $\sigma^2$
@@ -238,9 +297,9 @@ basso il valore di $Z$ tanto più $H_0$ è inverosimile
 :::{.info data-latex=""}
 **Decisione sul campione.** Si decide un livello $\alpha$ e si ricava
 $z_\alpha$, si estrae un campione. Lo stimatore $\hat\mu$ si realizza
-nella media osservata del campione $\bar x$
+nella media osservata del campione $\hat\mu_\text{obs}$
 
-$$z_{\text{obs}}=\frac{\bar x -\mu_0}{\sigma/\sqrt n}$$
+$$z_{\text{obs}}=\frac{\hat\mu_\text{obs} -\mu_0}{\sigma/\sqrt n}$$
 
 -   Se $z_{\text{obs}}>-z_\alpha$ $H_0$ **non viene rifiutata** al
     livello di significatività $\alpha\times100\%$
@@ -265,7 +324,7 @@ temperature sia $X \,\sim\, N(\mu,\, \sigma^{2})$ e, in base
 all'esperienza, sia $\mu_{0}=6$ ore e $\sigma_{0}=0.5$ ore. Si apportano
 modifiche alla composizione dei materiali per fare diminuire la durata
 della resistenza alla temperatura. Si eseguono 16 osservazioni, dalle
-quali si ottiene una durata media $\bar{x}=5.7$ e uno deviazione
+quali si ottiene una durata media $\mu_\text{obs}=5.7$ e uno deviazione
 standard $s=0.6$. Verificare l'ipotesi, al LdS dell'1%, che la
 resistenza sia rimasta invariata contro l'alternativa che sia diminuita.
 
@@ -326,8 +385,8 @@ il valore di $Z$ è **diverso** da zero tanto più $H_0$ è inverosimile
 :::{.info data-latex=""}
 **Decisione sul campione.** Si decide un livello $\alpha$ e si ricava
 $z_{\alpha/2}$, si estrae un campione. Lo stimatore $\hat\mu$ si
-realizza nella media osservata del campione $\bar x$
-$$z_{\text{obs}}=\frac{\bar x -\mu_0}{\sigma/\sqrt n}$$
+realizza nella media osservata del campione $\hat\mu_\text{obs}$
+$$z_{\text{obs}}=\frac{\hat\mu_\text{obs} -\mu_0}{\sigma/\sqrt n}$$
 
 -   Se $-z_{\alpha/2}\leq z_{\text{obs}}\leq z_{\alpha/2}$ $H_0$ **non
     viene rifiutata** al livello di significatività $\alpha\times100\%$
@@ -464,8 +523,8 @@ La $T$ osservata sul campione misura l'evidenza contro $H_0$, tanto più
 :::{.info data-latex=""}
 **Decisione sul campione** Si decide un livello $\alpha$ e si ricava
 $t_{n-1;\alpha}$, si estrae un campione. Lo stimatore $\hat\mu$ si
-realizza nella media osservata del campione $\bar x$
-$$t_{\text{obs}}=\frac{\bar x -\mu_0}{S/\sqrt n}$$
+realizza nella media osservata del campione $\hat\mu_\text{obs}$
+$$t_{\text{obs}}=\frac{\hat\mu_\text{obs} -\mu_0}{S/\sqrt n}$$
 
 -   Se $t_{\text{obs}}<t_{n-1;\alpha}$ $H_0$ **non viene rifiutata** al
     livello di significatività $\alpha\times100\%$
@@ -487,7 +546,7 @@ title(expression(t[n-1]))
 :::{.example}
 Un produttore di aspirine afferma che il prodotto lenisce il mal di
 testa in 30 minuti. Un campione casuale di 25 persone la usa. Risultato:
-$\bar{x}=31.4$m con $\hat{\sigma}= 4.2$m. Verificare l'affermazione del
+$\mu_\text{obs}=31.4$m con $\hat{\sigma}= 4.2$m. Verificare l'affermazione del
 produttore a un LdS del 5%.
 
 ```{r 15-test-mu-pi-5, results='asis'}
@@ -515,13 +574,13 @@ Sotto $H_0$ la statistica
 $$T=\frac{\hat \mu-\mu_0}{S/\sqrt n}\sim t_{n-1}$$
 
 Lo stimatore $\hat\mu$ si realizza nella media osservata del campione
-$\bar x$ $$t_{\text{obs}}=\frac{\bar x -\mu_0}{S/\sqrt n}$$
+$\hat\mu_\text{obs}$ $$t_{\text{obs}}=\frac{\hat\mu_\text{obs} -\mu_0}{S/\sqrt n}$$
 
 :::{.info data-latex=""}
 **Decisione sul campione** Si decide un livello $\alpha$ e si ricava
 $t_{n-1;\alpha}$, si estrae un campione. Lo stimatore $\hat\mu$ si
-realizza nella media osservata del campione $\bar x$
-$$t_{\text{obs}}=\frac{\bar x -\mu_0}{S/\sqrt n}$$
+realizza nella media osservata del campione $\hat\mu_\text{obs}$
+$$t_{\text{obs}}=\frac{\hat\mu_\text{obs} -\mu_0}{S/\sqrt n}$$
 
 -   Se $t_{\text{obs}}>-t_{n-1;\alpha}$ $H_0$ **non viene rifiutata** al
     livello di significatività $\alpha\times100\%$
@@ -575,8 +634,8 @@ $$T=\frac{\hat \mu-\mu_0}{S/\sqrt n}\sim t_{n-1}$$
 :::{.info data-latex=""}
 **Decisione sul campione.** Si decide un livello $\alpha$ e si ricava
 $t_{n-1;\alpha}$, si estrae un campione. Lo stimatore $\hat\mu$ si
-realizza nella media osservata del campione $\bar x$
-$$t_{\text{obs}}=\frac{\bar x -\mu_0}{S/\sqrt n}$$
+realizza nella media osservata del campione $\hat\mu_\text{obs}$
+$$t_{\text{obs}}=\frac{\hat\mu_\text{obs} -\mu_0}{S/\sqrt n}$$
 
 -   Se $-t_{n-1;\alpha/2}<t_{\text{obs}}<t_{n-1;\alpha/2}$ $H_0$ **non
     viene rifiutata** al livello di significatività $\alpha\times100\%$
@@ -795,18 +854,18 @@ ztest_pi(sn = sn,n = n,p0 = p0,h1 = h1)
 \hline 
 H_0:\mu&=\mu_0 &&\text{$\sigma^2$} &\text{Dist.}   & && \text{Statistica Test} &&   \text{Zona Rifiuto} &&p_\text{value}\\
 \hline\\
-H_1:\mu&>\mu_0 & \text{Noto} &&  Z && z_\text{obs}&=\frac{\hat \mu-\mu_0}{\sigma/\sqrt{n}} & z_\text{obs}&>z_\alpha & p_\text{value}&= P(Z>z_\text{obs})\\
-H_1:\mu&<\mu_0 & \text{Noto} &&  Z && z_\text{obs}&=\frac{\hat \mu-\mu_0}{\sigma/\sqrt{n}} & z_\text{obs}&<-z_\alpha& p_\text{value}&= P(Z<z_\text{obs})\\
-H_1:\mu&\ne\mu_0 & \text{Noto} &&  Z && z_\text{obs}&=\frac{\hat \mu-\mu_0}{\sigma/\sqrt{n}} & |z_\text{obs}|&>|z_{\alpha/2}| & p_\text{value}&= 2P(Z>|z_\text{obs}|)\\
-H_1:\mu&>\mu_0 & \text{Incognito} &&  t_{n-1} && z_\text{obs}&=\frac{\hat \mu-\mu_0}{S/\sqrt{n}} & t_\text{obs}&>t_{n-1;~\alpha}& p_\text{value}&= P(T>t_\text{obs})\\
-H_1:\mu&<\mu_0 & \text{Incognito} &&  t_{n-1} && z_\text{obs}&=\frac{\hat \mu-\mu_0}{S/\sqrt{n}} & t_\text{obs}&<-t_{n-1;~\alpha}& p_\text{value}&= P(T<t_\text{obs})\\
-H_1:\mu&\ne\mu_0 & \text{Incognito} &&  t_{n-1} && z_\text{obs}&=\frac{\hat \mu-\mu_0}{S/\sqrt{n}} & |t_\text{obs}|&>|t_{n-1;~\alpha/2}|& p_\text{value}&= 2P(T>|t_\text{obs}|)\\
+H_1:\mu&>\mu_0 & \text{Noto} &&  Z && z_\text{obs}&=\frac{\hat \mu_\text{obs}-\mu_0}{\sigma/\sqrt{n}} & z_\text{obs}&>z_\alpha & p_\text{value}&= P(Z>z_\text{obs})\\
+H_1:\mu&<\mu_0 & \text{Noto} &&  Z && z_\text{obs}&=\frac{\hat \mu_\text{obs}-\mu_0}{\sigma/\sqrt{n}} & z_\text{obs}&<-z_\alpha& p_\text{value}&= P(Z<z_\text{obs})\\
+H_1:\mu&\ne\mu_0 & \text{Noto} &&  Z && z_\text{obs}&=\frac{\hat \mu_\text{obs}-\mu_0}{\sigma/\sqrt{n}} & |z_\text{obs}|&>|z_{\alpha/2}| & p_\text{value}&= 2P(Z>|z_\text{obs}|)\\
+H_1:\mu&>\mu_0 & \text{Incognito} &&  t_{n-1} && z_\text{obs}&=\frac{\hat \mu_\text{obs}-\mu_0}{S/\sqrt{n}} & t_\text{obs}&>t_{n-1;~\alpha}& p_\text{value}&= P(T>t_\text{obs})\\
+H_1:\mu&<\mu_0 & \text{Incognito} &&  t_{n-1} && z_\text{obs}&=\frac{\hat \mu_\text{obs}-\mu_0}{S/\sqrt{n}} & t_\text{obs}&<-t_{n-1;~\alpha}& p_\text{value}&= P(T<t_\text{obs})\\
+H_1:\mu&\ne\mu_0 & \text{Incognito} &&  t_{n-1} && z_\text{obs}&=\frac{\hat \mu_\text{obs}-\mu_0}{S/\sqrt{n}} & |t_\text{obs}|&>|t_{n-1;~\alpha/2}|& p_\text{value}&= 2P(T>|t_\text{obs}|)\\
 \hline
 H_0:\pi&=\pi_0 && &\text{Dist.}   && &\text{Statistica Test} &&   \text{Zona Rifiuto} &&p_\text{value}\\
 \hline\\
-H_1:\pi&>\pi_0 &  &&  Z && z_\text{obs}&=\frac{\hat \pi-\pi_0}{\sqrt{\pi(/1-\pi)}/\sqrt{n}} & z_\text{obs}&>z_\alpha& p_\text{value}&= P(Z>z_\text{obs})\\
-H_1:\pi&<\pi_0 &  &&  Z && z_\text{obs}&=\frac{\hat \pi-\pi_0}{\sqrt{\pi(/1-\pi)}/\sqrt{n}} & z_\text{obs}&<-z_\alpha& p_\text{value}&= P(Z<z_\text{obs})\\
-H_1:\pi&\ne\pi_0 &  &&  Z && z_\text{obs}&=\frac{\hat \pi-\pi_0}{\sqrt{\pi(/1-\pi)}/\sqrt{n}} & |z_\text{obs}|&>|z_{\alpha/2}| & p_\text{value}&= 2P(Z>|z_\text{obs}|)\\
+H_1:\pi&>\pi_0 &  &&  Z && z_\text{obs}&=\frac{\hat \pi_\text{obs}-\pi_0}{\sqrt{\pi(/1-\pi)}/\sqrt{n}} & z_\text{obs}&>z_\alpha& p_\text{value}&= P(Z>z_\text{obs})\\
+H_1:\pi&<\pi_0 &  &&  Z && z_\text{obs}&=\frac{\hat \pi_\text{obs}-\pi_0}{\sqrt{\pi(/1-\pi)}/\sqrt{n}} & z_\text{obs}&<-z_\alpha& p_\text{value}&= P(Z<z_\text{obs})\\
+H_1:\pi&\ne\pi_0 &  &&  Z && z_\text{obs}&=\frac{\hat \pi_\text{obs}-\pi_0}{\sqrt{\pi(/1-\pi)}/\sqrt{n}} & |z_\text{obs}|&>|z_{\alpha/2}| & p_\text{value}&= 2P(Z>|z_\text{obs}|)\\
 \hline
 \end{align*}
 </div>

@@ -779,11 +779,15 @@ segments(x0 = .5,y0 = .5+1.96*sqrt(.25/n),x1 = 0,y1 = .5+1.96*sqrt(.25/n),lty=2,
 segments(x0 = .1,y0 = .1-1.96*sqrt(.09/n),x1 = 0,y1 = .1-1.96*sqrt(.09/n),lty=2,col=iblue)
 segments(x0 = .1,y0 = .1+1.96*sqrt(.09/n),x1 = 0,y1 = .1+1.96*sqrt(.09/n),lty=2,col=iblue)
 
+segments(x0 = 0,y0 = .5,x1 = 1,y1 = .5,lty=2,col=ared)
+
+arrows(x0 = .025,y0 = .5-1.96*sqrt(.25/n),x1 = 0.025,y1 = .5+1.96*sqrt(.25/n),code = 3,length = .1)
+arrows(x0 = .025,y0 = .1-1.96*sqrt(.09/n),x1 = 0.025,y1 = .1+1.96*sqrt(.09/n),code = 3,length = .1)
 
 axis(1,(0:20)/20,las=2)
-axis(2,round(c(.5-1.96*sqrt(.25/n),.5+1.96*sqrt(.25/n),.1+1.96*sqrt(.09/n),.1-1.96*sqrt(.09/n),.5,.1),4),las=2,mgp = c(100,1,0))
+axis(2,round(c(.5-1.96*sqrt(.25/n),.5+1.96*sqrt(.25/n),.1+1.96*sqrt(.09/n),.1-1.96*sqrt(.09/n),.5,.1,1),4),las=2,mgp = c(100,1,0),pos = 0)
 abline(0,1,lty=2)
-abline(h=.5,lty=2,col=ared)
+#abline(h=.5,lty=2,col=ared)
 abline(v=.5,lty=2,col=ared)
 text(.51,.01,"per pi = 0.5 si ottiene l'intervallo più ampio",pos=4)
 par(op)
