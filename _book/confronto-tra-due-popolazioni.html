@@ -735,11 +735,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 - La differenza tra 10.4 e 9.6 è <strong>significativa</strong>?
 - Il farmaco davvero diminuisce il numero medio di giorni oppure la differenza è colpa del caso?</p>
 <p>In un’indagine sul reddito estraiamo un campione di 56 individui dalla città <span class="math inline">\(A\)</span> e un secondo campione di 67 individui dalla città <span class="math inline">\(B\)</span>.
-Il reddito medio del campione estratto da <span class="math inline">\(A\)</span> è <span class="math inline">\(\bar x_A=15.1\)</span>mila euro lordi annui, con una sd <span class="math inline">\(\hat\sigma_A=3.1\)</span>mila euro; Il reddito medio del campione estratto da <span class="math inline">\(B\)</span> è <span class="math inline">\(\bar x_A=18.6\)</span>mila euro lordi annui, con una sd <span class="math inline">\(\hat\sigma_A=5.7\)</span>mila euro;
-- Le due città hanno lo stesso reddito medio e la differenza nei campioni è dovuta ala caso oppure i due campioni provengono da due città con reddito medio diverso?</p>
-<p>Facciamo un sondaggio di opinione sul gradimento di un personaggio <em>X</em> in due provincie, A e B. Nella provincia A 35 persone su 130 intervistate gradisce il personaggio <em>X</em>, nella provincia B 54 su 150 persone intervistate gradisce il personaggio <em>X</em>.
-- la differenza tra i due campioni è significativa?
-- nella provincia A e in quella B la proporzione di gradimento è la stessa e la differenza nei campioni è dovuta al caso oppure no?</p>
+Il reddito medio del campione estratto da <span class="math inline">\(A\)</span> è <span class="math inline">\(\hat\mu_A=15.1\)</span>mila euro lordi annui, con una sd <span class="math inline">\(\hat\sigma_A=3.1\)</span>mila euro; Il reddito medio del campione estratto da <span class="math inline">\(B\)</span> è <span class="math inline">\(\hat\mu_B=18.6\)</span>mila euro lordi annui, con una sd <span class="math inline">\(\hat\sigma_B=5.7\)</span>mila euro, ci chiediamo se le due città hanno lo stesso reddito medio e la differenza nei campioni è dovuta ala caso oppure i due campioni provengono da due città con reddito medio diverso.</p>
+<p>Facciamo un sondaggio di opinione sul gradimento di un personaggio <em>X</em> in due provincie, A e B. Nella provincia A 35 persone su 130 intervistate gradisce il personaggio <em>X</em>, nella provincia B 54 su 150 persone intervistate gradisce il personaggio <em>X</em>.</p>
+<ul>
+<li>la differenza tra i due campioni è significativa?</li>
+<li>nella provincia A e in quella B la proporzione di gradimento è la stessa e la differenza nei campioni è dovuta al caso oppure no?</li>
+</ul>
 <div id="test-per-due-medie" class="section level2 hasAnchor" number="16.1">
 <h2><span class="header-section-number">16.1</span> Test per due medie<a href="confronto-tra-due-popolazioni.html#test-per-due-medie" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div id="il-contesto-probabilistico-1" class="section level3 hasAnchor" number="16.1.1">
@@ -801,7 +802,7 @@ il cui sviluppo esula dagli scopi del corso.</p>
 <p>E quindi sotto <span class="math inline">\(H_0\)</span>
 <span class="math display">\[T=\frac{\hat\mu_A-\hat\mu_B}{\sqrt{\frac{S_p^2}{n_A}+\frac{S_p^2}{n_B}}}\sim t_{n_A+n_B-2}\]</span></p>
 <p>La statistica osservata
-<span class="math display">\[t_{\text{obs}}=\frac{\bar x_A-\bar x_B}{\sqrt{\frac{S_p^2}{n_A}+\frac{S_p^2}{n_B}}}\]</span></p>
+<span class="math display">\[t_{\text{obs}}=\frac{\hat\mu_A-\hat\mu_B}{\sqrt{\frac{S_p^2}{n_A}+\frac{S_p^2}{n_B}}}\]</span></p>
 <p>Andrà letta nella direzione di <span class="math inline">\(H_1\)</span>, sulle tavole della <span class="math inline">\(t\)</span> con <span class="math inline">\(n_A+n_B-2\)</span> gradi di libertà.</p>
 </div>
 <div id="ipotesi-2-eterogeneità" class="section level3 hasAnchor" number="16.1.5">
@@ -811,17 +812,16 @@ il cui sviluppo esula dagli scopi del corso.</p>
 <p>E quindi sotto <span class="math inline">\(H_0\)</span>
 <span class="math display">\[T=\frac{\hat\mu_A-\hat\mu_B}{\sqrt{\frac{S_A^2}{n_A}+\frac{S_B^2}{n_B}}}\sim t_{n_A+n_B-2}\]</span></p>
 <p>La statistica osservata
-<span class="math display">\[t_{\text{obs}}=\frac{\bar x_A-\bar x_B}{\sqrt{\frac{S_A^2}{n_A}+\frac{S_B^2}{n_B}}}\]</span></p>
+<span class="math display">\[t_{\text{obs}}=\frac{\hat\mu_A-\hat\mu_B}{\sqrt{\frac{S_A^2}{n_A}+\frac{S_B^2}{n_B}}}\]</span></p>
 <p>Andrà letta nella direzione di <span class="math inline">\(H_1\)</span>, sulle tavole della <span class="math inline">\(t\)</span> con <span class="math inline">\(n_A+n_B-2\)</span> gradi di libertà.</p>
 </div>
 <div id="esempio-3" class="section level3 hasAnchor" number="16.1.6">
 <h3><span class="header-section-number">16.1.6</span> Esempio<a href="confronto-tra-due-popolazioni.html#esempio-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Si sperimentano due diete: <span class="math inline">\(A\)</span> e <span class="math inline">\(B\)</span>. Per la dieta <span class="math inline">\(A\)</span> si
-selezionano a caso 15 soggetti. Dopo due settima-
-ne, si osserva una diminuzione di peso: <span class="math inline">\(\bar x_A\)</span> = 6kg con
+selezionano a caso 15 soggetti. Dopo due settimane, si osserva una diminuzione di peso: <span class="math inline">\(\hat\mu_A\)</span> = 6kg con
 <span class="math inline">\(\hat\sigma_A=\)</span> 1.2kg. Per la dieta <span class="math inline">\(B\)</span> si selezionano a caso 18
 soggetti. Dopo due settimane, si osserva una diminuzione di peso:
-<span class="math inline">\(\bar x_B\)</span> = 5kg con <span class="math inline">\(\hat\sigma_B=\)</span> 1.8kg. Nell’ipotesi
+<span class="math inline">\(\hat\mu_B\)</span> = 5kg con <span class="math inline">\(\hat\sigma_B=\)</span> 1.8kg. Nell’ipotesi
 di varianze <strong>eterogenee</strong>, verificare, se le due diete
 sono equivalenti contro l’alternativa che la dieta <span class="math inline">\(A\)</span> sia più efficace
 (maggiore) della dieta <span class="math inline">\(B\)</span>.</p>
@@ -861,8 +861,8 @@ sono equivalenti contro l’alternativa che la dieta <span class="math inline">\
 <p>La direzione vuole verificare se l’ammontare delle vendite di due
 supermercati, <span class="math inline">\(A\)</span> e <span class="math inline">\(B\)</span>, sia la stessa. Un campione di 18 giorni per
 il supermercato <span class="math inline">\(A\)</span> fornisce una vendita media giornaliera pari a
-<span class="math inline">\(\bar x_A=\)</span> 55 mila euro, con <span class="math inline">\(\hat\sigma_A=\)</span> 2.9 mila euro. Un campione di 24
-giorni per il supermercato <span class="math inline">\(B\)</span> fornisce <span class="math inline">\(\bar x_B=\)</span> 57 mila euro, con
+<span class="math inline">\(\hat\mu_A=\)</span> 55 mila euro, con <span class="math inline">\(\hat\sigma_A=\)</span> 2.9 mila euro. Un campione di 24
+giorni per il supermercato <span class="math inline">\(B\)</span> fornisce <span class="math inline">\(\hat\mu_B=\)</span> 57 mila euro, con
 <span class="math inline">\(\hat\sigma_A=\)</span> 3.1 mila euro.</p>
 <p>Sotto assunto di <strong>omogeneità</strong> delle varianze
 verificare l’ipotesi che la vendita media del supermercato <span class="math inline">\(A\)</span> sia uguale a quella del supermercato <span class="math inline">\(B\)</span>, contro l’alternativa sia diversa.</p>

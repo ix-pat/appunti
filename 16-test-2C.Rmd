@@ -20,10 +20,10 @@ acex <- 1.5
   - Il farmaco davvero diminuisce il numero medio di giorni oppure la differenza è colpa del caso?
 
  In un'indagine sul reddito estraiamo un campione di 56 individui dalla città $A$ e un secondo campione di 67 individui dalla città $B$.
-Il reddito medio del campione estratto da $A$ è $\bar x_A=15.1$mila euro lordi annui, con una sd $\hat\sigma_A=3.1$mila euro; Il reddito medio del campione estratto da $B$ è $\bar x_A=18.6$mila euro lordi annui, con una sd $\hat\sigma_A=5.7$mila euro; 
-  - Le due città hanno lo stesso reddito medio e la differenza nei campioni è dovuta ala caso oppure i due campioni provengono da due città con reddito medio diverso?
+Il reddito medio del campione estratto da $A$ è $\hat\mu_A=15.1$mila euro lordi annui, con una sd $\hat\sigma_A=3.1$mila euro; Il reddito medio del campione estratto da $B$ è $\hat\mu_B=18.6$mila euro lordi annui, con una sd $\hat\sigma_B=5.7$mila euro, ci chiediamo se le due città hanno lo stesso reddito medio e la differenza nei campioni è dovuta ala caso oppure i due campioni provengono da due città con reddito medio diverso.
   
- Facciamo un sondaggio di opinione sul gradimento di un personaggio _X_ in due provincie, A e B. Nella provincia A 35 persone su 130 intervistate gradisce il personaggio _X_, nella provincia B 54 su 150 persone intervistate gradisce il personaggio _X_.
+Facciamo un sondaggio di opinione sul gradimento di un personaggio _X_ in due provincie, A e B. Nella provincia A 35 persone su 130 intervistate gradisce il personaggio _X_, nella provincia B 54 su 150 persone intervistate gradisce il personaggio _X_.
+
   - la differenza tra i due campioni è significativa?
   - nella provincia A e in quella B la proporzione di gradimento è la stessa e la differenza nei campioni è dovuta al caso oppure no?
 
@@ -106,10 +106,9 @@ il cui sviluppo esula dagli scopi del corso.
 \[T=\frac{\hat\mu_A-\hat\mu_B}{\sqrt{\frac{S_p^2}{n_A}+\frac{S_p^2}{n_B}}}\sim t_{n_A+n_B-2}\]
 
  La statistica osservata
-\[t_{\text{obs}}=\frac{\bar x_A-\bar x_B}{\sqrt{\frac{S_p^2}{n_A}+\frac{S_p^2}{n_B}}}\]
+\[t_{\text{obs}}=\frac{\hat\mu_A-\hat\mu_B}{\sqrt{\frac{S_p^2}{n_A}+\frac{S_p^2}{n_B}}}\]
 
  Andrà letta nella direzione di $H_1$, sulle tavole della $t$ con $n_A+n_B-2$ gradi di libertà.
-
 
 
 ### Ipotesi 2: eterogeneità
@@ -121,7 +120,7 @@ il cui sviluppo esula dagli scopi del corso.
 \[T=\frac{\hat\mu_A-\hat\mu_B}{\sqrt{\frac{S_A^2}{n_A}+\frac{S_B^2}{n_B}}}\sim t_{n_A+n_B-2}\]
 
  La statistica osservata
-\[t_{\text{obs}}=\frac{\bar x_A-\bar x_B}{\sqrt{\frac{S_A^2}{n_A}+\frac{S_B^2}{n_B}}}\]
+\[t_{\text{obs}}=\frac{\hat\mu_A-\hat\mu_B}{\sqrt{\frac{S_A^2}{n_A}+\frac{S_B^2}{n_B}}}\]
 
  Andrà letta nella direzione di $H_1$, sulle tavole della $t$ con $n_A+n_B-2$ gradi di libertà.
 
@@ -130,11 +129,10 @@ il cui sviluppo esula dagli scopi del corso.
 ### Esempio 
 
  Si sperimentano due diete: $A$ e $B$. Per la dieta $A$ si
-selezionano a caso 15 soggetti. Dopo due settima-
-ne, si osserva una diminuzione di peso: $\bar x_A$ = 6kg con
+selezionano a caso 15 soggetti. Dopo due settimane, si osserva una diminuzione di peso: $\hat\mu_A$ = 6kg con
 $\hat\sigma_A=$ 1.2kg. Per la dieta $B$ si selezionano a caso 18
 soggetti. Dopo due settimane, si osserva una diminuzione di peso: 
-$\bar x_B$ = 5kg con $\hat\sigma_B=$ 1.8kg. Nell'ipotesi
+$\hat\mu_B$ = 5kg con $\hat\sigma_B=$ 1.8kg. Nell'ipotesi
 di varianze **eterogenee**, verificare, se le due diete 
 sono equivalenti contro l'alternativa che la dieta $A$ sia più efficace 
 (maggiore) della dieta $B$.
@@ -160,8 +158,8 @@ ttest_2c_et(mu1 = mu1,mu2 = mu2,s1h = s1h,s2h =s2h,n1 = n1,n2 = n2,h1 = h1,a = a
 La direzione vuole verificare se l'ammontare delle vendite di due
 supermercati, $A$ e $B$, sia la stessa. Un campione di 18 giorni per
 il supermercato $A$ fornisce una vendita media giornaliera pari a
-$\bar x_A=$ 55 mila euro, con $\hat\sigma_A=$ 2.9 mila euro. Un campione di 24
-giorni per il supermercato $B$ fornisce $\bar x_B=$ 57 mila euro, con 
+$\hat\mu_A=$ 55 mila euro, con $\hat\sigma_A=$ 2.9 mila euro. Un campione di 24
+giorni per il supermercato $B$ fornisce $\hat\mu_B=$ 57 mila euro, con 
  $\hat\sigma_A=$ 3.1 mila euro. 
  
 Sotto assunto di **omogeneità**  delle varianze
