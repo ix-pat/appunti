@@ -64,7 +64,7 @@ H_1:\mu_B>\mu_A
 
 ### Derivazione della statistica test
 
- Se $X_{1,A},X_{2,A},...,X_{n_A,A}$ $n_A$ VC IID replicazioni di $X_A\sim N(\mu_A,\sigma_A^2)$ e siano $X_{1,B},X_{2,B},...,X_{n_B,B}$ $n_B$ VC IID replicazioni di $X_B\sim N(\mu_B,\sigma_B^2)$, allora
+ Se $X_{1,A},X_{2,A},...,X_{n_A,A}$, $n_A$ VC IID replicazioni di $X_A\sim N(\mu_A,\sigma_A^2)$ e siano $X_{1,B},X_{2,B},...,X_{n_B,B}$, $n_B$ VC IID replicazioni di $X_B\sim N(\mu_B,\sigma_B^2)$, allora
 \[\hat\mu_A\sim N\left(\mu_A,\frac {\sigma_A^2}{n_A}\right)\qquad\text{e}\qquad\hat\mu_B\sim N\left(\mu_B,\frac {\sigma_B^2}{n_B}\right)\]
 
  E dunque, dalle proprietà delle normali
@@ -125,6 +125,34 @@ il cui sviluppo esula dagli scopi del corso.
  Andrà letta nella direzione di $H_1$, sulle tavole della $t$ con $n_A+n_B-2$ gradi di libertà.
 
 
+### Esempio 
+
+La direzione vuole verificare se l'ammontare delle vendite di due
+supermercati, $A$ e $B$, sia la stessa. Un campione di 18 giorni per
+il supermercato $A$ fornisce una vendita media giornaliera pari a
+$\hat\mu_A=$ 55 mila euro, con $\hat\sigma_A=$ 2.9 mila euro. Un campione di 24
+giorni per il supermercato $B$ fornisce $\hat\mu_B=$ 57 mila euro, con 
+ $\hat\sigma_A=$ 3.1 mila euro. 
+ 
+Sotto assunto di **omogeneità**  delle varianze
+verificare l'ipotesi che la vendita media del supermercato $A$ sia uguale a quella del supermercato $B$, contro l'alternativa sia diversa.
+
+```{r 16-test-2C-2,results='asis'}
+a <- "$A$"
+b <- "$B$"
+um <- ""
+mu1 <- 55
+mu2 <- 57
+s1h   <- 2.9
+s2h <- 3.1
+et <- FALSE
+n1   <- 18
+n2 <- 24
+alpha <- 0.01
+h1 <- "\\neq"
+
+test_2c(mu1 = mu1,mu2 = mu2,s1h = s1h,s2h = s2h,n1 = n1,n2 = n2,h1 = h1,et = F,a = a,b = b,um = um)
+```
 
 ### Esempio 
 
@@ -152,34 +180,6 @@ alpha <- 0.05
 h1 <- ">"
 ttest_2c_et(mu1 = mu1,mu2 = mu2,s1h = s1h,s2h =s2h,n1 = n1,n2 = n2,h1 = h1,a = a,b = b,um = um,rbow = T)
 ```
-
-### Esempio 
-
-La direzione vuole verificare se l'ammontare delle vendite di due
-supermercati, $A$ e $B$, sia la stessa. Un campione di 18 giorni per
-il supermercato $A$ fornisce una vendita media giornaliera pari a
-$\hat\mu_A=$ 55 mila euro, con $\hat\sigma_A=$ 2.9 mila euro. Un campione di 24
-giorni per il supermercato $B$ fornisce $\hat\mu_B=$ 57 mila euro, con 
- $\hat\sigma_A=$ 3.1 mila euro. 
- 
-Sotto assunto di **omogeneità**  delle varianze
-verificare l'ipotesi che la vendita media del supermercato $A$ sia uguale a quella del supermercato $B$, contro l'alternativa sia diversa.
-
-```{r 16-test-2C-2,results='asis'}
-mu1 <- 55
-mu2 <- 57
-s1h   <- 2.9
-s2h <- 3.1
-et <- FALSE
-n1   <- 18
-n2 <- 24
-alpha <- 0.01
-h1 <- "\\neq"
-
-cat(ttest_2c_om(mu1 = mu1,mu2 = mu2,s1h = s1h,s2h =s2h,n1 = n1,n2 = n2,h1 = h1,a = a,b = b,um = um ))
-
-```
-
 
 ## Test per due proporzioni 
 
@@ -259,7 +259,7 @@ ztest_2c_pi(s1 = s1,s2 = s2,n1 = n1,n2 = n2,h1 = h1,a = a,b = b)
 ## Specchietto Finale per i Test ad Due Campioni
 
 :::{.info2 data-latex=""}
-<div style="font-size:0.9em;">
+<div style="font-size:0.75em;">
 ```{r 16-test-2C-4}
 if (!html) {
   tabella <- 
