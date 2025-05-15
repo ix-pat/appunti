@@ -160,19 +160,13 @@ E ripeto le simulazioni ripetute 500 volte:
 ```{r 18-regressione-II-5}
 set.seed(1000)
 sge <- .8
+sigma2 <- sge^2
 x <- (1:10)/10
 y <- x+rnorm(10,0,sge)
-
+nrep <- 5000
 V0 <- sge^2 * (1/10+mean(x)^2/(10*s2c(x))) 
 V1 <- sge^2 / (10*s2c(x)) 
 C12<- -mean(x)*V1
-
-
-V <- matrix(c(V0,C12,C12,V1),2)
-
-#fpar <- nbvpdf.2(0,1,V0,V1,C12)
-
-nrep <- 5000
 
 # generazione delle Y replicate
 y_sim <- replicate(nrep, 0 + 1 * x + rnorm(length(x), sd=sge))
@@ -182,26 +176,32 @@ X <- cbind(1, x)
 XX1 <- solve(t(X) %*% X)
 b_hat <- apply(y_sim, 2, function(y) XX1 %*% t(X) %*% y)
 b_hat <- t(b_hat)  # righe = simulazioni
+mu <- c(0,1)
 
-CS <- cov(b_hat)
+
+# Matrice teorica di covarianza
+CS <- sigma2 * XX1
+
 
 b0gr <- seq(-3*sqrt(CS[1,1]),+3*sqrt(CS[1,1]),length.out = 101)
 b1gr <- seq(1-3*sqrt(CS[2,2]),1+3*sqrt(CS[2,2]),length.out = 101)
 b01  <- expand.grid(b0gr,b1gr)
 
-dbe <- dmvnorm(x = b01,mean = c(0,1),sigma = CS)
+f_norm <- function(x) {
+  y <- x[2]
+  x <- x[1]
+  1 / (2 * pi * sqrt(det(CS))) * exp(-0.5 * t(c(x, y) - mu) %*% solve(CS) %*% (c(x, y) - mu))
+}
+sey <-function(x,n) sqrt(sge^2*(1/n+(x-mean(x))^2/(n*s2c(x))))
 
-#bde  <- apply(b01,1,function(x)fpar(x[1],x[2]))
-bde  <- matrix(dbe,101,byrow = F)
-
+dens_vals <- unname(apply(b01,1,f_norm))
+dens_mat <- matrix(dens_vals, nrow = 101, byrow = T)
 
 par(mfrow=c(1,2),cex=cex)
 
 plot(x,y,pch=16,cex=1,ylim=c(-1,3),lty=2,type="n",axes=F,xlab="x",ylab="y")
 axis(1,x)
 axis(2)
-md <- lsfit(x,y)
-abline(md,col="Grey")
 ppp <- matrix(nrow = 500,ncol=2)
 for(i in 1:500){
   md <- b_hat[i,]
@@ -211,21 +211,17 @@ abline(0,1,col="DarkRed",lwd=2)
 abline(v=mean(x),lty=2)
 abline(h=mean(x),lty=2)
 
-sey <-function(x,n) sqrt(sge^2*(1/n+(x-mean(x))^2/(n*s2c(x))))
-
-
 curve(x+1.96*sey(x,n=10),add=T,lty=2,col="DarkRed",lwd=2)
 curve(x-1.96*sey(x,n=10),add=T,lty=2,col="DarkRed",lwd=2)
 
-
-
-kde <- kde2d(b_hat[,1],b_hat[,2],n=101,h = c(1,1))
-
-#image(b0gr,b1gr,bde,xlab =expression(hat(beta)[0]),ylab=expression(hat(beta))[1],col = rev(gray.colors(101)))
-image(kde,xlab =expression(hat(beta)[0]),ylab=expression(hat(beta))[1],col = rev(gray.colors(101)))
+# 5. Grafico
+image(b0gr, b1gr, dens_mat, col = rev(gray.colors(100)),
+      xlab = expression(beta[0]), ylab = expression(beta[1]))
+contour(b0gr, b1gr, (dens_mat), drawlabels = FALSE,add=T)
 
 points(b_hat[1:500,1],b_hat[1:500,2],pch=16,cex=.5,col="darkblue")
-contour(kde,xlab =expression(hat(beta)[0]),ylab=expression(hat(beta))[1],drawlabels = F,add = T,col="black",lty=1)
+points(0,1,pch=3,col=2)
+
 ```
 
 ```{r 18-regressione-II-6}
@@ -263,23 +259,31 @@ fig.def(3,3.5)
 ```
 
 ```{r 18-regressione-II-8}
+
+sey <-function(x,n,mu,s2) sqrt(sge^2*(1/n+(x-mu)^2/(n*s2)))
 set.seed(1)
 sge <- .8
 x <- (1:100)/100
 y <- x+rnorm(100,0,sge)
-plot(x,y,pch=16,cex=1,ylim=c(-2,5),lty=2,type="n",xlim=c(0,2),xlab="x",ylab="y")
+plot(x,y,pch=16,cex=1,ylim=c(-3,3),lty=2,type="n",xlim=c(-2,2),xlab="x",ylab="y",axes=F)
 #abline(lsfit(x,y),col="Grey")
 abline(0,1,col="DarkRed",lwd=2)
 abline(-.2,(.5+.2)/.5,col=4)
-text(1.5,2.1,expression(-0.2+1.4*x),col=4)
-curve(x+1.96*sey(x,n=10),add=T,lty=2,col=ared)
-curve(x-1.96*sey(x,n=10),add=T,lty=2,col=ared)
+text(1.5,2.1,expression(hat(beta[0]+hat(beta[1])*x)),col=4)
+curve(x+1.96*sey(x,n=10,mu = .5,s2 = s2c(0:3)),add=T,lty=2,col=ared)
+curve(x-1.96*sey(x,n=10,mu = .5,s2 = s2c(0:3)),add=T,lty=2,col=ared)
 abline(v=1,lty=2)
-text(0,-2,"interpolazione",pos = 4)
+abline(v=-1,lty=2)
+text(0,-2,"interpolazione",pos = 1)
 text(1,-2,"estrapolazione",pos = 4)
+text(-1,-2,"estrapolazione",pos = 2)
 text(1,4,"errore di previsione",col=ared,pos=4)
-text(1.5,1.2,expression(0+1*x),col="darkred")
 
+text(1.5,1.2,expression(beta[0]+beta[1]*x),col="darkred")
+arrows(-1,-2.5,1,-2.5,code = 3,length = .1)
+text(0,-2.6,"range(x)")
+text(-1,-2.6,"min(x)",pos = 4)
+text(+1,-2.6,"max(x)",pos = 2)
 fig.def(2.5,3.5)
 
 ```
