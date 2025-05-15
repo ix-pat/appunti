@@ -547,7 +547,7 @@ par(opar)
 
 Tra le tante $\mu(x)$ limitiamo l'attenzione alle funzioni lineari
 $$
-y_i=\mu(x_i)=\beta_0+\beta_1x_i+\varepsilon_i
+y_i=\mu(x_i)+\varepsilon_i=\beta_0+\beta_1x_i+\varepsilon_i
 $$
 
 
