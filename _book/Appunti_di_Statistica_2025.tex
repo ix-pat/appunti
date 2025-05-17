@@ -524,7 +524,7 @@ drop fuzzy shadow]
 \makeatother
 \subtitle{CLEAM AA 24/25}
 \author{Patrizio Frederic}
-\date{Aggiornato al 15-05-2025}
+\date{Aggiornato al 17-05-2025}
 
 \begin{document}
 \maketitle
@@ -582,7 +582,7 @@ costruisco le mie lezioni. Non è da ritenersi alternativo alle lezioni in aula 
 
 Un ringraziamento speciale va alle mie donne e a Michele Lalla, amico, collega e maestro.
 
-Bologna, il 15-05-2025.
+Bologna, il 17-05-2025.
 
 \part{Statistica Descrittiva}
 
@@ -13250,6 +13250,17 @@ l'indice di determinazione lineare ed è, nel contesto della regressione lineare
 
 Se \(R^2=1\), allora \(r=-1\) oppure \(r=+1\), associazione lineare perfetta, 100\% della variabilità spiegata, se \(R^2=0\), allora \(r=0\) associazione lineare nulla, 0\% della variabilità spiegata, se \(R^2>0.75\), allora considereremo l'associazione lineare \emph{soddisfacente}.
 
+La variabilità di delle \(y\) intorno ad \(\bar y\) (la dispersione delle x rosse intorno alla media) viene spiegata in parte dalla retta e resta una variabilità residua intorno alla retta (le distanze verticali) come mostrato in figura \ref{fig:17-regressione-I-54b}
+
+\begin{figure}[H]
+
+{\centering \includegraphics{Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-54b-1} 
+
+}
+
+\caption{La variabilità della y si legge sull'asse $y$ della del modello lungo la retta.}\label{fig:17-regressione-I-54b}
+\end{figure}
+
 \subsection{\texorpdfstring{Interpretazione di \(r^2\)}{Interpretazione di r\^{}2}}\label{interpretazione-di-r2}
 
 La variabilità di \(y\) viene scomposta in due, la componente spiegata dalla retta e della residua.
@@ -13271,6 +13282,23 @@ la retta è orizzontale e coincide con \(\hat\mu_Y\)
 Se la retta è parallela all'asse dell \(x\) non spiega nulla della variabilità di \(y\), ma non è detto che non esista relazione tra \(x\) ed \(y\).
 
 \subsection{Scomposizione della varianza sui dati di esempio}\label{scomposizione-della-varianza-sui-dati-di-esempio}
+
+Ricordandoci che \(\hat\beta_0=2.25\) e \(\hat\beta_1=0.5\) e che
+
+\begin{tabular}{lrrrr}
+\toprule
+$i$ & $x_i$ & $y_i$ & $\hat y_i = 2.25 + 0.5 x_i$ & $\hat \varepsilon_i$\\
+\midrule
+1 & 0.0 & 2.0 & 2.25 & -0.25\\
+2 & 1.0 & 3.5 & 2.75 & 0.75\\
+3 & 2.0 & 2.5 & 3.25 & -0.75\\
+4 & 3.0 & 4.0 & 3.75 & 0.25\\
+\cellcolor{gray}{\textcolor{white}{\textbf{Totale}}} & \cellcolor{gray}{\textcolor{white}{\textbf{6.0}}} & \cellcolor{gray}{\textcolor{white}{\textbf{12.0}}} & \cellcolor{gray}{\textcolor{white}{\textbf{12.00}}} & \cellcolor{gray}{\textcolor{white}{\textbf{0.00}}}\\
+Totale/n & 1.5 & 3.0 & 3.00 & 0.00\\
+\bottomrule
+\end{tabular}
+
+Ottenaimo
 
 \begin{center}\includegraphics{Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-58-1} \end{center}
 
@@ -13671,11 +13699,11 @@ Per valutare quanto bene il modello si adatta ai dati si devo compiere analisi s
 
 \begin{figure}[H]
 
-{\centering \includegraphics{Appunti_di_Statistica_2025_files/figure-latex/unnamed-chunk-15-1} 
+{\centering \includegraphics{Appunti_di_Statistica_2025_files/figure-latex/unnamed-chunk-16-1} 
 
 }
 
-\caption{Nube in 3D, i punti tali per cui $\hat y_i>y_i$ sono colorati in blu scuro, quelli per cui $\hat y_i<y_i$, sono colorati in azzuro chiaro}\label{fig:unnamed-chunk-15}
+\caption{Nube in 3D, i punti tali per cui $\hat y_i>y_i$ sono colorati in blu scuro, quelli per cui $\hat y_i<y_i$, sono colorati in azzuro chiaro}\label{fig:unnamed-chunk-16}
 \end{figure}
 
 \section{Analisi dei Residui}\label{analisi-dei-residui}
@@ -20140,7 +20168,7 @@ Il \(p_{\text{value}}\) è
  0.1 < p_\text{value}= 0.537051 \leq 1 
 \]
 
-\begin{center}\includegraphics{Appunti_di_Statistica_2025_files/figure-latex/unnamed-chunk-21-1} \end{center}
+\begin{center}\includegraphics{Appunti_di_Statistica_2025_files/figure-latex/unnamed-chunk-22-1} \end{center}
 
 \textbf{Non} rifiuto \(H_0\) a \textbf{nessun}
 livello di significatività,

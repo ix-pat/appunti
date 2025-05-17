@@ -1985,6 +1985,47 @@ l'indice di determinazione lineare ed è, nel contesto della regressione lineare
 
 Se $R^2=1$, allora $r=-1$ oppure $r=+1$, associazione lineare perfetta, 100% della variabilità spiegata, se $R^2=0$, allora $r=0$ associazione lineare nulla, 0% della variabilità spiegata, se $R^2>0.75$, allora considereremo l'associazione lineare _soddisfacente_.
 
+La variabilità di delle $y$ intorno ad $\bar y$ (la dispersione delle x rosse intorno alla media) viene spiegata in parte dalla retta e resta una variabilità residua intorno alla retta (le distanze verticali) come mostrato in figura \@ref(fig:17-regressione-I-54b)
+
+```{r 17-regressione-I-54a}
+fig.def(3)
+```
+
+```{r 17-regressione-I-54b, fig.cap="La variabilità della y si legge sull'asse $y$ della del modello lungo la retta."}
+set.seed(1)
+par(mfrow=c(1,2),cex=cex)
+xdat <- rnorm(25,5)
+xdat <- xdat - min(xdat)+.25
+ydat <- 2 + xdat/2 + rnorm(25,0,.5)
+bfit <- lsfit(xdat,ydat)$coefficients
+
+plot(xdat,ydat,xlab = "x", ylab = "y",pch=16,xlim=c(0,max(xdat)),axes = F)
+axis(4,mean(ydat),expression(hat(mu)[Y]),las=2)
+segments(xdat,ydat,0,ydat,lty=2,col="grey")
+segments(xdat,ydat,xdat,bfit[1]+bfit[2]*xdat,lty=2,col="grey")
+abline(h=mean(ydat),lty=2)
+abline(lsfit(xdat,ydat),col=4)
+points(rep(0,times = 25),ydat,pch=4,col=ared)
+axis(1)
+axis(2,las=2,pos = -.5)
+xdat <- rnorm(25,5)
+xdat <- xdat - min(xdat)+.5
+ydat <- 10 - xdat + rnorm(25,0,.5)
+bfit <- lsfit(xdat,ydat)$coefficients
+
+plot(xdat,ydat,xlab = "x", ylab = "y",pch=16,xlim=c(0,max(xdat)),axes = F)
+axis(4,mean(ydat),expression(hat(mu)[Y]),las=2)
+segments(xdat,ydat,0,ydat,lty=2,col="grey")
+segments(xdat,ydat,xdat,bfit[1]+bfit[2]*xdat,lty=2,col="grey")
+abline(h=mean(ydat),lty=2)
+abline(lsfit(xdat,ydat),col=4)
+points(rep(0,times = 25),ydat,pch=4,col=ared)
+axis(1)
+axis(2,las=2,pos = -.5)
+par(mfrow=c(1,1),cex=cex)
+```
+
+
 ### Interpretazione di $r^2$
 
 La variabilità di $y$ viene scomposta in due, la componente spiegata dalla retta e della residua.
@@ -2067,6 +2108,25 @@ Se la retta è parallela all'asse dell $x$ non spiega nulla della variabilità d
 
 ### Scomposizione della varianza sui dati di esempio
 
+Ricordandoci che $\hat\beta_0=`r b0`$ e $\hat\beta_1=`r b1`$ e che
+
+```{r}
+x <- c(0:3)
+y <- c(2,3.5,2.5,4)
+
+yh <- b0 + b1*x
+eh <- y  - yh
+
+Dato <- c(1:4,"Totale","Totale/n")
+prn <- data.frame(Dato,x=c(x,0,0),y=c(y,0,0),yh = c(yh,0,0),eh = c(eh,0,0))
+prn[5,2:5] <- colSums(prn[1:4,2:5])
+prn[6,2:5] <- colMeans(prn[1:4,2:5])
+names(prn)<-c("$i$","$x_i$","$y_i$","$\\hat y_i = 2.25 + 0.5 x_i$","$\\hat \\varepsilon_i$") 
+kable(prn[1:6,],booktabs = T, escape = F, linesep = "")%>%
+  row_spec(5, bold = T, color = "white", background = "gray")
+```
+
+Ottenaimo
 
 ```{r 17-regressione-I-58}
 x <- c(0:3)

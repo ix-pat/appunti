@@ -1875,6 +1875,13 @@ l’indice di determinazione lineare ed è, nel contesto della regressione linea
 </div>
 </div>
 <p>Se <span class="math inline">\(R^2=1\)</span>, allora <span class="math inline">\(r=-1\)</span> oppure <span class="math inline">\(r=+1\)</span>, associazione lineare perfetta, 100% della variabilità spiegata, se <span class="math inline">\(R^2=0\)</span>, allora <span class="math inline">\(r=0\)</span> associazione lineare nulla, 0% della variabilità spiegata, se <span class="math inline">\(R^2&gt;0.75\)</span>, allora considereremo l’associazione lineare <em>soddisfacente</em>.</p>
+<p>La variabilità di delle <span class="math inline">\(y\)</span> intorno ad <span class="math inline">\(\bar y\)</span> (la dispersione delle x rosse intorno alla media) viene spiegata in parte dalla retta e resta una variabilità residua intorno alla retta (le distanze verticali) come mostrato in figura <a href="regressione-lineare.html#fig:17-regressione-I-54b">17.1</a></p>
+<div class="figure"><span style="display:block;" id="fig:17-regressione-I-54b"></span>
+<img src="Appunti_di_Statistica_2025_files/figure-html/17-regressione-I-54b-1.png" alt="La variabilità della y si legge sull'asse $y$ della del modello lungo la retta." width="672" />
+<p class="caption">
+Figura 17.1: La variabilità della y si legge sull’asse <span class="math inline">\(y\)</span> della del modello lungo la retta.
+</p>
+</div>
 <div id="interpretazione-di-r2" class="section level3 hasAnchor" number="17.8.1">
 <h3><span class="header-section-number">17.8.1</span> Interpretazione di <span class="math inline">\(r^2\)</span><a href="regressione-lineare.html#interpretazione-di-r2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>La variabilità di <span class="math inline">\(y\)</span> viene scomposta in due, la componente spiegata dalla retta e della residua.
@@ -1892,6 +1899,133 @@ la retta è orizzontale e coincide con <span class="math inline">\(\hat\mu_Y\)</
 </div>
 <div id="scomposizione-della-varianza-sui-dati-di-esempio" class="section level3 hasAnchor" number="17.8.2">
 <h3><span class="header-section-number">17.8.2</span> Scomposizione della varianza sui dati di esempio<a href="regressione-lineare.html#scomposizione-della-varianza-sui-dati-di-esempio" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Ricordandoci che <span class="math inline">\(\hat\beta_0=2.25\)</span> e <span class="math inline">\(\hat\beta_1=0.5\)</span> e che</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+<span class="math inline">\(i\)</span>
+</th>
+<th style="text-align:right;">
+<span class="math inline">\(x_i\)</span>
+</th>
+<th style="text-align:right;">
+<span class="math inline">\(y_i\)</span>
+</th>
+<th style="text-align:right;">
+<span class="math inline">\(\hat y_i = 2.25 + 0.5 x_i\)</span>
+</th>
+<th style="text-align:right;">
+<span class="math inline">\(\hat \varepsilon_i\)</span>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:right;">
+0.0
+</td>
+<td style="text-align:right;">
+2.0
+</td>
+<td style="text-align:right;">
+2.25
+</td>
+<td style="text-align:right;">
+-0.25
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:right;">
+1.0
+</td>
+<td style="text-align:right;">
+3.5
+</td>
+<td style="text-align:right;">
+2.75
+</td>
+<td style="text-align:right;">
+0.75
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+3
+</td>
+<td style="text-align:right;">
+2.0
+</td>
+<td style="text-align:right;">
+2.5
+</td>
+<td style="text-align:right;">
+3.25
+</td>
+<td style="text-align:right;">
+-0.75
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+4
+</td>
+<td style="text-align:right;">
+3.0
+</td>
+<td style="text-align:right;">
+4.0
+</td>
+<td style="text-align:right;">
+3.75
+</td>
+<td style="text-align:right;">
+0.25
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;color: white !important;background-color: gray !important;">
+Totale
+</td>
+<td style="text-align:right;font-weight: bold;color: white !important;background-color: gray !important;">
+6.0
+</td>
+<td style="text-align:right;font-weight: bold;color: white !important;background-color: gray !important;">
+12.0
+</td>
+<td style="text-align:right;font-weight: bold;color: white !important;background-color: gray !important;">
+12.00
+</td>
+<td style="text-align:right;font-weight: bold;color: white !important;background-color: gray !important;">
+0.00
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Totale/n
+</td>
+<td style="text-align:right;">
+1.5
+</td>
+<td style="text-align:right;">
+3.0
+</td>
+<td style="text-align:right;">
+3.00
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+</tr>
+</tbody>
+</table>
+<p>Ottenaimo</p>
 <p><img src="Appunti_di_Statistica_2025_files/figure-html/17-regressione-I-58-1.png" width="672" /></p>
 <p><img src="Appunti_di_Statistica_2025_files/figure-html/17-regressione-I-59-1.png" width="672" /></p>
 <table>
