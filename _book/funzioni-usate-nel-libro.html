@@ -749,9 +749,13 @@ di automazione, dalla creazione dei data set alla soluzione di alcuni problemi.<
 <div id="media-e-varianza" class="section level3 unnumbered hasAnchor">
 <h3>Media e Varianza<a href="funzioni-usate-nel-libro.html#media-e-varianza" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb229-1"><a href="funzioni-usate-nel-libro.html#cb229-1" tabindex="-1"></a><span class="fu">media_</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>)                     <span class="co"># media dei dati 1,2,3,4</span></span></code></pre></div>
-<p><span class="math display">\[ \mu =\frac 1{ 4 }( 1+2+3+4 )= 2.5 \]</span></p>
+<p><span class="math display">\[
+\mu =\frac 1{ 4 }( 1+2+3+4 )= 2.5
+\]</span></p>
 <div class="sourceCode" id="cb230"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb230-1"><a href="funzioni-usate-nel-libro.html#cb230-1" tabindex="-1"></a><span class="fu">var_</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>)                       <span class="co"># varianza dei dati 1,2,3,4</span></span></code></pre></div>
-<p><span class="math display">\[ \sigma^2 =\frac 1{ 4 }( 1^2+2^2+3^2+4^2 )-( 2.5 )^2= 1.25 \]</span></p>
+<p><span class="math display">\[
+\sigma^2 =\frac 1{ 4 }( 1^2+2^2+3^2+4^2 )-( 2.5 )^2= 1.25
+\]</span></p>
 <div class="sourceCode" id="cb231"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb231-1"><a href="funzioni-usate-nel-libro.html#cb231-1" tabindex="-1"></a><span class="fu">stat_</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>)                      <span class="co"># media e varianza insieme (new)</span></span></code></pre></div>
 <p><span class="math display">\[\begin{eqnarray*}
 \mu &amp;=&amp; \frac 1{ 4 }(  1 + 2 + 3 + 4  )= 2.5 \\
@@ -1531,8 +1535,8 @@ anziché <span class="math inline">\(\alpha\)</span></p>
 <p><span class="math inline">\(\fbox{C}\)</span> CONCLUSIONE</p>
 <p>Consideriamo <span class="math inline">\(\alpha=0.1, 0.05, 0.01, 0.001\)</span></p>
 <p>I valori critici sono</p>
-<p><span class="math inline">\(t_{10-1;0.1}=-1.383\)</span>; <span class="math inline">\(t_{10-1;0.05}=-1.8331\)</span>; <span class="math inline">\(t_{10-1;0.01}=-2.8214\)</span>; <span class="math inline">\(t_{10-1;0.001}=-4.2968\)</span></p>
-<p>Siccome <span class="math inline">\(-1.8331&lt;t_\text{obs}=-3&lt;-1.383\)</span>, quindi <strong>rifiuto</strong> <span class="math inline">\(H_0\)</span> all’1%,</p>
+<p><span class="math inline">\(t_{10-1;0.001}=-4.2968\)</span>; <span class="math inline">\(t_{10-1;0.01}=-2.8214\)</span>; <span class="math inline">\(t_{10-1;0.05}=-1.8331\)</span>; <span class="math inline">\(t_{10-1;0.1}=-1.383\)</span></p>
+<p>Siccome <span class="math inline">\(-4.2968&lt;t_\text{obs}=-3&lt;-2.8214\)</span>, quindi <strong>rifiuto</strong> <span class="math inline">\(H_0\)</span> all’1%,</p>
 <p><span class="math inline">\(0.001&lt;p_\text{value}&lt;0.01\)</span>, <em>molto significativo</em> <span class="math inline">\(\fbox{**}\)</span>.</p>
 <p><img src="Appunti_di_Statistica_2025_files/figure-html/25-test-functions-10-5.png" width="672" /></p>
 <p>Il <span class="math inline">\(p_{\text{value}}\)</span> è</p>
@@ -1809,7 +1813,7 @@ livello di significatività,</p>
 \hat y_i &amp;=&amp;\hat\beta_0+\hat\beta_1 x_i=\\
 &amp;=&amp; -0.1736 + 1.0184 \times 8.7061 = 8.693 \\
 \hat \varepsilon_i &amp;=&amp; y_i-\hat y_i\\
-&amp;=&amp; 8.178 - 8.693 = -0.5141  
+&amp;=&amp; 8.178 - 8.6926 = -0.5141  
 \end{eqnarray*}\]</span></p>
 <div class="sourceCode" id="cb286"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb286-1"><a href="funzioni-usate-nel-libro.html#cb286-1" tabindex="-1"></a><span class="fu">se_beta0</span>()</span></code></pre></div>
 <p><span class="math display">\[\begin{eqnarray*}
