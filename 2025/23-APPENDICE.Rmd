@@ -1,0 +1,512 @@
+---
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+```{r intro23, include=FALSE}
+rm(list = ls())
+
+
+source("intro.R")
+options(digits=4)
+opts_knit$set(global.par = TRUE)
+```
+
+
+# Richiami sugli Operatori Sommatoria e Produttorio `r ifelse (html,"{-}","")` 
+
+## Operatore Sommatoria `r ifelse (html,"{-}","")` 
+
+È una forma simbolica per rappresentare somme di un numero qualunque di addendi.
+Si consideri un insieme di numeri indicizzati con $i$
+\[
+\{a_1,...,a_n\}
+\]
+Si definisce la _Sommatoria per $i$ che va da 1 fino ad $n$_
+\[
+\sum_{i=1}^n a_i = a_1+a_2+...+a_n
+\]
+$i$ ed $n$ sono chiamati _quantificatori_.
+
+_Esempio_
+
+Si consideri l'insieme
+\[
+S=\{a_1=30,a_2=15,a_3=21\}
+\]
+allora la _Sommatoria per $i$ che va da 1 fino ad 3_
+\[
+\sum_{i=1}^3 a_i = 30+15+21=`r 30+15+21`
+\]
+
+Si consideri l'insieme
+\[
+S=\{x_1 = 3.1,x_2 = 4.1, x_3 = 1.4,x_4=3.3,x_5=2.9\}
+\]
+allora la _Sommatoria per $a$ che varia in $S$_
+\[
+\sum_{i=3}^5  x_3 + x_4+x_5=x_3 = 1.4+3.3+2.9=`r 1.4+3.3+2.9`
+\]
+
+Un modo alternativo per indicare i quantificatori è il seguente. Sia $S$ un insieme di numeri
+\[
+S=\{a_1,...,a_n\}
+\]
+Si definisce la _Sommatoria di tutti gli $a$ in $S$_
+\[
+\sum_{a\in S} a = a_1+a_2+...+a_n
+\]
+
+Si consideri l'insieme
+\[
+S=\{y_1=3.0,y_2=1.5,y_3=2.1\}
+\]
+allora la _Sommatoria per $a$ che varia in $S$_
+\[
+\sum_{a\in S} a = 3.0+1.5+2.1=`r 3.0+1.5+2.1`
+\]
+
+
+**Proprietà della Sommatoria** 
+
+1. Se $k$ è una costatante, allora
+\[
+\sum_{1=1}^n k x_i = k\sum_{1=1}^n  x_i
+\]
+
+```{r 23-APPENDICE-2}
+k <- 3.6
+xx<-c(x_1 = 3.1,x_2 = 4.1, x_3 = 1.4,x_4=3.3,x_5=2.9)
+xk <- paste(k,xx,sep = "\\times ",collapse = "+")
+```
+
+Infatti
+
+\begin{eqnarray*}
+\sum_{1=1}^n k x_i   &=&  k\cdot x_1 + k\cdot x_n\\
+ &=& k(x_1+...+x_n)\\
+ &=& k\sum_{i=1}^n x_i
+\end{eqnarray*}
+
+Si consideri l'insieme
+\[
+S=\{x_1 = 3.1,x_2 = 4.1, x_3 = 1.4,x_4=3.3,x_5=2.9\},
+\]
+Posto $k=3.6$
+
+\begin{eqnarray*}
+\sum_{1=1}^n k x_i   &=&  `r xk`\\
+ &=& `r k`\times(`r paste(xx,collapse="+")`)\\
+ &=& `r sum(xx)*k`
+\end{eqnarray*}
+  
+2. Se consideriamo due insiemi di numeri $\{a_1,...,a_n\}$ e $\{b_1,...,b_n\}$, allora
+
+\[
+\sum_{1=1}^n (a_i + b_i) = \sum_{1=1}^n  a_i + \sum_{1=1}^n  b_i
+\]
+
+
+```{r 23-APPENDICE-3}
+k <- 3.6
+xx <-c(x_1 = 3.1,x_2 = 4.1, x_3 = 1.4)
+yy <-c(y_1 = 1.9,y_2 = 6.3, y_3 = 5.1)
+xy <- paste("(",xx,"+",yy,")",sep = " ",collapse = "+")
+xs <- paste(xx,collapse =  "+")
+ys <- paste(yy,collapse =  "+")
+xxyy <- paste("(",xs,")","+","(",ys,")")
+```
+
+Posto $S_X=\{x_1 = 3.1,x_2 = 4.1, x_3 = 1.4\}$,
+      $S_Y=\{y_1 = 1.9,y_2 = 6.3, y_3 = 5.1\}$
+
+\begin{eqnarray*}
+\sum_{1=1}^n k x_i   &=&  `r xk`\\
+ &=& `r xxyy`\\
+ &=& `r sum(xx+yy)`
+\end{eqnarray*}
+
+3. Se $k$ è una costante, allora
+
+\[
+\sum_{1=1}^nk=k+k+...+k=n\cdot k
+\]
+
+Posto $k=3.6$ e $n=4$, allora
+\begin{eqnarray*}
+\sum_{1=1}^n  k   &=&  \sum_{1=1}^4 3.6\\
+ &=& 3.6+3.6+3.6+3.6\\
+ &=& 4\times 3.6\\
+ &=& `r 4*3.6`
+\end{eqnarray*}
+
+4. Se $k$ e $c$ sono due costanti, allora
+
+\[
+\sum_{1=1}^n(c+ k a_i) = n\cdot c+k\sum_{1=1}^n  a_i
+\]
+
+Posto $S_X=\{x_1 = 3.1,x_2 = 4.1, x_3 = 1.4\}$, $k=3.6$ e $c=0.5$, allora
+
+\begin{eqnarray*}
+\sum_{1=1}^n c + k x_i   &=&  \sum_{1=1}^3 0.5 + 3.6\times x_i  \\
+ &=& `r paste(0.5,"+",3.6,"\\times",xx,collapse="+")`\\
+ &=& 4\times 0.5 + 3.6 \times (`r xs`)\\
+ &=& `r sum(.5+3.6*xx)`
+\end{eqnarray*}
+
+
+**Attenzione!**
+
+\[
+\sum_{1=1}^n (a_i \cdot b_i) \ne \left(\sum_{1=1}^n  a_i \right)\cdot\left(\sum_{1=1}^n  b_i\right)
+\]
+
+
+```{r 23-APPENDICE-4}
+xx <-c(x_1 = 3.1,x_2 = 4.1, x_3 = 1.4)
+yy <-c(y_1 = 1.9,y_2 = 6.3, y_3 = 5.1)
+xy <- paste("(",xx,"\\times",yy,")",sep = " ",collapse = "+")
+xs <- paste(xx,collapse =  "+")
+ys <- paste(yy,collapse =  "+")
+xxyy <- paste("(",xs,")","+","(",ys,")")
+```
+
+Posto $S_X=\{x_1 = 3.1,x_2 = 4.1, x_3 = 1.4\}$,
+      $S_Y=\{y_1 = 1.9,y_2 = 6.3, y_3 = 5.1\}$
+
+\begin{eqnarray*}
+\sum_{1=1}^n x_i    &=&  `r sum(xx)`\\
+\sum_{1=1}^n y_i    &=&  `r sum(yy)`\\
+\sum_{1=1}^n x_i y_i   &=&  `r xy`\\
+ &=& `r sum(xx*yy)`\\
+ &\ne& `r sum(xx)`\times `r sum(yy)`=`r sum(xx)*sum(yy)`
+\end{eqnarray*}
+
+
+
+## Operatore Produttorio `r ifelse (html,"{-}","")` 
+
+```{r 23-APPENDICE-5} 
+a <- c(1.1,0.9,1.3)
+```
+Siano $a_1,...,a_n$, $n$ numeri, $a_i\in\mathbb{R}$:
+L'operatore sommatoria somma gli elementi 
+\[\sum_{i=1}^n a_i=a_1+ a_2+ ...+ a_n\],
+allo stesso modo, l'operatore _produttoria_ opera il prodotto dei dati 
+
+::: {.definition name="Produttoria"}
+L'operatore produttoria moltiplica gli elementi
+\[\prod_{i=1}^n a_i=a_1\cdot a_2\cdot ...\cdot a_n\]
+:::
+
+
+Esempio: $a_1=1.1$, $a_2=0.9$, $a_3=1.3$ 
+\begin{eqnarray*}
+ \sum_{i=1}^n a_i &=& `r paste(a[1],'+',a[2],'+',a[3])` = `r sum(a)`\\
+ \prod_{i=1}^n a_i &=& `r paste(a[1],'\\times',a[2],'\\times',a[3])` = `r prod(a)`
+\end{eqnarray*}
+
+
+# Richiami di Calcolo Combinatorio `r ifelse (html,"{-}","")` 
+
+Il **calcolo combinatorio** ha come scopo principale **il conteggio del numero di modi in cui possono verificarsi determinati eventi**, senza doverli enumerare uno per uno. Questo permette di risolvere problemi legati alla disposizione, alla scelta e alla distribuzione di oggetti in modo efficiente e rigoroso.  
+
+Un modello efficace per affrontare queste situazioni è quello delle **$n$ scatole numerate** e delle **$k$ palline**, che permette di classificare i problemi combinatori in base a due aspetti fondamentali:  
+1. Le **palline** possono essere numerate (distinguibili) o non numerate (indistinguibili).  
+2. Il **numero di scatole rispetto alle palline** determina se tutte possono essere sistemate senza vincoli o se vi è un limite.  
+
+A partire da questa impostazione, si sviluppano le formule fondamentali della combinatoria, che trovano applicazioni in statistica, probabilità e molte altre discipline.
+
+Quando ogni scatola può contenere al massimo una pallina, si individuano quattro casi principali, ciascuno con una specifica formula combinatoria.
+
+
+## Scelte indipendenti con ripetizione: $k^n$ `r ifelse (html,"{-}","")` 
+
+Si consideri il caso in cui abbiamo $k$ palline numerate e **ogni pallina può essere collocata indipendentemente in una qualsiasi delle $n$ scatole disponibili**, senza restrizioni sul numero di volte in cui una scatola può essere scelta.  
+
+Il numero totale di distribuzioni è dato da:
+
+\[
+n^k
+\]
+
+che rappresenta il numero di **sequenze ordinate** di $n$ elementi scelti tra $k$ possibilità.
+
+:::{.example name="Valigetta"}
+Un sistema di sicurezza utilizza un codice a tre cifre, in cui ciascun numero può variare da 1 a 9. Il codice è quindi una sequenza ordinata di tre elementi, scelti tra 9 possibilità:
+
+\[
+9^3 = 729
+\]
+
+Esistono 729 possibili codici di apertura.
+:::
+
+## $n = k$ Palline numerate: permutazioni `r ifelse (html,"{-}","")` 
+
+Quando il numero di palline è uguale al numero di scatole e ogni pallina è distinguibile, il problema diventa quello di **ordinare $n$ elementi distinti**. Il numero di modi in cui ciò è possibile è dato dal **fattoriale**.
+
+Sia $n\in\mathbb{N}$ un numero naturale, si definisce $n$ fattoriale, il numero 
+
+\[n!=n(n-1)(n-2)...3\cdot 2 \cdot 1\] 
+
+conta in quanti modo posso rimescolare $n$ oggetti.
+
+__Nota.__ Per definizione $0!=1$
+
+In figura $3!$.
+
+```{python permutazioni}
+import matplotlib.pyplot as plt
+import networkx as nx
+import numpy as np
+
+def generate_permutation_tree(letters):
+    G = nx.DiGraph()
+    levels = {0: [], 1: [], 2: []}
+
+    # Livello 0
+    for i, l in enumerate(letters):
+        levels[0].append((l, 0, i))
+        G.add_node(l)
+
+    # Livello 1
+    for (node0, _, _) in levels[0]:
+        for l1 in letters:
+            if l1 not in node0:
+                node1 = node0 + l1
+                levels[1].append((node1, 1, 0))
+                G.add_node(node1)
+                G.add_edge(node0, node1)
+
+    # Livello 2 (perm. complete)
+    for (node1, _, _) in levels[1]:
+        for l2 in letters:
+            if l2 not in node1:
+                node2 = node1 + l2
+                levels[2].append((node2, 2, 0))
+                G.add_node(node2)
+                G.add_edge(node1, node2)
+
+    return G, levels
+
+def generate_fixed_last_level_positions(levels, base_spacing=3.5, expansion_factor=3.0):
+    pos = {}
+    max_depth = max(levels.keys())
+
+    for depth, nodes in levels.items():
+        width = len(levels[depth - 1]) if depth == max_depth else len(nodes)
+        spacing = base_spacing + (depth if depth < max_depth else max_depth - 1) * expansion_factor
+        y_positions = np.linspace(-width / 2, width / 2, len(nodes)) * spacing
+
+        for (name, x, _), y in zip(nodes, y_positions):
+            pos[name] = (x, y)
+
+    return pos
+
+labels = {
+    "a": "a",
+    "ab": "b",
+    "abc": "c",
+    "ac": "c",
+    "acb": "b",
+    "b": "b",
+    "ba": "a",
+    "bac": "c",
+    "bc": "c",
+    "bca": "a",
+    "c": "c",
+    "ca": "a",
+    "cab": "b",
+    "cb": "b",
+    "cba": "a"
+}
+
+# Esegui
+letters = ['c', 'b', 'a']
+G, levels = generate_permutation_tree(letters)
+pos = generate_fixed_last_level_positions(levels)
+
+plt.figure(figsize=(10, 5))
+nx.draw(
+    G, pos, labels=labels, node_size=1000, node_color="lightblue",
+    font_size=10, edge_color="gray", arrows=False
+)
+plt.title("Albero delle permutazioni di 3 lettere (fattoriale di 3)", fontsize=14)
+plt.show()
+
+```
+
+
+:::{.example}
+$3!=3\cdot 2\cdot 1=6$, $10!=10\cdot 9\cdot... \cdot1 =`r factorial(10)`$
+:::
+
+:::{.example name="Mazzo di Carte"}
+Consideriamo un mazzo di 52 carte tutte distinte. Il numero di modi in cui il mazzo può essere mescolato corrisponde a tutte le possibili permutazioni delle 52 carte:
+
+$$
+52! = \scriptsize `r format(factorial(52),scientific = 100,big.mark = "\\\\hspace{0.9pt}")`
+$$
+
+che è un numero estremamente grande, pari a circa $8.0658 \times 10^{67}$. Questo valore evidenzia come, ogni volta che un mazzo di carte viene mescolato, sia altamente improbabile che l'ordine ottenuto sia mai stato realizzato prima.
+:::
+
+
+
+
+## $n > k$ Palline numerate: disposizioni senza ripetizione `r ifelse (html,"{-}","")` 
+
+Se $n$ è maggiore di $k$ e le palline sono numerate, il problema diventa quello di scegliere $k$ elementi distinti da un insieme di $n$ e disporli in un ordine specifico. In questo caso, la formula è:
+
+\[
+\frac{n!}{(n-k)!}
+\]
+
+che rappresenta il numero di **sequenze ordinate** di $k$ elementi scelti da un insieme di $n$ elementi distinti.
+
+:::{.example}
+Se si estrae una mano di 5 carte da un mazzo di 52 e si considera l'ordine di estrazione, il numero di possibili sequenze è:
+
+\[
+\frac{52!}{(52-5)!} = \frac{52!}{47!}
+\]
+
+che fornisce $311\,875\,200$ possibili sequenze.
+:::
+
+## $n > k$ Palline non numerate: coefficienti binomiale `r ifelse (html,"{-}","")` 
+
+Se $n > k$ e le palline sono **non numerate**, il problema si riduce alla **scelta di $k$ scatole tra $n$ disponibili**, senza considerare l'ordine. Questo corrisponde al numero di **combinazioni** di $k$ elementi scelti tra $n$, dato dal coefficiente binomiale:
+
+\[
+\binom{n}{k} = \frac{n!}{k!(n-k)!}
+\]
+
+:::{.example name="Sei al super enalotto"}
+Nel Superenalotto, si scelgono 6 numeri tra 90, senza che l'ordine abbia rilevanza. Il numero totale di combinazioni possibili è:
+
+\[
+\binom{90}{6} = \frac{90!}{6!(90-6)!} = \frac{90!}{6!84!}
+\]
+
+che fornisce $622\,614\,630$ possibilità. Questo spiega l'estrema difficoltà di vincere il jackpot.
+:::
+
+## Il coefficiente binomiale `r ifelse (html,"{-}","")` 
+
+Il coefficiente binomiale $\binom{n}{k}$ conta in quanti modi posso disporre $k$ oggetti indistinguibili in $n\ge k$ posti:
+\[\binom{n}{ k}=\frac {n!}{k!(n-k)!}\]
+
+Proprietà utili
+
+\begin{eqnarray*}
+  \binom{n}{ k} &=&\binom{n}{ n-k},\qquad\text{Per esempio:} \\
+  \binom{5}{ 3} &=&\binom{5}{ 2}=`r choose(5,2)`,\\
+  \binom{n}{ 0} &=&\binom{n}{ n} = 1 \\
+  \binom{n}{ 1} &=&\binom{n}{ n-1}=n \\
+  \binom{n}{ k} &=&\binom{n-1}{k-1}+\binom{n-1}{k}
+\end{eqnarray*}
+
+In matematica $\binom{n}{ k}$ è il $k$-esimo elemento della $n$-esima riga del _triangolo di Tartaglia_.
+
+```{r 23-APPENDICE-6}
+N <- 8
+rnam <- 0:(N-1)
+cnam <- 0:(N-1)
+trg <- outer(rnam,cnam,choose)
+trg[trg==0]<- NA
+dimnames(trg)[[1]]<-rnam
+dimnames(trg)[[2]]<-rnam
+
+kable(trg,row.names = T,align = 'c',
+      booktabs = T, escape = F,linesep = "", digits = 4) 
+
+```
+
+
+
+# Richiami di Matematica `r ifelse (html,"{-}","")` 
+
+## Richiami sui logaritmi `r ifelse (html,"{-}","")` 
+
+Si definisce $\log x$ il logaritmo naturale di $x>0$
+  - $\lim_{x\to 0}\log x = -\infty$
+  - $\log e = 1$, dove $e$ è il numero di Nepero `r exp(1)`...
+
+Una delle utilità dei logaritmi è di trasformare il logaritmo del prodotto 
+in somma dei logaritmi dei fattori.
+
+__Proprietà 1__
+\[\log a\cdot b=\log a + \log b\]
+
+ed esprime la potenza come coefficiente moltiplicativo:
+
+__Proprietà 2__
+\[\log a^b=b\log a\]
+
+Consideriamo il prodotto di logaritmi:
+\begin{eqnarray*}
+ \log \prod_{i=1}^n a_i &=& \log a_1\cdot...\cdot a_n\\
+                       &=& \log a_1+...+\log a_n\\
+                       &=& \sum_{i=1}^n \log a_i
+\end{eqnarray*}
+
+Inoltre
+\begin{eqnarray*}
+ \log\prod_{i=1}^n a_i^{b_i} &=& \log a_1^{b_1}\cdot...\cdot a_n^{b_i}\\
+                       &=& b_1\log a_1 + ... + a_n\log a_n\\
+                       &=& \sum_{i=1}^n b_i\log a_i
+\end{eqnarray*}
+
+
+
+## Richiami di Analisi `r ifelse (html,"{-}","")` 
+
+### Note sulla cardinalità degli insiemi `r ifelse (html,"{-}","")` 
+
+In matematica la cardinalità di un insieme indica il numero dei suoi elementi.
+
+L'insieme $E=\{a,b,c\}$ ha *cardinalità* finita $$\text{card} (E)=\# E = 3$$ L'insieme dei numeri $S=\{0,1,2,3,...,n\}$ ha cardinalità finita: $$\# S = n+1$$ L'insieme dei numeri naturali $$
+\mathbb{N}=\{0,1,2,3,...\}
+$$ ha **cardinalità infinita numerabile** $$\# \mathbb{N} = \aleph_0,\qquad \text{infinito numerabile}$$ L'insieme dei reali $$\mathbb{R}=\mathbb{Q}\cup\mathbb{I}, \qquad\text{i numeri reali sono dati dall'unione dei razionali $\mathbb{Q}$ e degli irrazionali $\mathbb{I}$}$$ ha **cardinalità infinita più che numerabile** $$\# \mathbb{R} = \aleph_1,\qquad \text{infinito più che numerabile}$$
+
+### Funzioni Reali e loro derivate `r ifelse (html,"{-}","")` 
+
+Solitamente in analisi matematica si studia una generica funzione $f$, dove la variabile è $x$.
+La maggior parte degli esercizi riguardano 
+\[
+f(x), x\in\text{Dominio di $f$}
+\]
+In particolare, se $f(x)=\log x, x>0$ sappiamo che
+\[f'(x)=\frac{1}x\]
+
+Nella teoria della verosimiglianza lasceremo la lettera $f$ assegnata alle funzioni di 
+probabilità (nel caso discreto) e le funzioni di densità (nel caso continuo) e 
+useremo lettere differenti per indicare la funzione. Allo stesso modo le etichette $x$
+restano per individuare i dati e le variabili sono i parametri del modello.
+
+Quindi scriveremo, per esempio,
+
+$$
+\ell(\theta)=\log \theta,~~~ \theta\in\Theta
+$$
+
+e leggeremo: $\ell$ è funzione di $\theta$ e se dobbiamo derivare la funzione
+lo facciamo rispetto a $\theta$:
+\[\ell'(\theta)=\frac{1}\theta\]
+
+Ricordiamo qualche semplice regola di derivazione:
+
+Se $\ell(\theta)=g(h(\theta))$
+$$
+\ell'(\theta)=g'(h(\theta))h'(\theta)
+$$
+
+Se $\ell(\theta)=\log h(\theta)$
+
+$$
+\ell'(\theta)=\frac{h'(\theta)}{h(\theta)}
+$$
+

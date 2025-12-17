@@ -17,9 +17,9 @@ source("intro.R")
 
 \part{Statistica Descrittiva}
 
-# I Fenomeni Collettivi
+# Cos'è la Statistica?
 
-Scrivono Agresti, e Franklin, (2007), nel loro celebre libro:
+Scrivono Agresti e Franklin (2007), nel loro celebre libro:
 
 >"Statistics is the art and science of designing studies and analyzing the data that those studies produce. Its ultimate goal is translating data into knowledge and understanding of the world around us. In short, **statistics is the art and science of learning from data**".
 
@@ -27,128 +27,225 @@ Scrivono Agresti, e Franklin, (2007), nel loro celebre libro:
 
 > *Agresti, A., and Franklin, C. (2007), Statistics: the Art and Science of Learning from Data, Upper Saddle River, Pearson Prentice Hall.*
 
-La **Statistica Descrittiva** si occupa di analizzare in modo meramente descrittivo, senza tentare di spiegare quale meccanismo
-li abbia generati. Di quello si occupa la Statistica Inferenziale nella terza parte del libro.
+La Statistica Descrittiva si occupa di analizzare e riassumere i dati osservati, con l'obiettivo di descriverne struttura e variabilità. La Statistica Inferenziale si occupa invece di estendere l'informazione contenuta nei dati, per formulare conclusioni o previsioni che riguardano la popolazione di riferimento, tema che affronteremo nella terza parte del libro.
 
-Definiremo dapprima cosa sono i dati, quindi \@ref(dati), come si classificano \@ref(var-stat) e come si raccolgono \@ref(riv). 
+Definiremo dapprima cosa sono i dati, quindi, cosa rappresentano, come si classificano e come si raccolgono. 
 
 ## I Dati {#dati}
 
-In latino *datum* significa un fatto, quindi i *dati* sono collezioni di fatti.
-La Statistica ha come oggetto di studio i dati dalla loro definizione fino alla sintesi della conclusioni. 
-Ovvero la statistica si occupa di definire i dati di interesse, di organizzarne la raccolta, di elaborarli e di sintetizzare le conclusioni.
+In latino *datum* significa ciò che è dato, un fatto, un evento osservato. 
+La chiusura dell'indice Dow Jones il 12 novembre 2025 è stata 48 256.29 punti, la temperatura media registrata a Milano il 1 gennaio 2025 è stata 4 °C con valori tra −2 °C e 8 °C, il tasso di disoccupazione in Italia a marzo 2024 era 7.2%, la concentrazione atmosferica di CO₂ misurata a Mauna Loa ad agosto 2025 era 425.48 ppm, il numero di nati in Emilia-Romagna nel 2023 è stato 28 568, il prezzo medio della benzina in Italia a settembre 2024 era circa 1.87 €/litro.
 
-I dati vengono raccolti su individui (__unità statistiche__), che sono accomunate per alcuni aspetti e presentano _variabilità_ su altri, creando così un *fenomeno collettivo*.
-La Statistica è dunque la scienza che studia i dati che definiscono i fenomeni collettivi e che presentano forme di variabilità.
-La Statistica individua: concetti, metodi, e strumenti per la loro analisi.
+Quindi i dati sono collezioni strutturate di fatti osservati, codificati in modo opportuno, che descrivono un fenomeno.
 
-Esempi di fenomeni collettivi che presentano variabilità:
+Esempi di collezioni di dati sono le chiusure giornaliere del Dow Jones in un anno; le temperature orarie di Milano dal 1960; i tassi di disoccupazione trimestrali dei Paesi europei; le concentrazioni mensili di CO₂ dal 1958; i redditi annuali delle famiglie italiane nel 2023; le durate medie dei ricoveri ospedalieri in una regione.
 
--   Reddito,
--   Titolo di studio,
--   Durata ricerca di occupazione,
--   Preferenze di un consumatore,
--   Durata di una malattia,
--   Durata di una apparecchiatura
+La Statistica ha come oggetto di studio i dati, dalla loro definizione fino alla sintesi delle conclusioni. Ovvero la statistica si occupa di definire i dati di interesse, di organizzarne la raccolta, di elaborarli e di sintetizzare le conclusioni.
 
-Il fenomeno è definito da concetti: caratteri o variabili (sinonimi).
-l'unita statistica è l'elemento su cui si osservano i caratteri oggetto di studio.
-una popolazione statistica o collettivo statistico e un insieme di unita statistiche omogenee rispetto a una o più caratteristiche o caratteri.
+## I Fenomeni Collettivi
 
-__Esempio.__ Variabile = genere (M, F)
+In greco fenomeno deriva da φαίνεσθαι (phaínesthai [faˈinestʰai]), che significa “apparire”, “mostrarsi”. Con questo termine si indica qualunque processo naturale o fisico che si manifesta e può essere osservato o misurato: la formazione delle nuvole, l'evaporazione dell'acqua, la combustione, la diffusione di una sostanza, l'espansione termica dei metalli, l'elettrolisi dell'acqua.
 
--   Unità statistica = il singolo individuo in quest'aula
--   Popolazione = gli studenti di quest'aula.
+Quando lo studio riguarda non un singolo caso, ma una pluralità di elementi simili tra loro, parliamo di fenomeno collettivo. 
+Esempi di fenomeni collettivi sono la denatalità e l'invecchiamento della popolazione, l'occupazione, la dinamica dei salari, la risposta dei pazienti a un trattamento, la diffusione di una malattia infettiva, la qualità dei prodotti in un processo industriale, la produttività agricola, il comportamento degli animali in un ecosistema, l'andamento dei flussi di traffico in un'area urbana, le preferenze dei consumatori, le prestazioni sportive di un atleta e tanti altri.
 
-__Esempio.__ Variabile = stato (difettoso, non difettoso)
+Per esempio la denatalità studia il calo delle nascite osservando: il numero di nati per ciascun anno, la popolazione residente, l'età delle madri e alcuni indicatori già calcolati dalle statistiche ufficiali, come il tasso di natalità (nati per 1 000 abitanti) e il tasso di fecondità totale (numero medio di figli per donna). A questi si affiancano spesso serie storiche più lunghe che permettono di osservare l'evoluzione del fenomeno nel tempo. Il fenomeno è collettivo nel senso che non riguarda la singola donna in età fertile, ma l'intero collettivo.
 
--   Unità = pezzo prodotto
--   Popolazione = tutti i pezzi prodotti da settembre 2019
+I dati sono quindi lo strumento attraverso cui i fenomeni collettivi diventano osservabili e analizzabili. Un fenomeno collettivo non è accessibile direttamente nella sua interezza, ma solo attraverso le tracce che lascia sotto forma di osservazioni ripetute, misurazioni, registrazioni. I dati permettono di passare dall'osservazione di singoli casi alla comprensione di un comportamento d'insieme, rendendo possibile lo studio di regolarità, andamenti medi e variabilità che caratterizzano il collettivo nel suo complesso.
 
-__Esempio.__ Variabile = numero giorni di degenza
+È importante tuttavia chiarire fin da subito che non tutti i dati hanno una struttura semplice o uniforme. In molti ambiti le informazioni possono essere organizzate in forme molto complesse, come sequenze temporali ad alta frequenza, immagini, segnali, reti di relazioni, testi o dati spaziali. Nel seguito di questo testo ci concentreremo su alcune strutture di dati particolarmente comuni e rilevanti per l'analisi dei fenomeni economici e sociali, perché consentono di introdurre in modo chiaro i concetti fondamentali della statistica. Queste strutture rappresentano una parte ampia e importante delle applicazioni, ma non esauriscono tutte le possibili forme che i dati possono assumere.
 
--   Unità = individuo ricoverato
--   Popolazione = tutti i ricoverati dell'ospedale XXX dal 2012 al 2020
 
-__Esempio.__ Variabile = kg di produzione
+## Unità, Variabili e Popolazioni Statistiche
 
--   Unità = ettaro coltivato con la varietà X
--   Popolazione = tutti i possibili ettari coltivati con la varietà X
+L'unità statistica è l'elemento fondamentale dell'osservazione. È l'entità su cui si rilevano una o più informazioni e può assumere forme molto diverse a seconda del contesto di studio: una persona, una famiglia, un'impresa, un prodotto, un ricovero ospedaliero, un comune, un animale osservato in natura, o qualsiasi altra entità per la quale sia possibile effettuare una misurazione o una classificazione.
 
-## Variabili Statistiche {#var-stat}
+:::{.definition name="Unità Statistica"}
+Si definisce **unità statistica** l'entità su cui rilevare una o più informazioni
+:::
 
-Ogni variabile statistica è caratterizzata dal numero e dal tipo di **modalità** che questa può assumere.
+A titolo di esempio, l'unità statistica può essere un singolo individuo in un'indagine sulle preferenze dei consumatori, un paziente in uno studio epidemiologico, una famiglia in un'indagine sui consumi, un'impresa in uno studio sugli investimenti, un comune nel rilevare indicatori demografici, oppure un componente prodotto in uno studio sulla qualità industriale.
 
-**Esempi.**
+Su ciascuna unità statistica si osservano uno o più aspetti, detti variabili o caratteri statistici. La variabile rappresenta ciò che viene misurato o classificato sull'unità e può assumere valori diversi da un'unità all'altra.
 
--   Variabile genere: due sole possibili modalità {M, F}
--   Variabile colore dei capelli: {Biondo, Castano, Rosso}
--   Variabile titolo di studio: {Elementari, Medie, Superiori, Laurea, Post Laurea}
--   Variabile numero di interventi: {0, 1, 2, 3, ...}
+:::{.definition name="Variabile Statistica"}
+Si definisce **variabile statistica** l'aspetto dell'unità statistica che si osserva o misura.
+:::
 
-Le variabili possono essere **Qualitative** o **Quantitative**.
+Le variabili possono descrivere qualità, quantità oppure grandezze fisiche o tecniche. Ad esempio, per un individuo possiamo osservare il reddito mensile, il titolo di studio o il numero di acquisti annuali; per un paziente la pressione arteriosa, la presenza o assenza di una patologia o il tempo di recupero; per una famiglia la spesa mensile in alimentari o il numero di componenti; per un'impresa il fatturato annuo o il numero di dipendenti; per un comune la popolazione residente o il tasso di natalità; per un componente prodotto il peso, la resistenza meccanica o il tempo di funzionamento prima del guasto.
 
-- Le variabili **qualitative**: 
-    - possono essere *sconnesse* (o con scala nominale): le modalità possono essere solo uguali o diverse (né ordinate e né ordinabili). Ad esempio il genere, il tipo di titolo di studio, lo stato civile, la regione di provenienza, ecc-
-    - Oppure *ordinate* (o con scala ordinale): le modalità sono ordinabili. Come per esempio: il titolo di studio, il livello di qualifica, le preferenze, ecc.
-- Le variabili **quantitative** possono essere:
-    - **Discrete**: le modalità possono avere una corrispondenza biunivoca con un sottoinsieme dei numeri interi.
-*Esempio*: numero di figli, eta , voto di laurea.
-    - **Continue**: le modalità possono avere una corrispondenza biunivoca con un sottoinsieme dei numeri reali.
-*Esempio*: reddito, consumo, risparmio, altezza.
-    - **Trasferibili**: se l'unità statistica può cedere tutto o parte del carattere posseduto a un'altra in modo sensato.
+Ogni variabile è caratterizzata dall'insieme dei valori o delle modalità che può assumere. Alcune variabili hanno un numero limitato di modalità, come il genere o il titolo di studio, altre possono assumere un numero potenzialmente elevato di valori, come il reddito o l'età.
 
-## Popolazioni Statistiche
+Le **modalità** di una variabile sono i diversi valori o le diverse categorie che la variabile può assumere quando viene osservata sulle unità statistiche.
 
-La **Popolazione Statistica** è l'insieme di tutte le unità che rispondono alla definizione.
-Una popolazione si dice 
+:::{.definition name="Modalità"}
+Si definiscono **modalità** di una variabile i diversi valori o categorie che essa può assumere sulle unità statistiche.
+:::
 
-- **Finita** se si conosce il numero esatto delle sue unità 
-- **Infinita** se non si conosce il numero delle sue unità
+Se, ad esempio, la variabile di interesse osservata su un singolo individuo è il sesso, allora la variabile potrà assumere due sole modalità, Femmina e Maschio. Se la variabile è il titolo di studio, le modalità saranno le diverse categorie di istruzione, come scuola primaria, scuola secondaria, diploma e laurea. Se invece la variabile è il numero di figli, le modalità coincidono con i valori numerici osservabili, come 0, 1, 2, 3 e così via. Nel caso del reddito mensile, le modalità sono i possibili valori monetari che il reddito può assumere e costituiscono un insieme molto ampio, in linea di principio continuo. Analogamente, se si osserva l'età di una persona, le modalità corrispondono ai valori numerici dell'età, misurata in anni o in frazioni di anno.
 
-*Esempi di popolazione finita:* 
+Nel caso di variabili qualitative, le modalità coincidono con le categorie possibili; nel caso di variabili quantitative, le modalità coincidono con i valori numerici osservabili.
 
-- Gli aventi diritto al voto 
-- Le imprese iscritte alla camera di commercio di Modena
+In base alla natura delle modalità, le variabili si distinguono innanzitutto in **qualitative** e **quantitative**. Le variabili qualitative descrivono qualità o categorie e non sono associate a una misurazione numerica in senso stretto. Possono essere **nominali**, quando le modalità sono solo diverse tra loro ma non ordinabili, come il genere, lo stato civile o la regione di provenienza, oppure **ordinali**, quando le modalità possono essere ordinate secondo un criterio naturale, come il titolo di studio, il livello di qualifica o il grado di soddisfazione.
 
-*Esempi di popolazione infinita:* 
+Un caso particolarmente comune di variabili ordinali è rappresentato dalle **scale di valutazione**, come le scale di tipo Likert, spesso utilizzate nelle indagini sociali ed economiche, in cui agli intervistati viene chiesto di esprimere un giudizio su una scala discreta, ad esempio da “per nulla soddisfatto” a “molto soddisfatto”. Pur essendo frequentemente codificate con numeri, queste variabili mantengono una natura ordinale, poiché le distanze tra le modalità non hanno un significato quantitativo preciso.
 
-- I consumatori della marca X 
-- Le aziende che hanno un gestionale con più di 5 anni
+Le variabili quantitative descrivono invece quantità misurabili. Possono essere **discrete**, quando assumono valori in corrispondenza di numeri interi, come il numero di figli, il numero di interventi o il voto di laurea, oppure **continue**, quando possono assumere qualunque valore in un intervallo dei numeri reali, come il reddito, il consumo, il risparmio, l'altezza o la durata di un processo.
 
-## Le rilevazioni Statistiche {#riv}
+In alcuni contesti si distingue inoltre tra variabili misurate su **scale a intervalli** e **scale a rapporti**. Le prime, come la temperatura espressa in gradi Celsius, consentono confronti sulle differenze ma non sui rapporti, mentre le seconde, come il reddito o il peso, hanno uno zero significativo e permettono confronti sia in termini di differenza sia di proporzione. Questa distinzione non sarà formalmente utilizzata nel corso, ma è utile per comprendere i limiti e le possibilità delle diverse misurazioni.
 
-Si distinguono in due tipologie:
+La popolazione statistica, o collettivo statistico, è l'insieme di tutte le unità statistiche che soddisfano la definizione del fenomeno studiato. Rappresenta la totalità teorica degli elementi a cui si riferiscono le osservazioni, come tutti gli studenti di un corso, tutte le imprese di un settore, tutti i ricoveri in un ospedale in un certo intervallo di tempo, tutti i pezzi prodotti da una linea industriale o tutte le misurazioni effettuate da un sensore.
 
-- **Sperimentali** utilizzate, in contesti scientifici, come Fisica, Medicina, Chimica e prevedono
-  -   Ipotesi di lavoro
-  -   Possibilità di controllo
-- **Osservazionali** come le indagini di mercato, i sondaggi, ecc.
-nei quali non si ha possibilità di controllo.
+:::{.definition name="Popolazione Statistica"}
+Si definisce **Popolazione Statistica** l'insieme di tutte le unità statistiche di riferimento.
+:::
 
-L'obiettivo principale di un'indagine statistica è la **conoscenza di una popolazione obiettivo** o di riferimento ($\mathscr{P}$) intesa come insieme di unità elementari su cui si manifesta il fenomeno oggetto di studio.
-L'indagine è svolta quasi sempre su un campione, che è un sottoinsieme di $\mathscr{P}$, diversamente si avrebbe il **censimento**.
+Le unità che compongono una popolazione sono omogenee rispetto alla definizione del collettivo, ma differiscono nei valori delle variabili osservate. Questa differenza prende il nome di variabilità ed è l'elemento che caratterizza i fenomeni collettivi e costituisce l'oggetto principale di studio della statistica.
 
-Per estrarre un campione occorre la **lista** di $\mathscr{P}$.
-La lista è l'elenco degli elementi appartenenti a $\mathscr{P}$ e rappresenta lo strumento principale per la scelta delle unità statistiche campionarie.
+A seconda del contesto, una popolazione può essere **finita**, quando il numero delle unità è noto e determinabile, come nel caso degli aventi diritto al voto o delle imprese iscritte alla Camera di Commercio di una provincia, oppure **infinita**, quando il numero delle unità non è noto o non è delimitabile in modo preciso, come nel caso dei consumatori di una certa marca o delle imprese che adottano una determinata tecnologia.
 
--   **Censimento**: è una indagine completa perché esamina tutte le unità statistiche che compongono la popolazione oggetto di studio, $\mathscr{P}$.
--   **Campionamento**: è una indagine parziale perché esamina solo un sottoinsieme, detto "campione", della popolazione oggetto di studio, $\mathscr{P}$.
 
-### Fasi dell'indagine
+## Regolarità e Variabilità
 
--   definizione degli obiettivi,
--   definizione delle unità e delle variabili da rilevare,
--   scelta del periodo di riferimento.
--   individuazione della popolazione e della lista delle unità statistiche.
--   piano di campionamento
--   raccolta dei dati,
-  -   scelta della tecnica di rilevazione,
-  -   formulazione del questionario e pretest,
-  -   rilevazione sul campo.
--   registrazione dei dati:
--   controllo e correzione.
--   elaborazione e analisi dei dati.
+La popolazione statistica è dunque l'insieme delle unità accomunate da una caratteristica fissa, mentre le osservazioni delle caratteristiche d'interesse (le variabili) variano tra unità e unità.
+
+La statistica studia proprio questa variabilità e le tendenze d'insieme: mira a individuare regolarità che descrivano il comportamento della popolazione, riconoscendo che ogni misura presenta una componente di variabilità intrinseca. 
+
+La statistica offre concetti, metodi e strumenti per analizzare dati che mostrano variabilità, e si muove lungo due obiettivi complementari, uno conoscitivo e uno predittivo.
+
+
+### Obiettivo conoscitivo
+
+Mira a comprendere l'andamento generale di un fenomeno collettivo, cogliendo le regolarità che emergono nell'insieme e quantificando la variabilità che le accompagna. È un momento conoscitivo, quasi contemplativo, in cui si osserva il comportamento del collettivo per capire come si organizza e quali caratteristiche lo descrivono con maggiore stabilità. Si cerca di spiegare il fenomeno, distinguendo ciò che è regolare da ciò che varia tra le unità.
+
+$$
+\text{Fenomeno}=\text{Spiegazione}+\text{Variabilità} 
+$$
+
+In estrema sintesi
+
+:::{.info data-latex=""}
+DATI $\rightarrow$ ANALISI $\rightarrow$ STRUTTURA$~+~$VARIABILITÀ
+:::
+
+Ad esempio immaginiamo uno studio sulle differenze di reddito per titolo di studio. Supponiamo di osservare i redditi annuali di una popolazione di individui occupati e di distinguere tra laureati e non laureati. Dall'analisi dei dati può emergere che, ad esempio, il 78% dei laureati guadagna più di 1.8 mila euro al mese, mentre tra i non laureati questa percentuale scende al 18%. Questa informazione descrive una regolarità di popolazione: il titolo di studio è associato a una diversa distribuzione dei redditi. Allo stesso tempo evidenzia la presenza di variabilità, perché non tutti i laureati superano quella soglia e alcuni non laureati la superano. La statistica non afferma nulla sul reddito di un singolo individuo, ma descrive l'andamento complessivo dei due gruppi, mettendo in luce una struttura media accompagnata da una dispersione nei valori individuali.
+
+### Obiettivo predittivo
+
+Dall'altro lato la statistica utilizza questa comprensione per scopi operativi, perché le regolarità identificate possono essere impiegate per formulare previsioni su casi non osservati.
+La variabilità viene usata per quantificare con quale margine d'errore tali previsioni possano essere considerate attendibili. 
+
+$$
+\text{Futuro}=\text{Previsione}+\text{Errore} 
+$$
+
+In estrema sintesi
+
+:::{.info data-latex=""}
+DATI $\rightarrow$ ANALISI $\rightarrow$ PREVISIONE$~+~$ERRORE
+:::
+
+Ad esempio consideriamo la gestione dei posti letto in un reparto ospedaliero. Supponiamo di disporre dei dati storici sui ricoveri, come la durata della degenza dei pazienti, il tipo di patologia e l'età. Dall'analisi di questi dati emerge una struttura generale del fenomeno, per esempio che la durata media del ricovero è di alcuni giorni, ma con una variabilità significativa tra pazienti. Utilizzando queste informazioni, la statistica permette di prevedere, per un certo periodo futuro, il numero di giorni in cui un posto letto sarà occupato. Questa previsione non è mai esatta, perché la durata dei singoli ricoveri varia da paziente a paziente, ma può essere accompagnata da un margine d'errore che quantifica l'incertezza. In questo modo la previsione non riguarda il singolo paziente, ma il comportamento complessivo del reparto, e consente di pianificare risorse e turni tenendo conto sia delle regolarità osservate sia della variabilità intrinseca del fenomeno.
+
+Comprendere e agire sono due aspetti complementari: prima si cerca l'ordine che emerge dai dati, poi lo si usa per orientarsi in presenza di incertezza. In senso puramente analogico questa distinzione richiama due funzioni tradizionali del pensiero filosofico, una più contemplativa, rivolta a comprendere l'ordine delle cose, e una più operativa, in cui la comprensione acquisita diventa strumento per decidere.
+
+## Dati e Fonti
+
+La statistica non è legata a una disciplina specifica, ma opera sempre all'interno di un contesto teorico che ne orienta le domande e l'interpretazione dei risultati. Le discipline scientifiche ed economico-sociali si fondano infatti su un intreccio di modelli teorici ed evidenze empiriche: la teoria suggerisce quali fenomeni osservare e quali relazioni indagare, mentre i dati forniscono il riscontro empirico su cui costruire e valutare le analisi. La statistica lavora sulle evidenze empiriche, ma non può prescindere dal quadro concettuale in cui queste sono generate e interpretate.
+
+I dati possono provenire da fonti estremamente eterogenee. Possono essere prodotti appositamente per rispondere a una domanda di ricerca, ad esempio attraverso esperimenti, indagini o rilevazioni, ma possono anche essere dati già esistenti, raccolti per altri scopi e successivamente riutilizzati. Appartengono a questa seconda categoria, per esempio, le statistiche ufficiali, i dati amministrativi, i bilanci aziendali, i dati finanziari, i registri sanitari, i dati ambientali o le tracce digitali generate dalle attività quotidiane.
+
+In alcuni casi i dati vengono quindi prodotti, in altri cercati, recuperati o integrati a partire da archivi e basi di dati già disponibili. La statistica non tratta questi casi come equivalenti dal punto di vista metodologico, perché la natura dei dati, le variabili osservate e le ipotesi teoriche sottostanti influenzano le analisi che è possibile condurre. Tuttavia, essa fornisce un linguaggio comune per descrivere e analizzare dati diversi, adattando concetti e strumenti alla struttura delle informazioni e agli obiettivi dello studio. 
+
+### Dati Sperimentali e Dati Osservazionali
+
+Le evidenze empiriche su cui lavora la statistica possono essere ricondotte, in prima approssimazione, a due grandi contesti: quello dei dati **sperimentali** e quello dei dati **osservazionali**. La distinzione non riguarda solo il modo in cui i dati vengono raccolti, ma il tipo di rapporto che si instaura tra teoria, osservazione e realtà.
+
+Nei dati *sperimentali* l'osservazione è guidata da un disegno esplicito. A partire da una teoria o da un'ipotesi di lavoro si decide come intervenire sul fenomeno, quali fattori controllare e quali risultati osservare. L'esperimento nasce con l'obiettivo di isolare specifici meccanismi e di valutare l'effetto di una o più variabili mantenendo, per quanto possibile, costanti le altre condizioni. Un esempio tipico è uno studio clinico in cui si confrontano due gruppi di pazienti, uno trattato con un nuovo farmaco e uno con un placebo, osservando differenze negli esiti di salute. In ambito industriale, rientrano in questa categoria i test di qualità in cui si modificano deliberatamente alcune caratteristiche di un processo produttivo per valutarne l'impatto sul numero di difetti. Anche in economia e nelle scienze sociali si incontrano dati sperimentali, ad esempio negli esperimenti di laboratorio sul comportamento dei consumatori o negli studi randomizzati per valutare l'efficacia di una politica pubblica.
+
+Nei dati *osservazionali*, invece, non si interviene direttamente sul fenomeno, ma lo si osserva così come si manifesta nella realtà. Le informazioni vengono raccolte registrando eventi, comportamenti o caratteristiche che emergono spontaneamente, senza possibilità di controllo sulle condizioni iniziali. Appartengono a questa categoria la maggior parte dei dati economici e sociali: le statistiche ufficiali sulla disoccupazione o sull'inflazione, i redditi dichiarati dalle famiglie, i bilanci delle imprese, i dati finanziari sui prezzi di mercato, i flussi di traffico urbano o le serie storiche climatiche. In questi casi la teoria non guida un intervento sul fenomeno, ma orienta l'interpretazione di dati che riflettono processi complessi, influenzati simultaneamente da molti fattori.
+
+In entrambi i contesti la statistica fornisce strumenti per organizzare e analizzare i dati, ma il significato dei risultati e il tipo di conclusioni che è possibile trarre dipendono strettamente dal modo in cui i dati sono stati generati. Nei dati sperimentali l'attenzione è spesso rivolta alla valutazione di effetti causali, come l'effetto di un trattamento o di un intervento. Nei dati osservazionali, invece, l'analisi si concentra prevalentemente sulle associazioni e sulle regolarità empiriche che emergono nei dati. Questa distinzione non implica una gerarchia di valore tra i due approcci, ma riflette la diversa natura dei fenomeni studiati e i vincoli imposti dalla realtà.
+
+### I Dati Economici
+
+L'economia è una disciplina che combina modelli teorici ed evidenze empiriche. I modelli forniscono schemi interpretativi per comprendere il funzionamento dei mercati, delle istituzioni e dei comportamenti individuali e collettivi; i dati permettono di confrontare queste costruzioni teoriche con la realtà osservata. I dati economici descrivono fenomeni collettivi complessi, influenzati simultaneamente da molti fattori, spesso non controllabili e interdipendenti, e si presentano quindi come il risultato di processi storici, sociali e istituzionali.
+
+A differenza di quanto avviene in molti contesti sperimentali, i dati economici sono nella maggior parte dei casi osservazionali: essi non nascono da un intervento controllato sul fenomeno, ma dalla registrazione di attività economiche che si svolgono nel tempo. Prezzi, redditi, occupazione, produzione, consumi, investimenti sono il risultato di decisioni individuali e collettive che avvengono in un contesto dato, e che vengono osservate e misurate ex post. Questo rende i dati economici particolarmente ricchi di informazione, ma anche intrinsecamente eterogenei e variabili.
+
+
+#### Le indagini statistiche ufficiali
+
+Una parte centrale dei dati economici è prodotta dagli enti di statistica ufficiale. In Italia il principale riferimento è l'ISTAT, mentre a livello europeo e internazionale operano istituzioni come Eurostat, l'OCSE e le Nazioni Unite. Questi enti hanno il compito di raccogliere, organizzare e diffondere informazioni statistiche su popolazione, lavoro, redditi, prezzi, produzione e su molti altri aspetti della vita economica e sociale.
+
+Le statistiche ufficiali sono costruite con l'obiettivo di descrivere fenomeni che riguardano intere popolazioni di riferimento, come la popolazione residente, le famiglie, le imprese o i lavoratori. In alcuni casi l'osservazione avviene attraverso censimenti, cioè rilevazioni complete che coinvolgono tutte le unità della popolazione, come nel caso del censimento della popolazione. Più frequentemente, tuttavia, le informazioni sono raccolte attraverso indagini campionarie, che osservano solo una parte delle unità e utilizzano metodi statistici per estendere i risultati all'intero collettivo.
+
+Le indagini statistiche ufficiali seguono procedure rigorose e standardizzate, che consentono di confrontare i dati nel tempo e tra territori diversi. Esse si basano su definizioni precise delle unità statistiche e delle variabili osservate, su periodi di riferimento chiaramente specificati e su criteri condivisi di classificazione e misura. Questo rende le statistiche ufficiali una fonte fondamentale non solo per l'analisi economica, ma anche per il dibattito pubblico e per il supporto alle decisioni di politica economica.
+
+Nei paragrafi successivi utilizzeremo le statistiche ufficiali come riferimento naturale per introdurre concetti come censimento e campionamento, e per discutere alcune delle principali strutture dei dati economici.
+
+#### Censimento e campionamento
+
+Nel descrivere i fenomeni economici, l'obiettivo ideale sarebbe osservare tutte le unità che compongono la popolazione di riferimento. Quando ciò avviene si parla di **censimento**: una rilevazione completa che coinvolge l'intero collettivo oggetto di studio. Esempi tipici sono il censimento della popolazione residente o il censimento delle imprese, che mirano a fornire una fotografia esaustiva della struttura economica e sociale in un dato momento.
+
+Nella pratica, tuttavia, il censimento rappresenta un'eccezione. I costi elevati, i tempi lunghi di raccolta ed elaborazione e la complessità organizzativa rendono spesso impraticabile l'osservazione completa di tutte le unità. Per questo motivo, la maggior parte delle informazioni statistiche in ambito economico deriva da **indagini campionarie**, in cui i dati vengono raccolti solo su un sottoinsieme della popolazione, detto **campione**.
+
+Il campionamento non è una scelta di ripiego, ma una strategia consapevole che consente di ottenere informazioni attendibili riducendo tempi e costi. L'idea centrale è che, se il campione è scelto in modo appropriato, le sue caratteristiche riflettono, entro un certo margine di incertezza, quelle della popolazione di riferimento. La statistica fornisce gli strumenti concettuali per quantificare questa incertezza e per valutare la qualità delle informazioni ottenute.
+
+Per poter selezionare un campione è necessario disporre di una **lista** delle unità che compongono la popolazione, detta anche base di campionamento. La lista rappresenta il collegamento operativo tra la popolazione teorica e le unità effettivamente osservabili. In ambito economico, tali liste possono essere costituite, ad esempio, dagli archivi anagrafici, dai registri delle imprese o dagli elenchi amministrativi.
+
+La distinzione tra censimento e campionamento richiama inoltre la natura della popolazione statistica. Quando il numero delle unità è noto e delimitato, come nel caso delle famiglie residenti in una regione o delle imprese iscritte a un registro, la popolazione è detta **finita**. In altri casi, come quando si considerano i consumatori di un determinato prodotto o i potenziali utenti di un servizio, la popolazione è più difficilmente delimitabile e viene trattata come **infinita** o concettuale. Questa distinzione non è solo formale, ma influenza il modo in cui i dati vengono interpretati e analizzati.
+
+**Esempio di indagini ufficiali**
+
+- **L'Indagine sulle forze di lavoro (ISTAT)** ha l'obiettivo di stimare il tasso di occupazione, disoccupazione e inattività della popolazione residente in Italia. La popolazione di riferimento è costituita da tutte le persone residenti in famiglie, escluse le collettività. L'indagine è continua e si basa su un campione a rotazione di circa 77.000 famiglie ogni trimestre, selezionate casualmente. I questionari raccolgono informazioni su attività lavorativa, ricerca di lavoro, orari, contratti e condizioni lavorative.
+
+- **L'Indagine sui consumi delle famiglie (ISTAT)** rileva le spese sostenute per beni e servizi, allo scopo di descrivere i comportamenti di consumo e aggiornare il paniere per l'indice dei prezzi. La popolazione è costituita dalle famiglie residenti in Italia, e il campione include oltre 30.000 famiglie distribuite lungo l'anno. Le famiglie selezionate devono compilare un diario giornaliero delle spese e rispondere a interviste dettagliate, il che rende l'indagine particolarmente impegnativa.
+
+- **L'indagine EU-SILC (coordinata da Eurostat, realizzata in Italia da ISTAT)** fornisce informazioni su redditi, condizioni abitative, povertà e disuguaglianza. La popolazione è costituita dalle famiglie residenti nei paesi europei. In Italia, il campione supera le 20.000 famiglie, con interviste condotte annualmente e in parte replicate su base panel. I questionari sono armonizzati a livello europeo per consentire il confronto tra paesi.
+
+
+- **L'indagine PISA (OCSE)** valuta le competenze degli studenti quindicenni in lettura, matematica e scienze, con l'obiettivo di confrontare i sistemi educativi dei paesi partecipanti. La popolazione di riferimento è costituita dagli studenti iscritti al secondo ciclo dell'istruzione secondaria, indipendentemente dall'anno frequentato. In Italia, il campione coinvolge circa 11.000 studenti ogni tre anni, selezionati da un insieme rappresentativo di scuole. I questionari comprendono sia prove cognitive standardizzate sia sezioni dedicate al contesto scolastico, familiare e motivazionale, permettendo analisi multilivello sul rendimento e le disuguaglianze educative.
+
+- **L'indagine PIAAC (OCSE)** valuta le competenze fondamentali degli adulti tra i 16 e i 65 anni, in particolare la capacità di comprendere testi, usare strumenti numerici e risolvere problemi. In Italia, la popolazione campionata è estratta dai registri anagrafici e comprende circa 5.000 individui. Le interviste includono sia un modulo socio-demografico sia prove individuali computerizzate, somministrate in centri di test.
+
+- **L'indagine TALIS (OCSE)** raccoglie informazioni sulle condizioni di lavoro degli insegnanti e dei dirigenti scolastici, esplorando aspetti come la formazione, la soddisfazione professionale, le pratiche didattiche e il clima scolastico. La popolazione di riferimento è costituita dagli insegnanti delle scuole secondarie inferiori. Anche qui il campione è probabilistico e i questionari, somministrati in modo standardizzato, permettono confronti tra paesi.
+
+Queste analisi si basano su campioni estratti da popolazioni note e completamente enumerate. Il disegno campionario, il calcolo dei pesi e l'analisi dei dati tengono esplicitamente conto della struttura finita della popolazione e della complessità del piano di campionamento. La qualità dell'inferenza dipende in larga parte dalla precisione con cui questi aspetti sono progettati e implementati.
+
+
+
+#### Struttura temporale dei dati: cross section, longitudinali e panel
+
+Un aspetto fondamentale dei dati economici riguarda la loro **struttura temporale**, cioè il modo in cui le osservazioni si distribuiscono nel tempo. La dimensione temporale non è un semplice dettaglio tecnico, ma incide profondamente sul tipo di analisi che è possibile svolgere e sulle domande a cui si può rispondere. In base a come il tempo entra nella raccolta dei dati, si distinguono tre grandi tipologie: dati cross section, dati longitudinali e dati panel.
+
+I **dati cross section** descrivono un insieme di unità statistiche osservate in uno stesso istante o in un intervallo di tempo molto breve, che può essere considerato come un “momento”. Essi forniscono una fotografia del fenomeno in un dato periodo. Un esempio tipico è un'indagine sui redditi delle famiglie in un certo anno, oppure una rilevazione sui prezzi praticati dalle imprese in una determinata settimana. In questo tipo di dati il confronto avviene tra unità diverse nello stesso momento, mentre la dimensione temporale rimane sullo sfondo.
+
+I **dati longitudinali** riguardano invece l'osservazione ripetuta nel tempo di uno stesso fenomeno, senza che sia necessario seguire le stesse unità individuali. Rientrano in questa categoria, ad esempio, le serie storiche del tasso di disoccupazione di un Paese, dell'inflazione mensile o del prodotto interno lordo trimestrale. In questo caso l'attenzione è rivolta all'evoluzione nel tempo di una variabile aggregata o di un indicatore, e l'unità statistica è spesso il periodo temporale stesso.
+
+I **dati panel** combinano le due dimensioni precedenti: descrivono più unità statistiche osservate ripetutamente nel tempo. Un esempio è rappresentato dai redditi delle stesse famiglie rilevati per più anni consecutivi, oppure dai bilanci delle stesse imprese osservati su più esercizi. Nei dati panel è possibile studiare sia le differenze tra unità, sia le variazioni nel tempo all'interno della stessa unità, offrendo una ricchezza informativa particolarmente elevata.
+
+Queste tre strutture non rappresentano categorie rigide, ma modalità diverse di organizzare l'informazione empirica. La scelta tra dati cross section, longitudinali o panel dipende dalla domanda di ricerca, dalla disponibilità delle informazioni e dal fenomeno studiato. 
+
+#### Fasi dell'indagine
+
+A titolo di orientamento, e come richiamo a un'impostazione più operativa, è utile ricordare che ogni indagine statistica, indipendentemente dal contesto applicativo, può essere ricondotta a una sequenza di fasi fondamentali. Questa schematizzazione non descrive nel dettaglio il lavoro concreto del ricercatore, ma fornisce una mappa concettuale utile per comprendere come i dati prendono forma prima di essere analizzati.
+
+In linea generale, un'indagine statistica comprende:
+
+* la definizione degli obiettivi conoscitivi;
+* la definizione delle unità statistiche e delle variabili da rilevare;
+* la scelta del periodo di riferimento;
+* l'individuazione della popolazione e della lista delle unità statistiche;
+* la definizione di un piano di campionamento, quando l'osservazione non è censuaria;
+* la raccolta dei dati, che comprende la scelta della tecnica di rilevazione, la formulazione degli strumenti di raccolta e la rilevazione sul campo;
+* la registrazione dei dati;
+* il controllo e la correzione;
+* l'elaborazione e l'analisi dei dati.
+
+Non tutte queste fasi hanno lo stesso peso in ogni contesto, né sono sempre nettamente separate. Tuttavia, questa sequenza mette in evidenza come l'analisi statistica sia solo l'ultima parte di un processo più ampio, in cui le scelte iniziali influenzano profondamente la qualità e l'interpretabilità dei risultati.
+
+A questo proposito, è utile confrontare in modo sintetico le due principali modalità di osservazione dei fenomeni economici, il censimento e il campionamento, evidenziandone vantaggi e limiti.
 
 | $\phantom{a}$                   | Cens     | Camp              |
 |---------------------------------|----------|-------------------|
@@ -165,6 +262,91 @@ La lista è l'elenco degli elementi appartenenti a $\mathscr{P}$ e rappresenta l
 |                                 | Bassa    | Alta              |
 | Quantità dei variabili          | Contro   | Pro               |
 |                                 | Bassa    | Alta              |
+
+La tabella riassume in modo schematico un compromesso centrale nell'analisi statistica: il censimento garantisce completezza e accuratezza a livello molto disaggregato, ma comporta costi elevati, tempi lunghi e spesso una minore qualità complessiva dei dati; il campionamento, al contrario, consente maggiore flessibilità, costi contenuti e una più ricca articolazione delle variabili osservate, al prezzo di una inevitabile componente di incertezza.
+
+#### Le ricerche di mercato
+
+Le ricerche di mercato costituiscono una fonte importante di dati economici e rappresentano un ambito in cui la statistica viene applicata in modo diretto allo studio dei comportamenti individuali e delle preferenze dei consumatori. L'obiettivo principale di queste ricerche è comprendere come gli individui prendono decisioni di acquisto, come valutano prodotti e servizi, come reagiscono a variazioni di prezzo, di qualità o di comunicazione.
+
+Dal punto di vista statistico, le ricerche di mercato si basano prevalentemente su **dati osservazionali**, raccolti attraverso questionari, interviste o strumenti digitali, e assumono molto spesso la forma di **dati cross section**. In una tipica indagine di mercato si osservano infatti molte unità statistiche, come consumatori o famiglie, in uno stesso periodo di riferimento, ottenendo una fotografia delle preferenze o dei comportamenti in un dato momento.
+
+Le variabili rilevate nelle ricerche di mercato sono frequentemente **qualitative**, come il genere, la fascia di età, il livello di istruzione, la marca preferita o il canale di acquisto utilizzato. Accanto a queste compaiono spesso variabili **ordinali**, utilizzate per misurare giudizi, preferenze o livelli di soddisfazione. Le scale di valutazione, come le scale di tipo Likert, consentono di tradurre percezioni e opinioni in dati strutturati, pur mantenendo una natura qualitativa ordinata. Non mancano tuttavia variabili quantitative, come la spesa mensile, la frequenza di acquisto o il numero di prodotti acquistati.
+
+In molti casi le ricerche di mercato vengono ripetute nel tempo, dando luogo a confronti tra indagini successive. Anche quando le unità osservate non coincidono perfettamente, queste ripetizioni permettono di analizzare l'evoluzione delle preferenze aggregate, dei comportamenti di consumo o della diffusione di un prodotto. In alcuni contesti, come i panel di consumatori, le stesse unità vengono seguite nel tempo, avvicinando le ricerche di mercato alla struttura dei dati panel.
+
+Le ricerche di mercato mostrano in modo particolarmente chiaro il legame tra teoria ed evidenza empirica. Le domande del questionario, la scelta delle variabili e il modo in cui vengono formulate le risposte riflettono ipotesi teoriche sul comportamento dei consumatori. La statistica fornisce gli strumenti per organizzare e analizzare le risposte, ma l'interpretazione dei risultati richiede sempre un riferimento al contesto economico e alle ipotesi che hanno guidato la raccolta dei dati.
+
+
+#### I dati aziendali
+
+Un'altra fonte fondamentale di dati economici è rappresentata dai **dati aziendali**, ossia dalle informazioni prodotte e registrate all'interno delle imprese nel corso della loro attività ordinaria. A differenza delle statistiche ufficiali o delle ricerche di mercato, questi dati non nascono primariamente con finalità di analisi statistica, ma per esigenze amministrative, contabili, gestionali o fiscali. Proprio per questo motivo costituiscono una fonte informativa particolarmente ricca, ma anche eterogenea.
+
+Tra i dati aziendali rientrano, ad esempio, i bilanci, i conti economici, gli stati patrimoniali, i flussi di cassa, i dati sulle vendite, sui costi di produzione, sugli investimenti, sull'occupazione e sulle retribuzioni. A questi si affiancano dati operativi più dettagliati, come le quantità prodotte, i tempi di lavorazione, i livelli di scorte, i tassi di difettosità o le informazioni sui clienti e sui fornitori. Molti di questi dati sono registrati con elevata frequenza temporale e possono assumere una struttura longitudinale o panel.
+
+Dal punto di vista statistico, i dati aziendali presentano alcune caratteristiche peculiari. In primo luogo, essi sono spesso **amministrativi**, cioè raccolti secondo criteri definiti da norme contabili o regolamentari, che influenzano la definizione delle variabili e il loro significato economico. In secondo luogo, possono essere affetti da problemi di comparabilità, sia nel tempo sia tra imprese diverse, a causa di cambiamenti organizzativi, contabili o strategici. Infine, l'accesso a questi dati è spesso limitato, poiché essi contengono informazioni sensibili o riservate.
+
+Nonostante queste difficoltà, i dati aziendali svolgono un ruolo centrale nell'analisi economica applicata. Essi permettono di studiare il comportamento delle imprese, le dinamiche di crescita e di produttività, le scelte di investimento e di finanziamento, nonché le relazioni tra performance economica e caratteristiche organizzative. In molti studi empirici, i dati aziendali vengono integrati con informazioni provenienti da altre fonti, come le statistiche ufficiali o le indagini campionarie, dando luogo a basi di dati complesse.
+
+Anche in questo contesto la statistica fornisce una grammatica comune per organizzare e analizzare le informazioni, ma l'interpretazione dei risultati richiede una conoscenza del contesto economico e istituzionale in cui i dati sono generati. I dati aziendali mostrano in modo particolarmente evidente come l'analisi statistica non possa prescindere dal significato economico delle variabili osservate.
+
+
+#### Le banche dati
+
+Un ruolo sempre più rilevante nell'analisi economica è svolto dalle **banche dati**, cioè archivi strutturati che raccolgono grandi quantità di informazioni provenienti da fonti diverse e resi disponibili per la consultazione e l'analisi. Tra queste, un posto particolare è occupato dalle **banche dati finanziarie**, che forniscono informazioni su mercati, strumenti finanziari e operatori economici con un livello di dettaglio e una frequenza temporale molto elevati.
+
+I dati finanziari, come i prezzi delle azioni, delle obbligazioni, dei tassi di cambio o delle materie prime, sono spesso registrati in tempo reale o quasi reale. Questo significa che le osservazioni vengono aggiornate continuamente e possono assumere una struttura temporale molto fine, talvolta a livello giornaliero, orario o addirittura infra-giornaliero. In questi contesti la dimensione temporale diventa centrale e la variabilità dei dati è particolarmente marcata, riflettendo l'interazione continua tra informazioni, aspettative e decisioni degli operatori di mercato.
+
+Accanto alle banche dati finanziarie esistono numerose altre basi di dati economici, sia pubbliche sia private. Le istituzioni statistiche nazionali e internazionali mettono a disposizione archivi contenenti serie storiche, microdati e indicatori aggregati su popolazione, lavoro, redditi e prezzi. Altre banche dati raccolgono informazioni amministrative, come registri fiscali o contributivi, mentre soggetti privati offrono archivi su imprese, bilanci, commercio internazionale o comportamenti di consumo.
+
+Queste banche dati differiscono per contenuto, struttura, livello di aggregazione e accessibilità, ma condividono l'esigenza di essere organizzate e interpretate attraverso strumenti statistici. In molti casi i dati non sono prodotti per rispondere a una specifica domanda di ricerca, ma vengono successivamente riutilizzati, integrati e riorganizzati per scopi analitici. Questo richiede particolare attenzione alla definizione delle variabili, alla coerenza delle misure e al contesto in cui le informazioni sono state generate.
+
+Nel corso utilizzeremo esempi tratti da diverse tipologie di banche dati, per mostrare come la stessa grammatica statistica possa essere applicata a contesti molto diversi, dai dati finanziari ad alta frequenza alle statistiche ufficiali e ai dati aziendali. L'obiettivo non è padroneggiare tutte le fonti disponibili, ma acquisire gli strumenti concettuali necessari per orientarsi tra dati eterogenei, comprenderne i limiti informativi e utilizzarli in modo consapevole nell'analisi dei fenomeni economici.
+
+### I Dati Scientifici
+
+Accanto ai dati economici, una parte rilevante dell'attività statistica riguarda i dati scientifici, prodotti nell'ambito delle scienze naturali, mediche e ambientali. Anche in questi contesti la statistica interviene sull'evidenza empirica, fornendo strumenti per organizzare le osservazioni, descrivere la variabilità e valutare la coerenza tra dati e ipotesi teoriche. Pur riferendosi a fenomeni molto diversi, questi dati condividono alcune caratteristiche che li rendono particolarmente interessanti dal punto di vista statistico.
+
+#### Dati sanitari e ricerca clinica
+
+Un'importante famiglia di dati scientifici è costituita dai dati sanitari, che descrivono eventi di salute, trattamenti, esiti clinici e caratteristiche delle popolazioni di pazienti. Questi dati possono provenire da fonti molto diverse, come registri sanitari, cartelle cliniche, sistemi informativi ospedalieri o studi di ricerca progettati appositamente. La loro raccolta avviene spesso in contesti regolati da vincoli etici e normativi stringenti, che influenzano il modo in cui le informazioni vengono registrate, conservate e utilizzate.
+
+All'interno di questo ambito si colloca l'epidemiologia, che si occupa di osservare e descrivere la distribuzione delle malattie e degli eventi di salute nelle popolazioni. I dati epidemiologici sono tipicamente osservazionali e riguardano gruppi di individui, non singoli casi, con l'obiettivo di individuare differenze tra sottopopolazioni, fattori associati al rischio e andamenti nel tempo. In questo senso essi presentano molte analogie con i dati economici e sociali, sia per la struttura sia per il tipo di domande a cui cercano di rispondere.
+
+Una tipologia centrale di dati epidemiologici è quella derivante dagli studi di coorte, in cui un gruppo di individui accomunati da una certa caratteristica viene seguito nel tempo per osservare l'insorgenza di uno specifico evento di salute. Gli studi di coorte possono essere prospettici, quando l'osservazione inizia nel presente e i dati vengono raccolti man mano che gli eventi si verificano, oppure retrospettivi, quando si ricostruisce l'evoluzione passata utilizzando dati già disponibili, come archivi sanitari o registri amministrativi. In entrambi i casi, i dati hanno una struttura longitudinale e consentono confronti tra gruppi esposti e non esposti a determinati fattori.
+
+Accanto ai dati osservazionali, in ambito sanitario sono molto diffusi i dati provenienti da studi clinici sperimentali, progettati per valutare l'efficacia e la sicurezza di trattamenti o interventi terapeutici. I clinical trials sono studi in cui i pazienti vengono assegnati a gruppi diversi secondo un protocollo prestabilito, ad esempio un gruppo che riceve un nuovo farmaco e un gruppo di controllo. Per ridurre l'influenza di fattori soggettivi e di distorsioni sistematiche, spesso si ricorre al doppio cieco, una procedura in cui né i pazienti né i ricercatori sanno quale trattamento viene somministrato a ciascun individuo. Questa scelta ha conseguenze dirette sulla struttura dei dati e sul modo in cui i risultati possono essere interpretati.
+
+I dati sanitari possono quindi assumere forme molto diverse, che vanno dalla descrizione di singoli casi clinici fino a raccolte sistematiche di studi indipendenti. In quest'ultimo caso si parla di meta-analisi, che aggregano e sintetizzano i risultati di più studi condotti sullo stesso problema, con l'obiettivo di ottenere una visione complessiva più stabile e informativa. Le meta-analisi non producono dati primari, ma dati di secondo livello, costruiti a partire da evidenze già esistenti, e rappresentano una fonte importante nelle valutazioni evidence based.
+
+Nel loro insieme, queste diverse fonti mostrano come i dati sanitari riflettano una pluralità di disegni di studio e di livelli di controllo sul fenomeno osservato. La statistica interviene fornendo strumenti per organizzare, confrontare e sintetizzare queste informazioni, ma il significato dei risultati dipende sempre dal contesto clinico ed epidemiologico in cui i dati sono stati generati.
+
+I dati sanitari possono essere raccolti in modo continuativo da istituzioni pubbliche, oppure prodotti nell'ambito di ricerche mirate. Nel primo caso la fonte principale è rappresentata dai servizi sanitari nazionali e dai sistemi di sorveglianza epidemiologica, che registrano informazioni legate all'erogazione delle prestazioni sanitarie, ai ricoveri, alle diagnosi e agli esiti clinici. Questi dati, spesso di natura amministrativa, vengono raccolti in modo sistematico e coprono popolazioni molto ampie, rendendo possibile lo studio di fenomeni di grande scala.
+
+Accanto a queste fonti istituzionali operano centri epidemiologici, enti di ricerca e organizzazioni internazionali, che coordinano la raccolta e l'armonizzazione dei dati per finalità di monitoraggio, prevenzione e confronto tra territori. In altri casi, invece, i dati sanitari vengono prodotti attraverso ricerche mirate, progettate specificamente per rispondere a una determinata domanda di ricerca, come negli studi di coorte o nei clinical trials. In questi contesti la raccolta dei dati è più limitata nel tempo e nello spazio, ma maggiormente controllata e focalizzata sugli obiettivi dello studio.
+
+#### Dati ambientali, ecologici e climatici
+
+Un'altra grande famiglia è rappresentata dai dati ambientali ed ecologici, che descrivono fenomeni naturali su scale spaziali e temporali molto ampie. Rientrano in questa categoria i dati geologici, atmosferici, meteorologici e climatici, come le temperature, le precipitazioni, le concentrazioni di gas, i livelli di inquinamento o le caratteristiche del suolo.
+
+Questi dati sono spesso raccolti attraverso reti di sensori, satelliti o stazioni di monitoraggio e assumono tipicamente la forma di serie temporali o di dati spaziali. La variabilità naturale, la presenza di ciclicità e trend di lungo periodo e l'elevata dipendenza nel tempo e nello spazio pongono sfide specifiche all'analisi statistica. Anche in questo caso la statistica fornisce una grammatica comune, pur dovendo adattare gli strumenti alla struttura dei dati.
+
+#### Altri ambiti scientifici
+
+La statistica è ampiamente utilizzata anche in molti altri ambiti scientifici. In fisica e chimica i dati derivano spesso da esperimenti controllati e misure ripetute, con l'obiettivo di stimare parametri fisici o verificare leggi teoriche. In biologia e genetica si analizzano dati ad alta dimensionalità, come sequenze genetiche o espressioni geniche, che richiedono una particolare attenzione alla variabilità e al rumore di fondo. In agricoltura e nelle scienze alimentari la statistica è impiegata per valutare rese, qualità dei prodotti e effetti di diverse pratiche colturali, spesso combinando dati sperimentali e osservazionali.
+
+### Big data, dati digitali e dati testuali
+
+Negli ultimi anni si è affermata una nuova e ampia famiglia di dati, spesso indicata con l'espressione big data, che comprende informazioni generate in modo automatico o semi-automatico dalle attività digitali. Rientrano in questa categoria i dati prodotti dal web, dalle piattaforme digitali, dai social network, dai motori di ricerca, dai sistemi di pagamento elettronico, dai dispositivi connessi e dalle applicazioni informatiche utilizzate quotidianamente.
+
+Questi dati si distinguono dalle fonti tradizionali non solo per la loro dimensione, ma soprattutto per il modo in cui vengono generati. Essi non sono raccolti attraverso un disegno di indagine esplicito, ma emergono come sottoprodotto di interazioni, transazioni e processi automatizzati. Like, click, testi, immagini, log di accesso, sequenze di eventi e flussi di messaggi costituiscono esempi di informazioni che possono essere analizzate a fini economici, sociali o scientifici.
+
+Una parte rilevante dei big data è costituita da dati testuali, come documenti, post, commenti, articoli o trascrizioni, che non si presentano immediatamente sotto forma di variabili strutturate. Anche in questi casi, tuttavia, l'analisi statistica interviene trasformando il testo in rappresentazioni quantitative o categoriali, attraverso processi di codifica che permettono di individuare regolarità, frequenze, associazioni o strutture latenti. Questi dati sono alla base di molte applicazioni recenti dell'intelligenza artificiale e dell'apprendimento automatico.
+
+Dal punto di vista statistico, i big data pongono sfide specifiche. Essi sono spesso caratterizzati da elevata eterogeneità, da una forte dipendenza temporale o strutturale e da una qualità variabile delle informazioni. Inoltre, la grande quantità di dati non garantisce di per sé una maggiore informazione: l'assenza di un disegno di raccolta, la selettività delle fonti e i meccanismi che generano i dati possono introdurre distorsioni difficili da individuare.
+
+Anche in questo contesto la statistica fornisce una grammatica di base per organizzare e interpretare i dati, ma richiede una particolare attenzione alla natura delle fonti e al contesto in cui le informazioni sono prodotte. I big data non sostituiscono le fonti tradizionali, ma si affiancano ad esse, ampliando il panorama delle evidenze empiriche disponibili e rendendo ancora più centrale il ruolo dell'analisi statistica nel collegare dati, teoria e decisioni.
+
 
 ## La matrice dei dati
 
@@ -216,3 +398,44 @@ Sulle COLONNE i CARATTERI: si leggono le modalità delle unità statistiche asso
         -   temperature,
         -   reddito.
 :::
+
+
+
+
+
+<!-- La Statistica individua: concetti, metodi, e strumenti per la loro analisi. -->
+
+<!-- Esempi di fenomeni collettivi che presentano variabilità: -->
+
+<!-- -   Reddito, -->
+<!-- -   Titolo di studio, -->
+<!-- -   Durata ricerca di occupazione, -->
+<!-- -   Preferenze di un consumatore, -->
+<!-- -   Durata di una malattia, -->
+<!-- -   Durata di una apparecchiatura -->
+
+<!-- Il fenomeno è definito da concetti: caratteri o variabili (sinonimi). -->
+<!-- l'unita statistica è l'elemento su cui si osservano i caratteri oggetto di studio. -->
+<!-- una popolazione statistica o collettivo statistico e un insieme di unita statistiche omogenee rispetto a una o più caratteristiche o caratteri. -->
+
+
+
+<!-- __Esempio.__ Variabile = genere (M, F) -->
+
+<!-- -   Unità statistica = il singolo individuo in quest'aula -->
+<!-- -   Popolazione = gli studenti di quest'aula. -->
+
+<!-- __Esempio.__ Variabile = stato (difettoso, non difettoso) -->
+
+<!-- -   Unità = pezzo prodotto -->
+<!-- -   Popolazione = tutti i pezzi prodotti da settembre 2019 -->
+
+<!-- __Esempio.__ Variabile = numero giorni di degenza -->
+
+<!-- -   Unità = individuo ricoverato -->
+<!-- -   Popolazione = tutti i ricoverati dell'ospedale XXX dal 2012 al 2020 -->
+
+<!-- __Esempio.__ Variabile = kg di produzione -->
+
+<!-- -   Unità = ettaro coltivato con la varietà X -->
+<!-- -   Popolazione = tutti i possibili ettari coltivati con la varietà X -->

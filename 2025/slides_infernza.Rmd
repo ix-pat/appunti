@@ -1,0 +1,106 @@
+---
+title: "Inferenza"
+author: "Patrizio Frederic"
+date: "`r Sys.Date()`"
+output:
+  slidy_presentation: default
+  ioslides_presentation: default
+---
+
+```{r setup, include=FALSE}
+soruce("intro.R")
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Inferire: un atto cognitivo fondamentale
+
+- Inferire = trarre conclusioni da osservazioni o fatti
+- Collega esperienza passata e previsione futura
+- Richiede riconoscimento, elaborazione, astrazione
+
+## Inferenza nel mondo animale
+
+- Alcune specie evolute apprendono regolarità dall’ambiente
+- Adattano il comportamento in base all’esperienza
+- Inferenza implicita, non consapevole
+
+## Specificità umana dell'inferenza
+
+- L’uomo prende coscienza dell’atto inferenziale
+- Costruisce linguaggi simbolici e modelli astratti
+- Nascono logica, matematica, statistica
+- L'inferenza diventa replicabile e comunicabile
+
+## Tre modalità di inferenza
+
+- Deduttiva: da premesse certe a conclusioni necessarie
+- Induttiva diretta: da modello noto a probabilità di osservazioni
+- Induttiva inversa (statistica): da dati osservati a modello ignoto
+
+## Inferenza statistica
+
+- Trasforma osservazioni parziali in conoscenza generalizzabile
+- Richiede un linguaggio formale per esprimere incertezza
+- Ponte tra istinto naturale e razionalità formale
+
+## Inferenza da popolazioni finite
+
+- Popolazioni chiuse, elencabili (es. censimenti)
+- Necessario un registro completo della popolazione
+- Richiede disegno campionario, strumenti di rilevazione, controllo qualità
+- Tipica delle statistiche ufficiali (ISTAT, Eurostat, OCSE)
+
+## Esempi di indagini su popolazioni finite
+
+- Forze di lavoro (ISTAT): tasso di occupazione, 77.000 famiglie/trim.
+- Consumi delle famiglie (ISTAT): diario spese, 30.000 famiglie/anno
+- EU-SILC (Eurostat/ISTAT): redditi e disuguaglianze, >20.000 famiglie
+- PISA (OCSE): competenze studenti quindicenni, 11.000 studenti/3 anni
+- PIAAC (OCSE): competenze adulti 16-65 anni, 5.000 individui
+- TALIS (OCSE): condizioni di lavoro degli insegnanti
+
+## Inferenza da popolazioni infinite
+
+- Popolazioni non enumerate, concettualmente infinite
+- I dati sono realizzazioni di una variabile aleatoria
+- Si adotta un approccio modellistico probabilistico
+
+## Esempi di inferenza da popolazioni infinite
+
+- Processi fisici e ambientali (es. temperatura, inquinanti)
+- Produzione industriale (pezzi futuri)
+- Eventi ripetibili (click, richieste a server)
+- Sperimentazioni (clinical trials, psicologia, economia sperimentale)
+- Anche da popolazioni finite si può usare un modello idealizzato
+
+## Inferenza non parametrica e parametrica
+
+- Non parametrica: osservazioni IID, nessuna ipotesi sulla distribuzione
+- Parametrica: ipotesi su una famiglia di distribuzioni
+- Scelta = compromesso tra flessibilità e precisione
+
+## Esempi di inferenza parametrica/non parametrica
+
+- Mediana dei tempi di percorrenza: non parametrico
+- Poisson per traffico: parametrico discreto
+- Binomiale per epidemiologia: parametrico discreto
+
+## Sintesi dei contesti di inferenza
+
+- Popolazioni finite: contesti pratici e registrati
+- Popolazioni infinite: contesti modellistici e astratti
+- La statistica si adatta al problema: registro o modello
+
+## Metafora dell'urna: panoramica inferenziale
+
+- Urna finita nota: inferenza su proporzioni (campionamento senza reinserimento)
+- Urna ignota con reinserimento: stimare proporzioni (modello binomiale)
+- Urna continua ignota: inferenza non parametrica su media/varianza
+- Urna discreta (Poisson): inferenza parametrica su tassi
+- Urna normale: inferenza parametrica continua su media/deviazione
+
+## Conclusione
+
+- Inferenza = cuore del ragionamento statistico
+- Sempre legata a un contesto e a ipotesi
+- Dal registro al modello: strumenti diversi, stesso obiettivo

@@ -1,0 +1,620 @@
+---
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setupesno, include=FALSE}
+source("intro.R")
+```
+
+```{r 07d-Esercizi-Normale-13}
+mx <- 1.5
+ssx <- .5^2
+sx <- sqrt(ssx)
+my <- 0.5
+ssy <- .3^2
+sy <- sqrt(ssy)
+x0 <- .9
+x1 <- .5
+x2 <- 1.8
+y1 <- 0.4
+y2 <- 1.2
+
+
+xx1 <- x1
+xx2 <- x2
+
+pa <- 1-pnorm(x0,mx,sx)
+pb <- pnorm(x2,mx,sx)-pnorm(x1,mx,sx)
+pc <- pnorm(y2,my,sy)-pnorm(y1,my,sy)
+pab <- pnorm(x2,mx,sx)-pnorm(x0,mx,sx)
+
+fig.def()
+```
+
+###  Esempio
+
+Siano $X\sim N(`r mx`,`r ssx`)$ e sia $Y\sim N(`r my`,`r ssy`)$, $X$ e $Y$ **indipendenti**. Si considerino i seguenti insiemi: $A=\{X>`r x0`\}$, $B=\{`r x1`<X<`r x2`\}$, $C=\{`r y1`<Y< `r y2` \}$
+
+```{r 07d-Esercizi-Normale-14}
+par(mfrow=c(1,2),cex=cex*.5)
+curve(dnorm(x,mx,sx),mx-4*sx,mx+4*sx,axes=F,xlab="x",ylab=expression(f(x)))
+title("Densità di X")
+axis(1,c(mx-4*sx,x1,x0,mx,x2,mx+4*sx))
+axis(2)
+segments(mx,0,mx,dnorm(mx,mx,sx),lty=2)
+segments(x0,.001,mx+4*sx,.001,lwd=2,col=ared)
+text(.5*(mx+4*sx+x0),.06,"A",col=ared,cex=cex*3)
+
+segments(x1,-.01,x2,-.01,lwd=2,col=4)
+text(.5*(x1+x2),.06,"B",col=4,cex=cex*3)
+
+
+curve(dnorm(x,my,sy),my-4*sy,my+4*sy,axes=F,xlab="y",ylab=expression(f(y)))
+title("Densità di Y")
+axis(1,c(my-4*sy,y1,my,y2,my+4*sy))
+axis(2)
+segments(my,0,my,dnorm(my,my,sy),lty=2)
+
+segments(y1,-.01,y2,-.01,lwd=2,col=3)
+text(.5*(y1+y2),.06,"C",col=3,cex=3)
+
+par(cex=cex)
+```
+
+1. Calcolare $P(B)$.
+
+```{r 07d-Esercizi-Normale-15}
+vnam<-"X"
+mm <- mx
+ss <- ssx
+```
+
+```{r 07d-Esercizi-Normale-1, results='asis'}
+cat(norm_int(x1 = x1,x2 = x2,verso = NULL,mm = mx,ss = ssx,mu = "\\mu_X",sigma = "\\sigma_X"))
+```
+
+2. Calcolare di  $P(A)$.
+
+
+```{r 07d-Esercizi-Normale-2, results='asis'}
+cat(norm_int(x1 = x0,verso = ">",mm = mx,ss = ssx,mu = "\\mu_X",sigma = "\\sigma_X"))
+```
+
+alternativamente possiamo osservare che 
+\[A=\{X>0.9\}=\{0.9< X\leq +\infty \}\]
+
+```{r 07d-Esercizi-Normale-3, results='asis'}
+cat(norm_int(x1 = x0,x2=Inf,verso = NULL,mm = mx,ss = ssx,mu = "\\mu_X",sigma = "\\sigma_X"))
+```
+
+3. Calcolare $P(C)$.
+
+```{r 07d-Esercizi-Normale-4, results='asis'}
+cat(norm_int(x1 = y1,x2 = y2,verso = NULL,mm = my,ss = ssy,vnam = "Y",mu = "\\mu_Y",sigma = "\\sigma_Y"))
+fig.def(width = 10)
+```
+
+4. Individuare l'insieme $A\cap B$.
+
+Osserviamo che
+  \[A\cap B=\{X>`r x0`\}\cap\{`r xx1`<X<`r xx2`\}= \{`r x0`<X<`r xx2`\} \]
+   e quindi $A\cap B$ è un **intervallo** sulla retta di supporto di $X$
+
+```{r 07d-Esercizi-Normale-5,echo=F}
+
+x1 <- xx1
+x2 <- xx2
+
+par(cex=.65,mar=c(0,0,0,0),mfrow=c(1,1))
+xlim <- c(x1-1,x2+1)
+ylim <- c(-.5,.5)
+plot(xlim,ylim,axes = F,xlab = "",ylab="",type = "n")
+arrows(xlim[1],0,xlim[2],0,length = .1)
+points(c(x0,x1,x2),c(0,0,0),pch=3)
+text(c(x0,x1,x2),-.1,c(x0,x1,x2))
+
+text(x1,.3,"B",col=4,cex=1.5)
+text(.5*(xlim[2]+x0),.3,"A",col=ared,cex=1.5)
+text(.5*(x2+x0),-.2,expression(paste("A",intersect(B))),col=1,cex=1.5)
+
+segments(x1,.1,x2,.1,col=4)
+segments(x1,0,x1,.1,col=4)
+segments(x2,0,x2,.1,col=4)
+
+segments(x0,.2,xlim[2],.2,col=ared)
+segments(x0,0,x0,.2,col=ared)
+polygon(c(x1,x1,x2,x2),c(0,.1,.1,0),density = 10,col=4)
+polygon(c(x0,x0,xlim[2]-.1,xlim[2]-.1),c(0,.2,.2,0),density = 10,angle = -45,border = NA,col=ared)
+text(xlim[2]-.2,-.1,"X")
+segments(x0,0,x2,0,lwd=4)
+
+```
+
+5. Calcolare  $P(A\cap B)$.
+
+```{r 07d-Esercizi-Normale-6, results='asis'}
+cat(norm_int(x1 = x0,x2=x2,verso = NULL,mm = mx,ss = ssx,mu = "\\mu_X",sigma = "\\sigma_X"))
+```
+
+Osservare che $`r pab`=P(A\cap B)\neq P(A)P(B)=`r pa*pb`$, il motivo è che $A$ e $B$ **non sono eventi indipendenti**, perché sono due insiemi della stessa variabile $X$.
+
+```{r 07d-Esercizi-Normale-16}
+x1 <- xx1
+x2 <- xx2
+
+fig.def(3.5,8)
+```
+
+6. Individuare l'insieme  $B\cap C$.
+
+Quando invece osserviamo $B\cap C$ vediamo che
+\[B\cap C=\{`r x1`<X<`r x2`\}\cap\{`r y1`<Y< `r y2`\}= \{`r x1`<X<`r x2`\}\times\{`r y1`<Y< `r y2`\} \]
+e dunque $B\cap C$ è un **rettangolo** sul piano $(X,Y)$
+
+```{r 07d-Esercizi-Normale-7,echo=F}
+x1 <- xx1
+x2 <- xx2
+
+xlim <- c(x1-1,x2+1)
+ylim <- c(-.3,y2+.5)
+plot(xlim,ylim,axes = F,xlab = "",ylab="",type = "n",asp = 1)
+
+
+# segments(x1,-1,x1,2,col=4)
+# segments(x2,-1,x2,2,col=4)
+# 
+# segments(-1,y1,10,y1,col=ared)
+# segments(-1,y2,10,y2,col=ared)
+
+
+polygon(c(x1,x1,x2,x2),c(-1,3,3,-1),col=ablue,fillOddEven = T,border = NA)
+polygon(c(-1,3,3,-1),c(y1,y1,y2,y2),col=ablue,fillOddEven = T,border = NA)
+polygon(c(x1,x2,x2,x1),c(y1,y1,y2,y2),fillOddEven = T,border = NA,col=lighten(iblue,0.6))
+polygon(c(x1,x2,x2,x1),c(y1,y1,y2,y2),density=10,fillOddEven = T,border = NA,col=darken(iblue,.2))
+
+text(c(x1,x2),-.1,c(x1,x2),adj = 0)
+
+segments(x1,-1,x1,2,lty=2)
+segments(x2,-1,x2,2,lty=2)
+
+segments(-1,y1,3,y1,lty=2)
+segments(-1,y2,3,y2,lty=2)
+
+
+text(-.1,c(y1,y2),c(y1,y2),adj=1,pos=3)
+
+points(c(x1,x2),c(0,0),pch=3)
+
+text(xlim[2]-.2,-.1,"X")
+text(-.1,ylim[2]-.2,"y")
+
+arrows(xlim[1],0,xlim[2],0,length = .1)
+arrows(0,ylim[1],0,ylim[2],length = .1)
+text(.5*sum(xlim),-.2,"B",col=4,cex=2.5)
+text(-.2,.5*sum(ylim),"C",col=3,cex=2.5)
+text(.5*sum(xlim),.5*sum(ylim),expression(paste("B",intersect(C))),col=1,cex=2.5)
+
+```
+
+7. Calcolare $P(B\cap C)$. 
+
+Anzitutto osserviamo che la coppia di VC $(X,Y)$ vive sul piano e la densità di probabilità
+è una superficie
+\[f(x,y)=f(x)f(y)\]
+dove $f(x,y)$ e la densità della normale doppia in $(x,y)$ $f(x)$ è la densità di $X$ e $f(y)$ è la densità di $Y$.
+
+Dal punto di vista grafico:
+
+```{r 07d-Esercizi-Normale-17}
+xxx <- seq(mx-4*sx,mx+4*sx,length.out = 51)
+xrs <- seq(x1,x2,length.out = 51)
+yyy <- seq(my-4*sy,my+4*sy,length.out = 51)
+yrs <- seq(y1,y2,length.out = 51)
+pxy <- outer(xxx,yyy,function(x,y)dnorm(x,mx,sx)*dnorm(y,my,sy))
+prs <- outer(xrs,yrs,function(x,y)dnorm(x,mx,sx)*dnorm(y,my,sy))
+
+M <- persp(xxx,yyy,pxy,box=F,xlab="x",ylab="y",theta = -50,expand = .5,border = NA,shade = .25,ltheta = +30,col=ablue)
+
+arrows(
+  trans3d(0,min(yyy)-.1,0,M)$x,
+  trans3d(0,min(yyy)-.1,0,M)$y,
+  trans3d(0,max(yyy)+.1,0,M)$x,
+  trans3d(0,max(yyy)+.1,0,M)$y,length = .1)
+
+arrows(
+  trans3d(min(xxx)-.1,0,0,M)$x,
+  trans3d(min(xxx)-.1,0,0,M)$y,
+  trans3d(max(xxx)+.1,0,0,M)$x,
+  trans3d(max(xxx)+.1,0,0,M)$y,length = .1)
+
+arrows(
+  trans3d(0,0,-.05,M)$x,
+  trans3d(0,0,-.05,M)$y,
+  trans3d(0,0,.5,M)$x,
+  trans3d(0,0,1.1,M)$y,length = .1)
+
+points(rbind(
+  trans3d(mx,max(yyy)+.1,0,M),
+  trans3d(mx,min(yyy)-.1,0,M)
+  ), type = "l",lty=2)
+
+points(rbind(
+  trans3d(max(xxx)+.1,my,0,M),
+  trans3d(min(xxx)-.1,my,0,M)
+  ), type = "l",lty=2)
+
+points(rbind(
+  trans3d(mx,my,0,M),
+  trans3d(mx,my,dnorm(mx,mx,sx)*dnorm(my,my,sy),M)
+  ), type = "l",lty=2)
+
+text(trans3d(0,0,-.1,M),"0")
+text(trans3d(max(xxx)+.5,0,-.1,M),"x")
+text(trans3d(0,max(yyy)+.5,-.1,M),"y")
+text(trans3d(-.1,-.1,1.2,M),"f(x)f(y)")
+
+text(trans3d(mx,0,-.1,M),as.character(mx))
+text(trans3d(0,my,-.1,M),as.character(my))
+
+fig.def(4,15,titolo = F)
+```
+
+
+Calcolare $P(B\cap C)$ equivale a calcolare il **volume** sotteso della densità doppia al rettangolo $B\cap C$:
+
+```{r 07d-Esercizi-Normale-18}
+
+
+x1 <- xx1
+x2 <- xx2
+xxx <- seq(mx-4*sx,mx+4*sx,length.out = 51)
+xrs <- seq(x1,x2,length.out = 51)
+yyy <- seq(my-4*sy,my+4*sy,length.out = 51)
+yrs <- seq(y1,y2,length.out = 51)
+pxy <- outer(xxx,yyy,function(x,y)dnorm(x,mx,sx)*dnorm(y,my,sy))
+prs <- outer(xrs,yrs,function(x,y)dnorm(x,mx,sx)*dnorm(y,my,sy))
+
+if (!html) par(mfrow=c(1,2),mar=c(0,0,0,0))
+M <- persp(xxx,yyy,pxy,box=F,xlab="x",ylab="y",theta = -50,expand = .5,border = NA,shade = .25,ltheta = +30,col=ablue)
+arrows(
+  trans3d(0,min(yyy)-.1,0,M)$x,
+  trans3d(0,min(yyy)-.1,0,M)$y,
+  trans3d(0,max(yyy)+.1,0,M)$x,
+  trans3d(0,max(yyy)+.1,0,M)$y,length = .1)
+
+arrows(
+  trans3d(min(xxx)-.1,0,0,M)$x,
+  trans3d(min(xxx)-.1,0,0,M)$y,
+  trans3d(max(xxx)+.1,0,0,M)$x,
+  trans3d(max(xxx)+.1,0,0,M)$y,length = .1)
+
+arrows(
+  trans3d(0,0,-.05,M)$x,
+  trans3d(0,0,-.05,M)$y,
+  trans3d(0,0,.5,M)$x,
+  trans3d(0,0,1.1,M)$y,length = .1)
+
+
+points(rbind(
+  trans3d(x1,max(yyy)+.1,0,M),
+  trans3d(x1,min(yyy)-.1,0,M)
+  ), type = "l",lty=2)
+
+points(rbind(
+  trans3d(x2,max(yyy)+.1,0,M),
+  trans3d(x2,min(yyy)-.1,0,M)
+  ), type = "l",lty=2)
+
+points(rbind(
+  trans3d(max(xxx)+.1,y1,0,M),
+  trans3d(min(xxx)-.1,y1,0,M)
+  ), type = "l",lty=2)
+
+points(rbind(
+  trans3d(max(xxx)+.1,y2,0,M),
+  trans3d(min(xxx)-.1,y2,0,M)
+  ), type = "l",lty=2)
+
+rcs0 <- trans3d( c(x1,x1,x2,x2), c(y1,y2,y1,y2),
+  c(0,0,0,0),
+  M)
+
+rcs1 <- trans3d( c(x1,x1,x2,x2), c(y1,y2,y1,y2),
+  c(
+    dnorm(x1,mx,sx)*dnorm(y1,my,sy),
+    dnorm(x1,mx,sx)*dnorm(y2,my,sy),
+    dnorm(x2,mx,sx)*dnorm(y1,my,sy),
+    dnorm(x2,mx,sx)*dnorm(y2,my,sy)),
+  M)
+
+segments(rcs0$x,rcs0$y,rcs1$x,rcs1$y,col='grey40',lty = 2)
+
+l1 <- trans3d(xrs,rep(y1,times=51),dnorm(y1,my,sy)*dnorm(xrs,mx,sx),M)
+l2 <- trans3d(xrs,rep(y2,times=51),dnorm(y2,my,sy)*dnorm(xrs,mx,sx),M)
+l3 <- trans3d(rep(x1,times=51),yrs,dnorm(x1,mx,sx)*dnorm(yrs,my,sy),M)
+l4 <- trans3d(rep(x2,times=51),yrs,dnorm(x2,mx,sx)*dnorm(yrs,my,sy),M)
+lines(l1,col=1,lwd=2)
+lines(l2,col=1,lwd=2)
+lines(l3,col=1,lwd=2)
+lines(l4,col=1,lwd=2)
+
+for (i in 1:51){
+  li <- trans3d(xrs,rep(yrs[i],times=51),dnorm(yrs[i],my,sy)*dnorm(xrs,mx,sx),M)
+  lines(li,col='grey40')
+}
+for (i in 1:51){
+  li <- trans3d(rep(xrs[i],times=51),yrs,dnorm(xrs[i],mx,sx)*dnorm(yrs,my,sy),M)
+  lines(li,col='grey40')
+}
+
+text(trans3d(0,0,-.1,M),"0")
+text(trans3d(max(xxx)+.5,0,-.1,M),"x")
+text(trans3d(x1,0,-.1,M),as.character(x1))
+text(trans3d(x2,0,-.1,M),as.character(x2))
+text(trans3d(0,y1,-.1,M),as.character(y1))
+text(trans3d(0,y2,-.1,M),as.character(y2))
+text(trans3d(0,max(yyy)+.5,-.1,M),"y")
+text(trans3d(-.1,-.1,1.2,M),"f(x)f(y)")
+
+rr1  <- cbind(c(x1,xrs,x2),y1,c(0,prs[,1],0))
+ret1 <- trans3d(rr1[,1],rr1[,2],rr1[,3],M)
+
+rr2  <- cbind(x1,c(y1,yrs,y2),c(0,prs[1,],0) )
+ret2 <- trans3d(rr2[,1],rr2[,2],rr2[,3],M)
+
+rr3  <- cbind(x2,c(y1,yrs,y2),c(0,prs[51,],0) )
+ret3 <- trans3d(rr3[,1],rr3[,2],rr3[,3],M)
+
+rr4  <- cbind(c(x1,xrs,x2),y2,c(0,prs[,51],0))
+ret4 <- trans3d(rr4[,1],rr4[,2],rr4[,3],M)
+
+
+polygon(ret1$x,ret1$y,density = 20,lwd=1,col='grey40')
+polygon(ret4$x,ret4$y,density = 20,lwd=1,col='grey40')
+polygon(ret2$x,ret2$y,density = 20,angle = -45,lwd=1,col='grey40')
+polygon(ret3$x,ret3$y,density = 20,angle = -45,lwd=1,col='grey40')
+
+
+xs1 <- rnorm(100000,mx,sx)
+ys1 <- rnorm(100000,my,sy)
+xss1 <- xs1[xs1>x1 & xs1 <x2 & ys1>y1 & ys1<y2]
+yss1 <- ys1[xs1>x1 & xs1 <x2 & ys1>y1 & ys1<y2]
+zs  <- runif(length(xss1),0,dnorm(xss1,mx,sx)*dnorm(yss1,my,sy))
+#points(trans3d(xss1,yss1,zs,M),pch='.')
+
+
+
+M <- persp(xxx,yyy,pxy,box=F,xlab="x",ylab="y",theta = +120,expand = .5,border = NA,shade = .25,ltheta = +30,col=ablue)
+arrows(
+  trans3d(0,min(yyy)-.1,0,M)$x,
+  trans3d(0,min(yyy)-.1,0,M)$y,
+  trans3d(0,max(yyy)+.1,0,M)$x,
+  trans3d(0,max(yyy)+.1,0,M)$y,length = .1)
+
+arrows(
+  trans3d(min(xxx)-.1,0,0,M)$x,
+  trans3d(min(xxx)-.1,0,0,M)$y,
+  trans3d(max(xxx)+.1,0,0,M)$x,
+  trans3d(max(xxx)+.1,0,0,M)$y,length = .1)
+
+arrows(
+  trans3d(0,0,-.05,M)$x,
+  trans3d(0,0,-.05,M)$y,
+  trans3d(0,0,.5,M)$x,
+  trans3d(0,0,1.1,M)$y,length = .1)
+
+
+points(rbind(
+  trans3d(x1,max(yyy)+.1,0,M),
+  trans3d(x1,min(yyy)-.1,0,M)
+  ), type = "l",lty=2)
+
+points(rbind(
+  trans3d(x2,max(yyy)+.1,0,M),
+  trans3d(x2,min(yyy)-.1,0,M)
+  ), type = "l",lty=2)
+
+points(rbind(
+  trans3d(max(xxx)+.1,y1,0,M),
+  trans3d(min(xxx)-.1,y1,0,M)
+  ), type = "l",lty=2)
+
+points(rbind(
+  trans3d(max(xxx)+.1,y2,0,M),
+  trans3d(min(xxx)-.1,y2,0,M)
+  ), type = "l",lty=2)
+
+rcs0 <- trans3d( c(x1,x1,x2,x2), c(y1,y2,y1,y2),
+  c(0,0,0,0),
+  M)
+
+rcs1 <- trans3d( c(x1,x1,x2,x2), c(y1,y2,y1,y2),
+  c(
+    dnorm(x1,mx,sx)*dnorm(y1,my,sy),
+    dnorm(x1,mx,sx)*dnorm(y2,my,sy),
+    dnorm(x2,mx,sx)*dnorm(y1,my,sy),
+    dnorm(x2,mx,sx)*dnorm(y2,my,sy)),
+  M)
+
+segments(rcs0$x,rcs0$y,rcs1$x,rcs1$y,col='grey40',lty = 2)
+
+l1 <- trans3d(xrs,rep(y1,times=51),dnorm(y1,my,sy)*dnorm(xrs,mx,sx),M)
+l2 <- trans3d(xrs,rep(y2,times=51),dnorm(y2,my,sy)*dnorm(xrs,mx,sx),M)
+l3 <- trans3d(rep(x1,times=51),yrs,dnorm(x1,mx,sx)*dnorm(yrs,my,sy),M)
+l4 <- trans3d(rep(x2,times=51),yrs,dnorm(x2,mx,sx)*dnorm(yrs,my,sy),M)
+lines(l1,col=1,lwd=2)
+lines(l2,col=1,lwd=2)
+lines(l3,col=1,lwd=2)
+lines(l4,col=1,lwd=2)
+
+for (i in 1:51){
+  li <- trans3d(xrs,rep(yrs[i],times=51),dnorm(yrs[i],my,sy)*dnorm(xrs,mx,sx),M)
+  lines(li,col='grey40')
+}
+for (i in 1:51){
+  li <- trans3d(rep(xrs[i],times=51),yrs,dnorm(xrs[i],mx,sx)*dnorm(yrs,my,sy),M)
+  lines(li,col='grey40')
+}
+
+text(trans3d(0,0,-.1,M),"0")
+text(trans3d(max(xxx)+.5,0,-.1,M),"x")
+text(trans3d(x1,0,-.1,M),as.character(x1))
+text(trans3d(x2,0,-.1,M),as.character(x2))
+text(trans3d(0,y1,-.1,M),as.character(y1))
+text(trans3d(0,y2,-.1,M),as.character(y2))
+text(trans3d(0,max(yyy)+.5,-.1,M),"y")
+text(trans3d(-.1,-.1,1.2,M),"f(x)f(y)")
+
+rr1  <- cbind(c(x1,xrs,x2),y1,c(0,prs[,1],0))
+ret1 <- trans3d(rr1[,1],rr1[,2],rr1[,3],M)
+
+rr2  <- cbind(x1,c(y1,yrs,y2),c(0,prs[1,],0) )
+ret2 <- trans3d(rr2[,1],rr2[,2],rr2[,3],M)
+
+rr3  <- cbind(x2,c(y1,yrs,y2),c(0,prs[51,],0) )
+ret3 <- trans3d(rr3[,1],rr3[,2],rr3[,3],M)
+
+rr4  <- cbind(c(x1,xrs,x2),y2,c(0,prs[,51],0))
+ret4 <- trans3d(rr4[,1],rr4[,2],rr4[,3],M)
+
+
+polygon(ret1$x,ret1$y,density = 20,lwd=1,col='grey40')
+polygon(ret4$x,ret4$y,density = 20,lwd=1,col='grey40')
+polygon(ret2$x,ret2$y,density = 20,angle = -45,lwd=1,col='grey40')
+polygon(ret3$x,ret3$y,density = 20,angle = -45,lwd=1,col='grey40')
+
+par(cex=cex)
+
+fig.def()
+
+```
+
+Operativamente basta moltiplicare le due probabilità:
+\[P(\{x_1<X<x_2\}\cap\{y_1<Y<y_2\})=P(\{x_1<X<x_2\})P(\{y_1<Y<y_2\}),\qquad \text{in virtù dell'indipendenza}\]
+E dunque:
+\[P(B\cap C)=P(B)P(C)=`r pb`\times`r pc`=`r pb*pc`\]
+
+8. Calcolare di  $P(A\cup B)$. 
+
+Iniziamo osservando che
+\[A\cup B=\{X>`r x0`\}\cup\{`r x1`<X<`r x2`\}=\{X > `r x1`\}\]
+e dunque
+
+```{r 07d-Esercizi-Normale-19}
+x0 <- xx1
+mm <- mx
+ss <- ssx
+vnam <- "X"
+```
+
+```{r 07d-Esercizi-Normale-8, results='asis'}
+cat(norm_int(x1 = x1,verso = ">",ss = ssx,mm = mx,mu = "\\mu_X",sigma = "\\sigma_X"))
+```
+
+
+9. Calcolare $P(B\cup C)$. 
+
+Iniziamo osservando che
+\[B\cup C=\{`r x1`<X<`r x2`\}\cup\{`r y1`<Y<`r y2`\}\]
+e dunque, dalla regola della somma otteniamo:
+\[P(B\cup C)=P(B)+P(C)-P(B\cap C)=`r pb`+`r pc`-`r pb*pc`=`r pb+pc-pb*pc`\]
+
+10. Calcolare   $P(A|B)$. 
+
+Dalla definizione di probabilità condizionata otteniamo:
+\[P(A|B)=\frac{P(A\cap B)}{P(B)}\]
+e dunque:
+\[P(A|B)=\frac{`r pab`}{`r pb`}=`r pab/pb`\]
+
+11. Calcolare $P(B|C)$.
+
+\[P(B|C)=\frac{P(B\cap C)}{P(C)}=\frac{P(B)P(C)}{P(C)}=P(B)=`r pb`\]
+Osservazione: $X$ e $Y$ sono **indipendenti** e quindi $B$ e $C$ sono a loro volta eventi indipendenti: la probabilità che $B$ sia _vero_ non cambia se $C$ è _vero_ o se $C$ è _falso_.
+
+12. Sia $W=X+Y$, calcolare la probabilità che $W<1$.
+
+Dalle proprietà della normale otteniamo che $W\sim N(`r mx`+`r my`,`r ssx`+`r ssy`)$ e dunque
+```{r 07d-Esercizi-Normale-20}
+x0 <- 1
+mm <- mx+my
+ss <- (ssx+ssy)
+vnam <- "W"
+```
+
+```{r 07d-Esercizi-Normale-9, results='asis'}
+cat(norm_int(x1 = x0,mm = mm,ss = ss,vnam = vnam,mu = "\\mu_W",sigma = "\\sigma_W"))
+```
+
+
+13. Sia $V=X-Y$, calcolare la probabilità che $V<1.2$.
+
+Dalle proprietà della normale otteniamo che $V\sim N(`r mx`-`r my`,`r ssx`+`r ssy`)$ e dunque
+
+```{r 07d-Esercizi-Normale-21}
+x0 <- 1.2
+mm <- mx-my
+ss <- (ssx+ssy)
+vnam <- "V"
+pb <- pnorm(round((1.2-mm)/sqrt(ss),2))
+```
+
+```{r 07d-Esercizi-Normale-10, results='asis'}
+cat(norm_int(x1 = x0,mm = mm,ss = ss,vnam = vnam,mu = "\\mu_V",sigma = "\\sigma_V"))
+```
+
+
+14.  Sia $V=X-Y$, posto $A=\{V>0\}$ e $B=\{V<1.2\}$. Calcolare $P(A|B)$
+
+L'evento $A$ è vero se $V>0$ e l'evento $B$ è vero se $V<1.2$. Chiedersi quanto vale
+$P(A|B)$ equivale a chiedersi "è stato estratto un numero casuale $V$, non so quanto vale
+ma so che è minore di $1.2$, con quale probabilità è maggiore di zero?"
+
+Dalla definizione di probabilità condizionata
+\begin{eqnarray*}
+   P(A|B)&=&\frac{P(A\cap B)}{P(B)}\\
+   &=&\frac{P(\{V>0\}\cap \{V<1.2\})}{P(V<1.2)}\\
+   &=&\frac{P(0<V<1.2)}{P(V<1.2)}
+\end{eqnarray*}
+  
+```{r 07d-Esercizi-Normale-11,results='asis'}
+
+res <- norm_int(x1 = 0,x2 = 1.2,verso = NULL,mm = mm,ss = ss,vnam = "V",mu = "\\mu_V",sigma = "\\sigma^2_V")
+cat(res,sep="\n")
+pab <- pnorm(round((1.2-mm)/sqrt(ss),2))-pnorm(round((0-mm)/sqrt(ss),2))
+```
+
+E quindi
+
+\begin{eqnarray*}
+   P(A|B)&=&\frac{P(A\cap B)}{P(B)}\\
+   &=&\frac{P(0<V<1.2)}{P(V<1.2)}\\
+   &=&\frac{`r pab`}{`r pb`}\\
+   &=&`r pab/pb`
+\end{eqnarray*}
+
+
+14.  Sia $V=X-Y$, posto $A=\{V>0\}$ e $B=\{V<1.2\}$. Calcolare $P(B|A)$
+
+\begin{eqnarray*}
+   P(A|B)&=&\frac{P(A\cap B)}{P(A)}\\
+   &=&\frac{P(\{V>0\}\cap \{V<1.2\})}{P(V>0)}\\
+   &=&\frac{P(0<V<1.2)}{P(V>0)}
+\end{eqnarray*}
+
+dobbiamo solo calcolare $P(V>0)$
+
+```{r 07d-Esercizi-Normale-12,results='asis'}
+res <-norm_int(x1 = 0,x2 = NULL,verso = ">",mm = mm,ss = ss,vnam = "V",mu = "\\mu_V",sigma = "\\sigma^2")
+cat(res,sep="\n")
+pa <- 1-pnorm(round((0-mm)/sqrt(ss),2))
+```
+
+E quindi
+
+\begin{eqnarray*}
+   P(B|A)&=&\frac{P(A\cap B)}{P(A)}\\
+   &=&\frac{`r pab`}{`r pa`}\\
+   &=&`r pab/pa`
+\end{eqnarray*}

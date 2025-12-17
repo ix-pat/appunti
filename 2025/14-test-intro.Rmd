@@ -1,0 +1,831 @@
+---
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup14, include=FALSE}
+rm(list=ls())
+
+
+source("intro.R")
+```
+
+
+# Teoria dei test
+
+## Le Ipotesi
+
+Siano $X_1,...,X_n$ $n$ VC, replicazioni di $X\sim\mathscr{L}(\theta)$
+
+Un _Test Statistico_ è la scelta tra due ipotesi diverse su $\theta$ alla luce dei dati che osserveremo:
+\[\begin{cases}
+H_0:\theta\in\Theta_0, \qquad \Theta_0\subset\Theta\\
+H_1:\theta\in\Theta_1, \qquad \Theta_1\subset\Theta\\
+\end{cases}
+\]
+
+  - Se $\Theta_0=\{\theta_0\}$ è un solo punto si dice che $H_0$ è un'ipotesi **semplice**, altrimenti è **composta**
+  - Se $\Theta_1=\{\theta_1\}$ è un solo punto si dice che $H_1$ è un'ipotesi **semplice**, altrimenti è **composta**  
+
+
+
+### Esempi di ipotesi
+
+Esempio: siamo indecisi se l'urna da cui stiamo per estrarre le palline abbia l'80% di palline vincenti oppure il 40%:
+\[\begin{cases}
+H_0:\pi=0.8, \\
+H_1:\pi=0.4
+\end{cases}
+\]
+
+In questo caso, $H_0$ è un'ipotesi semplice (specifica solo un punto) e un'ipotesi $H_1$ è semplice 
+serve solo per comprendere la teoria. i primi esempi saranno svolti con due ipotesi
+semplici.
+
+Esempio: siamo indecisi se il reddito medio degli italiani, di cui stiamo per estrarre un campione, sia uguale a 18 mila € annui oppure minore di 18 mila € annui:
+\[\begin{cases}
+H_0:\mu=18, \\
+H_1:\mu< 18
+\end{cases}
+\]
+
+In questo caso, $H_0$ è un'ipotesi semplice (specifica solo un punto) e $H_1$ è composta 
+(specifica un'intera regione di $\Theta$) è il caso più interessante nella pratica
+ed  è il caso che svilupperemo maggiormente.
+
+Esempio: siamo indecisi se la SD del reddito degli italiani sia maggiore o minore di 2 mila € annui:
+\[\begin{cases}
+H_0:\sigma\geq 2, \\
+H_1:\sigma<2
+\end{cases}
+\]
+
+In questo caso, $H_0$ è un'ipotesi composta e $H_1$ è composta è un caso meno interessante 
+e non svilupperemo
+
+## La Decisione
+
+Preparare un test statistico significa dividere lo spazio dei campioni in due
+\[\mathcal{S}=\mathcal{S}_0\cup\mathcal{S}_1,\qquad \mathcal{S}_0\cap\mathcal{S}_1=\emptyset
+\]
+
+Il test è una **decisione**: se il campione proverrà da $\mathcal{S}_0$ il test deciderà per $H_0$, se il campione proverrà da $\mathcal{S}_1$ il test deciderà per $H_1$.
+
+Ogni decisione ha delle conseguenze
+
+  - Se $H_0$ è vera ma il campione cade in $\mathcal{S}_1$ sceglierò $H_1$ erroneamente
+  - Se $H_1$ è vera ma il campione cade in $\mathcal{S}_0$ sceglierò $H_0$ erroneamente
+
+## La tavola della verità
+
+
+La _tavola della verità_ è una tabella simbolica in cui sulle righe viene scritto il _vero stato di natura_ cioè, se $H_0$ è vera o falsa. Per colonna viene scritta la decisione, cioè
+se scelgo di tenere $H_0$ o di rifiutarla in favore di $H_1$.
+
+:::{.info data-latex=""}
+:::{.center data-latex=""}
+```{r 14-test-intro-1, results='asis'}
+
+t.ver <- data.frame(s.n.="stato di natura",pi=c("$H_0$","$H_1$"),matrix(c("Corretta","Errore II tipo","Errore I tipo","Corretta"),2))
+kable(t.ver,row.names = F,col.names = c("","","decido $H_0$","decido $H_1$"),align = 'c',
+      booktabs = T, escape = F,linesep = "", digits = 4) %>%
+  column_spec(1, bold = T) %>%
+  column_spec(3:4, width = "10em") %>%
+  collapse_rows(columns = 1, valign = "middle") %>%
+   add_header_above(c(" ", "","Decisione" = 2))
+
+mumax <- 5
+za2 <- round(qnorm(.975),2)
+n <- 10
+
+```
+:::
+:::
+
+Dunque:
+
+:::{.info data-latex=""}
+:::{.definition name="Errori di primo e secondo tipo"}
+
+Si definiscono
+
+- L'**errore di primo tipo** è l'errore che si commette scegliendo $H_1$ quando è vera $H_0$.
+- L'**errore di secondo tipo** è l'errore che si commette scegliendo $H_0$ quando è vera $H_1$.
+
+:::
+:::
+
+Dunque ad ogni decisione corrisponde un possibile errore. 
+Per valutare un test si devono calcolare le probabilità di errore
+
+:::{.center data-latex=""}
+```{r 14-test-intro-2, results='asis'}
+
+t.ver <- data.frame(s.n.="stato di natura",pi=c("$H_0$","$H_1$"),matrix(c("$1-\\alpha$","$\\beta$","$\\alpha$","$1-\\beta$"),2))
+kable(t.ver,row.names = F,col.names = c("","","decido $H_0$","decido $H_1$"),align = 'c',
+      booktabs = T, escape = F,linesep = "", digits = 4) %>%
+  column_spec(1, bold = T) %>%
+  column_spec(3:4, width = "10em") %>%
+  collapse_rows(columns = 1, valign = "middle") %>%
+   add_header_above(c(" ", "","Decisione" = 2))
+
+```
+:::
+
+Dove
+
+:::{.info data-latex=""}
+:::{.definition name="Probabilità degli Errori di primo e secondo tipo"}
+
+\[\alpha=P(\text{Errore I tipo})=P(\text{Decidere $H_1$};H_0)=P(X_1,...,X_n\in\mathcal{S}_1;H_0)\]
+
+\[\beta=P(\text{Errore II tipo})=P(\text{Decidere $H_0$};H_1)=P(X_1,...,X_n\in\mathcal{S}_0;H_1)\]
+
+$\alpha$ è il livello di **significatività** del test, $\alpha$ è la probabilità di scegliere $H_1$ quando invece è vera $H_0$. 
+$\beta$ è la probabilità di scegliere $H_0$ quando invece è vera $H_1$. 
+
+:::
+:::
+
+Infine
+
+:::{.info data-latex=""}
+:::{.definition name="Potenza di un Test"}
+\[1-\beta =P(\text{Decidere $H_1$}; H_1)=P(X_1,...,X_n\in\mathcal{S}_1;H_1)\]
+$1-\beta$ è la **potenza del test**, $1-\beta$ è la probabilità di scegliere $H_1$ quando $H_1$ è vera.
+:::
+:::
+
+
+<!-- ## Esempio: COVID-19 e Tamponi -->
+
+<!-- - Il test della coltura attraverso il _tampone_ **non** è un _test certo_ -->
+<!-- \begin{align} -->
+<!-- P(\text{Falso Positivo}) =& P(\text{Tampone Positivo} ;& \text{Individuo non è infetto})&=0.02 = \alpha \\ -->
+<!-- P(\text{Falso Negativo}) =& P(\text{Tampone Negativo} ;& \text{Individuo è infetto})&=0.30 = \beta \\ -->
+<!-- \end{align} -->
+
+<!-- - La tavola della verità -->
+<!-- ```{r 14-test-intro-3, results='asis'} -->
+<!-- alpha <- .02 -->
+<!-- bbeta <- .3 -->
+<!-- t.ver <- data.frame(s.n.="stato di natura",pi=c("Non Infetto","Infetto"),matrix(c(1-alpha,bbeta,alpha,1-bbeta),2)) -->
+<!-- kable(t.ver,row.names = F,col.names = c("","","Negativo","Positivo"),align = 'c') %>% -->
+<!-- kable_styling(booktabs = T, escape = F,linesep = "", digits = 4) %>% -->
+<!--   column_spec(1, bold = T) %>% -->
+<!--   column_spec(3:4, width = "10em") %>% -->
+<!--   collapse_rows(columns = 1, valign = "middle") %>% -->
+<!--    add_header_above(c(" ", "","Tampone" = 2)) -->
+<!-- ``` -->
+
+<!-- - Gli **errori del primo tipo** sono i **Falsi Positivi**,  -->
+
+<!-- - Gli **errori del secondo tipo** sono i **Falsi Negativi**,  -->
+
+<!-- - La **significatività** del test è -->
+<!-- \[\alpha=0.02\Rightarrow 2\%\] -->
+
+<!-- - La **potenza** del test è -->
+<!-- \[1-\beta=0.70\Rightarrow 70\%\] -->
+
+<!-- - Il test del _tampone_ non è un test statistico, non possiamo agire sulla scelta di $\alpha$ né di $\beta$. -->
+
+
+:::{.example name="Spam e Filtri email"}
+Il Un filtro delle email che separa lo _spam_ dal _non spam_ **non** è una _procedura certa_
+\begin{align*}
+P(\text{Falso Positivo}) =& P(\text{filtrata spam} ; \text{non è spam})= \alpha \\
+P(\text{Falso Negativo}) =& P(\text{filtrata non spam} ; \text{è spam})= \beta \\
+\end{align*}
+
+La tavola della verità
+
+:::{.center data-latex=""}
+```{r 14-test-intro-4, results='asis'}
+alpha <- .02
+bbeta <- .3
+t.ver <- data.frame(s.n.="stato di natura",pi=c("Non Spam","Spam"),matrix(c("$1-\\alpha$","$\\beta$","$\\alpha$","$1-\\beta$"),2))
+kable(t.ver,row.names = F,col.names = c("","","Non Spam","Spam"),align = 'c',
+      booktabs = T, escape = F,linesep = "", digits = 4) %>%
+  column_spec(1, bold = T) %>%
+  column_spec(3:4, width = "10em") %>%
+  collapse_rows(columns = 1, valign = "middle") %>%
+   add_header_above(c(" ", "","Filtro" = 2))
+```
+:::
+
+Obiettivo: costruire il filtro in modo tale che
+$\alpha$ sia fissato ad un valore arbitrariamente piccolo
+$1-\beta$ sia la più alta possibile, per $\alpha$ fissato
+:::
+
+
+```{r 14-test-intro-5,echo=FALSE,include=FALSE}
+############# Esempio dell'Orsi
+
+
+crop <- function(im, left = 0, top = 0, right = 0, bottom = 0) {
+  d <- dim(im[[1]]); w <- d[2]; h <- d[3]
+  image_crop(im, glue::glue("{w-left-right}x{h-top-bottom}+{left}+{top}"))
+}
+
+
+n <- 10
+x  <- 0:n
+p0 <- .8
+p1 <- .4
+f0 <- dbinom(x,n,p0)
+f1 <- dbinom(x,n,p1)
+ff <- round(cbind(f0,f1),4)
+colnames(ff) <- c("$H_0:\\pi=0.8$","$H_1:\\pi=0.4$")
+row.names(ff) <- paste("$P(S_{10}=",0:10,")$",sep = '')
+
+RA <- x < .8*n
+RB <- x < .6*n
+RC <- x < .2*n | x > .8*n
+
+alphaA <- sum(f0[RA])
+alphaB <- sum(f0[RB])
+alphaC <- sum(f0[RC])
+
+betaA <- sum(f1[!RA])
+betaB <- sum(f1[!RB])
+betaC <- sum(f1[!RC])
+
+tvA <-data.frame(s.n.="stato di natura",pi=c("$\\pi=0.8$","$\\pi=0.4$"),round(matrix(c(1-alphaA,betaA,alphaA,1-betaA),2),4))
+tvB <-data.frame(s.n.="stato di natura",pi=c("$\\pi=0.8$","$\\pi=0.4$"),round(matrix(c(1-alphaB,betaB,alphaB,1-betaB),2),4))
+tvC <-data.frame(s.n.="stato di natura",pi=c("$\\pi=0.8$","$\\pi=0.4$"),round(matrix(c(1-alphaC,betaC,alphaC,1-betaC),2),4))
+
+# 
+# png("img/deca.png",width = 1024, height = 480)
+# plot(c(0,10),c(-1,1),axes=F,xlab="",ylab="",type="n")
+# abline(0,0)
+# points(0:10,(0:10)*0,pch="|")
+# points(8,0,pch="|",col=ared)
+# text(0:10,(0:10)*0-.15,0:10)
+# text(8,-.15,8,col=ared)
+# text(8,-.3,"Valore  critico",col=ared)
+# brackets(0,.1,7,.1,h = .1)
+# text(3.5,.5,expression(S[1]),cex=2)
+# brackets(8,.1,10,.1,h=.1)
+# text(9,.5,expression(S[0]),cex=2)
+# dev.off()
+# 
+# 
+# png("img/decb.png",width = 1024, height = 480)
+# plot(c(0,10),c(-1,1),axes=F,xlab="",ylab="",type="n")
+# abline(0,0)
+# points(0:10,(0:10)*0,pch="|")
+# points(6,0,pch="|",col=ared)
+# text(0:10,(0:10)*0-.15,0:10)
+# text(6,-.15,8,col=ared)
+# text(6,-.3,"Valore  critico",col=ared)
+# brackets(0,.1,5,.1,h = .1)
+# text(2.5,.5,expression(S[1]),cex=2)
+# brackets(6,.1,10,.1,h=.1)
+# text(8,.5,expression(S[0]),cex=2)
+# dev.off()
+# 
+# png("img/decc.png",width = 1024, height = 480)
+# plot(c(0,10),c(-1,1),axes=F,xlab="",ylab="",type="n")
+# abline(0,0)
+# points(0:10,(0:10)*0,pch="|")
+# points(2,0,pch="|",col=ared)
+# points(8,0,pch="|",col=ared)
+# text(0:10,(0:10)*0-.15,0:10)
+# text(2,-.15,2,col=ared)
+# text(8,-.15,8,col=ared)
+# text(2,-.3,"Valore  critico inferiore",col=ared)
+# text(8,-.3,"Valore  critico superiore",col=ared)
+# brackets(2,.1,8,.1,h = .1)
+# brackets(0,.1,1,.1,h = .1)
+# brackets(9,.1,10,.1,h = .1)
+# text(.5,.5,expression(S[1]),cex=2)
+# text(9.5,.5,expression(S[1]),cex=2)
+# text(5,.5,expression(S[0]),cex=2)
+# dev.off()
+
+
+
+```
+
+
+## Esempio: Scegliere tra due ipotesi semplici
+
+
+Esempio: siamo indecisi se l'urna da cui stiamo per estrarre le palline abbia l'80% di palline vincenti oppure il 40%:
+\[\begin{cases}
+H_0:\pi=0.8, \\
+H_1:\pi=0.4
+\end{cases}
+\]
+
+Decidiamo di estrarre 10  palline CR (IID), $X_1,...,X_{10}$ per decidere tra $H_0$ e $H_1$.
+Prima di estrarre le palline possiamo calcolare la probabilità di tutti i possibili campioni _sotto ipotesi $H_0$_ e _sotto ipotesi $H_1$_. La somma
+\[S_{10}=X_1+...+X_{10}\]
+descrive tutti i possibili campioni Bernoulli IID di ampiezza $n=10$, $S_{10}\sim\text{Binom}(\pi)$ e quindi
+\[\mathcal{S}=\{0,~1,~2,...,10\}\]
+e
+\[P(S_{10}=s;\pi)=\binom{10}{s}\pi^s(1-\pi)^{n-s},\qquad \pi\in\{0.8,0.4\}\]
+
+Possiamo quindi calcolare
+
+\scriptsize
+```{r 14-test-intro-6, results='asis'}
+gg <- cbind(0:10,format(ff,digits = 4))
+colnames(gg)<-c("$S_n$","$P(S_n;\\pi=0.8)$","$P(S_n;\\pi=0.4)$")
+rownames(gg)<-NULL
+kable(t(gg),booktabs = T, escape = F,linesep = "", digits = 4,col.names = NA) %>%
+  kable_styling(font_size = 10)
+```
+\normalsize
+
+### Tre diversi Test a confronto
+
+Sia dato il sistema di ipotesi:
+\[\begin{cases}
+H_0:\pi=0.8, \\
+H_1:\pi=0.4
+\end{cases}
+\]
+
+Un test è una divisione dello spazio dei campioni, e nel modello Bernoulli IID i campioni di ampiezza $n=10$ sono riassunti dalla loro somma $S_{10}$
+
+__Decisione A__ Se $S_{10}/10\geq 0.8\Rightarrow S_{10}\geq 8$ allora scelgo $H_0$; se $S_{10}/10 <   0.8\Rightarrow S_{10}<    8$ allora scelgo $H_1$
+  
+```{r 14-test-intro-16, fig.height=1.5}
+par(mar=c(0,3,0,3))
+plot(c(0,10),c(-.5,.7),axes=F,xlab="",ylab="",type="n")
+abline(0,0)
+points(0:10,(0:10)*0,pch="|")
+points(8,0,pch="|",col=ared)
+text(0:10,(0:10)*0-.15,0:10)
+text(8,-.15,8,col=ared)
+text(8,-.3,"Valore critico",col=ared)
+brackets(0,.1,7,.1,h = .1)
+text(3.5,.5,expression(S[1]),cex=2)
+brackets(8,.1,10,.1,h=.1)
+text(9,.5,expression(S[0]),cex=2)
+```
+
+__Decisione B__ Se $S_{10}/10\geq 0.6\Rightarrow S_{10}\geq 6$ allora scelgo $H_0$; se $S_{10}/10 <   0.6\Rightarrow S_{10}<    6$ allora scelgo $H_1$
+  
+```{r 14-test-intro-17, fig.height=1.5}
+plot(c(0,10),c(-1,1),axes=F,xlab="",ylab="",type="n")
+abline(0,0)
+points(0:10,(0:10)*0,pch="|")
+points(6,0,pch="|",col=ared)
+text(0:10,(0:10)*0-.15,0:10)
+text(6,-.15,8,col=ared)
+text(6,-.3,"Valore  critico",col=ared)
+brackets(0,.1,5,.1,h = .1)
+text(2.5,.5,expression(S[1]),cex=2)
+brackets(6,.1,10,.1,h=.1)
+text(8,.5,expression(S[0]),cex=2)
+```
+  
+__Decisione C__ Se $0.2\leq S_{10}/10\leq 0.8\Rightarrow 2\leq S_{10}\leq 8$ allora scelgo $H_0$; se $S_{10}/10 <   0.2$ oppure $S_{10}>0.8$, $\Rightarrow S_{10}<  2$ oppure $S_{10}>8$ allora scelgo $H_1$
+  
+```{r 14-test-intro-18, fig.height=2}
+plot(c(0,10),c(-1,1),axes=F,xlab="",ylab="",type="n")
+abline(0,0)
+points(0:10,(0:10)*0,pch="|")
+points(2,0,pch="|",col=ared)
+points(8,0,pch="|",col=ared)
+text(0:10,(0:10)*0-.15,0:10)
+text(2,-.15,2,col=ared)
+text(8,-.15,8,col=ared)
+text(2,-.3,"Valore  critico inferiore",col=ared)
+text(8,-.3,"Valore  critico superiore",col=ared)
+brackets(2,.1,8,.1,h = .1)
+brackets(0,.1,1,.1,h = .1)
+brackets(9,.1,10,.1,h = .1)
+text(.5,.5,expression(S[1]),cex=2)
+text(9.5,.5,expression(S[1]),cex=2)
+text(5,.5,expression(S[0]),cex=2)
+```
+
+### Gli errori della decisione A
+
+Siccome sappiamo calcolare la distribuzione di $S_{10}$ sotto $H_0$ e sotto $H_1$:
+
+\scriptsize
+```{r 14-test-intro-7, results='asis'}
+kable(t(gg),booktabs = T, escape = F,linesep = "", digits = 4,col.names = NA)%>%
+  column_spec(10:12, color =  iblue) %>%
+  column_spec(2:9, color =  ared) %>%
+  kable_styling(font_size = 10)
+
+```
+\normalsize
+
+
+Decisione A: $\mathcal{S}_0=\{S_{10}\geq 8\}$ e $\mathcal{S}_1=\{S_{10}< 8\}$
+
+\begin{eqnarray*}
+  \alpha &=& P(\mathcal{S}_{1};H_0)=P(S_{10}=0~\cup S_{10}=1~\cup...\cup~ S_{10}=7)\\
+  &=&`r paste(round(f0[1:8],3),collapse ='+')`=`r sum(f0[1:8])`\\
+  \beta &=& P(\mathcal{S}_{0};H_1)=P(S_{10}=8~\cup S_{10}=9~\cup~ S_{10}=10)\\
+  &=&`r paste(round(f1[9:11],3),collapse ='+')`=`r sum(f1[9:11])`
+\end{eqnarray*}
+  
+La significatività del test A è $\alpha=`r tvA[1,4]`$.
+La potenza del test A è $1-\beta=`r tvA[2,4]`$
+
+:::{.center data-latex=""}
+```{r 14-test-intro-8, results='asis'}
+kable(tvA,row.names = F,col.names = c("","","$H_0$","$H_1$"),
+      booktabs = T, escape = F,linesep = "", digits = 4) %>%
+  column_spec(1, bold = T) %>%
+  column_spec(3:4, width = "10em") %>%
+  collapse_rows(columns = 1, valign = "middle") %>%
+   add_header_above(c(" ", "","Decisione A" = 2))
+```
+:::
+
+### Gli errori della decisione B
+
+Siccome sappiamo calcolare la distribuzione di $S_{10}$ sotto $H_0$ e sotto $H_1$:
+\scriptsize
+```{r 14-test-intro-9, results='asis'}
+kable(t(gg),booktabs = T, escape = F,linesep = "", digits = 4,col.names = NA)%>%
+  column_spec(8:12, color =  iblue) %>%
+  column_spec(2:7, color =  ared) %>%
+  kable_styling(font_size = 10)
+```
+\normalsize
+
+
+Decisione B: $\mathcal{S}_0=\{S_{10}\geq 6\}$ e $\mathcal{S}_1=\{S_{10}< 6\}$
+\begin{eqnarray*}
+\alpha  &=&P(\mathcal{S}_{1};H_0)=P(S_{10}=0~\cup S_{10}=1~\cup...\cup~ S_{10}=5)\\
+        &=&`r paste(round(f0[1:6],3),collapse ='+')`=`r sum(f0[1:6])`\\
+\beta   &=& P(\mathcal{S}_{0};H_1)=P(S_{10}=7~\cup ...\cup~ S_{10}=10)\\
+        &=& `r paste(round(f1[7:11],3),collapse ='+')`=`r sum(f1[7:11])`
+\end{eqnarray*}
+
+La significatività del test B è $\alpha=`r tvB[1,4]`$.
+La potenza del test B è $1-\beta=`r tvB[2,4]`$
+
+:::{.center data-latex=""}
+```{r 14-test-intro-10, results='asis'}
+kable(tvB,row.names = F,col.names = c("","","$H_0$","$H_1$"),
+      booktabs = T, escape = F,linesep = "", digits = 4) %>%
+  column_spec(1, bold = T) %>%
+  column_spec(3:4, width = "10em") %>%
+  collapse_rows(columns = 1, valign = "middle") %>%
+   add_header_above(c(" ", "","Decisione B" = 2))
+```
+:::
+
+
+### Gli errori della decisione C
+
+Siccome sappiamo calcolare la distribuzione di $S_{10}$ sotto $H_0$ e sotto $H_1$:
+
+\scriptsize
+```{r 14-test-intro-11, results='asis'}
+kable(t(gg),booktabs = T, escape = F,linesep = "", digits = 4,col.names = NA)%>%
+  column_spec(4:10, color =  iblue) %>%
+  column_spec(c(2:3,11:12), color =  ared) %>%
+  kable_styling(font_size = 10)
+```
+\normalsize
+
+Decisione C: $\mathcal{S}_0=\{2\leq S_{10}\leq 8\}$ e $\mathcal{S}_1=\{S_{10}< 2\}\cup\{S_{10}>8\}$
+\begin{eqnarray*}
+\small\alpha &=&P(\mathcal{S}_{1};H_0)=P(S_{10}= 0~\cup S_{10}=1~\cup~ S_{10}=9~\cup S_{10}=10)\\
+                    &=&`r paste(round(f0[c(1,2,10,11)],3),collapse ='+')`=`r sum(f0[c(1,2,10,11)])`\\
+ \beta       &=& P(\mathcal{S}_{0};H_1)=P(S_{10}=2~\cup ...\cup~ S_{10}=8)\\
+             &=&`r paste(round(f1[3:9],3),collapse ='+')`=`r sum(f1[3:9])`
+\end{eqnarray*}
+
+La significatività del test C è $\alpha=`r tvC[1,4]`$,
+la potenza del test C è $1-\beta=`r tvC[2,4]`$
+
+:::{.center data-latex=""}
+```{r 14-test-intro-12, results='asis'}
+kable(tvC,row.names = F,col.names = c("","","$H_0$","$H_1$"),
+      booktabs = T, escape = F,linesep = "", digits = 4) %>%
+  column_spec(1, bold = T) %>%
+  column_spec(3:4, width = "10em") %>%
+  collapse_rows(columns = 1, valign = "middle") %>%
+   add_header_above(c(" ", "","Decisione C" = 2))
+```
+:::
+
+### Confronto
+
+:::{.center data-latex=""}
+```{r 14-test-intro-13, results='asis'}
+kable(tvA,row.names = F,col.names = c("","","$H_0$","$H_1$"),
+      booktabs = T, escape = F,linesep = "", digits = 4) %>%
+  column_spec(1, bold = T) %>%
+  column_spec(3:4, width = "10em") %>%
+  collapse_rows(columns = 1, valign = "middle") %>%
+   add_header_above(c(" ", "","Decisione A" = 2))
+```
+:::
+
+:::{.center data-latex=""}
+```{r 14-test-intro-14, results='asis'}
+kable(tvB,row.names = F,col.names = c("","","$H_0$","$H_1$"),
+      booktabs = T, escape = F,linesep = "", digits = 4) %>%
+  column_spec(1, bold = T) %>%
+  column_spec(3:4, width = "10em") %>%
+  collapse_rows(columns = 1, valign = "middle") %>%
+   add_header_above(c(" ", "","Decisione B" = 2))
+```
+:::
+
+:::{.center data-latex=""}
+```{r 14-test-intro-15, results='asis'}
+kable(tvC,row.names = F,col.names = c("","","$H_0$","$H_1$"),
+      booktabs = T, escape = F,linesep = "", digits = 4) %>%
+  column_spec(1, bold = T) %>%
+  column_spec(3:4, width = "10em") %>%
+  collapse_rows(columns = 1, valign = "middle") %>%
+   add_header_above(c(" ", "","Decisione C" = 2))
+```
+:::
+
+## Ipotesi Nulla e Ipotesi Alternativa
+
+Nell'approccio _decisionista_ la statistica è di aiuto al decision manager: la decisione tra $H_0$ e $H_1$ deve tenero conto dei _costi_ che una decisione sbagliata comporta e pesare i _costi_ con la probabilità di sbagliare per ottenere una valutazione di _rischio_. Interessante approccio ma non verrà seguito in questo corso.
+
+Nell'approccio _falsificazionista_ (<https://it.wikipedia.org/wiki/Principio_di_falsificabilit%C3%A0>), la statistica è di aiuto alla conoscenza del mondo esterno e delle sue _leggi_. Seguiremo questo approccio.
+In molte discipline $H_0$ viene chiamata **Ipotesi Nulla** e ha una particolare interpretazione:
+$H_0$ è lo stato di conoscenza pregresso. 
+Rappresenta l'ipotesi che i dati non abbiano aggiunto niente di diverso da ciò che già conoscevamo.
+Sotto $H_0$ asserisce che la **differenza** tra l'evidenza del campione e l'ipotesi nulla è solo **dovuta al caso**.
+$H_1$ è chiamata **ipotesi alternativa**, sotto $H_1$ la **differenza** tra l'evidenza dei dati e $H_0$ **non è dovuta al caso** ma ad un _fattore sistematico_.
+La maggior parte delle volte l'obiettivo della ricerca si conclude positivamente se $H_0$ viene rifiutata, e dunque i dati presentati nella ricerca hanno aggiunto _conoscenza_.
+
+
+
+## Rifiutare o non rifiutare $H_0$
+
+Quando si prepara test, spesso, si vuole mostrare che i dati campionari smentiscono alcune ipotesi pregresse. 
+$H_0$ viene abbandonata (**rifiutata**,**confutata**) solo se c'è una forte evidenza campionaria contro
+
+  - Se $H_0$ **non** viene rifiutata allora la differenza tra i dati e l'ipotesi nulla è considerata non significativa
+  - Se $H_0$ viene rifiutata allora la differenza tra i dati e l'ipotesi è considerata significativa
+
+Rifiutare $H_0$ **non** significa accettare $H_1$, ma sostituire una ipotesi pregressa $H_0$ con una nuova supportata dai dati, $H_1$. $H_1$ diventa la nuova $H_0$ e sarà considerata lo stato di conoscenza fino a quando non si troveranno nuovi dati che la **confutano**.
+Per preservare $H_0$ scegliamo una probabilità di significatività bassa
+  \[\alpha=\{0.05,~0.01,~0.005,~0.001\}\]
+
+  - $\alpha=0.05$ produce un test al 5%
+  - $\alpha=0.01$ produce un test all'1%
+  - ecc.
+
+L'obiettivo è trovare, tra tutte i test a livello $\alpha$ fissato, quello con potenza più alta. 
+Non sempre il test più potente esiste. 
+Non tratteremo il problema del test più potente in maniera sistematica.
+
+## Test per $\mu$: due ipotesi semplici, $\sigma^2$ nota
+
+```{r 14-test-intro-19}
+n <- 10
+mu1 <- 21
+mu2 <- 24
+sig <- 3.5
+si2 <- sig^2
+se <- sig/sqrt(n)
+```
+
+Stiamo per estrarre $n=10$ VC IID, $X_1,...,X_{10}$ da una normale $X\sim N(\mu,\sigma^2)$, di cui conosciamo $\sigma^2=`r sig`^2$.
+Per esempio siamo indecisi tra:
+\[\begin{cases}
+H_0:\mu=\mu_0=`r mu1` \\
+H_1:\mu=\mu_1=`r mu2`
+\end{cases}
+\]
+
+Siccome $S_{10}=X_1+...+X_{10}$ racchiude tutta l'informazione sulla media $\mu$ che possiamo estrarre da un campione di normali IID con varianza nota, possiamo ragionare su $\hat\mu=S_{10}/10$ invece che su tutto lo spazio dei campioni $\mathcal{S}$.
+\[\hat\mu=\frac 1 n \sum_{i=1}^n X_i\sim N\left(\mu,\frac{\sigma^2}{n}=`r se`^2\right)\]
+
+  - Sotto $H_0$
+  \[\hat\mu\sim N(`r mu1`,`r se`^2)\]
+  - Sotto $H_1$
+  \[\hat\mu\sim N(`r mu2`,`r se`^2)\]
+
+
+### Test per $\mu$: scegliere il punto critico
+
+Una decisione consiste nello scegliere il punto critico sullo spazio delle medie:
+
+```{r 14-test-intro-20}
+par(mar=c(5, 4, 4, 2) + 0.1)
+pc <- qnorm(.975,mu1,se)
+curve(dnorm(x,mu1,se),21-4.1,21+7.1,axes=F,xlab=expression(bar(X)),ylab=expression(f(bar(X))),col=iblue)
+curve(dnorm(x,mu2,se),21-4.1,21+7.1,add=T,col=ared)
+axis(1,c(mu1,mu2,21-4,21+7))
+axis(2)
+axis(1,qnorm(.975,mu1,se),"Punto \n critico",col=ared,las=2,t)
+
+# curve(dnorm(x,mu1,se),qnorm(.975,mu1,se),21+7,type="h",col=3,add=T,n=1001)
+# xp <- c(seq(17,qnorm(.975,mu1,se),length.out = 101),qnorm(.975,mu1,se))
+# yp <- c(dnorm(xp,mu2,se)[-101],0)
+# polygon(xp,yp,density = 10,col=iblue)
+# text(21,0.15,expression(beta),col=iblue,cex=2)
+# text(24,0.15,expression(alpha),col=3,cex=2)
+
+brackets(17,.01,pc-.05,.01,h = .01,col = iblue)
+brackets(pc+.05,.01,28,.01,h = .01,col=ared)
+text((17+pc)/2,.08,expression(S[0]),cex=2,col=iblue)
+text((28+pc)/2,.08,expression(S[1]),cex=2,col=ared)
+text(18,.1,expression(f(bar(X),mu[0])),col=iblue)
+text(27,.1,expression(f(bar(X),mu[1])),col=ared)
+lines(c(pc,pc),c(0,dnorm(pc,mu2,se)),lty=2)
+```
+
+Potremmo prendere, per esempio, come punto critico $\bar x=23$: se la media dei dati
+è minore di 23 sceglierò $H_0$ altrimenti sceglierò $H_1$.
+
+### Probabilità di errore di primo e di secondo tipo
+
+Fissato il punto critico, per esempio 23, osserviamo
+
+\begin{eqnarray*}
+  \alpha &=&  P(\text{Errore I Tipo})\\
+  &=& P(\text{Scegliere $H_1$ quando è vera $H_0$})\\
+  &=& P(\bar X>23;H_0)\qquad\text{sotto ipotesi $H_0$: $\mu=`r mu1`$}\\
+  &=& 1-P(\bar X \le 23;H_0)\\
+  &=& 1-P\left(\frac{\bar X-\mu_0}{\sigma/\sqrt{n}}\le \frac{23-`r mu1`}{`r sig`/\sqrt{`r n`}}\right)\\
+  &=& 1-\Phi(`r (23-mu1)/se`)\\
+  &=& `r 1-pnorm((23-mu1)/se)`\\
+  \beta &=&  P(\text{Errore II Tipo})\\
+  &=& P(\text{Scegliere $H_0$ quando è vera $H_1$})\\
+  &=& P(\bar X<23;H_1)\qquad\text{sotto ipotesi $H_1$: $\mu=`r mu2`$}\\
+  &=& P(\bar X \le 23;H_1)\\
+  &=& P\left(\frac{\bar X-\mu_1}{\sigma/\sqrt{n}}\le \frac{23-`r mu2`}{`r sig`/\sqrt{`r n`}}\right)\\
+  &=& \Phi(`r (23-mu2)/se`)\\
+  &=& `r pnorm((23-mu2)/se)`
+\end{eqnarray*}
+
+Graficamente osserviamo.  
+
+```{r 14-test-intro-21}
+pc <- qnorm(.975,mu1,se)
+curve(dnorm(x,mu1,se),21-4.1,21+7.1,axes=F,xlab=expression(bar(X)),ylab="",col=iblue)
+curve(dnorm(x,mu2,se),21-4,21+7,add=T,col=ared)
+axis(1,c(mu1,mu2,21-4,21+7))
+#axis(2)
+axis(1,qnorm(.975,mu1,se),"Punto \n critico",col=ared,las=2,t)
+
+curve(dnorm(x,mu1,se),qnorm(.975,mu1,se),21+7,type="h",col=iblue,add=T,n=1001)
+xp <- c(seq(17,qnorm(.975,mu1,se),length.out = 101),qnorm(.975,mu1,se))
+yp <- c(dnorm(xp,mu2,se)[-101],0)
+polygon(xp,yp,density = 25,col=ared)
+text(21,0.05,expression(beta),col=ared,cex=2)
+text(24,0.05,expression(alpha),cex=2,col=iblue)
+
+# brackets(17,.01,pc-.05,.01,h = .01)
+# brackets(pc+.05,.01,28,.01,h = .01)
+# text((17+pc)/2,.05,expression(S[0]),cex=2)
+# text((28+pc)/2,.05,expression(S[1]),cex=2)
+text(18,.1,expression(f(bar(X),mu[0])),col=iblue)
+text(27,.1,expression(f(bar(X),mu[1])),col=ared)
+lines(c(pc,pc),c(0,dnorm(pc,mu2,se)),lty=2)
+```
+
+### Test per $\alpha$ fissato, $\alpha=0.05$
+
+Scegliere il punto critico in questo modo è molto arbitrario e si preferisce scegliere $\alpha$.
+Il valore della probabilità di primo tipo viene scelto basso preservare $H_0$ e rifiutarla solo 
+se l'evidenza campionaria è molto a favore di $H_1$. 
+Fissiamo un valore di $\alpha$ abbastanza piccolo, per esempio, $\alpha=0.05$.
+Trovare il __punto critico__ per $\alpha$ fissato significa risolvere il seguente problema inverso
+\[P(\hat\mu>\text{Punto Critico};H_0)=0.05\]
+
+Sotto $H_0$
+\[\frac{\hat\mu-\mu_0}{\sigma/\sqrt n}=\frac{\hat\mu-`r mu1`}{`r sig`/\sqrt{`r n`}}=\frac{\hat\mu-`r mu1`}{`r se`}\sim N(0,1)\]
+
+Problema inverso lo trasferiamo su $Z$,  per esempio, e trovo il punto critico
+\begin{eqnarray*}
+P(Z>z_{0.05}) &=& 0.05 \\
+z_{0.05} &=& `r qnorm(1-0.05)` \qquad \text{letto dalle tavole}\\
+P(Z>`r qnorm(1-0.05)`) &=& 0.05 \\
+P\left(\frac{\hat\mu-`r mu1`}{`r se`}>`r qnorm(1-0.05)`\right)&=&0.05\\
+P\left(\hat\mu>`r mu1`+`r qnorm(1-0.05)`\cdot`r se`\right)&=&0.05\\
+P\left(\hat\mu>`r mu1 + qnorm(1-0.05) * sig/sqrt(n)`\right)&=&0.05\\
+\text{Punto Critico} &=& \mu_0+z_{0.05}\frac{\sigma}{\sqrt{n}} \\
+                     &=& `r mu1 + qnorm(1-0.05) * se`
+\end{eqnarray*}
+
+
+### La regola di decisione, $\alpha=0.05$
+
+- Se risulterà $\hat\mu\leq `r mu1 + qnorm(1-0.05) * se`$ allora decideremo di **non rifiutare** $H_0$
+- Se risulterà $\hat\mu>`r mu1 + qnorm(1-0.05) * se`$ allora decideremo di **rifiutare** $H_0$
+
+La **significatività** di questo test è al 5%:
+\[\alpha=0.05=P(\hat\mu>`r mu1 + qnorm(1-0.05) * se`;H_0)\]
+
+Per calcolare $\beta$ dobbiamo calcolare
+\begin{eqnarray*}
+  \beta &=& P(\hat\mu<`r mu1 + qnorm(1-0.05) * se`;H_1) \\
+  &=&      P\left(\frac{\hat\mu-\mu_1}{\sigma/\sqrt n}<\frac{`r mu1 + qnorm(1-0.05) * se`-`r mu2`}{`r se`}\right)\\
+      &=& P\left(Z<`r qnorm(1-0.05)`+\frac{`r mu1`-`r mu2`}{`r se`}\right)\\
+  &=&P(Z<`r (mu1 + qnorm(1-0.05) * se -mu2)/se`)\\
+  &=&\Phi(`r (mu1 + qnorm(1-0.05) * se -mu2)/se`)\\
+  &=&`r pnorm((mu1 + qnorm(1-0.05) * se -mu2)/se)`
+\end{eqnarray*}
+
+La **potenza** del test è `r (1-pnorm((mu1 + qnorm(1-0.05) * se -mu2)/se))*100`%
+\[1-\beta=`r 1-pnorm((mu1 + qnorm(1-0.05) * se -mu2)/se)`\]
+
+### Test per $\alpha$ fissato, $\alpha=0.01$
+
+
+Fissiamo un valore di $\alpha$ abbastanza piccolo, per esempio, $\alpha=0.01$. 
+Trovare il punto critico per $\alpha$ fissato significa risolvere il seguente problema inverso
+\[P(\hat\mu>\text{Punto Critico};H_0)=0.01\]
+
+Sotto $H_0$
+\[\frac{\hat\mu-\mu_0}{\sigma/\sqrt n}=\frac{\hat\mu-`r mu1`}{`r sig`/\sqrt{`r n`}}=\frac{\hat\mu-`r mu1`}{`r se`}\sim N(0,1)\]
+
+Problema inverso lo trasferiamo su $Z$,  per esempio, e trovo il punto critico
+\begin{eqnarray*}
+P(Z>z_{0.01}) &=& 0.01 \\
+z_{0.01} &=& `r qnorm(1-0.01)` \qquad \text{letto dalle tavole}\\
+P(Z>`r qnorm(1-0.01)`) &=& 0.01 \\
+P\left(\frac{\hat\mu-`r mu1`}{`r se`}>`r qnorm(1-0.01)`\right)&=&0.01\\
+P\left(\hat\mu>`r mu1`+`r qnorm(1-0.01)`\cdot`r se`\right)&=&0.01\\
+\text{Punto Critico} &=& \mu_0+z_{0.01}\frac{\sigma}{\sqrt{n}} \\
+                     &=& `r mu1 + qnorm(1-0.01) * se`
+\end{eqnarray*}
+
+### La regola di decisione, $\alpha=0.01$
+
+- Se risulterà $\hat\mu\leq `r mu1 + qnorm(1-0.01) * se`$ allora decideremo di **non rifiutare** $H_0$.
+- Se risulterà $\hat\mu>`r mu1 + qnorm(1-0.01) * se`$ allora decideremo di **rifiutare** $H_0$.
+
+La significatività di questo test è all'1%:
+\[\alpha=0.01=P(\hat\mu>`r mu1 + qnorm(1-0.01) * se`;H_0)\]
+
+Per calcolare $\beta$ dobbiamo calcolare
+\begin{eqnarray*}
+  \beta &=& P(\hat\mu<`r mu1 + qnorm(1-0.01) * se`;H_1) \\
+  &=&      P\left(\frac{\hat\mu-\mu_1}{\sigma/\sqrt n}<\frac{`r mu1 + qnorm(1-0.01) * se`-`r mu2`}{`r se`}\right)\\
+      &=& P\left(Z<`r qnorm(1-0.01)`+\frac{`r mu1`-`r mu2`}{`r se`}\right)\\
+  &=&P(Z<`r (mu1 + qnorm(1-0.01) * se -mu2)/se`)\\
+  &=&\Phi(`r (mu1 + qnorm(1-0.01) * se -mu2)/se`)\\
+  &=&`r pnorm((mu1 + qnorm(1-0.01) * se -mu2)/se)`
+\end{eqnarray*}
+
+La **potenza** del test è `r (1-pnorm((mu1 + qnorm(1-0.01) * se -mu2)/se))*100`%
+\[1-\beta=`r 1-pnorm((mu1 + qnorm(1-0.01) * se -mu2)/se)`\]
+
+## $H_0$ semplice e $H_1$ composta
+
+Nella pratica più comune, se $\theta$ è il parametro da testare,
+analizzeremo i tre seguenti sistemi di ipotesi
+
+Unilaterale destra $$\begin{cases}
+H_0:\theta=\theta_0\\
+H_1:\theta>\theta_0
+\end{cases}$$
+
+Unilaterale sinistra $$\begin{cases}
+H_0:\theta=\theta_0\\
+H_1:\theta<\theta_0
+\end{cases}$$
+
+Bilaterale $$\begin{cases}
+H_0:\theta=\theta_0\\
+H_1:\theta\neq \theta_0
+\end{cases}$$
+
+## La Statistica Test
+
+La **Statistica Test** è una statistica (una funzione dei dati) che
+agevola il processo decisionale. 
+Consente di non dover trovare il punto critico nello spazio di
+$\mathcal{S}$. 
+Calcolata sul campione osservato consente di decidere immediatamente se
+il campione porta più evidenza ad $H_0$ oppure ad $H_1$. 
+
+:::{.nota data-latex=""}
+Se $\hat\theta$ è stimatore per $\theta$, con errore di stima
+$SE(\hat\theta)$, una pratica comune è la statistica test
+$$T=\frac{\hat\theta-\theta_0}{SE(\hat\theta)}$$ 
+come misura di allontanamento da $H_0$ 
+
+  - se $\hat\theta=\theta_0$, allora $T=0$ 
+  - se $\hat\theta>\theta_0$, allora $T>0$ 
+  - se $\hat\theta<\theta_0$, allora $T<0$
+
+Se l'errore di stima $SE(\hat\theta)$ è grande, allora piccole
+differenze tra $\hat\theta$ e $\theta_0$ **non comportano** a grandi
+variazioni di $T$ intorno a zero.
+
+Se l'errore di stima $SE(\hat\theta)$ è piccolo, allora piccole
+differenze tra $\hat\theta$ e $\theta_0$ **comportano** grandi
+variazioni di $T$ intorno a zero.
+
+Trovare il punto critico sullo spazio di $\mathcal{S}$ equivale a
+trovalo su $T$.
+:::

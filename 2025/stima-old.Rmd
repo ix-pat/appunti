@@ -1,0 +1,256 @@
+  
+<!-- ### Esempi -->
+
+<!-- :::: {.example name="Popolazione finita, estrazioni SR (Stima)"} -->
+
+
+<!-- Riprendiamo il nostro caso di con una popolazione di ampiezza $N=4$ e -->
+<!-- \[\{0,1,3,7\}\] -->
+
+<!-- ```{r 11-Stima-0,results="asis"} -->
+<!-- xp <- c(0,1,3,7) -->
+
+<!-- stat_(xp,semp = T) -->
+<!-- ``` -->
+
+
+<!-- Campioni di $n=2$ volte Senza Reinserimento, lo spazio dei campioni è di dimensione $\#\mathcal{S}=4(\times 3)$ ed è descritto in tabella (\@ref(tab:csr)). -->
+
+<!-- Supponiamo di aver scelto l'operatore media  -->
+
+<!-- ```{r 11-Stima-3,results="asis"} -->
+<!-- xp <- c(0,1,3,7) -->
+<!-- mu <- mean(xp) -->
+<!-- sig2 <- s2c(xp) -->
+<!-- media_cr <- function(x,y) ifelse(x==y,NA,(x+y)/2) -->
+<!-- #out <- ( two_way(xp,xp,xp*0+1,xp*0+1,media_cr,vnam = "\\bar X")) -->
+<!-- ``` -->
+
+<!-- $$ -->
+<!-- \begin{array}{ r|rrrrrrrr } -->
+<!-- & 0 ;&\color{blue}{ \frac{ 1 } { 4 }} & 1 ;&\color{blue}{ \frac{ 1 } { 4 }} & 3 ;&\color{blue}{ \frac{ 1 } { 4 }} & 7 ;&\color{blue}{ \frac{ 1 } { 4 }} \\  -->
+<!-- \hline  -->
+<!-- 0 ;\color{blue}{ 1 / 4 }& - & & 0.5;&\color{red}{\frac{1}{12}}& 1.5;&\color{red}{\frac{1}{12}}& 3.5;&\color{red}{\frac{1}{12}}\\  -->
+<!-- 1 ;\color{blue}{ 1 / 4 }& 0.5;&\color{red}{\frac{1}{12}}& - & & 2;&\color{red}{\frac{1}{12}}& 4;&\color{red}{\frac{1}{12}}\\  -->
+<!-- 3 ;\color{blue}{ 1 / 4 }& 1.5;&\color{red}{\frac{1}{12}}& 2;&\color{red}{\frac{1}{12}}& - & & 5;&\color{red}{\frac{1}{12}}\\  -->
+<!-- 7 ;\color{blue}{ 1 / 4 }& 3.5;&\color{red}{\frac{1}{12}}& 4;&\color{red}{\frac{1}{12}}& 5;&\color{red}{\frac{1}{12}}& - & \\  -->
+<!-- \end{array} -->
+<!-- $$ -->
+
+<!-- Proponiamo due stime diverse di $\mu$ -->
+<!-- \begin{eqnarray*} -->
+<!-- h_1 &=& \frac 1 2 \sum_{i=1}^2 x_i\\ -->
+<!-- h_2 &=& x_1 \qquad \text{ignoro la seconda estrazione} -->
+<!-- \end{eqnarray*} -->
+
+<!-- Se estraiamo SR, $\#\mathcal{S}=4\times 3$, lo spazio dei campioni è -->
+
+<!-- ```{r stima-sr,results="asis"} -->
+<!-- xp <- c(0,1,3,7) -->
+
+
+
+<!-- camp <- combn(xp,3) -->
+<!-- h1 <- apply(camp,2,mean) -->
+<!-- h2 <- apply(camp,2,median) -->
+<!-- camp <- rbind(camp,h1,h2)+.000001 -->
+<!-- dimnames(camp)[[1]]<- c("$x_{(1)}$","$x_{(2)}$","$x_{(3)}$","$h_1$","$h_2$") -->
+<!-- dimnames(camp)[[2]] <- paste("C.",1:ncol(camp)) -->
+<!-- mu<-mean(xp)  -->
+<!-- sig2<-mean(xp^2)-mean(xp)^2 -->
+<!--  kable((camp),booktabs=T,escape=F,caption = "Media e mediana dei campioni") %>% -->
+<!--  row_spec(row = 4:5,hline_after = T,bold=F,col=iblue) %>% -->
+<!--  column_spec (1:ncol(camp),border_left = F, border_right = T) %>% -->
+<!--   kable_styling(latex_options = "hold_position",font_size = 8) -->
+
+<!-- ``` -->
+
+
+<!-- In tabella \@ref(tab:stima-sr) la $h_1$ e $h_2$ associati ad ogni campione. Avremo che -->
+<!-- Otteniamo: -->
+<!-- \[E(h_1)=\frac 1{4}(`r camp[4,1]`+`r camp[4,2]`+`r camp[4,3]`+`r camp[4,4]`)=`r mean(camp[4,])`=\mu\] -->
+<!-- $h_1$ è **corretto**  -->
+<!-- mentre -->
+<!-- \[E(h_2)=\frac 1{4}(`r camp[5,1]`+`r camp[5,2]`+`r camp[5,3]`+`r camp[5,4]`)=`r mean(camp[5,])`\neq\mu\] -->
+<!-- non lo è. -->
+<!-- :::: -->
+
+
+<!-- :::: {.example name="Popolazione finita, estrazioni SR (Efficienza)"} -->
+<!-- Ricordiamo che l'**Errore Quadratico Medio** (_Mean Squared Error_) per $\mu$ è -->
+<!-- \[MSE(\hat\theta)=E((\hat\theta-\mu)^2)=V(\hat\theta)+B^2(\hat\theta)\] -->
+<!-- dove -->
+<!-- \[B(\hat\theta)=|E(\hat\theta)-\mu|\] -->
+
+<!-- Osserviamo la precisione di $h_1$: -->
+<!-- \[MSE(h_1)=\frac 1{4}\left((`r camp[4,1]`-`r mu`)^2+(`r camp[4,2]`-`r mu`)^2+(`r camp[4,3]`-`r mu`)^2+(`r camp[4,4]`-`r mu`)^2\right)=`r mean(camp[4,]^2)-mu^2`\] -->
+
+<!-- Osserviamo la precisione di $h_2$: -->
+<!-- \[MSE(h_2)=\frac 1{4}((`r camp[5,1]`-`r mu`)^2+(`r camp[5,2]`-`r mu`)^2+(`r camp[5,3]`-`r mu`)^2+(`r camp[5,4]`-`r mu`)^2)=`r mean((camp[5,]-mu)^2)`\] -->
+
+<!-- E quindi essendo $MSE(h_1)=`r mean(camp[4,]^2)-mu^2`<`r mean(camp[5,]^2)-mean(camp[5,])^2 + (mean(camp[5,])-mu)^2`=MSE(h_2)$, e dunque $h_1$ è _più efficiente_ di $h_2$. -->
+
+<!-- :::: {.nota data-latex=""} -->
+<!-- \[V(h_1)=V(\hat \mu)=\frac{N-n}{N-1}\frac{\sigma^2}{n}=\frac{4-3}{4-1}\frac{`r sig2`}{3}\] -->
+<!-- :::: -->
+<!-- :::: -->
+
+<!-- :::: {.example name="Popolazione finita, estrazioni SR (Stima della Varianza)"} -->
+<!-- Proponiamo la varianza campionaria $\hat\sigma^2$ per stimare $\sigma^2=`r sig2`$ -->
+<!-- \[\hat\sigma^2=\frac 1 3\sum_{i=1}^3(x_i-\hat \mu)^2\] -->
+
+
+<!-- ```{r var-sr,results="asis"} -->
+<!-- xp <- c(0,1,3,7) -->
+
+<!-- camp <- combn(xp,3) -->
+<!-- hv <- apply(camp,2,vvv) -->
+<!-- camp <- rbind(camp,hv) -->
+<!-- dimnames(camp)[[1]]<- c("$x_{(1)}$","$x_{(2)}$","$x_{(3)}$","$\\hat\\sigma^2$") -->
+<!-- dimnames(camp)[[2]] <- paste("C.",1:ncol(camp)) -->
+<!-- mu<-mean(xp)  -->
+<!-- sig2<-mean(xp^2)-mean(xp)^2 -->
+<!--  kable((camp),booktabs=T,escape=F,caption = "Varianza dei campioni SR di ampiezza $n=3$") %>% -->
+<!--  row_spec(row = 4,hline_after = T,bold=F,col=iblue) %>% -->
+<!--  column_spec (1:ncol(camp),border_left = F, border_right = T)%>% -->
+<!--   kableExtra::kable_styling(font_size = 8,latex_options = "hold_position") -->
+
+
+<!-- ``` -->
+
+
+<!-- In tabella \@ref(tab:var-sr) la varianza associata ad ogni campione. Avremo che -->
+<!-- \[E(\hat\sigma^2)=\frac 1 4 (`r hv[1]`+`r hv[2]`+`r hv[3]`+`r hv[4]`)=`r mean(hv)`\] -->
+
+<!-- :::: {.nota data-latex=""} -->
+<!-- $E(\hat\sigma^2)=`r mean(hv)`<`r sig2`=\sigma^2$, $\hat\sigma^2$ è distorto e, in media, sottostima la vera $\sigma^2$ -->
+<!-- :::: -->
+<!-- :::: -->
+
+<!-- :::: {.example name="Popolazione finita, estrazioni CR (Stima)"} -->
+<!-- Se estraiamo CR, $\#\mathcal{S}=64$ lo spazio dei campioni è -->
+<!-- ```{r stima-cr,results="asis"} -->
+<!-- xp <- c(0,1,3,7) -->
+
+<!-- xxx <- expand.grid(xp,xp,xp) -->
+<!-- xxx <- xxx[order(xxx[,1],xxx[,2],xxx[,3]),] -->
+<!-- xord <- t(apply(xxx,1,sort)) -->
+<!-- cxord <- apply(xord,1,function(x)paste(x,collapse = ",") ) -->
+<!-- pr <- tapply(rep(1,64),cxord,sum) -->
+<!-- pr <- pr/sum(pr) -->
+<!-- #  -->
+
+<!-- xxm <- apply(xxx, 1, mean) -->
+
+
+<!-- camp <- unique(xord) -->
+
+<!-- camp <- cbind(camp,pr) -->
+<!-- h1 <- apply(camp[,1:3], 1, mean) -->
+<!-- h2 <- apply(camp[,1:3], 1, median) -->
+
+<!-- eh1 <- sum(pr*h1) -->
+<!-- eh2 <- sum(pr*h2) -->
+<!-- mse1 <- sum(pr*(h1-mu)^2) -->
+<!-- mse2 <- sum(pr*(h2-mu)^2) -->
+
+<!-- camp <- data.frame(unique(cxord),pr,h1,h2) -->
+<!-- names(camp)<- c("Camp.","$P(C.)$","$h_1$","$h_2$") -->
+<!-- #camp <- t(camp) -->
+<!-- dimnames(camp)[[1]] <- paste("C.",1:nrow(camp)) -->
+<!-- mu<-mean(xp)  -->
+<!-- sig<-mean(xp^2)-mean(xp)^2 -->
+<!-- kable((camp),booktabs=T,escape=F,caption = "Media e dediana dei campioni e probabilità associate") %>% -->
+<!-- #column_spec (1:ncol(camp),border_left = F, border_right = T) %>% -->
+<!--   kableExtra::kable_styling(font_size = 8,latex_options = "hold_position") -->
+
+
+<!-- ``` -->
+
+<!-- :::: {.att data-latex=""} -->
+<!-- **Attenzione** i campioni qui non hanno tutti la stessa probabilità, in tabella \@ref(tab:stima-cr) i campioni, le loro probabilità e le corrispettive varianze. Otterremo: -->
+<!-- \[E(\hat\theta)=h_\text{Camp. 1}P(\text{Camp. 1})+...+h_\text{Camp. 20}P(\text{Camp. 20})\] -->
+
+<!-- E dunque: -->
+<!-- \begin{eqnarray*} -->
+<!--   E(h_1)  &=& `r h1[1]`\times`r pr[1]`+`r h1[2]`\times`r pr[2]`+...+`r h1[20]`\times`r pr[20]` = `r eh1`=\mu\\ -->
+<!--   E(h_2)  &=& `r h2[1]`\times`r pr[1]`+`r h2[2]`\times`r pr[2]`+...+`r h2[20]`\times`r pr[20]` = `r eh2`\neq\mu -->
+<!-- \end{eqnarray*} -->
+<!-- :::: -->
+
+<!-- Anche nel CCS CR $h_1$ è corretto per $\mu$ e $h_2$ **non** è corretto per $\mu$ -->
+<!-- :::: -->
+
+<!-- :::: {.example name="Popolazione finita, estrazioni CR (Efficienza)"} -->
+<!-- Mentre l'errore -->
+<!-- \[MSE(\hat\theta)=(h_\text{Camp. 1}-\mu)^2P(\text{Camp. 1})+...+(h_\text{Camp. 20}-\mu)^2P(\text{Camp. 20})\] -->
+
+
+<!-- E dunque -->
+<!-- \begin{eqnarray*} -->
+<!--   MSE(h_1) &=& (`r h1[1]`-`r mu`)^2\times`r pr[1]`+(`r h1[2]`-`r mu`)^2\times`r pr[2]`+...+ -->
+<!--     (`r h1[20]`-`r mu`)^2\times`r pr[20]`=`r mse1`\\ -->
+<!--   MSE(h_2) &=& (`r h2[1]`-`r mu`)^2\times`r pr[1]`+(`r h2[2]`-`r mu`)^2\times`r pr[2]`+...+ -->
+<!--     (`r h2[20]`-`r mu`)^2\times`r pr[20]`=`r mse2` -->
+<!-- \end{eqnarray*} -->
+
+
+<!-- Anche in questo caso, l'errore medio quadratico di $h_1$ è minore di quello di $h_2$, e quindi $h_1$ è più efficiente di $h_2$ ovvero più _preciso_. -->
+
+<!-- :::: {.nota data-latex=""} -->
+<!-- come definito dalla teoria abbiamo -->
+<!-- \[MSE(h_1)=MSE(\hat \mu)=V(\hat \mu)=\frac{\sigma^2}n=\frac{`r sig2`}{3}=`r mse1`\] -->
+<!-- :::: -->
+<!-- :::: -->
+
+<!-- :::: {.example name="Popolazione finita, estrazioni CR (Efficienza)"} -->
+
+<!-- Proponiamo la varianza campionaria $\hat\sigma^2$ per stimare $\sigma^2=`r sig2`$ -->
+<!-- \[\hat\sigma^2=\frac 1 3\sum_{i=1}^3(x_i-\hat \mu)^2\] -->
+
+
+<!-- ```{r 11-Stima-4,results="asis"} -->
+<!-- xp <- c(0,1,3,7) -->
+
+<!-- xxx <- expand.grid(xp,xp,xp) -->
+<!-- xxx <- xxx[order(xxx[,1],xxx[,2],xxx[,3]),] -->
+<!-- xord <- t(apply(xxx,1,sort)) -->
+<!-- cxord <- apply(xord,1,function(x)paste(x,collapse = ",") ) -->
+<!-- pr <- tapply(rep(1,64),cxord,sum) -->
+<!-- pr <- pr/sum(pr) -->
+<!-- #  -->
+<!-- n <- 3 -->
+<!-- xxm <- apply(xxx, 1, mean) -->
+
+<!-- camp <- unique(xord) -->
+
+<!-- camp <- cbind(camp,pr) -->
+<!-- hv <- apply(camp[,1:3], 1, vvv) -->
+
+<!-- ehv <- sum(pr*hv) -->
+
+<!-- camp <- data.frame(unique(cxord),pr,hv) -->
+<!-- names(camp)<- c("Camp.","$P(C.)$","$\\hat\\sigma^2$") -->
+<!-- # camp <- t(camp) -->
+<!-- dimnames(camp)[[1]] <- paste("C.",1:nrow(camp)) -->
+<!-- mu<-mean(xp)  -->
+<!-- sig<-mean(xp^2)-mean(xp)^2 -->
+<!-- kable((camp),booktabs=T,escape=F,caption = "Varianza dei campioni estratti CR di ampiezza $n=3$") %>% -->
+<!-- #column_spec (1:ncol(camp),border_left = F, border_right = T) %>% -->
+<!-- kable_styling(font_size = 8) -->
+
+<!-- ``` -->
+
+<!-- E quindi -->
+<!-- \[ -->
+<!--   E(\hat\sigma^2)  = `r hv[1]`\times`r pr[1]`+`r hv[2]`\times`r pr[2]`+...+`r hv[20]`\times`r pr[20]` = `r ehv`< -->
+<!--   `r sig2`=\sigma^2 -->
+<!-- \] -->
+
+
+<!-- Osserviamo che -->
+<!-- \[ -->
+<!-- E(\hat\sigma^2)=\frac{n-1}n\sigma^2=\frac{`r n-1`}{`r n`}`r sig2` -->
+<!-- \] -->
+
+<!-- ::::  -->

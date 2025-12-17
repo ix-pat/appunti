@@ -1,0 +1,481 @@
+---
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r s03,echo=FALSE,include=FALSE}
+#rm(list = ls())
+
+
+
+source("intro.R")
+
+s2 <- 0
+```
+
+# Mediana, Percentili e Moda
+
+## La Mediana {#mediana}
+
+La _Mediana_, _Me_ o $x_{0.5}$, è il valore centrale della serie dei dati riordinati in due: metà dei dati sono minori della mediana e metà dei dati sono maggiori della mediana. 
+In simboli: sia $x_{1},...,x_{n}$ la serie dei dati e $x_{(1)},...,x_{(n)}$ i dati riordinati in modo crescente, allora:
+
+:::{.info data-latex=""}
+1. se $n$ è dispari
+\[x_{0.5}=x_{\left(\frac{n+1}{2}\right)}\]
+2. se $n$ è pari
+\[x_{0.5}=\frac 1 2 \left(x_{\left(\frac{n}{2}\right)}+x_{\left(\frac{n}{2}+1\right)}\right)\]
+::: 
+
+:::{.example}
+
+Sia 
+$$(x_1=2.9,x_2=3.5,x_3=1.2,x_4=2.7, x_5=4.2)$$ 
+la serie dei dati, la serie dei dati riordinati sarà 
+$$(x_{(1)}=1.2, x_{(2)}=2.7, x_{(3)}=2.9, x_{(4)}=3.5,x_{(5)}=4.2),$$ 
+
+$n=5$ è dispari e dunque
+
+\[x_{0.5}=x_{\left(\frac{n+1}{2}\right)}=x_{\left(\frac{5+1}{2}\right)}=x_{\left(3\right)}=2.9\]
+:::
+
+:::{.example}
+
+Sia 
+\[(x_1=2.9,x_2=3.5,x_3=1.2,x_4=2.7, x_5=4.2, x_6=4.2)\] 
+la serie dei dati, la serie dei dati riordinati sarà 
+\[(x_{(1)}=1.2, x_{(2)}=2.7, x_{(3)}=2.9, x_{(4)}=3.5,x_{(5)}=4.2,x_{(6)}=4.2)\] 
+
+$n=6$ è pari e dunque
+
+\[x_{0.5}=\frac 1 2 \left(x_{\left(\frac{n}{2}\right)}+x_{\left(\frac{n}{2}+1\right)}\right)=
+\frac 1 2 \left(x_{\left(\frac{6}{2}\right)}+x_{\left(\frac{6}{2}+1\right)}\right)=
+\frac 1 2 \left(x_{\left(3\right)}+x_{\left(4\right)}\right)=\frac{2.9+3.5}2=3.2\]
+:::
+
+### Dati espressi in distribuzione di frequenza
+Se il fenomeno è espresso in una tabella di distribuzione di frequenza, allora la _modalità mediana_ è la prima modalità tale per cui la frequenza cumulata è maggiore di 0.5
+
+
+:::{.example}
+Fenomeno _Titolo di Studio_, $n=350$, numero di modalità $k=5$.
+
+```{r titolo di studio,echo=F}
+f    <- c(0.10,0.30,0.42,0.10,0.08)
+n <- 350
+Fj <- cumsum(f)
+xdata <- c("Elementare","Media inferiore","Media Superiore","Laurea","Post Laurea")
+X <- data.frame(1:length(f),xdata,f*n,f,Fj)
+Y <- X
+
+names(Y) <- c("$j$","$x_{j}$","$n_j$","$f_j$","$F_j$")
+
+
+
+kable(Y[,],booktabs = T, escape = F,linesep = "", digits = 4) %>%
+    kable_styling(full_width = F, latex_options = "HOLD_position")
+```
+
+La modalità mediana è la terza $j=3$, dunque _Media Superiore_, infatti $F_3=0.82>0.50$.
+:::
+
+### Dati espressi in classi 
+
+Se il fenomeno è espresso in classi, allora l'_intervallo mediano_ è la primo intervallo tale per cui la frequenza cumulata è maggiore di 0.5.
+
+:::{.example}
+
+```{r dati in classi,echo=F,include=F}
+n <- 4700
+xlim <- brk <- c(0,10,15,20,25,35)
+k <- length(xlim) - 1
+f    <- c(0.11,0.27,0.33,0.21,.08); # sum(f)
+
+samp <- genera_dati(xlim,n = n,nnn = f*n,rand = F)
+ls2e(stat_base(samp,brk))
+```
+
+Il reddito di $n=$ 4700 famiglie 
+è rappresentato nella seguente tabella di frequenza
+```{r dati, echo=FALSE, results="asis"}
+tabl(cbind(`$j$`=c(1:k,NA),dat3[,1:7]))
+```
+
+La classe mediana è la terza classe $j=3$, ovvero la classe [15,20), in quanto $F_3=0.71>0.50$.
+:::
+
+Il _valore approssimato della mediana_ è un valore che si trova all'interno dell'intervallo mediano e si ottiene dalla formula
+
+:::{.info data-latex=""}
+\[x_{0.5}=x_{\inf;m}+\frac{0.5-F_{m-1}}{f_m}\cdot \left(x_{\sup;m}-x_{\inf;m} \right),\]
+:::
+
+dove $m$ è l'indicatore della classe mediana, $x_{\inf;m}$ e $x_{\sup;m}$ sono, rispettivamente l'estremo inferiore e quello superiore dell'intervallo che contiene la mediana.
+
+:::{.example}
+Nell'esempio precedente l'intervallo mediano è [15,20) otterremo:
+
+```{r 04-mediana-percentili-15}
+percentile()
+```
+
+:::
+
+:::{.nota data-latex=""}
+La mediana è quel valore che taglia l'istogramma in due parti, entrambe di area pari al 50% dell'area totale
+
+
+```{r 04-mediana-percentili-1, echo=FALSE}
+nomex <- "Reddito"
+
+histp(T)
+h.int(0,Q.int(.5),density=20,col=iblue,lwd=1.5)
+axis(side=1,at=round(Q.int(0.5),3),col=ared,las=3)
+text(Q.int(.5)-13,3.5,"50%",cex=2,col=iblue)
+text(Q.int(.5)+13,3.5,"50%",cex=2,col=iblue)
+
+Fj <- c(0,dat2$Fj)
+plot(brk,Fj,type="l",axes=F,xlab=nomex,ylab=expression(F[j]),xlim=c(min(brk)-1,max(brk)+1))
+abline(h=0:1,lty=2)
+axis(1,brk,pos = 0)
+axis(2,Fj,pos = 0,las=2)
+segments(brk,0,brk,Fj,lty=2)
+segments(0,Fj,brk,Fj,lty=2)
+segments(Q.int(.5),0,Q.int(.5),.5,lty=2,col=ared)
+segments(0,0.5,Q.int(.5),.5,lty=2,col=ared)
+axis(1,Q.int(.5),round(Q.int(.5),3),col.axis=ared,las=3,pos = 0)
+axis(2,.5,col.axis=ared,las=2,pos = 0)
+```
+
+L'area tratteggiata è il 50% dell'area totale.
+:::
+
+### Proprietà della Mediana 
+
+:::{.info}
+:::{.proposition name="della Mediana"}
+La mediana di una distribuzione, $x_{0.5}$, è quel valore della per
+$X$ il quale si ha $F(x_{0.5}) = 0.5$. Le proprietà della mediana
+($x_{0.5}$) sono:
+
+1.  $x_{\min} \leq x_{0.5} \leq x_{\max}$,
+2.  $\sum_{j=1}^{n} |x_{j} - x_{0.5}|$ è un minimo.
+3.  Relazione Media-Mediana:
+    - Distribuzione simmetrica $\rightarrow$ $x_{0.5} = \bar{x}$ 
+    - Distribuzione con coda lunga a destra $\rightarrow$ $x_{0.5} < \bar{x}$ 
+    - Distribuzione con coda lunga a sinistra $\rightarrow$ $x_{0.5} > \bar{x}$ 
+:::
+:::
+
+## I Percentili
+
+Il $p$-esimo percentile $x_p$, $0\leq p\leq 1$, è qual valore che divide la serie dei dati riordinati in due: il $p\times100\%$ dei dati sono minori di $x_p$ e $(1-p)\times100\%$ dei dati sono maggiori di $x_p$. 
+Se per esempio $p=0.30$ allora il trentesimo percentile è quel valore che ha il 30% dei dati inferiore il 70% dei dati superiore.
+Il $p$-esimo percentile di una serie di dati è il valore che occupa la posizione $\lfloor {p\times n}\rfloor+1$, dove $\lfloor x\rfloor$ è l'operatore che estrae la parte intera di un numero decimale, ad esempio $\lfloor 3.001\rfloor=\lfloor 3.21\rfloor=\lfloor 3.94\rfloor=3$.
+
+:::{.example}
+Si considerino $n=21$ osservazioni di una variabile categoriale ordinata che assume 7 valori: $-2$, $-1$, $0$, $1$, $2$ (ad esempio una scala del tipo $-2=$_in totale disaccordo_, $-1=$_più in disaccordo che in accordo_, $0=$_né d'accordo, né in disaccordo_, $1=$_più d'accordo che in disaccordo_, $2=$_totalmente d'accordo_). Qui di seguito i dati riordinati:
+
+```{r 04-mediana-percentili-2, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+options(digits=4)
+
+set.seed(4)
+n <- 21
+lev <- -2:2
+xdat <- sort(sample(lev,size = n,replace = T))
+ind <- 1:n
+#ind <- paste("(",ind,")",sep = "")
+tab <- data.frame(ind,xdat)
+names(tab) <- c("$(i)$","$x_i$")
+```
+
+
+```{r 04-mediana-percentili-3, echo=FALSE, results="asis"}
+kable(t(tab),booktabs = T, escape = F,linesep = "", digits = 4)
+```
+
+Il 15-esimo percentile è il dato che occupa la $\lfloor n\times p \rfloor+1 =\lfloor `r n`\times 0.15\rfloor+1= `r floor(0.15*n)`+1=`r floor(0.15*n)+1`$, e dunque il 15-esimo percentile è il quarto dato $x_{(`r floor(0.15*n)+1`)}=`r xdat[floor(.15*n)+1]`$.
+È chiaro che la mediana è il 50-esimo percentile. In questo caso $x_{0.5}=x_{\left(\lfloor`r n`\times 0.5\rfloor +1\right)}=x_{(11)}=0$.
+:::
+
+### Dati espressi in distribuzione di frequenza
+
+Se il fenomeno è espresso in una tabella di distribuzione di frequenza, allora il $p$-esimo percentile è la prima modalità tale per cui la frequenza cumulata è maggiore di $p$.
+
+:::{.example}
+
+Fenomeno _Titolo di Studio_, $n=350$, numero di modalità $k=5$.
+
+```{r 04-mediana-percentili-4,echo=F}
+f    <- c(0.10,0.30,0.42,0.10,0.08)
+n <- 350
+Fj <- cumsum(f)
+xdata <- c("Elementare","Media inferiore","Media Superiore","Laurea","Post Laurea")
+X <- data.frame(1:length(f),xdata,round(f*n),f,Fj)
+Y <- X
+
+names(Y) <- c("$j$","$x_{j}$","$n_j$","$f_j$","$F_j$")
+
+
+
+kable(Y[,],booktabs = T, escape = F,linesep = "", digits = 4)
+```
+
+Il 90-esimo percentile $x_{0.90}$ è la quarta modalità, $x_{4}=$Laurea.
+:::
+
+:::{.example}
+Fenomeno: Numero di volte che si è cercato lavoro negli ultimi 3 mesi, $n=322$
+
+```{r 04-mediana-percentili-5,echo=F}
+x    <- 0:10
+n <- 322
+nj    <- rpois(n,3)
+
+set.seed(1)
+Xt <- data.frame(table(nj))
+f <- Xt$Freq/n
+Fj <- cumsum(f)
+X <- data.frame(1:length(f),Xt,f,Fj)
+Y <- X
+
+names(Y) <- c("$j$","$x_{j}$","$n_j$","$f_j$","$F_j$")
+
+
+
+kable(Y[,],booktabs = T, escape = F,linesep = "", digits = 4) %>%
+  column_spec (1,border_left = T, border_right = T) %>%
+  kable_styling(full_width = F, latex_options = "HOLD_position")
+```
+
+Il 25-esimo percentile è la terza modalità in quanto $F_3=0.45>0.25$, $x_{0.25}=x_3=2$. Il 50-esimo percentile, la mediana, è $x_{0.5}=x_4=3$ e il 75-esimo percentile è $x_{0.75}=x_5=4$.
+:::
+
+### Dati espressi in classi 
+
+Se il fenomeno è espresso in classi, allora l'_intervallo che contiene il $p$-esimo percentile_ è il primo intervallo tale per cui la frequenza cumulata è maggiore di $p$. Il _valore approssimato del percentile_ è un valore che si trova all'interno dell'intervallo e si ottiene dalla formula
+
+:::{.info data-latex=""}
+\[x_{p}=x_{\inf;j_p}+\frac{p-F_{j_p-1}}{f_{j_p}}\cdot \left(x_{\sup;j_p}-x_{\inf;j_p} \right)\]
+:::
+dove $j_p$ è l'indicatore della classe che contiene il $p$-esimo percentile, $x_{\inf;j_p}$ e $x_{\sup;j_p}$ sono, rispettivamente, l'estremo inferiore e quello superiore.
+
+:::{.example}
+
+```{r 04-mediana-percentili-6,echo=F,include=F}
+n <- 4700
+xlim <- brk <- c(0,10,15,20,25,35)
+k <- length(xlim)-1
+f    <- c(0.11,0.27,0.33,0.21,.08); # sum(f)
+
+samp <- genera_dati(xlim,n = n,nnn = f*n,rand = F)
+ls2e(stat_base(samp,brk))
+```
+
+Il reddito di $n=$ 4700 famiglie 
+è rappresentato nella seguente tabella di frequenza
+```{r 04-mediana-percentili-7, echo=FALSE, results="asis"}
+tabl(cbind("$j$"=c(1:k,NA),dat3[,c(1:7)]))
+```
+
+La classe che contiene il $25$-esimo percentile è la seconda classe $j_{0.25}=2$, ovvero la classe (10,15], in quanto $F_2=`r X$Fj[2]`>0.25$.
+
+```{r 04-mediana-percentili-8,echo=FALSE}
+X <- dat2
+percentile(p=.25)
+```
+:::
+
+:::{.nota data-latex=""}
+Il $p$-esimo percentile $x_p$ è quel valore che taglia l'istogramma in due parti, l'area dell'istogramma alla sinistra di $x_p$ è pari a $p\times 100\%$, mentre l'area la sua destra è $(1-p)\times 100\%$
+
+```{r 04-mediana-percentili-9, echo=FALSE}
+nomex <- "Reddito"
+
+histp(T)
+h.int(0,Q.int(.25),density=20,col=iblue,lwd=1.5)
+axis(side=1,at=round(Q.int(0.25),3),col=ared,las=3)
+text(Q.int(.25)-13,3.5,"25%",cex=2,col=iblue)
+text(Q.int(.75)+13,3.5,"75%",cex=2,col=iblue)
+
+Fj <- c(0,dat2$Fj)
+plot(brk,Fj,type="l",axes=F,xlab=nomex,ylab=expression(F[j]),xlim=c(min(brk)-1,max(brk)+1))
+abline(h=0:1,lty=2)
+axis(1,brk,pos = 0)
+axis(2,Fj,pos = 0,las=2)
+segments(brk,0,brk,Fj,lty=2)
+segments(0,Fj,brk,Fj,lty=2)
+segments(Q.int(.25),0,Q.int(.25),.25,lty=2,col=ared)
+segments(0,0.25,Q.int(.25),.25,lty=2,col=ared)
+axis(1,Q.int(.25),round(Q.int(.25),3),col.axis=ared,las=3,pos = 0)
+axis(2,.25,col.axis=ared,las=2,pos = 0)
+```
+
+L'area in blue è il 25% dell'area totale, quella in grigio il 75%.
+:::
+
+### I Quartili
+
+Si definiscono **i quartili** della VS $X$, il 25-esimo, il 50.esimo e il 75-esimo percentile di $X$:
+\[
+(x_{0.25},x_{0.5},x_{0.75})
+\]
+
+### Percentili e Funzione di Ripartizione
+
+Se i dati sono quantitativi continui raccolti in classi e $F$ è la funzione di
+ripartizione di $X$ allora il percentile è quel valore tale che
+\[
+F(x_p)=p
+\]
+ovvero a sinistra di $x_p$ c'è il $p\times 100\%$ dei dati e a destra di $x_p$ 
+il rimanente $(1-p)\times 100\%$. Per esempio sappiamo nel caso studiato sopra che
+$x_{0.25}=`r round(Q.int(.25),3)`$ e quindi $F(`r round(Q.int(.25),3)`)=0.25$.
+
+Ogni valore di $X$ dal suo minimo al suo massimo è un percentile, per esempio
+il valore 15 è il 38-esimo percentile di $X$ ($x_{0.38}=15$), infatti il 38%
+dei dati è inferiore a 15:
+\[
+F(15)=F_{2}=0.38
+\]
+Mentre la funzione inversa $Q=F^{-1}$ è la funzione che ci permette di calcolare il
+percentile di ordine $p$:
+\[
+Q(p)=x_p.
+\]
+Per esempio
+\[
+Q(0.25)=x_{0.25}=`r round(Q.int(.25),3)`
+\]
+
+Questa applicazione interattiva aiuta a comprendere meglio la relazione tra istogramma
+e funzione di ripartizione: [La Funzione di Ripartizione](https://patrizio-frederic.shinyapps.io/FdR_descrittiva/)
+
+
+
+## Lo Scarto Interquartile {#sqi}
+
+Una misura di variabilità è lo scarto interquartile
+\[
+SI = x_{0.75}-x_{0.25}
+\]
+
+## La Moda {#moda}
+
+:::{.info data-latex=""}
+Si definisce la **moda**, $x_{Mo}$ la modalità cui compete frequenza maggiore.
+:::
+
+:::{.example}
+Consideriamo la distribuzione del colore dei capelli
+
+
+```{r 04-mediana-percentili-10,echo=FALSE}
+colore <- c("Cast.","Biondi","Rossi","Tot")
+frequenza <- c(245,68,13,326)
+prn <- data.frame(colore,frequenza)
+names(prn)<- c("$\\mathrm{x}_j$","$n_j$")
+kable(t(prn),booktabs = T, escape = F,linesep = "", digits = 4,col.names = NA,align = "r")
+```
+
+La modalità modale (la moda) è $x_{Mo}$=Castano.
+:::
+
+:::{.example} 
+Titolo di studio:
+
+```{r 04-mediana-percentili-11,echo=FALSE}
+colore <- c("Prim.","M. inf.","M. sup.","Univ.","Post univ.","Tot")
+frequenza <- c(10,18,158,62,12,sum(c(10,18,158,62,12)))
+prn <- data.frame(colore,frequenza)
+names(prn)<- c("$\\mathrm{x}_j$","$n_j$")
+kable(t(prn),booktabs = T, escape = F,linesep = "", digits = 4,col.names = NA,align = "r")
+```
+
+La modalità modale (la moda) è $x_{Mo}=$M. sup.
+:::
+
+:::{.example}
+$\phantom{2}$
+
+```{r 04-mediana-percentili-12,echo=FALSE}
+set.seed(10)
+xx <- 0:4
+nn <- c(1,11,6,8,5)
+x <- unlist(sapply(1:5,function(x) rep(xx[x],nn[x])))
+#mean(x); median(x)
+kable(t(table(x)),booktabs=T,escape = F,col.names =NA,align = "r")
+```
+
+La modalità modale è $\mathrm{x} = 1$ e osserviamo che la media è `r mean(x)` e la mediana è `r median(x)`
+:::
+
+### La Moda per dati raccolti in classi
+
+:::{.info data-latex=""}
+Se i dati sono sono raccolti in classi, non c'è un valore modale ma una classe modale ed è la **classe cui compete densità maggiore**. 
+::: 
+
+:::{.example}
+$\phantom{2}$
+
+```{r 04-mediana-percentili-13, echo=FALSE, results="asis"}
+tabl(cbind("$j$"=c(1:k,NA),dat3[,c(1:7)]))
+```
+
+la classe modale è la terza classe, la classe $[15,20)$
+:::
+
+## Relazione tra Media, Moda e Mediana
+
+:::{.info data-latex=""}
+Se la VS $X$ ha una sola classe modale, allora valgono le seguenti relazioni:
+
+- Se la distribuzione presenta un'asimmetria negativa (coda lunga a sx) allora
+\[\bar x\le  x_{0.5} \le x_{mo}\]
+- Se la distribuzione è simmetrica allora
+\[x_{mo}\approx x_{0.5}\approx \bar x\]
+- Se la distribuzione presenta un'asimmetria positiva (coda lunga a dx) allora
+\[x_{mo}\le x_{0.5}\le \bar x\]
+:::
+
+La figura \@ref(fig:mmm) ne offre una rappresentazione grafica.
+
+```{r mmm,fig.cap="Relazione tra media mediana e moda",echo=FALSE}
+op <- par(mfrow=c(1,3),mar=c(4,0,3,0)+.1)
+a <-5
+b <-2
+mo <- (a-1)/(a+b-2) 
+me <- qbeta(.5,a,b)-.02
+xm <- a/(a+b)-.1
+curve(dbeta(x,a,b),axes=F,xlab="",ylab="")
+segments(c(mo,me,xm),0,c(mo,me,xm),dbeta(c(mo,me,xm),a,b),lty=2)
+axis(1,at=c(mo,me,xm),labels = c("Moda","Mediana","Media"),las=2)
+title("Asimmetria negativa")
+a <-5
+b <-5
+mo <- (a-1)/(a+b-2) 
+me <- qbeta(.5,a,b)
+xm <- a/(a+b)
+curve(dbeta(x,a,b),axes=F,xlab="",ylab="")
+segments(c(mo,me,xm),0,c(mo,me,xm),dbeta(c(mo,me,xm),a,b),lty=2)
+axis(1,at=0.5,labels = c("Moda=Mediana=Media"),las=1)
+title("Simmetria")
+a <-2
+b <-5
+mo <- (a-1)/(a+b-2) 
+me <- qbeta(.5,a,b)+.02
+xm <- a/(a+b)+.1
+curve(dbeta(x,a,b),axes=F,xlab="",ylab="")
+segments(c(mo,me,xm),0,c(mo,me,xm),dbeta(c(mo,me,xm),a,b),lty=2)
+axis(1,at=c(mo,me,xm),labels = c("Moda","Mediana","Media"),las=2)
+title("Asimmetria positiva")
+par(op)
+```
+
+
+```{r 04-mediana-percentili-14,results='asis',echo=FALSE}
+cat(knit_child("04a-Istogramma.Rmd",envir = environment(),quiet=T))
+```

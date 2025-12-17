@@ -1,0 +1,1316 @@
+<!-- 01-dati.Rmd -->
+-   **Qualitativa**, la variabile è espressa attraverso etichette qualitative
+    -   *Qualitative sconnesse*: le caratteristiche che la VS può assumere hanno un ordinamento soggettivo;
+        -   genere,
+        -   stato civile,
+        -   settore di occupazione,
+        -   generi musicali.
+    -   *Qualitative ordinate*: le caratteristiche che la VS può assumere hanno un ordinamento oggettivo
+        -   titolo di studio,
+        -   preferenze,
+        -   giudizi.
+-   **Quantitativa**, la variabile è espressa attraverso una scala numerica.
+    -   *Quantitative Discrete*: le caratteristiche che la VS può assumere sono in numero finito al più numerabile $\rightarrow$ corrispondenza con i numeri interi;
+        -   numero di incidenti,
+        -   voto di laurea.
+    -   *Quantitative Continue*: le caratteristiche che la VS può assumere sono in numero infinito non numerabile.
+        -   misure di lunghezza, capienza e peso,
+        -   temperature,
+        -   reddito.
+
+<!-- 02-distr-freq.Rmd -->
+:::{.definition name="Frequenze Assolute"}
+Si definiscono le $n_j$ le __frequenze assolute__: il numero di individui che presentano la modalità $j$.
+
+<!-- 02-distr-freq.Rmd -->
+:::{.definition name="Frequenze Relative"}
+Si definiscono le $f_j=n_j/n$ le __frequenze relative__: la proporzione di individui che presentano la modalità $j$.
+
+<!-- 02-distr-freq.Rmd -->
+:::{.definition name="Frequenze Percentuali"}
+Si definiscono le $f_{\% j}=f_j\times 100$ le __frequenze percentuali__: la percentuale di individui che presentano la modalità $j$.
+
+<!-- 02-distr-freq.Rmd -->
+:::{.proposition}
+Le proprietà della frequenze assolute($n_{j}$) sono:
+
+-  $0\leq n_{j} \leq n, \forall j=1,...,K$,
+-  $\sum_{j=1}^{K} n_{j} = n$.
+
+<!-- 02-distr-freq.Rmd -->
+:::{.proposition}
+Le proprietà della frequenze relative ($f_{j}$) sono:
+
+-  $0\leq f_{j} \leq 1, \forall j=1,...,K$,
+-  $\sum_{j=1}^{K} f_{j} = 1$.
+
+<!-- 02-distr-freq.Rmd -->
+:::{.proposition}
+Le proprietà della frequenze percentuali ($f_{\% j}$) sono:
+
+-  $0\leq f_{\%,\, j} \leq 100, \forall j=1,...,K$,
+-  $\sum_{j=1}^{K} f_{\%,\, j} = 100$.
+
+<!-- 02-distr-freq.Rmd -->
+:::{.definition name="Distribuzione di Frequenza"}
+
+Una **distribuzione di frequenza** è una tabella a cui vengono associate le modalità e le frequenze
+
+<!-- 02-distr-freq.Rmd -->
+\[h_j = Const.\times \frac {f_j} {b_j}\]
+
+<!-- 02-distr-freq.Rmd -->
+\vspace{10pt}\scriptsize
+:::  {.center data-latex=""}
+```{r riepilogo distr}
+
+c1 <- c("$[\\text{x}_1,$","$[\\text{x}_2,$","$...$","$[\\text{x}_j,$","$...$","$[\\text{x}_K,$")
+c2 <- c("$\\text{x}_2)$","$\\text{x}_3)$","$...$","$\\text{x}_{j+1})$","$...$","$\\text{x}_{K+1})$")
+c3 <- c("$n_1$","$n_2$","$...$","$n_j$","$...$","$n_K$")
+c4 <- c("$f_1=\\frac{n_1}{n}$","$f_2=\\frac{n_2}n$","$...$","$f_j=\\frac{n_j}n$","$...$","$f_K=\\frac{n_K}n$")
+c5 <- c("$F_1=f_1$","$F_2=F_1+f_2$","$...$","$F_j=F_{j-1}+f_j$","$...$","$F_K=F_{K-1}+f_K$")
+c6 <- c("$b_1=\\text{x}_2-\\text{x}_1$","$b_2=\\text{x}_3-\\text{x}_2$","$...$","$b_j=\\text{x}_{j+1}-\\text{x}_j$","$...$","$b_K=\\text{x}_{K+1}-\\text{x}_K$")
+c7 <- c("$h_1=100\\times \\frac{ h_1}{b_1}$","$h_2=100\\times \\frac{ f_2}{b_2}$","$...$","$h_j=100\\times \\frac{ f_j}{b_j}$","$...$","$f_K=100\\times \\frac{ f_K}{b_K}$")
+
+
+out <- data.frame(c1,c2,c3,c4,c5,c6,c7)
+
+names(samp) <- nomex
+
+if (html){
+kable(out,col.names = c("Estremo inf","Estremo sup","freq. ass.","freq. relativa","freq. cum.","ampiezza","densità"),booktabs = T, escape = F,linesep = "") %>%
+  column_spec(c(1,2),background = "white") %>%
+  column_spec(3,background = "#d3dded")%>%
+  column_spec(4,background = "white")%>%
+  column_spec(5,background = "#d3dded")%>%
+  column_spec(6,background = "white")%>%
+  column_spec(7,background = "#d3dded")%>%
+  kable_styling(font_size = 14)
+}
+if (!html){
+kable(out,col.names = c("Estremo inf","Estremo sup","freq. ass.","freq. relativa","freq. cum.","ampiezza","densità"),booktabs = T, escape = F,linesep = "") %>%
+  column_spec(c(1,2),background = "white") %>%
+  column_spec(4,background = "white")%>%
+  column_spec(6,background = "white")
+}
+
+```
+
+<!-- 03-media-varianza.Rmd -->
+:::{.definition name="Media Aritmetica"}
+Consideriamo la serie dei dati $\mathbf{x}=(x_1,...,x_i,...,x_n)$, si definisce la media aritmetica:
+\[
+\bar x =\frac 1 n \sum_{i=1}^nx_i
+\]
+
+<!-- 03-media-varianza.Rmd -->
+:::{.definition name="Media Artimetica per Dati Raccolti in Classi"}
+\[
+\bar x =\frac 1 n \sum_{j=1}^K\mathrm{x}_j n_j
+\]
+
+<!-- 03-media-varianza.Rmd -->
+:::{.proposition name="della media aritmetica"}
+Le principale proprietà della media aritmetica sono:
+
+0. Internalità: $x_{\min} = x_{(1)} \le \bar{x} \le x_{(n)} = x_{\max}$
+
+1. Invarianza della somma: \[n\bar x=\sum_{i=1}^n x_i\]
+
+2. Somma degli scarti dalla media nulla: $\sum_{i=1}^{n} (x_{i} - \bar{x}) = 0$
+
+3. Minimizza la somma degli scarti al quadrato:
+\[
+\sum_{i=1}^{n} (x_{i} - \bar{x})^{2} < \sum_{i=1}^{n} (x_{i} -
+d)^{2} \quad \forall d \ne \bar{x}
+\]
+
+4. Invarianza per trasformazioni lineari: se $y_i=a+bx_i$ allora $\bar{y} = a + b \bar{x}$
+
+5. Associatività. Sia una popolazione, $\mathscr{P}$, formata da $K$
+gruppi con medie e numerosità: ($\bar{x}_{1};\ n_{1}$),
+($\bar{x}_{2};\ n_{2}$), $\ldots$, ($\bar{x}_{K};\ n_{K}$). Allora,
+la media totale $\bar{x}_{T}$ di $\mathscr{P}=$ è data da
+
+\[
+  \bar{x}_{T}
+= \frac{\mbox{Tot}{ \{\mathscr{P}}_1\} +  \cdots +
+        \mbox{Tot}{ \{\mathscr{P}}_K\}} {n_{1} + \cdots + n_{K}}
+= \frac{n_{1}\ \bar{x}_{1} + \cdots + n_{K}\ \bar{x}_{K}}
+       {n_{1} + \cdots + n_{K}}
+\]
+
+<!-- 03-media-varianza.Rmd -->
+:::{.definition name="Varianza"}
+Si definisce la varianza la quantità:
+\[
+\sigma^2=\frac 1 n \sum_{1=1}^n(x_i-\bar x)^2
+\]
+
+<!-- 03-media-varianza.Rmd -->
+:::{.proposition name="Formula Calcolatoria della Varianza"}
+\[
+\sigma^2=\frac 1 n \sum_{1=1}^n x_i^2 -\bar x^2
+\]
+
+<!-- 03-media-varianza.Rmd -->
+:::{.proposition name="Varianza per Dati in Distribuzione di Frequenza"}
+\[
+\sigma^2=\frac 1 n\sum_{j=1}^k(\mathrm{x}_j-\bar x)^2n_j
+\]
+
+<!-- 03-media-varianza.Rmd -->
+:::{.proposition name="Formula Calcolatoria per la Varianza per Dati in Distribuzione di Frequenza"}
+\[
+\sigma^2=\frac 1 n\sum_{j=1}^k\mathrm{x}_j^2n_j-\bar x^2
+\]
+
+<!-- 03-media-varianza.Rmd -->
+:::{.proposition name="della varianza $\\sigma^{2}$"}
+Le principale proprietà della varianza sono:
+
+1.  $\sigma^{2} \ge 0$.
+2.  $\sigma^{2}=0$, se e solo se $X$ è costante.
+3.  Se $y_i=a+bx_i$ allora $\sigma^{2}_Y = b^{2} \sigma^{2}_X$.
+
+<!-- 03-media-varianza.Rmd -->
+:::{.proposition name="della deviazione standard $\\sigma$"}
+Le principale proprietà della deviazione standard sono:
+
+1.  $\sigma\ge 0$.
+2.  $\sigma=0$, se e solo se $X$ è costante.
+3.  Se $y_i=a+bx_i$ allora allora $\sigma_Y = |b|\sigma_X$
+
+<!-- 04-mediana-percentili.Rmd -->
+1. se $n$ è dispari
+\[x_{0.5}=x_{\left(\frac{n+1}{2}\right)}\]
+2. se $n$ è pari
+\[x_{0.5}=\frac 1 2 \left(x_{\left(\frac{n}{2}\right)}+x_{\left(\frac{n}{2}+1\right)}\right)\]
+
+<!-- 04-mediana-percentili.Rmd -->
+\[x_{0.5}=x_{\inf;m}+\frac{0.5-F_{m-1}}{f_m}\cdot \left(x_{\sup;m}-x_{\inf;m} \right),\]
+
+<!-- 04-mediana-percentili.Rmd -->
+:::{.proposition name="della Mediana"}
+La mediana di una distribuzione, $x_{0.5}$, è quel valore della per
+$X$ il quale si ha $F(x_{0.5}) = 0.5$. Le proprietà della mediana
+($x_{0.5}$) sono:
+
+1.  $x_{\min} \leq x_{0.5} \leq x_{\max}$,
+2.  $\sum_{j=1}^{n} |x_{j} - x_{0.5}|$ è un minimo.
+3.  Relazione Media-Mediana:
+    - Distribuzione simmetrica $\rightarrow$ $x_{0.5} = \bar{x}$
+    - Distribuzione con coda lunga a destra $\rightarrow$ $x_{0.5} < \bar{x}$
+    - Distribuzione con coda lunga a sinistra $\rightarrow$ $x_{0.5} > \bar{x}$
+
+<!-- 04-mediana-percentili.Rmd -->
+\[x_{p}=x_{\inf;j_p}+\frac{p-F_{j_p-1}}{f_{j_p}}\cdot \left(x_{\sup;j_p}-x_{\inf;j_p} \right)\]
+
+<!-- 04-mediana-percentili.Rmd -->
+Si definisce la **moda**, $x_{Mo}$ la modalità cui compete frequenza maggiore.
+
+<!-- 04-mediana-percentili.Rmd -->
+Se i dati sono sono raccolti in classi, non c'è un valore modale ma una classe modale ed è la **classe cui compete densità maggiore**.
+
+<!-- 04-mediana-percentili.Rmd -->
+Se la VS $X$ ha una sola classe modale, allora valgono le seguenti relazioni:
+
+- Se la distribuzione presenta un'asimmetria negativa (coda lunga a sx) allora
+\[\bar x\le  x_{0.5} \le x_{mo}\]
+- Se la distribuzione è simmetrica allora
+\[x_{mo}\approx x_{0.5}\approx \bar x\]
+- Se la distribuzione presenta un'asimmetria positiva (coda lunga a dx) allora
+\[x_{mo}\le x_{0.5}\le \bar x\]
+
+<!-- 05-Probabilita.Rmd -->
+:::{.definition name="Unione tra Eventi"}
+Siano $A$ e $B$ due eventi, l'espressione $$
+A\cup B
+$$ è vera se **almeno uno dei due** è vero.
+
+<!-- 05-Probabilita.Rmd -->
+:::{.definition name="Intersezione tra Eventi"}
+Siano $A$ e $B$ due eventi, l'espressione
+$$
+A\cap B\qquad\text{è vera se è vero $A$ }\textbf{e}\text{  è vero $B$.}
+$$
+
+<!-- 05-Probabilita.Rmd -->
+:::{.definition name="Evento Complementare"}
+Sia $A$ un evento, si definisce $\bar A$ l'evento complementare di $A$
+
+<!-- 05-Probabilita.Rmd -->
+:::{.definition name="Evento Certo"}
+Sia $A$ un evento, si definisce l'evento certo $\Omega$ l'evento:
+\begin{eqnarray*}
+\Omega &=& A\cup\bar A
+\end{eqnarray*}
+
+<!-- 05-Probabilita.Rmd -->
+:::{.definition name="Evento Impossibile"}
+Sia $A$ un evento, si definisce l'evento certo $\emptyset$ l'evento:
+\begin{eqnarray*}
+\emptyset &=& A\cap\bar A
+\end{eqnarray*}
+
+<!-- 05-Probabilita.Rmd -->
+:::{.definition name="Approccio Classico (Laplace)"}
+la probabilità è il rapporto tra il numero dei casi favorevoli e il
+numero dei casi possibili, posto che gli eventi siano tutti
+equiprobabili.
+
+$$
+P(A)=\frac{\#(\text{casi favorevoli ad $A$} )}{\#(\text{casi totali} )}
+$$
+
+<!-- 05-Probabilita.Rmd -->
+:::{.definition name="Approccio Frequentista"}
+**Postulato empirico del caso.**
+
+In un gruppo di prove ripetute più volte *nelle stesse condizioni*,
+ciascuno degli eventi possibili si presenta con una frequenza relativa
+che tende alla probabilità all'aumentare del numero di prove; ossia
+
+$$
+P(A)=\frac{n_A}{n}+\epsilon_n
+\quad\mbox{dove}\quad \epsilon_{n}\to 0 \quad\mbox{per}\quad n\to\infty .
+$$
+
+<!-- 05-Probabilita.Rmd -->
+La probabilità $P$ è una funzione che trasforma ogni evento $A$ di
+$\mathscr{A}$ in un numero reale
+$$P:\mathscr{A}\to\mathbb{R},~~\forall A\in\mathscr{A}$$
+
+Tale che
+
+$~~~~i.\phantom{i}\phantom{i}~$ $P(A)\ge 0,~\forall A\in\mathscr{A}$
+
+$~~~~ii.\phantom{i}~$ $P(\Omega)=1$
+
+$~~~~iii.~$
+$\forall A,B\in\mathscr{A}:A\cap B=\emptyset, P(A\cup B)=P(A)+P(B)$
+
+<!-- 05-Probabilita.Rmd -->
+:::{.proposition name="Proprietà Principali di $P$"}
+Tra le tante enunciamo le più immediate ed utili:
+
+1.  $0\le P(A) \le 1,~\forall A\in\mathscr{A}$
+
+2.  $P(\emptyset)=0$
+
+3.  $P(A)=1-P(\bar A)$
+
+4.  $P(A\cap B)=P(A)-P(A\cap \bar B)$
+
+5.  $P(A\cup B)=P(A)+P(B)-P(A\cap B)$
+
+<!-- 05-Probabilita.Rmd -->
+:::{.definition name="Eventi Incompatibili"}
+$A$ e $B$ si dicono **incompatibili** se e solo se
+$$A\cap B = \emptyset$$ in figura \@ref(fig:incomp) una rappresentazione
+grafica.
+
+<!-- 05-Probabilita.Rmd -->
+:::{#pcond .definition name="Probabilità Condizionata"}
+Si definisce probabilità di $A$ condizionata a $B$ (probabilità di $A$
+dato $B$) la quantità
+$$
+P(A|B)=\frac{P(A\cap B)}{P(B)}
+$$
+
+<!-- 05-Probabilita.Rmd -->
+:::{.definition name="Indipendenza tra Eventi"}
+Due eventi $A$ e $B$ si dicono **indipendenti** se e solo se
+\begin{eqnarray*}
+P(A|B)&=&P(A)\\
+P(B|A)&=&P(B)
+\end{eqnarray*}
+
+<!-- 05-Probabilita.Rmd -->
+:::{.theorem name="Probabilità Totali versione a coppie"}
+Siano $A$ e $B$ due eventi diversi dal vuoto, allora \begin{eqnarray*}
+P(B)&=&P(A)P(B|A)+P(\bar A)P(B|\bar A)
+\end{eqnarray*}
+
+<!-- 05-Probabilita.Rmd -->
+:::{.theorem name="Probabilità Totali versione Generale"}
+Siano $\{A_1,...,A_n\}$ e $\{B_1,...,B_m\}$ due partizioni di $\Omega$, ovvero
+$A_i\cap A_j=\emptyset, ~\forall i\ne j$ e $\Omega=\bigcup_{i=1}^n A_i$ e
+$B_i\cap B_j=\emptyset, ~\forall i\ne j$ e $\Omega=\bigcup_{i=1}^n B_i$
+Allora
+
+$$
+P(B_j)=\sum_{i=1}^nP(A_i)P(B_j|A_i),\qquad j=1,...,m
+$$
+
+<!-- 05-Probabilita.Rmd -->
+:::{.theorem name="Teorema di Bayes versione a coppie."}
+Si considerino due eventi $A$ e $B$ di cui sono note $P(A)$, $P(B|A)$ e
+$P(B|\bar A)$, allora
+
+$$
+P(A|B)=\frac{P(A)P(B|A)}{P(A)P(B|A)+P(\bar A)P(B|\bar A)}
+$$
+
+<!-- 05-Probabilita.Rmd -->
+:::{.theorem name="Teorema di Bayes versione Generale"}
+Siano $\{A_1,...,A_n\}$ e $\{B_1,...,B_n\}$ due partizioni di $\Omega$,
+di cui sono note $P(A_i), \forall i$ e $P(B_j|A_i), \forall i,j$, allora
+$$
+P(A_i|B_j)=\frac{P(A_i)P(B_j|A_i)} {\sum_{i=1}^nP(A_i)P(B|A_i)}
+$$
+
+<!-- 05-Probabilita.Rmd -->
+<div style="font-size:0.8em;">
+```{r 05-Probabilita-2, echo=F,results='asis'}
+#
+# if ( html){ f1 <- " "; f2 <- " "}   # se html usa questi
+# if (!html) {f1 <- "\\bf"; f2 <- "\\rm"} # se pdf usa questi
+#
+# r1 <- c( "$0\\le P(A) \\le 1,~\\forall A\\in\\mathscr{A}$", " ", "la probabilità è compresa tra 0 e 1.")
+# r2 <- c(" $P(\\Omega)=1$","","la prob. dell'evento certo è 1,")
+# r21 <-  c("$P(\\emptyset)=0$,", " ", "la prob. dell'insieme vuoto è zero.")
+# r3 <-  c("$P(A)=1-P(\\bar A)$", " ","regola del complementare")
+# r4 <-  c("$P(A\\cup B)=P(A)+P(B)-P(A\\cap B)$", " ", "regola della somma (de Morgan)")
+# r5 <-  c("$P(A\\cup B)=P(A)+P(B)$", " ", paste(f1," se e solo se $A$ e $B$ sono incompatibili:",f2))
+# r51 <-  c(       "","","terzo assima di Kolmogorov")
+# r6 <-  c("$P(A\\cap B)=P(A)P(B|A)=P(B)P(A|B)$", " ", "regola del prodotto (chain rule)")
+# r7 <-  c("$P(A\\cap B)=P(A)P(B)$", " ", paste(f1,"se e solo se $A$ e $B$ sono indipendenti",f2))
+# r8 <-  c("$P(B)=P(A)P(B|A)+P(\\bar A)P(B|\\bar A)$", " ", "Teorema delle probabilità totali")
+# r9 <- c("","","")
+#
+# spc <- data.frame(rbind(r1,r2,r21,r3,r4,r5,r51,r6,r7,r8))
+# if(html) kable(spc,booktabs = T,escape = F,row.names = F,col.names = NULL,longtable = F,linesep = "")
+
+r1 <- c( "0&\\le P(A) \\le 1,~\\forall A\\in\\mathscr{A}", "&&\\text{la probabilità è compresa tra 0 e 1.}")
+r2 <- c(" P(\\Omega)&=1","&&\\text{la prob. dell'evento certo è 1,}")
+r21 <-  c("P(\\emptyset)&=0", "&&\\text{la prob. dell'insieme vuoto è zero.}")
+r3 <-  c("P(A)&=1-P(\\bar A)","&&\\text{regola del complementare}")
+r4 <-  c("P(A\\cup B)&=P(A)+P(B)-P(A\\cap B)", "&&\\text{regola della somma (de Morgan)}")
+r5 <-  c("P(A\\cup B)&=P(A)+P(B)", "&&\\textbf{se e solo se A e B sono incompatibili:}")
+r51 <-  c(       "&","&&\\text{terzo assima di Kolmogorov}")
+r6 <-  c("P(A\\cap B)&=P(A)P(B|A)=P(B)P(A|B)", "&&\\text{regola del prodotto (chain rule)}")
+r7 <-  c("P(A\\cap B)&=P(A)P(B)", "&&\\text{se e solo se A e B sono indipendenti}")
+r8 <-  c("P(B)&=P(A)P(B|A)+P(\\bar A)P(B|\\bar A)", "&&\\text{Teorema delle probabilità totali}")
+
+spc <- data.frame(rbind(r1,r2,r21,r3,r4,r5,r51,r6,r7,r8))
+
+{
+  cat("\\begin{align*}\n")
+  for (i in 1:(nrow(spc)-1)) cat(paste(spc[i,]),"\\\\ \n")
+  cat(paste(spc[nrow(spc),]),"\n")
+  cat("\\end{align*}\n")
+}
+#if (!html)
+
+```
+</div>
+
+<!-- 06-Variabili-Casuali.Rmd -->
+:::{.definition name="Supporto"}
+Sia $X$ una VC, si definisce $S_X$ il supporto di $X$, l'insieme di tutti i possibili valori che $X$ è suscettibile di assumere.
+
+<!-- 06-Variabili-Casuali.Rmd -->
+:::{.definition name="Funzione di Probabilità"}
+Sia $X$ una VC con supporto $S_X$, si definisce $f$ la funzione di probabilità:
+è la probabilità che la VC $X$ assuma esattamente il valore $x$
+\[
+f(x)=P(X=x), ~x\in S_X
+\]
+
+<!-- 06-Variabili-Casuali.Rmd -->
+:::{.proposition name="Funzione di probabilità"}
+Sia $X$ una VC con supporto $S_X$ e funzione di probabilità $f$, allora
+
+- $0\le f(x)\le1,\forall x\in S_X$
+- $\sum_{x\in S_X} f(x) = 1.$
+
+<!-- 06-Variabili-Casuali.Rmd -->
+:::{.definition name="Funzione di Ripartizione di una VC"}
+$$
+F(x)=P(X\le x)=\sum_{x^*\le x} f(x^*)
+$$
+
+<!-- 06-Variabili-Casuali.Rmd -->
+:::{.proposition name="Funzione di Ripartizione"}
+ La funzione di ripartizione $F$ di una VC $X$ è, per definizione:
+ \[F(x)=P(X\leq x)\]
+$F$ gode delle seguenti proprietà:
+
+1.  Non decrescente, ossia $x_{1}<x_{2} \Rightarrow F(x_{1}) \le F(x_{2})$
+2. $\lim_{x\to -\infty} F(x) = 0$, \qquad $\lim_{x\to\infty} F(x) = 1$.
+3. Continua a destra, ossia $\lim_{x\to x_{0}^{+}} F(x) = F(x_{0})$.
+4. $P(a < X \le b) = F(b) - F(a)$.
+
+<!-- 06-Variabili-Casuali.Rmd -->
+:::{.definition name="Percentie di una VC"}
+Sia $X$ una VC con support $S_X$ e con Fuzione di Ripartizione $F$, si definisce il $p$-esimo percentile di $X$, il vaolre $x_p$, tale che:
+$$
+x_p:F(x_p)=p
+$$
+
+<!-- 06-Variabili-Casuali.Rmd -->
+:::{.definition name="Valore Atteso di una VC discreta"}
+Si definisce $E(X)$ il valore atteso della VC $X$ con supporto $S_X$ e funzione di probabilita $f$:
+$$
+E(X)=\sum_{x\in S_x}xf(x)
+$$
+
+<!-- 06-Variabili-Casuali.Rmd -->
+:::{.definition name="Varianza di una VC discreta"}
+Si definisce $V(X)$ la varianza della VC $X$ con supporto $S_X$ e funzione di probabilita $f$:
+\begin{eqnarray*}
+V(X)&=&E\left(\big(X-E(X)\big)^2\right)\\
+    &=&\sum_{x\in S_x}(x-E(X))^2f(x),\qquad\text{oppure equivalentemente}\\
+    &=& E(X^2)-E^2(X)\\
+    &=&\sum_{x\in S_X}x^2f(x)-E^2(X).
+\end{eqnarray*}
+
+<!-- 06-Variabili-Casuali.Rmd -->
+:::{.definition name="Standard Deviation di una VC discreta"}
+Si definisce $SD(X)$ la Standard Deviation della VC $X$ con supporto $S_X$ e funzione di probabilita $f$,
+la radice della sua varianza
+\begin{eqnarray*}
+SD(X)&=&\sqrt{V(X)}
+\end{eqnarray*}
+
+<!-- 06-Variabili-Casuali.Rmd -->
+:::{.proposition name="Proprietà del Valore Atteso di una VC"}
+Le proprietà del valore atteso, $E(X)$ sono:
+
+1. $x_{\min} \leq E(X) \leq x_{\max}, \quad x_{\min},\ x_{\max}\in S_{X}$,
+2. $E\Big(X - E(X)\Big) = 0$,
+3. $E\Big(X - E(X)\Big)^{2} < E(X - d)^{2} \quad\forall\ d \ne E(X)$,
+4.  $E(a + b X) = a + b\ E(X)$.
+5. $E(aX+bY)=aE(X)+bE(Y)$
+
+<!-- 06-Variabili-Casuali.Rmd -->
+:::{.proposition name="Proprietà della Varianza di una VC"}
+Le proprietà della Varianza, $V(X)$ sono:
+
+1.  $V(X)\geq 0$,
+2.  $V(X)=0$ se e solo se $P(X=x)=1$
+3.  $$V(a+bX)=b^2V(X)$$
+4.  Se $X$ e $Y$ sono **indipendenti**, allora
+$$V(aX+bY)=V(aX-bY)=a^2V(X)+b^2V(Y), \forall~a,b\in\mathbb{R}$$
+
+<!-- 06-Variabili-Casuali.Rmd -->
+:::{.proposition name="Proprietà della SD di una VC"}
+Le proprietà della Standard Deviation di $X$, $SD(X)$ sono:
+
+1.  $SD(X)\geq 0$,
+2.  $SD(X)=0$ se e solo se $P(X=x)=1$
+3.  $$SD(a+bX)=|b|V(X)$$
+4.  Se $X$ e $Y$ sono **indipendenti**, allora $$SD(aX+bY)=SD(aX-bY)=\sqrt{a^2V(X)+b^2V(Y)}, \forall~a,b\in\mathbb{R}$$
+
+<!-- 06-Variabili-Casuali.Rmd -->
+<div style="font-size:0.75em;">
+```{r 06-Variabili-Casuali-3,results='asis'}
+rig1 <- c(" S_X&", "\\text{il supporto della VC $X$:}")
+rig11 <- c(" &", "\\text{l'insieme di tutti i possibili valori che la VC può assumere. }")
+rig2 <- c("  &     ", "\\text{Se $X$ è una VD discreta il suo supporto ha:}")
+rig3 <- c("S_X&=\\{x_1,...,x_k\\}", "\\text{un numero finito, }")
+rig4 <- c("S_X&=\\{x_1,x_2,x_3,...\\}", " \\text{o al più numerabile di elementi.}")
+rig5 <- c(" f(x)&=P(X=x),~x\\in S_X", "\\text{$f$ è la funzione di probabilità,}")
+rig51 <- c(" &", "\\text{indica la probabilità che la VC $X$ assuma esattamente il valore $x$.}")
+r6 <- c("E(X)&=\\sum_{x\\in S_X}xf(x)", "\\text{Valore atteso, l'analogo del concetto di media ma per la VS $X$}" )
+rig7 <- c("E(a+bX)&=a+bE(X)", "\\text{linearità}")
+rig8 <- c(" E(aX+bY)&=aE(X)+bE(Y)", "")
+rig9 <- c(" V(X)&=E\\left(\\big(X-E(X)\\big)^2\\right)", "\\text{Varianza della VC $X$}" )
+rig91 <- c("&=\\sum_{x\\in S_X}x^2f(x)-E^2(X) ","" )
+riga <- c("V(a+bX)&=b^2V(X)", "" )
+rigb <- c("SD(X)&=\\sqrt{V(X)}", "\\text{Standard Deviation della VC $X$}")
+rigc <- c("SD(a+bX)&=|b| SD(X)", "")
+rigd <- c("\\text{Indipendenza tra VC}&", "")
+rige <- c("P(X\\in A\\cap Y\\in B)&=P(X\\in A)\\cdot P(Y\\in B)", "\\forall A \\subset S_X,\\forall B \\subset S_Y")
+rigf <- c("P(X=x\\cap Y=y)&=P(X=x)\\cdot P(Y=y)", "\\forall x \\in S_X,\\forall y \\in S_Y")
+rigg <- c("V(aX+bY)&=a^2V(X)+b^2V(Y)", "\\text{se e solo se $X$ e $Y$ sono indipendenti}")
+righ <- c("SD(aX+bY)&=\\sqrt{a^2V(X)+b^2V(Y)}", "\\text{se e solo se $X$ e $Y$ sono indipendenti. }")
+righ1 <- c("&","\\text{n.b. la SD di una somma non  }")
+righ2 <- c("&","\\text{si può esprimere con la somma delle SD.}")
+
+
+nig <- ls()[grep("^rig",ls())]
+n <- length(nig)
+
+tab <- matrix(nrow = n,ncol = 2)
+#for (i in 1:length(rig)){
+for (i in 1:n){
+     tab[i,] <- get(nig[i])
+}
+#kable(tab,escape = F,booktab=T)
+cat("\\begin{align*}\n")
+for (i in 1:(n-1)){
+cat(get(nig[i])[1],"& &",get(nig[i])[2],"\\\\ \n")
+}
+cat(get(nig[n])[1],"& &",get(nig[n])[2]," \n")
+cat("\\end{align*}\n")
+```
+</div>
+
+<!-- 08-tlc.Rmd -->
+:::{.theorem name="TLC per la Somma"}
+Siano $X_1....,X_n$, $n$ Variabili Casuali (VC) Indipendenti e
+Identicamente Distribuite (IID), tali che $E(X_i)=\mu$,
+$V(X_i)=\sigma^2$, $\forall i=1....,n$. Posto $$S_n=X_1+...+X_n,$$
+allora $$S_n\operatorname*{\sim}_{a} N\left(n\mu,n\sigma^2\right)$$
+
+<!-- 08-tlc.Rmd -->
+:::{.theorem name="TLC per la Media"}
+Siano $X_1....,X_n$, $n$ Variabili Casuali (VC) Indipendenti e
+Identicamente Distribuite (IID), tali che $E(X_i)=\mu$,
+$V(X_i)=\sigma^2$, $\forall i=1....,n$. Posto
+$$\bar X =\frac {S_n} n = \frac{X_1+...+X_n}n,$$ allora
+$$\bar X\operatorname*{\sim}_{a} N\left(\mu,\frac{\sigma^2}n\right)$$
+
+<!-- 08-tlc.Rmd -->
+:::{.theorem name="TLC per la Proporzione"}
+Siano $X_1....,X_n$, $n$ Variabili Casuali (VC) Indipendenti e
+Identicamente Distribuite (IID), tali che $X_i\sim\text{\rm Ber}(\pi)$,
+$\forall i=1....,n$. Posto
+$$\hat\pi =\frac {S_n} n = \frac{X_1+...+X_n}n,$$ allora
+$$\hat\pi\operatorname*{\sim}_{a} N\left(\pi,\frac{\pi(1-\pi)}n\right)$$
+
+<!-- 09-Statistiche-Campionarie.Rmd -->
+:::{.definition}
+Una **statistica campionaria**, $S$, è una funzione dei dati $X_1,...,X_n$
+\[S(X_1,...,X_n)=s\in\mathbb{R}\]
+
+<!-- 09-Statistiche-Campionarie.Rmd -->
+:::{.definition}
+Siano $Z_1,...,Z_n$, $n$ VC, IID, $Z_i\sim N(0,1)$, posto,
+\[Y=Z_1^2+...+Z_n^2, \qquad \text{allora} \qquad Y\sim \chi^2_n\]
+La distribuzione della somma del quadrato di $n$ normali standard è distribuita come un chi-quadro con $n$ _gradi di libertà_
+
+<!-- 09-Statistiche-Campionarie.Rmd -->
+La VC ha come supporto tutta la retta reale positiva:
+\[S_Y=\{y>0\}=\mathbb{R}^+\]
+Lo spazio dei parametri non ha interesse statistico
+\[n\in\mathbb{Z}^+\]
+
+<!-- 09-Statistiche-Campionarie.Rmd -->
+- per $n = 1$ ha una forma iperbolica;
+  - per $n>2$ e a forma campanulare con un'asimmetria positiva (coda lunga a dx);
+  - in virtù del TLC se $n$ diverge allora $Y\stackrel{\sim}{a}N(n,2n)$.
+\[E(Y)=n,\qquad V(Y)=2n\]
+
+<!-- 09-Statistiche-Campionarie.Rmd -->
+:::{.definition}
+Siano $Z\sim N(0,1)$ e $Y\sim\chi^2_n$, $Z$ e $Y$ indipendenti, posto,
+\[T=\frac Z{\sqrt{Y/n}} \qquad \text{allora} \qquad T\sim t_n\]
+Il rapporto tra una normale standard e un la radice di un chi-quadro diviso per i suoi gradi di libertà è distribuito come una $t$-Student con $n$ _gradi di libertà_
+
+<!-- 09-Statistiche-Campionarie.Rmd -->
+La VC ha come supporto tutta la retta reale:
+\[S_T=\mathbb{R}\]
+Lo spazio dei parametri non ha interesse statistico
+\[n\in\mathbb{Z}^+\]
+
+Funzione di probabilista o densità.
+
+  - è a forma campanulare
+  - è simmetrica rispetto a zero
+  - all'aumentare di $n$ le code si abbassano
+  - Se $n\to\infty$, allora $t_n\to N(0,1)$
+
+\[E(Y)=0,\qquad V(Y)=\frac{n}{n-2}\]
+
+<!-- 11-Stima.Rmd -->
+:::{.definiton}
+Uno **stimatore** puntuale (point estimator) è una statistica $\hat\theta$ che trasforma il campione $X_1,...,X_n$ in un punto dello spazio dei parametri:
+\[\hat\theta:\mathcal{S}\to\Theta\]
+
+<!-- 11-Stima.Rmd -->
+:::{.definition name="Correttezza di uno stimatore"}
+Siano $X_1,...,X_n$, $n$ VC, IID, replicazioni della stessa $X\sim\mathscr{L}(\theta)$, sia $\hat\theta$ uno stimatore per $\theta$.
+Lo stimatore $\hat\theta$ si dice **corretto** se
+\[E(\hat\theta(X_1,...,X_n))=E(\hat\theta)=\theta\]
+
+<!-- 11-Stima.Rmd -->
+:::{.definition name="Mean Squared Error di uno stimatore"}
+Si definisce **Errore Quadratico Medio** (_Mean Squared Error_) la quantità
+\[MSE(\hat\theta)=E((\hat\theta-\theta)^2)=V(\hat\theta)+B^2(\hat\theta)\]
+dove
+\[B(\hat\theta)=|E(\hat\theta)-\theta|\]
+
+<!-- 11-Stima.Rmd -->
+:::{.definition name="Efficienza di uno stimatore"}
+Siano $\hat\theta_1$ e $\hat\theta_2$ due stimatori per $\theta$, si dice che $\hat\theta_1$ è **più efficiente** di $\hat\theta_2$ se e solo se
+\[MSE(\hat\theta_1)<MSE(\hat\theta_2)\]
+
+<!-- 11-Stima.Rmd -->
+\[
+E(\hat \sigma^2)=\frac {n-1}n \sigma^2<\sigma^2
+\]
+
+<!-- 11-Stima.Rmd -->
+\[
+MSE(\hat \mu)=\frac{N-n}{N-1}\frac{\sigma^2} n
+\]
+
+<!-- 11-Stima.Rmd -->
+:::{.definition name="Correttezza Asintotica"}
+Lo stimatore $\hat\theta$ si dice **asintoticamente corretto** se
+\[\lim_{n\to\infty}E(\hat\theta(X_1,...,X_n))=E(\hat\theta)=\theta\]
+
+<!-- 11-Stima.Rmd -->
+:::{.definition name="Correttezza Asintotica"}
+Lo stimatore $\hat\theta$ si dice **consistente** (in media quadratica) se e solo se
+\[\lim_{n\to\infty}MSE(\hat\theta(X_1,...,X_n))=\lim_{n\to\infty}MSE(\hat\theta)=0\]
+
+Essendo
+\[MSE(\hat\theta)=V(\hat\theta)+B^2(\hat\theta)\]
+allora
+\[\lim_{n\to\infty} MSE(\hat\theta)=0, \text{ se e solo se} \lim_{n\to\infty} V(\hat\theta)=0 \text{ e } \lim_{n\to\infty} B^2(\hat\theta)=0\]
+
+<!-- 11-Stima.Rmd -->
+La _standard deviation_ (SD) $\sigma$, rappresenta la dispersione degli individui dalla media, è un indicatore di *variabilità* della *popolazione*, per esempio in una popolazione finita di $N$ individui:
+\[\sigma=\sqrt{\sigma^2}=\sqrt{\frac 1 N\sum_{i=1}^N(x_i-\mu)^2},\]
+la _deviazione standard_ $\sigma$ è la radice della varianza della popolazione $\sigma^2$.
+
+Lo _standard error_ $SE(\hat\theta)$ di uno stimatore $\hat\theta$ per $\theta$ è un indicatore della *variabilità* dello stimatore nello *spazio dei parametri*
+\[SE(\hat\theta)=\sqrt{V(\hat\theta)}\]
+Lo _standard error_ $SE(\hat\theta)$ di uno stimatore $\hat\theta$ per $\theta$ è la radice della varianza della VC $\hat\theta$.
+
+La _standard deviation stimata_ $\sigma$, rappresenta la dispersione degli individui _del campione_ dalla media _del campione_, è un indicatore di *variabilità* del *campione*:
+\[\hat\sigma=\sqrt{\hat\sigma^2}=\sqrt{\frac 1 n\sum_{i=1}^n(x_i-\hat\mu)^2}\]
+La _deviazione standard stimata_ $\hat\sigma$ è la radice della varianza del campione $\hat\sigma^2$.
+
+<!-- 12-Verosimiglianza.Rmd -->
+\[
+L(\theta;\text{Dati})\propto P(\text{Dati};\theta)
+\]
+
+<!-- 12-Verosimiglianza.Rmd -->
+:::{.definition name="Funzione di Verosimiglianza"}
+Siano $x_1,...,x_n$ $n$ osservazioni di $X\sim \mathscr{L}(\theta)$, $\theta\in\Theta$, si definisce la verosimiglianza $L$ di $\theta$ la funzione:
+\[L(\theta;x_1,...,x_n)=L(\theta)\propto P(X_1=x_1,...,X_n=x_n;\theta)\]
+
+<!-- 12-Verosimiglianza.Rmd -->
+:::{.definition name="Log Verosimiglianza"}
+Si definisce la log-verosimiglianza $\ell$:
+\begin{eqnarray*}
+\ell(\theta) &=& \log L(\theta) \\
+             &=& \log \prod_{i=1}^n f(x_i;\theta)\\
+             &=& \sum_{i=1}^n \log f(x_i;\theta)
+\end{eqnarray*}
+
+<!-- 12-Verosimiglianza.Rmd -->
+:::{.definition name="Stimatore du Massima Verosimiglianza"}
+Lo stimatore di *massima verosimiglianza* per $\theta$ è
+\begin{eqnarray*}
+\hat\theta &=& \operatorname*{\text{argmax}}_{\theta\in\Theta} L(\theta)\\
+           &=& \operatorname*{\text{argmax}}_{\theta\in\Theta} \ell(\theta)
+\end{eqnarray*}
+
+\[\hat\theta:L(\hat\theta)>L(\theta), \forall\theta\neq\hat\theta, \qquad\ell(\hat\theta)>\ell(\theta), \forall\theta\neq\hat\theta\]
+
+<!-- 12-Verosimiglianza.Rmd -->
+Siano $X_1,...X_n$ $n$ VC IID, tali che $X_i\sim\text{Ber}(\pi)$ lo stimatore
+di massima verosimiglianza per $\pi$ è
+\[\hat \pi=\frac 1n \sum_{i=1}^nX_i\]
+
+<!-- 12-Verosimiglianza.Rmd -->
+$\hat\pi$ è corretto per $\pi$, infatti
+\[E(\hat\pi)=E\left(\frac{1}n\sum_{i=1}^n X_i\right)=\frac{1}n\sum_{i=1}^nE(X_i)=\frac{\pi+...+\pi}{n}=\frac n n\pi=\pi\]
+
+E quindi
+\[MSE(\hat\pi)=V(\hat\pi)=\frac{\pi(1-\pi)}{n}\]
+che è ancora funzione di $\pi$.
+
+<!-- 12-Verosimiglianza.Rmd -->
+Lo stimatore $\hat\pi$ per $\pi$ è _consistente_, infatti
+\[\lim_{n\to +\infty}MSE(\hat\pi)=\lim_{n\to +\infty}\frac{\pi(1-\pi)}{n}=0\]
+
+$\hat\pi$ è _corretto_ e _consistente_ per $\pi$.
+
+<!-- 12-Verosimiglianza.Rmd -->
+\[SE(\hat\pi)=\sqrt{\frac{\pi(1-\pi)}{n}}\]
+
+<!-- 12-Verosimiglianza.Rmd -->
+L'errore di stima si stima sostituendo a $\pi$ la sua stima $\hat\pi$
+\[\widehat{SE(\hat\pi)}=\sqrt{\frac{\hat\pi(1-\hat\pi)}{n}}\]
+
+<!-- 12-Verosimiglianza.Rmd -->
+Siano $X_1,...X_n$ $n$ VC IID, tali che $X_i\sim\text{Pois}(\lambda)$ lo stimatore
+di massima verosimiglianza per $\pi$ è
+\[\hat \lambda=\frac 1n \sum_{i=1}^nX_i\]
+
+<!-- 12-Verosimiglianza.Rmd -->
+Correttezza:
+\[
+  E(\hat\lambda) =  E\left(\frac{1}n\sum_{i=1}^n X_i\right) = \frac 1 n \sum_{i=1}^n E(X_i) = \frac 1 n \sum_{i=1}^n \lambda = \lambda
+\]
+
+<!-- 12-Verosimiglianza.Rmd -->
+Mean Squared Error:
+\[
+  MSE(\hat\lambda) = V(\hat\lambda)
+                   = V\left(\frac 1 n \sum_{i=1}^n X_i\right)
+                 = \frac 1 {n^2} \sum_{i=1}^n V(X_i)
+                 = \frac n {n^2} \lambda
+                 = \frac {\lambda}n
+\]
+
+<!-- 12-Verosimiglianza.Rmd -->
+Consistenza:
+\[
+  \lim_{n\to+\infty} MSE(\hat\lambda) = \lim_{n\to+\infty} \frac {\lambda}n = 0
+\]
+
+<!-- 12-Verosimiglianza.Rmd -->
+Standard Error
+\[SE(\hat\lambda)=\sqrt{\frac {\lambda}n}\]
+
+Standard Error stimato
+\[\widehat{SE(\hat\lambda)}=\sqrt{\frac {\hat\lambda}n}\]
+
+<!-- 12-Verosimiglianza.Rmd -->
+La verosimiglianza per $(\mu,\sigma^2)$ è
+\begin{eqnarray*}
+  L(\lambda) &=& \prod_{i=1}^n f(x_i;\mu,\sigma^2)
+\end{eqnarray*}
+
+<!-- 12-Verosimiglianza.Rmd -->
+:::{.proposition}
+\begin{eqnarray*}
+  \hat\mu            &=& \frac 1 n \sum_{i=1}^n x_i\\
+  \hat\sigma^2       &=& \frac 1 n \sum_{i=1}^n(x_i-\hat\mu)^2\\
+                     &=& \frac 1 n \sum_{i=1}^n x_i^2 -\hat\mu^2
+\end{eqnarray*}
+
+<!-- 12-Verosimiglianza.Rmd -->
+Correttezza per $\mu$:
+\[
+  E(\hat\mu) =  E\left(\frac{1}n\sum_{i=1}^n X_i\right) = \frac 1 n \sum_{i=1}^n E(X_i) = \frac 1 n \sum_{i=1}^n \mu = \mu
+\]
+
+<!-- 12-Verosimiglianza.Rmd -->
+Mean Squared Error per $\mu$:
+\[
+  MSE(\hat\mu) = V(\hat\mu)
+                   = V\left(\frac 1 n \sum_{i=1}^n X_i\right)
+                 = \frac 1 {n^2} \sum_{i=1}^n V(X_i)
+                 = \frac n {n^2} \sigma^2
+                 = \frac {\sigma^2}n
+\]
+
+<!-- 12-Verosimiglianza.Rmd -->
+Consistenza per $\mu$:
+\[
+  \lim_{n\to+\infty} MSE(\hat\mu) = \lim_{n\to+\infty} \frac {\sigma^2}n = 0
+\]
+
+E lo Standard Error:
+\[SE(\hat\mu)=\sqrt{\frac {\sigma^2}n}\]
+
+<!-- 12-Verosimiglianza.Rmd -->
+Correttezza per $\hat\sigma^2$:
+\[
+  E(\hat\sigma^2) =  \frac {n-1}{n}\sigma^2
+\]
+$\hat\sigma^2$ non è stimatore corretto per $\sigma^2$.
+
+<!-- 12-Verosimiglianza.Rmd -->
+Correzione di $\hat\sigma^2$
+\[
+  S^2=\frac{n}{n-1}\hat\sigma^2=\frac{n}{n-1}\frac{1}n\sum_{i=1}^n(X_i-\hat\mu)^2=\frac{1}{n-1}\sum_{i=1}^n(X_i-\hat\mu)^2
+\]
+
+<!-- 12-Verosimiglianza.Rmd -->
+Standard Error
+\[SE(\hat\mu)=\sqrt{\frac {\sigma^2}n}\]
+
+Standard Error stimato.
+\[\widehat{SE(\hat\mu)}=\sqrt{\frac {S^2}n}=\sqrt{\frac {\hat\sigma^2}{n-1}}\]
+
+<!-- 12-Verosimiglianza.Rmd -->
+:::{.proposition name="Stimatori di massima verosimgilianza"}
+Siano $X_1,...,X_n$ $n$ VC IID, replicazioni di $X\sim \mathscr{L}(\theta)$ e sia $\hat\theta$ lo stimatore di massima verosimiglianza per per $\theta$, allora
+
+1. $\hat\theta$ non è sempre stimatore corretto ma è sempre corretto asintoticamente:
+\[E(\hat\theta)\xrightarrow{n\to\infty}\theta\]
+
+
+2. $\hat\theta$ non è sempre stimatore a _massima efficienza_ ma lo è sempre asintoticamente:
+\[V(\hat\theta)\xrightarrow{n\to\infty}I^{-1}(\theta)\]
+dove $I(\theta)$ è l'infromazione di Fisher.
+
+3. $\hat\theta$ è asintoticamente distribuito normalmente
+\[\hat\theta\operatorname*{\sim}_a N(\theta,I^{-1}(\theta))\]
+
+
+4. Lo stimatore di massima verosimiglianza è invariante alle trasformazioni monotone invertibili $g$:
+
+  \[ \text{se } \psi=g(\theta), \text{ allora } \hat\psi = g(\hat\psi)\]
+
+<!-- 13-stima-intervallare.Rmd -->
+:::{.definition}
+Un  __intervallo di confidenza__ per $\theta$ al livello $(1-\alpha)\times 100\%$ è costruito su quella coppia di statistiche $L_1$ e $L_2$ tali che
+\[P(L_1<\theta<L_2)=1-\alpha\]
+
+<!-- 13-stima-intervallare.Rmd -->
+:::{.definition name="Intervallo di Confidenza per $\mu$ ($\sigma^2$ nota)"}
+Si definisce L'IdC al livello $(1-\alpha)\times100\%$ per $\mu$ con $\sigma^2$ nota, l'intervallo
+\[IdC:~~\left[\hat \mu- z_{\alpha/2}~\frac\sigma{\sqrt n},\hat \mu+ z_{\alpha/2}~\frac\sigma{\sqrt n}\right]\]
+
+<!-- 13-stima-intervallare.Rmd -->
+:::{.definition name="Intervallo di Confidenza per $\mu$ ($\sigma^2$ incognita)"}
+Si definisce L'IdC al livello $(1-\alpha)\times100\%$ per $\mu$ con $\sigma^2$ incognita, l'intervallo
+\[IdC:~~\left[\hat \mu- t_{n-1;\alpha/2}~\frac S{\sqrt n},\hat \mu+ t_{n-1;\alpha/2}~\frac S{\sqrt n}\right]\]
+
+<!-- 13-stima-intervallare.Rmd -->
+:::{.definition name="Intervallo di Confidenza per $\pi$"}
+Si definisce L'IdC al livello $(1-\alpha)\times100\%$ per $\pi$ l'intervallo
+\[\left[\,\hat\pi-z_{\alpha/2}\sqrt\frac{\hat\pi(1-\hat\pi)}{n};\hat\pi+z_{\alpha/2}\sqrt\frac{\hat\pi(1-\hat\pi)}{n}\,\right]\]
+
+<!-- 13-stima-intervallare.Rmd -->
+- Si definisce L'IdC al livello $(1-\alpha)\times100\%$ per $\mu$ con $\sigma^2$ nota, l'intervallo
+\[IdC:~~\left[\hat \mu- z_{\alpha/2}~\frac\sigma{\sqrt n},\hat \mu+ z_{\alpha/2}~\frac\sigma{\sqrt n}\right]\]
+- Si definisce L'IdC al livello $(1-\alpha)\times100\%$ per $\mu$ con $\sigma^2$ incognita, l'intervallo
+\[IdC:~~\left[\hat \mu- t_{n-1;\alpha/2}~\frac S{\sqrt n},\hat \mu+ t_{n-1;\alpha/2}~\frac S{\sqrt n}\right]\]
+- Si definisce L'IdC al livello $(1-\alpha)\times100\%$ per $\pi$ l'intervallo
+\[\left[\,\hat\pi-z_{\alpha/2}\sqrt\frac{\hat\pi(1-\hat\pi)}{n};\hat\pi+z_{\alpha/2}\sqrt\frac{\hat\pi(1-\hat\pi)}{n}\,\right]\]
+
+<!-- 14-test-intro.Rmd -->
+:::{.center data-latex=""}
+```{r 14-test-intro-1, results='asis'}
+
+t.ver <- data.frame(s.n.="stato di natura",pi=c("$H_0$","$H_1$"),matrix(c("Corretta","Errore II tipo","Errore I tipo","Corretta"),2))
+kable(t.ver,row.names = F,col.names = c("","","decido $H_0$","decido $H_1$"),align = 'c',
+      booktabs = T, escape = F,linesep = "", digits = 4) %>%
+  column_spec(1, bold = T) %>%
+  column_spec(3:4, width = "10em") %>%
+  collapse_rows(columns = 1, valign = "middle") %>%
+   add_header_above(c(" ", "","Decisione" = 2))
+
+mumax <- 5
+za2 <- round(qnorm(.975),2)
+n <- 10
+
+```
+
+<!-- 14-test-intro.Rmd -->
+:::{.definition name="Errori di primo e secondo tipo"}
+
+Si definiscono
+
+- L'**errore di primo tipo** è l'errore che si commette scegliendo $H_1$ quando è vera $H_0$.
+- L'**errore di secondo tipo** è l'errore che si commette scegliendo $H_0$ quando è vera $H_1$.
+
+<!-- 14-test-intro.Rmd -->
+:::{.definition name="Probabilità degli Errori di primo e secondo tipo"}
+
+\[\alpha=P(\text{Errore I tipo})=P(\text{Decidere $H_1$};H_0)=P(X_1,...,X_n\in\mathcal{S}_1;H_0)\]
+
+\[\beta=P(\text{Errore II tipo})=P(\text{Decidere $H_0$};H_1)=P(X_1,...,X_n\in\mathcal{S}_0;H_1)\]
+
+$\alpha$ è il livello di **significatività** del test, $\alpha$ è la probabilità di scegliere $H_1$ quando invece è vera $H_0$.
+$\beta$ è la probabilità di scegliere $H_0$ quando invece è vera $H_1$.
+
+<!-- 14-test-intro.Rmd -->
+:::{.definition name="Potenza di un Test"}
+\[1-\beta =P(\text{Decidere $H_1$}; H_1)=P(X_1,...,X_n\in\mathcal{S}_1;H_1)\]
+$1-\beta$ è la **potenza del test**, $1-\beta$ è la probabilità di scegliere $H_1$ quando $H_1$ è vera.
+
+<!-- 15-test-mu-pi.Rmd -->
+**Decisione sul campione.** Si decide un livello $\alpha$ e si ricava
+$z_\alpha$, si estrae un campione. Lo stimatore $\hat\mu$ si realizza
+nella media osservata del campione $\bar x$
+
+$$z_{\text{obs}}=\frac{\bar x -\mu_0}{\sigma/\sqrt n}$$
+
+-   Se $z_{\text{obs}}<z_\alpha$ $H_0$ **non viene rifiutata** al
+    livello di significatività $\alpha\times100\%$
+-   Se $z_{\text{obs}}>z_\alpha$ $H_0$ **viene rifiutata** al livello di
+    significatività $\alpha\times100\%$
+
+```{r 15-test-mu-pi-14}
+#par(mar = c(5.1, 4.1, 2, 2.1))
+curve(dnorm,-4,4,xlab = expression(Z==(hat(mu)-mu[0])/se),ylab='',axes=F)
+segments(-4,0,1.64,0,lwd=2,col=mblue)
+segments(1.64,0,4,0,lwd=2,col=ared)
+segments(1.64,0,1.64,dnorm(1.64))
+axis(1,c(-4,0,1.64,4),c(-4,0,"Punto \n critico",4))
+text(2.5,.05,expression(alpha),cex=acex)
+title("Normale Standard")
+```
+
+<!-- 15-test-mu-pi.Rmd -->
+:::{.definition name="$p_\\text{value}$ caso unilaterale destro"}
+$$p_\text{value}=P(Z>z_{\text{obs}};H_0)$$
+
+<!-- 15-test-mu-pi.Rmd -->
+**Decisione sul campione.** Si decide un livello $\alpha$ e si ricava
+$z_\alpha$, si estrae un campione. Lo stimatore $\hat\mu$ si realizza
+nella media osservata del campione $\bar x$
+
+$$z_{\text{obs}}=\frac{\bar x -\mu_0}{\sigma/\sqrt n}$$
+
+-   Se $z_{\text{obs}}>-z_\alpha$ $H_0$ **non viene rifiutata** al
+    livello di significatività $\alpha\times100\%$
+-   Se $z_{\text{obs}}<-z_\alpha$ $H_0$ **viene rifiutata** al livello
+    di significatività $\alpha\times100\%$
+
+```{r 15-test-mu-pi-17}
+#par(mar = c(5.1, 4.1, 2, 2.1))
+curve(dnorm,-4,4,xlab = expression(Z==(hat(mu)-mu[0])/se),ylab='',axes=F)
+segments(-4,0,-1.64,0,lwd=2,col=ared)
+segments(-1.64,0,4,0,lwd=2,col=mblue)
+segments(-1.64,0,-1.64,dnorm(-1.64))
+axis(1,c(-4,-1.64,0,4),c(-4,expression(-z[alpha]),0,4))
+text(-2.5,.05,expression(alpha),cex=acex)
+title("Normale Standard")
+```
+
+<!-- 15-test-mu-pi.Rmd -->
+**Decisione sul campione.** Si decide un livello $\alpha$ e si ricava
+$z_{\alpha/2}$, si estrae un campione. Lo stimatore $\hat\mu$ si
+realizza nella media osservata del campione $\bar x$
+$$z_{\text{obs}}=\frac{\bar x -\mu_0}{\sigma/\sqrt n}$$
+
+-   Se $-z_{\alpha/2}\leq z_{\text{obs}}\leq z_{\alpha/2}$ $H_0$ **non
+    viene rifiutata** al livello di significatività $\alpha\times100\%$
+-   Se $z_{\text{obs}}<-z_{\alpha/2}$, o $z_{\text{obs}}>+z_{\alpha/2}$
+    $H_0$ **viene rifiutata** al livello di significatività
+    $\alpha\times100\%$
+
+```{r 15-test-mu-pi-19}
+#par(mar = c(5.1, 4.1, 2, 2.1))
+curve(dnorm,-4,4,xlab = expression(Z==(hat(mu)-mu[0])/se),ylab='',axes=F)
+segments(-4,0,-1.96,0,lwd=2,col=ared)
+segments(4,0,1.96,0,lwd=2,col=ared)
+segments(-1.96,0,1.96,0,lwd=2,col=mblue)
+segments(-1.96,0,-1.96,dnorm(-1.96))
+segments(1.96,0,1.96,dnorm(1.96))
+axis(1,c(-4,-1.96,0,1.96,4),c(-4,expression(-z[alpha/2]),0,expression(+z[alpha/2]),4))
+text(-3,.05,expression(alpha/2),cex=acex)
+text(+3,.05,expression(alpha/2),cex=acex)
+title("Normale Standard")
+```
+
+<!-- 15-test-mu-pi.Rmd -->
+:::{.definition name="$p_\\text{value}$ caso bilaterale"}
+Nel caso di ipotesi bilaterale abbiamo
+$$p_\text{value}=P(|Z|>|z_{\text{obs}}|;H_0)$$
+
+<!-- 15-test-mu-pi.Rmd -->
+**Decisione sul campione** Si decide un livello $\alpha$ e si ricava
+$t_{n-1;\alpha}$, si estrae un campione. Lo stimatore $\hat\mu$ si
+realizza nella media osservata del campione $\bar x$
+$$t_{\text{obs}}=\frac{\bar x -\mu_0}{S/\sqrt n}$$
+
+-   Se $t_{\text{obs}}<t_{n-1;\alpha}$ $H_0$ **non viene rifiutata** al
+    livello di significatività $\alpha\times100\%$
+-   Se $t_{\text{obs}}>t_{n-1;\alpha}$ $H_0$ **viene rifiutata** al
+    livello di significatività $\alpha\times100\%$
+
+```{r 15-test-mu-pi-22}
+#par(mar = c(5.1, 4.1, 2, 2.1))
+curve(dt(x,4),-4,4,xlab = expression(T==(hat(mu)-mu[0])/hat(se)),ylab='',axes=F)
+segments(-4,0,2,0,lwd=2,col=mblue)
+segments(2,0,4,0,lwd=2,col=ared)
+segments(2,0,2,dt(2,4))
+axis(1,c(-4,0,2,4),c(-4,0,expression(t[alpha]),4))
+text(2.5,.05,expression(alpha),cex=acex)
+title(expression(t[n-1]))
+```
+
+<!-- 15-test-mu-pi.Rmd -->
+**Decisione sul campione** Si decide un livello $\alpha$ e si ricava
+$t_{n-1;\alpha}$, si estrae un campione. Lo stimatore $\hat\mu$ si
+realizza nella media osservata del campione $\bar x$
+$$t_{\text{obs}}=\frac{\bar x -\mu_0}{S/\sqrt n}$$
+
+-   Se $t_{\text{obs}}>-t_{n-1;\alpha}$ $H_0$ **non viene rifiutata** al
+    livello di significatività $\alpha\times100\%$
+-   Se $t_{\text{obs}}<-t_{n-1;\alpha}$ $H_0$ **viene rifiutata** al
+    livello di significatività $\alpha\times100\%$
+
+<!-- 15-test-mu-pi.Rmd -->
+**Decisione sul campione.** Si decide un livello $\alpha$ e si ricava
+$t_{n-1;\alpha}$, si estrae un campione. Lo stimatore $\hat\mu$ si
+realizza nella media osservata del campione $\bar x$
+$$t_{\text{obs}}=\frac{\bar x -\mu_0}{S/\sqrt n}$$
+
+-   Se $-t_{n-1;\alpha/2}<t_{\text{obs}}<t_{n-1;\alpha/2}$ $H_0$ **non
+    viene rifiutata** al livello di significatività $\alpha\times100\%$
+-   Se $t_{\text{obs}}>t_{n-1;\alpha/2}$ o
+    $t_{\text{obs}}<-t_{n-1;\alpha/2}$ $H_0$ **viene rifiutata** al
+    livello di significatività $\alpha\times100\%$
+
+```{r 15-test-mu-pi-24}
+#par(mar = c(5.1, 4.1, 2, 2.1))
+curve(dt(x,4),-4,4,xlab = expression(T==(hat(mu)-mu[0])/hat(se)),ylab='',axes=F)
+segments(-4,0,-2,0,lwd=2,col=ared)
+segments(2,0,4,0,lwd=2,col=ared)
+segments(-2,0,2,0,lwd=2,col=mblue)
+segments(-2,0,-2,dt(-2,4))
+segments( 2,0, 2,dt( 2,4))
+axis(1,c(-4,-2,0,2,4),c(-4,expression(-t[alpha/2]),0,expression(t[alpha/2]),4))
+text(3,.05,expression(alpha/2),cex=acex)
+text(-3,.05,expression(alpha/2),cex=acex)
+title(expression(t[n-1]))
+```
+
+<!-- 15-test-mu-pi.Rmd -->
+Siano $X_1,...,X_n$ $n$ VC IID, replicazioni di $X\sim\text{Ber}(\pi)$.
+Lo stimatore di massima verosimiglianza
+$$\hat\pi=\frac 1 n \sum_{i=1}^n X_i\operatorname*{\sim}_a N\left(\pi,\frac{\pi(1-\pi)}{n}\right)$$
+
+Sotto $H_0$, $\pi=\pi_0$
+$$\hat\pi\operatorname*{\sim}_a N\left(\pi_0,\frac{\pi_0(1-\pi_0)}{n}\right)$$
+
+E quindi
+$$\frac{\hat\pi-\pi_0}{\sqrt{\pi_0(1-\pi_0)/n}}\operatorname*{\sim}_a N(0,1)$$
+
+La statistica osservata è
+$$z_{\text{obs}}=\frac{\hat\pi_{\text{obs}}-\pi_0}{\sqrt{\pi_0(1-\pi_0)/n}}$$
+
+A seconda di $H_1$ decideremo con le solite regole
+
+<!-- 15-test-mu-pi.Rmd -->
+<div style="font-size:0.75em;">
+\small
+\begin{align*}
+\hline
+H_0:\mu&=\mu_0 &&\text{$\sigma^2$} &\text{Dist.}   & && \text{Statistica Test} &&   \text{Zona Rifiuto} &&p_\text{value}\\
+\hline\\
+H_1:\mu&>\mu_0 & \text{Noto} &&  Z && z_\text{obs}&=\frac{\hat \mu-\mu_0}{\sigma/\sqrt{n}} & z_\text{obs}&>z_\alpha & p_\text{value}&= P(Z>z_\text{obs})\\
+H_1:\mu&<\mu_0 & \text{Noto} &&  Z && z_\text{obs}&=\frac{\hat \mu-\mu_0}{\sigma/\sqrt{n}} & z_\text{obs}&<-z_\alpha& p_\text{value}&= P(Z<z_\text{obs})\\
+H_1:\mu&\ne\mu_0 & \text{Noto} &&  Z && z_\text{obs}&=\frac{\hat \mu-\mu_0}{\sigma/\sqrt{n}} & |z_\text{obs}|&>|z_{\alpha/2}| & p_\text{value}&= 2P(Z>|z_\text{obs}|)\\
+H_1:\mu&>\mu_0 & \text{Incognito} &&  t_{n-1} && z_\text{obs}&=\frac{\hat \mu-\mu_0}{S/\sqrt{n}} & t_\text{obs}&>t_{n-1;~\alpha}& p_\text{value}&= P(T>t_\text{obs})\\
+H_1:\mu&<\mu_0 & \text{Incognito} &&  t_{n-1} && z_\text{obs}&=\frac{\hat \mu-\mu_0}{S/\sqrt{n}} & t_\text{obs}&<-t_{n-1;~\alpha}& p_\text{value}&= P(T<t_\text{obs})\\
+H_1:\mu&\ne\mu_0 & \text{Incognito} &&  t_{n-1} && z_\text{obs}&=\frac{\hat \mu-\mu_0}{S/\sqrt{n}} & |t_\text{obs}|&>|t_{n-1;~\alpha/2}|& p_\text{value}&= 2P(T>|t_\text{obs}|)\\
+\hline
+H_0:\pi&=\pi_0 && &\text{Dist.}   && &\text{Statistica Test} &&   \text{Zona Rifiuto} &&p_\text{value}\\
+\hline\\
+H_1:\pi&>\pi_0 &  &&  Z && z_\text{obs}&=\frac{\hat \pi-\pi_0}{\sqrt{\pi(/1-\pi)}/\sqrt{n}} & z_\text{obs}&>z_\alpha& p_\text{value}&= P(Z>z_\text{obs})\\
+H_1:\pi&<\pi_0 &  &&  Z && z_\text{obs}&=\frac{\hat \pi-\pi_0}{\sqrt{\pi(/1-\pi)}/\sqrt{n}} & z_\text{obs}&<-z_\alpha& p_\text{value}&= P(Z<z_\text{obs})\\
+H_1:\pi&\ne\pi_0 &  &&  Z && z_\text{obs}&=\frac{\hat \pi-\pi_0}{\sqrt{\pi(/1-\pi)}/\sqrt{n}} & |z_\text{obs}|&>|z_{\alpha/2}| & p_\text{value}&= 2P(Z>|z_\text{obs}|)\\
+\hline
+\end{align*}
+</div>
+
+<!-- 16-test-2C.Rmd -->
+<div style="font-size:0.9em;">
+```{r 16-test-2C-4}
+if (!html) {
+  tabella <-
+"\\begin{align*}
+    \\text{Test $t$, 2 Campioni} &
+    \\text{\\qquad Test $t$, 2 Campioni} &
+    \\text{Proporzione, 2 Campioni} \\\\
+    \\text{Omogeneità} &
+    \\text{\\qquad Eterogeneità} &
+     \\\\
+    \\midrule
+    \\begin{aligned}
+      t_{\\text{obs}}&=\\frac{\\hat\\mu_A-\\hat\\mu_B}{\\sqrt{\\frac{S_p^2}{n_A}+\\frac{S_p^2}{n_B}}}\\\\
+      S^2_p &= \\frac{n_A\\hat\\sigma_A^2+n_B\\hat\\sigma_B^2}{n_A+n_B-2}\\\\
+      \\addlinespace \\\\
+    \\end{aligned} &
+    \\begin{aligned}
+      \\displaystyle t_{\\text{obs}}=\\frac{\\hat\\mu_A-\\hat\\mu_B}{\\sqrt{\\frac{S_A^2}{n_A}+\\frac{S_B^2}{n_B}}}\\\\
+      \\addlinespace \\\\ \\addlinespace \\\\
+    \\end{aligned} &
+    \\begin{aligned}
+      z_{\\text{obs}} &=\\frac{\\hat\\pi_A-\\hat\\pi_B}{\\sqrt{\\frac{\\hat\\pi_C(1-\\hat\\pi_C)}{n_A}+\\frac{\\hat\\pi_C(1-\\hat\\pi_C)}{n_B}}}\\\\
+      \\hat\\pi_C &=\\frac{\\#\\{\\text{successi A}\\}+\\#\\{\\text{successi B}\\}}{n_A+n_B}\\\\
+                &=\\frac{n_A\\hat\\pi_A+n_B\\hat\\pi_B}{n_A+n_B}
+    \\end{aligned} \\\\
+    \\addlinespace
+    \\toprule
+\\end{align*}"
+cat(tabella)} else {
+  tabella <-
+"\\begin{align*}
+    \\text{Test $t$, 2 Campioni} &
+    \\qquad\\text{ Test $t$, 2 Campioni} &
+    \\text{Proporzione, 2 Campioni} \\\\
+    \\text{Omogeneità} &
+    \\qquad \\text{Eterogeneità} &
+     \\\\ \\hline
+    \\begin{aligned}
+      t_{\\text{obs}}&=\\frac{\\hat\\mu_A-\\hat\\mu_B}{\\sqrt{\\frac{S_p^2}{n_A}+\\frac{S_p^2}{n_B}}}\\\\
+      S^2_p &= \\frac{n_A\\hat\\sigma_A^2+n_B\\hat\\sigma_B^2}{n_A+n_B-2}\\\\
+    \\end{aligned} &
+    \\begin{aligned}
+      \\displaystyle \\quad t_{\\text{obs}}=\\frac{\\hat\\mu_A-\\hat\\mu_B}{\\sqrt{\\frac{S_A^2}{n_A}+\\frac{S_B^2}{n_B}}}\\\\
+    \\end{aligned} &
+    \\begin{aligned}
+      z_{\\text{obs}} &=\\frac{\\hat\\pi_A-\\hat\\pi_B}{\\sqrt{\\frac{\\hat\\pi_C(1-\\hat\\pi_C)}{n_A}+\\frac{\\hat\\pi_C(1-\\hat\\pi_C)}{n_B}}}\\\\
+      \\hat\\pi_C &=\\frac{\\#\\{\\text{successi A}\\}+\\#\\{\\text{successi B}\\}}{n_A+n_B}\\\\
+                &=\\frac{n_A\\hat\\pi_A+n_B\\hat\\pi_B}{n_A+n_B}
+    \\end{aligned} \\\\
+  \\hline
+\\end{align*}"
+cat(tabella)}
+
+```
+</div>
+
+<!-- 17-regressione-I.Rmd -->
+0.  Dati $(x_1,y_1),...,(x_n,y_n)$, $n$ coppie di punti, si assume che
+\[y_i=\beta_0+\beta_1x_i+\varepsilon_i\]
+1. Il valore atteso dell'errore è nullo
+\[E(\varepsilon_i)=0\]
+2. Omoschedasticità
+\[V(\varepsilon_{i}) = \sigma_\varepsilon^2,\qquad \text{costante }\forall i\]
+3. Indipendenza dei residui
+\[\varepsilon_i\text{ è indipendente da }\varepsilon_j~~\forall i\neq j\]
+4. Indipendenza tra i residui e la $X$
+\[X_i\text{ è indipendente da }\varepsilon_i~~\forall i\]
+5. _Esogeneità_ della $X$: la distribuzione su $X$ non è oggetto di inferenza
+6. Normalità dei residui
+\[\varepsilon_i\sim N(0,\sigma^2_\varepsilon)\]
+
+<!-- 17-regressione-I.Rmd -->
+:::{.proposition name="Stimatori dei Minimi Quadrati"}
+Gli stimatori dei minimi quadrati $\hat\beta_0$ e $\hat\beta_1$ sono
+\begin{eqnarray*}
+\hat\beta_1 &=& \frac{\frac 1 n\sum_{i=1}^n{(x_i-\bar x)(y_i-\bar y)}}{\frac 1 n\sum_{i=1}^n(x_i-\bar x)^2}=\frac{\text{ cov}(x,y)}{\hat\sigma^2_X}\\
+\hat\beta_0 &=&\bar y -\hat\beta_1\bar x
+\end{eqnarray*}
+dove
+\[\bar y = \frac 1 n\sum_{i=1}^n y_i,\qquad \bar x=\frac 1 n \sum_{i=1}^n x_i\]
+e
+\[
+\text{ cov}(x,y) = \frac 1 n\sum_{i=1}^n(x_i-\bar x)(y_i-\bar y)
+\]
+
+<!-- 17-regressione-I.Rmd -->
+:::{.definition}
+La Covarianza $\text{cov}(x,y)$ tra due variabili $x$ e $y$ è una misura della loro _covariazione_
+\[\text{cov}(x,y)=\frac 1 n\sum_{i=1}^n{(x_i-\bar x)(y_i-\bar y)}\]
+
+<!-- 17-regressione-I.Rmd -->
+:::{.proposition}
+\[\text{cov}(x,y)=\frac 1 n\sum_{i=1}^nx_i~y_i-\bar x\bar y\]
+
+<!-- 17-regressione-I.Rmd -->
+$$
+\begin{aligned}
+y_i, & & \text{le $y$ osservate}\\
+\hat y_i &= \hat \beta_0+\hat\beta_1x_i,&\text{le $y$ stimate}\\
+\hat\varepsilon_i &= y_i-\hat y_i,&\text{gli errori stimati}\\
+\bar y &= \frac 1 n\sum_{i=1}^n y_i, &\text{la media degli $y$}\\
+\bar y &= \frac 1 n\sum_{i=1}^n \hat y_i, &\text{la media degli $\hat y$ coince con qeulla degli $y$}\\
+0 &=\frac 1 n\sum_{i=1}^n\hat\varepsilon_i , &\text{la media degli scarti dalla retta è zero}
+\end{aligned}
+$$
+
+<!-- 17-regressione-I.Rmd -->
+:::{.definition}
+Il coefficiente $r$
+\[r=\frac{\text{cov}(x,y)}{\hat\sigma_X\hat\sigma_Y}\]
+è chiamato _coefficiente di correlazione_.
+
+<!-- 17-regressione-I.Rmd -->
+1. $-1 \le r \le 1$.  Il segno indica la direzione della relazione;
+    + $r>0$, al crescere di $X$, _in media_, cresce $Y$;
+    + $r<0$, al crescere di $X$, _in media_, decresce $Y$;
+    + $r=1$, associazione perfetta diretta;
+    + $r=-1$, associazione perfetta indiretta.
+
+2. $r$ è un numero puro, ovvero è privo di unità di misura
+3. è simmetrico: $r_{XY} = r_{YX} = r$
+4. è invariante per cambiamenti di scala:
+Se $W=a+bY$, allora
+
+$$
+r_{XW}=\text{sign}(b) r_{XY}
+$$
+dove
+$$
+\text{sign}(b)=\begin{cases}+1, &\text{se $b>0$}\\
+             -1, &\text{se $b<0$}
+\end{cases}
+$$
+
+5. $r$ misura l'associazione lineare:
+    + $r$ misura come i punti si addensano intorno alla retta.
+    + $f(x)$ **non lineare** $r$ è parzialmente inutile
+    + il valore di $r$, da solo, non è in grado di descrivere tutte le possibili relazioni
+che si possono realizzare tra due variabili.
+6. $r$ è più elevato se i dati sono aggregati in medie o percentuali
+
+<!-- 17-regressione-I.Rmd -->
+:::{.proposition}
+Vale la seguente relazione
+\[TSS = ESS + RSS\]
+
+<!-- 17-regressione-I.Rmd -->
+\[
+\left\{\begin{array}{cc}
+\text{varibilità di $y$}\\
+\text{intorno alla sua media}
+\end{array}\right\} =
+\left\{\begin{array}{cc}
+\text{varibilità della retta}\\
+\text{intorno alla media}
+\end{array}\right\} +
+\left\{\begin{array}{cc}
+\text{varibilità delle $y$}\\
+\text{intorno alla retta}
+\end{array} \right\}
+\]
+
+<!-- 17-regressione-I.Rmd -->
+:::{.definition name="Indice di Determinazione Lineare"}
+Si definisce
+\[R^2=\left(\frac{ESS}{TSS}\right)=r^2=\left(\frac{\text{cov}(x,y)}{\hat\sigma_x\hat\sigma_y}\right)^2\]
+l'indice di determinazione lineare ed è, nel contesto della regressione lineare semplice, il quadrato dell'indice di correlazione
+\[0\leq R^2\leq 1\]
+
+<!-- 18-regressione-II.Rmd -->
+:::{.theorem name="Gauss-Markov"}
+Sotto gli assunti dallo 0 al 5,
+gli stimatori dei minimi quadrati sono corretti
+\[E(\hat\beta_1)=\beta_1,\qquad E(\hat\beta_0)=\beta_0\]
+
+La loro varianza è:
+
+\begin{eqnarray*}
+    V(\hat\beta_{1}) &=& \frac{\sigma_{\varepsilon}^{2}} {n \hat{\sigma}^{2}_{X}} \\
+    V(\hat\beta_{0}) &=& \sigma_{\varepsilon}^{2} \left( \frac{1} {n}  +  \frac{\bar{x}^{2}} {n \hat{\sigma}^{2}_{X}} \right)   \\
+    \mbox{cov}(\hat\beta_{0}, \hat\beta_{1}) &=& - \sigma_{\varepsilon}^{2} \frac{\bar{x}} {n \hat{\sigma}^{2}_{X}}
+ =  - \bar{x} V(\hat\beta_{1})
+\end{eqnarray*}
+
+Gli stimatori $\hat\beta_{0}$ e $\hat\beta_{1}$ di $\beta_{0}$ e $\beta_{1}$
+sono _BLUE (Best Linear Unbiased Estimators)_.
+
+<!-- 18-regressione-II.Rmd -->
+\begin{eqnarray*}
+\widehat{SE(\hat\beta_{0})} &=& \sqrt{S_{\varepsilon}^{2} \left( \frac{1} {n} +  \frac{\bar{x}^{2}} {n \hat{\sigma}^{2}_{X}} \right)}\\
+\widehat{SE(\hat\beta_{1})}           &=& \sqrt{\frac{S_{\varepsilon}^{2}} {n\hat{\sigma}^{2}_{X}} }\\
+\widehat{SE(\widehat{Y}_{X=x})}&=& \sqrt{S_{\varepsilon}^{2}\left( \frac{1} {n} +  \frac{(x - \bar{x})^{2}} {n\hat{\sigma}^{2}_{X}} \right)}
+\end{eqnarray*}
+
+<!-- 18-regressione-II.Rmd -->
+\[\hat\beta_1\sim N(\beta_1,V(\hat\beta_1)), ~~\hat\beta_0\sim N(\beta_0,V(\hat\beta_0)), ~~\hat Y_{(X=x)}\sim N\left(\beta_0+\beta_1 x,V(\hat Y_{(X=x)})\right)\]
+
+<!-- 18-regressione-II.Rmd -->
+Parliamo di _interpolazione_ dei punti se $\hat Y_{(X=x)}$ è calcolato per
+\[\min\{x_i\}\leq x \leq\max\{x_i\}\]
+
+Parliamo di _estrapolazione_ dei punti se $\hat Y_{(X=x)}$ è calcolato per
+\[x<\min\{x_i\}~~~\text{oppure}~~~ x >\max\{x_i\}\]
+
+<!-- 18-regressione-II.Rmd -->
+Sotto $H_0$
+
+\begin{eqnarray*}
+ \frac{\hat\beta_0-\beta_{0,H_0}}{\widehat{SE(\hat\beta_0)}} &\sim& t_{n-2} \\
+ \frac{\hat\beta_1-\beta_{1,H_0}}{\widehat{SE(\hat\beta_1)}} &\sim& t_{n-2}
+\end{eqnarray*}
+
+
+otteniamo
+\begin{eqnarray*}
+t_{0,\text{obs}} &=& \frac{\hat\beta_0-\beta_{0,H_0}}{\widehat{SE(\hat\beta_0)}} \\
+t_{1,\text{obs}} &=& \frac{\hat\beta_1-\beta_{1,H_0}}{\widehat{SE(\hat\beta_1)}}
+\end{eqnarray*}
+
+Che andranno lette nella direzione di $H_1$ con le solite regole

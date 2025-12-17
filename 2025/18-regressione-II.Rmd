@@ -1,0 +1,1298 @@
+
+```{r setupreg2, include=FALSE}
+
+
+source("intro.R")
+
+s2c <- function(x) (mean(x^2)-mean(x)^2)
+sc  <- function(x) (sqrt(s2c(x)))
+
+x <- c(0:3)
+y <- c(2,3.5,2.5,4)
+w <- y[c(4,1,3,2)]
+
+mx <- mean(x)
+vx <- mean(x^2)-mean(x)^2
+sx <- sqrt(vx)
+
+my <- mean(y)
+vy <- mean(y^2)-mean(y)^2
+sy <- sqrt(vy)
+
+mw <- mean(w)
+vw <- mean(w^2)-mean(w)^2
+
+co <- mean(x*y) - mx*my
+cw <- mean(x*w) - mx*mw
+r  <- co/sqrt(vy*vx)
+rw <- cw/sqrt(vw*vx)
+b1 <- co/vx
+bw1<- cw/vx
+b0 <- my - b1*mx
+bw0<- mw - bw1*mx
+
+ys <- b0 + b1 * x
+es <- y - ys
+rg <- ys - my
+
+ws <- bw0 + bw1 * x
+ew <- w - ws
+rgw<- ws - mw
+
+
+sum((y-my)^2)  -> TSS
+sum((ys-my)^2) -> ESS
+sum(es^2)      -> RSS 
+
+sum((w-mw)^2)  -> TSSw
+sum((ws-mw)^2) -> ESSw
+sum(es^2)      -> RSSw
+
+n <- 4
+se2 <- (n/(n-2))*vy*(1-r^2) 
+vb0 <- se2 * (1/n+mx^2/(n*vx)) 
+vb1 <- se2 / (n*vx) 
+```
+
+# Inferenza e Diagnostica sul Modello di Regressione Lineare
+
+## Teorema di Gauss-Markov
+
+:::{.info data-latex=""}
+:::{.theorem name="Gauss-Markov"}
+Sotto gli assunti dallo 0 al 5,
+gli stimatori dei minimi quadrati sono corretti
+\[E(\hat\beta_1)=\beta_1,\qquad E(\hat\beta_0)=\beta_0\]
+
+La loro varianza è:
+
+\begin{eqnarray*}
+    V(\hat\beta_{1}) &=& \frac{\sigma_{\varepsilon}^{2}} {n \hat{\sigma}^{2}_{X}} \\
+    V(\hat\beta_{0}) &=& \sigma_{\varepsilon}^{2} \left( \frac{1} {n}  +  \frac{\bar{x}^{2}} {n \hat{\sigma}^{2}_{X}} \right)   \\
+    \mbox{cov}(\hat\beta_{0}, \hat\beta_{1}) &=& - \sigma_{\varepsilon}^{2} \frac{\bar{x}} {n \hat{\sigma}^{2}_{X}}
+ =  - \bar{x} V(\hat\beta_{1})
+\end{eqnarray*}
+
+Gli stimatori $\hat\beta_{0}$ e $\hat\beta_{1}$ di $\beta_{0}$ e $\beta_{1}$
+sono _BLUE (Best Linear Unbiased Estimators)_.
+:::
+:::
+
+## La previsione $\hat Y$
+
+Definiamo la previsione di $Y$ per un valore $x$ qualunque
+\[\hat Y_{(X=x)}=\hat\beta_0+\hat\beta_1x\]
+
+Se $X=x_i$ allora
+\[\hat Y_{(X=x_i)}=\hat Y_i\]
+
+La previsione è _corretta_
+\[E\left(\hat Y_{(X=x)}\right)=E(\hat\beta_0+\hat\beta_1x)=E(\hat\beta_0)+E(\hat\beta_1)x=\beta_0+\beta_1x\]
+
+La varianza
+\[V(\widehat{Y}_{(X=x)}) = \sigma_{\varepsilon}^{2} \left( \frac{1} {n}  +  \frac{(x - \bar{x})^{2}} {n \hat{\sigma}^{2}_{X}} \right)\]
+
+
+## Standard Errors e Stima degli SE
+
+Gli Errori Standard (ES) delle stime sono le radici quadrate
+delle varianze degli stimatori
+\begin{eqnarray*}
+SE(\hat\beta_{0})           &=& \sqrt{\hat\beta_{0}}           \\
+                            &=& \sqrt{\sigma_{\varepsilon}^{2}\left( \frac{1} {n} +
+   \frac{\bar{x}^{2}} {n\hat{\sigma}^{2}_{X}} \right)}\\
+SE(\hat\beta_{1})           &=& \sqrt{V(\hat\beta_{1})}           \\
+&=&\sqrt{\frac{\sigma_{\varepsilon}^{2}} {n\hat{\sigma}^{2}_{X}} }\\
+SE(\widehat{Y}_{(X=x)}) &=& \sqrt{V(\widehat{Y}_{(X=x)})} \\
+ &=& \sqrt{\sigma_{\varepsilon}^{2}\left( \frac{1} {n} +
+   \frac{(x - \bar{x})^{2}} {n\hat{\sigma}^{2}_{X}} \right)}
+\end{eqnarray*}
+
+Ricordando che
+\[S_{\epsilon}  = \sqrt{\frac{n} {n-2}}\ \hat{\sigma}_{Y}\sqrt{1 - r^2}\]
+
+Otteniamo le stime campionarie per gli Standard Errors
+
+:::{.info data-latex=""}
+\begin{eqnarray*}
+\widehat{SE(\hat\beta_{0})} &=& \sqrt{S_{\varepsilon}^{2} \left( \frac{1} {n} +  \frac{\bar{x}^{2}} {n \hat{\sigma}^{2}_{X}} \right)}\\
+\widehat{SE(\hat\beta_{1})}           &=& \sqrt{\frac{S_{\varepsilon}^{2}} {n\hat{\sigma}^{2}_{X}} }\\
+\widehat{SE(\widehat{Y}_{X=x})}&=& \sqrt{S_{\varepsilon}^{2}\left( \frac{1} {n} +  \frac{(x - \bar{x})^{2}} {n\hat{\sigma}^{2}_{X}} \right)}
+\end{eqnarray*}
+:::
+
+## Inferenza su $\beta_0$ e $\beta_1$ e su $\hat Y$
+
+Se l'assunto 6. (normalità dei residui)  è rispettato, allora
+
+:::{.info data-latex=""}
+\[\hat\beta_1\sim N(\beta_1,V(\hat\beta_1)), ~~\hat\beta_0\sim N(\beta_0,V(\hat\beta_0)), ~~\hat Y_{(X=x)}\sim N\left(\beta_0+\beta_1 x,V(\hat Y_{(X=x)})\right)\]
+:::
+
+Fisso $n=10$, $x_1=0.1,x_2=0.2,...,x_{10}=1.0$, $\beta_0=0$, $\beta_1=1$ e $\sigma_\varepsilon^2=0.64$. Simulo 5 volte $n=10$ punti da 
+\[Y_i = 0 + 1\cdot x_i + \varepsilon_i,~~\varepsilon_i\sim N(0,0.64)\]
+
+```{r 18-regressione-II-3}
+fig.def(2.5,3.5)
+```
+
+```{r 18-regressione-II-4}
+set.seed(1)
+sge <- .8
+x <- (1:10)/10
+y <- x+rnorm(10,0,sge)
+plot(x,y,pch=16,cex=1,ylim=c(-1,3),lty=2,axes = F,xlab = "x",ylab = "y")
+axis(1,x)
+axis(2)
+abline(lsfit(x,y),col=1,lty=2)
+for(i in 1:4){
+  y <- x+rnorm(10,0,sge)
+  points(x,y,pch=i+1,cex=1,col=i+1)
+  abline(lsfit(x,y),col=i+1,lty=2)
+}
+abline(0,1,col="DarkRed",lwd=1.5)
+
+fig.def(2.6)
+```
+
+E ripeto le simulazioni ripetute 500 volte:
+
+```{r 18-regressione-II-5}
+set.seed(1000)
+sge <- .8
+sigma2 <- sge^2
+x <- (1:10)/10
+y <- x+rnorm(10,0,sge)
+nrep <- 5000
+V0 <- sge^2 * (1/10+mean(x)^2/(10*s2c(x))) 
+V1 <- sge^2 / (10*s2c(x)) 
+C12<- -mean(x)*V1
+
+# generazione delle Y replicate
+y_sim <- replicate(nrep, 0 + 1 * x + rnorm(length(x), sd=sge))
+
+# calcolo delle stime b0 e b1 per ciascuna simulazione
+X <- cbind(1, x)
+XX1 <- solve(t(X) %*% X)
+b_hat <- apply(y_sim, 2, function(y) XX1 %*% t(X) %*% y)
+b_hat <- t(b_hat)  # righe = simulazioni
+mu <- c(0,1)
+
+
+# Matrice teorica di covarianza
+CS <- sigma2 * XX1
+
+
+b0gr <- seq(-3*sqrt(CS[1,1]),+3*sqrt(CS[1,1]),length.out = 101)
+b1gr <- seq(1-3*sqrt(CS[2,2]),1+3*sqrt(CS[2,2]),length.out = 101)
+b01  <- expand.grid(b0gr,b1gr)
+
+f_norm <- function(x) {
+  y <- x[2]
+  x <- x[1]
+  1 / (2 * pi * sqrt(det(CS))) * exp(-0.5 * t(c(x, y) - mu) %*% solve(CS) %*% (c(x, y) - mu))
+}
+sey <-function(x,n) sqrt(sge^2*(1/n+(x-mean(x))^2/(n*s2c(x))))
+
+dens_vals <- unname(apply(b01,1,f_norm))
+dens_mat <- matrix(dens_vals, nrow = 101, byrow = T)
+
+par(mfrow=c(1,2),cex=cex)
+
+plot(x,y,pch=16,cex=1,ylim=c(-1,3),lty=2,type="n",axes=F,xlab="x",ylab="y")
+axis(1,x)
+axis(2)
+ppp <- matrix(nrow = 500,ncol=2)
+for(i in 1:500){
+  md <- b_hat[i,]
+  abline(md,col="Grey")
+}
+abline(0,1,col="DarkRed",lwd=2)
+abline(v=mean(x),lty=2)
+abline(h=mean(x),lty=2)
+
+curve(x+1.96*sey(x,n=10),add=T,lty=2,col="DarkRed",lwd=2)
+curve(x-1.96*sey(x,n=10),add=T,lty=2,col="DarkRed",lwd=2)
+
+# 5. Grafico
+image(b0gr, b1gr, dens_mat, col = rev(gray.colors(100)),
+      xlab = expression(beta[0]), ylab = expression(beta[1]))
+contour(b0gr, b1gr, (dens_mat), drawlabels = FALSE,add=T)
+
+points(b_hat[1:500,1],b_hat[1:500,2],pch=16,cex=.5,col="darkblue")
+points(0,1,pch=3,col=2)
+
+```
+
+```{r 18-regressione-II-6}
+curve(dnorm(x,0,sqrt(V0)),range(b0gr)[1],range(b0gr)[2],xlab = expression(hat(beta)[0]),ylab = expression(f(hat(beta)[0])))
+points(b_hat[1:500,1],rep(0,times=500),pch=4,cex=.5)
+
+curve(dnorm(x,1,sqrt(V1)),range(b1gr)[1],range(b1gr)[2],xlab = expression(hat(beta)[1]),ylab = expression(f(hat(beta)[1])))
+points(b_hat[1:500,2],rep(0,times=500),pch=4,cex=.5)
+
+
+par(mfrow=c(1,1),cex=cex)
+```
+
+
+La varianza di $\hat Y$ è l'_errore di previsione_
+\[V(\widehat{Y}_{(X=x)}) = \sigma_{\varepsilon}^{2} \left( \frac{1} {n}  +  \frac{(x - \bar{x})^{2}} {n \hat{\sigma}^{2}_{X}} \right)\]
+
+
+
+### Interpolazione e Estrapolazione
+
+
+:::{.info data-latex=""}
+Parliamo di _interpolazione_ dei punti se $\hat Y_{(X=x)}$ è calcolato per
+\[\min\{x_i\}\leq x \leq\max\{x_i\}\]
+
+Parliamo di _estrapolazione_ dei punti se $\hat Y_{(X=x)}$ è calcolato per
+\[x<\min\{x_i\}~~~\text{oppure}~~~ x >\max\{x_i\}\]
+:::
+
+Voglio le vedere le previsioni per $x>1$
+
+```{r 18-regressione-II-7}
+fig.def(3,3.5)
+```
+
+```{r 18-regressione-II-8}
+
+sey <-function(x,n,mu,s2) sqrt(sge^2*(1/n+(x-mu)^2/(n*s2)))
+set.seed(1)
+sge <- .8
+x <- (1:100)/100
+y <- x+rnorm(100,0,sge)
+plot(x,y,pch=16,cex=1,ylim=c(-3,3),lty=2,type="n",xlim=c(-2,2),xlab="x",ylab="y",axes=F)
+#abline(lsfit(x,y),col="Grey")
+abline(0,1,col="DarkRed",lwd=2)
+abline(-.2,(.5+.2)/.5,col=4)
+text(1.5,2.1,expression(hat(beta[0]+hat(beta[1])*x)),col=4)
+curve(x+1.96*sey(x,n=10,mu = .5,s2 = s2c(0:3)),add=T,lty=2,col=ared)
+curve(x-1.96*sey(x,n=10,mu = .5,s2 = s2c(0:3)),add=T,lty=2,col=ared)
+abline(v=1,lty=2)
+abline(v=-1,lty=2)
+text(0,-2,"interpolazione",pos = 1)
+text(1,-2,"estrapolazione",pos = 4)
+text(-1,-2,"estrapolazione",pos = 2)
+text(1,4,"errore di previsione",col=ared,pos=4)
+
+text(1.5,1.2,expression(beta[0]+beta[1]*x),col="darkred")
+arrows(-1,-2.5,1,-2.5,code = 3,length = .1)
+text(0,-2.6,"range(x)")
+text(-1,-2.6,"min(x)",pos = 4)
+text(+1,-2.6,"max(x)",pos = 2)
+fig.def(2.5,3.5)
+
+```
+
+
+
+### Intervalli di Confidenza per $\beta_0$, $\beta_1$ e $\hat Y$
+
+```{r 18-regressione-II-9}
+n <- 4
+se2 <- (n/(n-2))*vy*(1-r^2) 
+vb0 <- se2 * (1/n+mx^2/(n*vx)) 
+vb1 <- se2 / (n*vx) 
+
+# H0: b1 = 0 H1: b1 != 0
+
+t0oss <- (b0 - 0)/sqrt(vb0)
+t1oss <- (b1 - 0)/sqrt(vb1)
+t.025 <- qt(1-.025,n-2)
+t.005 <- qt(1-.005,n-2)
+```
+
+
+Si dimostra che
+\begin{eqnarray*}
+ \frac{\hat\beta_0-\beta_0}{\widehat{SE(\hat\beta_0)}}&\sim&t_{n-2}\\
+ \frac{\hat\beta_1-\beta_1}{\widehat{SE(\hat\beta_1)}}&\sim&t_{n-2}\\
+ \frac{\hat Y_{(X=x)}-(\beta_0+\beta_1 x)}{\widehat{SE(\hat Y_{(X=x)})}}&\sim&t_{n-2}
+\end{eqnarray*}
+
+
+E dunque gli IdC al livello $(1-\alpha)$ sono dati da
+\begin{eqnarray*}
+\hat\beta_0 &\pm& t_{n-2;\alpha/2}\widehat{SE(\hat\beta_0)}\\
+\hat\beta_1 &\pm& t_{n-2;\alpha/2}\widehat{SE(\hat\beta_1)}\\
+\hat Y_{(X=x)} &\pm& t_{n-2;\alpha/2}\widehat{SE(\hat Y_{(X=x)})}
+\end{eqnarray*}
+
+
+### Test per $\beta_0$, e $\beta_1$
+
+
+
+
+Consideriamo i due seguenti sistemi di ipotesi
+\[
+\begin{cases}
+H_0:\beta_0=\beta_{0,H_0}\\H_1:\text{da scegliere $\neq$, $>$ o $<$}
+\end{cases}
+\qquad
+\begin{cases}
+H_0:\beta_1=\beta_{1,H_0}\\H_1:\text{da scegliere $\neq$, $>$ o $<$}
+\end{cases}
+\]
+
+
+Sapendo che
+\[
+\widehat{SE(\hat\beta_{0})}           = \sqrt{S_{\varepsilon}^{2}\left( \frac{1} {n} + \frac{\bar{x}^{2}} {n\hat{\sigma}^{2}_{X}} \right)} \qquad \widehat{SE(\hat\beta_{1})}           = \sqrt{\frac{S_{\varepsilon}^{2}} {n\hat{\sigma}^{2}_{X}} }\\
+\]
+
+
+:::{.info data-latex=""}
+Sotto $H_0$
+
+\begin{eqnarray*}
+ \frac{\hat\beta_0-\beta_{0,H_0}}{\widehat{SE(\hat\beta_0)}} &\sim& t_{n-2} \\
+ \frac{\hat\beta_1-\beta_{1,H_0}}{\widehat{SE(\hat\beta_1)}} &\sim& t_{n-2}
+\end{eqnarray*}
+
+
+otteniamo
+\begin{eqnarray*}
+t_{0,\text{obs}} &=& \frac{\hat\beta_0-\beta_{0,H_0}}{\widehat{SE(\hat\beta_0)}} \\
+t_{1,\text{obs}} &=& \frac{\hat\beta_1-\beta_{1,H_0}}{\widehat{SE(\hat\beta_1)}}
+\end{eqnarray*}
+
+Che andranno lette nella direzione di $H_1$ con le solite regole
+:::
+
+### Esempio sui 4 punti
+
+Tipicamente quando si fa un modello di regressione per prima cosa si testa la significatività dei 
+coefficienti:
+\[
+\begin{cases}
+H_0:\beta_0=0\\H_1:\beta_0\neq 0
+\end{cases}
+\qquad
+\begin{cases}
+H_0:\beta_1=0\\H_1:\beta_1\neq 0
+\end{cases}
+\]
+
+
+Calcolo gli standard errors stimati
+
+\[\begin{aligned}
+V(\hat\beta_1)&=\frac{\sigma_\varepsilon^2}{n\sigma_X^2} &\widehat {SE(\hat\beta_1)}&=\sqrt{\frac{S_\varepsilon^2}{n\hat\sigma_X^2}}\\
+              &                                          &&=\sqrt{\frac{`r se2`}{`r n`\times`r vx`}}\\
+              &&&=`r sqrt(vb1)`\\
+V(\hat\beta_0)&=\sigma_\varepsilon^2\left(\frac 1 n +\frac{\bar x^2}{n\sigma_X^2}\right) 
+&\widehat {SE(\hat\beta_0)} &= \sqrt{S_\varepsilon^2\left(\frac 1 n +\frac{\bar x^2}{n\sigma_X^2}\right)}\\
+                &&           &= \sqrt{`r se2`\left(\frac 1 {`r n`} +\frac{`r mx`^2}{`r n`\times `r vx`}\right)}\\
+                  &&         &= `r sqrt(vb0)`
+\end{aligned}\]
+
+### Calcolo dei valori osservati e dei valori critici
+
+otteniamo
+\begin{eqnarray*}
+t_{0,\text{obs}} &=& \frac{\hat\beta_0-0}{\widehat{SE(\hat\beta_0)}}=`r t0oss`\\
+t_{1,\text{obs}} &=&  \frac{\hat\beta_1-0}{\widehat{SE(\hat\beta_1)}}=`r t1oss`
+\end{eqnarray*}
+
+dalle tavole ricaviamo 
+  - $t_{n-2;0.025}=$ `r t.025`
+  - $t_{n-2;0.005}=$ `r t.005`
+
+
+`r if (abs(t0oss)<abs(t.025)) risp01 <- "non rifiuto $H_0$"  else risp01 <- "rifiuto $H_0$ " `
+`r if (abs(t0oss)<abs(t.025)) segn01 <- "<"  else segn01 <- ">" `
+`r if (abs(t0oss)<abs(t.005)) risp02 <- "non rifiuto $H_0$"  else risp02 <- "rifiuto $H_0$ " `
+`r if (abs(t0oss)<abs(t.005)) segn02 <- "<"  else segn02 <- ">" `
+`r if (abs(t1oss)<abs(t.025)) risp11 <- "non rifiuto $H_0$"  else risp11 <- "rifiuto $H_0$ " `
+`r if (abs(t1oss)<abs(t.025)) segn11 <- "<"  else segn11 <- ">" `
+`r if (abs(t1oss)<abs(t.005)) risp12 <- "non rifiuto $H_0$"  else risp12 <- "rifiuto $H_0$ " `
+`r if (abs(t1oss)<abs(t.005)) segn12 <- "<"  else segn12 <- ">" `
+
+e osserviamo che, per il coefficiente $\beta_0$:
+
+  - $|t_{0,\text{obs}}|=$ |`r t0oss`| `r segn01` `r t.025` $=t_{n-2;0.025}$ e quindi `r risp01` al livello di significatività $\alpha=0.05$.
+  - $|t_{0,\text{obs}}|=$ |`r t0oss`| `r segn02` `r t.005` $=t_{n-2;0.005}$ e quindi `r risp02` al livello di significatività $\alpha=0.01$.
+
+per il coefficiente $\beta_1$
+
+  - $|t_{1,\text{obs}}|=$ |`r t1oss`| `r segn11` `r t.025` $=t_{n-2;0.025}$ e quindi `r risp11` al livello di significatività $\alpha=0.05$.
+  - $|t_{1,\text{obs}}|=$ |`r t1oss`| `r segn12` `r t.005` $=t_{n-2;0.005}$ e quindi `r risp12` al livello di significatività $\alpha=0.01$.
+
+
+### Se $n=10$
+
+Si supponga che a parità di statistiche $\bar x$, $\bar y$, $\hat\sigma_X$, $\hat\sigma_Y$, e $\text{cov}(X,Y)$, ma per $n=10$, si ottiene:
+
+```{r 18-regressione-II-10}
+
+x <- c(0:3)
+y <- c(2,3.5,2.5,4)
+n <- 10 
+
+
+
+se2 <- (n/(n-2))*vy*(1-r^2) 
+vb0 <- se2 * (1/n+mx^2/(n*vx)) 
+vb1 <- se2 / (n*vx) 
+
+# H0: b1 = 0 H1: b1 != 0
+
+t0oss <- (b0 - 0)/sqrt(vb0)
+t1oss <- (b1 - 0)/sqrt(vb1)
+t.025 <- qt(1-.025,n-2)
+t.005 <- qt(1-.005,n-2)
+```
+
+Calcolo gli standard errors stimati
+
+\[\begin{aligned}
+V(\hat\beta_1)&=\frac{\sigma_\varepsilon^2}{n\sigma_X^2} &\widehat {SE(\hat\beta_1)}&=\sqrt{\frac{S_\varepsilon^2}{n\hat\sigma_X^2}}\\
+              &                                          &&=\sqrt{\frac{`r se2`}{`r n`\times`r vx`}}\\
+              &&&=`r sqrt(vb1)`\\
+V(\hat\beta_0)&=\sigma_\varepsilon^2\left(\frac 1 n +\frac{\bar x^2}{n\sigma_X^2}\right) 
+&\widehat {SE(\hat\beta_0)} &= \sqrt{S_\varepsilon^2\left(\frac 1 n +\frac{\bar x^2}{n\sigma_X^2}\right)}\\
+                &&           &= \sqrt{`r se2`\left(\frac 1 {`r n`} +\frac{`r mx`^2}{`r n`\times `r vx`}\right)}\\
+                  &&         &= `r sqrt(vb0)`
+\end{aligned}\]
+
+Calcolo dei valori osservati e dei valori critici e ottengo
+
+\begin{eqnarray*}
+t_{0,\text{obs}} &=& \frac{\hat\beta_0-0}{\widehat{SE(\hat\beta_0)}}=`r t0oss`\\
+t_{1,\text{obs}} &=&  \frac{\hat\beta_1-0}{\widehat{SE(\hat\beta_1)}}=`r t1oss`
+\end{eqnarray*}
+
+dalle tavole ricaviamo $t_{n-2;0.025}=$ `r t.025` e $t_{n-2;0.005}=$ `r t.005`
+
+
+`r if (abs(t0oss)<abs(t.025)) risp01 <- "non rifiuto $H_0$"  else risp01 <- "rifiuto $H_0$ " `
+`r if (abs(t0oss)<abs(t.025)) segn01 <- "<"  else segn01 <- ">" `
+`r if (abs(t0oss)<abs(t.005)) risp02 <- "non rifiuto $H_0$"  else risp02 <- "rifiuto $H_0$ " `
+`r if (abs(t0oss)<abs(t.005)) segn02 <- "<"  else segn02 <- ">" `
+`r if (abs(t1oss)<abs(t.025)) risp11 <- "non rifiuto $H_0$"  else risp11 <- "rifiuto $H_0$ " `
+`r if (abs(t1oss)<abs(t.025)) segn11 <- "<"  else segn11 <- ">" `
+`r if (abs(t1oss)<abs(t.005)) risp12 <- "non rifiuto $H_0$"  else risp12 <- "rifiuto $H_0$ " `
+`r if (abs(t1oss)<abs(t.005)) segn12 <- "<"  else segn12 <- ">" `
+
+e osserviamo che, per il coefficiente $\beta_0$:
+
+  - $|t_{0,\text{obs}}|=$ |`r t0oss`| `r segn01` `r t.025` $=t_{n-2;0.025}$ e quindi `r risp01` al livello di significatività $\alpha=0.05$.
+  - $|t_{0,\text{obs}}|=$ |`r t0oss`| `r segn02` `r t.005` $=t_{n-2;0.005}$ e quindi `r risp02` al livello di significatività $\alpha=0.01$.
+
+per il coefficiente $\beta_1$
+
+  - $|t_{1,\text{obs}}|=$ |`r t1oss`| `r segn11` `r t.025` $=t_{n-2;0.025}$ e quindi `r risp11` al livello di significatività $\alpha=0.05$.
+  - $|t_{1,\text{obs}}|=$ |`r t1oss`| `r segn12` `r t.005` $=t_{n-2;0.005}$ e quindi `r risp12` al livello di significatività $\alpha=0.01$.
+
+## Il modello di regressione lineare multiplo
+
+Si tratta di un'estensione del modello semplice ma con più variabili indipendenti
+$$
+Y_i=\beta_0+\beta_1X_{i1}+\beta_2X_{i2}+...+\beta_kX_{ik}+\varepsilon_i
+$$
+
+La nube dei punti non può più essere rappresentata per $k>2$ e le soluzioni dei minimi quadrati
+tanto meno. 
+Il coefficiente di determinazione lineare $R^2$ soffre di grossi limiti all'aumentare del numero
+di $k$. 
+Per valutare quanto bene il modello si adatta ai dati si devo compiere analisi statistiche ulteriori.
+```{r,fig.cap="Nube in 3D, i punti tali per cui $\\hat y_i>y_i$ sono colorati in blu scuro, quelli per cui $\\hat y_i<y_i$, sono colorati in azzuro chiaro"}
+
+set.seed(0)
+n <- 50
+x1 <- runif(n, 0, 10)
+x2 <- runif(n, 0, 10)
+beta0 <- 5; beta1 <- +.8; beta2 <- +1.2
+eps <- rnorm(n,0,2)
+y <- beta0 + beta1*x1 + beta2*x2 + eps
+yhat <- beta0 + beta1*x1 + beta2*x2
+
+# Griglia del piano
+xg <- seq(0, 10, length=30)
+yg <- seq(0, 10, length=30)
+zmat <- outer(xg, yg, function(x, y) beta0 + beta1*x + beta2*y)
+
+# Plot del piano
+pmat <- persp(xg, yg, zmat, theta=-35, phi=30,zlim = c(0,30),ltheta = 30,shade = .05,
+              col="white", border=1,
+              xlab = "", ylab = "", zlab = "",
+              expand=0.5,box = F)
+
+# Aggiungiamo label sugli assi con text() + trans3d
+text(trans3d(9, -1, 0, pmat), labels = expression(x[1]),cex=2,col=iblue)
+text(trans3d(-1, 9, 0, pmat), labels = expression(x[2]),cex=2,col=iblue)
+text(trans3d(0.3, 0, 32, pmat), labels = expression(y),cex=2,col=iblue)
+text(trans3d(10, 10, 30, pmat), labels = expression(mu(x[1], x[2])),cex=2,col=ared)
+arrows(trans3d(0,0,0,pmat)$x,trans3d(0,0,0,pmat)$y,trans3d(0,10,0,pmat)$x,trans3d(0,10,0,pmat)$y,length = .1)
+arrows(trans3d(0,0,0,pmat)$x,trans3d(0,0,0,pmat)$y,trans3d(10,0,0,pmat)$x,trans3d(10,0,0,pmat)$y,length = .1)
+arrows(trans3d(0,0,0,pmat)$x,trans3d(0,0,0,pmat)$y,trans3d(0,0,35,pmat)$x,trans3d(0,0,35,pmat)$y,length = .1)
+
+pt1 <- trans3d(x1, x2, y, pmat)
+pt2 <- trans3d(x1, x2, yhat, pmat)
+
+points(pt1$x[y<yhat],pt1$y[y<yhat], pch=16,col=ablue)
+points(pt1$x[y>yhat],pt1$y[y>yhat], pch=16,col=iblue)
+segments(pt1$x[y<yhat], pt1$y[y<yhat], pt2$x[y<yhat], pt2$y[y<yhat], col=ared,lty=3)
+segments(pt1$x[y>yhat], pt1$y[y>yhat], pt2$x[y>yhat], pt2$y[y>yhat], col=iblue,lty=3)
+#points(trans3d(x1,x2,0,pmat),pch=4,col="grey")
+```
+
+## Analisi dei Residui
+
+Il modello lineare poggia sugli assunti che abbiamo elencato. 
+La violazione degli assunti invalida le procedure inferenziali 
+La **analisi dei residui** è una serie di procedure diagnostiche per controllare
+che gli assunti siano rispettati. 
+Le procedure consistono nel produrre statistiche e grafici sui residui osservati
+$\hat\varepsilon_i$
+
+### Diagramma dei residui e retta dei residui
+
+Un modo comune per visualizzare i residui consiste nel mettere in ordinata
+le $x_i$ e in ascissa i $\hat\varepsilon_i$.
+Per costruzione
+
+\[\text{cov}(x,\hat\varepsilon)=0\]
+
+e dunque la **retta dei residui**, che è la retta di regressione tra $x$ e 
+$\hat\varepsilon$ è parallela all'asse delle $x$ e coincide con esso. 
+Esempio sui 4 punti
+
+```{r 18-regressione-II-11}
+plot(x,es,axes=F,pch=16,col=4,ylab = expression(hat(epsilon)))
+title("x vs errori")
+abline(lsfit(x,es),col=ared)
+abline(0,0,lty=3)
+segments(x,es,x,0,lty=2)
+axis(1,x)
+axis(1,mean(x),expression(hat(mu)[X]))
+axis(2,es)
+axis(2,0)
+```
+
+essendo $\hat y_i$ combinazioni lineari degli $x_i$ se mettiamo gli $\hat y_i$ in ordinata
+e gli $\varepsilon_i$ in ascissa otteniamo lo stesso grafico
+
+```{r 18-regressione-II-12}
+plot(ys,es,axes=F,pch=16,col=4)
+title("y stimate vs errori")
+abline(lsfit(ys,es),col=ared)
+abline(0,0,lty=3)
+segments(ys,es,ys,0,lty=2)
+axis(1,ys)
+axis(1,mean(ys),"my")
+axis(2,es)
+axis(2,0)
+
+fig.def(3)
+```
+
+### Lettura del Diagramma dei residui
+
+Se tutte le assunzioni sono rispettate i residui devono essere distribuiti
+in modo uniforme intorno alla retta dei residui
+
+```{r 18-regressione-II-13}
+
+set.seed(2)
+x <- sort(rnorm(100,100))
+y <- 20+x/2+rnorm(100)
+
+par(mfrow=c(1,2),cex=cex)
+plot(x,y,pch=16,axes=F,xlab="x",ylab="y")
+axis(1)
+axis(2)
+ml <- lsfit(x,y)
+abline(ml,col=4,lwd=2)
+
+plot(x,ml$residuals,pch=16,axes=F,xlab="x",ylab=expression(hat(epsilon)))
+axis(1)
+axis(2)
+abline(h=0,lty=2)
+title("retta dei residui vs x")
+```
+
+
+<!-- ```{r 18-regressione-II-14} -->
+<!-- par(mfrow=c(1,2),cex=cex) -->
+<!-- plot(x,ml$residuals,pch=16,axes=F,xlab="x",ylab=expression(hat(epsilon)),type="l") -->
+<!-- axis(1) -->
+<!-- axis(2) -->
+<!-- abline(h=0,lty=2) -->
+<!-- title("retta dei residui vs x") -->
+
+<!-- plot(cbind(1,x)%*%ml$coefficients,ml$residuals,pch=16,axes=F,xlab=expression(beta[0]+beta[1]~x),ylab=expression(hat(epsilon))) -->
+<!-- axis(1) -->
+<!-- axis(2) -->
+<!-- abline(h=0,lty=2) -->
+<!-- title("retta dei residui vs la retta") -->
+<!-- par(mfrow=c(1,1),cex=cex) -->
+
+<!-- ``` -->
+
+
+__Violazione dell'assunto 0 (i punti provengono da una relazione lineare)__
+
+```{r 18-regressione-II-15}
+set.seed(1)
+x <- sort(rnorm(100,0,.8))
+y <- 10+exp(x)+rnorm(100)
+
+par(mfrow=c(1,2),cex=.5)
+plot(x,y,pch=16,axes=F,xlab="x",ylab="y")
+axis(1)
+axis(2)
+ml <- lsfit(x,y)
+abline(ml,col=4,lwd=2)
+#curve(10+exp(x)/2,add=T,lwd=2,col=ared)
+
+plot(x,ml$residuals,pch=16,axes=F,xlab="x",ylab=expression(hat(epsilon)))
+axis(1)
+axis(2)
+abline(h=0,lty=2)
+title("retta dei residui vs x")
+```
+
+
+<!-- ```{r 18-regressione-II-16} -->
+<!-- par(mfrow=c(1,2),cex=cex) -->
+<!-- plot(x,ml$residuals,pch=16,axes=F,xlab="x",ylab=expression(hat(epsilon)),type="l") -->
+<!-- axis(1) -->
+<!-- axis(2) -->
+<!-- abline(h=0,lty=2) -->
+<!-- title("retta dei residui vs x") -->
+
+<!-- plot(cbind(1,x)%*%ml$coefficients,ml$residuals,pch=16,axes=F,xlab=expression(beta[0]+beta[1]~x),ylab=expression(hat(epsilon))) -->
+<!-- axis(1) -->
+<!-- axis(2) -->
+<!-- abline(h=0,lty=2) -->
+<!-- title("retta dei residui vs la retta") -->
+<!-- par(mfrow=c(1,1),cex=cex) -->
+
+<!-- ``` -->
+
+__Violazione degli assunti 2. e 4. (omoschedasticità e indipendenza tra $x$ e $\varepsilon$)__
+
+```{r 18-regressione-II-17}
+set.seed(1)
+x <- sort(rnorm(100,20,.8))
+y <- x+rnorm(100,0,rep(c(.5,1),each=50))
+
+par(mfrow=c(1,2),cex=cex)
+plot(x,y,pch=16,axes=F,xlab="x",ylab="y")
+axis(1)
+axis(2)
+ml <- lsfit(x,y)
+abline(ml,col=4,lwd=2)
+#curve(10+exp(x)/2,add=T,lwd=2,col=ared)
+
+plot(x,ml$residuals,pch=16,axes=F,xlab="x",ylab=expression(hat(epsilon)))
+axis(1)
+axis(2)
+abline(h=0,lty=2)
+title("retta dei residui vs x")
+```
+
+
+<!-- ```{r 18-regressione-II-18} -->
+<!-- par(mfrow=c(1,2),cex=cex) -->
+<!-- plot(x,ml$residuals,pch=16,axes=F,xlab="x",ylab=expression(hat(epsilon)),type="l") -->
+<!-- axis(1) -->
+<!-- axis(2) -->
+<!-- abline(h=0,lty=2) -->
+<!-- title("retta dei residui vs x") -->
+
+<!-- plot(cbind(1,x)%*%ml$coefficients,ml$residuals,pch=16,axes=F,xlab=expression(beta[0]+beta[1]~x),ylab=expression(hat(epsilon))) -->
+<!-- axis(1) -->
+<!-- axis(2) -->
+<!-- abline(h=0,lty=2) -->
+<!-- title("retta dei residui vs la retta") -->
+<!-- par(mfrow=c(1,1),cex=cex) -->
+
+<!-- ``` -->
+
+__Violazione dell'assunto 3. (indipendenza gli $\varepsilon$)__
+
+```{r 18-regressione-II-19}
+set.seed(1)
+x <- sort(rnorm(100,20,.8))
+y <- x+ arima.sim(list(order = c(2,0,2), ar = c(0.7, 0.13), ma = c(2, 3)), n = 100)
+
+par(mfrow=c(1,2),cex=cex)
+plot(x,y,pch=16,axes=F,xlab="x",ylab="y")
+axis(1)
+axis(2)
+ml <- lsfit(x,y)
+abline(ml,col=4,lwd=2)
+#curve(10+exp(x)/2,add=T,lwd=2,col=ared)
+
+plot(x,ml$residuals,pch=16,axes=F,xlab="x",ylab=expression(hat(epsilon)),type="l")
+axis(1)
+axis(2)
+abline(h=0,lty=2)
+title("retta dei residui vs x")
+par(mfrow=c(1,1),cex=cex)
+
+```
+
+<!-- ```{r 18-regressione-II-20} -->
+<!-- par(mfrow=c(1,2),cex=cex) -->
+<!-- plot(x,ml$residuals,pch=16,axes=F,xlab="x",ylab=expression(hat(epsilon)),type="l") -->
+<!-- axis(1) -->
+<!-- axis(2) -->
+<!-- abline(h=0,lty=2) -->
+<!-- title("retta dei residui vs x") -->
+
+<!-- plot(cbind(1,x)%*%ml$coefficients,ml$residuals,pch=16,axes=F,xlab=expression(beta[0]+beta[1]~x),ylab=expression(hat(epsilon))) -->
+<!-- axis(1) -->
+<!-- axis(2) -->
+<!-- abline(h=0,lty=2) -->
+<!-- title("retta dei residui vs la retta") -->
+<!-- par(mfrow=c(1,1),cex=cex) -->
+
+<!-- ``` -->
+
+__Violazioni dell'assunto 6. (normalità dei residui)__
+
+Per diagnosticare se i residui provengono da una normale ci sono diverse tecniche.
+Per esempio l'istogramma dei residui: si costruisce l'istogramma di frequenza e lo si compara con la normale.
+Se gli assunti sono rispettati ci aspetteremmo una situazione del genere
+
+```{r 18-regressione-II-21}
+
+set.seed(7)
+x <- sort(rnorm(200,100))
+y <- 20+x/2+rnorm(200,0,.5)
+
+ml <- lsfit(x,y)
+
+s <- sc(ml$residuals)
+
+hist(ml$residuals,15,probability = T,xlab=expression(hat(epsilon)),main = "Istogramma dei Residui")
+curve(dnorm(x,0,s),add=T,col=ared)
+
+# qqnorm(ml$residuals)
+```
+
+
+Esempio di assunto **non** rispettato
+
+```{r 18-regressione-II-22}
+
+set.seed(9)
+x <- sort(rnorm(1000,100))
+y <- 20+x/2+rt(1000,3)
+
+ml <- lsfit(x,y)
+
+s <- sc(ml$residuals)
+
+hist(ml$residuals,100,probability = T,xlab=expression(hat(epsilon)),main = "Istogramma dei Residui")
+curve(dnorm(x,0,s),add=T,col=ared)
+
+# qqnorm(ml$residuals)
+```
+
+### Normal QQ plot
+
+Si tratta di un grafico che mette sull'asse delle x i _quantile_ (percentili in inglese) teorici della normale
+e in ordinata i _quantile_ osservati dei residui sul campione.
+
+Si crea una tabella dei percentili degli $\hat\varepsilon_{(1)}$
+
+ errori ordinati        | ordine del percentile | percentile teorico
+ -----------------------|-----------------------|-------------------
+$\hat\varepsilon_{(1)}$ | $1/n$                 | $z_{1/n}$
+$\hat\varepsilon_{(2)}$ | $2/n$                 | $z_{2/n}$
+$...$                   | $...$                 | $...$
+dove $z_{i/n}$ è il percentile di un $Z\sim N(0,1)$:
+\[z_{i/n}: P(Z\leq z_{i/n})=i/n\]
+
+Se le $z_{i/n}$ e le $\hat\varepsilon_i$ giacciono su una retta,
+allora gli errori si possono assumere normali, tanto più i punti si allontanano
+tanto più l'ipotesi è violata.
+
+
+```{r 18-regressione-II-23}
+par(mfrow=c(1,2),cex=.5)
+set.seed(7)
+x <- sort(rnorm(200,100))
+y <- 20+x/2+rnorm(200,0,.5)
+
+ml <- lsfit(x,y)
+
+s <- sc(ml$residuals)
+
+# hist(ml$residuals,15,probability = T,xlab=expression(hat(epsilon)),main = "Istogramma dei Reisudi")
+# curve(dnorm(x,0,s),add=T,col=ared)
+
+qqnorm(ml$residuals/sc(ml$residuals),asp=1,main = "QQ plot: assunti rispettati")
+abline(0,1)
+
+x <- sort(rnorm(100,100))
+y <- 20+x/2+rt(100,2)
+
+ml <- lsfit(x,y)
+
+s <- sc(ml$residuals)
+
+# hist(ml$residuals,100,probability = T,xlab=expression(hat(epsilon)),main = "Istogramma dei Reisudi")
+# curve(dnorm(x,0,s),add=T,col=ared)
+
+qqnorm(ml$residuals/sc(ml$residuals),asp=1,main = "QQ plot: assunti non rispettati")
+abline(0,1)
+
+par(mfrow=c(1,1),cex=cex)
+```
+
+
+## Punti di leva, Outliers e punti influenti
+
+Ci sono tre tipi di dati anomali, in particolare
+
+- Outlier: osservazione con residuo anomale (sulle $y$)
+- Leverage: (punto di leva), valore anomalo (sulle $x$)
+- Influence Points: (punti influenti) osservazioni con
+comportamento anomalo che influenzano
+notevolmente i risultati
+
+
+```{r 18-regressione-II-24}
+set.seed(1)
+x <- c(rnorm(10,10),15,11)
+y <- x+rnorm(12,0,.2)
+y[11] <- 11
+y[12] <- 13
+
+plot(x,y,pch=16)
+points(x[11],y[11],pch=16,col=ared)
+segments(x0 = x[11],y0= y[11],x1=mean(x),col=ared,lty=3)
+text(14,11,"punto di leva",col=ared,pos=1)
+
+md <- lsfit(x,y)$coefficients
+
+points(x[12],y[12],pch=16,col=4)
+segments(x0 = x[12],y0= y[12],y1=md[1]+md[2]*x[12],col=4,lty=3)
+text(11.5,12,"outlier",col=4,pos=1)
+abline(lsfit(x[1:10],y[1:10]),lty=5,col="darkred")
+text(13,12,"retta esclusi i due\n punti di influenza",col="darkred")
+abline(lsfit(x,y))
+abline(v=mean(x),lty=2)
+abline(h=mean(y),lty=2)
+h <- 1/11 + (x-mean(x))^2/(11*s2c(x))
+```
+
+
+### Punti di leva
+
+Possiamo misurare la distanza di ogni singola $x_i$ dalla propria media $\bar x$ con la seguente misura
+chiamata _leva_
+\[
+h_{i} = \frac{1} {n} + \frac{(x_{i} - \bar{x})^{2}} {n \hat\sigma_{X}^{2}}
+\]
+
+Valori di $x$ con indice di leva alto sono _lontani_ dal centro. 
+In particolare se
+\[h_i>\frac 2 n\]
+allora $x_i$ è un _punto di leva_. 
+I Punti di leva possono avere effetto sul calcolo dei coefficienti di regressione.
+I punti a alta leva (con $h_{i} > 2/n$) sono nei
+valori estremi della variabile esplicativa e sono potenzialmente
+influenti, nel senso che possono influenzare in misura rilevante
+la pendenza della RdR.
+Infatti, i punti di leva possono portare a risultati forvianti per esempio
+
+```{r 18-regressione-II-25}
+set.seed(1)
+x <- c(rep(0,times=10),1)
+y <- c(rnorm(10,20),21.5)
+
+plot(x,y,pch=16)
+abline(lsfit(x,y))
+
+h <- 1/11 + (x-mean(x))^2/(11*s2c(x))
+text(.95,21,"h=1>2/11=0.18",pos = 2)
+text(.05,19.5,"h=0.1<2/11=0.18",pos=4)
+points(x[11],y[11],pch=16,col=ared)
+abline(v=mean(x),lty=2)
+abline(h=mean(y),lty=2)
+
+```
+
+```{r 18-regressione-II-1, results='asis', echo=FALSE, out.extra=''}
+
+tab <- data.frame(x,y,h)
+names(tab) <- c("$x_i$","$y_i$","$h_i$")
+kable(t(tab),booktabs = T, escape = F, linesep = "",col.names = NULL,row.names = T) %>%
+  column_spec(length(x)+1, color = ared)
+```
+
+
+Ma non sempre un punto a leva alta è un punto influente
+
+```{r 18-regressione-II-26}
+set.seed(1)
+x <- c(rnorm(10,10),15)
+y <- x+rnorm(11,0,.5)
+y[11] <- 14.5
+plot(x,y,pch=16)
+points(x[11],y[11],pch=16,col=ared)
+abline(lsfit(x,y))
+abline(lsfit(x[-11],y[-11]),lty=5,col="darkred")
+abline(v=mean(x),lty=2)
+abline(h=mean(y),lty=2)
+h <- 1/11 + (x-mean(x))^2/(11*s2c(x))
+```
+
+```{r 18-regressione-II-2, results='asis', echo=FALSE, out.extra=''}
+
+tab <- data.frame(x,y,h)
+names(tab) <- c("$x_i$","$y_i$","$h_i$")
+kable(t(tab),booktabs = T, escape = F, linesep = "",col.names = NULL,row.names = T,digits = 2) %>%
+  column_spec(length(x)+1, color = ared)
+```
+
+
+### I residui Studentizzati
+
+La studentizzazione è una specie di standardizzazione nella quale
+si tiene conto anche dei valori di leva. 
+I residui studentizzati sono dati da:
+\[
+\tilde{\varepsilon}_{i}  =  \frac{\hat{\varepsilon}_{i}}{S_{\varepsilon} \sqrt{1 - h_{i}}} \sim t_{n-2}
+\]
+
+Si preferiscono i residui studentizzati perché incorporano
+le leve e sono più confrontabili. 
+La distribuzione è $t$ con $n-2$ gradi di libertà, 
+se per qualche $i$, $|\tilde{\varepsilon}_{i}|>t_{\alpha;n-2}$ allora siamo in presenza di punti anomali che diventano **punti influenti** per il calcolo di $\hat\beta_0$ e$\hat\beta_1$.
+
+__Esempi__
+
+```{r 18-regressione-II-27}
+set.seed(1)
+
+par(mfrow=c(1,2),cex=cex)
+x <- c(rnorm(10,10),13)
+y <- x+rnorm(11,0,.1)
+y[11] <- 11
+
+md <- lsfit(x,y)
+plot(x,y,pch=16)
+title("Dato anomale per x ma non per y")
+points(x[11],y[11],pch=16,col=ared)
+abline(md)
+abline(lsfit(x[-11],y[-11]),lty=2,col=ared)
+h <- 1/11 + (x-mean(x))^2/(11*s2c(x))
+
+rr<- cor(x,y)
+
+ss <- sd(y)*sqrt(1-rr^2)*sqrt(1-h)
+etil <- md$residuals/ss
+
+text(x[-11]+.25,y[-11],round(etil[-11],3),cex=.5)
+text(x[11]-.25,y[11],round(etil[11],3),col=ared)
+
+
+x <- c(rnorm(11,10))
+y <- x+rnorm(11,0,.05)
+y[5] <- 13
+
+md <- lsfit(x,y)
+plot(x,y,pch=16)
+title("Dato anomalo per y ma non per x")
+
+points(x[5],y[5],pch=16,col=ared)
+abline(md)
+abline(lsfit(x[-5],y[-5]),lty=2,col=ared)
+h <- 1/11 + (x-mean(x))^2/(11*s2c(x))
+
+rr<- cor(x,y)
+
+ss <- sd(y)*sqrt(1-rr^2)*sqrt(1-h)
+etil <- md$residuals/ss
+
+text(x[-5]+.25,y[-5],round(etil[-5],3),cex=.5)
+text(x[5]-.25,y[5],round(etil[5],3),col=ared)
+
+
+```
+
+```{r 18-regressione-II-28}
+
+par(mfrow=c(1,2),cex=cex)
+
+
+x <- c(rnorm(10,10),13)
+y <- x+rnorm(11,0,.05)
+y[11] <- 15
+
+md <- lsfit(x,y)
+plot(x,y,pch=16)
+
+title("Dato anomalo per x e per y,\n in direzione della covarianza")
+
+points(x[11],y[11],pch=16,col=ared)
+abline(md)
+abline(lsfit(x[-11],y[-11]),lty=2,col=ared)
+h <- 1/11 + (x-mean(x))^2/(11*s2c(x))
+
+rr<- cor(x,y)
+
+ss <- sd(y)*sqrt(1-rr^2)*sqrt(1-h)
+etil <- md$residuals/ss
+
+text(x[-11]+.25,y[-11],round(etil[-11],3),cex=.5)
+text(x[11]-.25,y[11],round(etil[11],3),col=ared)
+
+
+
+x <- c(rnorm(10,10),15)
+y <- x+rnorm(11,0,.05)
+y[11] <- 6
+
+md <- lsfit(x,y)
+plot(x,y,pch=16)
+title("Dato anomalo per x e per y,\n in direzione contraria della covarianza")
+
+points(x[11],y[11],pch=16,col=ared)
+abline(md)
+abline(lsfit(x[-11],y[-11]),lty=2,col=ared)
+h <- 1/11 + (x-mean(x))^2/(11*s2c(x))
+
+rr<- cor(x,y)
+
+ss <- sd(y)*sqrt(1-rr^2)*sqrt(1-h)
+etil <- md$residuals/ss
+
+text(x[-11]+.25,y[-11],round(etil[-11],3),cex=.5)
+text(x[11]-.25,y[11],round(etil[11],3),col=ared)
+
+par(mfrow=c(1,1),cex=cex)
+```
+
+__Esempio numerico__
+
+```{r 18-regressione-II-29}
+set.seed(1)
+
+x <- c(rnorm(10,10),13)
+y <- x+rnorm(11,0,.1)
+y[11] <- 11
+
+md <- lsfit(x,y)
+h <- 1/11 + (x-mean(x))^2/(11*s2c(x))
+rr<- cor(x,y)
+ss <- sd(y)*sqrt(1-rr^2)*sqrt(1-h)
+etil <- md$residuals/ss
+
+tab1 <- data.frame(1:11,x,y,h,etil)
+
+names(tab1) <- c("$i$","$x_i$","$y_i$","$h_i$","$\\tilde\\varepsilon_i$")
+
+
+kable(t(tab1[,-1]),booktabs = T, escape = F, linesep = "",col.names = NULL,row.names = T,digits = 2) %>%
+  column_spec(length(x)+1, color = ared)
+
+plot(x,y,pch=16)
+title("Dato anomale per x ma non per y")
+points(x[11],y[11],pch=16,col=ared)
+abline(md)
+abline(lsfit(x[-11],y[-11]),lty=2,col=ared)
+h <- 1/11 + (x-mean(x))^2/(11*s2c(x))
+
+rr<- cor(x,y)
+
+ss <- sd(y)*sqrt(1-rr^2)*sqrt(1-h)
+etil <- md$residuals/ss
+
+text(x[-11]+.25,y[-11],round(etil[-11],3),cex=.5)
+text(x[11]-.25,y[11],round(etil[11],3),col=ared)
+
+```
+
+## Relazione tra $Y|X$ e $X|Y$
+
+Fin'ora abbiamo considerato il modello
+\[y_i = \beta_0+\beta_1+\varepsilon_i\]
+
+Supponiamo di invertire il ruolo della $x$ con la $y$
+\[x_i = \alpha_0+\alpha_1y_i+\delta_i\]
+
+Le stime dei minimi quadrati sono analoghe
+\[
+\begin{aligned}
+\hat\beta_1 &=\frac{\text{cov}(x,y)}{\hat\sigma_X^2} & \hat\alpha_1 &=\frac{\text{cov}(x,y)}{\hat\sigma_Y^2}\\
+\hat\beta_0&=\bar y-\hat\beta_1\bar x & \hat\alpha_0 &=\bar x-\hat\alpha_1\bar y
+\end{aligned}
+\]
+
+In generale
+\[\hat\beta_0\neq\hat\alpha_0,\qquad\hat\beta_1\neq\hat\alpha_1\]
+
+In particolare
+\[\hat\beta_1=\hat\alpha_1, \text{ se e solo se }\hat\sigma_X^2=\hat\sigma_Y^2\]
+
+Mentre
+\[\hat\beta_0=\hat\alpha_0, \text{ se e solo se }\hat\beta_1=\hat\alpha_1, \text{ e se }\bar y=\bar x\]
+
+### Relazione tra gli $\alpha$ i $\beta$ ed $r$
+
+Essendo:
+\begin{eqnarray*}
+\hat\beta_1 &=&\frac{\text{cov}(x,y)}{\hat\sigma_X^2}\\
+\hat\beta_1 &=&\frac{\hat\sigma_Y}{\hat\sigma_Y}\frac{\text{cov}(x,y)}{\hat\sigma_X^2}\\
+\hat\beta_1 &=&\frac{\hat\sigma_Y}{\hat\sigma_X}\frac{\text{cov}(x,y)}{\hat\sigma_Y\hat\sigma_X}\\
+\hat\beta_1 &=&\frac{\hat\sigma_Y}{\hat\sigma_X}r
+\end{eqnarray*}
+
+Quindi:
+\begin{eqnarray*}
+\hat\alpha_1 &=&\frac{\text{cov}(x,y)}{\hat\sigma_Y^2}\\
+\hat\alpha_1 &=&\frac{\hat\sigma_X}{\hat\sigma_Y}r
+\end{eqnarray*}
+
+
+**Graficamente**
+
+```{r 18-regressione-II-30}
+fig.def(3.,3.)
+```
+
+```{r 18-regressione-II-31}
+set.seed(23)
+n <- 25
+x <- rnorm(n,2)
+y <- x+rnorm(n,10)
+
+plot(x,y,pch=16,asp=sd(x)/sd(y))
+abline(lsfit(x,y),col=4)
+ystim <- cbind(1,x)%*%lsfit(x,y)$coefficients
+xstim <- cbind(1,y)%*%lsfit(y,x)$coefficients
+mxy <-(lsfit(y,x))
+ygr <- seq(-20,250,length.out = 2)
+xgr <- cbind(1,ygr)%*%mxy$coefficients
+lines(xgr,ygr,col=10)
+# segments(x,y,x,ystim,lty=2,col=4)
+# segments(x,y,xstim,y,lty=2,col=ared)
+
+#i <- 2
+#i <- 3
+#i <- 5
+#i <- 8
+i <- c(2,3,5,8,9)
+segments(x[i],y[i],x[i],ystim[i],lty=2,col=4)
+segments(x[i],y[i],xstim[i],y[i],lty=2,col=ared)
+
+abline(v=mean(x),lty=2)
+abline(h=mean(y),lty=2)
+text(4,13,expression(y==hat(beta)[0]+hat(beta)[1]*x),col=4)
+text(3.5,14,expression(x==hat(alpha)[0]+hat(alpha)[1]*y),col=ared)
+
+fig.def(2.6)
+```
+
+### Regressione sulle variabili standardizzate
+
+Se standardizziamo sia $x$ che $y$, otteniamo
+\[z_{Xi}=\frac{x_i-\bar x}{\hat\sigma_X}\qquad z_{Yi}=\frac{y_i-\bar y}{\hat\sigma_Y}\]
+
+Abbiamo eliminato l'unità di misura sia da $x$ che da $y$ e centrato la nube dei dati
+
+```{r 18-regressione-II-32}
+par(mfrow=c(1,2),cex=cex)
+plot(x,y,axes=F,xlab="x",ylab = "y")
+axis(1)
+axis(2)
+abline(v=mean(x),lty=2)
+abline(h=mean(y),lty=2)
+
+zx <- (x-mean(x))/sc(x)
+zy <- (y-mean(y))/sc(y)
+
+plot(zx,zy,axes=F,xlab=expression(z[X]),ylab = expression(z[Y]))
+axis(1)
+axis(2)
+abline(v=0,lty=2)
+abline(h=0,lty=2)
+
+
+par(mfrow=c(1,1),cex=cex)
+```
+
+
+
+I dati standardizzati hanno media zero e varianza 1
+\[\begin{aligned}
+\frac 1 n \sum_{i=1}^n z_{Xi} &=0 & \frac 1 n \sum_{i=1}^n z_{Xi}^2 &=1\\
+\frac 1 n \sum_{i=1}^n z_{Yi} &=0 & \frac 1 n \sum_{i=1}^n z_{Yi}^2 &=1\\
+\end{aligned}
+\]
+
+Dalle proprietà del coefficiente di correlazione
+\[r_{Z_X,Z_Y}=r_{X,Y}=r\]
+
+E dunque
+\[\begin{aligned}
+r &=\frac{\text{cov}(z_X,z_Y)}{\hat\sigma_{Z_X}\hat\sigma_{Z_Y}}\\
+ &= \frac{\text{cov}(z_X,z_Y)}{1\times 1}\\
+ &= \text{cov}(z_X,z_Y)
+\end{aligned}
+\]
+
+Si considerino i due modelli
+\[z_{Yi}=\beta_{0Z}+\beta_{1Z}\cdot z_{Xi}+\varepsilon_{Zi}, \qquad z_{Xi}=\alpha_{0Z}+\alpha_{1Z}\cdot z_{Yi}+\delta_{Zi}\]
+
+Allora
+\[\begin{aligned}
+\hat\beta_{1Z} &=\frac{\text{cov}(z_X,z_Y)}{\hat\sigma^2_{Z_X}} & \hat\alpha_{1Z} &=\frac{\text{cov}(z_X,z_Y)}{\hat\sigma^2_{Z_Y}}\\
+ &=\frac{r}{1^2}=r & &=\frac{r}{1^2}=r\\
+\hat\beta_{0Z} &=\bar z_{Y} - \hat\beta_{1Z} \bar z_X &\hat\alpha_{0Z} &=\bar z_X - \hat\alpha_{1Z} \bar z_Y\\
+ &=  0 + r \cdot 0 =0 & &=  0 + r \cdot 0 =0
+\end{aligned}
+\]
+
+**Graficamente**
+
+```{r 18-regressione-II-33}
+par(mfrow=c(1,2),cex=cex)
+plot(x,y,axes=F,xlab="x",ylab = "y")
+axis(1)
+axis(2)
+abline(v=mean(x),lty=2)
+abline(h=mean(y),lty=2)
+zx <- (x-mean(x))/sc(x)
+zy <- (y-mean(y))/sc(y)
+text(3,12,expression(y==hat(beta)[0]+hat(beta)[1]*x),col=4)
+text(2,14,expression(x==hat(alpha)[0]+hat(alpha)[1]*y),col=ared)
+abline(lsfit(x,y),col=4)
+ystim <- cbind(1,x)%*%lsfit(x,y)$coefficients
+xstim <- cbind(1,y)%*%lsfit(y,x)$coefficients
+mxy <-(lsfit(y,x))
+ygr <- seq(-20,250,length.out = 2)
+xgr <- cbind(1,ygr)%*%mxy$coefficients
+lines(xgr,ygr,col=10)
+
+
+plot(zx,zy,axes=F,xlab=expression(z[X]),ylab = expression(z[Y]))
+axis(1)
+axis(2)
+abline(v=0,lty=2)
+abline(h=0,lty=2)
+abline(lsfit(zx,zy),col=4)
+ystim <- cbind(1,x)%*%lsfit(zx,zy)$coefficients
+xstim <- cbind(1,y)%*%lsfit(zy,zx)$coefficients
+mxy <-(lsfit(zy,zx))
+ygr <- seq(-20,250,length.out = 2)
+xgr <- cbind(1,ygr)%*%mxy$coefficients
+lines(xgr,ygr,col=10)
+text(1,0.2,expression(z[Y]==r*Z[X]),col=4)
+text(1,1.5,expression(z[X]==r*Z[Y]),col=ared,pos=4)
+
+par(mfrow=c(1,1),cex=cex)
+```

@@ -1,0 +1,226 @@
+---
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+```{r s08, echo=FALSE}
+source("intro.R")
+
+```
+
+\newpage
+
+## La VC di Poisson
+
+
+### Obiettivo
+
+Trovare una variabile casuale che ci consenta di probabilizzare particolari fenomeni espressi in forma di conteggi:
+
+  - Numero di telefonate in arrivo ad un centralino di emergenza in un'ora
+  - Numero di interventi richiesti in assistenza in 24h
+  - Numero di automobili in fila ad un semaforo in orario di punta
+  - Numero di volte che si è cercato lavoro negli ultimi tre mesi
+
+Sono tutti fenomeni che hanno un supporto indefinito, perché il fenomeno potrebbe essere zero, oppure uno, oppure due, oppure... e non è possibile fissare manualmente infiniti valore di probabilità.
+
+### Storia
+
+La distribuzione _Poisson_ fu introdotta da Siméon-Denis Poisson nel 1838 nel suo articolo "Recherches sur la probabilité des jugements en matière criminelle et en matière civile". Tra le tante applicazioni venne utilizzata per studiare la variabile casuale $X$ _numero di morti per calcio di cavallo_. Evento raro, ma possibile nel IX secolo.
+Se il numero $n$ di calci da cavallo fossero stati pochi, la distribuzione sarebbe binomiale, $X\sim \text{Binom}(n;\pi)$, dove $\pi$ è la probabilità di morire avendo preso un calcio.
+ Pur essendo $\pi$ un numero molto basso, nel 1800 $n$ invece è un numero molto elevato
+
+### Il modello
+
+Poisson assume che il valore atteso di $X$ sia $E(X)=n\cdot\pi=\lambda$, dove $\lambda$ è un _numero fissato_. 
+Si deduce facilmente che
+\[\pi=\frac\lambda n\]
+
+La distribuzione di $X$ diventa allora
+\begin{eqnarray*}
+  P(X=x) &=& \binom{n}{x}\pi^x(1-\pi)^{n-x}\\
+         &=& \binom{n}{x}\left(\frac\lambda n\right)^x\left(1-\frac\lambda n\right)^{n-x}\\
+         &=& \frac{n!}{x!(n-x)!}\left(\frac\lambda n\right)^x\left(1-\frac\lambda n\right)^{n-x}\\
+         &=& \frac{\lambda^x}{x!}\frac{n!}{(n-x)! n^x}\left(1-\frac\lambda n\right)^{n-x}
+\end{eqnarray*}
+
+Infine si calcola il limite per $n\to\infty$. 
+Anzitutto analizziamo il supporto
+\[S_X=\{0,1,...,n\}\]
+Se $n\to\infty$ il supporto di $X$ diventa
+\[S_X=\{0,1,...,+\infty\}=\mathbb{N}\]
+Osserviamo la funzione di probabilità:
+\[\lim_{n\to\infty}\frac{\lambda^x}{x!}\frac{n!}{(n-x)! n^x}\left(1-\frac\lambda n\right)^{n-x} =\frac{\lambda^x}{x!}e^{-\lambda}\]
+
+In quanto
+\begin{eqnarray*}
+  \lim_{n\to\infty}\frac{n!}{(n-x)! n^x} &=& 1\\
+  \lim_{n\to\infty}\left(1-\frac\lambda n\right)^{n-x}    &=& e^{-\lambda},\qquad \text{si tratta di un limite notevole}
+\end{eqnarray*}
+
+La variabile di Poisson $X\sim \text{Pois}(\lambda)$ è quella variabile che ha supporto tutti i numeri naturali
+\[S_X=\mathbb{N}\]
+
+con funzione di probabilità
+\[f(x)=P(X=x)=\frac{\lambda^x}{x!}e^{-\lambda}\]
+
+lo spazio dei parametri è
+\[\lambda>0 \rightarrow \Theta=(0,+\infty)=\mathbb{R}^+\]
+
+Il valore atteso e la varianza sono
+\[E(X)=\lambda,\qquad V(X)=\lambda\]
+
+__Alcuni esempi per $\lambda\le 2$__
+
+```{r 07b-Poisson-5}
+fig.def(2)
+```
+
+```{r 07b-Poisson-1,echo=F}
+par(mfrow=c(1,2),cex=cex)
+lam = 0.5
+plot(0:10,dpois(0:10,lambda = lam),main = paste("lambda =", lam),type="n",lwd=2,col=ared,axes = F,xlab = "x",ylab="f(x)" )
+rect((0:10)-.5,0,(0:10)+.5,dpois(0:10,lambda = lam),col=ablue)
+axis(1,0:10)
+axis(2)
+lam = 1
+plot(0:10,dpois(0:10,lambda = lam),main = paste("lambda =", lam),type="n",lwd=2,col=ared,axes = F,xlab = "x",ylab="f(x)" )
+rect((0:10)-.5,0,(0:10)+.5,dpois(0:10,lambda = lam),col=ablue)
+axis(1,0:10)
+axis(2)
+```
+
+```{r 07b-Poisson-2,echo=F}
+par(mfrow=c(1,2),cex=cex)
+lam = 1.5
+plot(0:10,dpois(0:10,lambda = lam),main = paste("lambda =", lam),type="n",lwd=2,col=ared,axes = F,xlab = "x",ylab="f(x)" )
+rect((0:10)-.5,0,(0:10)+.5,dpois(0:10,lambda = lam),col=ablue)
+axis(1,0:10)
+axis(2)
+lam = 2.0
+plot(0:10,dpois(0:10,lambda = lam),main = paste("lambda =", lam),type="n",lwd=2,col=ared,axes = F,xlab = "x",ylab="f(x)" )
+rect((0:10)-.5,0,(0:10)+.5,dpois(0:10,lambda = lam),col=ablue)
+axis(1,0:10)
+axis(2)
+par(cex=cex)
+
+```
+
+
+__Alcuni esempi per $\lambda\geq 5$__
+
+```{r 07b-Poisson-3,echo=F}
+par(mfrow=c(1,2),cex=cex)
+lam <- 5
+kk  <- 20
+plot(0:kk,dpois(0:kk,lambda = lam),main = paste("lambda =", lam),type="n",lwd=2,col=ared,axes = F,xlab = "x",ylab="f(x)" )
+rect((0:kk)-.5,0,(0:kk)+.5,dpois(0:kk,lambda = lam),col=ablue)
+axis(1,0:kk)
+axis(2)
+lam = 9.7
+plot(0:kk,dpois(0:kk,lambda = lam),main = paste("lambda =", lam),type="n",lwd=2,col=ared,axes = F,xlab = "x",ylab="f(x)" )
+rect((0:kk)-.5,0,(0:kk)+.5,dpois(0:kk,lambda = lam),col=ablue)
+axis(1,0:kk)
+axis(2)
+kk=100
+lam = 50
+```
+
+```{r 07b-Poisson-4,echo=F}
+par(mfrow=c(1,2),cex=cex)
+plot(0:kk,dpois(0:kk,lambda = lam),main = paste("lambda =", lam),type="n",lwd=2,col=ared,axes = F,xlab = "x",ylab="f(x)" )
+rect((0:kk)-.5,0,(0:kk)+.5,dpois(0:kk,lambda = lam),col=ablue,border = ablue)
+axis(1)
+axis(2)
+lam = 100
+kk=200
+plot(0:kk,dpois(0:kk,lambda = lam),main = paste("lambda =", lam),type="n",lwd=2,col=ared,axes = F,xlab = "x",ylab="f(x)" )
+rect((0:kk)-.5,0,(0:kk)+.5,dpois(0:kk,lambda = lam),col=ablue,border = ablue)
+axis(1)
+axis(2)
+par(cex=cex)
+
+```
+
+
+### Dimostrazione del Valore atteso e della Varianza della Poisson
+
+Ricordiamo che la Poisson è il limite di una binomiale, il valore atteso della binomiale $n\pi$, al limite si ottiene
+\[E(X)=\lim_{n\to\infty} n\pi=\lim_{n\to\infty} n\frac\lambda n=\lambda\]
+la varianza della binomiale è $n\pi(1-\pi)$, al limite
+\[V(X)=\lim_{n\to\infty}n\pi(1-\pi)=\lim_{n\to\infty}n\frac\lambda n\left(1-\frac\lambda n\right)=\lambda\]
+
+
+
+### Esempio
+
+Sia $X$ il numero di persone in fila alla cassa 1 di in un supermercato in orario di punta, si _assume_ che $X$ sia _ben modellata_ da una Poisson di parametro $\lambda=3.5$, e si scrive $X\sim\text{Pois}(3.5)$. 
+
+1. Calcolare la probabilità che _nessuno_ sia in fila
+
+__Soluzione.__
+\[P(X=0)=\frac{\lambda^x}{x!}e^{-\lambda}=\frac{3.5^0}{0!}e^{-3.5}=`r dpois(0,3.5)`\]
+
+2. Calcolare la probabilità di avere _al massimo_ 2 persone in fila
+
+__Soluzione.__
+\begin{eqnarray*}
+P(X\leq 2) &=& P(X=0\cup X=1 \cup X=2)\\
+           &=& P(X=0)+P(X=1)+P(X=2)\\
+           &=& \frac{3.5^0}{0!}e^{-3.5}+\frac{3.5^1}{1!}e^{-3.5}+\frac{3.5^2}{2!}e^{-3.5}\\
+           &=& `r dpois(0,3.5)` + `r dpois(1,3.5)` + `r dpois(2,3.5)` = `r sum(dpois(0:2,3.5))`
+\end{eqnarray*}
+
+3. Calcolare la probabilità di avere _almeno_ 2 persone in fila
+
+__Soluzione.__
+\begin{eqnarray*}
+P(X\geq 2) &=& P(X=2\cup X=3 \cup X=4 \cup ...)\\
+           &=& 1 - P(X<2)\\
+           &=& 1-(P(X=0)+P(X=1))\\
+           &=& 1-(`r dpois(0,3.5)` + `r dpois(1,3.5)`) = `r 1-sum(dpois(0:1,3.5))`
+\end{eqnarray*}
+
+4. Calcolare la probabilità che il numero di persone in fila sia _compreso_ tra 2 e 4, estremi inclusi
+
+__Soluzione.__
+\begin{eqnarray*}
+P(2\leq X\leq 4) &=& P(X=2\cup X=3 \cup X=4 )\\
+           &=& `r dpois(2,3.5)` + `r dpois(3,3.5)`+ `r dpois(4,3.5)`= `r sum(dpois(0:1,3.5))`
+\end{eqnarray*}
+
+### Proprietà della Poisson
+
+:::{.proposition name="Variabile Casuale di Poisson"}
+$\phantom{.}$
+  
+1. Siano $X_1, X_2,...,X_n$, $n$ VC indipendenti, tali che
+\[X_i\sim\text{Pois}(\lambda_i)\]
+allora 
+\[X_1+X_2+...+X_n\sim\text{Pois}(\lambda_1+\lambda_2+...+\lambda_n)\]
+
+2. Sia $X\sim\text{Binom}(n;\pi)$, se $n$ cresce ($n\uparrow$) e $\pi$ decresce ($\pi\downarrow$) e il loro prodotto rimane fisso in
+\[n\pi=\lambda>0\]
+allora $\lim_{n\to\infty}X\sim \text{Pois}(\lambda)$.
+:::
+
+### In Sintesi
+
+:::{.info2 data-latex=""}
+Se $X$ è distribuita come una Poisson di parametro $\lambda$, allora
+
+\begin{align*}
+\text{Notazione} & & X&\sim\mbox{Pois}(\lambda) \\
+\text{Supporto} & & S_X &=\{0,1,2,...\}\equiv\mathbb{N} \\
+\text{Funzione di probabilità} & & f(x)&=\frac{\lambda^x}{x!}e^{-\lambda}\\
+\text{Spazio dei paramteri} & & \lambda&\in[0,+\infty)\equiv\mathbb{R}^+\\
+\text{Valore Atteso} & & E(X)&=\lambda\\
+\text{Varianza} & & V(X)&=\lambda\\
+\end{align*}
+
+**Proprietà riproduttiva:** 
+Siano $X_1, X_2,...,X_n$, $n$ VC indipendenti, tali che
+\[X_i\sim\text{Pois}(\lambda_i)\]
+allora 
+\[X_1+X_2+...+X_n\sim\text{Pois}(\lambda_1+\lambda_2+...+\lambda_n)\]
+:::

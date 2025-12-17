@@ -1,0 +1,899 @@
+---
+editor_options: 
+  chunk_output_type: console
+---
+```{r 03-media-varianza-1,echo=F,include=FALSE}
+#rm(list = ls())
+
+
+source("intro.R")
+
+
+```
+
+
+
+# Media Aritmetica, Varianza e Standard Deviation 
+
+ 
+
+## Media Aritmetica {#media}
+
+La media tra due numeri $x_1$ e $x_2$ il punto centrale
+
+
+\[\bar x = \frac{x_1+x_2}{2}\]
+
+__Esempio.__ Posto $x_1=2$, $x_2=5$, allora
+\[\bar x =\frac{2+5}{2}=3.5\]
+
+:::  {.center data-latex=""}
+
+```{r 03-media-varianza-2,echo=FALSE,fig.height=1.5}
+
+par(mar=c(0, 3, 3, 0) + 0.1)
+
+s2 <- 1
+x1 <- -1
+x2 <- +1
+xm <-  0
+
+par(cex=.5)
+
+xlim <- c(x1-.5,x2+.5)
+ylim <- c(-.5,.5)
+plot(xlim,ylim,axes = F,xlab = "",ylab="",type = "n")
+segments(xm,-.03,xm,.03)
+arrows(x1,0,x2,0,length = .05,code = 3,angle = 90)
+
+text(c(x1,0,x2),c(-.1,-.1,-.1),c(2,3.5,5))
+par(mar=c(5, 4, 4, 2) + 0.1)
+```
+:::
+
+:::{.info data-latex=""}
+
+:::{.definition name="Media Aritmetica"}
+Consideriamo la serie dei dati $\mathbf{x}=(x_1,...,x_i,...,x_n)$, si definisce la media aritmetica:
+\[
+\bar x =\frac 1 n \sum_{i=1}^nx_i 
+\]
+:::
+
+:::
+
+Ovvero la media tra $n$ numeri $x_1, x_2,...,x_n$ è definita da
+
+\[\bar x = \frac{x_1+x_2+...+x_n}{n}\]
+
+siccome la somma dei dati, rappresenta il totale ($Tot$) del fenomeno nel collettivo
+
+\[Tot=x_1+x_2+...+x_n=\sum_{i=1}^nx_i \]
+
+allora la media aritmetica
+
+\[\bar x=\frac {Tot}n=\frac 1 n \sum_{i=1}^nx_i \]
+
+rappresenta la quantità _ipotetica_ che ogni individuo possiederebbe se il totale fosse equi-ripartito.
+
+### La Media Aritmetica come Baricentro dell'Istogramma
+
+La media aritmetica tiene in equilibrio l'istogramma di densità come se si trattase di un sistema fisico. Se per esempio consideriamo 3 diverse serie di dati
+\begin{eqnarray*}
+  \mathbf{x}_1 &=&  (x_1 =1,x_2=2,x_3=2,x_4=3)\\
+  \mathbf{x}_2 &=&  (x_1 =1,x_2=2,x_3=2,x_4=5)\\
+  \mathbf{x}_3 &=&  (x_1 =1,x_2=2,x_3=2,x_4=7)
+\end{eqnarray*}
+
+E osserviamo che
+
+\begin{eqnarray*}
+  \bar x_1 &=&  \frac{1+2+2+3}{4}=2\\
+  \bar x_2 &=&\frac{1+2+2+5}{4}=2.5\\
+  \bar x_3 &=&\frac{1+2+2+7}{4}=3
+\end{eqnarray*}
+
+Ovvero spostando l'ultimo dato verso valori maggiori spingiamo la media su valori maggiori.
+Graficamente osserviamo come la medie tenga in equilibrio l'istogramma nella figura \@ref(fig:medh).
+
+
+```{r medh,fig.cap="La media artimetica tiene in equiibrio l'istogramma di densità, più ci sono dati estremi molto grandi più la media sale per mantenere l'equilibrio col totale."}
+
+#par(mfrow=c(2,2))
+
+layout(matrix(c(1,2,3,3),nrow = 2,byrow = T))
+op <- par(mar=c(4,0,0,0)+.1,cex=.5)
+x <- c(1,2,3)
+
+plot(c(0,4),c(-1.5,2),axes = F,xlab = "",ylab="",type = "n")
+rect(x-.5,0,x+.5,c(1,2,1))
+axis(1,1:3,pos = 0)
+arrows(2,-.5,2,-1.5,code = 1,length = .1,col=ared)
+
+x <- c(1,2,5)
+
+plot(c(0,6),c(-1.5,2),axes = F,xlab = "",ylab="",type = "n")
+rect(x-.5,0,x+.5,c(1,2,1))
+axis(1,1:5,pos = 0)
+arrows(2.5,-.5,2.5,-1.5,code = 1,length = .1,col=ared)
+axis(1,2.5,col=1,pos = 0)
+
+x <- c(1,2,7)
+
+plot(c(0,8),c(-1.5,2),axes = F,xlab = "",ylab="",type = "n")
+rect(x-.5,0,x+.5,c(1,2,1))
+axis(1,1:7,pos = 0)
+arrows(3,-.5,3,-1.5,code = 1,length = .1,col=ared)
+par(op)
+
+layout(matrix(1))
+```
+
+Allo stesso modo se osserviamo:
+
+\begin{eqnarray*}
+  \mathbf{x}_4 &=&  (x_1 =-1,x_2=2,x_3=2,x_4=3)\\
+  \mathbf{x}_5 &=&  (x_1 =-3,x_2=2,x_3=2,x_4=3),
+\end{eqnarray*}
+
+allora
+
+\begin{eqnarray*}
+  \bar x_1 &=&  \frac{1+2+2+3}{4}=2\\
+  \bar x_4 &=&\frac{-1+2+2+3}{4}=1.5\\
+  \bar x_5 &=&\frac{-3+2+2+3}{4}=1
+\end{eqnarray*}
+
+Ovvero spostando il primo dato verso valori minori spingiamo la media su valori minori.
+Graficamente osserviamo come la media tenga in equilibrio l'istogramma nella figura \@ref(fig:medh2).
+
+```{r 03-media-varianza-11}
+fig.def(2,titolo = F)
+```
+
+```{r medh2,fig.cap="Analogamente se spostiamo un dato verso sinistra la media si sposta a sinistra anch'essa",fig.height=2}
+
+par(mfrow=c(1,2),cex=.5,mar=c(1,4,2,4))
+
+x <- c(-1,2,3)
+
+plot(c(-2,4),c(-1.5,2),axes = F,xlab = "",ylab="",type = "n")
+rect(x-.5,0,x+.5,c(1,2,1))
+axis(1,-1:3,pos = 0)
+arrows(1.5,-.5,1.5,-1.5,code = 1,length = .1,col=ared)
+axis(1,1.5,col=1,pos = 0)
+
+x <- c(-3,2,3)
+
+plot(c(-4,4),c(-1.5,2),axes = F,xlab = "",ylab="",type = "n")
+rect(x-.5,0,x+.5,c(1,2,1))
+axis(1,-3:3,pos = 0)
+arrows(1,-.5,1,-1.5,code = 1,length = .1,col=ared)
+axis(1,1,col=1,pos = 0)
+
+par(mfrow=c(1,1),cex=cex)
+fig.def(titolo = F)
+```
+
+
+### Calcolo per Distribuzioni di Frequenza
+
+Se i dati sono raccolti in distribuzione di frequenza
+```{r 03-media-varianza-3, echo=FALSE, results="asis"}
+y1 <- c("$\\mathrm{x}_1$","$\\mathrm{x}_2$","$\\ldots$","$\\mathrm{x}_j$","$\\ldots$","$\\mathrm{x}_K$",NA)
+n  <- c("$n_1$","$n_2$","$\\ldots$", "$n_j$","$\\ldots$","$n_K$","$n$")
+tab <- data.frame("Modalità"=y1,"Frequenze"=n)
+kbl(t(tab),booktabs = T, escape = F,linesep = "", digits = 4,col.names=NA)
+```
+
+:::{.info data-latex=""}
+:::{.definition name="Media Artimetica per Dati Raccolti in Classi"}
+\[
+\bar x =\frac 1 n \sum_{j=1}^K\mathrm{x}_j n_j 
+\]
+:::
+:::
+
+
+:::{.example}
+Osserviamo i seguenti dati:
+```{r 03-media-varianza-4,results='asis',echo=FALSE}
+set.seed(112)
+n <- 10
+samp <- sample(c(2.7,3.4,5.1),n,T)
+cat(paste("$x_{",1:n,"}=",samp,"$; ",sep=""))
+```
+
+La media 
+
+\begin{eqnarray*}
+\bar x &=&\frac 1 n \sum_{i=1}^nx_i \\
+   &=& \frac{`r paste("x_{",1:n,"}",collapse = "+",sep="")`} {`r n`} \\
+         &=& \frac{`r paste(samp,collapse = "+",sep="")`}  {`r n`} \\
+         &=& \frac{`r sum(samp)`}  {`r n`}\\
+         &=& `r mean(samp)`
+\end{eqnarray*}
+
+
+Riordiniamo i dati:
+```{r 03-media-varianza-5,results='asis'}
+cat(paste("$x_{(",1:n,")}=",sort(samp),"$; ",sep=""))
+```
+
+
+E raccogliamo in distribuzione di frequenza:
+```{r 03-media-varianza-12}
+y1 <- c("$\\mathrm{x}_1=2.7$","$\\mathrm{x}_2=3.4$","$\\mathrm{x}_3=5.1$",NA)
+nn <-c(as.numeric(table(samp)),n)
+#kbl(data.frame(modalita=y1,frequenze=n),booktabs = T, escape = F,linesep = "", digits = 4)
+
+kable(t(data.frame(modalita=y1,frequenze=nn)),booktabs = T, escape = F,linesep = "", digits = 4,col.names = NA) %>%
+  column_spec(5,border_left = T)
+```
+
+la media:
+
+\begin{eqnarray*}
+  \bar x &=&\frac 1 n \sum_{j=1}^K\mathrm{x}_j n_j \\
+  &=& \frac{\mathrm{x}_1 n_1+\mathrm{x}_2 n_2+\mathrm{x}_3 n_3} n \\
+         &=& \frac{2.7\times `r nn[1]`+3.4\times `r nn[2]`+5.1\times `r nn[3]`} {`r n`} \\
+         &=& \frac{`r sum(samp)`} {`r n`} \\
+         &=& `r mean(samp)`
+\end{eqnarray*}
+:::
+
+### Proprietà della Media Aritmetica
+
+:::{.info data-latex=""}
+:::{.proposition name="della media aritmetica"}
+Le principale proprietà della media aritmetica sono:
+
+0. Internalità: $x_{\min} = x_{(1)} \le \bar{x} \le x_{(n)} = x_{\max}$
+
+1. Invarianza della somma: \[n\bar x=\sum_{i=1}^n x_i\]
+
+2. Somma degli scarti dalla media nulla: $\sum_{i=1}^{n} (x_{i} - \bar{x}) = 0$
+
+3. Minimizza la somma degli scarti al quadrato:
+\[
+\sum_{i=1}^{n} (x_{i} - \bar{x})^{2} < \sum_{i=1}^{n} (x_{i} -
+d)^{2} \quad \forall d \ne \bar{x}
+\]
+
+4. Invarianza per trasformazioni lineari: se $y_i=a+bx_i$ allora $\bar{y} = a + b \bar{x}$
+
+5. Associatività. Sia una popolazione, $\mathscr{P}$, formata da $K$
+gruppi con medie e numerosità: ($\bar{x}_{1};\ n_{1}$),
+($\bar{x}_{2};\ n_{2}$), $\ldots$, ($\bar{x}_{K};\ n_{K}$). Allora,
+la media totale $\bar{x}_{T}$ di $\mathscr{P}=$ è data da
+
+\[
+  \bar{x}_{T}
+= \frac{\mbox{Tot}{ \{\mathscr{P}}_1\} +  \cdots +
+        \mbox{Tot}{ \{\mathscr{P}}_K\}} {n_{1} + \cdots + n_{K}}
+= \frac{n_{1}\ \bar{x}_{1} + \cdots + n_{K}\ \bar{x}_{K}}
+       {n_{1} + \cdots + n_{K}}
+\]
+:::
+:::
+
+:::{.proof} 
+Qui di seguito le dimostrazioni
+
+0. La proprietà di internalità deriva dal fatto che la somma dei dati è maggiore della
+somma di $n$ volte del più piccolo dei dati $\sum_{i=1}^n x_i>\sum_{i=1}^n x_{(1)}$. Mentre 
+$\sum_{i=1}^n x_i<\sum_{i=1}^n x_{(n)}$ la somma dei dati è maggiore della
+somma di $n$ volte del più grande dei dati.
+
+1. La proprietà di invarianza della somma la otteniamo direttamente dalla definizione di media aritmetica.
+\begin{eqnarray*}
+  \bar x &=&  \frac 1n\sum_{i=1}^nx_i\\
+  n\bar x&=&\sum_{i=1}^nx_i.
+\end{eqnarray*}
+
+2. Somma degli scarti dalla media nulla.
+Osserviamo che
+\begin{eqnarray*}
+  \sum_{i=1}^n(x_i-\bar x) &=&  \sum_{i=1}^n x_i-\sum_{i=1}^n\bar x\\
+  &=& n\bar x -n\bar x\\
+  &=&0.
+\end{eqnarray*}
+
+3. Minimizza la somma degli scarti al quadrato. Se poniamo $g(x)=\sum_{i=1}^{n} (x_{i} - x)^{2}$
+osserviamo che
+\begin{align*}
+  g(x) &= \sum_{i=1}^n(x_i-x)^2 \\
+  &=  (x_1- x)^2+...+(x_n- x)^2 && \text{La funzione $g$ è una somma di parabole}\\
+  g'(x) &= -2(x_1- x)-...-2(x_n- x) && \text{Dove $g'$ indica la derivata prima di $g$}\\
+  &= -2\sum_{i=1}^nx_i -2nx\\
+  g'(x) &= 0 && \text{Eguagliamo $g'$ a zero per avere il minimo}\\
+   -2\sum_{i=1}^nx_i -2nx&=0\\
+   x&=\frac 1n\sum_{i=1}^nx_i.
+\end{align*}
+
+4. Invarianza per trasformazioni lineari: 
+se $y_i=a+bx_i$ allora 
+
+\begin{eqnarray*}
+  \bar y &=& \frac 1n\sum_{i=1}^n y_i \\
+  &=&  \frac 1n\sum_{i=1}^n (a+bx_i)\\
+  &=& \frac 1n\sum_{i=1}^n a + \frac 1n\sum_{i=1}^n bx\\
+  &=& a+b\bar x.
+\end{eqnarray*}
+
+5. Associatività. Sia una popolazione, $\mathscr{P}$, formata da $K$
+gruppi con medie e numerosità: ($\bar{x}_{1};\ n_{1}$),
+($\bar{x}_{2};\ n_{2}$), $\ldots$, ($\bar{x}_{K};\ n_{K}$). Allora,
+il totale di tutte le popolazioni è $Tot=n_1\bar x_1+...+n_1\bar x_K$, mentre
+il numero totale di individui di tutte e $K$ le popolazioni è $n_T=n_1+...+n_K$
+E quindi la media
+
+\[
+  \bar{x}_{T}
+= \frac{\mbox{Tot}{ \{\mathscr{P}}_1\} +  \cdots +
+        \mbox{Tot}{ \{\mathscr{P}}_K\}} {n_{1} + \cdots + n_{K}}
+= \frac{n_{1}\ \bar{x}_{1} + \cdots + n_{K}\ \bar{x}_{K}}
+       {n_{1} + \cdots + n_{K}}
+\]
+:::
+
+
+## La varianza {#var}
+
+La media riduce un complesso di $n$ dati in uno solo. A parità di media
+i dati possono essere molto diversi tra di loro. Per esempio le due serie di dati
+
+\begin{eqnarray*}
+  \mathbf{x}_1 &=&  (x_1 =2,x_2=2,x_3=2,x_4=2)\\
+  \mathbf{x}_2 &=&  (x_1 =1,x_2=2,x_3=2,x_4=3)\\
+  \mathbf{x}_3 &=&  (x_1 =0,x_2=0,x_3=0,x_4=8)
+\end{eqnarray*}
+
+hanno tutte la stessa media $\bar x_1=\bar x_2 =\bar x_3= 2$, ma nel primo caso tutti possiedono
+la media, nel secondo chi poco e chi tanto, nel terzo caso uno possiede il totale e gli altri 3 nulla.
+
+La varianza misura la distanza dei dati dalla media.
+
+:::{.info data-latex=""}
+:::{.definition name="Varianza"}
+Si definisce la varianza la quantità:
+\[
+\sigma^2=\frac 1 n \sum_{1=1}^n(x_i-\bar x)^2
+\]
+:::
+:::
+
+La varianza misura lo scostamento medio quadratico dei dati dalla media aritmetica;
+ovvero è la media del quadrato degli scarti.
+
+Con un po' di algebra si dimostra che
+
+:::{.info data-latex=""}
+:::{.proposition name="Formula Calcolatoria della Varianza"}
+\[
+\sigma^2=\frac 1 n \sum_{1=1}^n x_i^2 -\bar x^2
+\]
+:::
+:::
+
+:::{.proof}
+\begin{eqnarray*}
+   \sigma^2 &=&  \frac 1 n \sum_{1=1}^n(x_i-\bar x)^2\\
+   &=& \frac 1n\sum_{1=1}^n(x_i^2+\bar x^2-2\cdot x_i\cdot \bar x)\\
+   &=& \frac 1n\sum_{1=1}^n x_i^2+\frac 1n\sum_{1=1}^n \bar x^2-\frac 1n\sum_{1=1}^n2\cdot x_i\cdot \bar x\\
+   &=& \frac 1n\sum_{1=1}^n x_i^2+\frac nn \bar x^2-\frac 2n\bar x \cdot n\cdot \bar x\\
+   &=& \frac 1 n \sum_{1=1}^n x_i^2 -\bar x^2
+\end{eqnarray*}
+:::
+
+Quindi la varianza si può calcolare o come media del quadrato degli scarti dalla media o come media dei quadrati meno il quadrato della media.
+
+:::{.example}
+Posto $x_1=2$, $x_2=2$, $x_3=2$, $x_4=2$ allora
+\[\bar x =\frac{2+2+2+2}{4}=2\]
+
+\[
+\sigma^2=\frac {(2-2)^2+(2-2)^2+(2-2)^2+(2-2)^2}{4}=0
+\]
+
+Tutti gli individui hanno la stessa quantità che è pari alla media, non c'è variabilità, la varianza vale zero.
+:::
+
+:::{.example}
+Posto $x_1=1$, $x_2=2$, $x_3=2$, $x_4=3$ allora
+\[\bar x =\frac{2+2+2+2}{4}=2\]
+
+\[
+\sigma^2=\frac {(1-2)^2+(2-2)^2+(2-2)^2+(3-2)^2}{4}=0.5
+\]
+
+Non tutti gli individui hanno la stessa quantità, c'è variabilità, la varianza è diversa da zero.
+:::
+
+:::{.example}
+Posto $x_1=0$, $x_2=0$, $x_3=0$, $x_4=8$ allora
+\[\bar x =\frac{0+0+0+8}{4}=2\]
+
+\[
+\sigma^2=\frac {(0-2)^2+(0-2)^2+(0-2)^2+(8-2)^2}{4}=12
+\]
+
+Tutto il totale è posseduto da un solo individuo, c'è massima variabilità.
+:::
+
+### Calcolo per Distribuzioni di Frequenza
+
+Se i dati sono raccolti in distribuzione di frequenza
+
+```{r 03-media-varianza-6, echo=FALSE, results="asis"}
+y1 <- c("$\\mathrm{x}_1$","$\\mathrm{x}_2$","$\\ldots$","$\\mathrm{x}_j$","$\\ldots$","$\\mathrm{x}_K$",NA)
+nn  <- c("$n_1$","$n_2$","$\\ldots$", "$n_j$","$\\ldots$","$n_K$","$n$")
+tab <- data.frame("Modalità"=y1,"Frequenze"=nn)
+kbl(t(tab),booktabs = T, escape = F,linesep = "", digits = 4,col.names = NA)%>%
+  column_spec(8,border_left = T)
+# kable(tab,"html")  %>%
+# kable_styling(bootstrap_options = c("striped", "hover"),full_width = FALSE)
+
+```
+la varianza si può calcolare
+
+:::{.info data-latex=""}
+:::{.proposition name="Varianza per Dati in Distribuzione di Frequenza"}
+\[
+\sigma^2=\frac 1 n\sum_{j=1}^k(\mathrm{x}_j-\bar x)^2n_j
+\]
+:::
+:::
+
+e di conseguenza, con un po' di algebra otteniamo:
+
+:::{.info data-latex=""}
+:::{.proposition name="Formula Calcolatoria per la Varianza per Dati in Distribuzione di Frequenza"}
+\[
+\sigma^2=\frac 1 n\sum_{j=1}^k\mathrm{x}_j^2n_j-\bar x^2
+\]
+:::
+:::
+
+
+:::{.example}
+
+```{r 03-media-varianza-7,results='asis',echo=FALSE}
+set.seed(112)
+n <- 10
+samp <- sample(c(2.7,3.4,5.1),n,T)
+x <- samp
+m <- mean(x)
+cat(paste("$x_{",1:n,"}=",samp,"$; ",sep=""))
+```
+
+La media 
+
+\begin{eqnarray*}
+\bar x &=&\frac 1 n \sum_{i=1}^nx_i \\
+   &=& \frac{`r paste("x_{",1:n,"}",collapse = "+",sep="")`} {`r n`} \\
+         &=& \frac{`r paste(samp,collapse = "+",sep="")`}  {`r n`} \\
+         &=& \frac{`r sum(samp)`}  {`r n`}\\
+         &=& `r mean(samp)`
+\end{eqnarray*}
+
+
+La varianza `r sq <- (samp-mean(samp))^2; m<- mean(samp); x<- samp`
+
+\begin{eqnarray*}
+  \sigma^2 &=& \frac 1 n \sum_{1=1}^n(x_i-\bar x)^2\\
+         &=& \tiny\frac{`r paste("(x_{",1:n,"}-\\bar x)^2",collapse = "+",sep="")`} {`r n`} \\
+         &=& \tiny\frac{`r paste(paste("(",samp,"-",mean(x),")^2"),collapse = "+",sep="")`}  {`r n`} \\
+         &=& \small\frac{`r paste(round((samp-mean(samp))^2,4),collapse = "+",sep="")`}  {`r n`} \\
+         &=& \frac{`r sum((samp-mean(samp))^2)`}  {`r n`}\\
+         &=& `r s2c(samp)`
+\end{eqnarray*}
+
+Osserviamo che
+
+\begin{eqnarray*}
+  \sigma^2 &=& \frac 1 n\sum_{i=1}^nx_i^2-\bar x^2\\
+  &=&\frac{1} {`r n`} (`r paste(paste("x_{",1:n,"}^2",sep=""),collapse="+")`) -\bar x^2 \\
+         &=& \frac1 {`r n`}(`r paste(x,"^2",collapse="+")`)-`r m`^2\\
+         &=& \frac1 {`r n`}(`r paste(x^2,collapse="+")`)-`r m^2`\\
+         &=& `r sum(x^2)/n` -`r m^2`\\
+         &=& `r sum(x^2)/n-m^2`
+\end{eqnarray*}
+
+
+Riordiniamo i dati:
+```{r 03-media-varianza-8,results='asis'}
+cat(paste("$x_{(",1:10,")}=",sort(samp),"$; ",sep=""))
+```
+
+
+E raccogliamo in distribuzione di frequenza:
+```{r 03-media-varianza-13}
+y1 <- c("$\\mathrm{x}_1=2.7$","$\\mathrm{x}_2=3.4$","$\\mathrm{x}_3=5.1$",NA)
+nn <-c(as.numeric(table(samp)),n)
+#kbl(data.frame(modalita=y1,frequenze=n),booktabs = T, escape = F,linesep = "", digits = 4)
+
+
+
+kable(t(data.frame(modalita=y1,frequenze=nn)),booktabs = T, escape = F,linesep = "", digits = 4,col.names = NA) %>%
+  column_spec(5,border_left = T)
+```
+
+la media:
+
+\begin{eqnarray*}
+  \bar x &=&\frac 1 n \sum_{j=1}^K\mathrm{x}_j n_j \\
+  &=& \frac{\mathrm{x}_1 n_1+\mathrm{x}_2 n_2+\mathrm{x}_3 n_3} n \\
+         &=& \frac{2.7\times `r nn[1]`+3.4\times `r nn[2]`+5.1\times `r nn[3]`} {`r n`} \\
+         &=& \frac{`r sum(samp)`} {`r n`} \\
+         &=& `r mean(samp)`
+\end{eqnarray*}
+
+la varianza:
+
+\begin{eqnarray*}
+  \sigma^2 &=& \frac 1 n\sum_{j=1}^k(\mathrm{x}_j-\bar x)^2n_j\\
+  &=&\frac 1 {`r n`}\left((\mathrm{x}_1 -\bar x)^2n_1+(\mathrm{x}_2-\bar x)^2 n_2+(\mathrm{x}_3-\bar x)^2 n_3\right)  \\
+         &=& \frac1 {`r n`}\left((2.7-`r m`)^2\times `r nn[1]`+(3.4-`r m`)^2\times `r nn[2]`+(5.1-`r m`)^2\times `r nn[3]`\right)  \\
+         &=& \frac{`r sum((samp-m)^2)`} {`r n`}\\
+         &=& `r s2c(samp)`
+\end{eqnarray*}
+
+
+o alternativamente
+
+\begin{eqnarray*}
+  \sigma^2 &=& \frac 1 n\sum_{j=1}^k\mathrm{x}_j^2n_j-\bar x^2\\
+  &=&\frac 1 {`r n`} (\mathrm{x}_1^2n_1+\mathrm{x}_2^2n_2+\mathrm{x}_3^2n_3)-\bar x^2\\
+         &=& \frac 1 {`r n`} (`r paste(c(2.7,3.4,5.1),"^2\\times",nn[-4],sep="",collapse="+")`)-`r m`^2\\
+         &=& \frac 1 {`r n`}\times `r sum(x^2)`-`r m^2`\\
+         &=& `r s2c(x)`
+\end{eqnarray*}
+:::
+
+:::{.example}
+
+```{r 03-media-varianza-9, results='asis'}
+set.seed(12)
+x <- round(sample(sqrt(c(10:15)),size=21,T,prob=dnorm(10:15,13,2)),2)
+cat(paste("$x_{",1:21,"}=",x,"$; ",sep=""))
+```
+
+La media:
+
+\begin{eqnarray*}
+\bar x &=& \frac 1 n \sum_{i=1}^n x_i \\
+       &=& \frac 1 {21} `r sum(x)`\\
+       &=& `r mean(x)`
+\end{eqnarray*}
+
+La varianza 
+
+\begin{eqnarray*}
+\sigma^2 &=& \frac 1 n \sum_{i=1}^n x_i^2 - \bar x ^2 \\
+       &=& \frac 1 {21} `r sum(x^2)` - `r mean(x)`^2\\
+       &=& `r mean(x^2)-mean(x)`
+\end{eqnarray*}
+
+riordiniamo i dati
+
+```{r 03-media-varianza-10,results='asis'}
+cat(paste("$x_{(",1:21,")}=",sort(x),"$; ",sep=""))
+```
+
+E raccogliamo in distribuzione di frequenza:
+
+```{r 03-media-varianza-14}
+y1 <- c(paste("$\\mathrm{x}_",1:6,"=",round(sqrt(10:15),2),"$",sep=""),"Tot")
+n <-c(as.numeric(table(x)),21)
+nx <- c(n[-7]*(10:15),sum(n[-7]*(10:15)))
+nx2 <- c(n[-7]*(10:15)^2,sum(n[-7]*(10:15)^2))
+stm <-  data.frame(modalita=y1,frequenze=n,nx=nx,nx2)
+names(stm) <- c("$\\mathrm{x}_j$","$n_j$","$\\mathrm{x}_j n_j$","$\\mathrm{x}_j^2 n_j$")
+kable(t(stm),booktabs = T, escape = F,linesep = "", digits = 4,col.names = NA,align = 'r') %>%
+  column_spec(8,border_left = T)
+```
+
+E osserviamo che
+
+\begin{eqnarray*}
+\bar x &=& \frac 1 n \sum_{j=1}^k \mathrm{x}_j n_j \\
+       &=& \frac 1 {21} `r sum(x)`\\
+       &=& `r mean(x)`
+\end{eqnarray*}
+
+e che
+
+\begin{eqnarray*}
+\sigma^2 &=& \frac 1 n \sum_{j=1}^n \mathrm{x}_j^2 n_j - \bar x ^2 \\
+       &=& \frac 1 {21} `r sum(x^2)` - `r mean(x)`^2\\
+       &=& `r mean(x^2)-mean(x)`
+\end{eqnarray*}
+:::
+
+### Proprietà della Varianza
+
+:::{.info data-latex=""}
+:::{.proposition name="della varianza $\\sigma^{2}$"}
+Le principale proprietà della varianza sono:
+
+1.  $\sigma^{2} \ge 0$.
+2.  $\sigma^{2}=0$, se e solo se $X$ è costante.
+3.  Se $y_i=a+bx_i$ allora $\sigma^{2}_Y = b^{2} \sigma^{2}_X$.
+:::
+:::
+
+:::{.proof} 
+Le dimostrazioni qui di seguito.
+
+1. $\sigma^{2} \ge 0$ deriva direttamente dalla definizione, essendo $\sigma^{2}$
+la media di scarti al quadrato e quindi di quantità positive, non potrà _mai_ essere negativa.
+
+2. $\sigma^{2}=0$ solo se ogni scarto dalla media è zero e questo può avvenire solo se tutti
+i dati sono uguali alla media, ovvero se i dati sono tutti uguali tra di loro e quindi non variano.
+
+3. Se $y_i=a+bx_i$ allora 
+
+\begin{eqnarray*}
+\sigma^{2}_Y   &=&  \frac 1n \sum_{i=1}^n(y_i-\bar y)^2\\
+&=& \frac 1n \sum_{i=1}^n(a+bx_i-(a+b\bar x))^2\\
+&=& b^2\frac 1n \sum_{i=1}^n(x_i-\bar x)^2\\
+&=& b^2\sigma_X^2
+\end{eqnarray*}
+  
+:::
+
+
+## La Standard Deviation {#sd}
+
+La varianza non ha un'unità di misura leggibile, è una media di quadrati degli scarti. E quindi anche l'unità di misura è elevata al quadrato
+
+Si definisce la _standard deviation_ (deviazione standard, scarto quadratico medio), la radice della varianza
+\[
+\sigma=\sqrt{\sigma^2}
+\]
+
+### Proprietà della Standard Deviation
+
+:::{.info data-latex=""}
+:::{.proposition name="della deviazione standard $\\sigma$"}
+Le principale proprietà della deviazione standard sono:
+
+1.  $\sigma\ge 0$.
+2.  $\sigma=0$, se e solo se $X$ è costante.
+3.  Se $y_i=a+bx_i$ allora allora $\sigma_Y = |b|\sigma_X$
+
+:::
+:::
+
+Se la distribuzione della $X$ è abbastanza simmetrica e di forma campanulare, allora
+
+\[
+\%(\bar x-2\sigma\le X\le \bar x+2\sigma)\approx 95\%
+\]
+
+```{r 03-media-varianza-15}
+fig.def(titolo = F)
+```
+
+```{r sd,echo=FALSE,fig.cap="Interpretazione della SD"}
+set.seed(11)
+samp <- rnorm(100000)
+brk  <- seq(-3.5,3.5,by=.5)
+k <- length(brk)-1
+br1  <- brk[-(k+1)]
+br2  <- brk[-1]
+ls2e(stat_base(samp,brk))
+dat3$`$f_{j\\%}$` <- dat3$`$f_j$`*100
+
+ plot(range(brk),range(c(0,dat3$`$h_j$`),na.rm = T),type="n",axes=F,xlab = "",ylab = "")
+ rect(xleft = br1,ybottom = 0,xright = br2,ytop = dat3$`$h_j$`)
+#axis(2)
+int <- c(mean(samp)-2*sd(samp),mean(samp),mean(samp)+2*sd(samp))
+axis(1,int,c("media-2SD","media","media+2SD"))
+rect(xleft = br1[br1 >= -2 & br1 < 2],ybottom = 0,xright = br2[br2 > -2 & br2 <= 2],ytop = dat3$`$h_j$`[br2 > -2 & br2 <= 2],density = 20,col=4)
+text(0,4.5,"95%",cex=5,pos=3)
+text(-3,4.5,"2.5%",cex=2.8,pos=3)
+text(+3,4.5,"2.5%",cex=2.8,pos=3)
+```
+
+la figura La figura \@ref(fig:sd) la corrispondente rappresentazione grafica.
+
+## Esempi
+
+:::{.example}
+
+Si si è chiesta l'età a 37500 uomini e 38100 donne di un determinato collettivo, ed è risultato 
+che gli uomini di quel collettivo hanno un'età media di 45 anni e le donne un'età media di 49 anni. La sintesi dei dati qui di seguito:
+
+```{r 03-media-varianza-16}
+
+nn <- c(37500,38100)
+em <- c(45,49)
+stm <- data.frame(nj=nn,mj=em)
+row.names(stm)<- c("Uomini","Donne")
+kable(stm,booktabs = T, escape = F,linesep = "", digits = 4,col.names = c("$n_j$","$\\bar x_j$")) %>%
+    kable_styling(full_width = F, latex_options = "HOLD_position")
+```
+<!-- \begin{tabbing} -->
+<!-- %\begin{normalsize} -->
+<!-- \begin{tabular}{l|lrrrcccccccc} -->
+<!-- \hline\\ -->
+<!--  &Genere  &$n_{j}$  &età media \\ -->
+<!-- \hline\\ -->
+<!--         &Uomo    &37500    &45 \\ -->
+<!--         &Donna   &38100    &49 \\ -->
+<!-- \hline -->
+<!-- \end{tabular} -->
+<!-- \end{tabbing} -->
+
+Calcolare l'età media dell'intero collettivo.
+
+__Soluzione.__ 
+L'età media per l'intera popolazione è
+\begin{displaymath}
+  \bar{x}_{a}
+= \frac{37500 \times 45 + 38100 \times 49} {37500 + 38100}
+= 47.02 .
+\end{displaymath}
+:::
+
+:::{.example}
+Uno studente iscritto al secondo anno di un CdL, ha superato 7
+esami con un voto medio pari a 26/30. Sostiene un nuovo esame
+ottenendo un voto pari a 28/30. Qual è il voto medio dopo
+l'ottavo esame?
+
+__Soluzione.__ 
+Sia $\bar{x}_{7}=26$ il voto medio dopo i primi 7 esami.
+Sia $\bar{x}_{8}$ il voto medio dopo l'8$^{o}$ esame.
+\begin{eqnarray*}
+    \bar{x}_{7}
+&=& \frac{1} {7} \sum_{i=1}^{7} x_{i}  \\
+    \bar{x}_{8}
+&=& \frac{1} {8} \sum_{i=1}^{8} x_{i}
+ =  \frac{1} {8} \left( \sum_{i=1}^{7} x_{i} + x_{8} \right)   \\
+&=& \frac{1} {8} \left( 7 \bar{x}_{7} + x_{8} \right)
+ =  \frac{7  \times  \bar{x}_{7} + 1  \times  x_{8}} {8} \\
+&=& \frac{7 \times  26 + 1  \times  28} {8}
+ =  \frac{182 + 28} {8}
+ =  26.25  .
+\end{eqnarray*}
+:::
+
+
+:::{.example}
+In una contrattazione sindacale, il rappresentante
+del governo propone di alzare di un ammontare fisso di 100 euro
+lo stipendio degli impiegati statali.
+
+a. Come cambierebbero lo stipendio medio e la varianza se questa misura fosse
+intrapresa?
+
+b. Se il governo aumentasse lo stipendio di ciascun
+impiegato statale del 5\%, come cambierebbe lo stipendio medio e la varianza?
+
+
+__Soluzione.__
+
+a. Sia $x$ lo stipendio degli statali. 
+ 
+\begin{eqnarray*}
+y_{i}   &=& x_{i} + 100   \\
+\bar{y} &=& \bar{x} + 100   .\\
+\sigma_Y^2=\sigma_X^2
+\end{eqnarray*}
+ 
+Stipendio medio aumenta esattamente di 100\euro, la varianza non cambia.
+
+b.  Aumento percentuale pari al 5\%.
+ 
+\begin{eqnarray*}
+y_{i}   &=& x_{i} + \frac{5} {100}\ x_{i} = 1.05\ x_{i}  \\
+\bar{y} &=& 1.05 \bar{x}  \\
+\sigma_Y^2 &=& (1.05)^2\sigma_X^2
+\end{eqnarray*}
+ 
+La MEDIA aumenta del 5\%, la varianza aumenta in modo quadratico.
+:::
+
+:::{.example}
+La spesa per le vacanze estive (in migliaia di euro) sostenuta
+da 12 famiglie di un condominio è stata di:
+
+```{r 03-media-varianza-17}
+x <- c(0 , 0 , 2 , 2.5 , 4 , 5.1 , 5.8 , 6 , 7 , 12 , 15 , 21)
+```
+
+\begin{tabbing}
+\begin{tabular}{cccccccccccc}
+\hline\\
+0 &0 &2 &2.5 &4 &5.1 &5.8 &6 &7 &12 &15 &21 \\
+\hline
+\end{tabular}
+%\end{tiny}
+\end{tabbing}
+
+(a) Determinare la spesa media e la varianza per famiglia.
+
+\begin{eqnarray*}
+    \bar{x}
+&=& \frac{0 +0 + 2+ 2.5 +4 +5.1 +5.8 +6} {12} + \ldots \\
+&+& \frac{7 +12 +15 +21} {12}
+ =  \frac{80.4} {12} = 6.7 \mbox{\euro}. \\
+ \sigma_X^2 &=& \frac{0^2+0^2+2^2+...+21^2}{12}-(6.7)^2\\
+ &=& `r s2c(x)`
+\end{eqnarray*}
+
+(b) Determinare la spesa media per famiglie con spesa $\ne 0$.
+
+\begin{eqnarray*}
+    \bar{x}
+&=& \frac{2+ 2.5 +4 +5.1 +5.8 +6 +7 +12 +15 +21} {10} \\
+&=& \frac{80.4} {10} = 8.04 \mbox{\euro}.\\
+ \sigma_{X}^2 &=& \frac{2^2+...+21^2}{10}-(8.04)^2\\
+ &=& `r s2c(x[x>0])`
+\end{eqnarray*}
+:::
+
+:::{.example}
+
+```{r 03-media-varianza-18}
+i2 <- 0
+# Basic settings
+set.seed(121)   # per ottenere sempre la stessa simulazione
+n <- 115      # ampiezza campionaria
+a <- 5
+b <- 1
+
+brk  <- c(0,1,5,10,20,30)
+nnn  <- c( 7,18,45, 25,20)
+nnn  <- round(nnn/sum(nnn)*n)
+k <- length(brk)-1
+br1  <- brk[-(k+1)]
+br2  <- brk[-1]
+vunif <- function(nnn, brk){
+  k <- length(brk)-1
+  br1  <- brk[-(k+1)]
+  br2  <- brk[-1]
+  xi   <- runif(nnn[1],br1[1],br2[1])
+  for (i in 2:k)
+    xi <- c(xi,runif(nnn[i],br1[i],br2[i]))
+  return(xi)
+}
+
+samp <- round(vunif(nnn,brk),2)
+nomex <- "Utile"
+
+names(samp) <- nomex
+
+ls2e(stat_base(samp,brk))
+dat3$`$f_{j\\%}$` <- dat3$`$f_j$`*100
+dat3[k+1,1]<- "Totale"
+# kable((dat3[1:(k+1),c(1:2,7)])) %>%
+# 
+n <- length(samp)
+```
+
+Numero di impiegati per anni di servizio di una industria
+
+
+```{r 03-media-varianza-19}
+kable((dat3[1:(k+1),c(1:4,7:11)]),booktabs=T,escape = F,linesep="",row.names = F)
+```
+
+
+Determinare media, mediana e varianza dell'età di servizio dell'industria. 
+
+\begin{eqnarray*}
+    \bar{x}
+&=& \frac{0.5 \times 7 + 3.0 \times 18 + \cdots + 20 \times 25}
+    {7 + 18 + \cdots + 20}
+ =  \frac{1270} {115} = 11.04                       \\
+    x_{0.5}
+&=& x_{m;\ inf} + \frac{0.5 - F_{m-1}} {F_{m} - F_{m-1}}   (x_{m;\ sup} - x_{m;\ inf})                          \\
+&=& 5 + \frac{0.5 - 0.22} {0.61 - 0.22}\ (10 - 5) = 8.59 \\
+\sigma_X^2 &=& \frac{1}{115}`r sum(dat2$x2n)`-(11.04)^2\\
+&=& `r sum(dat2$x2n)/115-sum(dat2$xn)/115`
+\end{eqnarray*}
+:::

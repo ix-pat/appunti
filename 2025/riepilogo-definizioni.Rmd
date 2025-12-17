@@ -1,0 +1,388 @@
+-   **Qualitativa**, la variabile è espressa attraverso etichette qualitative
+-   *Qualitative sconnesse*: le caratteristiche che la VS può assumere hanno un ordinamento soggettivo;
+-   genere,
+-   stato civile,
+-   settore di occupazione,
+-   generi musicali.
+-   *Qualitative ordinate*: le caratteristiche che la VS può assumere hanno un ordinamento oggettivo
+-   titolo di studio,
+-   preferenze,
+-   giudizi.
+-   **Quantitativa**, la variabile è espressa attraverso una scala numerica.
+-   *Quantitative Discrete*: le caratteristiche che la VS può assumere sono in numero finito al più numerabile $\rightarrow$ corrispondenza con i numeri interi;
+-   numero di incidenti,
+-   voto di laurea.
+-   *Quantitative Continue*: le caratteristiche che la VS può assumere sono in numero infinito non numerabile.
+-   misure di lunghezza, capienza e peso,
+-   temperature,
+-   reddito.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1. se $n$ è dispari
+\[x_{0.5}=x_{\left(\frac{n+1}{2}\right)}\]
+2. se $n$ è pari
+\[x_{0.5}=\frac 1 2 \left(x_{\left(\frac{n}{2}\right)}+x_{\left(\frac{n}{2}+1\right)}\right)\]
+
+\[x_{0.5}=x_{\inf;m}+\frac{0.5-F_{m-1}}{f_m}\cdot \left(x_{\sup;m}-x_{\inf;m} \right),\]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+::: {.definiton}
+Uno **stimatore** puntuale (point estimator) è una statistica $\hat\theta$ che trasforma il campione $X_1,...,X_n$ in un punto dello spazio dei parametri:
+\[\hat\theta:\mathcal{S}\to\Theta\]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\[
+L(\theta;\text{Dati})\propto P(\text{Dati};\theta)
+\]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+::: {.center data-latex=""}
+```{r 14-test-intro-1, results='asis'}
+
+t.ver <- data.frame(s.n.="stato di natura",pi=c("$H_0$","$H_1$"),matrix(c("Corretta","Errore II tipo","Errore I tipo","Corretta"),2))
+kable(t.ver,row.names = F,col.names = c("","","decido $H_0$","decido $H_1$"),align = 'c',
+booktabs = T, escape = F,linesep = "", digits = 4) %>%
+column_spec(1, bold = T) %>%
+column_spec(3:4, width = "10em") %>%
+collapse_rows(columns = 1, valign = "middle") %>%
+add_header_above(c(" ", "","Decisione" = 2))
+
+mumax <- 5
+za2 <- round(qnorm(.975),2)
+n <- 10
+
+```
+
+
+
+
+
+
+
+**Decisione sul campione.** Si decide un livello $\alpha$ e si ricava
+$z_\alpha$, si estrae un campione. Lo stimatore $\hat\mu$ si realizza
+nella media osservata del campione $\bar x$
+
+$$z_{\text{obs}}=\frac{\bar x -\mu_0}{\sigma/\sqrt n}$$
+
+-   Se $z_{\text{obs}}<z_\alpha$ $H_0$ **non viene rifiutata** al
+livello di significatività $\alpha\times100\%$
+-   Se $z_{\text{obs}}>z_\alpha$ $H_0$ **viene rifiutata** al livello di
+significatività $\alpha\times100\%$
+
+```{r 15-test-mu-pi-14}
+#par(mar = c(5.1, 4.1, 2, 2.1))
+curve(dnorm,-4,4,xlab = expression(Z==(hat(mu)-mu[0])/se),ylab='',axes=F)
+segments(-4,0,1.64,0,lwd=2,col=mblue)
+segments(1.64,0,4,0,lwd=2,col=ared)
+segments(1.64,0,1.64,dnorm(1.64))
+axis(1,c(-4,0,1.64,4),c(-4,0,"Punto \n critico",4))
+text(2.5,.05,expression(alpha),cex=acex)
+title("Normale Standard")
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div style="font-size:0.9em;">
+```{r 16-test-2C-4}
+if (!html) {
+tabella <-
+"\\begin{align*}
+\\text{Test $t$, 2 Campioni} &
+\\text{\\qquad Test $t$, 2 Campioni} &
+\\text{Proporzione, 2 Campioni} \\\\
+\\text{Omogeneità} &
+\\text{\\qquad Eterogeneità} &
+\\\\
+\\midrule
+\\begin{aligned}
+t_{\\text{obs}}&=\\frac{\\hat\\mu_A-\\hat\\mu_B}{\\sqrt{\\frac{S_p^2}{n_A}+\\frac{S_p^2}{n_B}}}\\\\
+S^2_p &= \\frac{n_A\\hat\\sigma_A^2+n_B\\hat\\sigma_B^2}{n_A+n_B-2}\\\\
+\\addlinespace \\\\
+\\end{aligned} &
+\\begin{aligned}
+\\displaystyle t_{\\text{obs}}=\\frac{\\hat\\mu_A-\\hat\\mu_B}{\\sqrt{\\frac{S_A^2}{n_A}+\\frac{S_B^2}{n_B}}}\\\\
+\\addlinespace \\\\ \\addlinespace \\\\
+\\end{aligned} &
+\\begin{aligned}
+z_{\\text{obs}} &=\\frac{\\hat\\pi_A-\\hat\\pi_B}{\\sqrt{\\frac{\\hat\\pi_C(1-\\hat\\pi_C)}{n_A}+\\frac{\\hat\\pi_C(1-\\hat\\pi_C)}{n_B}}}\\\\
+\\hat\\pi_C &=\\frac{\\#\\{\\text{successi A}\\}+\\#\\{\\text{successi B}\\}}{n_A+n_B}\\\\
+&=\\frac{n_A\\hat\\pi_A+n_B\\hat\\pi_B}{n_A+n_B}
+\\end{aligned} \\\\
+\\addlinespace
+\\toprule
+\\end{align*}"
+cat(tabella)} else {
+tabella <-
+"\\begin{align*}
+\\text{Test $t$, 2 Campioni} &
+\\qquad\\text{ Test $t$, 2 Campioni} &
+\\text{Proporzione, 2 Campioni} \\\\
+\\text{Omogeneità} &
+\\qquad \\text{Eterogeneità} &
+\\\\ \\hline
+\\begin{aligned}
+t_{\\text{obs}}&=\\frac{\\hat\\mu_A-\\hat\\mu_B}{\\sqrt{\\frac{S_p^2}{n_A}+\\frac{S_p^2}{n_B}}}\\\\
+S^2_p &= \\frac{n_A\\hat\\sigma_A^2+n_B\\hat\\sigma_B^2}{n_A+n_B-2}\\\\
+\\end{aligned} &
+\\begin{aligned}
+\\displaystyle \\quad t_{\\text{obs}}=\\frac{\\hat\\mu_A-\\hat\\mu_B}{\\sqrt{\\frac{S_A^2}{n_A}+\\frac{S_B^2}{n_B}}}\\\\
+\\end{aligned} &
+\\begin{aligned}
+z_{\\text{obs}} &=\\frac{\\hat\\pi_A-\\hat\\pi_B}{\\sqrt{\\frac{\\hat\\pi_C(1-\\hat\\pi_C)}{n_A}+\\frac{\\hat\\pi_C(1-\\hat\\pi_C)}{n_B}}}\\\\
+\\hat\\pi_C &=\\frac{\\#\\{\\text{successi A}\\}+\\#\\{\\text{successi B}\\}}{n_A+n_B}\\\\
+&=\\frac{n_A\\hat\\pi_A+n_B\\hat\\pi_B}{n_A+n_B}
+\\end{aligned} \\\\
+\\hline
+\\end{align*}"
+cat(tabella)}
+
+```
+</div>
+
+0.  Dati $(x_1,y_1),...,(x_n,y_n)$, $n$ coppie di punti, si assume che
+\[y_i=\beta_0+\beta_1x_i+\varepsilon_i\]
+1. Il valore atteso dell'errore è nullo
+\[E(\varepsilon_i)=0\]
+2. Omoschedasticità
+\[V(\varepsilon_{i}) = \sigma_\varepsilon^2,\qquad \text{costante }\forall i\]
+3. Indipendenza dei residui
+\[\varepsilon_i\text{ è indipendente da }\varepsilon_j~~\forall i\neq j\]
+4. Indipendenza tra i residui e la $X$
+\[X_i\text{ è indipendente da }\varepsilon_i~~\forall i\]
+5. _Esogeneità_ della $X$: la distribuzione su $X$ non è oggetto di inferenza
+6. Normalità dei residui
+\[\varepsilon_i\sim N(0,\sigma^2_\varepsilon)\]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

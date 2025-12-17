@@ -1,0 +1,2400 @@
+---
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setupreg, include=FALSE}
+rm(list = ls())
+
+
+source("intro.R")
+fig.def(3,3)
+```
+
+# Regressione Lineare
+
+## Il modello d'errore
+
+
+Siano $Y_1,...,Y_n$ $n$ VC IID, replicazioni tc $Y_i\sim N(\mu,\sigma_\varepsilon^2)$, dalle proprietà della normale possiamo riscrivere:
+\[Y_i=\mu+\varepsilon_i\qquad\varepsilon_i\sim N(0,\sigma_\varepsilon^2)\]
+
+```{r 17-regressione-I-6}
+set.seed(4)
+n <- 10
+ysamp1 <- rnorm(n,15,1)
+plot(rep(0,times=n),ysamp1,axes = F,xlab="",ylab="",pch=4,ylim=c(13,17))
+abline(v = 0,lty=3,col="grey")
+abline(h = 15,lty=3,col="grey")
+axis(2,15,expression(mu),las=2)
+points(0,15,pch=16,col=ared)
+ygr <- seq(11,19,length.out = 101)
+lines(dnorm(ygr,15,1),ygr,col="grey")
+arrows(-1.06,13,-1.06,17,.1)
+text(-.9,17,"y")
+arrows( 1.06,13, 1.06,17,.1)
+axis(4,15,0,las=2)
+text( .9,17,expression(epsilon))
+ysamp1 <- round(ysamp1 -15 +28,2)
+ybar1 <- mean(ysamp1)
+epsh1 <- ybar1-ysamp1
+sbar1 <- round(sd(ysamp1),3)
+
+
+
+s2c <- function(x) round(mean(x^2)-mean(x)^2,4)
+sc  <- function(x) round(sqrt(s2c(x)),4)
+
+set.seed(5)
+ysamp2 <- round(rnorm(n,29,1),2)
+ybar2 <- mean(ysamp2)
+epsh2 <- ybar2-ysamp2
+sbar2 <- round(sd(ysamp2),3)
+
+f1 <- approxfun(c(0,1.13),c(28,29))
+be <- f1(1)-28
+
+set.seed(12)
+ysamp3 <- round(rnorm(n,28+be*2.84,1),2)
+ybar3<- mean(ysamp3)
+epsh3 <- ybar3-ysamp3
+sbar3 <- round(sd(ysamp3),3)
+
+
+# plot(c(0,1.13),c(28,29))
+# segments(0,28,1.13,28,lty=2)
+# segments(1.13,28,1.13,29,lty=2)
+# segments(0,28,1.13,29,lty=2)
+# segments(1,28,1,28+b,lty=2,col=ared)
+
+```
+
+
+\[Y_i\sim N(\mu,\sigma_\varepsilon^2)~~\text{ è equivalente a dire }~~Y_i=\mu+\varepsilon_i,~~\varepsilon_i\sim N(0,\sigma_\varepsilon^2)\]
+
+### Esempi
+```{r 17-regressione-I-7}
+sbar <- sbar1
+ybar <- ybar1
+ysamp <- ysamp1
+quad <-paste(paste(paste(ysamp[1:3],collapse = "^2+"),"^2",sep=""),"+...+",paste(paste(ysamp[9:10],collapse = "^2+"),"^2",sep=""))
+```
+
+:::{.example}
+Stiamo studiando la produttività media di un ettaro coltivato ad una certa varietà di riso: 
+per prima cosa piantiamo 10 ettari **non** trattati con fertilizzante ($X=0$) con questa varietà e calcoliamo i quintali per ettaro, otteniamo (`r ysamp`)
+
+\[Y_i=\mu_{(X=0)}+\varepsilon_i\qquad\varepsilon_i\sim N(0,\sigma_\varepsilon^2)\]
+
+
+Stimiamo
+\[\hat\mu_{(X=0)}=\frac 1 n\sum_{i=1}^n y_i=`r ybar`\]
+e
+\begin{eqnarray*}
+\hat\sigma_\varepsilon^2&=&\frac 1 n\sum_{i=1}^n y_i^2-\hat\mu_{(X=0)}^2\\
+&=&\frac 1 {10}(`r quad`)-`r ybar`^2\\
+&=&`r s2c(ysamp)`\\
+\hat\sigma_\varepsilon &=& `r sc(ysamp)`
+\end{eqnarray*}
+
+Costruiamo dapprima un intervallo di confidenza sui dati
+Correggiamo $\hat\sigma_\varepsilon^2$
+
+\begin{eqnarray*}
+S_{(X=0)}^2&=&\frac{n}{n-1}\hat\sigma_{(X=0)}^2\\
+&=&\frac{10}{10-1}\cdot`r s2c(ysamp)`\\
+&=&`r sbar^2`\\
+S_{(X=0)}&=&`r sbar`
+\end{eqnarray*}
+
+ L'intervallo di confidenza al 95% per $\mu_{(X=0)}$ è
+\[\hat\mu_{(X=0)}\pm t_{n-1;\alpha/2}\frac S{\sqrt n}=`r ybar`\pm `r qt(.975,9)`\frac{`r sbar`}{10}=
+(`r ybar-qt(.975,9)*sbar/sqrt(10)`;`r ybar+qt(.975,9)*sbar/sqrt(10)`)\]
+
+```{r 17-regressione-I-8}
+set.seed(4)
+n <- 10
+y1samp <- rnorm(n,15,1)
+set.seed(5)
+#set.seed(11)
+y2samp <- rnorm(n,16,1)
+plot(rep(0,each=n),y1samp,axes = F,xlab="",ylab="",pch=4,xlim=c(-1,1),ylim = c(13,18))
+abline(v = 0,lty=3,col="grey")
+abline(h = 15,lty=3,col="grey")
+
+axis(2,c(13:14,mean(y1samp),15,16:17),c(26:27,ybar1,expression(mu[(X==0)]),29:30),las=2)
+segments(0,mean(y1samp),-10,mean(y1samp),lty=2)
+axis(1,0,c(expression(X==0)))
+points(0,15,pch=16,col=ared)
+points(0,mean(y1samp),pch="-",col=4,cex=2)
+brackets(0.05,mean(y1samp),0.05,15,h = .1)
+text(.3,(mean(y1samp)+15)/2,expression(hat(mu)-mu))
+
+ygr <- seq(11,19,length.out = 101)
+lines(dnorm(ygr,15,1),ygr,col="grey")
+arrows(-1.06,13,-1.06,18,.1)
+arrows( 1.06,13, 1.06,18,.1)
+
+axis(4,15,0,las=2)
+text( .9,18,expression(epsilon))
+
+int1 <- t.test(y1samp)$conf.int
+int2 <- t.test(y2samp)$conf.int
+text(-.9,18,"y")
+
+
+arrows(0,int1[1],0,int1[2],.1,angle = 90,code = 3,col=4,lwd = 2)
+
+```
+
+
+E quindi potremmo proporre la **previsione**:
+quanta produzione ci aspetteremo sul prossimo ettaro che pianteremo con quella varietà di riso?
+\begin{eqnarray*}
+\hat Y_{11}&=&\hat\mu_{(X=0)}+\varepsilon_{11}\\
+\end{eqnarray*}
+
+Il valore atteso della previsione è?
+
+\begin{eqnarray*} 
+E(\hat Y_{11}) &=& E(\hat\mu_{(X=0)} + \varepsilon_{11}) \\ &=& E(\hat\mu_{(X=0)}) + E(\varepsilon_{11}) \\ &=& \mu + 0 = \mu 
+\end{eqnarray*}
+
+L'errore di previsione stimato è $S_{(X=0)}=`r sbar`$.
+:::
+
+:::{.example}
+
+```{r 17-regressione-I-9}
+sbar <- sbar2
+ybar <- ybar2
+ysamp <- ysamp2
+quad <-paste(paste(paste(ysamp[1:3],collapse = "^2+"),"^2",sep=""),"+...+",paste(paste(ysamp[9:10],collapse = "^2+"),"^2",sep=""))
+```
+
+Supponiamo di aver piantato altri 10 ettari di questa varietà ma su terreni trattati con 1.13 hg ($X=1.13$) 
+di concime azotato per ettaro e osserviamo (`r ysamp2`)
+\[Y_i=\mu_{(X=1.13)}+\varepsilon_i\qquad\varepsilon_i\sim N(0,\sigma_\varepsilon^2)\]
+
+Stimiamo
+\[\hat\mu_{(X=1.13)}=\frac 1 n\sum_{i=1}^n y_i=`r ybar`\]
+e
+\begin{eqnarray*}
+\hat\sigma_\varepsilon^2&=&\frac 1 n\sum_{i=1}^n y_i^2-\hat\mu_{(X=0)}^2\\
+&=&\frac 1 {10}(`r quad`)-`r ybar`^2\\
+&=&`r s2c(ysamp)`\\
+\hat\sigma_\varepsilon &=& `r sc(ysamp)`
+\end{eqnarray*}
+
+Correggiamo $\hat\sigma_\varepsilon^2$
+
+\begin{eqnarray*}
+S_{(X=1.13)}^2&=&\frac{n}{n-1}\hat\sigma_{(X=0)}^2\\
+&=&\frac{10}{10-1}\cdot`r s2c(ysamp)`\\
+&=&`r sbar^2`\\
+S_{(X=1.3)}&=&`r sbar`
+\end{eqnarray*}
+
+L'intervallo di confidenza al 95% per $\mu_{(X=1.13)}$ è
+\[\hat\mu_{(X=1.13)}\pm t_{n-1;\alpha/2}\frac S{\sqrt n}=`r ybar`\pm `r qt(.975,9)`\frac{`r sbar`}{10}=
+(`r ybar-qt(.975,9)*sbar/sqrt(10)`;`r ybar+qt(.975,9)*sbar/sqrt(10)`)\]
+
+```{r 17-regressione-I-10}
+plot(rep(c(0,1),each=n),c(y1samp,y2samp),axes = F,xlab="",ylab="",pch=4,xlim=c(-1,2),ylim = c(13,18))
+abline(v = 0,lty=3,col="grey")
+abline(v = 1,lty=3,col="grey")
+abline(h = 15,lty=3,col="grey")
+abline(h = 16,lty=3,col="grey")
+
+axis(2,15:16,c(expression(mu[(X==0)]),expression(mu[(X==1.13)])),las=2)
+axis(1,0:1,c(expression(X==0),expression(X==1.13)))
+points(0,15,pch=16,col=ared)
+points(0,mean(y1samp),pch="-",col=4,cex=2)
+points(1,mean(y2samp),pch="-",col=4,cex=2)
+points(1,16,pch=16,col=ared)
+
+ygr <- seq(11,19,length.out = 101)
+lines(dnorm(ygr,15,1),ygr,col="grey")
+lines(1+dnorm(ygr,16,1),ygr,col="grey")
+arrows(-1.06,13,-1.06,18,.1)
+int1 <- t.test(y1samp)$conf.int
+int2 <- t.test(y2samp)$conf.int
+text(-.9,18,"y")
+
+text(-.5,mean(y1samp),substitute(hat(mu)[(X==0)]==ybar1,env = list(ybar1=ybar1)),cex=0.8)
+text(+.5,mean(y2samp),substitute(hat(mu)[(X==1.13)]==ybar2,env = list(ybar2=ybar2)),cex=0.8)
+
+arrows(0,int1[1],0,int1[2],.1,angle = 90,code = 3,col=4,lwd=2)
+arrows(1,int2[1],1,int2[2],.1,angle = 90,code = 3,col=4,lwd=2)
+fig.def()
+```
+
+Se mettiamo a test, otteniamo
+
+```{r 17-regressione-I-1,results='asis'}
+mu1 <- ybar2
+mu2 <- ybar1
+b <- "$(X=0)$" 
+a <- "$(X=1.13)$"
+s1h   <- sc(ysamp2)
+s2h <- sc(ysamp1)
+et <- F
+n1   <- 10
+n2 <- 10
+alpha <- 0.05
+h1 <- ">"
+
+ttest_2c_om(mu1 = mu1,mu2 = mu2,s1h = s1h,s2h = s2h,n1 = n1,n2 = n2,h1 = ">",a = a,b = b)
+fig.def(3,3)
+```
+:::
+
+:::{.example}
+
+```{r 17-regressione-I-11}
+sbar <- sbar3
+ybar <- ybar3
+ysamp <- ysamp3
+quad <-paste(paste(paste(ysamp[1:3],collapse = "^2+"),"^2",sep=""),"+...+",paste(paste(ysamp[9:10],collapse = "^2+"),"^2",sep=""))
+```
+
+Supponiamo di aver piantato altri 10 ettari di questa varietà ma su terreni trattati con 2.84 hg ($X=2.84$) 
+di concime azotato per ettaro e osserviamo (`r ysamp3`)
+\[Y_i=\mu_{(X=2.84)}+\varepsilon_i\qquad\varepsilon_i\sim N(0,\sigma_\varepsilon^2)\]
+
+Stimiamo
+\[\hat\mu_{(X=2.84)}=\frac 1 n\sum_{i=1}^n y_i=`r ybar3`\]
+e
+\begin{eqnarray*}
+\hat\sigma_{(X=2.84)}^2&=&\frac 1 n\sum_{i=1}^n y_i^2-\hat\mu_{(X=2.84)}^2\\
+&=&\frac 1 {10}(`r quad`)-`r ybar`^2\\
+&=&`r s2c(ysamp3)`\\
+\hat\sigma_{(X=2.84)} &=& `r sc(ysamp3)`
+\end{eqnarray*}
+infine
+
+\begin{eqnarray*}
+S_{(X=2.84)}^2&=&\frac{n}{n-1}\hat\sigma_{(X=2.84)}^2\\
+&=&\frac{10}{10-1}\cdot`r s2c(ysamp3)`\\
+&=&`r sbar3^2`\\
+S_{(X=2.84)}&=&`r sbar3`
+\end{eqnarray*}
+
+```{r 17-regressione-I-12}
+set.seed(4)
+n <- 10
+plot(rep(c(0,1.13,2.84),each=n),c(ysamp1,ysamp2,ysamp3),axes = F,xlab="",ylab="",pch=4,xlim=c(-.5,4),ylim = c(min(ysamp1),max(ysamp3)))
+abline(v = 0,lty=3,col="grey")
+abline(v = 1.13,lty=3,col="grey")
+abline(v = 2.84,lty=3,col="grey")
+
+axis(2,15:16,c(expression(mu[1]),expression(mu[2])),las=2)
+axis(1,c(0,1.13,2.84))
+points(0,mean(ysamp1),pch="-",col=4,cex=2)
+points(1.13,mean(ysamp2),pch="-",col=4,cex=2)
+points(2.84,mean(ysamp3),pch="-",col=4,cex=2)
+
+ygr <- seq(11,19,length.out = 101)
+lines(dnorm(ygr,15,1),ygr,col="grey")
+lines(1+dnorm(ygr,16,1),ygr,col="grey")
+
+axis(2)
+
+int1 <- t.test(ysamp1)$conf.int
+int2 <- t.test(ysamp2)$conf.int
+int3 <- t.test(ysamp3)$conf.int
+
+text(-.5,ybar1,ybar1,cex=0.9)
+text(+.5+.13,ybar2,ybar2,cex=.9)
+text(2.84-.5,ybar3,ybar3,cex=.9)
+
+arrows(0,int1[1],0,int1[2],.1,angle = 90,code = 3,col=4,lwd=2)
+arrows(1.13,int2[1],1.13,int2[2],.1,angle = 90,code = 3,col=4,lwd=2)
+arrows(2.84,int3[1],2.84,int3[2],.1,angle = 90,code = 3,col=4,lwd=2)
+fig.def(3,4)
+```
+
+**problema 1:** abbiamo tre stime di $\mu$ e tre stime di $\sigma$ ottenute come se i campioni fossero separati.
+Non abbiamo tenuto conto della natura metrica della $X$.
+
+```{r 17-regressione-I-13}
+set.seed(4)
+n <- 10
+plot(rep(c(0,1.13,2.84),each=n),c(ysamp1,ysamp2,ysamp3),axes = F,xlab="",ylab="",pch=4,xlim=c(-.5,4),ylim = c(min(ysamp1),max(ysamp3)))
+abline(v = 0,lty=3,col="grey")
+abline(v = 1.13,lty=3,col="grey")
+abline(v = 2.84,lty=3,col="grey")
+
+axis(2,15:16,c(expression(mu[1]),expression(mu[2])),las=2)
+axis(1,c(0,1.13,2.84))
+points(0,mean(ysamp1),pch="-",col=4,cex=2)
+points(1.13,mean(ysamp2),pch="-",col=4,cex=2)
+points(2.84,mean(ysamp3),pch="-",col=4,cex=2)
+
+ygr <- seq(11,19,length.out = 101)
+lines(dnorm(ygr,15,1),ygr,col="grey")
+lines(1+dnorm(ygr,16,1),ygr,col="grey")
+
+text(.25,ybar1,expression(hat(mu)[x==0]))
+text(1.13+.25,ybar2,expression(hat(mu)[x==1.13]))
+text(2.84+.25,ybar3,expression(hat(mu)[x==2.84]))
+
+arrows(0,25.5,1.13,25.5,length = .05,code = 3)
+arrows(1.13,25.5,2.84,25.5,length = .05,code = 3)
+
+arrows(-.2,ybar1-sbar1/2,-.2,ybar1+sbar1/2,length = .05,code = 3,angle = 90)
+text(-.3,ybar1,expression(hat(sigma)[epsilon]))
+arrows(1.13-.2,ybar2-sbar2/2,1.13-.2,ybar2+sbar2/2,length = .05,code = 3,angle = 90)
+text(1.13-.3,ybar2,expression(hat(sigma)[epsilon]))
+arrows(2.84-.2,ybar3-sbar3/2,2.84-.2,ybar3+sbar3/2,length = .05,code = 3,angle = 90)
+text(2.84-.3,ybar3,expression(hat(sigma)[epsilon]))
+
+
+#arrows(-1.06,25,-1.06,35,.1)
+#text(-.9,35,"y")
+axis(2)
+# arrows( 1.06,13, 1.06,17,.1)
+# axis(4,15,0,las=2)
+# text( .9,17,expression(epsilon))
+
+```
+
+
+
+**problema 2:** alla luce di questi dati cosa possiamo dire sulla produzione media se usassimo 1.9 hg di concime per ettaro? 
+Potremmo proporre di congiungere le medie con una spezzata
+
+```{r 17-regressione-I-14}
+n <- 10
+plot(rep(c(0,1.13,2.84),each=n),c(ysamp1,ysamp2,ysamp3),axes = F,xlab="",ylab="",pch=4,xlim=c(-.5,4),ylim = c(min(ysamp1),max(ysamp3)))
+abline(v = 0,lty=3,col="grey")
+abline(v = 1.13,lty=3,col="grey")
+abline(v = 2.84,lty=3,col="grey")
+abline(v = 1.9,lty=3,col=ared)
+
+cc <- lsfit(c(1.13,2.84),c(ybar2,ybar3))$coef
+
+yhat <-sum(cc*c(1,1.9))
+
+segments(-10,yhat,1.9,yhat,lty=3)
+segments(0,ybar1,1.13,ybar2,lty=1,col="grey60")
+segments(1.13,ybar2,2.84,ybar3,lty=1,col="grey60")
+
+points(0,mean(ysamp1),pch="-",col=4,cex=2)
+points(1.13,mean(ysamp2),pch="-",col=4,cex=2)
+points(2.84,mean(ysamp3),pch="-",col=4,cex=2)
+
+axis(side = 1,at = 1.9,col.ticks = 2,col.axis=2)
+axis(1,c(0,1.13,2.84))
+axis(2,c(27,28,yhat,31,32),c(27,28,round(yhat,2),31,32),las=2)
+
+title(main = "una suggestione")
+```
+
+Il problema è che dobbiamo stimare 3 coppie di parametri $\mu_1,\sigma^2_1$, $\mu_2,\sigma^2_2$ e $\mu_3,\sigma^2_3$
+**senza** tenere conto della natura metrica della $x$.
+
+L'idea è di sostituire a $\mu_1$, $\mu_2$ e $\mu_3$ una funzione in $x$, $\mu(x)$ e stimarla coi dati $\hat\mu(x)$, 
+per ottenere qualcosa del tipo
+
+```{r 17-regressione-I-14a}
+n <- 10
+plot(rep(c(0,1.13,2.84),each=n),c(ysamp1,ysamp2,ysamp3),axes = F,xlab="",ylab="",pch=4,xlim=c(-.5,4),ylim = c(min(ysamp1),max(ysamp3)))
+
+reg_xy  <- lsfit(x <- rep(c(0,1.13,2.84),each=n),y <- c(ysamp1,ysamp2,ysamp3))
+
+
+abline(reg_xy,lwd=2,col=2)
+abline(v = 0,lty=3,col="grey")
+abline(v = 1.13,lty=3,col="grey")
+abline(v = 2.84,lty=3,col="grey")
+abline(v = 1.9,lty=3,col=ared)
+
+yhat <- reg_xy$coefficients[1]+reg_xy$coefficients[2]*1.9
+
+segments(-10,yhat,1.9,yhat,lty=3)
+
+points(0,mean(ysamp1),pch="-",col=4,cex=2)
+points(1.13,mean(ysamp2),pch="-",col=4,cex=2)
+points(2.84,mean(ysamp3),pch="-",col=4,cex=2)
+
+axis(side = 1,at = 1.9,col.ticks = 2,col.axis=2)
+axis(1,c(0,1.13,2.84))
+axis(2,c(27,28,yhat,31,32),c(27,28,round(yhat,2),31,32),las=2)
+
+# reg_sqrt <- lm(y ~ I(sqrt(x)))
+# xgrid <- seq(0, 3, length.out = 200)
+# yhat_sqrt <- predict(reg_sqrt, newdata = data.frame(x = xgrid))
+# lines(xgrid, yhat_sqrt, col="blue", lwd=2)
+
+title(main = "Regressioni")
+```
+
+:::
+
+:::{.example}
+
+**problema 3:** Dobbiamo studiare un nuova varietà di riso, ma il budget è inferiore.
+osserviamo 10 ettari
+
+```{r 17-regressione-I-15}
+set.seed(1)
+x <- (0:9)*1.13/5
+y <- 27.5+.82*x+ rnorm(10,0,1)
+
+xy <- data.frame(`X fertilizzante`=x,`Y raccolto`=y)
+names(xy)<-c("$X=$ Fertilizzante","$Y=$ Raccolto")
+
+kable(t(xy),booktabs = T, escape = F, linesep = "")
+
+plot(x,y,axes = F,pch=16)
+axis(1,x,las=2)
+axis(2,y,round(y,2),las=2)
+segments(x,0,x,y,lty=2,col="grey90")
+segments(-100,y,x,y,lty=2,col="grey90")
+
+fig.def(3)
+```
+
+La previsione sembra più difficile, 
+la suggestione di prima non sembra funzionare, dobbiamo modellare il luogo delle medie $\mu$ con
+una funzione $\mu(x)$ e stimarla coi dati $\hat\mu(x)$.
+
+```{r 17-regressione-I-2,results='asis'}
+opar <- par(no.readonly = T)
+par(mfrow=c(1,2),cex=cex)
+set.seed(1)
+x <- (0:9)*1.13/5
+y <- 27.5+.82*x+ rnorm(10,0,1)
+
+plot(x,y,axes = F,type="b",lty=2)
+axis(1,x,las=2)
+axis(2,y,round(y,2),las=2)
+
+set.seed(1)
+x <- (0:9)*1.13/5
+y <- 27.5+.82*x+ rnorm(10,0,1)
+
+plot(x,y,axes = F,type="p",lty=2)
+# xys <- smooth.spline(x = x,y = y,spar = .5)
+# lines(predict(xys,data.frame(x=seq(0,2,by=.01))$x),col=ared)
+ axis(1,x,las=2)
+ axis(2,y,round(y,2),las=2)
+
+xys <- smooth.spline(x = x,y = y,spar = .6)
+lines(predict(xys,data.frame(x=seq(0,2,by=.01))$x),col=ared)
+
+abline(lsfit(x,y),col=4)
+
+```
+:::
+
+## Il modello di regressione
+
+Vogliamo modellare la linea delle medie. Ci aspetteremmo una linea che passi tra i punti che 
+che sia, per ogni $x$ dato, il valore atteso di $Y$ condizionato a quella $x$.
+Cioè abbiamo bisogno di un modello per la media di $Y$ per un dato $X$
+\[E(Y_i|X=x_i)=\mu(x_i)\]
+
+E si legge che $Y$, in media, condizionato ad $X=x$ vale $\mu(x)$, dove $\mu$ è una funzione da scegliere.
+L'idea di base è che
+\[y_i=\mu(x_i)+\varepsilon_i\]
+la $y$ osservata in corrispondenza della $x$ è pari ad $\mu(x)$ a meno di un errore casuale.
+Dove si assume che l'errore abbia media zero
+\[E(\varepsilon_i)=0\]
+
+e varianza costante
+\[V(\varepsilon_i)=\sigma^2_{\varepsilon}, ~\forall i\]
+
+Qui di seguito un paio di esempi grafici
+
+```{r 17-regressione-I-3,results='asis'}
+opar <- par(no.readonly = T)
+par(mfrow=c(1,2),cex=cex)
+set.seed(1)
+x <- seq(0,3/2*pi,length=100)
+y <- 15*sin(x)+rnorm(100,0,2.5)+28
+
+plot(x*2.5,y,pch=16,cex=.6,xlab="x",axes=F)
+lines(x*2.5,15*sin(x)+28,col=ared)
+axis(1)
+axis(2)
+
+
+text(9,40,expression(mu(x)),col=ared)
+
+plot(x*2.5,y,pch=16,cex=.8,xlab="x",xlim = c(2,4),ylim = c(35,48),axes=F)
+lines(x*2.5,15*sin(x)+28,col=ared)
+points(x*2.5,15*sin(x)+28,col=1,pch=4,cex=.5)
+segments(x*2.5,15*sin(x)+28,x*2.5,y,lty=2,col="grey")
+axis(1)
+axis(2)
+
+par(opar)
+```
+
+
+<!-- ```{r 17-regressione-I-4,results='asis'} -->
+
+<!-- plot(x*2.5,y,pch=16,cex=.8,xlab="x",xlim = c(2,4),ylim = c(35,48)) -->
+<!-- lines(x*2.5,15*sin(x)+28,col=ared) -->
+<!-- points(x*2.5,15*sin(x)+28,col=1,pch=4,cex=.5) -->
+<!-- segments(x*2.5,15*sin(x)+28,x*2.5,y,lty=2,col="grey") -->
+<!-- ``` -->
+
+## La Regressione Lineare
+
+
+Tra le tante $\mu(x)$ limitiamo l'attenzione alle funzioni lineari
+$$
+y_i=\mu(x_i)+\varepsilon_i=\beta_0+\beta_1x_i+\varepsilon_i
+$$
+
+
+```{r 17-regressione-I-5,results='asis'}
+opar <- par(no.readonly = T)
+par(mfrow=c(1,2),cex=cex)
+set.seed(2)
+x <- sort(rnorm(50,10,1))
+y <- 3.2 + .5*x + rnorm(50,0,.5)
+plot(x,y,pch=16,cex=.6,xlab="x = Reddito",ylab="y = Consumo",axes=F)
+axis(1)
+axis(2)
+abline(lsfit(x,y),col=ared)
+
+set.seed(1)
+x <- sort(rnorm(50,10,1))
+y <- 32 - 1.5*x + rnorm(50,0,.5)
+plot(x,y,pch=16,cex=.6,xlab="x = Inflazione",ylab="y = Disoccupazione",axes=F)
+axis(1)
+axis(2)
+abline(lsfit(x,y),col=ared)
+
+par(opar)
+```
+
+### Il modello di regressione lineare semplice
+
+Il modello di regressione (lineare semplice) è
+$$
+y_i=\beta_0+\beta_1x_i+\varepsilon_i,\qquad E(\varepsilon_i)=0,~V(\varepsilon_i)=\sigma^2_{\varepsilon_i}
+$$
+
+
+:::{.nota data-latex=""}
+
+Le variabili sono chiamate:
+
+- $y$ dipendente, endogena, risposta, ecc.
+- $x$ indipendente, esogena, stimolo, ecc.
+- $\varepsilon$ è chiamato, residuo, o errore
+
+I parametri di popolazione sono **3**: $\beta_0$, $\beta_1$ e $\sigma^2_\varepsilon$
+
+
+- $\beta_0$ è l'intercetta della retta. $\beta_0$ rappresenta la media di $y$ quando $x=0$, non sempre ha significato fenomenico
+- $\beta_1$ è il coefficiente angolare. $\beta_1$ rappresenta quanto la media di $y$ aumenta all'aumentare unitario della $x$.
+- $\sigma^2_\varepsilon$ è la varianza dell'errore $\varepsilon$. $\sigma^2_\varepsilon$ rappresenta la variabilità dei punti intorno alla retta.
+
+```{r 17-regressione-I-16}
+fig.def(3)
+```
+
+```{r 17-regressione-I-17}
+plot(c(-.1,2),c(-.1,2),type="n",xlab="",ylab="",axes=F,asp=1)
+#abline(.2,.5,col=ared)
+curve(.2+.5*x,-.2,2.1,add=T,col=ared)
+arrows(0,-.5,0,1.9,.1)
+arrows(-.5,0,1.9,0,.1)
+text(1.9,.1,"x")
+text(.1,1.9,"y")
+points(0,.2,pch=16,col=ared)
+text(-.1,.2,expression(beta[0]))
+text(1,-.1,1)
+points(1,0,pch="|",cex=.8)
+segments(1,.2,1,.2+.5,lty=2)
+segments(0,.2,1,.2,lty = 2)
+brackets(1.01,.7,1.01,.2,xpd = F)
+text(1.3,.2+.25,expression(beta[1]))
+text(.5,.25,1)
+arrows(0,.15,1,.15,length = .05,code = 3)
+
+fig.def(4,4)
+```
+
+:::
+
+
+### La Storia del Metodo
+
+```{r}
+par(cex=cex)
+galton <- read_dta("data/galton.dta")
+hf <- galton[galton$male==1,]$father*2.54
+hs <- galton[galton$male==1,]$height*2.54
+ab <- lsfit(hf, hs)$coef
+```
+
+Nel 1886, Francis Galton pubblicò un articolo su *Nature* intitolato *Regression towards mediocrity in hereditary stature*. In quell’occasione, rese noti i dati raccolti su centinaia di coppie padre-figlio, relativi alla statura (convertita poi in centimetri). Galton ipotizzò inizialmente un modello molto semplice: l’altezza del figlio \( y_i \) doveva corrispondere a quella del padre \( x_i \), salvo errori casuali:
+
+\[
+y_i = x_i + \varepsilon_i
+\]
+
+In questo modello, l’errore medio sarebbe nullo, e la retta teorica che descrive la relazione padre-figlio sarebbe la bisettrice del primo quadrante. Tuttavia, una volta osservati i dati empirici, l’evidenza fu diversa.
+
+Nel campione considerato, la relazione stimata tra statura del padre e del figlio risultò essere:
+
+\[
+y_i = `r ab[1]` + `r ab[2]` \cdot x_i + \varepsilon_i
+\]
+
+dove l'intercetta `r ab[1]` è positiva e il coefficiente angolare `r ab[2]` è **inferiore a 1**. Questo significa che:
+
+- i figli di padri molto alti tendono a essere sì più alti della media ma più bassi dei loro padri,
+- mentre i figli di padri molto bassi tendono a essere sì più bassi della media ma più alti dei loro padri.
+
+Il fenomeno fu battezzato da Galton stesso con il nome di **regressione verso la media**, e in seguito divenne uno dei concetti fondamentali della statistica.
+
+```{r 17-regressione-I-18}
+
+plot(hf, hs,
+     xlab = "statura dei padri",
+     ylab = "statura dei figli",
+     pch = 4, cex = .6, axes = FALSE,
+     asp = 1, xlim = c(155, 201), ylim = c(155, 201))
+
+mf <- mean(hf)
+ms <- mean(hs)
+abline(v = mf, lty = 2)
+abline(h = ms, lty = 2)
+
+axis(1, c(160, 165, mf, 185, 190, 195, 200),
+     c(160, 165, paste("media\n", round(mf, 2)), 185, 190, 195, 200),pos=155)
+axis(2, c(160, 165, ms, 185, 190, 195, 200),
+     c(160, 165, paste("media\n", round(ms, 2)), 185, 190, 195, 200), las = 2,pos=155)
+
+abline(lsfit(hf, hs))                  # retta stimata
+abline(0, 1, lty = 2, col = ared)      # bisettrice: ipotesi di Galton
+
+text(190, 200, "Ipotesi di Galton", col = ared)
+text(200, 180, "Evidenza \n campionaria", col = 1)
+
+arrows(195, 194.5, 195, 97.177 + 0.4477 * 195, .09)
+title("I dati di Galton")
+
+ab <- round(lsfit(hf, hs)$coef, 2)
+```
+
+
+### Gli assunti del modello di regressione
+
+:::{.info data-latex=""}
+0.  Dati $(x_1,y_1),...,(x_n,y_n)$, $n$ coppie di punti, si assume che
+\[y_i=\beta_0+\beta_1x_i+\varepsilon_i\]
+1. Il valore atteso dell'errore è nullo
+\[E(\varepsilon_i)=0\]
+2. Omoschedasticità
+\[V(\varepsilon_{i}) = \sigma_\varepsilon^2,\qquad \text{costante }\forall i\]
+3. Indipendenza dei residui
+\[\varepsilon_i\text{ è indipendente da }\varepsilon_j~~\forall i\neq j\]
+4. Indipendenza tra i residui e la $X$
+\[X_i\text{ è indipendente da }\varepsilon_i~~\forall i\]
+5. _Esogeneità_ della $X$: la distribuzione su $X$ non è oggetto di inferenza
+6. Normalità dei residui 
+\[\varepsilon_i\sim N(0,\sigma^2_\varepsilon)\]
+:::
+
+__Assunto 0__ 
+Dati $(x_1,y_1),...,(x_n,y_n)$, $n$ coppie di punti, si assume che
+\[y_i=\beta_0+\beta_1x_i+\varepsilon_i\]
+
+
+Situazioni in cui l'assunto 0 è violato 
+
+```{r 17-regressione-I-19}
+fig.def(3)
+```
+
+```{r 17-regressione-I-20}
+
+set.seed(2)
+n <- 100
+x <- sort(rnorm(n))
+opar <- par(mfrow=c(1,2),cex=cex,mar=c(5.1,4.1,.1,.1))
+y <- x^2 + rnorm(n,0,.8)
+plot(x,y,pch=16,cex=.5)
+curve(x^2,add=T,col=ared)
+
+#set.seed(2)
+y <- cos(3*x) + rnorm(n,0,.5)
+plot(x,y,pch=16,cex=.5)
+curve(cos(3*x),add=T,col=ared)
+
+#set.seed(2)
+y <- exp(x) + rnorm(n,0,1)
+plot(x,y,pch=16,cex=.5)
+curve(exp(x),add=T,col=ared)
+
+
+
+#set.seed(2)
+y <- log(x^2) + rnorm(n,0,.5)
+plot(x,y,pch=16,cex=.5)
+curve(log(x^2),add=T,col=ared)
+
+par(opar)
+```
+
+
+__Assunto 1, il valore atteso dell'errore è nullo__
+
+\[E(\varepsilon_i)=0\]
+
+Inverificabile, se per esempio
+\[E(\varepsilon_i)=+1,~~\forall i,~ E(Y_i|x_i)=\beta_0+\beta_1x_i+E(\varepsilon_i)=\beta_0+\beta_1x_i+1\]
+
+```{r 17-regressione-I-21}
+par(cex=cex)
+set.seed(3)
+y <- x + rnorm(n)
+plot(c(x,x),c(y,y-1),pch=16,cex=.5,type="n",axes=F,xlab="integratore",ylab="peso del capo")
+points(x,y-1,pch=16,col=ared,cex=.5)
+points(x,y,pch=16,col=4,cex=.5)
+segments(x,y-1,x,y,lty=2,col="grey")
+abline(0,1,col=4)
+abline(-1,1,col=ared)
+arrows(-1.5,-1.5,-1.5,-2.5,length = .05,code = 1)
+text(-1.75,-1.75-.5,expression(+1))
+text(+1.75,+1.75-.5,expression(+1))
+arrows(1.5,1.5,1.5,.5,length = .05,code = 1)
+axis(1,-2:2,10:14)
+axis(2,-4:3,25:32,las=2)
+
+```
+
+
+__Assunti 3. e 6. Omoschedasticità e Indipendenza tra i residui e la $X$__
+
+\[V(\varepsilon_{i}) = \sigma_\varepsilon^2,\qquad \text{costante }\forall i\]
+\[X_i\text{ è indipendente da }\varepsilon_i~~\forall i\]
+
+La varianza non cambia con le osservazioni
+
+```{r 17-regressione-I-22}
+fig.def(3)
+```
+
+```{r 17-regressione-I-23}
+par(mfrow=c(1,2),cex=cex)
+set.seed(3)
+y <- x + rnorm(n)
+plot(x,y,pch=16,cex=.5)
+abline(-1.5,1,lty=2)
+abline(+1.5,1,lty=2)
+title("Assunti rispettati")
+
+y <- x + rnorm(n,0,exp(abs(x)^1.1))
+plot(x,y,pch=16,cex=.5)
+abline(-1.5,1,lty=2)
+abline(+1.5,1,lty=2)
+lines(x,-1.5+x-exp(abs(x)^1.1),lty=2,col=3)
+lines(x,+1.5+x+exp(abs(x)^1.1),lty=2,col=3)
+title("Assunti non rispettati")
+
+eps <- c(rnorm(40,0,.3),rnorm(60,0,1))
+y <- x+ eps
+
+```
+```{r 17-regressione-I-24}
+plot(x,y,pch=16,cex=.5)
+abline(-1.5,1,lty=2)
+abline(+1.5,1,lty=2)
+abline(-.5,1,lty=2,col=3)
+abline(+.5,1,lty=2,col=3)
+title("Assunti non rispettati")
+
+y <- x + rnorm(n,0,dnorm(x,0,.5)*3)
+plot(x,y,pch=16,cex=.5)
+abline(-1.5,1,lty=2)
+abline(+1.5,1,lty=2)
+lines(x,x+1.5+dnorm(x,0,.5)*3,lty=2,col=3)
+lines(x,x-1.5-dnorm(x,0,.5)*3,lty=2,col=3)
+title("Assunti non rispettati")
+
+par(mfrow=c(1,1),cex=cex)
+
+```
+
+
+__4. Indipendenza dei residui__
+
+\[\varepsilon_i\text{ è indipendente da }\varepsilon_j~~\forall i\neq j\]
+
+L'assunto vine tipicamente violato nelle serie temporali
+
+```{r 17-regressione-I-25}
+fig.def(3)
+```
+
+```{r 17-regressione-I-26}
+x <- x - min(x)
+y <- x + rnorm(100,0,1)
+opar <- par(mfrow=c(1,2),cex=cex)
+plot(x,y,pch=16,axes = F)
+lines(x,y)
+axis(1);axis(2)
+abline(lsfit(x,y),col=ared)
+title("Assunto Rispettato")
+# plot(x,y,type="l")
+# abline(lsfit(x,y),col=ared)
+# title("Assunto Rispettato")
+set.seed(10)
+eps <- arima.sim(model = list(order=c(3,1,1),ar=c(.4,.3,.1),ma=.1),n = 100,sd=.5)
+#eps <- arima.sim(model = list(order = c(1,0,0), ar = 0.97), n = 100, sd = .5)
+
+y <- x+ eps[-101]
+plot(x,y+10,type="p",pch=16,xlab="Tempo",ylab="Y al tempo t",axes=F)
+lines(x,y+10)
+axis(1)
+axis(2)
+abline(lsfit(x,y+10),col=ared)
+title("Assunto Non Rispettato")
+# plot(x,y+10,type="l",pch=16,xlab="Tempo",ylab="Y al tempo t",axes=F)
+# axis(1)
+# axis(2)
+# abline(lsfit(x,y+10),col=ared)
+# title("Assunto Non Rispettato")
+
+par(opar)
+```
+
+__5. Esogeneità della $X$: la distribuzione su $X$ non è oggetto di inferenza.__
+In contesto di sperimentazione la $X$ viene fissata dal ricercatore. 
+In un contesto di dati sul campo la $X$ non può essere fissata, ma viene usata 
+_come se fosse_ fissata.
+L'obiettivo di ricerca rimane la $Y$ e la relazione tra $X$ ed $Y$, **non**
+la distribuzione di $X$.
+
+__6. Normalità dei residui__
+Gli errori sono normalmente distribuiti
+\[\varepsilon_i\sim N\left(0,\sigma_\varepsilon^2\right)\]
+
+Essendo
+\[Y_i = \beta_0+\beta_1x_i+\varepsilon_i, ~~\varepsilon_i\sim N\left(0,\sigma_\varepsilon^2\right)\]
+
+allora, dalle proprietà delle normali
+\[Y_i\sim  N\left(\beta_0+\beta_1x_i,\sigma_\varepsilon^2\right)\]
+
+$Y_i$ è normale con media $\beta_0+\beta_1x_i$ e varianza $\sigma_\varepsilon^2$
+
+```{r 17-regressione-I-27}
+fig.def(8,8)
+```
+
+```{r 17-regressione-I-28}
+M <- persp(c(0,1.1),c(0,1),matrix(c(0,0,4,4),2),phi = .5,theta = 41,shade = NULL,border = 0,box = F,scale = T)
+
+x1 <- seq(0,1.1,length.out = 101)
+y1 <- seq(0,1.1,length.out = 101)
+
+arrows(trans3d(0,0,0,M)$x,trans3d(0,0,0,M)$y,trans3d(0,2,0,M)$x,trans3d(0,2,0,M)$y,.1)
+arrows(trans3d(0,0,0,M)$x,trans3d(0,0,0,M)$y,trans3d(2,0,0,M)$x,trans3d(2,0,0,M)$y,.1)
+arrows(trans3d(0,0,0,M)$x,trans3d(0,0,0,M)$y,trans3d(0,0,4,M)$x,trans3d(0,0,4,M)$y,.1)
+segments(trans3d(c(1,.35,.6),c(0,0,0),c(0,0,0),M)$x,trans3d(c(1,.35,.6),c(0,0,0),c(0,0,0),M)$y,
+         trans3d(c(1,.35,.6),c(2,2,2),c(0,0,0),M)$x,trans3d(c(1,.35,.6),c(2,2,2),c(0,0,0),M)$y,
+         lty=2,col="grey20")
+lines(trans3d(x1,x1/2+.25,0,M)$x,trans3d(x1,x1/2+.25,0,M)$y,col=ared)
+lines(trans3d(.35,y1,dnorm(.35/2+.25,y1,.1),M)$x,trans3d(.35,y1,dnorm(y1,.35/2+.25,.1),M)$y,col="grey80")
+lines(trans3d(.6,y1,dnorm(.6/2+.25,y1,.1),M)$x,trans3d(.6,y1,dnorm(y1,.6/2+.25,.1),M)$y,col="grey80")
+lines(trans3d(1,y1,dnorm(1/2+.25,y1,.1),M)$x,trans3d(1,y1,dnorm(y1,1/2+.25,.1),M)$y,col="grey80")
+segments(trans3d(c(.35,.6,1),c(.35,.6,1)/2+.25,c(0,0,0),M)$x,trans3d(c(.35,.6,1),c(.35,.6,1)/2+.25,c(0,0,0),M)$y,
+         trans3d(c(.35,.6,1),c(.35,.6,1)/2+.25,c(dnorm(c(.35,.6,1)/2+.25,c(.35,.6,1)/2+.25,.1)),M)$x,
+         trans3d(c(.35,.6,1),c(.35,.6,1)/2+.25,c(dnorm(c(.35,.6,1)/2+.25,c(.35,.6,1)/2+.25,.1)),M)$y,
+          lty = 2)
+text(trans3d(.35,-.05,0,M),expression(x[1]))
+text(trans3d(.6,-.05,0,M),expression(x[2]))
+text(trans3d(1,-.05,0,M),expression(x[3]))
+text(trans3d(-.05,2,0.5,M),expression(y))
+text(trans3d(-.1,-.05,3,M),"f(y|x)")
+text(trans3d(1.2,1.1/2,0,M),expression(y==beta[0]+beta[1]* x),col=ared)
+```
+
+### Il metodo dei minimi quadrati
+
+
+È un metodo di stima per $\beta_0$ e $\beta_1$, si può dimostrare che, in virtù 
+dell'assunto 6. (la normalità dei residui) il metodo dei minimi quadrati produce le
+stime di massima verosimiglianza. Svilupperemo la teoria attraverso un esempio su 4 punti.
+
+```{r 17-regressione-I-29}
+fig.def(3,6.5)
+```
+
+
+```{r 17-regressione-I-30}
+par(cex=cex)
+x <- c(0:3)
+y <- c(2,3.5,2.5,4)
+
+prt <- data.frame(cbind(dato=1:4,x,y))
+names(prt)<- c("$i$","$x_i$","$y_i$")
+kable(prt,booktabs = T, escape = F, linesep = "")
+x <- c(0:3)
+y <- c(2,3.5,2.5,4)
+plot(x,y,axes=F,xlim=c(-.5,3.5),pch=16)
+axis(1,x)
+axis(2,y)
+segments(x,0,x,y,lty=2)
+segments(-10,y,x,y,lty=2)
+
+#axis(2,2.5+.25*x,las=2)
+# abline(2.45,.25,col=ared)
+# segments(x,y,x,2.45+.25*x,lty=2)
+# text(x+.25,(y+2.45+.25*x)/2,expression(epsilon[1],epsilon[2],epsilon[3],epsilon[4]))
+# segments(-10,2.45+.25*x,x,2.45+.25*x,lty=2)
+# segments(x,y,-10,y,lty=2)
+# text(3,3.0,expression(y==beta[0]+beta[1] * x),col=ared)
+
+```
+
+### La distanza di una retta dai punti (il metodo dei minimi quadrati)
+
+Si tratta di cercare la retta che rende minima la somma dei quadrati delle distanza 
+della retta misurate nella scala di misura della $y$.
+Per ogni retta candidata $(\beta_0^*,\beta_1^*)$, costruiamo la previsione
+\[\hat y_i^*=\beta_0^*+\beta_1^*x_i\]
+e quindi i residui 
+\[\hat\varepsilon_i^*=y_i-\hat y_i\]
+
+
+Il criterio dei **minimi quadrati** è
+\[G(\beta_0^*,\beta_1^*)=\sum_{i=1}^n ({\hat\varepsilon_i^*})^{2} =\sum_{i=1}^n(y_i-\hat y_i^*)^2=\sum_{i=1}^n(y_i-(\beta_0^*+\beta_1^*x_i))^2\]
+
+
+La retta dei minimi quadrati è quella coppia di $\hat\beta_0$ e $\hat\beta_1$ tali che
+\[G(\hat\beta_0,\hat\beta_1)<G(\beta_0^*,\beta_1^*),~~\forall(\beta_0^*,\beta_1^*)\neq(\hat\beta_0,\hat\beta_1)\]
+
+Se, per esempio, scegliessimo $\beta_0^*=2.2,~\beta_1^*=0.36$, otterremmo 
+
+```{r 17-regressione-I-31}
+fig.def(3)
+```
+
+
+```{r 17-regressione-I-32}
+opar <- par(mfrow=c(1,2),cex=cex)
+x <- c(0:3)
+y <- c(2,3.5,2.5,4)
+bs0 <- 2.2
+bs1 <- .36
+yh <- bs0+bs1*x
+epsh <- y-yh
+
+plot(x,y,axes=F,xlim=c(-.5,3.5),pch=16)
+axis(1,x)
+axis(2,y,las=2)
+axis(2,bs0+bs1*x,las=2,col.axis=6)
+abline(bs0,bs1,col=6,lwd=2)
+segments(x,y,x,bs0+bs1*x,lty=2,col=1:4)
+text(x+.25,(y+bs0+bs1*x)/2,epsh)
+segments(-10,bs0+bs1*x,x,bs0+bs1*x,lty=2,col=1:4)
+segments(x,y,-10,y,lty=2,col=1:4)
+text(3,3.0,expression(y==2.2+0.36 * x),col=6)
+
+prn <- data.frame(1:4,`$x_i$`=x,`$y_i$`=y,`$\\hat y_i^*=\\beta_0^*+\\beta_1^*x_i$`=yh,`$\\hat\\varepsilon_i=y_i-\\hat y_i^*$`=y-yh,(y-yh)^2)
+names(prn)<-c("$i$", "$x_i$","$y_i$","$\\hat y_i^*=\\beta_0^*+\\beta_1^*x_i$","$\\hat\\varepsilon_i^*=y_i-\\hat y^*$","$({\\hat\\varepsilon_i^*})^2$")
+kable(prn,booktabs = T, escape = F, linesep = "")
+
+
+g1 <- sum((y-yh)^2)
+
+x <- c(0:3)
+y <- c(2,3.5,2.5,4)
+bs0 <- 3.2
+bs1 <- -.15
+yh <- bs0+bs1*x
+epsh <- y-yh
+
+plot(x,y,axes=F,xlim=c(-.5,3.5),pch=16)
+axis(1,x)
+axis(2,y,las=2)
+axis(2,bs0+bs1*x,las=2,col.axis=6)
+abline(bs0,bs1,col=6,lwd=2)
+segments(x,y,x,bs0+bs1*x,lty=2,col=1:4)
+text(x+.25,(y+bs0+bs1*x)/2,epsh)
+segments(-10,bs0+bs1*x,x,bs0+bs1*x,lty=2,col=1:4)
+segments(x,y,-10,y,lty=2,col=1:4)
+text(3,3.0,expression(y==3.2-0.15 * x),col=6)
+
+prn <- data.frame(1:4,`$x_i$`=x,`$y_i$`=y,`$\\hat y_i^*=\\beta_0^*+\\beta_1^*x_i$`=yh,`$\\hat\\varepsilon_i=y_i-\\hat y_i^*$`=y-yh,(y-yh)^2)
+names(prn)<-c("$i$", "$x_i$","$y_i$","$\\hat y_i^*=\\beta_0^*+\\beta_1^*x_i$","$\\hat\\varepsilon_i^*=y_i-\\hat y^*$","$({\\hat\\varepsilon_i^*})^2$")
+kable(prn,booktabs = T, escape = F, linesep = "")
+
+g2 <- sum((y-yh)^2)
+
+
+dxy <- function(x,y) paste(paste("(",paste(x,mean(x),sep = "-"),")"),paste("(",paste(y,mean(y),sep = "-"),")"),collapse = "+")
+pxy <- function(x,y) paste(x,"\\times",y,collapse = "+")
+par(opar)
+```
+
+\[G(2.2,0.36)=`r sum((y-yh)^2)`\]
+
+Se invece scegliessimo  $\beta_0^*=3.2,~\beta_1^*=-1.5$, otterremmo
+
+\[G(3.2,-1.15)=`r sum((y-yh)^2)`\]
+
+Siccome
+\[G(2.2,0.36)=`r g1`<G(3.2,-1.15)=`r g2`\]
+allora diremo che la retta $\beta_0^*=2.2,~\beta_1^*=0.36$ è _più vicina_, nel senso dei minimi quadrati, della retta $\beta_0^*=3.2,~\beta_1^*=-1.5$.
+
+### Soluzioni dei minimi quadrati
+
+La retta dei minimi quadrati è quella coppia di $\hat\beta_0$ e $\hat\beta_1$ tali che
+\[G(\hat\beta_0,\hat\beta_1)<G(\beta_0,\beta_1),~~\forall(\beta_0,\beta_1)\neq(\hat\beta_0,\hat\beta_1)\]
+ovvero
+\begin{eqnarray*}
+(\hat\beta_0,\hat\beta_1)=\operatorname*{argmin}_{(\beta_0,\beta_1)\in\mathbb{R}^2}G(\beta_0,\beta_1)
+\end{eqnarray*}
+
+:::{.info data-latex=""}
+:::{.proposition name="Stimatori dei Minimi Quadrati"}
+Gli stimatori dei minimi quadrati $\hat\beta_0$ e $\hat\beta_1$ sono
+\begin{eqnarray*}
+\hat\beta_1 &=& \frac{\frac 1 n\sum_{i=1}^n{(x_i-\bar x)(y_i-\bar y)}}{\frac 1 n\sum_{i=1}^n(x_i-\bar x)^2}=\frac{\text{ cov}(x,y)}{\hat\sigma^2_X}\\
+\hat\beta_0 &=&\bar y -\hat\beta_1\bar x
+\end{eqnarray*}
+dove
+\[\bar y = \frac 1 n\sum_{i=1}^n y_i,\qquad \bar x=\frac 1 n \sum_{i=1}^n x_i\]
+e
+\[
+\text{ cov}(x,y) = \frac 1 n\sum_{i=1}^n(x_i-\bar x)(y_i-\bar y)
+\]
+:::
+:::
+
+:::{.proof}
+\begin{eqnarray*}
+  G(\beta_{0}, \beta_{1}) &=& \frac 1n \sum_{i=1}^{n} \left( y_{i} - (\beta_{0} + \beta_{1} x_{i})   \right)^2\\ 
+  \frac{\partial G(\beta_{0}, \beta_{1})} {\partial \beta_{0}} 
+&=& -\frac{2} {n} \sum_{i=1}^n  \left( y_{i} - (\beta_{0} + \beta_{1} x_{i})
+    \right)\\
+&=& -\frac{2} n\left(\sum_{i=1}^ny_i-\sum_{i=1}^n\beta_0-\sum_{i=1}^n\beta_1 x_i\right) \\
+&=&-\frac{2} n\left(n\bar y-n\beta_0-n\beta_1\bar x\right) \\
+&=&-2\left(\bar y-\beta_0-\beta_1\bar x\right) \\
+    \frac{\partial G(\beta_{0}, \beta_{1})}  {\partial \beta_{1}}
+&=& -\frac{2} {n} \sum_{i=1}^n  x_i\left( y_{i} - (\beta_{0} + \beta_{1} x_{i})
+    \right)\\
+&=& -\frac{2} {n} \left(\sum_{i=1}^n  x_i y_{i}\right) - \left(\sum_{i=1}^n\beta_{0}x_i\right) 
+- \left(\sum_{i=1}^n\beta_{1} x_{i}^2\right)\\
+&=& -2 \left(\left(\frac 1n\sum_{i=1}^n  x_i y_{i}\right) - \beta_{0}\bar x
+- \beta_{1}\left(\frac 1n\sum_{i=1}^n x^2_{i}\right)\right)\\
+\end{eqnarray*}
+
+E otteniamo il __sistema di equazioni normali__
+
+\[
+\left\{
+\begin{array}{rl} 
+ \frac{\partial G(\beta_{0}, \beta_{1})} {\partial \beta_{0}} &= 0  \\
+  \frac{\partial G(\beta_{0}, \beta_{1})} {\partial \beta_{1}} &= 0
+\end{array}\right.
+\]
+
+Dividendo per 2 e cambiando di segno, si ha
+\[
+\left\{
+\begin{array}{rl} 
+\left(\bar y-\beta_0-\beta_1\bar x\right)  &= 0\\
+\left(\frac 1n\sum_{i=1}^n  x_i y_{i}\right) - \beta_{0}\bar x
+- \beta_{1}\left(\frac 1n\sum_{i=1}^n x^2_{i}\right) &= 0
+\end{array}\right.
+\]
+da cui
+\[
+    \hat\beta_0 = \bar y- \beta_{1} \bar{x}                  
+\]
+
+E sostituiamo
+
+\begin{eqnarray*}
+\left(\frac 1n\sum_{i=1}^n  x_i y_{i}\right) - (\bar y - \beta_1\bar x)\bar x
+- \beta_{1}\left(\frac 1n\sum_{i=1}^n x^2_{i}\right) &=& 0\\
+\beta_1\left(\frac 1n\sum_{i=1}^n x^2_{i}-\bar x^2\right) &=&
+\frac 1n\sum_{i=1}^n x_i y_{i} - \bar x\cdot\bar y\\
+\hat\beta_1 &=& \frac{\frac 1n\sum_{i=1}^n x_i y_{i} - \bar x\cdot\bar y}{\frac 1n\sum_{i=1}^n x^2_{i}-\bar x^2}
+\end{eqnarray*}
+
+Siccome 
+\begin{eqnarray*}
+   \text{ cov}(x,y) &=& \frac 1 n\sum_{i=1}^n(x_i-\bar x)(y_i-\bar y)\\
+   &=& \frac 1 n\sum_{i=1}^n(x_i~y_i - y_i~\bar x - x_i~\bar y + \bar x\bar y)\\
+   &=& \frac 1 n\sum_{i=1}^n x_i~y_i - \frac {\bar x} n\sum_{i=1}^n y_i - \frac {\bar y} n\sum_{i=1}^nx_i + \frac 1 n\sum_{i=1}^n\bar x\bar y\\
+   &=& \frac 1 n\sum_{i=1}^n x_i~y_i-\bar x\bar y-\bar x\bar y+-\bar x\bar y\\
+   &=& \frac 1 n\sum_{i=1}^n x_i~y_i-\bar x\bar y
+\end{eqnarray*}
+
+Concludendo la prova.
+:::
+
+## La covarianza
+
+:::{.info data-latex=""}
+:::{.definition}
+La Covarianza $\text{cov}(x,y)$ tra due variabili $x$ e $y$ è una misura della loro _covariazione_
+\[\text{cov}(x,y)=\frac 1 n\sum_{i=1}^n{(x_i-\bar x)(y_i-\bar y)}\]
+:::
+:::
+
+La covarianza è la _media degli scarti incrociati dalla media_
+Come per la varianza esiste una formula semplificata:
+
+:::{.info data-latex=""}
+:::{.proposition}
+La covarianza si può riscrivere come
+$$
+\operatorname{cov}(x,y)=\frac 1 n\sum_{i=1}^nx_i~y_i-\bar x\bar y
+$$
+:::
+:::
+
+:::{.proof}
+\begin{eqnarray*}
+\text{cov}(x,y) 
+&=& \frac{1}{n} \sum_{i=1}^n (x_i - \bar x)(y_i - \bar y) \\
+&=& \frac{1}{n} \sum_{i=1}^n \left( x_i y_i - x_i \bar y - \bar x y_i + \bar x \bar y \right) \\
+&=& \frac{1}{n} \left( \sum_{i=1}^n x_i y_i - \sum_{i=1}^n x_i \bar y - \sum_{i=1}^n \bar x y_i + \sum_{i=1}^n \bar x \bar y \right) \\
+&=& \frac{1}{n} \left( \sum_{i=1}^n x_i y_i - \bar y \sum_{i=1}^n x_i - \bar x \sum_{i=1}^n y_i + \bar x \bar y \sum_{i=1}^n 1 \right) \\
+&=& \frac{1}{n} \left( \sum_{i=1}^n x_i y_i - n \bar y \bar x - n \bar x \bar y + n \bar x \bar y \right) \\
+&=& \frac{1}{n} \sum_{i=1}^n x_i y_i - \bar x \bar y
+\end{eqnarray*}
+:::
+
+:::{.nota data-latex=""}
+La covarianza è _la media dei prodotti degli scarti dalla media_ può essere riletta come _la media dei prodotti_ meno _il prodotto delle medie_.
+:::
+
+### Calcolo della covarianza
+
+Nel caso in esame
+\[\bar x=\frac 1 4(`r paste(x,collapse="+")`)=\frac{`r sum(x)`}{4}=`r mean(x)`\]
+\[\bar y=\frac 1 4(`r paste(y,collapse="+")`)=\frac{`r sum(y)`}{4}=`r mean(y)`\]
+
+
+Per la covarianza:
+\begin{eqnarray*}
+\text{cov}(x,y)&=&\scriptsize\frac 1 4\Big(`r dxy(x,y)`\Big)\\
+&=& \frac 1 4(`r pxy(x,y)`)-`r mean(x)`\times`r mean(y)`\\
+&=& \frac 1 4(`r sum(x*y)`)-`r mean(x)*mean(y)`\\
+&=& `r mean((x-mean(x))*(y-mean(y)))`
+\end{eqnarray*}
+
+
+### Interpretazione della Covarianza
+
+La covarianza non è direttamente leggibile perché ha un'unità di misura mista,
+prodotto della unità di misura della $x$ e quella della $y$.
+
+È interessante il segno della covarianza perché indica la pendenza della retta se la covarianza è positiva c'è **concordanza dei segni**, ad $x$ maggiori del loro baricentro ($(x_i-\bar x)>0$) corrispondo, _in media_, $y$ maggiori del loro baricentro $(y_i-\bar y)>0$. Mentre ad $x$ minori del loro baricentro ($(x_i-\bar x)<0$) corrispondo, _in media_, $y$ minori del loro baricentro $(y_i-\bar y)<0$. Se invece la covarianza è negativa c'è  **discordanza dei segni**, cioè ad $x$ maggiori del loro baricentro ($(x_i-\bar x)>0$) corrispondo, _in media_, $y$ minori del loro baricentro $(y_i-\bar y)<0$. Mentre ad $x$ minori del loro baricentro ($(x_i-\bar x)<0$) corrispondo, _in media_, $y$ maggiori del loro baricentro $(y_i-\bar y)>0$. 
+
+```{r 17-regressione-I-33}
+fig.def(3)
+```
+
+
+```{r 17-regressione-I-34}
+set.seed(2)
+opar <- par(mfrow=c(1,2),cex=cex)
+x <- sort(rnorm(100))
+x <- x-min(x)
+y <- x+rnorm(100,0,.5)
+y <- y - min(y)
+
+mx <- mean(x)
+my <- mean(y)
+
+plot(x,y,axes = F,pch=16)
+arrows(0,0,max(x),0,.05)
+arrows(0,0,0,max(y),.05)
+abline(lsfit(x,y),col=4)
+title(expression(cov(x,y)>0))
+abline(v=mean(x),lty=2,col="grey")
+abline(h=mean(y),lty=2,col="grey")
+axis(1,mx,expression(hat(mu)[X]))
+axis(2,my,expression(hat(mu)[Y]))
+
+text(mean(x)+c(-1,1),mean(y)+c(-1,1)*2,"+",cex=3,col=3)
+text(mean(x)+c(1,-1),mean(y)+c(-1,1)*2,"-",cex=3,col=ared)
+
+y <- -x+rnorm(100,0,.5)
+y <- y - min(y)
+
+mx <- mean(x)
+my <- mean(y)
+
+plot(x,y,axes = F,pch=16)
+arrows(0,0,max(x),0,.05)
+arrows(0,0,0,max(y),.05)
+abline(lsfit(x,y),col=4)
+title(expression(cov(x,y)<0))
+abline(v=mean(x),lty=2,col="grey")
+abline(h=mean(y),lty=2,col="grey")
+axis(1,mx,expression(hat(mu)[X]))
+axis(2,my,expression(hat(mu)[Y]))
+
+text(mean(x)+c(-1,1),mean(y)+c(-1,1)*2,"+",cex=3,col=3)
+text(mean(x)+c(1,-1),mean(y)+c(-1,1)*2,"-",cex=3,col=ared)
+
+y <- rnorm(100,0,.5)
+y <- y - min(y)
+
+mx <- mean(x)
+my <- mean(y)
+```
+```{r 17-regressione-I-35}
+plot(x,y,axes = F,pch=16)
+arrows(0,0,max(x),0,.05)
+arrows(0,0,0,max(y),.05)
+abline(lsfit(x,y),col=4)
+title(expression(cov(x,y) %~~% 0))
+abline(v=mean(x),lty=2,col="grey")
+abline(h=mean(y),lty=2,col="grey")
+axis(1,mx,expression(hat(mu)[X]))
+axis(2,my,expression(hat(mu)[Y]))
+
+text(mean(x)+c(-1,1),mean(y)+c(-1,1)*1,"+",cex=3,col=3)
+text(mean(x)+c(1,-1),mean(y)+c(-1,1)*1,"-",cex=3,col=ared)
+
+y <- (x-mean(x))^2+rnorm(100,0,.5)
+y <- y - min(y)
+
+mx <- mean(x)
+my <- mean(y)
+
+plot(x,y,axes = F,pch=16)
+arrows(0,0,max(x),0,.05)
+arrows(0,0,0,max(y),.05)
+abline(lsfit(x,y),col=4)
+title(expression(cov(x,y) %~~% 0))
+abline(v=mean(x),lty=2,col="grey")
+abline(h=mean(y),lty=2,col="grey")
+axis(1,mx,expression(hat(mu)[X]))
+axis(2,my,expression(hat(mu)[Y]))
+
+text(mean(x)+c(-1,1),mean(y)+c(-1,1)*2,"+",cex=3,col=3)
+text(mean(x)+c(1,-1),mean(y)+c(-1,1)*2,"-",cex=3,col=ared)
+
+par(opar)
+```
+
+### Altre proprietà della covarianza
+
+Simmetria
+\[\text{cov}(x,y)=\text{cov}(y,x)\]
+la dimostrazione è immediata
+\[\text{cov}(x,y)=\frac 1 n\sum_{i=1}^n{(x_i-\bar x)(y_i-\bar y)}=\frac 1 n\sum_{i=1}^n{(y_i-\bar y)(x_i-\bar x)}=\text{cov}(y,x)\]
+
+Caso particolare
+\[\text{cov}(x,x)=\frac 1 n\sum_{i=1}^n{(x_i-\bar x)(x_i-\bar x)}=\frac 1 n\sum_{i=1}^n{(x_i-\bar x)^2}=\hat\sigma^2_X\]
+la covarianza di una variabile con se stessa è la varianza.
+La covarianza estende il concetto di varianza quando le variabili sono due.
+
+### Campo di variazione della covarianza
+
+\[-\hat\sigma_X\hat\sigma_Y\leq\text{cov}(x,y)\leq + \hat\sigma_X\hat\sigma_Y\]
+
+```{r 17-regressione-I-36}
+set.seed(2)
+opar <-par(mfrow=c(1,2),cex=cex)
+x <- sort(rnorm(100))
+x <- x-min(x)
+y <- x+rnorm(100,0,.5)
+y <- y - min(y)
+
+plot(x,y,axes = F,pch=16)
+arrows(0,0,max(x),0,.05)
+arrows(0,0,0,max(y),.05)
+abline(lsfit(x,y),col=4)
+title(expression(list(0<cov(x,y)) < hat(sigma)[X]*hat(sigma)[y]))
+abline(v=mean(x),lty=2,col="grey")
+abline(h=mean(y),lty=2,col="grey")
+axis(1,mean(x),expression(bar(x)))
+axis(2,mean(y),expression(bar(y)))
+
+y <- x
+
+plot(x,y,axes = F,pch=16)
+arrows(0,0,max(x),0,.05)
+arrows(0,0,0,max(y),.05)
+abline(lsfit(x,y),col=4)
+title(expression(cov(x,y) == hat(sigma)[X]*hat(sigma)[y]))
+abline(v=mean(x),lty=2,col="grey")
+abline(h=mean(y),lty=2,col="grey")
+axis(1,mean(x),expression(bar(x)))
+axis(2,mean(y),expression(bar(y)))
+```
+
+```{r 17-regressione-I-37}
+y <- -x+rnorm(100,0,.5)
+y <- y - min(y)
+
+plot(x,y,axes = F,pch=16)
+arrows(0,0,max(x),0,.05)
+arrows(0,0,0,max(y),.05)
+abline(lsfit(x,y),col=4)
+title(expression(list(- hat(sigma)[X]*hat(sigma)[y]<cov(x,y))<0))
+abline(v=mean(x),lty=2,col="grey")
+abline(h=mean(y),lty=2,col="grey")
+axis(1,mean(x),expression(bar(x)))
+axis(2,mean(y),expression(bar(y)))
+
+y <- -x
+y <- y - min(y)
+
+
+plot(x,y,axes = F,pch=16)
+arrows(0,0,max(x),0,.05)
+arrows(0,0,0,max(y),.05)
+abline(lsfit(x,y),col=4)
+title(expression(cov(x,y) == - hat(sigma)[X]*hat(sigma)[y]))
+abline(v=mean(x),lty=2,col="grey")
+abline(h=mean(y),lty=2,col="grey")
+axis(1,mean(x),expression(bar(x)))
+axis(2,mean(y),expression(bar(y)))
+par(opar)
+```
+
+
+
+Quindi stimiamo di $\sigma_X$ e $\sigma_Y$
+
+```{r 17-regressione-I-38}
+x <- c(0:3)
+y <- c(2,3.5,2.5,4)
+
+quad <- paste(paste(x,collapse = "^2+"),"^2",sep="")
+
+```
+
+
+Calcolo di $\hat\sigma_X^2$
+\begin{eqnarray*}
+\hat\sigma_X^2&=&\frac 1 n\sum_{i=1}^n x_i^2-\hat\mu_X^2\\
+&=&\frac 1 {4}(`r quad`)-`r mean(x)`^2\\
+&=&`r s2c(x)`\\
+\hat\sigma_X &=& `r sc(x)`
+\end{eqnarray*}
+
+```{r 17-regressione-I-39}
+x <- c(0:3)
+y <- c(2,3.5,2.5,4)
+
+quad <- paste(paste(y,collapse = "^2+"),"^2",sep="")
+
+```
+
+
+Calcolo di $\hat\sigma_Y^2$
+\begin{eqnarray*}
+\hat\sigma_Y^2&=&\frac 1 n\sum_{i=1}^n y_i^2-\hat\mu_Y^2\\
+&=&\frac 1 {4}(`r quad`)-`r mean(y)`^2\\
+&=&`r s2c(y)`\\
+\hat\sigma_Y &=& `r sc(y)`
+\end{eqnarray*}
+
+### Calcolo in colonna
+
+
+:::{.nota data-latex=""}
+Molto più comodamente in colonna
+
+```{r 17-regressione-I-40}
+Dato <- c(1:4,"Totale","Totale/n")
+prn <- data.frame(Dato,x=c(x,0,0),y=c(y,0,0),x2 = c(x^2,0,0),y2 = c(y^2,0,0),w=c(x*y,0,0))
+prn[5,2:6] <- colSums(prn[1:4,2:6])
+prn[6,2:6] <- colMeans(prn[1:4,2:6])
+
+names(prn)<-c("$i$","$x_i$","$y_i$","$x_i^2$","$y_i^2$","$x_i\\cdot y_i$") 
+
+kable(prn,booktabs = T, escape = F, linesep = "")%>%
+  row_spec(5, bold = T, color = "white", background = "gray")
+
+mx <- mean(x)
+my <- mean(y)
+sx <- sc(x)
+sy <- sc(y)
+cv <- mean((x-mx)*(y-my))
+b1 <- cv/(sx^2)
+b0 <- my - b1*mx
+```
+
+\begin{eqnarray*}
+\hat\sigma_X^2&=&\frac 1 n\sum_{i=1}^nx_i^2-\bar x^2=`r mean(x^2)`-`r mean(x)`^2=`r s2c(x)`\\
+\hat\sigma_Y^2&=&\frac 1 n\sum_{i=1}^ny_i^2-\bar y^2=`r mean(y^2)`-`r mean(y)`^2=`r s2c(y)`\\
+\text{cov}(x,y)&=&\frac 1 n\sum_{i=1}^nx_i~y_i-\bar x\bar y=`r mean(x*y)`-`r mean(x)`\cdot`r mean(y)`=`r cv`
+\end{eqnarray*}
+:::
+
+### Calcolo di $\hat\beta_0$ e $\hat\beta_1$
+
+La stima del coefficiente angolare è
+\[\hat\beta_1 =\frac{\text{cov}(x,y)}{\hat\sigma_X^2}=\frac{`r mean((x-mean(x))*(y-mean(y)))`}{`r s2c(x)`}=`r b1`\]
+
+La stima dell'intercetta è
+\[\hat\beta_0=\bar y-\hat\beta_1\bar x=`r my`-`r b1`\cdot`r mx`=`r b0`\]
+
+La retta stimata
+
+```{r 17-regressione-I-41}
+fig.def(3,3)
+```
+
+```{r 17-regressione-I-42}
+x <- c(0:3)
+y <- c(2,3.5,2.5,4)
+
+plot(x,y,axes = F,pch=16,asp=1)
+abline(lsfit(x,y),col=4)
+axis(1,x,pos=NA)
+axis(2,y,las=2,pos=0)
+axis(2,b0,expression(hat(beta)[0]==2.25),las=2,pos = 0)
+
+segments(0,b0,1,b0,lty=2,col="grey")
+segments(1,b0,1,b0+b1,lty=2,col="grey")
+#brackets(1.01,.7,1.01,.2,xpd = F)
+text(1,b0+b1/2,expression(hat(beta)[1]==0.5),pos = 4)
+
+```
+
+## Proprietà della retta dei minimi quadrati
+
+
+La retta dei minimi quadrati passa per il baricentro di ($x$,$y$) che è ($\bar x$, $\bar y$)
+\begin{eqnarray*}
+\hat\beta_0+\hat\beta_1\bar x &=&(\bar y-\hat\beta_1\bar x)+\hat\beta_1\bar x\\
+       &=& \bar y
+\end{eqnarray*}
+```{r 17-regressione-I-43}
+plot(x,y,axes = F,pch=16,asp=1)
+abline(lsfit(x,y),col=4)
+axis(1,x,pos=NA)
+axis(1,mx,expression(hat(mu)[x]==1.5))
+axis(2,y,las=2,pos=0)
+axis(2,my,expression(hat(mu)[Y]==3),las=2,pos=0)
+abline(v=mx,lty=2)
+abline(h=my,lty=2)
+```
+
+
+Le previsioni, sulle $x$ osservate
+\[\hat y_i=\hat\beta_0+\hat\beta_1x_i\]
+
+Le stime degli errori
+\[\hat\varepsilon_i = y_i-\hat y_i\]
+
+Valgono le seguenti proprietà:
+
+:::{.info data-latex=""}
+$$
+\begin{aligned}
+y_i, & & \text{le $y$ osservate}\\
+\hat y_i &= \hat \beta_0+\hat\beta_1x_i,&\text{le $y$ stimate}\\
+\hat\varepsilon_i &= y_i-\hat y_i,&\text{gli errori stimati}\\
+\bar y &= \frac 1 n\sum_{i=1}^n y_i, &\text{la media degli $y$}\\
+\bar y &= \frac 1 n\sum_{i=1}^n \hat y_i, &\text{la media degli $\hat y$ coince con qeulla degli $y$}\\
+0 &=\frac 1 n\sum_{i=1}^n\hat\varepsilon_i , &\text{la media degli scarti dalla retta è zero}\\
+\bar y &= \hat\beta_0+\hat\beta_1 \bar x , &\text{la retta passa per il baricentro della nube}
+\end{aligned}
+$$
+:::
+
+### Calcolo di $\hat y_i$ e $\hat\varepsilon_i$
+
+```{r 17-regressione-I-44}
+fig.def(3,3)
+```
+
+
+```{r 17-regressione-I-45}
+yh <- b0 + b1*x
+eh <- y  - yh
+
+Dato <- c(1:4,"Totale","Totale/n")
+prn <- data.frame(Dato,x=c(x,0,0),y=c(y,0,0),yh = c(yh,0,0),eh = c(eh,0,0))
+prn[5,2:5] <- colSums(prn[1:4,2:5])
+prn[6,2:5] <- colMeans(prn[1:4,2:5])
+
+plot(x,y,axes=F,pch=16,xlim=c(0,3.5))
+axis(1,x)
+axis(2,y,las=2)
+axis(2,yh,round(yh,2),las=2,col.axis=4)
+abline(b0,b1,col=4)
+segments(x,0,x,y,col=1:4,lty=2)
+segments(x,y,0,y,col=1:4,lty=2)
+names(prn)<-c("$i$","$x_i$","$y_i$","$\\hat y_i = 2.25 + 0.5 x_i$","$\\hat \\varepsilon_i$") 
+segments(x,0,x,yh,col=1:4,lty=3)
+segments(x,yh,0,yh,col=1:4,lty=3)
+points(x,yh,pch=16,col=4)
+arrows(x+.05,y,x+.05,yh,length = .05,code = 3)
+text(x+.1,(y+yh)/2,round(eh,2),pos = 4)
+kable(prn,booktabs = T, escape = F, linesep = "")%>%
+  row_spec(5, bold = T, color = "white", background = "gray")
+
+```
+
+
+## Il coefficiente di Correlazione
+
+Quanto si adatta bene la retta ai punti?
+\begin{alignat*}{4}
+-\hat\sigma_X\hat\sigma_Y&\leq~\text{cov}(x,y)&\leq& + \hat\sigma_X\hat\sigma_Y&\\
+-\frac{\hat\sigma_X\hat\sigma_Y}{\hat\sigma_X\hat\sigma_Y}&\leq\frac{\text{cov}(x,y)}{\hat\sigma_X\hat\sigma_Y}&\leq& +\frac{\hat\sigma_X\hat\sigma_Y}{\hat\sigma_X\hat\sigma_Y}&\\
+-1&\leq ~~~~~~~r &\leq& +1&
+\end{alignat*}
+
+:::{.info data-latex=""}
+:::{.definition}
+Il coefficiente $r$ 
+\[r=\frac{\text{cov}(x,y)}{\hat\sigma_X\hat\sigma_Y}\]
+è chiamato _coefficiente di correlazione_.
+:::
+:::
+
+Nel nostro esempio
+\[r=\frac{`r cv`}{`r sx`\cdot`r sy`}=`r cv/(sx*sy)`\]
+
+
+$r$ misura _l'associazione lineare_ ovvero CRESCE in valore assoluto quando
+i punti SI ADDENSANO intorno alla retta.
+
+### Proprietà di $r$
+
+:::{.info data-latex=""}
+1. $-1 \le r \le 1$.  Il segno indica la direzione della relazione;
+    + $r>0$, al crescere di $X$, _in media_, cresce $Y$;
+    + $r<0$, al crescere di $X$, _in media_, decresce $Y$;
+    + $r=1$, associazione perfetta diretta;
+    + $r=-1$, associazione perfetta indiretta.
+
+2. $r$ è un numero puro, ovvero è privo di unità di misura
+3. è simmetrico: $r_{XY} = r_{YX} = r$
+4. è invariante per cambiamenti di scala:
+Se $W=a+bY$, allora 
+
+$$
+r_{XW}=\text{sign}(b) r_{XY}
+$$
+dove
+$$
+\text{sign}(b)=\begin{cases}+1, &\text{se $b>0$}\\
+             -1, &\text{se $b<0$}
+\end{cases}
+$$
+
+5. $r$ misura l'associazione lineare:
+    + $r$ misura come i punti si addensano intorno alla retta.
+    + $f(x)$ **non lineare** $r$ è parzialmente inutile
+    + il valore di $r$, da solo, non è in grado di descrivere tutte le possibili relazioni
+che si possono realizzare tra due variabili.
+6. $r$ è più elevato se i dati sono aggregati in medie o percentuali
+:::
+
+**1.** La prima proprietà ci dice che $r$ non può mai essere minore di $-1$ e mai 
+maggiore di $+1$ per costruzione
+
+\[-1 \le r \le 1\]
+
+```{r 17-regressione-I-46}
+fig.def(3)
+```
+
+```{r 17-regressione-I-47}
+set.seed(2)
+opar <- par(mfrow=c(1,2),cex=cex)
+x <- sort(rnorm(100))
+x <- x-min(x)
+y <- x+rnorm(100,0,.5)
+y <- y - min(y)
+
+plot(x,y,axes = F,pch=16)
+arrows(0,0,max(x),0,.05)
+arrows(0,0,0,max(y),.05)
+abline(lsfit(x,y),col=4)
+title(expression(list(0<r) < +1))
+abline(v=mean(x),lty=2,col="grey")
+abline(h=mean(y),lty=2,col="grey")
+axis(1,mean(x),expression(bar(x)))
+axis(2,mean(y),expression(bar(y)))
+
+y <- x
+
+plot(x,y,axes = F,pch=16)
+arrows(0,0,max(x),0,.05)
+arrows(0,0,0,max(y),.05)
+abline(lsfit(x,y),col=4)
+title(expression(r == +1))
+abline(v=mean(x),lty=2,col="grey")
+abline(h=mean(y),lty=2,col="grey")
+axis(1,mean(x),expression(bar(x)))
+axis(2,mean(y),expression(bar(y)))
+```
+
+```{r 17-regressione-I-48}
+
+y <- -x+rnorm(100,0,.5)
+y <- y - min(y)
+
+plot(x,y,axes = F,pch=16)
+arrows(0,0,max(x),0,.05)
+arrows(0,0,0,max(y),.05)
+abline(lsfit(x,y),col=4)
+title(expression(list(- 1<r)<0))
+abline(v=mean(x),lty=2,col="grey")
+abline(h=mean(y),lty=2,col="grey")
+axis(1,mean(x),expression(bar(x)))
+axis(2,mean(y),expression(bar(y)))
+
+y <- -x
+y <- y - min(y)
+
+
+plot(x,y,axes = F,pch=16)
+arrows(0,0,max(x),0,.05)
+arrows(0,0,0,max(y),.05)
+abline(lsfit(x,y),col=4)
+title(expression(r == - 1))
+abline(v=mean(x),lty=2,col="grey")
+abline(h=mean(y),lty=2,col="grey")
+axis(1,mean(x),expression(bar(x)))
+axis(2,mean(y),expression(bar(y)))
+par(opar)
+```
+
+
+**2.** La seconda proprietà ci dice che $r$ non dipende dalla scala di misura delle variabili
+$X$ e $Y$. Mentre la covarianza ha un'unità di misura spuria, prodotto 
+dell'unità di misura della $x$ ($u_X$) e della $y$ ($u_Y$), $r$ non
+ha unità di misura perché è un rapporto tra la covarianza che porta l'unità di misura della $X$
+moltiplicata quella della $Y$ e le standard deviation delle stesse.
+
+\begin{eqnarray*}
+\text{cov}(x,y)&=&\frac 1 n\sum_{i=1}^n{(x_i\cdot u_X-\bar x\cdot u_X)(y_i\cdot u_Y-\bar y\cdot u_Y)}\\
+  &=&\frac 1 n\sum_{i=1}^n{(x_i-\bar x)u_X(y_i-\bar y)u_Y}\\
+  &=&\frac 1 n\sum_{i=1}^n{(x_i-\bar x)(y_i-\bar y)u_X\cdot u_Y}  \\
+  &=&\text{cov}(x,y)u_X\cdot u_Y
+\end{eqnarray*}
+
+Le standard deviation sono espresse nell'unità di misura delle variabili
+
+\begin{eqnarray*}
+\hat\sigma_Y &=& \sqrt{\frac 1 n\sum_{i=1}^n{(y_i\cdot u_Y-\bar y\cdot u_Y)^2}}\\
+  &=& \sqrt{\frac 1 n\sum_{i=1}^n{((y_i-\bar y)u_Y)^2}}\\
+  &=& \left(\sqrt{\frac 1 n\sum_{i=1}^n{(y_i-\bar y)^2}}\right)u_Y\\
+  &=& \hat\sigma_Y u_Y\\
+\hat\sigma_X &=& \hat\sigma_X u_X
+\end{eqnarray*}
+
+E quindi $r$
+\[r=\frac{\text{cov}(x,y)}{\hat\sigma_X\hat\sigma_Y}=\frac{\text{cov}(x,y)u_X\cdot u_Y}{\hat\sigma_X\cdot u_X\hat\sigma_Y\cdot u_Y}=
+\frac{\text{cov}(x,y){u_X}\cdot u_Y}{\hat\sigma_X\cdot u_X\hat\sigma_Y\cdot u_Y}\]
+
+**3.** La terza proprietà deriva direttamente dalla simmetria della covarianza:
+\[r_{XY}=\frac{\text{cov}(x,y)}{\hat\sigma_X\hat\sigma_Y}=\frac{\text{cov}(y,x)}{\hat\sigma_Y\hat\sigma_X}=r_{YX}\]
+
+
+**4.** La quarta proprietà ci dice che, essendo un numero puro, $r$, 
+non dipende dalle unità di misura di $X$ ed $Y$ e quindi
+cambiarla non comporta alterazioni su $r$.
+
+\[\text{se }W=a+bY,\text{allora }r_{X,W}=\text{sign}(b) r_{XY},\text{ dove la funzione sign}(b)=
+\begin{cases}+1, &\text{se $b>0$}\\
+             -1, &\text{se $b<0$}
+\end{cases}\]
+
+```{r 17-regressione-I-49}
+set.seed(2)
+par(mfrow=c(1,2),cex=cex)
+x <- sort(rnorm(100))
+x <- x-min(x)
+y <- x+rnorm(100,0,.5)
+y <- y - min(y)
+
+plot(x,y,axes = F,pch=16)
+title("Dati originari")
+axis(1)
+axis(2)
+abline(lsfit(x,y),col=4)
+abline(v=mean(x),lty=2,col="grey")
+abline(h=mean(y),lty=2,col="grey")
+text(1,4,paste("r =",round(cor(x,y),2)))
+
+w <- 1 + 2*y
+plot(x,w,axes = F,pch=16,ylab="w")
+title("W = 1 + 2Y")
+
+axis(1)
+axis(2)
+abline(lsfit(x,w),col=4)
+abline(v=mean(x),lty=2,col="grey")
+abline(h=mean(w),lty=2,col="grey")
+text(1,8,paste("r =",round(cor(x,w),2)))
+```
+
+```{r 17-regressione-I-50}
+w <- 2 - 0.5 * y
+
+plot(x,w,axes = F,pch=16,ylab="w")
+title("W = 2 - 0.5  y")
+
+axis(1)
+axis(2)
+abline(lsfit(x,w),col=4)
+abline(v=mean(x),lty=2,col="grey")
+abline(h=mean(w),lty=2,col="grey")
+text(1,0,paste("r =",round(cor(x,w),2)))
+
+v <- 100 + 10 * x
+w <- 500 - 100*y
+
+plot(v,w,axes = F,pch=16)
+title("V = 100 + 10 X \n W = 500 - y*100 ")
+
+axis(1)
+axis(2)
+abline(lsfit(v,w),col=4)
+abline(v=mean(v),lty=2,col="grey")
+abline(h=mean(w),lty=2,col="grey")
+text(110,100,paste("r =",round(cor(v,w),2)))
+par(mfrow=c(1,1),cex=cex)
+```
+
+**5.** La quinta proprietà dice che $r$ misura l'associazione lineare, ovvero 
+Il coefficiente di correlazione $r$ è una misura della distanza dei punti da una retta.
+
+  - $r$ misura come i punti si addensano intorno alla retta.
+  - $f(x)$ **non lineare** $r$ è parzialmente inutile
+  - il valore di $r$, da solo, non è in grado di descrivere tutte le possibili relazioni
+che si possono realizzare tra due variabili.
+
+```{r 17-regressione-I-51}
+set.seed(2)
+par(mfrow=c(1,2),cex=cex)
+x <- sort(rnorm(100))
+x <- x-min(x)
+y <- x+rnorm(100,0,.5)
+y <- y - min(y)
+
+mx <- mean(x)
+my <- mean(y)
+
+plot(x,y,axes = F,pch=16)
+arrows(0,0,max(x),0,.05)
+arrows(0,0,0,max(y),.05)
+abline(lsfit(x,y),col=4)
+title(expression(r>0))
+abline(v=mean(x),lty=2,col="grey")
+abline(h=mean(y),lty=2,col="grey")
+axis(1,mx,expression(hat(mu)[X]))
+axis(2,my,expression(hat(mu)[Y]))
+
+text(mean(x)+c(-1,1),mean(y)+c(-1,1)*2,"+",cex=3,col=3)
+text(mean(x)+c(1,-1),mean(y)+c(-1,1)*2,"-",cex=3,col=ared)
+
+y <- -x+rnorm(100,0,.5)
+y <- y - min(y)
+
+mx <- mean(x)
+my <- mean(y)
+
+plot(x,y,axes = F,pch=16)
+arrows(0,0,max(x),0,.05)
+arrows(0,0,0,max(y),.05)
+abline(lsfit(x,y),col=4)
+title(expression(r<0))
+abline(v=mean(x),lty=2,col="grey")
+abline(h=mean(y),lty=2,col="grey")
+axis(1,mx,expression(hat(mu)[X]))
+axis(2,my,expression(hat(mu)[Y]))
+
+text(mean(x)+c(-1,1),mean(y)+c(-1,1)*2,"+",cex=3,col=3)
+text(mean(x)+c(1,-1),mean(y)+c(-1,1)*2,"-",cex=3,col=ared)
+```
+
+```{r 17-regressione-I-52}
+
+y <- rnorm(100,0,.5)
+y <- y - min(y)
+
+mx <- mean(x)
+my <- mean(y)
+
+plot(x,y,axes = F,pch=16)
+arrows(0,0,max(x),0,.05)
+arrows(0,0,0,max(y),.05)
+abline(lsfit(x,y),col=4)
+title(expression(r %~~% 0))
+abline(v=mean(x),lty=2,col="grey")
+abline(h=mean(y),lty=2,col="grey")
+axis(1,mx,expression(hat(mu)[X]))
+axis(2,my,expression(hat(mu)[Y]))
+
+text(mean(x)+c(-1,1),mean(y)+c(-1,1)*1,"+",cex=3,col=3)
+text(mean(x)+c(1,-1),mean(y)+c(-1,1)*1,"-",cex=3,col=ared)
+
+y <- (x-mean(x))^2+rnorm(100,0,.5)
+y <- y - min(y)
+
+mx <- mean(x)
+my <- mean(y)
+
+plot(x,y,axes = F,pch=16)
+arrows(0,0,max(x),0,.05)
+arrows(0,0,0,max(y),.05)
+abline(lsfit(x,y),col=4)
+title(expression(r %~~% 0))
+abline(v=mean(x),lty=2,col="grey")
+abline(h=mean(y),lty=2,col="grey")
+axis(1,mx,expression(hat(mu)[X]))
+axis(2,my,expression(hat(mu)[Y]))
+
+text(mean(x)+c(-1,1),mean(y)+c(-1,1)*2,"+",cex=3,col=3)
+text(mean(x)+c(1,-1),mean(y)+c(-1,1)*2,"-",cex=3,col=ared)
+par(mfrow=c(1,1),cex=cex)
+```
+
+
+
+**6.** Infine $r$ è più elevato se i dati sono aggregati in medie o percentuali. Infatti se aggreghiamo, come nell'esempio qui sotto, i dati di tre paesi nelle loro medie, diminuiamo la variabilità.
+
+```{r 17-regressione-I-53}
+fig.def(3,3)
+```
+
+
+```{r 17-regressione-I-54}
+set.seed(9)
+x1 <- rnorm(n1 <- 15,10)
+x2 <- rnorm(n2 <- 10,12)
+x3 <- rnorm(n3 <- 12,13)
+
+xx <- c(x1,x2,x3)
+n  <- length(xx)
+yy <- xx + rnorm(n,0,2)
+xym <- t(matrix(c(mean(x1),mean(yy[1:n1]),mean(x2),mean(yy[(n1+1):(n1+n2)]),mean(x3),mean(yy[(n1+n2+1):(n)])),2))
+plot(xx,yy,axes = F,xlab="math skills",ylab = "reading skills",type="n")
+segments(xym[,1],xym[,2],xym[,1],0,lty=2)
+segments(xym[,1],xym[,2],0,xym[,2],lty=2)
+points(x1,yy[1:n1],col=1)
+points(x2,yy[(n1+1):(n1+n2)],col=ared,pch=2)
+points(x3,yy[(n1+n2+1):(n)],col=4,pch=0)
+points(mean(x1),mean(yy[1:n1]),pch=16,cex=1.5)
+points(mean(x2),mean(yy[(n1+1):(n1+n2)]),col=ared,pch=17,cex=1.5)
+points(mean(x3),mean(yy[(n1+n2+1):(n)]),col=4,pch=15,cex=1.5)
+legend(14,10,c("GR","SP","UK"),pch=c(1,2,0),col=c(1,2,4))
+
+axis(1,xym[,1],c(expression(hat(mu)[x~GR]),expression(hat(mu)[x~SP]),expression(hat(mu)[x~UK])))
+axis(1,c(9,11,14,15))
+axis(1,xym[,1],c(expression(hat(mu)[x~GR]),expression(hat(mu)[x~SP]),expression(hat(mu)[x~UK])))
+axis(2,xym[,2],c(expression(hat(mu)[y~GR]),expression(hat(mu)[y~SP]),expression(hat(mu)[y~UK])),las=2)
+axis(2,c(6:8,10:11,14:17),las=2)
+
+```
+
+
+L'indice $r$ calcolato su tutti i dati è
+\[r = `r cor(xx,yy)`\]
+
+
+L'indice $r$ calcolato sulle tre medie è
+\[r_{\text{Medie}} = `r cor(xym[,1],xym[,2])`\]
+
+## Scomposizione della varianza
+
+La scomposizione della varianza ci offre un quadro teorico per comprendere
+come la variabilità iniziale della variabile di interesse $Y$ sia scomponibile
+in due pezzi: la variabilità spiegata dal modello e quella residua (casuale).
+
+Ricordiamo che:
+\[\begin{aligned}
+y_i &\phantom{=}\text{ dati } &\hat y_i &= \hat \beta_0+\hat\beta_1x_i,& \hat\varepsilon_i &= y_i-\hat y_i\\
+\bar y &= \frac 1 n\sum_{i=1}^n y_i,& \bar y &= \frac 1 n\sum_{i=1}^n \hat y_i &
+0  &=\frac 1 n\sum_{i=1}^n\hat\varepsilon_i
+\end{aligned}\]
+
+:::{.definition name="Varianza Totale, Varianza Spiegata e Varianza Residua"}
+La varianza di $y$ (senza osservare $x$) è
+\[\hat\sigma_Y^2=\frac{\sum_{i=1}^n(y_i-\bar y)^2}n=\frac{TSS}{n},\qquad\text{$TSS$ Total Sum of Squares}\]
+
+La varianza di $\hat y$ è
+\[\hat\sigma_{\hat Y}^2=\frac{\sum_{i=1}^n(\hat y_i-\bar y)^2}n=\frac{ESS}{n},\qquad\text{$ESS$ Explained Sum of Squares}\]
+
+La varianza di $\hat \varepsilon$ è
+\[\hat\sigma_{\varepsilon}^2=\frac{\sum_{i=1}^n(\hat \varepsilon_i-0)^2}n=\frac{\sum_{i=1}^n\hat \varepsilon_i^2}n=\frac{RSS}{n},\qquad\text{$RSS$ Residual Sum of Squares}\]
+:::
+
+:::{.info data-latex=""}
+:::{.proposition}
+Vale la seguente relazione
+\[TSS = ESS + RSS\]
+:::
+:::
+
+La variabilità totale di $y$ (quella osservata senza $x$) e scomponibile nella somma di due parti
+
+:::{.info data-latex=""}
+\[
+\left\{\begin{array}{cc}
+\text{varibilità di $y$}\\
+\text{intorno alla sua media}
+\end{array}\right\} =
+\left\{\begin{array}{cc}
+\text{varibilità della retta}\\
+\text{intorno alla media}
+\end{array}\right\} +
+\left\{\begin{array}{cc}
+\text{varibilità delle $y$}\\
+\text{intorno alla retta}
+\end{array} \right\}
+\]
+:::
+
+Dividendo ogni membro per $TSS$, si ottiene
+\begin{eqnarray*}
+ TSS &=& ESS + RSS \\
+ \frac{TSS}{TSS} &=& \frac{ESS}{TSS} + \frac{RSS}{TSS}\\
+  1 &=& \frac{ESS}{TSS} + \frac{RSS}{TSS}\\
+ \frac{RSS}{TSS} &=& 1 - \frac{ESS}{TSS}\\
+ \frac{RSS}{TSS} &=& 1- r^2,\quad r^2=\frac{ESS}{TSS}
+\end{eqnarray*}
+
+
+## Il coefficiente di determinazione lineare $R^2$
+
+È un indicatore sintetico che indica la quota di varianza spiegata dal modello. 
+Nel caso della regressione lineare semplice
+
+:::{.info data-latex=""}
+:::{.definition name="Indice di Determinazione Lineare"}
+Si definisce 
+\[R^2=\left(\frac{ESS}{TSS}\right)=r^2=\left(\frac{\text{cov}(x,y)}{\hat\sigma_x\hat\sigma_y}\right)^2\]
+l'indice di determinazione lineare ed è, nel contesto della regressione lineare semplice, il quadrato dell'indice di correlazione
+\[0\leq R^2\leq 1\]
+:::
+:::
+
+Se $R^2=1$, allora $r=-1$ oppure $r=+1$, associazione lineare perfetta, 100% della variabilità spiegata, se $R^2=0$, allora $r=0$ associazione lineare nulla, 0% della variabilità spiegata, se $R^2>0.75$, allora considereremo l'associazione lineare _soddisfacente_.
+
+La variabilità di delle $y$ intorno ad $\bar y$ (la dispersione delle x rosse intorno alla media) viene spiegata in parte dalla retta e resta una variabilità residua intorno alla retta (le distanze verticali) come mostrato in figura \@ref(fig:17-regressione-I-54b)
+
+```{r 17-regressione-I-54a}
+fig.def(3)
+```
+
+```{r 17-regressione-I-54b, fig.cap="La variabilità della y si legge sull'asse $y$ della del modello lungo la retta."}
+set.seed(1)
+par(mfrow=c(1,2),cex=cex)
+xdat <- rnorm(25,5)
+xdat <- xdat - min(xdat)+.25
+ydat <- 2 + xdat/2 + rnorm(25,0,.5)
+bfit <- lsfit(xdat,ydat)$coefficients
+
+plot(xdat,ydat,xlab = "x", ylab = "y",pch=16,xlim=c(0,max(xdat)),axes = F)
+axis(4,mean(ydat),expression(hat(mu)[Y]),las=2)
+segments(xdat,ydat,0,ydat,lty=2,col="grey")
+segments(xdat,ydat,xdat,bfit[1]+bfit[2]*xdat,lty=2,col="grey")
+abline(h=mean(ydat),lty=2)
+abline(lsfit(xdat,ydat),col=4)
+points(rep(0,times = 25),ydat,pch=4,col=ared)
+axis(1)
+axis(2,las=2,pos = -.5)
+xdat <- rnorm(25,5)
+xdat <- xdat - min(xdat)+.5
+ydat <- 10 - xdat + rnorm(25,0,.5)
+bfit <- lsfit(xdat,ydat)$coefficients
+
+plot(xdat,ydat,xlab = "x", ylab = "y",pch=16,xlim=c(0,max(xdat)),axes = F)
+axis(4,mean(ydat),expression(hat(mu)[Y]),las=2)
+segments(xdat,ydat,0,ydat,lty=2,col="grey")
+segments(xdat,ydat,xdat,bfit[1]+bfit[2]*xdat,lty=2,col="grey")
+abline(h=mean(ydat),lty=2)
+abline(lsfit(xdat,ydat),col=4)
+points(rep(0,times = 25),ydat,pch=4,col=ared)
+axis(1)
+axis(2,las=2,pos = -.5)
+par(mfrow=c(1,1),cex=cex)
+```
+
+
+### Interpretazione di $r^2$
+
+La variabilità di $y$ viene scomposta in due, la componente spiegata dalla retta e della residua.
+Caso limite uno: la retta spiega tutta la variabilità di $y$:
+\[TSS = ESS\Rightarrow RSS=0\Rightarrow r^2=1\]
+i punti sono allineati su una retta
+
+```{r 17-regressione-I-55}
+fig.def(3)
+```
+
+
+```{r 17-regressione-I-56}
+set.seed(1)
+par(mfrow=c(1,2),cex=cex)
+xdat <- rnorm(25,5)
+xdat <- xdat - min(xdat)+.5
+ydat <- 2 + xdat/2
+plot(xdat,ydat,xlab = "x", ylab = "y",pch=16,xlim=c(0,max(xdat)),axes = F)
+axis(4,mean(ydat),expression(hat(mu)[Y]),las=2)
+segments(xdat,ydat,0,ydat,lty=2,col="grey")
+abline(h=mean(ydat),lty=2)
+abline(2,.5,col=4)
+points(rep(0,times = 25),ydat,pch=4,col=ared)
+axis(1)
+axis(2,las=2,pos = -.5)
+xdat <- rnorm(25,5)
+xdat <- xdat - min(xdat)+.5
+ydat <- 10 - xdat
+plot(xdat,ydat,xlab = "x", ylab = "y",pch=16,xlim=c(0,max(xdat)),axes = F)
+axis(4,mean(ydat),expression(hat(mu)[Y]),las=2)
+segments(xdat,ydat,0,ydat,lty=2,col="grey")
+abline(h=mean(ydat),lty=2)
+abline(10,-1,col=4)
+points(rep(0,times = 25),ydat,pch=4,col=ared)
+axis(1)
+axis(2,las=2,pos = -.5)
+par(mfrow=c(1,1),cex=cex)
+```
+
+Se la retta è in grado di assorbire tutta la variabilità di $y$ significa che tutti 
+i punti sono allineati sul di essa.
+
+Caso limite due: la retta **non** spiega nulla della variabilità di $y$
+\[TSS = RSS\Rightarrow ESS=0\Rightarrow r^2=0\]
+la retta è orizzontale e coincide con $\hat\mu_Y$
+
+```{r 17-regressione-I-57}
+
+set.seed(2)
+par(mfrow=c(1,2),cex=cex)
+xdat <- rnorm(25,5)
+xdat <- xdat - min(xdat)+.5
+ydat <- rnorm(25,5)
+plot(xdat,ydat,xlab = "x", ylab = "y",pch=16,xlim=c(0,max(xdat)),axes = F)
+axis(4,mean(ydat),expression(hat(mu)[Y]),las=2)
+#segments(xdat,ydat,xdat,mean(ydat),lty=2,col="grey")
+segments(xdat,ydat,0,(ydat),lty=2,col="grey")
+abline(h=mean(ydat),col=4)
+points(rep(0,times = 25),ydat,pch=4,col=ared)
+axis(1)
+axis(2,las=2)
+xdat <- rnorm(25,5)
+xdat <- xdat - min(xdat)
+xdat <- (xdat/max(xdat))*2*pi
+ydat <- sin(xdat)
+plot(xdat,ydat,xlab = "x", ylab = "y",pch=16,xlim=c(0,max(xdat)),axes = F)
+axis(4,mean(ydat),expression(hat(mu)[Y]),las=2)
+#segments(xdat,ydat,xdat,mean(ydat),lty=2,col="grey")
+segments(xdat,ydat,0,(ydat),lty=2,col="grey")
+abline(h=mean(ydat),col=4)
+points(rep(-.1,times = 25),ydat,pch=4,col=ared)
+axis(1)
+axis(2,las=2)
+par(mfrow=c(1,1),cex=cex)
+```
+
+
+Se la retta è parallela all'asse dell $x$ non spiega nulla della variabilità di $y$, ma non è detto che non esista relazione tra $x$ ed $y$.
+
+### Scomposizione della varianza sui dati di esempio
+
+Ricordandoci che $\hat\beta_0=`r b0`$ e $\hat\beta_1=`r b1`$ e che
+
+```{r}
+x <- c(0:3)
+y <- c(2,3.5,2.5,4)
+
+yh <- b0 + b1*x
+eh <- y  - yh
+
+Dato <- c(1:4,"Totale","Totale/n")
+prn <- data.frame(Dato,x=c(x,0,0),y=c(y,0,0),yh = c(yh,0,0),eh = c(eh,0,0))
+prn[5,2:5] <- colSums(prn[1:4,2:5])
+prn[6,2:5] <- colMeans(prn[1:4,2:5])
+names(prn)<-c("$i$","$x_i$","$y_i$","$\\hat y_i = 2.25 + 0.5 x_i$","$\\hat \\varepsilon_i$") 
+kable(prn[1:6,],booktabs = T, escape = F, linesep = "")%>%
+  row_spec(5, bold = T, color = "white", background = "gray")
+```
+
+Ottenaimo
+
+```{r 17-regressione-I-58}
+x <- c(0:3)
+y <- c(2,3.5,2.5,4)
+
+yh <- b0 + b1*x
+eh <- y  - yh
+
+x <- c(0:3)
+y <- c(2,3.5,2.5,4)
+#y <- rnorm(4)
+w <- y[c(4,1,3,2)]
+#w <- c(4,2,2.5,3.5)
+
+mx <- mean(x)
+vx <- mean(x^2)-mean(x)^2
+
+my <- mean(y)
+vy <- mean(y^2)-mean(y)^2
+
+mw <- mean(w)
+vw <- mean(w^2)-mean(w)^2
+
+co <- mean(x*y) - mx*my
+cw <- mean(x*w) - mx*mw
+r  <- co/sqrt(vy*vx)
+rw <- cw/sqrt(vw*vx)
+b1 <- co/vx
+bw1<- cw/vx
+b0 <- my - b1*mx
+bw0<- mw - bw1*mx
+
+ys <- b0 + b1 * x
+es <- y - ys
+rg <- ys - my
+
+ws <- bw0 + bw1 * x
+ew <- w - ws
+rgw<- ws - mw
+
+
+par(mfrow=c(1,2),cex=cex)
+
+plot(x,y,axes=F,pch=16,xlim=c(0,4))
+axis(1,x)
+axis(2,y,las=2)
+axis(2,my,expression(hat(mu)[Y]==3),las=2,col.axis=4)
+abline(h=my,col=4)
+segments(x,y,x,my,col=1:4,lty=2)
+segments(x,y,0,y,col=1:4,lty=2)
+arrows(x+.05,y,x+.05,my,length = .05,code = 3)
+text(x+.1,(y+my)/2,round(y-my,2),pos = 4)
+text(x+.1,(my+y)/2-.25,paste("(",(y-my)^2,")",sep = ""),pos = 4,col=ared)
+title("Total")
+
+
+plot(x,y,axes=F,pch=16,col=1,xlim=c(0,4))
+abline(lsfit(x,y),col=4)
+abline(mean(y),0,lty=3)
+segments(mean(x),min(y)-10,mean(x),max(y)+10,lty=3)
+segments(x,my,x,ys,lty=2)
+segments(-1,ys,x,ys,lty=2)
+title("Explained")
+axis(1,x)
+axis(2,c(y),las=2)
+axis(2,c(ys),las=2,col.axis=4)
+axis(2,my,expression(hat(mu)[Y]==3),las=2,col.axis=4)
+arrows(x+.05,ys,x+.05,my,length = .05,code = 3)
+text(x,(ys+my)/2,rg,pos = 4)
+text(x,(ys+my)/2-.25,paste("(",(ys-my)^2,")",sep = ""),pos = 4,col=ared)
+```
+
+```{r 17-regressione-I-59}
+plot(x,y,axes=F,pch=16,xlim=c(0,4))
+axis(1,x)
+axis(2,y,las=2)
+axis(2,yh,round(yh,2),las=2,col.axis=4)
+abline(b0,b1,col=4)
+segments(x,0,x,y,col=1:4,lty=2)
+segments(x,y,0,y,col=1:4,lty=2)
+segments(x,0,x,yh,col=1:4,lty=3)
+segments(x,yh,0,yh,col=1:4,lty=3)
+points(x,yh,pch=16,col=4)
+arrows(x+.05,y,x+.05,yh,length = .05,code = 3)
+text(x+.1,(y+yh)/2,round(eh,2),pos = 4)
+text(x+.1,(yh+y)/2-.15,paste("(",es^2,")",sep = ""),pos = 4,col=ared)
+title("Residual")
+
+par(mfrow=c(1,1),cex=cex)
+
+
+
+sum((y-my)^2)  -> TSS
+sum((ys-my)^2) -> ESS
+sum(es^2)      -> RSS 
+
+sum((w-mw)^2)  -> TSSw
+sum((ws-mw)^2) -> ESSw
+sum(es^2)      -> RSSw
+
+n <- 4
+se2 <- (n/(n-2))*vy*(1-r^2) 
+vb0 <- se2 * (1/n+mx^2/(n*vx)) 
+vb1 <- se2 / (n*vx) 
+
+Dato <- c(1:4,"Totale")
+prn <- data.frame(Dato,y=c((y-my)^2,0),yh = c((ys-my)^2,0),eh = c(es^2,0))
+prn[5,2:4] <- colSums(prn[1:4,2:4])
+
+names(prn)<-c("$i$","$(y_i-\\bar y)^2$","$(\\hat y_i-\\bar y)^2$ ","$\\hat \\varepsilon_i^2$") 
+```
+
+```{r 17-regressione-I-60}
+kable(prn,booktabs = T, escape = F, linesep = "") %>%
+    row_spec(5, bold = T, color = "white", background = "gray")
+```
+
+\begin{eqnarray*}
+ TSS &=& ESS + RSS \\
+ `r TSS`&=&`r ESS`+`r RSS`\\
+ \frac{RSS}{TSS} &=& 1- r^2\\
+ \frac{`r RSS`}{`r TSS`} &=& 1- `r r`^2\\ 
+ `r 1-r^2` &=& 1- `r r^2`
+\end{eqnarray*}
+
+Ovvero la retta di regressione di $y$ dato $x$ spiega il `r r^2*100`% della variabilità totale della y.
+
+__Osservazione.__ Se volessi studiare la relazione tra $X$ e $W$ nella tabella qui sotto:
+
+```{r 17-regressione-I-61}
+Tipo <- c(1:4,"Totale")
+axyw <- data.frame(Tipo,x=c(x,0),y=c(y,0),w=c(w,0))
+names(axyw) <- c("$i$","$x_i$","$y_i$","$w_i$")
+axyw[5,2:4] <- colSums(axyw[1:4,2:4])
+#kable(axyw, format = "latex", booktabs = T)%>%kable_styling(latex_options = "striped")
+kable(axyw,booktabs = T, escape = F, linesep = "")%>%
+   row_spec(5, bold = T, color = "white", background = "gray")
+```
+
+Osservo dapprima Le variabili $y$ e $w$ hanno la stessa media e la stessa varianza, infatti
+$\sum_i y_i = \sum_i w_i=`r sum(y)`$ e $\sum_i y_i^2=\sum_i w_i^2=`r sum(y^2)`$. 
+Se osservati rispetto ai soli valori, in ipotesi IID, sono fenomeni indistinguibili.
+
+```{r 17-regressione-I-62}
+par(mfrow=c(1,2),cex=cex)
+
+plot(x,y,axes=F,pch=16,col=4,xlab = "i")
+abline(mean(y),0,lty=3)
+segments(x,my,x,y,lty=2)
+title("Varianza Totale y")
+axis(1,x,1:4)
+axis(2,y)
+axis(2,mean(w),expression(hat(mu)[Y]==3))
+text(x,(my+y)/2,y-my,pos = c(4,4,4,2))
+text(x,(my+y)/2-.1,paste("(",(y-my)^2,")",sep = ""),pos = c(4,4,4,2),col=ared)
+
+plot(x,w,axes=F,pch=16,col=4,xlab = "i")
+abline(mean(w),0,lty=3)
+segments(x,mean(w),x,w,lty=2)
+title("Varianza Totale w")
+axis(1,x,1:4)
+axis(2,w)
+axis(2,mean(w),expression(hat(mu)[W]==3))
+text(x,(my+w)/2,w-my,pos = c(4,4,4,2))
+text(x,(my+w)/2-.1,paste("(",(w-my)^2,")",sep = ""),pos = c(4,4,4,2),col=ared)
+
+par(mfrow=c(1,1),cex=cex)
+
+```
+
+
+La varianza di $y$ è dunque
+$$
+\hat\sigma_Y^2=\frac 1 n\sum_i (y_i - \bar y)^2 =\frac 1 n\sum_i y_i^2 - \bar y^2 =`r mean(y^2)` - (`r mean(y)`)^2=`r vy`
+$$
+e quella di $w$
+$$
+\hat\sigma_W^2=\frac 1 n\sum_i (w_i - \bar w)^2 =\frac 1 n\sum_i w_i^2 - \bar w^2 =`r mean(w^2)` - (`r mean(w)`)^2=`r vy`.
+$$
+
+Ma la variabile $X$ non spiega nello stesso modo $Y$ e $W$. Infatti se osserviamo la relazione tra $x$ ed $Y$ e la relazione tra $x$ e $w$ ci accorgiamo che i fenomeni sono diversi.
+
+```{r 17-regressione-I-63}
+
+par(mfrow=c(1,2),cex=cex)
+plot(x,y,axes=F,pch=16,col=4)
+title("retta Y|X")
+abline(lsfit(x,y),col=ared)
+abline(mean(y),0,lty=3)
+segments(mean(x),min(y)-10,mean(x),max(y)+10,lty=3)
+segments(x,0,x,y,lty=2)
+segments(-1,y,x,y,lty=2)
+axis(1,x)
+axis(2,y)
+axis(2,mean(w),expression(hat(mu)[W]))
+
+rxw <- lsfit(x,w)
+plot(x,w,axes=F,pch=16,col=4)
+title("retta W|X")
+abline(mean(y),0,lty=3)
+segments(mean(x),min(y)-10,mean(x),max(y)+10,lty=3)
+abline(rxw,col=ared)
+segments(x,0,x,w,lty=2)
+segments(x,0,x,w,lty=2)
+segments(-1,w,x,w,lty=2)
+axis(1,x)
+axis(2,w)
+axis(2,mean(w),expression(hat(mu)[W]))
+par(mfrow=c(1,1),cex=cex)
+
+```
+
+
+- La retta $y|x$ assorbe il `r r^2*100`% della variabilità di $y$
+- La retta $w|x$ assorbe il `r rw^2*100`% della variabilità di $w$
+
+## Stima di $\sigma_\varepsilon^2$
+
+Il parametro $\sigma_\varepsilon^2$ rappresenta la variabilità dei punti intorno alla retta. 
+La stima di $\sigma_\varepsilon^2$ deriva dalla scomposizione della varianza
+\begin{eqnarray*}
+\frac{RSS}{TSS} &=& 1-r^2 \\
+RSS &=& TSS(1-r^2)\\
+\frac{RSS}{n} &=& \frac{TSS}{n}(1-r^2) \\
+\hat\sigma_\varepsilon^2 &=& \hat\sigma_Y^2(1-r^2)
+\end{eqnarray*}
+
+In modo analogo alla stima di $\sigma^2$ in un modello normale, $\hat\sigma_\varepsilon^2$ 
+**non** è stima corretta di $\sigma_\varepsilon^2$ e si dimostra che
+\[E(\hat\sigma_\varepsilon^2)=\frac{n-2}n \sigma_\varepsilon^2\]
+si quindi corregge con:
+\[S_\varepsilon^2=\frac n{n-2}\hat\sigma_\varepsilon^2\]
+
+
+## Statistiche Sufficienti del Modello di Reegressione
+
+Se l'ipotesi di normalità dei residui viene ritenuta valida si può dimostrare che le
+stime di massima verosimiglianza per $\beta_0$, $\beta_1$ e $\sigma_\varepsilon^2$ coincidono
+con quelle dei minimi quadrati $\hat\beta_0$, $\hat\beta_1$ e $\hat\sigma_\varepsilon^2$.
+Tutta l'informazione sul modello di regressione lineare semplice è contenuta nelle
+seguenti statistiche
+\[\sum_{i=1}^n x_i,~~\sum_{i=1}^n y_i,~~\sum_{i=1}^n x_i^2,~~\sum_{i=1}^ny_i^2,~~ \sum_{i=1}^n x_i y_i\]
+
+```{r 17-regressione-I-64}
+Dato <- c(1:4,"Totale","Totale/n")
+prn <- data.frame(Dato,x=c(x,0,0),y=c(y,0,0),x2 = c(x^2,0,0),y2 = c(y^2,0,0),w=c(x*y,0,0))
+prn[5,2:6] <- colSums(prn[1:4,2:6])
+prn[6,2:6] <- colMeans(prn[1:4,2:6])
+
+names(prn)<-c("$i$","$x_i$","$y_i$","$x_i^2$","$y_i^2$","$x_i\\cdot y_i$") 
+
+kable(prn,booktabs = T, escape = F, linesep = "")%>%
+  row_spec(5, bold = T, color = "white", background = "gray")
+```
+
+
+Ricapitolando nel nostro esempio:
+\begin{alignat*}{3}
+ \bar x & =  \frac 1 n \sum_{i=1}^n x_i  = `r mx` &
+\hat\sigma_X^2 & =  \frac 1 n \sum_{i=1}^n x_i^2 - \bar x^2  = `r vx` &\\
+ \bar y & =  \frac 1 n \sum_{i=1}^n y_i   = `r my` &
+\hat\sigma_Y^2 & =  \frac 1 n \sum_{i=1}^n y_i^2 - \bar y^2  = `r vy` &\\
+ \text{cov}(x,y) & = \frac 1 n \sum_{i=1}^n x_iy_i -\bar x\bar y  = `r co` & 
+r & = \frac{\text{cov}(x,y)}{\hat\sigma_X \hat\sigma_Y }  = `r r` &\\
+\hat\beta_1 & = \frac{\text{cov}(x,y)}{\hat\sigma_X^2} = `r b1` & 
+\hat\beta_0 & = \bar y  - \hat\beta_1\bar x = `r b0`. &\\
+\hat\sigma_\varepsilon^2 & = \hat\sigma_Y^2(1-r^2)=`r vy*(1-r^2)` &
+S_\varepsilon^2 & = \frac{n}{n-2}\hat\sigma_\varepsilon^2 = `r se2`\\
+\hat\sigma_\varepsilon & = \hat\sigma_Y\sqrt{(1-r^2)}=`r sqrt(vy*(1-r^2))` & \qquad
+S_\varepsilon & = \sqrt{\frac{n}{n-2}}\hat\sigma_\varepsilon = `r sqrt(se2)`\\
+\end{alignat*}

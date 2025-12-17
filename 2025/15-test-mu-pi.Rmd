@@ -1,0 +1,873 @@
+---
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+
+```{r setup15}
+rm(list = ls())
+
+source("intro.R")
+acex <- 1.5
+```
+
+# Test per una media e una proporzione
+
+In questo capitolo svilupperemo il test per una media. Essendo la
+proporzione una particolare media su elementi 0 e 1 la costruzione verrà
+in automatico. In tutti i casi considereremo un solo campione
+$x_1,...,x_n$ proveniente da una popolazione che ha media
+$E(X_i)=\mu, \forall i$ e $V(X_i)=\sigma^2, \forall i$.
+
+Il sistema di ipotesi porrà sempre $H_0:\mu=\mu_0$ e si leggerà: la vera
+media che ha generato i dati è $\mu_0$, il fatto che la media dei dati
+sia $\hat\mu_\text{obs}=\bar x\ne\mu_0$ è dovuto all'effetto del campionamento e la
+differenza tra $\hat\mu_\text{obs}$ e $\mu_0$ **non è significativa**. L'ipotesi
+alternativa $H_1$, che sarà unilaterale o bilaterale, si legge al
+contrario: la differenza tra la media osservata e la media prescritta da
+$H_0$ **è significativa** e il campione proviene da una popolazione che
+non ha media $\mu_0$.
+
+Alla luce dei dati decideremo se scegliere di rifiutare $H_0$ o se non
+rifiutarla. Costruiremo anche una misura di *vicinanza* empirica ad
+$H_1$, il $p_{\text{value}}$, che ci consentirà di capire quanto
+l'evidenza empirica dei dati supporti supporti una delle due ipotesi.
+
+## Test sulla media, $\sigma^2$ noto
+### Test sulla media, ipotesi unilaterale destra, $\sigma^2$ noto
+
+Siano $X_1,...X_n$, $n$ VC, IID: $X_i\sim N(\mu,\sigma^2)$ con
+$\sigma^2$ noto. Consideriamo il seguente sistema di ipotesi
+
+$$\begin{cases}
+H_0:\mu=\mu_0\\
+H_1:\mu>\mu_0
+\end{cases}$$
+
+Dalle proprietà della normale
+
+$$\hat\mu=\bar X=\frac 1 n\sum_{i=1}^nX_i\sim N\left(\mu,\frac{\sigma^2} {n}\right)$$
+
+E quindi
+
+$$Z=\frac{\hat\mu-\mu}{\sigma/\sqrt n}\sim N(0,1)$$
+
+Sotto $H_0: \mu=\mu_0$ la statistica
+
+$$Z=\frac{\hat\mu-\mu_0}{\sigma/\sqrt n}\sim N(0,1)$$
+
+$Z$ osservata sul campione misura l'evidenza contro $H_0$, tanto più è
+alto il valore di $Z$ tanto più $H_0$ è inverosimile.
+
+:::{.info data-latex=""}
+**Decisione sul campione.** Si decide un livello $\alpha$ e si ricava
+$z_\alpha$, si estrae un campione. Lo stimatore $\hat\mu$ si realizza
+nella media osservata del campione $\hat\mu_\text{obs}$
+
+$$z_{\text{obs}}=\frac{\hat\mu_\text{obs} -\mu_0}{\sigma/\sqrt n}$$
+
+-   Se $z_{\text{obs}}<z_\alpha$ $H_0$ **non viene rifiutata** al
+    livello di significatività $\alpha\times100\%$
+-   Se $z_{\text{obs}}>z_\alpha$ $H_0$ **viene rifiutata** al livello di
+    significatività $\alpha\times100\%$
+
+```{r 15-test-mu-pi-14}
+#par(mar = c(5.1, 4.1, 2, 2.1))
+curve(dnorm,-4,4,xlab = expression(Z==(hat(mu)-mu[0])/se),ylab='',axes=F)
+segments(-4,0,1.64,0,lwd=2,col=mblue)
+segments(1.64,0,4,0,lwd=2,col=ared)
+segments(1.64,0,1.64,dnorm(1.64))
+axis(1,c(-4,0,1.64,4),c(-4,0,"Punto \n critico",4))
+text(2.5,.05,expression(alpha),cex=acex)
+title("Normale Standard")
+```
+:::
+
+### Test sulla media, $\sigma^2$ noto, vari livelli di $\alpha$
+
+Se $\alpha=0.05$ allora
+$$\text{Punto Critico}=z_{0.05},\qquad P(Z>z_{0.05})=0.05$$
+$z_{0.05}=`r qnorm(1-.05)`$
+
+Se $\alpha=0.01$ allora
+$$\text{Punto Critico}=z_{0.01},\qquad P(Z>z_{0.01})=0.01$$
+$z_{0.01}=`r qnorm(1-.01)`$
+
+```{r 15-test-mu-pi-15}
+#par(mar = c(5.1, 4.1, 2, 2.1))
+par(mfrow=c(1,2),cex=.7)
+#par(mar = c(5.1, 4.1, 2, 2.1))
+curve(dnorm,-4,4,xlab = expression(Z==(hat(mu)-mu[0])/se),ylab='',axes=F)
+draw_dist(dnorm,qnorm(.95),4,col=ablue)
+segments(-4,0,qnorm(1-.05),0,lwd=2,col=mblue)
+segments(qnorm(1-.05),0,4,0,lwd=2,col=ared)
+segments(qnorm(1-.05),0,qnorm(1-.05),dnorm(qnorm(1-.05)))
+axis(1,c(-4,0,qnorm(1-.05),4),c(-4,0,expression(z[0.05]==1.6449),4))
+text(qnorm(.95),dnorm(qnorm(.95)),expression(alpha==0.05),pos=4)
+title("Normale Standard")
+
+curve(dnorm,-4,4,xlab = expression(Z==(hat(mu)-mu[0])/se),ylab='',axes=F)
+draw_dist(dnorm,qnorm(.99),4,col=ablue)
+segments(-4,0,qnorm(1-.01),0,lwd=2,col=mblue)
+segments(qnorm(1-.01),0,4,0,lwd=2,col=ared)
+segments(qnorm(1-.01),0,qnorm(1-.01),dnorm(qnorm(1-.01)))
+axis(1,c(-4,0,qnorm(.99),4),c(-4,0,expression(z[0.01]==2.3263),4))
+text(qnorm(.99),dnorm(qnorm(.99)),expression(alpha==0.01),pos=4)
+title("Normale Standard")
+
+par(mfrow=c(1,1),cex=.7)
+```
+
+:::{.example}
+In un laboratorio, vi sono cavie con peso medio uguale a 30g e una DS
+pari a 5g. Uno studente seleziona 25 cavie e ottiene un peso medio
+uguale a 32g con una $\hat\sigma$ pari a 7g. La selezione è casuale o il
+valore ottenuto della media è troppo alto, a un LdS del 5%?
+
+```{r 15-test-mu-pi-1, results='asis'}
+muh <- 32
+mu0 <- 30
+s   <- 5
+n   <- 25
+alpha <- 0.05
+h1 <- ">"
+
+cat(ztest_mu(muh = muh,s = s,n = n,mu0 = mu0,h1 = h1,alpha = alpha,pvalue = F))
+```
+
+Cioè rifiutiamo $H_0$ se 
+\begin{eqnarray*}
+Z &>& z_\alpha \\
+Z &>& `r qnorm(.95)` \\
+   \frac{\hat\mu - \mu_{0}} {\sigma/\sqrt{n}}&>&`r qnorm(.95)` \\
+   \hat\mu - \mu_{0} &>&`r qnorm(.95)`\frac\sigma{\sqrt{n}} \\
+   \hat\mu &>& \mu_{0} + `r qnorm(.95)`\frac\sigma{\sqrt{n}} \\   
+   &>&   30 + `r qnorm(.95)`\frac 5{ \sqrt{ 25 }}\\
+   &>&   `r 30+qnorm(.95)`
+   \end{eqnarray*}
+Se $H_0$ fosse vera $\mu=30$, 5 volte su 100, un campione di ampiezza $n=25$
+ha una media che supera $`r 30+qnorm(.95)`$.
+:::
+
+:::{.example}
+In un laboratorio, vi sono cavie con peso medio uguale a 30g e una DS
+pari a 5g. Uno studente seleziona 25 cavie e ottiene un peso medio
+uguale a 32g con una $\hat\sigma$ pari a 7g. La selezione è casuale o il
+valore ottenuto della media è troppo alto, a un LdS del 1%?
+
+```{r 15-test-mu-pi-2, results='asis'}
+muh <- 32
+mu0 <- 30
+s   <- 5
+n   <- 25
+alpha <- 0.01
+h1 <- ">"
+um <- "g"
+
+cat(ztest_mu(muh = muh,s = s,n = n,mu0 = mu0,h1 = h1,alpha = alpha,um = um,pvalue = F))
+```
+
+Cioè rifiutiamo $H_0$ se 
+\begin{eqnarray*}
+Z &>& z_\alpha \\
+Z &>& `r qnorm(.99)` \\
+   \frac{\hat\mu - \mu_{0}} {\sigma/\sqrt{n}}&>&`r qnorm(.99)` \\
+   \hat\mu - \mu_{0} &>&`r qnorm(.99)`\frac\sigma{\sqrt{n}} \\
+   \hat\mu &>& \mu_{0} + `r qnorm(.99)`\frac\sigma{\sqrt{n}} \\   
+   &>&   30 + `r qnorm(.99)`\frac 5{ \sqrt{ 25 }}\\
+   &>&   `r 30+qnorm(.99)`
+   \end{eqnarray*}
+Se $H_0$ fosse vera $\mu=30$, 5 volte su 100, un campione di ampiezza $n=25$
+ha una media che supera $`r 30+qnorm(.99)`$.
+:::
+
+
+### La probabilità di significatività osservata il $p_\text{value}$
+
+Il $p_\text{value}$ risponde a questa domanda: *Se nell'esempio
+precedente usassimo* $z_{\text{obs}}$ *come punto critico quale sarebbe
+la probabilità di significatività?*
+
+:::{.info data-latex=""}
+:::{.definition name="$p_\\text{value}$ caso unilaterale destro"}
+$$p_\text{value}=P(Z>z_{\text{obs}};H_0)$$
+:::
+:::
+
+```{r 15-test-mu-pi-16}
+um <- ""
+#par(mar = c(5.1, 4.1, 2, 2.1))
+curve(dnorm,1.0,3.5,xlab = expression(Z==(hat(mu)-mu[0])/se),ylab='',axes=F)
+axis(1,c(1.0,qnorm(.95),2,qnorm(.99),3.5),round(c(1.0,qnorm(.95),2,qnorm(.99),3.5),3))
+points(2,0,pch=4,cex=1.5)
+segments(qnorm(.95),0,qnorm(.95),dnorm(qnorm(.95)),lty=2)
+segments(qnorm(.99),0,qnorm(.99),dnorm(qnorm(.99)),lty=2)
+segments(2,0,2,dnorm(2),lty=2)
+title("Normale Standard")
+xs1 <- seq(2,3.5,length.out = 101)
+ys1 <- dnorm(xs1)
+xs1 <- c(2,xs1)
+ys1 <- c(0,ys1)
+polygon(xs1,ys1,col="grey60",density = 20)
+```
+
+```{=tex}
+\begin{eqnarray*}
+p_{\text{value}}&=& P(Z>2) \\
+                &=& 1-P(Z<2)\\
+                &=& 1-\Phi(2)\\
+                &=& 1-`r pnorm(2)`\\
+                &=& `r 1-pnorm(2)`
+\end{eqnarray*}
+```
+
+### Lettura del $p_\text{value}$
+
+La probabilità di significatività osservata $p_\text{value}$ ci dice la
+probabilità, *se fosse vera* $H_0$ di trovare un campione ancora più in
+favore di $H_1$ di quello che ho trovato. In altre parole ci dice, *se
+fosse vera* $H_0$, quanto sarebbe improbabile il nostro campione.
+
+:::{.nota data-latex=""}
+Tanto più basso è il $p_\text{value}$ tanto più forte è l'evidenza dei
+dati contro $H_0$:
+
+-   Se $p_\text{value}>0.1$ $\rightarrow$ il test **non** è significativo 
+-   Se $0.05< p_\text{value}\le 0.1\rightarrow$ il test è _marginalmente_ significativo $\fbox{.}$
+-   Se $0.05< p_\text{value}\le 0.01\rightarrow$ il test è significativo 
+$\rightarrow$ significativo al 5% $\fbox{*}$
+-   Se $0.001< p_\text{value}\le 0.01\rightarrow$ il test è _molto_ significativo $\rightarrow$ significativo all'1% $\fbox{**}$
+-   Se $p_\text{value}\le 0.001\rightarrow$ il test è _estremamente_ significativo $\rightarrow$ significativo sotto all'1‰ $\fbox{***}$
+:::
+
+:::{.example}
+In un laboratorio, vi sono cavie con peso medio uguale a 30g e una DS
+pari a 5g. Uno studente seleziona 50 cavie e ottiene un peso medio
+uguale a 32g con una $\hat\sigma$ pari a 7g. La selezione è casuale o il
+valore ottenuto della media è troppo alto?
+
+```{r, results='asis'}
+muh <- 32
+mu0 <- 30
+s   <- 5
+n   <- 50
+alpha <- 0.01
+h1 <- ">"
+um <- "g"
+cat(ztest_mu(muh = muh,s = s,n = n,mu0 = mu0,h1 = h1,pv_only = T,um = um,pvalue = F))
+```
+
+Se a parità di stastistiche le cavie fossero state $n=100$
+
+```{r, results='asis'}
+muh <- 32
+mu0 <- 30
+s   <- 5
+n   <- 100
+alpha <- 0.01
+h1 <- ">"
+um <- "g"
+cat(ztest_mu(muh = muh,s = s,n = n,mu0 = mu0,h1 = h1,pv_only = T,um = um,pvalue = F))
+```
+
+:::
+
+### Test sulla media, ipotesi unilaterale sinistra, $\sigma^2$ noto
+
+Siano $X_1,...X_n$ $n$ VC, IID: $X_i\sim N(\mu,\sigma^2)$ con $\sigma^2$
+noto.
+
+Consideriamo il seguente sistema di ipotesi $$\begin{cases}
+H_0:\mu=\mu_0\\
+H_1:\mu<\mu_0
+\end{cases}$$
+
+Dalle proprietà della normale
+$$\hat\mu=\bar X=\frac 1 n\sum_{i=1}^nX_i\sim N\left(\mu,\frac{\sigma^2} {n}\right)$$
+
+E quindi $$Z=\frac{\hat\mu-\mu}{\sigma/\sqrt n}\sim N(0,1)$$
+
+Sotto $H_0$ la statistica
+$$Z=\frac{\hat\mu-\mu_0}{\sigma/\sqrt n}\sim N(0,1)$$
+
+$Z$ osservata sul campione misura l'evidenza contro $H_0$, tanto più è
+basso il valore di $Z$ tanto più $H_0$ è inverosimile
+
+:::{.info data-latex=""}
+**Decisione sul campione.** Si decide un livello $\alpha$ e si ricava
+$z_\alpha$, si estrae un campione. Lo stimatore $\hat\mu$ si realizza
+nella media osservata del campione $\hat\mu_\text{obs}$
+
+$$z_{\text{obs}}=\frac{\hat\mu_\text{obs} -\mu_0}{\sigma/\sqrt n}$$
+
+-   Se $z_{\text{obs}}>-z_\alpha$ $H_0$ **non viene rifiutata** al
+    livello di significatività $\alpha\times100\%$
+-   Se $z_{\text{obs}}<-z_\alpha$ $H_0$ **viene rifiutata** al livello
+    di significatività $\alpha\times100\%$
+
+```{r 15-test-mu-pi-17}
+#par(mar = c(5.1, 4.1, 2, 2.1))
+curve(dnorm,-4,4,xlab = expression(Z==(hat(mu)-mu[0])/se),ylab='',axes=F)
+segments(-4,0,-1.64,0,lwd=2,col=ared)
+segments(-1.64,0,4,0,lwd=2,col=mblue)
+segments(-1.64,0,-1.64,dnorm(-1.64))
+axis(1,c(-4,-1.64,0,4),c(-4,expression(-z[alpha]),0,4))
+text(-2.5,.05,expression(alpha),cex=acex)
+title("Normale Standard")
+```
+:::
+
+:::{.example}
+La durata, in ore, della resistenza di un transistor alle alte
+temperature sia $X \,\sim\, N(\mu,\, \sigma^{2})$ e, in base
+all'esperienza, sia $\mu_{0}=6$ ore e $\sigma_{0}=0.5$ ore. Si apportano
+modifiche alla composizione dei materiali per fare diminuire la durata
+della resistenza alla temperatura. Si eseguono 16 osservazioni, dalle
+quali si ottiene una durata media $\mu_\text{obs}=5.7$ e uno deviazione
+standard $s=0.6$. Verificare l'ipotesi, al LdS dell'1%, che la
+resistenza sia rimasta invariata contro l'alternativa che sia diminuita.
+
+```{r 15-test-mu-pi-3,results='asis'}
+muh <- 5.7
+mu0 <- 6
+s   <- .5
+n   <- 16
+alpha <- 0.01
+h1 <- "<"
+um <- "h"
+ztest_mu(muh = muh,s = s,n = n,mu0 = mu0,h1 = h1,alpha = 0.01,um = um,pvalue = F)
+```
+:::
+
+#### La probabilità di significatività osservata il $p_\text{value}$
+
+:::{.definition name="$p_\\text{value}$ caso unilaterale sinistro"}
+Nel caso di ipotesi unilaterale sinistra abbiamo
+$$p_\text{value}=P(Z<z_{\text{obs}};H_0)$$
+:::
+
+```{r 15-test-mu-pi-18}
+um <- ""
+#par(mar = c(5.1, 4.1, 2, 2.1))
+curve(dnorm,-4,4,xlab = expression(Z==(hat(mu)-mu[0])/se),ylab='',axes=F)
+axis(1,c(-4,-2.4,0,+4))
+title("Normale Standard")
+xs1 <- seq(-4,-2.4,length.out = 101)
+ys1 <- dnorm(xs1)
+xs1 <- c(-2.4,xs1)
+ys1 <- c(0,ys1)
+polygon(xs1,ys1,col="grey60",density = 50)
+```
+
+\begin{eqnarray*}
+p_{\text{value}}&=& P(Z<-2.4) \\
+                &=& \Phi(-2.4)\\
+                &=& 1-\Phi(2.4)\\
+                &=& 1-`r pnorm(2.4)`\\
+                &=& `r 1-pnorm(2.4)`
+\end{eqnarray*}
+
+### Test sulla media, ipotesi bilaterale, $\sigma^2$ noto
+
+Siano $X_1,...X_n$ $n$ VC, IID: $X_i\sim N(\mu,\sigma^2)$ con $\sigma^2$
+noto. Consideriamo il seguente sistema di ipotesi $$\begin{cases}
+H_0:\mu=\mu_0\\
+H_1:\mu\neq\mu_0
+\end{cases}$$
+
+Sotto $H_0$ la statistica
+$$Z=\frac{\hat\mu-\mu_0}{\sigma/\sqrt n}\sim N(0,1)$$
+
+$Z$ osservata sul campione misura l'evidenza contro $H_0$, tanto più è
+il valore di $Z$ è **diverso** da zero tanto più $H_0$ è inverosimile
+
+:::{.info data-latex=""}
+**Decisione sul campione.** Si decide un livello $\alpha$ e si ricava
+$z_{\alpha/2}$, si estrae un campione. Lo stimatore $\hat\mu$ si
+realizza nella media osservata del campione $\hat\mu_\text{obs}$
+$$z_{\text{obs}}=\frac{\hat\mu_\text{obs} -\mu_0}{\sigma/\sqrt n}$$
+
+-   Se $-z_{\alpha/2}\leq z_{\text{obs}}\leq z_{\alpha/2}$ $H_0$ **non
+    viene rifiutata** al livello di significatività $\alpha\times100\%$
+-   Se $z_{\text{obs}}<-z_{\alpha/2}$, o $z_{\text{obs}}>+z_{\alpha/2}$
+    $H_0$ **viene rifiutata** al livello di significatività
+    $\alpha\times100\%$
+
+```{r 15-test-mu-pi-19}
+#par(mar = c(5.1, 4.1, 2, 2.1))
+curve(dnorm,-4,4,xlab = expression(Z==(hat(mu)-mu[0])/se),ylab='',axes=F)
+segments(-4,0,-1.96,0,lwd=2,col=ared)
+segments(4,0,1.96,0,lwd=2,col=ared)
+segments(-1.96,0,1.96,0,lwd=2,col=mblue)
+segments(-1.96,0,-1.96,dnorm(-1.96))
+segments(1.96,0,1.96,dnorm(1.96))
+axis(1,c(-4,-1.96,0,1.96,4),c(-4,expression(-z[alpha/2]),0,expression(+z[alpha/2]),4))
+text(-3,.05,expression(alpha/2),cex=acex)
+text(+3,.05,expression(alpha/2),cex=acex)
+title("Normale Standard")
+```
+:::
+
+:::{.example}
+Un produttore di semiconduttori afferma che la durata media dei suoi chip è di 300 ore con una deviazione standard di 3 ore. Un'azienda decide di testare la qualità dei chip e conduce un esperimento con 16 chip, ottenendo una durata media di 298 ore e una deviazione standard di 4 ore. I risultati di questo test sono coerenti con l'affermazione del produttore i chip tendono a durare in modo diverso dalla durata dichiarata, al 5%?
+
+```{r 15-test-mu-pi-4, results='asis'}
+muh <- 298
+mu0 <- 300
+s   <- 3
+n   <- 16
+alpha <- 0.05
+h1 <- "\\neq"
+um <- "~h"
+ztest_mu(muh = muh,s = s,n = n,mu0 = mu0,h1 = h1,um = um,pvalue = T,pv_only=F,alpha = alpha)
+```
+:::
+
+#### La probabilità di significatività osservata il $p_\text{value}$
+
+:::{.info data-latex=""}
+:::{.definition name="$p_\\text{value}$ caso bilaterale"}
+Nel caso di ipotesi bilaterale abbiamo
+$$p_\text{value}=P(|Z|>|z_{\text{obs}}|;H_0)$$
+:::
+:::
+
+```{r 15-test-mu-pi-20}
+#par(mar = c(5.1, 4.1, 2, 2.1))
+curve(dnorm,-4,4,xlab = expression(Z==(hat(mu)-mu[0])/se),ylab='',axes=F)
+axis(1,c(-4,-2.67,0,2.67,+4))
+title("Normale Standard")
+xs1 <- seq(-4,-2.67,length.out = 101)
+ys1 <- dnorm(xs1)
+xs1 <- c(-2.67,xs1)
+ys1 <- c(0,ys1)
+polygon(xs1,ys1,col="grey60",density = 50)
+polygon(-xs1,ys1,col="grey60",density = 50)
+```
+
+```{=tex}
+\begin{eqnarray*}
+p_{\text{value}}&=& P(|Z|>2.67) \\
+                &=& P(Z<-2.67)+P(Z>2.67)\\
+                &=& 2\cdot P(Z>2.67)\\
+                &=& 2\cdot (1-\Phi(2.67))\\
+                &=& 2\cdot `r 1-pnorm(2.67)`\\
+                &=&  `r 2*(1-pnorm(2.67))`
+\end{eqnarray*}
+```
+
+
+## Significatività non fissata
+
+Le strategie per decidere per $H_0$ invece di $H_1$ cambiano a seconda di cosa
+rappresentano realmente le due ipotesi. In controllo di qualità industriale
+$H_0$ significa conforme agli standard e $H_1$ non conforme, fissare $\alpha$ e 
+di conseguenza $\beta$ è frutto di un bilancio rischi benefici che richiede di
+esplicitare i costi che l'azienda paga in base all'errore: quando costa commettere
+l'errore di primo tipo? Quanto costa commettere l'errore di secondo tipo?
+
+In altri contesti di ricerca la lontananza dei dati da $H_0$ può essere oggetto 
+di dibattito e il $p_\text{value}$ misura esattamente questo. Senza avere fissato
+in anticipo $\alpha$ il ricercatore di trova a discutere se il $p_\text{value}$
+è sufficientemente piccolo da rigettare l'ipotesi nulla. 
+Il prossimo esempio esemplifica l'approccio
+
+:::{.example}
+Un'azienda farmaceutica afferma che la concentrazione media di principio attivo 
+in una certa medicina è di 50 mg con una deviazione standard di 2 mg. Un 
+laboratorio indipendente decide di verificare questa affermazione eseguendo 
+25 analisi e ottiene una concentrazione media di 51 mg e una deviazione standard 
+di 2.5 mg. I risultati delle analisi sono coerenti con l'affermazione 
+dell'azienda o la concentrazione del principio attivo è maggiore dalla quantità 
+dichiarata?
+
+```{r 15-test-mu-pi-21}
+ztest_mu(muh = 51,s = 2,n = 25,mu0 = 50,h1 = ">",um = "mg",pv_only = T,pvalue = F)
+```
+:::
+
+## Test per $\mu$, $\sigma$ incognita
+
+Se $\sigma^2$ è incognito va stimato dai dati. Consideriamo lo stimatore
+$S^2$ di $\sigma^2$
+$$S^2=\frac {1}{n-1}\sum_{i=1}^n (X_i-\hat \mu)^2=\frac {n}{n-1}\frac 1 n\sum_{i=1}^n (X_i-\hat \mu)^2=\frac n {n-1}\hat\sigma^2$$
+
+Ricordiamo che
+$$\widehat{SE(\hat\mu)}=\sqrt{\frac {S^2}n}=\frac S {\sqrt n}$$
+
+Ricordiamo infine che
+$$T=\frac{\hat \mu-\mu}{\widehat{SE(\hat\mu)}}\sim t_{n-1}$$
+
+Ovvero $$T=\frac{\hat \mu-\mu}{S/\sqrt n}\sim t_{n-1}$$
+
+E quindi sotto $H_0$ $$T=\frac{\hat \mu-\mu_0}{S/\sqrt n}\sim t_{n-1}$$
+$T$ è la statistica test che misura l'evidenza dei dati contro $H_0$
+
+### Test sulla media, ipotesi unilaterale destra, $\sigma^2$ incognito
+
+Siano $X_1,...X_n$ $n$ VC, IID: $X_i\sim N(\mu,\sigma^2)$ con $\sigma^2$
+incognito.
+
+Consideriamo il seguente sistema di ipotesi $$\begin{cases}
+H_0:\mu=\mu_0\\
+H_1:\mu>\mu_0
+\end{cases}$$
+
+Sotto $H_0$ la statistica
+$$T=\frac{\hat \mu-\mu_0}{S/\sqrt n}\sim t_{n-1}$$
+
+La $T$ osservata sul campione misura l'evidenza contro $H_0$, tanto più
+è alto il valore di $Z$ tanto più $H_0$ è inverosimile
+
+:::{.info data-latex=""}
+**Decisione sul campione** Si decide un livello $\alpha$ e si ricava
+$t_{n-1;\alpha}$, si estrae un campione. Lo stimatore $\hat\mu$ si
+realizza nella media osservata del campione $\hat\mu_\text{obs}$
+$$t_{\text{obs}}=\frac{\hat\mu_\text{obs} -\mu_0}{S/\sqrt n}$$
+
+-   Se $t_{\text{obs}}<t_{n-1;\alpha}$ $H_0$ **non viene rifiutata** al
+    livello di significatività $\alpha\times100\%$
+-   Se $t_{\text{obs}}>t_{n-1;\alpha}$ $H_0$ **viene rifiutata** al
+    livello di significatività $\alpha\times100\%$
+
+```{r 15-test-mu-pi-22}
+#par(mar = c(5.1, 4.1, 2, 2.1))
+curve(dt(x,4),-4,4,xlab = expression(T==(hat(mu)-mu[0])/hat(se)),ylab='',axes=F)
+segments(-4,0,2,0,lwd=2,col=mblue)
+segments(2,0,4,0,lwd=2,col=ared)
+segments(2,0,2,dt(2,4))
+axis(1,c(-4,0,2,4),c(-4,0,expression(t[alpha]),4))
+text(2.5,.05,expression(alpha),cex=acex)
+title(expression(t[n-1]))
+```
+:::
+
+:::{.example}
+Un produttore di aspirine afferma che il prodotto lenisce il mal di
+testa in 30 minuti. Un campione casuale di 25 persone la usa. Risultato:
+$\mu_\text{obs}=31.4$m con $\hat{\sigma}= 4.2$m. Verificare l'affermazione del
+produttore a un LdS del 5%.
+
+```{r 15-test-mu-pi-5, results='asis'}
+muh <- 31.4
+mu0 <- 30
+sh  <- 4.2
+n   <- 25
+alpha <- 0.05
+h1 <- ">"
+
+cat(ttest_mu(muh = muh,sh = sh,n = n,mu0 = mu0,h1 = h1,alpha = alpha,um="m"))
+```
+
+:::
+
+### Test sulla media, ipotesi unilaterale sinistra, $\sigma^2$ incognito
+
+Siano $X_1,...X_n$ $n$ VC, IID: $X_i\sim N(\mu,\sigma^2)$ con $\sigma^2$
+incognito. Consideriamo il seguente sistema di ipotesi $$\begin{cases}
+H_0:\mu=\mu_0\\
+H_1:\mu<\mu_0
+\end{cases}$$
+
+Sotto $H_0$ la statistica
+$$T=\frac{\hat \mu-\mu_0}{S/\sqrt n}\sim t_{n-1}$$
+
+Lo stimatore $\hat\mu$ si realizza nella media osservata del campione
+$\hat\mu_\text{obs}$ $$t_{\text{obs}}=\frac{\hat\mu_\text{obs} -\mu_0}{S/\sqrt n}$$
+
+:::{.info data-latex=""}
+**Decisione sul campione** Si decide un livello $\alpha$ e si ricava
+$t_{n-1;\alpha}$, si estrae un campione. Lo stimatore $\hat\mu$ si
+realizza nella media osservata del campione $\hat\mu_\text{obs}$
+$$t_{\text{obs}}=\frac{\hat\mu_\text{obs} -\mu_0}{S/\sqrt n}$$
+
+-   Se $t_{\text{obs}}>-t_{n-1;\alpha}$ $H_0$ **non viene rifiutata** al
+    livello di significatività $\alpha\times100\%$
+-   Se $t_{\text{obs}}<-t_{n-1;\alpha}$ $H_0$ **viene rifiutata** al
+    livello di significatività $\alpha\times100\%$
+:::
+
+```{r 15-test-mu-pi-23}
+#par(mar = c(5.1, 4.1, 2, 2.1))
+curve(dt(x,4),-4,4,xlab = expression(T==(hat(mu)-mu[0])/hat(se)),ylab='',axes=F)
+segments(-4,0,-2,0,lwd=2,col=ared)
+segments(-2,0, 4,0,lwd=2,col=mblue)
+segments(-2,0,-2,dt(-2,4))
+axis(1,c(-4,-2,0,4),c(-4,expression(t[alpha]),0,4))
+text(-3,.05,expression(alpha),cex=acex)
+title(expression(t[n-1]))
+```
+
+:::{.example}
+Un Centro dietetico afferma che con i loro programmi si perdono in media
+2kg nella prima settimana. Si selezionano casualmente 25 soggetti, tra
+gli iscritti al programma.
+
+Risultato: $\overline{\Delta x}=1.5$kg con $\hat\sigma=1.4$kg.
+Verificare l'affermazione del Centro al LdS del 5%.
+
+```{r 15-test-mu-pi-6, results='asis'}
+muh <- 1.5
+mu0 <- 2
+sh  <- 1.4
+n   <- 25
+alpha <- 0.05
+h1 <- "<"
+um <- "kg"
+cat(ttest_mu(muh = muh,sh = sh,n = n,mu0 = mu0,h1 = h1,alpha = alpha,um=um))
+
+```
+:::
+
+### Test sulla media, ipotesi bilaterale, $\sigma^2$ incognito
+
+Siano $X_1,...X_n$ $n$ VC, IID: $X_i\sim N(\mu,\sigma^2)$ con $\sigma^2$
+incognito. Consideriamo il seguente sistema di ipotesi $$\begin{cases}
+H_0:\mu=\mu_0\\
+H_1:\mu\neq\mu_0
+\end{cases}$$
+
+Sotto $H_0$ la statistica
+$$T=\frac{\hat \mu-\mu_0}{S/\sqrt n}\sim t_{n-1}$$
+
+:::{.info data-latex=""}
+**Decisione sul campione.** Si decide un livello $\alpha$ e si ricava
+$t_{n-1;\alpha}$, si estrae un campione. Lo stimatore $\hat\mu$ si
+realizza nella media osservata del campione $\hat\mu_\text{obs}$
+$$t_{\text{obs}}=\frac{\hat\mu_\text{obs} -\mu_0}{S/\sqrt n}$$
+
+-   Se $-t_{n-1;\alpha/2}<t_{\text{obs}}<t_{n-1;\alpha/2}$ $H_0$ **non
+    viene rifiutata** al livello di significatività $\alpha\times100\%$
+-   Se $t_{\text{obs}}>t_{n-1;\alpha/2}$ o
+    $t_{\text{obs}}<-t_{n-1;\alpha/2}$ $H_0$ **viene rifiutata** al
+    livello di significatività $\alpha\times100\%$
+
+```{r 15-test-mu-pi-24}
+#par(mar = c(5.1, 4.1, 2, 2.1))
+curve(dt(x,4),-4,4,xlab = expression(T==(hat(mu)-mu[0])/hat(se)),ylab='',axes=F)
+segments(-4,0,-2,0,lwd=2,col=ared)
+segments(2,0,4,0,lwd=2,col=ared)
+segments(-2,0,2,0,lwd=2,col=mblue)
+segments(-2,0,-2,dt(-2,4))
+segments( 2,0, 2,dt( 2,4))
+axis(1,c(-4,-2,0,2,4),c(-4,expression(-t[alpha/2]),0,expression(t[alpha/2]),4))
+text(3,.05,expression(alpha/2),cex=acex)
+text(-3,.05,expression(alpha/2),cex=acex)
+title(expression(t[n-1]))
+```
+:::
+
+:::{.example}
+Eseguite 17 misure di resistenza su 17 campioni di filo. Risultato: la
+media è 7.5N (Newton) con $\hat\sigma=$ 1.2N.
+
+Il filo è stato ottenuto con un nuovo procedimento, ma non si conoscono
+i possibili effetti sulla resistenza. Verificare, a un LdS del 5%,
+l'ipotesi che la resistenza media sia uguale al filo standard, che è
+6.8N, contro l'alternativa che sia diverso.
+
+```{r 15-test-mu-pi-7, results='asis'}
+muh <- 7.5
+mu0 <- 6.8
+sh  <- 1.2
+n   <- 17
+alpha <- 0.05
+h1 <- "\\neq"
+um <- "N"
+cat(ttest_mu(muh = muh,sh = sh,n = n,mu0 = mu0,h1 = h1,alpha = alpha,um=um))
+```
+:::
+
+
+### Significatività non fissata
+
+Come per lo $z$-test se la significatività non è fissata potremmo interpretare il solo
+$p_\text{value}$, ma il $p_\text{value}$ per la distribuzione $t$ non è calcolabile 
+senza un'opportuna funzione che manca nelle gran parte delle calcolatrici scientifiche.
+
+Se non si dispone di un software adeguato si possono usare le tavole statistiche 
+e ricavare le soglie critiche per diversi $\alpha$. Una strategia comune è fissare
+
+$$
+  \alpha=\{1/10,1/20,1/100,1/1000\}=\{0.1,0.05,0.01,0.001\},
+$$
+
+ricavare dalle tavole i rispettivi $t_{n-1,\alpha}$ ($t_{n-1,\alpha/2}$, se il 
+test è bilaterale) e vedere dove cade il $t_\text{obs}$
+
+:::{.example}
+Un'azienda farmaceutica afferma che la concentrazione media di principio attivo 
+in una certa medicina è di 50 mg. Un laboratorio indipendente decide di 
+verificare questa affermazione eseguendo 25 analisi e ottiene una concentrazione 
+media di 51 mg e una deviazione standard di 2.5 mg. 
+I risultati delle analisi sono coerenti con l'affermazione dell'azienda o la 
+concentrazione del principio attivo tende a differire dalla quantità dichiarata?
+
+```{r 15-test-mu-pi-8, results='asis'}
+muh <- 51
+mu0 <- 50
+sh  <- 2.5
+n   <- 25
+
+h1 <- "\\neq"
+um <- "\\%"
+ttest_mu(muh = muh,sh = sh,n = n,mu0 = mu0,h1 = h1,um=um,rbow = T)
+```
+:::
+
+## Massima verosimiglianza e test
+
+Se $\hat\theta$ è stimatore di massima verosimiglianza per $\theta$
+allora, per $n$ sufficientemente grande
+$$\hat\theta\sim N(\theta, SE^2(\hat\theta))$$
+
+Sotto ipotesi $H_0$ $$\hat\theta\sim N(\theta_0, SE^2(\hat\theta))$$
+
+La statistica test
+$$Z=\frac{\hat\theta-\theta_0}{SE(\hat\theta)}\sim N(0,1)$$
+
+Esempio: se $\sigma$ è incognita, la statistica test per $\mu$ è:
+$$T=\frac{\hat\mu-\mu_0}{S/\sqrt n}\sim t_{n-1}$$
+
+Se $n$ diverge $$t_{n-1}\to N(0,1)$$
+
+Se $n>100$ il $t$-test diventa lo $z$-test.
+
+## Test per $\pi$
+
+:::{.info data-latex=""}
+Siano $X_1,...,X_n$ $n$ VC IID, replicazioni di $X\sim\text{Ber}(\pi)$.
+Lo stimatore di massima verosimiglianza
+$$\hat\pi=\frac 1 n \sum_{i=1}^n X_i\operatorname*{\sim}_a N\left(\pi,\frac{\pi(1-\pi)}{n}\right)$$
+
+Sotto $H_0$, $\pi=\pi_0$
+$$\hat\pi\operatorname*{\sim}_a N\left(\pi_0,\frac{\pi_0(1-\pi_0)}{n}\right)$$
+
+E quindi
+$$\frac{\hat\pi-\pi_0}{\sqrt{\pi_0(1-\pi_0)/n}}\operatorname*{\sim}_a N(0,1)$$
+
+La statistica osservata è
+$$z_{\text{obs}}=\frac{\hat\pi_{\text{obs}}-\pi_0}{\sqrt{\pi_0(1-\pi_0)/n}}$$
+
+A seconda di $H_1$ decideremo con le solite regole
+:::
+
+:::{.example}
+Lanciamo $n=50$ un moneta di cui non siamo sicuri se è truccata oppure
+no. Osserviamo 30 successi su 50 lanci. Verificare l'ipotesi che la moneta sia 
+bilanciata ($\pi=0.5$), contro l'alternativa che sia maggiore.
+
+Lo stimatore di massima verosimiglianza è
+$$\hat\pi=\frac 1 n \sum_{i=1}^n X_i$$
+
+```{r 15-test-mu-pi-9, results='asis'}
+sn <- 30
+p0 <- .5
+n   <- 50
+alpha <- 0.05
+h1 <- ">"
+ztest_pi(sn = sn,n = n,p0 = p0,h1 = h1)
+```
+:::
+
+:::{.example}
+Lanciamo $n=100$ un moneta di cui non siamo sicuri se è truccata oppure
+no. Osserviamo 60 successi su 50 lanci. Verificare l'ipotesi che la moneta sia bilanciata ($\pi=0.5$), contro
+l'alternativa che sia maggiore.
+
+Lo stimatore di massima verosimiglianza è
+$$\hat\pi=\frac 1 n \sum_{i=1}^n X_i$$
+
+```{r 15-test-mu-pi-10, results='asis'}
+sn <- 60
+p0 <- .5
+n   <- 100
+alpha <- 0.05
+h1 <- ">"
+ztest_pi(sn = sn,n = n,p0 = p0,h1 = h1)
+```
+:::
+
+:::{.example}
+Lanciamo $n=1000$ un moneta di cui non siamo sicuri se è truccata oppure
+no. Osserviamo 600 successi su 50 lanci. Verificare l'ipotesi che la moneta sia bilanciata ($\pi=0.5$), contro
+l'alternativa che sia maggiore.
+
+Lo stimatore di massima verosimiglianza è
+$$\hat\pi=\frac 1 n \sum_{i=1}^n X_i$$
+
+```{r 15-test-mu-pi-11, results='asis'}
+sn <- 600
+p0 <- .5
+n   <- 1000
+alpha <- 0.05
+h1 <- ">"
+ztest_pi(sn = sn,n = n,p0 = p0,h1 = h1)
+```
+:::
+
+:::{.example}
+In una indagine su 100 imprese, si ha che 30 imprese decentrano la
+lavorazione tipo A. Il censimento precedente aveva rilevato una
+proporzione di decentramento, $\pi = 0.4$. Verificare l'ipotesi 
+che il valore osservato sia dovuto al caso, contro
+l'alternativa che vi sia stata una diminuzione della proporzione di
+decentramento.
+
+```{r 15-test-mu-pi-12, results='asis'}
+sn <- 30
+p0 <- .4
+n   <- 100
+alpha <- 0.05
+h1 <- "<"
+ztest_pi(sn = sn,n = n,p0 = p0,h1 = h1)
+```
+:::
+
+:::{.example}
+Una città è composta da 50000 soggetti. Si estrae un campione casuale di
+100 soggetti e si trova che 20 soggetti possiedono una connessione a
+banda ultra-larga. La proporzione posseduta a livello nazionale è pari
+al 25%. Verificare che nella città la
+percentuale sia diversa (in più o in meno).
+
+```{r 15-test-mu-pi-13, results='asis'}
+sn <- 20
+p0 <- .25
+n   <- 100
+alpha <- 0.01
+h1 <- "\\neq"
+ztest_pi(sn = sn,n = n,p0 = p0,h1 = h1)
+
+```
+:::
+
+\clearpage
+
+## Specchietto Finale per i Test ad un Campione
+
+:::{.info2 data-latex=""}
+<div style="font-size:0.6em;">
+\small
+\begin{align*}
+\hline 
+H_0:\mu&=\mu_0 &&\text{$\sigma^2$} &\text{Dist.}   & && \text{Statistica Test} &&   \text{Zona Rifiuto} &&p_\text{value}\\
+\hline\\
+H_1:\mu&>\mu_0 & \text{Noto} &&  Z && z_\text{obs}&=\frac{\hat \mu_\text{obs}-\mu_0}{\sigma/\sqrt{n}} & z_\text{obs}&>z_\alpha & p_\text{value}&= P(Z>z_\text{obs})\\
+H_1:\mu&<\mu_0 & \text{Noto} &&  Z && z_\text{obs}&=\frac{\hat \mu_\text{obs}-\mu_0}{\sigma/\sqrt{n}} & z_\text{obs}&<-z_\alpha& p_\text{value}&= P(Z<z_\text{obs})\\
+H_1:\mu&\ne\mu_0 & \text{Noto} &&  Z && z_\text{obs}&=\frac{\hat \mu_\text{obs}-\mu_0}{\sigma/\sqrt{n}} & |z_\text{obs}|&>|z_{\alpha/2}| & p_\text{value}&= 2P(Z>|z_\text{obs}|)\\
+H_1:\mu&>\mu_0 & \text{Incognito} &&  t_{n-1} && z_\text{obs}&=\frac{\hat \mu_\text{obs}-\mu_0}{S/\sqrt{n}} & t_\text{obs}&>t_{n-1;~\alpha}& p_\text{value}&= P(T>t_\text{obs})\\
+H_1:\mu&<\mu_0 & \text{Incognito} &&  t_{n-1} && z_\text{obs}&=\frac{\hat \mu_\text{obs}-\mu_0}{S/\sqrt{n}} & t_\text{obs}&<-t_{n-1;~\alpha}& p_\text{value}&= P(T<t_\text{obs})\\
+H_1:\mu&\ne\mu_0 & \text{Incognito} &&  t_{n-1} && z_\text{obs}&=\frac{\hat \mu_\text{obs}-\mu_0}{S/\sqrt{n}} & |t_\text{obs}|&>|t_{n-1;~\alpha/2}|& p_\text{value}&= 2P(T>|t_\text{obs}|)\\
+\hline
+H_0:\pi&=\pi_0 && &\text{Dist.}   && &\text{Statistica Test} &&   \text{Zona Rifiuto} &&p_\text{value}\\
+\hline\\
+H_1:\pi&>\pi_0 &  &&  Z && z_\text{obs}&=\frac{\hat \pi_\text{obs}-\pi_0}{\sqrt{\pi(/1-\pi)}/\sqrt{n}} & z_\text{obs}&>z_\alpha& p_\text{value}&= P(Z>z_\text{obs})\\
+H_1:\pi&<\pi_0 &  &&  Z && z_\text{obs}&=\frac{\hat \pi_\text{obs}-\pi_0}{\sqrt{\pi(/1-\pi)}/\sqrt{n}} & z_\text{obs}&<-z_\alpha& p_\text{value}&= P(Z<z_\text{obs})\\
+H_1:\pi&\ne\pi_0 &  &&  Z && z_\text{obs}&=\frac{\hat \pi_\text{obs}-\pi_0}{\sqrt{\pi(/1-\pi)}/\sqrt{n}} & |z_\text{obs}|&>|z_{\alpha/2}| & p_\text{value}&= 2P(Z>|z_\text{obs}|)\\
+\hline
+\end{align*}
+</div>
+:::
+\normalsize

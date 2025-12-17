@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023/Debian) (preloaded format=xelatex 2025.3.3)  16 SEP 2025 13:48
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023/Debian) (preloaded format=xelatex 2025.3.3)  17 DEC 2025 17:24
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -23,6 +23,45 @@ File: bk11.clo 2023/05/17 v1.4n Standard LaTeX file (size option)
 \abovecaptionskip=\skip48
 \belowcaptionskip=\skip49
 \bibindent=\dimen140
+) (/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty
+Package: xcolor 2023/11/15 v3.01 LaTeX color extensions (UK)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: xetex.def on input line 274.
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/xetex.def
+File: xetex.def 2022/09/22 v5.0n Graphics/color driver for xetex
+) (/usr/share/texlive/texmf-dist/tex/latex/graphics/mathcolor.ltx)
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1350.
+Package xcolor Info: Model `RGB' extended on input line 1366.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1368.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1370.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1371.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1372.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1373.
+) (/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
+Package: geometry 2020/01/02 v5.9 Page Geometry
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
+\KV@toks@=\toks17
+) (/usr/share/texlive/texmf-dist/tex/generic/iftex/ifvtex.sty
+Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
+(/usr/share/texlive/texmf-dist/tex/generic/iftex/iftex.sty
+Package: iftex 2022/02/03 v1.0f TeX engine tests
+))
+\Gm@cnth=\count192
+\Gm@cntv=\count193
+\c@Gm@tempcnt=\count194
+\Gm@bindingoffset=\dimen141
+\Gm@wd@mp=\dimen142
+\Gm@odd@mp=\dimen143
+\Gm@even@mp=\dimen144
+\Gm@layoutwidth=\dimen145
+\Gm@layoutheight=\dimen146
+\Gm@layouthoffset=\dimen147
+\Gm@layoutvoffset=\dimen148
+\Gm@dimlist=\toks18
 ) (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
 Package: amsmath 2023/05/13 v2.17o AMS math features
 \@mathmargin=\skip50
@@ -31,22 +70,22 @@ For additional information on amsmath, use the `?' option.
 Package: amstext 2021/08/26 v2.01 AMS text
 (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
-\@emptytoks=\toks17
-\ex@=\dimen141
+\@emptytoks=\toks19
+\ex@=\dimen149
 )) (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
-\pmbraise@=\dimen142
+\pmbraise@=\dimen150
 ) (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 2022/04/08 v2.04 operator names
 )
-\inf@bad=\count192
+\inf@bad=\count195
 LaTeX Info: Redefining \frac on input line 234.
-\uproot@=\count193
-\leftroot@=\count194
+\uproot@=\count196
+\leftroot@=\count197
 LaTeX Info: Redefining \overline on input line 399.
 LaTeX Info: Redefining \colon on input line 410.
-\classnum@=\count195
-\DOTSCASE@=\count196
+\classnum@=\count198
+\DOTSCASE@=\count199
 LaTeX Info: Redefining \ldots on input line 496.
 LaTeX Info: Redefining \dots on input line 499.
 LaTeX Info: Redefining \cdots on input line 620.
@@ -56,34 +95,34 @@ LaTeX Info: Redefining \big on input line 722.
 LaTeX Info: Redefining \Big on input line 723.
 LaTeX Info: Redefining \bigg on input line 724.
 LaTeX Info: Redefining \Bigg on input line 725.
-\big@size=\dimen143
+\big@size=\dimen151
 LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
-\macc@depth=\count197
+\macc@depth=\count266
 LaTeX Info: Redefining \bmod on input line 905.
 LaTeX Info: Redefining \pmod on input line 910.
 LaTeX Info: Redefining \smash on input line 940.
 LaTeX Info: Redefining \relbar on input line 970.
 LaTeX Info: Redefining \Relbar on input line 971.
-\c@MaxMatrixCols=\count198
+\c@MaxMatrixCols=\count267
 \dotsspace@=\muskip16
-\c@parentequation=\count199
-\dspbrk@lvl=\count266
-\tag@help=\toks18
-\row@=\count267
-\column@=\count268
-\maxfields@=\count269
-\andhelp@=\toks19
-\eqnshift@=\dimen144
-\alignsep@=\dimen145
-\tagshift@=\dimen146
-\tagwidth@=\dimen147
-\totwidth@=\dimen148
-\lineht@=\dimen149
-\@envbody=\toks20
+\c@parentequation=\count268
+\dspbrk@lvl=\count269
+\tag@help=\toks20
+\row@=\count270
+\column@=\count271
+\maxfields@=\count272
+\andhelp@=\toks21
+\eqnshift@=\dimen152
+\alignsep@=\dimen153
+\tagshift@=\dimen154
+\tagwidth@=\dimen155
+\totwidth@=\dimen156
+\lineht@=\dimen157
+\@envbody=\toks22
 \multlinegap=\skip51
 \multlinetaggap=\skip52
-\mathdisplay@stack=\toks21
+\mathdisplay@stack=\toks23
 LaTeX Info: Redefining \[ on input line 2953.
 LaTeX Info: Redefining \] on input line 2954.
 ) (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty
@@ -95,18 +134,16 @@ Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
-)) (/usr/share/texlive/texmf-dist/tex/generic/iftex/iftex.sty
-Package: iftex 2022/02/03 v1.0f TeX engine tests
-) (/usr/share/texlive/texmf-dist/tex/latex/unicode-math/unicode-math.sty (/usr/
-share/texlive/texmf-dist/tex/latex/l3kernel/expl3.sty
+)) (/usr/share/texlive/texmf-dist/tex/latex/unicode-math/unicode-math.sty (/usr
+/share/texlive/texmf-dist/tex/latex/l3kernel/expl3.sty
 Package: expl3 2024-01-22 L3 programming layer (loader) 
 (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-xetex.def
 File: l3backend-xetex.def 2024-01-04 L3 backend support: XeTeX
-\g__graphics_track_int=\count270
+\g__graphics_track_int=\count273
 \l__pdf_internal_box=\box53
-\g__pdf_backend_object_int=\count271
-\g__pdf_backend_annotation_int=\count272
-\g__pdf_backend_link_int=\count273
+\g__pdf_backend_object_int=\count274
+\g__pdf_backend_annotation_int=\count275
+\g__pdf_backend_link_int=\count276
 ))
 Package: unicode-math 2023/08/13 v0.8r Unicode maths in XeLaTeX and LuaLaTeX
 (/usr/share/texlive/texmf-dist/tex/latex/unicode-math/unicode-math-xetex.sty
@@ -121,20 +158,20 @@ Package: fontspec 2022/01/15 v2.8a Font selection for XeLaTeX and LuaLaTeX
 (/usr/share/texlive/texmf-dist/tex/latex/fontspec/fontspec-xetex.sty
 Package: fontspec-xetex 2022/01/15 v2.8a Font selection for XeLaTeX and LuaLaTe
 X
-\l__fontspec_script_int=\count274
-\l__fontspec_language_int=\count275
-\l__fontspec_strnum_int=\count276
-\l__fontspec_tmp_int=\count277
-\l__fontspec_tmpa_int=\count278
-\l__fontspec_tmpb_int=\count279
-\l__fontspec_tmpc_int=\count280
-\l__fontspec_em_int=\count281
-\l__fontspec_emdef_int=\count282
-\l__fontspec_strong_int=\count283
-\l__fontspec_strongdef_int=\count284
-\l__fontspec_tmpa_dim=\dimen150
-\l__fontspec_tmpb_dim=\dimen151
-\l__fontspec_tmpc_dim=\dimen152
+\l__fontspec_script_int=\count277
+\l__fontspec_language_int=\count278
+\l__fontspec_strnum_int=\count279
+\l__fontspec_tmp_int=\count280
+\l__fontspec_tmpa_int=\count281
+\l__fontspec_tmpb_int=\count282
+\l__fontspec_tmpc_int=\count283
+\l__fontspec_em_int=\count284
+\l__fontspec_emdef_int=\count285
+\l__fontspec_strong_int=\count286
+\l__fontspec_strongdef_int=\count287
+\l__fontspec_tmpa_dim=\dimen158
+\l__fontspec_tmpb_dim=\dimen159
+\l__fontspec_tmpc_dim=\dimen160
 (/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty
 Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
 ) (/usr/share/texlive/texmf-dist/tex/latex/fontspec/fontspec.cfg))) (/usr/share
@@ -144,9 +181,9 @@ Package: fix-cm 2020/11/24 v1.1t fixes to LaTeX
 File: ts1enc.def 2001/06/05 v3.0e (jk/car/fm) Standard LaTeX file
 LaTeX Font Info:    Redeclaring font encoding TS1 on input line 47.
 ))
-\g__um_fam_int=\count285
-\g__um_fonts_used_int=\count286
-\l__um_primecount_int=\count287
+\g__um_fam_int=\count288
+\g__um_fonts_used_int=\count289
+\l__um_primecount_int=\count290
 \g__um_primekern_muskip=\muskip17
 (/usr/share/texlive/texmf-dist/tex/latex/unicode-math/unicode-math-table.tex)))
 (/usr/share/texmf/tex/latex/lm/lmodern.sty
@@ -190,24 +227,21 @@ tim
 Package: textcomp 2020/02/02 v2.0n Standard LaTeX package
 )) (/usr/share/texlive/texmf-dist/tex/latex/microtype/microtype.sty
 Package: microtype 2023/03/13 v3.1a Micro-typographical refinements (RS)
-(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
-Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
-\KV@toks@=\toks22
-) (/usr/share/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+(/usr/share/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.sty
 Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count288
+\etb@tempcnta=\count291
 )
-\MT@toks=\toks23
+\MT@toks=\toks24
 \MT@tempbox=\box54
-\MT@count=\count289
+\MT@count=\count292
 LaTeX Info: Redefining \noprotrusionifhmode on input line 1059.
 LaTeX Info: Redefining \leftprotrusion on input line 1060.
-\MT@prot@toks=\toks24
+\MT@prot@toks=\toks25
 LaTeX Info: Redefining \rightprotrusion on input line 1078.
 LaTeX Info: Redefining \textls on input line 1368.
-\MT@outer@kern=\dimen153
+\MT@outer@kern=\dimen161
 LaTeX Info: Redefining \textmicrotypecontext on input line 1988.
-\MT@listname@count=\count290
+\MT@listname@count=\count293
 (/usr/share/texlive/texmf-dist/tex/latex/microtype/microtype-xetex.def
 File: microtype-xetex.def 2023/03/13 v3.1a Definitions specific to xetex (RS)
 LaTeX Info: Redefining \lsstyle on input line 238.
@@ -223,41 +257,7 @@ Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
 Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
 ) (/usr/share/texlive/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty
 Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
-))) (/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty
-Package: xcolor 2023/11/15 v3.01 LaTeX color extensions (UK)
-(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg
-File: color.cfg 2016/01/02 v1.6 sample color configuration
-)
-Package xcolor Info: Driver file: xetex.def on input line 274.
-(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/xetex.def
-File: xetex.def 2022/09/22 v5.0n Graphics/color driver for xetex
-) (/usr/share/texlive/texmf-dist/tex/latex/graphics/mathcolor.ltx)
-Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1350.
-Package xcolor Info: Model `RGB' extended on input line 1366.
-Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1368.
-Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1369.
-Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1370.
-Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1371.
-Package xcolor Info: Model `Gray' substituted by `gray' on input line 1372.
-Package xcolor Info: Model `wave' substituted by `hsb' on input line 1373.
-) (/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
-Package: geometry 2020/01/02 v5.9 Page Geometry
-(/usr/share/texlive/texmf-dist/tex/generic/iftex/ifvtex.sty
-Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
-)
-\Gm@cnth=\count291
-\Gm@cntv=\count292
-\c@Gm@tempcnt=\count293
-\Gm@bindingoffset=\dimen154
-\Gm@wd@mp=\dimen155
-\Gm@odd@mp=\dimen156
-\Gm@even@mp=\dimen157
-\Gm@layoutwidth=\dimen158
-\Gm@layoutheight=\dimen159
-\Gm@layouthoffset=\dimen160
-\Gm@layoutvoffset=\dimen161
-\Gm@dimlist=\toks25
-) (/usr/share/texlive/texmf-dist/tex/latex/fancyvrb/fancyvrb.sty
+))) (/usr/share/texlive/texmf-dist/tex/latex/fancyvrb/fancyvrb.sty
 Package: fancyvrb 2024/01/20 4.5c verbatim text (tvz,hv)
 \FV@CodeLineNo=\count294
 \FV@InFile=\read2
@@ -348,11 +348,19 @@ Package graphics Info: Driver file: xetex.def on input line 107.
 )
 \Gin@req@height=\dimen185
 \Gin@req@width=\dimen186
+)
+\pandoc@box=\box64
+(/usr/share/texlive/texmf-dist/tex/latex/natbib/natbib.sty
+Package: natbib 2010/09/13 8.31b (PWD, AO)
+\bibhang=\skip63
+\bibsep=\skip64
+LaTeX Info: Redefining \cite on input line 694.
+\c@NAT@ctr=\count309
 ) (/usr/share/texlive/texmf-dist/tex/latex/titlesec/titlesec.sty
 Package: titlesec 2023/10/27 v2.16 Sectioning titles
-\ttl@box=\box64
-\beforetitleunit=\skip63
-\aftertitleunit=\skip64
+\ttl@box=\box65
+\beforetitleunit=\skip65
+\aftertitleunit=\skip66
 \ttl@plus=\dimen187
 \ttl@minus=\dimen188
 \ttl@toksa=\toks29
@@ -366,21 +374,21 @@ Package: amsthm 2020/05/29 v2.20.6
 \thm@headfont=\toks32
 \thm@notefont=\toks33
 \thm@headpunct=\toks34
-\thm@preskip=\skip65
-\thm@postskip=\skip66
-\thm@headsep=\skip67
+\thm@preskip=\skip67
+\thm@postskip=\skip68
+\thm@headsep=\skip69
 \dth@everypar=\toks35
 ) (/usr/share/texlive/texmf-dist/tex/latex/l3packages/xfrac/xfrac.sty (/usr/sha
 re/texlive/texmf-dist/tex/latex/l3packages/xtemplate/xtemplate.sty
 Package: xtemplate 2023-10-10 L3 Experimental prototype document functions
 \l__xtemplate_tmp_dim=\dimen192
-\l__xtemplate_tmp_int=\count309
+\l__xtemplate_tmp_int=\count310
 \l__xtemplate_tmp_muskip=\muskip18
-\l__xtemplate_tmp_skip=\skip68
+\l__xtemplate_tmp_skip=\skip70
 )
 Package: xfrac 2023-10-10 L3 Experimental split-level fractions
-\l__xfrac_slash_box=\box65
-\l__xfrac_tmp_box=\box66
+\l__xfrac_slash_box=\box66
+\l__xfrac_tmp_box=\box67
 \l__xfrac_denominator_bot_sep_dim=\dimen193
 \l__xfrac_numerator_bot_sep_dim=\dimen194
 \l__xfrac_numerator_top_sep_dim=\dimen195
@@ -408,29 +416,29 @@ Package pdftexcmds Info: \pdfdraftmode not found.
 Package: cancel 2013/04/12 v2.2 Cancel math terms
 ) (/usr/share/texlive/texmf-dist/tex/latex/multirow/multirow.sty
 Package: multirow 2021/03/15 v2.8 Span multiple rows of a table
-\multirow@colwidth=\skip69
-\multirow@cntb=\count310
-\multirow@dima=\skip70
+\multirow@colwidth=\skip71
+\multirow@cntb=\count311
+\multirow@dima=\skip72
 \bigstrutjot=\dimen198
 ) (/usr/share/texlive/texmf-dist/tex/latex/wrapfig/wrapfig.sty
 \wrapoverhang=\dimen199
 \WF@size=\dimen256
-\c@WF@wrappedlines=\count311
-\WF@box=\box67
+\c@WF@wrappedlines=\count312
+\WF@box=\box68
 \WF@everypar=\toks36
 Package: wrapfig 2003/01/31  v 3.6
 ) (/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count312
+\c@float@type=\count313
 \float@exts=\toks37
-\float@box=\box68
+\float@box=\box69
 \@float@everytoks=\toks38
-\@floatcapt=\box69
+\@floatcapt=\box70
 ) (/usr/share/texlive/texmf-dist/tex/latex/colortbl/colortbl.sty
 Package: colortbl 2022/06/20 v1.0f Color table columns (DPC)
 \everycr=\toks39
-\minrowclearance=\skip71
-\rownum=\count313
+\minrowclearance=\skip73
+\rownum=\count314
 ) (/usr/share/texlive/texmf-dist/tex/latex/pdflscape/pdflscape.sty
 Package: pdflscape 2022-10-27 v0.13 Display of landscape pages in PDF
 (/usr/share/texlive/texmf-dist/tex/latex/pdflscape/pdflscape-nometadata.sty
@@ -446,17 +454,17 @@ Package: tabu 2019/01/11 v2.9 - flexible LaTeX tabulars (FC+tabu-fixed) + inter
 mediate FMi
 (/usr/share/texlive/texmf-dist/tex/latex/varwidth/varwidth.sty
 Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
-\@vwid@box=\box70
-\sift@deathcycles=\count314
+\@vwid@box=\box71
+\sift@deathcycles=\count315
 \@vwid@loff=\dimen257
 \@vwid@roff=\dimen258
 )
-\c@taburow=\count315
-\tabu@nbcols=\count316
-\tabu@cnt=\count317
-\tabu@Xcol=\count318
-\tabu@alloc=\count319
-\tabu@nested=\count320
+\c@taburow=\count316
+\tabu@nbcols=\count317
+\tabu@cnt=\count318
+\tabu@Xcol=\count319
+\tabu@alloc=\count320
+\tabu@nested=\count321
 \tabu@target=\dimen259
 \tabu@spreadtarget=\dimen260
 \tabu@naturalX=\dimen261
@@ -468,14 +476,14 @@ Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
 \tabustrutrule=\dimen267
 \tabu@thebody=\toks40
 \tabu@footnotes=\toks41
-\tabu@box=\box71
-\tabu@arstrutbox=\box72
-\tabu@hleads=\box73
-\tabu@vleads=\box74
-\tabu@cellskip=\skip72
+\tabu@box=\box72
+\tabu@arstrutbox=\box73
+\tabu@hleads=\box74
+\tabu@vleads=\box75
+\tabu@cellskip=\skip74
 ) (/usr/share/texlive/texmf-dist/tex/latex/threeparttable/threeparttable.sty
 Package: threeparttable 2003/06/13  v 3.0
-\@tempboxb=\box75
+\@tempboxb=\box76
 ) (/usr/share/texlive/texmf-dist/tex/latex/threeparttablex/threeparttablex.sty
 Package: threeparttablex 2013/07/23 v0.3 by daleif
 (/usr/share/texlive/texmf-dist/tex/latex/environ/environ.sty
@@ -483,36 +491,36 @@ Package: environ 2014/05/04 v0.3 A new way to define environments
 (/usr/share/texlive/texmf-dist/tex/latex/trimspaces/trimspaces.sty
 Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
 ))
-\TPTL@width=\skip73
+\TPTL@width=\skip75
 ) (/usr/share/texlive/texmf-dist/tex/generic/ulem/ulem.sty
-\UL@box=\box76
-\UL@hyphenbox=\box77
-\UL@skip=\skip74
+\UL@box=\box77
+\UL@hyphenbox=\box78
+\UL@skip=\skip76
 \UL@hook=\toks42
 \UL@height=\dimen268
-\UL@pe=\count321
+\UL@pe=\count322
 \UL@pixel=\dimen269
-\ULC@box=\box78
+\ULC@box=\box79
 Package: ulem 2019/11/18
 \ULdepth=\dimen270
 ) (/usr/share/texlive/texmf-dist/tex/latex/makecell/makecell.sty
 Package: makecell 2009/08/03 V0.1e Managing of Tab Column Heads and Cells
 \rotheadsize=\dimen271
-\c@nlinenum=\count322
+\c@nlinenum=\count323
 \TeXr@lab=\toks43
 ) (/usr/share/texlive/texmf-dist/tex/generic/babel/babel.sty
 Package: babel 2024/01/07 v24.1 The Babel package
-\babel@savecnt=\count323
+\babel@savecnt=\count324
 \U@D=\dimen272
 \l@unhyphenated=\language6
 (/usr/share/texlive/texmf-dist/tex/generic/babel/xebabel.def)
 \bbl@readstream=\read3
-\bbl@dirlevel=\count324
+\bbl@dirlevel=\count325
 (/usr/share/texlive/texmf-dist/tex/generic/babel-italian/italian.ldf
 Language: italian 2024/01/03 v.1.5.00 Italian support for the babel system
-\it@lettering=\count325
-\it@doublequoteactive=\count326
-\it@ISOcompliance=\count327
+\it@lettering=\count326
+\it@doublequoteactive=\count327
+\it@ISOcompliance=\count328
 )) (/usr/share/texlive/texmf-dist/tex/generic/babel/locale/it/babel-italian.tex
 Package babel Info: Importing font and identification data for italian
 (babel)             from babel-it.ini. Reported on input line 11.
@@ -539,21 +547,21 @@ nput line 69.
 LaTeX Font Info:    Trying to load font information for TU+fontawesomebrands on
  input line 70.
 (/usr/share/texlive/texmf-dist/tex/latex/fontawesome5/tufontawesomebrands.fd)))
-\aweboxleftmargin=\skip75
-\aweboxcontentwidth=\skip76
-\aweboxvskip=\skip77
-\aweboxsignraise=\skip78
-\aweboxrulewidth=\skip79
+\aweboxleftmargin=\skip77
+\aweboxcontentwidth=\skip78
+\aweboxvskip=\skip79
+\aweboxsignraise=\skip80
+\aweboxrulewidth=\skip81
 (/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
 Package: ifthen 2022/04/13 v1.1d Standard LaTeX ifthen package (DPC)
 )
-\aweboxlinewidthvar=\skip80
-\aweboxlinewidthref=\skip81
+\aweboxlinewidthvar=\skip82
+\aweboxlinewidthref=\skip83
 ) (/usr/share/texlive/texmf-dist/tex/latex/titling/titling.sty
 Package: titling 2009/09/04 v2.1d maketitle typesetting
-\thanksmarkwidth=\skip82
-\thanksmargin=\skip83
-\droptitle=\skip84
+\thanksmarkwidth=\skip84
+\thanksmargin=\skip85
+\droptitle=\skip86
 ) (/usr/share/texlive/texmf-dist/tex/latex/tcolorbox/tcolorbox.sty
 Package: tcolorbox 2024/01/10 version 6.2.0 text color boxes
 (/usr/share/texlive/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty (/usr/share/tex
@@ -563,7 +571,7 @@ st/tex/generic/pgf/utilities/pgfutil-common.tex
 \pgfutil@tempdima=\dimen273
 \pgfutil@tempdimb=\dimen274
 ) (/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def
-\pgfutil@abb=\box79
+\pgfutil@abb=\box80
 ) (/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.tex (/us
 r/share/texlive/texmf-dist/tex/generic/pgf/pgf.revision.tex)
 Package: pgfrcs 2023-01-15 v3.1.10 (3.1.10)
@@ -593,14 +601,14 @@ Package: pgfsys 2023-01-15 v3.1.10 (3.1.10)
 \pgf@yd=\dimen284
 \w@pgf@writea=\write4
 \r@pgf@reada=\read4
-\c@pgf@counta=\count328
-\c@pgf@countb=\count329
-\c@pgf@countc=\count330
-\c@pgf@countd=\count331
+\c@pgf@counta=\count329
+\c@pgf@countb=\count330
+\c@pgf@countc=\count331
+\c@pgf@countd=\count332
 \t@pgf@toka=\toks48
 \t@pgf@tokb=\toks49
 \t@pgf@tokc=\toks50
-\pgf@sys@id@count=\count332
+\pgf@sys@id@count=\count333
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
 File: pgf.cfg 2023-01-15 v3.1.10 (3.1.10)
 )
@@ -614,13 +622,13 @@ File: pgfsys-dvipdfmx.def 2023-01-15 v3.1.10 (3.1.10)
 f
 File: pgfsys-common-pdf.def 2023-01-15 v3.1.10 (3.1.10)
 )
-\pgfsys@objnum=\count333
+\pgfsys@objnum=\count334
 )))
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.
 tex
 File: pgfsyssoftpath.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfsyssoftpath@smallbuffer@items=\count334
-\pgfsyssoftpath@bigbuffer@items=\count335
+\pgfsyssoftpath@smallbuffer@items=\count335
+\pgfsyssoftpath@bigbuffer@items=\count336
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.
 tex
@@ -631,8 +639,8 @@ Package: pgfcore 2023-01-15 v3.1.10 (3.1.10)
 e/texlive/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex) (/usr/share/tex
 live/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
 \pgfmath@dimen=\dimen285
-\pgfmath@count=\count336
-\pgfmath@box=\box80
+\pgfmath@count=\count337
+\pgfmath@box=\box81
 \pgfmath@toks=\toks51
 \pgfmath@stack@operand=\toks52
 \pgfmath@stack@operation=\toks53
@@ -656,7 +664,7 @@ tex)
 thmetics.code.tex) (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathc
 alc.code.tex) (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfloat.
 code.tex
-\c@pgfmathroundto@lastzeros=\count337
+\c@pgfmathroundto@lastzeros=\count338
 )) (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfint.code.tex)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.te
 x
@@ -691,10 +699,10 @@ File: pgfcorepathusage.code.tex 2023-01-15 v3.1.10 (3.1.10)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.code.te
 x
 File: pgfcorescopes.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfpic=\box81
-\pgf@hbox=\box82
-\pgf@layerbox@main=\box83
-\pgf@picture@serial@count=\count338
+\pgfpic=\box82
+\pgf@hbox=\box83
+\pgf@layerbox@main=\box84
+\pgf@picture@serial@count=\count339
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.c
 ode.tex
@@ -727,8 +735,8 @@ File: pgfcorearrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
 File: pgfcoreshade.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \pgf@max=\dimen309
-\pgf@sys@shading@range@num=\count339
-\pgf@shadingcount=\count340
+\pgf@sys@shading@range@num=\count340
+\pgf@shadingcount=\count341
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex
 File: pgfcoreimage.code.tex 2023-01-15 v3.1.10 (3.1.10)
@@ -736,7 +744,7 @@ File: pgfcoreimage.code.tex 2023-01-15 v3.1.10 (3.1.10)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.code.
 tex
 File: pgfcoreexternal.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfexternal@startupbox=\box84
+\pgfexternal@startupbox=\box85
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorelayers.code.te
 x
@@ -754,7 +762,7 @@ File: pgfcorerdf.code.tex 2023-01-15 v3.1.10 (3.1.10)
 )))
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmoduleshapes.code.tex
 File: pgfmoduleshapes.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfnodeparttextbox=\box85
+\pgfnodeparttextbox=\box86
 ) (/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmoduleplot.code.tex
 File: pgfmoduleplot.code.tex 2023-01-15 v3.1.10 (3.1.10)
 )
@@ -773,19 +781,19 @@ Package: verbatim 2023-11-06 v1.5v LaTeX2e package for verbatim enhancements
 \verbatim@line=\toks55
 \verbatim@in@stream=\read5
 )
-\tcb@titlebox=\box86
-\tcb@upperbox=\box87
-\tcb@lowerbox=\box88
-\tcb@phantombox=\box89
-\c@tcbbreakpart=\count341
-\c@tcblayer=\count342
-\c@tcolorbox@number=\count343
-\l__tcobox_tmpa_box=\box90
+\tcb@titlebox=\box87
+\tcb@upperbox=\box88
+\tcb@lowerbox=\box89
+\tcb@phantombox=\box90
+\c@tcbbreakpart=\count342
+\c@tcblayer=\count343
+\c@tcolorbox@number=\count344
+\l__tcobox_tmpa_box=\box91
 \l__tcobox_tmpa_dim=\dimen312
-\tcb@temp=\box91
 \tcb@temp=\box92
 \tcb@temp=\box93
 \tcb@temp=\box94
+\tcb@temp=\box95
 (/usr/share/texlive/texmf-dist/tex/latex/tcolorbox/tcbskins.code.tex
 Library (tcolorbox): 'tcbskins.code.tex' version '6.2.0'
 (/usr/share/texlive/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty (/usr/share
@@ -807,7 +815,7 @@ Package: tikz 2023-01-15 v3.1.10 (3.1.10)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers
 .code.tex
 File: pgflibraryplothandlers.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@plot@mark@count=\count344
+\pgf@plot@mark@count=\count345
 \pgfplotmarksize=\dimen315
 )
 \tikz@lastx=\dimen316
@@ -818,22 +826,22 @@ File: pgflibraryplothandlers.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \tikz@lastmovetoy=\dimen321
 \tikzleveldistance=\dimen322
 \tikzsiblingdistance=\dimen323
-\tikz@figbox=\box95
-\tikz@figbox@bg=\box96
-\tikz@tempbox=\box97
-\tikz@tempbox@bg=\box98
-\tikztreelevel=\count345
-\tikznumberofchildren=\count346
-\tikznumberofcurrentchild=\count347
-\tikz@fig@count=\count348
+\tikz@figbox=\box96
+\tikz@figbox@bg=\box97
+\tikz@tempbox=\box98
+\tikz@tempbox@bg=\box99
+\tikztreelevel=\count346
+\tikznumberofchildren=\count347
+\tikznumberofcurrentchild=\count348
+\tikz@fig@count=\count349
 
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex
 File: pgfmodulematrix.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfmatrixcurrentrow=\count349
-\pgfmatrixcurrentcolumn=\count350
-\pgf@matrix@numberofcolumns=\count351
+\pgfmatrixcurrentrow=\count350
+\pgfmatrixcurrentcolumn=\count351
+\pgf@matrix@numberofcolumns=\count352
 )
-\tikz@expandcount=\count352
+\tikz@expandcount=\count353
 
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
 zlibrarytopaths.code.tex
@@ -846,7 +854,7 @@ Package: tikzfill-common 2023/08/08 v1.0.1 Auxiliary code for tikzfill
 (/usr/share/texlive/texmf-dist/tex/latex/tikzfill/tikzlibraryfill.image.code.te
 x
 File: tikzlibraryfill.image.code.tex 2023/08/08 v1.0.1 Image filling library
-\l__tikzfill_img_box=\box99
+\l__tikzfill_img_box=\box100
 )) (/usr/share/texlive/texmf-dist/tex/latex/tcolorbox/tcbskinsjigsaw.code.tex
 Library (tcolorbox): 'tcbskinsjigsaw.code.tex' version '6.2.0'
 ))) (/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
@@ -863,8 +871,8 @@ Package: caption3 2023/07/31 v2.4d caption3 kernel (AR)
 \caption@hangindent=\dimen331
 Package caption Info: Standard document class detected.
 )
-\c@caption@flags=\count353
-\c@continuedfloat=\count354
+\c@caption@flags=\count354
+\c@continuedfloat=\count355
 Package caption Info: float package is loaded.
 Package caption Info: longtable package is loaded.
 (/usr/share/texlive/texmf-dist/tex/latex/caption/ltcaption.sty
@@ -889,17 +897,17 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 ) (/usr/share/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count355
+\c@section@level=\count356
 )
 \@linkdim=\dimen332
-\Hy@linkcounter=\count356
-\Hy@pagecounter=\count357
+\Hy@linkcounter=\count357
+\Hy@pagecounter=\count358
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/pd1enc.def
 File: pd1enc.def 2024-01-20 v7.01h Hyperref: PDFDocEncoding definition (HO)
 ) (/usr/share/texlive/texmf-dist/tex/generic/intcalc/intcalc.sty
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 )
-\Hy@SavedSpaceFactor=\count358
+\Hy@SavedSpaceFactor=\count359
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/puenc.def
 File: puenc.def 2024-01-20 v7.01h Hyperref: PDF Unicode definition (HO)
 )
@@ -911,7 +919,7 @@ Package hyperref Info: Plain pages OFF on input line 4194.
 Package hyperref Info: Backreferencing OFF on input line 4199.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4446.
-\c@Hy@tempcnt=\count359
+\c@Hy@tempcnt=\count360
 (/usr/share/texlive/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip21
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
@@ -924,7 +932,7 @@ Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
 )
 ))
-\Fld@menulength=\count360
+\Fld@menulength=\count361
 \Field@Width=\dimen334
 \Fld@charsize=\dimen335
 Package hyperref Info: Hyper figures OFF on input line 6063.
@@ -938,9 +946,9 @@ Package hyperref Info: PDF/A mode OFF on input line 6093.
 Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
 package with kernel methods
 )
-\Hy@abspage=\count361
-\c@Item=\count362
-\c@Hfootnote=\count363
+\Hy@abspage=\count362
+\c@Item=\count363
+\c@Hfootnote=\count364
 )
 Package hyperref Info: Driver (autodetected): hxetex.
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/hxetex.def
@@ -949,11 +957,11 @@ File: hxetex.def 2024-01-20 v7.01h Hyperref driver for XeTeX
 Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO
 )
 )
-\pdfm@box=\box100
-\c@Hy@AnnotLevel=\count364
-\HyField@AnnotCount=\count365
-\Fld@listcount=\count366
-\c@bookmark@seq@number=\count367
+\pdfm@box=\box101
+\c@Hy@AnnotLevel=\count365
+\HyField@AnnotCount=\count366
+\Fld@listcount=\count367
+\c@bookmark@seq@number=\count368
 (/usr/share/texlive/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
 Package: rerunfilecheck 2022-07-10 v1.10 Rerun checks for auxiliary files (HO)
 (/usr/share/texlive/texmf-dist/tex/latex/base/atveryend-ltx.sty
@@ -966,13 +974,13 @@ Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 85.
 )
-\Hy@SectionHShift=\skip85
+\Hy@SectionHShift=\skip87
 )
-\c@theorem=\count368
-\c@proposition=\count369
-\c@definition=\count370
-\c@example=\count371
-Package hyperref Info: Option `colorlinks' set `true' on input line 184.
+\c@theorem=\count369
+\c@proposition=\count370
+\c@definition=\count371
+\c@example=\count372
+Package hyperref Info: Option `colorlinks' set `true' on input line 187.
 (/usr/share/texlive/texmf-dist/tex/latex/tcolorbox/tcbbreakable.code.tex
 Library (tcolorbox): 'tcbbreakable.code.tex' version '6.2.0'
 (/usr/share/texlive/texmf-dist/tex/latex/pdfcol/pdfcol.sty
@@ -980,15 +988,9 @@ Package: pdfcol 2022-09-21 v1.7 Handle new color stacks for pdfTeX (HO)
 Package pdfcol Info: Interface disabled because of missing PDF mode of pdfTeX.
 )
 Package pdfcol Info: pdfTeX's color stacks are not available.
-\tcb@testbox=\box101
-\tcb@totalupperbox=\box102
-\tcb@totallowerbox=\box103
-) (/usr/share/texlive/texmf-dist/tex/latex/natbib/natbib.sty
-Package: natbib 2010/09/13 8.31b (PWD, AO)
-\bibhang=\skip86
-\bibsep=\skip87
-LaTeX Info: Redefining \cite on input line 694.
-\c@NAT@ctr=\count372
+\tcb@testbox=\box102
+\tcb@totalupperbox=\box103
+\tcb@totallowerbox=\box104
 ) (/usr/share/texlive/texmf-dist/tex/latex/bookmark/bookmark.sty
 Package: bookmark 2023-12-10 v1.31 PDF bookmarks (HO)
 (/usr/share/texlive/texmf-dist/tex/latex/bookmark/bkm-dvipdfm.def
@@ -999,40 +1001,74 @@ Package: xurl 2022/01/09 v 0.10 modify URL breaks
 ) (./Appunti_di_Statistica_2025.aux)
 \openout1 = `Appunti_di_Statistica_2025.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 529.
-LaTeX Font Info:    ... okay on input line 529.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 529.
-LaTeX Font Info:    ... okay on input line 529.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 529.
-LaTeX Font Info:    ... okay on input line 529.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 529.
-LaTeX Font Info:    ... okay on input line 529.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 529.
-LaTeX Font Info:    ... okay on input line 529.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 529.
-LaTeX Font Info:    ... okay on input line 529.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 529.
-LaTeX Font Info:    ... okay on input line 529.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 529.
-LaTeX Font Info:    ... okay on input line 529.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 529.
-LaTeX Font Info:    ... okay on input line 529.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 529.
-LaTeX Font Info:    ... okay on input line 529.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 527.
+LaTeX Font Info:    ... okay on input line 527.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 527.
+LaTeX Font Info:    ... okay on input line 527.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 527.
+LaTeX Font Info:    ... okay on input line 527.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 527.
+LaTeX Font Info:    ... okay on input line 527.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 527.
+LaTeX Font Info:    ... okay on input line 527.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 527.
+LaTeX Font Info:    ... okay on input line 527.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 527.
+LaTeX Font Info:    ... okay on input line 527.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 527.
+LaTeX Font Info:    ... okay on input line 527.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 527.
+LaTeX Font Info:    ... okay on input line 527.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 527.
+LaTeX Font Info:    ... okay on input line 527.
+*geometry* driver: auto-detecting
+*geometry* detected driver: xetex
+*geometry* verbose mode - [ preamble ] result:
+* driver: xetex
+* paper: <default>
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: twoside showcrop 
+* h-part:(L,W,R)=(71.13188pt, 472.03123pt, 71.13188pt)
+* v-part:(T,H,B)=(99.58464pt, 595.8007pt, 99.58464pt)
+* \paperwidth=614.295pt
+* \paperheight=794.96999pt
+* \textwidth=472.03123pt
+* \textheight=595.8007pt
+* \oddsidemargin=-1.1381pt
+* \evensidemargin=-1.1381pt
+* \topmargin=-4.55914pt
+* \headheight=12.0pt
+* \headsep=19.8738pt
+* \topskip=11.0pt
+* \footskip=27.46295pt
+* \marginparwidth=116.0pt
+* \marginparsep=7.0pt
+* \columnsep=10.0pt
+* \skip\footins=10.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidetrue
+* \@mparswitchtrue
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
-(Font)                  OT1/lmr/m/n --> TU/lmr/m/n on input line 529.
+(Font)                  OT1/lmr/m/n --> TU/lmr/m/n on input line 527.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/lmr/m/it --> TU/lmr/m/it on input line 529.
+(Font)                  OT1/lmr/m/it --> TU/lmr/m/it on input line 527.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/lmr/bx/n --> TU/lmr/bx/n on input line 529.
+(Font)                  OT1/lmr/bx/n --> TU/lmr/bx/n on input line 527.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/lmss/m/n --> TU/lmss/m/n on input line 529.
+(Font)                  OT1/lmss/m/n --> TU/lmss/m/n on input line 527.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/lmss/bx/n --> TU/lmss/bx/n on input line 529.
+(Font)                  OT1/lmss/bx/n --> TU/lmss/bx/n on input line 527.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/lmtt/m/n --> TU/lmtt/m/n on input line 529.
+(Font)                  OT1/lmtt/m/n --> TU/lmtt/m/n on input line 527.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/lmtt/m/n --> TU/lmtt/bx/n on input line 529.
+(Font)                  OT1/lmtt/m/n --> TU/lmtt/bx/n on input line 527.
 
 Package fontspec Info: latinmodern-math scale = 0.9999967668407183.
 
@@ -1061,7 +1097,7 @@ pt=math;language=dflt;"
 (fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
 
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(0)/m/n' will be
-(Font)              scaled to size 10.95pt on input line 529.
+(Font)              scaled to size 10.95pt on input line 527.
 
 Package fontspec Info: latinmodern-math scale = 0.9999967668407183.
 
@@ -1100,18 +1136,18 @@ pt=math;language=dflt;"
 (fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
 
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 10.95pt on input line 529.
+(Font)              scaled to size 10.95pt on input line 527.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `normal' on input line 529.
+(Font)              `operators' in the math version `normal' on input line 527.
 
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
 (Font)                  OT1/lmr/m/n --> TU/latinmodern-math.otf(1)/m/n on input
- line 529.
+ line 527.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `bold' on input line 529.
+(Font)              `operators' in the math version `bold' on input line 527.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
 (Font)                  OT1/lmr/bx/n --> TU/latinmodern-math.otf(1)/b/n on inpu
-t line 529.
+t line 527.
 
 Package fontspec Info: latinmodern-math scale = 0.9999967668407183.
 
@@ -1198,15 +1234,15 @@ t=math;language=dflt;"
 (fontspec)             =0pt\relax \fontdimen 21\font =0pt\relax 
 
 LaTeX Font Info:    Encoding `OMS' has changed to `TU' for symbol font
-(Font)              `symbols' in the math version `normal' on input line 529.
+(Font)              `symbols' in the math version `normal' on input line 527.
 LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
 (Font)                  OMS/lmsy/m/n --> TU/latinmodern-math.otf(2)/m/n on inpu
-t line 529.
+t line 527.
 LaTeX Font Info:    Encoding `OMS' has changed to `TU' for symbol font
-(Font)              `symbols' in the math version `bold' on input line 529.
+(Font)              `symbols' in the math version `bold' on input line 527.
 LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
 (Font)                  OMS/lmsy/b/n --> TU/latinmodern-math.otf(2)/b/n on inpu
-t line 529.
+t line 527.
 
 Package fontspec Info: latinmodern-math scale = 0.9999967668407183.
 
@@ -1276,22 +1312,22 @@ pt=math;language=dflt;"
 
 LaTeX Font Info:    Encoding `OMX' has changed to `TU' for symbol font
 (Font)              `largesymbols' in the math version `normal' on input line 5
-29.
+27.
 LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
 (Font)                  OMX/lmex/m/n --> TU/latinmodern-math.otf(3)/m/n on inpu
-t line 529.
+t line 527.
 LaTeX Font Info:    Encoding `OMX' has changed to `TU' for symbol font
-(Font)              `largesymbols' in the math version `bold' on input line 529
+(Font)              `largesymbols' in the math version `bold' on input line 527
 .
 LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
 (Font)                  OMX/lmex/m/n --> TU/latinmodern-math.otf(3)/b/n on inpu
-t line 529.
-LaTeX Info: Redefining \microtypecontext on input line 529.
-Package microtype Info: Applying patch `item' on input line 529.
-Package microtype Info: Applying patch `toc' on input line 529.
-Package microtype Info: Applying patch `eqnum' on input line 529.
-Package microtype Info: Applying patch `footnote' on input line 529.
-Package microtype Info: Applying patch `verbatim' on input line 529.
+t line 527.
+LaTeX Info: Redefining \microtypecontext on input line 527.
+Package microtype Info: Applying patch `item' on input line 527.
+Package microtype Info: Applying patch `toc' on input line 527.
+Package microtype Info: Applying patch `eqnum' on input line 527.
+Package microtype Info: Applying patch `footnote' on input line 527.
+Package microtype Info: Applying patch `verbatim' on input line 527.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using protrusion set `basicmath'.
 Package microtype Info: No adjustment of tracking.
@@ -1301,44 +1337,10 @@ Package microtype Info: No adjustment of kerning.
 File: mt-LatinModernRoman.cfg 2021/02/21 v1.1 microtype config. file: Latin Mod
 ern Roman (RS)
 )
-*geometry* driver: auto-detecting
-*geometry* detected driver: xetex
-*geometry* verbose mode - [ preamble ] result:
-* driver: xetex
-* paper: <default>
-* layout: <same size as paper>
-* layoutoffset:(h,v)=(0.0pt,0.0pt)
-* modes: twoside showcrop 
-* h-part:(L,W,R)=(71.13188pt, 472.03123pt, 71.13188pt)
-* v-part:(T,H,B)=(99.58464pt, 595.8007pt, 99.58464pt)
-* \paperwidth=614.295pt
-* \paperheight=794.96999pt
-* \textwidth=472.03123pt
-* \textheight=595.8007pt
-* \oddsidemargin=-1.1381pt
-* \evensidemargin=-1.1381pt
-* \topmargin=-4.55914pt
-* \headheight=12.0pt
-* \headsep=19.8738pt
-* \topskip=11.0pt
-* \footskip=27.46295pt
-* \marginparwidth=116.0pt
-* \marginparsep=7.0pt
-* \columnsep=10.0pt
-* \skip\footins=10.0pt plus 4.0pt minus 2.0pt
-* \hoffset=0.0pt
-* \voffset=0.0pt
-* \mag=1000
-* \@twocolumnfalse
-* \@twosidetrue
-* \@mparswitchtrue
-* \@reversemarginfalse
-* (1in=72.27pt=25.4mm, 1cm=28.453pt)
-
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
-Package hyperref Info: Link coloring OFF on input line 529.
+Package hyperref Info: Link coloring OFF on input line 527.
 File: img/logo.png Graphic file (type bmp)
 <img/logo.png>
 Package microtype Info: Loading generic protrusion settings for font family
@@ -1346,24 +1348,24 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 
-Overfull \hbox (142.26376pt too wide) in paragraph at lines 531--531
+Overfull \hbox (142.26376pt too wide) in paragraph at lines 529--529
 [] 
  []
 
 
-Overfull \hbox (142.26376pt too wide) in paragraph at lines 531--531
+Overfull \hbox (142.26376pt too wide) in paragraph at lines 529--529
 [] 
  []
 
 
-Overfull \hbox (142.26376pt too wide) in paragraph at lines 531--531
+Overfull \hbox (142.26376pt too wide) in paragraph at lines 529--529
 [] 
  []
 
 File: img/titolo2.png Graphic file (type bmp)
 <img/titolo2.png>
 
-Overfull \hbox (142.26376pt too wide) in paragraph at lines 531--531
+Overfull \hbox (142.26376pt too wide) in paragraph at lines 529--529
 [] 
  []
 
@@ -1415,10 +1417,7 @@ File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <5.475> not available
 (Font)              size <5> substituted on input line 7.
 
-[3] [4] [5]
-Underfull \vbox (badness 1484) has occurred while \output is active []
-
-[6] [7] [8] [9] [10] [11] [12])
+[3] [4] [5] [6] [7] [8] [9] [10] [11] [12])
 \tf@toc=\write5
 \openout5 = `Appunti_di_Statistica_2025.toc'.
 
@@ -1430,61 +1429,93 @@ Underfull \vbox (badness 1484) has occurred while \output is active []
 
 ] [19] [20]
 Capitolo 1.
+Missing character: There is no ₂ (U+2082) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no ₂ (U+2082) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no φ (U+03C6) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no α (U+03B1) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no ί (U+03AF) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no ν (U+03BD) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no ε (U+03B5) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no σ (U+03C3) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no θ (U+03B8) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no α (U+03B1) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no ι (U+03B9) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no ˈ (U+02C8) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no ʰ (U+02B0) in font [lmroman10-regular]:mapping=t
+ex-text;!
 [21
 
-] [22] [23] [24]
-Underfull \hbox (badness 1418) in paragraph at lines 883--884
+] [22] [23] [24] [25] [26] [27] [28] [29] [30] [31]
+Underfull \vbox (badness 2744) has occurred while \output is active []
+
+[32] [33] [34] [35]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[36] [37]
+Underfull \hbox (badness 1418) in paragraph at lines 970--971
 []\TU/lmr/m/it/10.95 Qualitative sconnesse\TU/lmr/m/n/10.95 : le caratteristich
 e che la VS può assumere hanno un
  []
 
-[25
-
-] [26
+[38
 
 ]
 Capitolo 2.
-[27]
+[39
+
+]
 Underfull \vbox (badness 2073) has occurred while \output is active []
 
-[28] [29] [30] [31] [32] [33]
+[40] [41] [42] [43] [44] [45]
 File: Appunti_di_Statistica_2025_files/figure-latex/tranf-lin-gr1-1.pdf Graphic
  file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/tranf-lin-gr1-1.pdf>
 File: Appunti_di_Statistica_2025_files/figure-latex/tranf-lin-gr2-1.pdf Graphic
  file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/tranf-lin-gr2-1.pdf>
-[34]
+[46]
 File: Appunti_di_Statistica_2025_files/figure-latex/tranf-lin-gr3-1.pdf Graphic
  file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/tranf-lin-gr3-1.pdf>
 File: Appunti_di_Statistica_2025_files/figure-latex/tranf-lin-gr4-1.pdf Graphic
  file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/tranf-lin-gr4-1.pdf>
-[35] [36] [37] [38]
+[47] [48] [49] [50]
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 8.0pt on input line 1670.
+(Font)              scaled to size 8.0pt on input line 1757.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 6.0pt on input line 1670.
+(Font)              scaled to size 6.0pt on input line 1757.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 5.0pt on input line 1670.
+(Font)              scaled to size 5.0pt on input line 1757.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 8.00073pt on input line 1670.
+(Font)              scaled to size 8.00073pt on input line 1757.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 6.00055pt on input line 1670.
+(Font)              scaled to size 6.00055pt on input line 1757.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 5.00046pt on input line 1670.
+(Font)              scaled to size 5.00046pt on input line 1757.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 7.99915pt on input line 1670.
+(Font)              scaled to size 7.99915pt on input line 1757.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 5.99936pt on input line 1670.
+(Font)              scaled to size 5.99936pt on input line 1757.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 4.99947pt on input line 1670.
-[39] [40]
+(Font)              scaled to size 4.99947pt on input line 1757.
+[51] [52]
 File: Appunti_di_Statistica_2025_files/figure-latex/unnamed-chunk-7-1.pdf Graph
 ic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/unnamed-chunk-7-1.pdf>
-[41]
+[53]
 File: Appunti_di_Statistica_2025_files/figure-latex/unnamed-chunk-8-1.pdf Graph
 ic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/unnamed-chunk-8-1.pdf>
@@ -1494,32 +1525,48 @@ ndard glyph set (RS)
 )
 File: img/grafico_torta_3d_margin.png Graphic file (type bmp)
 <img/grafico_torta_3d_margin.png>
-[42]
-LaTeX Font Info:    Calculating math sizes for size <11> on input line 1930.
+
+Overfull \hbox (881.68498pt too wide) in paragraph at lines 1986--1987
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1986--1987
+
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[54]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[55]
+LaTeX Font Info:    Calculating math sizes for size <11> on input line 2017.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 11.0pt on input line 1930.
+(Font)              scaled to size 11.0pt on input line 2017.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 7.69997pt on input line 1930.
+(Font)              scaled to size 7.69997pt on input line 2017.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 5.5pt on input line 1930.
+(Font)              scaled to size 5.5pt on input line 2017.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 11.001pt on input line 1930.
+(Font)              scaled to size 11.001pt on input line 2017.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 7.70067pt on input line 1930.
+(Font)              scaled to size 7.70067pt on input line 2017.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 5.5005pt on input line 1930.
+(Font)              scaled to size 5.5005pt on input line 2017.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 10.99883pt on input line 1930.
+(Font)              scaled to size 10.99883pt on input line 2017.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 7.69914pt on input line 1930.
+(Font)              scaled to size 7.69914pt on input line 2017.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 5.4994pt on input line 1930.
+(Font)              scaled to size 5.4994pt on input line 2017.
 
 LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <5.5> not available
-(Font)              size <5> substituted on input line 1930.
+(Font)              size <5> substituted on input line 2017.
 
 
-Overfull \hbox (13.46944pt too wide) in paragraph at lines 1930--1940
+Overfull \hbox (13.46944pt too wide) in paragraph at lines 2017--2027
  [][] 
  []
 
@@ -1527,139 +1574,185 @@ File: Appunti_di_Statistica_2025_files/figure-latex/hist-1.pdf Graphic file (ty
 pe pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/hist-1.pdf>
 
-Underfull \hbox (badness 10000) in paragraph at lines 1949--1950
+Underfull \hbox (badness 10000) in paragraph at lines 2036--2037
 [][]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1949--1950
+Underfull \hbox (badness 10000) in paragraph at lines 2036--2037
 
  []
 
-[43]
+[56]
 File: Appunti_di_Statistica_2025_files/figure-latex/FdR-1.pdf Graphic file (typ
 e pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/FdR-1.pdf>
-[44]
+[57]
 File: Appunti_di_Statistica_2025_files/figure-latex/plot FdR-1.pdf Graphic file
  (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/plot FdR-1.pdf>
-[45] [46]
+[58] [59] [60
+
+]
 Capitolo 3.
 File: Appunti_di_Statistica_2025_files/figure-latex/03-media-varianza-2-1.pdf G
 raphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/03-media-varianza-2-1.pdf>
-[47
-
-]
+[61]
 File: Appunti_di_Statistica_2025_files/figure-latex/medh-1.pdf Graphic file (ty
 pe pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/medh-1.pdf>
-[48]
+[62]
 File: Appunti_di_Statistica_2025_files/figure-latex/medh2-1.pdf Graphic file (t
 ype pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/medh2-1.pdf>
-[49] [50] [51] [52] [53] [54]
+[63] [64] [65] [66] [67] [68]
 
-LaTeX Font Warning: Command \tiny invalid in math mode on input line 2509.
-
-
-LaTeX Font Warning: Command \tiny invalid in math mode on input line 2510.
+LaTeX Font Warning: Command \tiny invalid in math mode on input line 2596.
 
 
-LaTeX Font Warning: Command \small invalid in math mode on input line 2511.
+LaTeX Font Warning: Command \tiny invalid in math mode on input line 2597.
 
 
-Overfull \hbox (293.6083pt too wide) in alignment at lines 2507--2514
+LaTeX Font Warning: Command \small invalid in math mode on input line 2598.
+
+
+Overfull \hbox (293.6083pt too wide) in alignment at lines 2594--2601
  [][][] []
  []
 
-[55] [56] [57]
+[69] [70] [71]
 
 Package tcolorbox Warning: Using nobreak failed. Try to enlarge `lines before b
-reak' or set page breaks manually on input line 2642.
+reak' or set page breaks manually on input line 2729.
 
-[58]
+[72]
 File: Appunti_di_Statistica_2025_files/figure-latex/sd-1.pdf Graphic file (type
  pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/sd-1.pdf>
-[59] [60] [61] [62
+[73] [74] [75] [76
 
 ]
 Capitolo 4.
-[63] [64]
+[77] [78]
 File: Appunti_di_Statistica_2025_files/figure-latex/04-mediana-percentili-1-1.p
 df Graphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/04-mediana-percentili-1-1.pd
 f>
+
+Overfull \hbox (28.17532pt too wide) in paragraph at lines 3105--3105
+ [] 
+ []
+
 File: Appunti_di_Statistica_2025_files/figure-latex/04-mediana-percentili-1-2.p
 df Graphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/04-mediana-percentili-1-2.pd
 f>
-[65]
-Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[66] [67]
+Overfull \hbox (28.17532pt too wide) in paragraph at lines 3107--3107
+ [] 
+ []
+
+[79] [80] [81]
 File: Appunti_di_Statistica_2025_files/figure-latex/04-mediana-percentili-9-1.p
 df Graphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/04-mediana-percentili-9-1.pd
 f>
+
+Overfull \hbox (28.17532pt too wide) in paragraph at lines 3259--3259
+ [] 
+ []
+
 File: Appunti_di_Statistica_2025_files/figure-latex/04-mediana-percentili-9-2.p
 df Graphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/04-mediana-percentili-9-2.pd
 f>
-[68] [69]
+
+Overfull \hbox (28.17532pt too wide) in paragraph at lines 3261--3261
+ [] 
+ []
+
+[82] [83]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[84]
 File: Appunti_di_Statistica_2025_files/figure-latex/mmm-1.pdf Graphic file (typ
 e pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/mmm-1.pdf>
 
-Underfull \vbox (badness 6380) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[70]
+[85]
 File: Appunti_di_Statistica_2025_files/figure-latex/04a-Istogramma-2-1.pdf Grap
 hic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/04a-Istogramma-2-1.pdf>
-[71]
 File: Appunti_di_Statistica_2025_files/figure-latex/04a-Istogramma-3-1.pdf Grap
 hic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/04a-Istogramma-3-1.pdf>
+
+Overfull \hbox (28.17532pt too wide) in paragraph at lines 3466--3466
+ [] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[86]
 File: Appunti_di_Statistica_2025_files/figure-latex/04a-Istogramma-4-1.pdf Grap
 hic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/04a-Istogramma-4-1.pdf>
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Overfull \hbox (28.17532pt too wide) in paragraph at lines 3475--3475
+ [] 
+ []
 
-[72] [73]
+
+Underfull \vbox (badness 5316) has occurred while \output is active []
+
+[87] [88]
 File: Appunti_di_Statistica_2025_files/figure-latex/decili-g1-1.pdf Graphic fil
 e (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/decili-g1-1.pdf>
 File: Appunti_di_Statistica_2025_files/figure-latex/decili-g10-1.pdf Graphic fi
 le (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/decili-g10-1.pdf>
-[74] [75]
+[89]
 File: Appunti_di_Statistica_2025_files/figure-latex/decili-g2-1.pdf Graphic fil
 e (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/decili-g2-1.pdf>
+[90]
 File: Appunti_di_Statistica_2025_files/figure-latex/decili-g3-1.pdf Graphic fil
 e (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/decili-g3-1.pdf>
-[76]
 File: Appunti_di_Statistica_2025_files/figure-latex/decili-g4-1.pdf Graphic fil
 e (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/decili-g4-1.pdf>
-[77] [78
 
-] [79] [80]
+Underfull \vbox (badness 1424) has occurred while \output is active []
+
+[91] [92] [93
+
+] [94]
 Capitolo 5.
 File: img/unione.png Graphic file (type bmp)
 <img/unione.png>
-[81
+
+Overfull \hbox (2539.67093pt too wide) in paragraph at lines 3765--3765
+ [] 
+ []
+
+[95
 
 ]
 File: img/intersezione.png Graphic file (type bmp)
 <img/intersezione.png>
 
-Underfull \hbox (badness 2573) in paragraph at lines 3716--3717
+Overfull \hbox (2539.67093pt too wide) in paragraph at lines 3788--3788
+ [] 
+ []
+
+
+Underfull \hbox (badness 2573) in paragraph at lines 3803--3804
 [][][]\TU/lmss/bx/n/10.95 Definizione 5.1.3 \TU/lmss/m/n/10.95 (Evento Compleme
 ntare)\TU/lmss/bx/n/10.95 . [][]\TU/lmr/m/n/10.95 Sia $[]$ un evento, si defini
 sce $[]$ l’evento
@@ -1667,51 +1760,78 @@ sce $[]$ l’evento
 
 File: img/complementare.png Graphic file (type bmp)
 <img/complementare.png>
-[82]
-Underfull \vbox (badness 1199) has occurred while \output is active []
 
-[83] [84] [85] [86]
-Underfull \hbox (badness 1038) in paragraph at lines 3965--3966
+Overfull \hbox (2539.67093pt too wide) in paragraph at lines 3808--3808
+ [] 
+ []
+
+[96] [97] [98] [99] [100]
+Underfull \hbox (badness 1038) in paragraph at lines 4052--4053
 []$ \TU/lmr/m/n/10.95 è dato da tutte le possibili combinazioni dei risultati d
 i due lanci di moneta: $[] []
  []
 
-[87]
+[101]
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 12.0pt on input line 4038.
+(Font)              scaled to size 12.0pt on input line 4125.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 12.0011pt on input line 4038.
+(Font)              scaled to size 12.0011pt on input line 4125.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 11.99872pt on input line 4038.
-[88]
+(Font)              scaled to size 11.99872pt on input line 4125.
+[102]
 File: img/demorgan.png Graphic file (type bmp)
 <img/demorgan.png>
-[89]
+
+Overfull \hbox (2539.67093pt too wide) in paragraph at lines 4210--4211
+ [][] 
+ []
+
+[103]
 File: img/disgiunto.png Graphic file (type bmp)
 <img/disgiunto.png>
-[90] [91]
+
+Overfull \hbox (2539.67093pt too wide) in paragraph at lines 4229--4230
+ [][] 
+ []
+
+[104] [105]
 File: img/bipartizione.png Graphic file (type bmp)
 <img/bipartizione.png>
 
-Overfull \hbox (20.34663pt too wide) in paragraph at lines 4280--4280
+Overfull \hbox (2539.67093pt too wide) in paragraph at lines 4367--4367
  [] 
  []
 
-[92]
+[106]
 File: img/npart.png Graphic file (type bmp)
 <img/npart.png>
+
+Overfull \hbox (2539.67093pt too wide) in paragraph at lines 4387--4387
+ [] 
+ []
+
 File: img/2x2.png Graphic file (type bmp)
 <img/2x2.png>
-[93]
+
+Overfull \hbox (2539.67093pt too wide) in paragraph at lines 4405--4405
+ [] 
+ []
+
+[107]
 File: img/nxm.png Graphic file (type bmp)
 <img/nxm.png>
-[94] [95] [96] [97] [98] [99
 
-] [100
+Overfull \hbox (2539.67093pt too wide) in paragraph at lines 4470--4470
+ [] 
+ []
+
+[108] [109] [110] [111] [112] [113
+
+] [114
 
 ]
 Capitolo 6.
-[101] [102] [103] [104]
+[115] [116] [117] [118]
 File: Appunti_di_Statistica_2025_files/figure-latex/06-Variabili-Casuali-1-1.pd
 f Graphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/06-Variabili-Casuali-1-1.pdf
@@ -1720,32 +1840,32 @@ File: Appunti_di_Statistica_2025_files/figure-latex/06-Variabili-Casuali-2-1.pd
 f Graphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/06-Variabili-Casuali-2-1.pdf
 >
-[105]
-LaTeX Font Info:    Calculating math sizes for size <7.63434> on input line 485
-0.
+[119]
+LaTeX Font Info:    Calculating math sizes for size <7.63434> on input line 493
+7.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 7.63434pt on input line 4850.
+(Font)              scaled to size 7.63434pt on input line 4937.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 5.34401pt on input line 4850.
+(Font)              scaled to size 5.34401pt on input line 4937.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 3.81717pt on input line 4850.
+(Font)              scaled to size 3.81717pt on input line 4937.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 7.63503pt on input line 4850.
+(Font)              scaled to size 7.63503pt on input line 4937.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 5.3445pt on input line 4850.
+(Font)              scaled to size 5.3445pt on input line 4937.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 3.8175pt on input line 4850.
+(Font)              scaled to size 3.8175pt on input line 4937.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 7.63351pt on input line 4850.
+(Font)              scaled to size 7.63351pt on input line 4937.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 5.34343pt on input line 4850.
+(Font)              scaled to size 5.34343pt on input line 4937.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 3.81676pt on input line 4850.
+(Font)              scaled to size 3.81676pt on input line 4937.
 
 LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <3.81717> not available
-(Font)              size <5> substituted on input line 4850.
+(Font)              size <5> substituted on input line 4937.
 
-[106] [107] [108] [109]
+[120] [121] [122] [123]
 File: Appunti_di_Statistica_2025_files/figure-latex/06-Variabili-Casuali-8-1.pd
 f Graphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/06-Variabili-Casuali-8-1.pdf
@@ -1753,7 +1873,7 @@ f Graphic file (type pdf)
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[110
+[124
 
 ]
 File: Appunti_di_Statistica_2025_files/figure-latex/06-Variabili-Casuali-9-1.pd
@@ -1764,7 +1884,7 @@ File: Appunti_di_Statistica_2025_files/figure-latex/06-Variabili-Casuali-10-1.p
 df Graphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/06-Variabili-Casuali-10-1.pd
 f>
-[111]
+[125]
 File: Appunti_di_Statistica_2025_files/figure-latex/06-Variabili-Casuali-11-1.p
 df Graphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/06-Variabili-Casuali-11-1.pd
@@ -1780,7 +1900,7 @@ f>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[112]
+[126]
 File: Appunti_di_Statistica_2025_files/figure-latex/06-Variabili-Casuali-14-1.p
 df Graphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/06-Variabili-Casuali-14-1.pd
@@ -1792,28 +1912,28 @@ f>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[113]
+[127]
 File: Appunti_di_Statistica_2025_files/figure-latex/06-unif1-1.pdf Graphic file
  (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/06-unif1-1.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[114]
+[128]
 File: Appunti_di_Statistica_2025_files/figure-latex/06-unif2-1.pdf Graphic file
  (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/06-unif2-1.pdf>
 File: Appunti_di_Statistica_2025_files/figure-latex/06-unif3-1.pdf Graphic file
  (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/06-unif3-1.pdf>
-[115] [116]
-Overfull \hbox (19.40828pt too wide) detected at line 5309
+[129] [130]
+Overfull \hbox (19.40828pt too wide) detected at line 5396
 [][][] [] [][] [] [][][] [] [][] [] [] [] [][] [][][] [] [][] [] [][][] [] [][]
  [] [] [] [][] [] [][][] [] [][][] [] [][][] [] [][] [] [] [] [] [] []
  []
 
-[117]
-Overfull \hbox (19.40828pt too wide) detected at line 5340
+[131]
+Overfull \hbox (19.40828pt too wide) detected at line 5427
 [][][] [] [][] [] [][][] [] [][] [] [] [] [][] [][][] [] [][] [] [][][] [] [][]
  [] [] [] [][] [] [][][] [] [][][] [] [][][] [] [][] [] [] [] [] [] []
  []
@@ -1821,11 +1941,11 @@ Overfull \hbox (19.40828pt too wide) detected at line 5340
 File: Appunti_di_Statistica_2025_files/figure-latex/06-beta-1.pdf Graphic file 
 (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/06-beta-1.pdf>
-[118] [119] [120
+[132] [133] [134
 
 ]
 Capitolo 7.
-[121] [122] [123] [124] [125]
+[135] [136] [137] [138] [139]
 File: Appunti_di_Statistica_2025_files/figure-latex/07a-Binomiale-1-1.pdf Graph
 ic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/07a-Binomiale-1-1.pdf>
@@ -1835,87 +1955,116 @@ ic file (type pdf)
 File: Appunti_di_Statistica_2025_files/figure-latex/07a-Binomiale-3-1.pdf Graph
 ic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/07a-Binomiale-3-1.pdf>
-[126]
+[140]
 File: Appunti_di_Statistica_2025_files/figure-latex/07a-Binomiale-4-1.pdf Graph
 ic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/07a-Binomiale-4-1.pdf>
-[127] [128]
-Underfull \hbox (badness 1490) in paragraph at lines 5701--5703
+[141] [142]
+Underfull \hbox (badness 1490) in paragraph at lines 5788--5790
 []\TU/lmr/bx/it/10.95 Proprietà riproduttiva: \TU/lmr/m/it/10.95 Siano $[][][] 
 [][][] [][][][] [][]$ $[]$ VC indipendenti, ognuna $[] []
  []
 
-[129]
-Underfull \hbox (badness 2951) in paragraph at lines 5737--5739
+[143]
+Underfull \hbox (badness 2951) in paragraph at lines 5824--5826
 []\TU/lmr/bx/n/10.95 Proprietà riproduttiva: \TU/lmr/m/n/10.95 Siano $[][][] []
 [][] [][][][] [][]$ $[]$ VC indipendenti, ognuna $[] []
  []
 
-[130
+[144
 
-] [131]
+] [145]
 File: Appunti_di_Statistica_2025_files/figure-latex/07b-Poisson-1-1.pdf Graphic
  file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/07b-Poisson-1-1.pdf>
 File: Appunti_di_Statistica_2025_files/figure-latex/07b-Poisson-2-1.pdf Graphic
  file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/07b-Poisson-2-1.pdf>
-[132]
+[146]
 File: Appunti_di_Statistica_2025_files/figure-latex/07b-Poisson-3-1.pdf Graphic
  file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/07b-Poisson-3-1.pdf>
 File: Appunti_di_Statistica_2025_files/figure-latex/07b-Poisson-4-1.pdf Graphic
  file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/07b-Poisson-4-1.pdf>
-[133] [134]
+[147] [148]
 File: Appunti_di_Statistica_2025_files/figure-latex/07c-Normale-1-1.pdf Graphic
  file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/07c-Normale-1-1.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[135]
+[149]
 File: Appunti_di_Statistica_2025_files/figure-latex/07c-Normale-3-1.pdf Graphic
  file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/07c-Normale-3-1.pdf>
-[136]
+[150]
 File: Appunti_di_Statistica_2025_files/figure-latex/07c-Normale-4-1.pdf Graphic
  file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/07c-Normale-4-1.pdf>
-[137] [138]
+[151] [152]
 File: Appunti_di_Statistica_2025_files/figure-latex/07c-Normale-5-1.pdf Graphic
  file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/07c-Normale-5-1.pdf>
 File: Appunti_di_Statistica_2025_files/figure-latex/07c-Normale-6-1.pdf Graphic
  file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/07c-Normale-6-1.pdf>
-[139]
+[153]
 File: Appunti_di_Statistica_2025_files/figure-latex/07c-Normale-7-1.pdf Graphic
  file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/07c-Normale-7-1.pdf>
-[140]
+[154]
 File: Appunti_di_Statistica_2025_files/figure-latex/07c-Normale-8-1.pdf Graphic
  file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/07c-Normale-8-1.pdf>
 File: Appunti_di_Statistica_2025_files/figure-latex/07c-Normale-33-1.pdf Graphi
 c file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/07c-Normale-33-1.pdf>
+
+Overfull \hbox (612.01617pt too wide) in paragraph at lines 6208--6208
+ [] 
+ []
+
 File: Appunti_di_Statistica_2025_files/figure-latex/07c-Normale-33-2.pdf Graphi
 c file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/07c-Normale-33-2.pdf>
+
+Overfull \hbox (612.01617pt too wide) in paragraph at lines 6210--6210
+ [] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[155]
 File: Appunti_di_Statistica_2025_files/figure-latex/07c-Normale-33-3.pdf Graphi
 c file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/07c-Normale-33-3.pdf>
+
+Overfull \hbox (612.01617pt too wide) in paragraph at lines 6212--6212
+ [] 
+ []
+
 File: Appunti_di_Statistica_2025_files/figure-latex/07c-Normale-33-4.pdf Graphi
 c file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/07c-Normale-33-4.pdf>
 
-Underfull \vbox (badness 1024) has occurred while \output is active []
+Overfull \hbox (612.01617pt too wide) in paragraph at lines 6214--6214
+ [] 
+ []
 
-[141]
 File: Appunti_di_Statistica_2025_files/figure-latex/07c-Normale-33-5.pdf Graphi
 c file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/07c-Normale-33-5.pdf>
+
+Overfull \hbox (612.01617pt too wide) in paragraph at lines 6216--6216
+ [] 
+ []
+
+
+Underfull \vbox (badness 2065) has occurred while \output is active []
+
+[156]
 File: Appunti_di_Statistica_2025_files/figure-latex/07c-Normale-9-1.pdf Graphic
  file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/07c-Normale-9-1.pdf>
@@ -1925,12 +2074,12 @@ c file (type pdf)
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[142]
+[157]
 File: Appunti_di_Statistica_2025_files/figure-latex/07c-Normale-11-1.pdf Graphi
 c file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/07c-Normale-11-1.pdf>
-[143]
-Overfull \hbox (5.72658pt too wide) in paragraph at lines 6151--6164
+[158]
+Overfull \hbox (5.72658pt too wide) in paragraph at lines 6238--6251
 [][] 
  []
 
@@ -1938,7 +2087,7 @@ File: Appunti_di_Statistica_2025_files/figure-latex/07c-Normale-12-1.pdf Graphi
 c file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/07c-Normale-12-1.pdf>
 
-Overfull \hbox (5.72658pt too wide) in paragraph at lines 6169--6186
+Overfull \hbox (5.72658pt too wide) in paragraph at lines 6256--6273
 [][] 
  []
 
@@ -1948,8 +2097,8 @@ c file (type pdf)
 
 Underfull \vbox (badness 6775) has occurred while \output is active []
 
-[144]
-Overfull \hbox (5.72658pt too wide) in paragraph at lines 6191--6208
+[159]
+Overfull \hbox (5.72658pt too wide) in paragraph at lines 6278--6295
 [][] 
  []
 
@@ -1959,144 +2108,175 @@ c file (type pdf)
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[145]
+[160]
 File: Appunti_di_Statistica_2025_files/figure-latex/07c-Normale-17-1.pdf Graphi
 c file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/07c-Normale-17-1.pdf>
-[146]
+[161]
 File: Appunti_di_Statistica_2025_files/figure-latex/07c-Normale-19-1.pdf Graphi
 c file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/07c-Normale-19-1.pdf>
 File: Appunti_di_Statistica_2025_files/figure-latex/07c-Normale-21-1.pdf Graphi
 c file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/07c-Normale-21-1.pdf>
-[147]
+[162]
 File: Appunti_di_Statistica_2025_files/figure-latex/07c-Normale-23-1.pdf Graphi
 c file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/07c-Normale-23-1.pdf>
 File: Appunti_di_Statistica_2025_files/figure-latex/07c-Normale-25-1.pdf Graphi
 c file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/07c-Normale-25-1.pdf>
-[148]
+[163]
 File: Appunti_di_Statistica_2025_files/figure-latex/07c-Normale-26-1.pdf Graphi
 c file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/07c-Normale-26-1.pdf>
-[149]
+[164]
 File: Appunti_di_Statistica_2025_files/figure-latex/07c-Normale-27-1.pdf Graphi
 c file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/07c-Normale-27-1.pdf>
 
-Overfull \hbox (5.72658pt too wide) in paragraph at lines 6377--6398
+Overfull \hbox (5.72658pt too wide) in paragraph at lines 6464--6485
 [][] 
  []
 
-[150]
+[165]
 File: Appunti_di_Statistica_2025_files/figure-latex/07c-Normale-29-1.pdf Graphi
 c file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/07c-Normale-29-1.pdf>
 File: Appunti_di_Statistica_2025_files/figure-latex/07c-Normale-30-1.pdf Graphi
 c file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/07c-Normale-30-1.pdf>
-[151] [152] [153
+[166] [167] [168
 
 ]
 File: Appunti_di_Statistica_2025_files/figure-latex/07d-Esercizi-Normale-14-1.p
 df Graphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/07d-Esercizi-Normale-14-1.pd
 f>
-[154
+[169
 
 ]
 File: Appunti_di_Statistica_2025_files/figure-latex/07d-Esercizi-Normale-5-1.pd
 f Graphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/07d-Esercizi-Normale-5-1.pdf
 >
-[155]
+
+Overfull \hbox (250.667pt too wide) in paragraph at lines 6633--6633
+ [] 
+ []
+
+[170]
 File: Appunti_di_Statistica_2025_files/figure-latex/07d-Esercizi-Normale-7-1.pd
 f Graphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/07d-Esercizi-Normale-7-1.pdf
 >
+
+Overfull \hbox (106.12732pt too wide) in paragraph at lines 6665--6665
+ [] 
+ []
+
+[171]
 File: Appunti_di_Statistica_2025_files/figure-latex/07d-Esercizi-Normale-17-1.p
 df Graphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/07d-Esercizi-Normale-17-1.pd
 f>
-[156]
+
+Overfull \hbox (106.12732pt too wide) in paragraph at lines 6682--6682
+ [] 
+ []
+
 File: Appunti_di_Statistica_2025_files/figure-latex/07d-Esercizi-Normale-18-1.p
 df Graphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/07d-Esercizi-Normale-18-1.pd
 f>
 
-Overfull \hbox (33.42944pt too wide) detected at line 6602
+Overfull \hbox (612.01617pt too wide) in paragraph at lines 6686--6686
+ [] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[172]
+Overfull \hbox (33.42944pt too wide) detected at line 6689
 [][][][][] [] [] [] [][][] [] [][][] [] [] [] [][][][] [] [][][][][] [] [] [] [
 ][][][][][][][][] [] [] [] [][][][][]  []
  []
 
-[157] [158] [159] [160]
+[173] [174] [175] [176]
 Capitolo 8.
 
-Underfull \hbox (badness 1226) in paragraph at lines 6767--6769
+Underfull \hbox (badness 1226) in paragraph at lines 6854--6856
 \TU/lmr/m/n/10.95 Una successione di variabili casuali è espressa da un numero 
 infinito di variabili casuali
  []
 
-[161
+[177
 
-] [162] [163] [164] [165]
+] [178] [179] [180] [181]
 File: Appunti_di_Statistica_2025_files/figure-latex/08-tlc-7-1.pdf Graphic file
  (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/08-tlc-7-1.pdf>
 
 Underfull \vbox (badness 1484) has occurred while \output is active []
 
-[166]
+[182]
 File: Appunti_di_Statistica_2025_files/figure-latex/08-tlc-8-1.pdf Graphic file
  (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/08-tlc-8-1.pdf>
-[167]
+[183]
 File: img/tavolo-roulette.png Graphic file (type bmp)
 <img/tavolo-roulette.png>
-[168] [169]
+
+Overfull \hbox (41.8085pt too wide) in paragraph at lines 7185--7185
+ [] 
+ []
+
+[184] [185]
 File: Appunti_di_Statistica_2025_files/figure-latex/08-tlc-13-1.pdf Graphic fil
 e (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/08-tlc-13-1.pdf>
 File: Appunti_di_Statistica_2025_files/figure-latex/08-tlc-14-1.pdf Graphic fil
 e (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/08-tlc-14-1.pdf>
-[170] [171]
+
+Underfull \vbox (badness 2932) has occurred while \output is active []
+
+[186] [187]
 File: Appunti_di_Statistica_2025_files/figure-latex/08-tlc-15-1.pdf Graphic fil
 e (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/08-tlc-15-1.pdf>
-[172]
-Capitolo 9.
-LaTeX Font Info:    Calculating math sizes for size <14> on input line 7279.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 14.0pt on input line 7279.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 9.79996pt on input line 7279.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 7.0pt on input line 7279.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 14.00128pt on input line 7279.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 9.80084pt on input line 7279.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 7.00064pt on input line 7279.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 13.9985pt on input line 7279.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 9.7989pt on input line 7279.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 6.99925pt on input line 7279.
-[173
+[188] [189] [190
 
 ]
+Capitolo 9.
+LaTeX Font Info:    Calculating math sizes for size <14> on input line 7366.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 14.0pt on input line 7366.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 9.79996pt on input line 7366.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 7.0pt on input line 7366.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 14.00128pt on input line 7366.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 9.80084pt on input line 7366.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 7.00064pt on input line 7366.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 13.9985pt on input line 7366.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 9.7989pt on input line 7366.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 6.99925pt on input line 7366.
+[191]
 File: Appunti_di_Statistica_2025_files/figure-latex/chi-quadro1-1.pdf Graphic f
 ile (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/chi-quadro1-1.pdf>
 File: Appunti_di_Statistica_2025_files/figure-latex/chi-quadro2-1.pdf Graphic f
 ile (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/chi-quadro2-1.pdf>
-[174]
+[192]
 File: Appunti_di_Statistica_2025_files/figure-latex/09-Statistiche-Campionarie_
 3-1.pdf Graphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/09-Statistiche-Campionarie_3
@@ -2108,15 +2288,15 @@ File: Appunti_di_Statistica_2025_files/figure-latex/09-Statistiche-Campionarie_
 
 Underfull \vbox (badness 2285) has occurred while \output is active []
 
-[175]
+[193]
 File: Appunti_di_Statistica_2025_files/figure-latex/t-student1-1.pdf Graphic fi
 le (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/t-student1-1.pdf>
-[176]
+[194]
 File: Appunti_di_Statistica_2025_files/figure-latex/t-student2-1.pdf Graphic fi
 le (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/t-student2-1.pdf>
-[177]
+[195]
 File: Appunti_di_Statistica_2025_files/figure-latex/09-Statistiche-Campionarie_
 1-1.pdf Graphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/09-Statistiche-Campionarie_1
@@ -2125,58 +2305,62 @@ File: Appunti_di_Statistica_2025_files/figure-latex/09-Statistiche-Campionarie_
 2-1.pdf Graphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/09-Statistiche-Campionarie_2
 -1.pdf>
-[178]
-Overfull \hbox (16.64362pt too wide) in paragraph at lines 7571--7581
+[196]
+Overfull \hbox (16.64362pt too wide) in paragraph at lines 7658--7668
  [][] 
  []
 
-[179] [180] [181
+[197] [198] [199
 
-] [182]
+] [200]
 Capitolo 10.
-[183
+[201
 
 ]
 Underfull \vbox (badness 1043) has occurred while \output is active []
 
-[184] [185] [186]
+[202] [203] [204]
 Underfull \vbox (badness 1062) has occurred while \output is active []
 
-[187]
+[205]
 Underfull \vbox (badness 1688) has occurred while \output is active []
 
-[188]
+[206]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[189] [190] [191] [192]
+[207] [208] [209] [210]
 Capitolo 11.
-[193
+[211
 
-] [194] [195]
+] [212] [213]
 File: img/inferenza1-1.png Graphic file (type bmp)
 <img/inferenza1-1.png>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[214]
 File: img/inferenza2-2.png Graphic file (type bmp)
 <img/inferenza2-2.png>
-[196]
-Underfull \vbox (badness 4713) has occurred while \output is active []
 
-[197] [198] [199] [200] [201] [202] [203]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[215] [216] [217] [218] [219] [220] [221] [222]
 File: Appunti_di_Statistica_2025_files/figure-latex/11-Stima-8-1.pdf Graphic fi
 le (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/11-Stima-8-1.pdf>
-[204] [205] [206]
-Capitolo 12.
-[207
+[223] [224] [225] [226
 
-] [208] [209]
+]
+Capitolo 12.
+[227] [228] [229]
 File: Appunti_di_Statistica_2025_files/figure-latex/12-Verosimiglianza-4-1.pdf 
 Graphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/12-Verosimiglianza-4-1.pdf>
 File: Appunti_di_Statistica_2025_files/figure-latex/12-Verosimiglianza-5-1.pdf 
 Graphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/12-Verosimiglianza-5-1.pdf>
-[210]
-Overfull \hbox (29.65045pt too wide) in paragraph at lines 8719--8726
+[230]
+Overfull \hbox (29.65045pt too wide) in paragraph at lines 8806--8813
 [][] 
  []
 
@@ -2186,8 +2370,8 @@ Graphic file (type pdf)
 
 Underfull \vbox (badness 6094) has occurred while \output is active []
 
-[211] [212]
-Overfull \hbox (52.16367pt too wide) in paragraph at lines 8768--8775
+[231] [232]
+Overfull \hbox (52.16367pt too wide) in paragraph at lines 8855--8862
 [][] 
  []
 
@@ -2197,17 +2381,17 @@ Graphic file (type pdf)
 File: Appunti_di_Statistica_2025_files/figure-latex/unnamed-chunk-11-1.pdf Grap
 hic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/unnamed-chunk-11-1.pdf>
-[213]
+[233]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[214]
-Underfull \hbox (badness 3118) in paragraph at lines 8857--8858
+[234]
+Underfull \hbox (badness 3118) in paragraph at lines 8944--8945
 [][][]\TU/lmss/bx/n/10.95 Definizione 12.4.1 \TU/lmss/m/n/10.95 (Stimatore du M
 assima Verosimiglianza)\TU/lmss/bx/n/10.95 . [][]\TU/lmr/m/n/10.95 Lo stimatore
  di \TU/lmr/m/it/10.95 massima
  []
 
-[215] [216]
+[235] [236]
 File: Appunti_di_Statistica_2025_files/figure-latex/12-Verosimiglianza-12-1.pdf
  Graphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/12-Verosimiglianza-12-1.pdf>
@@ -2215,18 +2399,18 @@ File: Appunti_di_Statistica_2025_files/figure-latex/12-Verosimiglianza-12-1.pdf
 
 Underfull \vbox (badness 1755) has occurred while \output is active []
 
-[217]
+[237]
 Underfull \vbox (badness 2096) has occurred while \output is active []
 
-[218] [219]
+[238] [239]
 File: Appunti_di_Statistica_2025_files/figure-latex/12-Verosimiglianza-13-1.pdf
  Graphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/12-Verosimiglianza-13-1.pdf>
 
-[220] [221]
+[240] [241]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[222]
+[242]
 File: Appunti_di_Statistica_2025_files/figure-latex/12-Verosimiglianza-20-1.pdf
  Graphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/12-Verosimiglianza-20-1.pdf>
@@ -2238,7 +2422,7 @@ File: Appunti_di_Statistica_2025_files/figure-latex/12-Verosimiglianza-22-1.pdf
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[223]
+[243]
 File: Appunti_di_Statistica_2025_files/figure-latex/12-Verosimiglianza-24-1.pdf
  Graphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/12-Verosimiglianza-24-1.pdf>
@@ -2246,27 +2430,27 @@ File: Appunti_di_Statistica_2025_files/figure-latex/12-Verosimiglianza-24-1.pdf
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[224] [225]
+[244] [245]
 Underfull \vbox (badness 1715) has occurred while \output is active []
 
-[226]
+[246]
 Underfull \vbox (badness 5217) has occurred while \output is active []
 
-[227]
-Overfull \hbox (83.02292pt too wide) detected at line 9306
+[247]
+Overfull \hbox (83.02292pt too wide) detected at line 9393
 [][][] [] [][][][][][] [][] [] [][][][][][] [][] [] [][][][][][] [][] [] [][][]
 [][] [][] [] [][][][][] [] [][] [] [][][][][][] [][] [] [][][][][][] [][] [] []
 [][][][] [][] [] [][][][][][] [][] [] [][][][][][][]
  []
 
-[228]
-Underfull \hbox (badness 1910) in paragraph at lines 9360--9361
+[248]
+Underfull \hbox (badness 1910) in paragraph at lines 9447--9448
 [][][]\TU/lmss/bx/n/10.95 Proprietà 12.10.1 \TU/lmss/m/n/10.95 (Stimatori di ma
 ssima verosimgilianza)\TU/lmss/bx/n/10.95 . [][]\TU/lmr/m/it/10.95 Siano $[][][
 ] [][][][] [][]$ $[]$ VC IID,
  []
 
-[229] [230]
+[249] [250]
 Capitolo 13.
 File: Appunti_di_Statistica_2025_files/figure-latex/13-stima-intervallare-3-1.p
 df Graphic file (type pdf)
@@ -2275,14 +2459,14 @@ f>
 
 Underfull \vbox (badness 1354) has occurred while \output is active []
 
-[231
+[251
 
 ]
 File: Appunti_di_Statistica_2025_files/figure-latex/13-stima-intervallare-4-1.p
 df Graphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/13-stima-intervallare-4-1.pd
 f>
-[232] [233]
+[252] [253]
 File: Appunti_di_Statistica_2025_files/figure-latex/13-stima-intervallare-9-1.p
 df Graphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/13-stima-intervallare-9-1.pd
@@ -2294,39 +2478,39 @@ df>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[234]
-Overfull \hbox (11.20943pt too wide) in alignment at lines 9579--9586
+[254]
+Overfull \hbox (11.20943pt too wide) in alignment at lines 9666--9673
  [][][] []
  []
 
-[235]
+[255]
 File: Appunti_di_Statistica_2025_files/figure-latex/13-stima-intervallare-12-1.
 pdf Graphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/13-stima-intervallare-12-1.p
 df>
-[236] [237] [238]
+[256] [257] [258]
 File: Appunti_di_Statistica_2025_files/figure-latex/13-stima-intervallare-1-1.p
 df Graphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/13-stima-intervallare-1-1.pd
 f>
-[239] [240] [241] [242] [243]
+[259] [260] [261] [262] [263]
 File: Appunti_di_Statistica_2025_files/figure-latex/13-stima-intervallare-18-1.
 pdf Graphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/13-stima-intervallare-18-1.p
 df>
-[244] [245] [246
+[264] [265] [266
 
 ]
 Capitolo 14.
-[247] [248] [249]
+[267] [268] [269]
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 10.0pt on input line 10215.
+(Font)              scaled to size 10.0pt on input line 10302.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 10.00092pt on input line 10215.
+(Font)              scaled to size 10.00092pt on input line 10302.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 9.99893pt on input line 10215.
+(Font)              scaled to size 9.99893pt on input line 10302.
 
-Overfull \hbox (41.23358pt too wide) in paragraph at lines 10215--10223
+Overfull \hbox (41.23358pt too wide) in paragraph at lines 10302--10310
  [][] 
  []
 
@@ -2339,195 +2523,220 @@ hic file (type pdf)
 File: Appunti_di_Statistica_2025_files/figure-latex/14-test-intro-18-1.pdf Grap
 hic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/14-test-intro-18-1.pdf>
-[250]
-Overfull \hbox (41.23358pt too wide) in paragraph at lines 10257--10265
+[270]
+Overfull \hbox (41.23358pt too wide) in paragraph at lines 10344--10352
  [][] 
  []
 
 
-Overfull \hbox (41.23358pt too wide) in paragraph at lines 10304--10312
+Overfull \hbox (41.23358pt too wide) in paragraph at lines 10391--10399
  [][] 
  []
 
-[251]
-Overfull \hbox (41.23358pt too wide) in paragraph at lines 10350--10358
+[271]
+Overfull \hbox (41.23358pt too wide) in paragraph at lines 10437--10445
  [][] 
  []
 
 
-LaTeX Font Warning: Command \small invalid in math mode on input line 10363.
+LaTeX Font Warning: Command \small invalid in math mode on input line 10450.
 
 
 Underfull \vbox (badness 2626) has occurred while \output is active []
 
-[252] [253]
+[272] [273]
 File: Appunti_di_Statistica_2025_files/figure-latex/14-test-intro-20-1.pdf Grap
 hic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/14-test-intro-20-1.pdf>
 
 Underfull \vbox (badness 2158) has occurred while \output is active []
 
-[254]
+[274]
 File: Appunti_di_Statistica_2025_files/figure-latex/14-test-intro-21-1.pdf Grap
 hic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/14-test-intro-21-1.pdf>
-[255] [256] [257] [258] [259] [260
+[275] [276] [277] [278] [279] [280
 
 ]
 Capitolo 15.
 File: Appunti_di_Statistica_2025_files/figure-latex/15-test-mu-pi-14-1.pdf Grap
 hic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/15-test-mu-pi-14-1.pdf>
-[261]
+
+Overfull \hbox (14.79425pt too wide) in paragraph at lines 10846--10846
+ [] 
+ []
+
+[281]
 File: Appunti_di_Statistica_2025_files/figure-latex/15-test-mu-pi-15-1.pdf Grap
 hic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/15-test-mu-pi-15-1.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[262]
+[282]
 File: Appunti_di_Statistica_2025_files/figure-latex/15-test-mu-pi-1-1.pdf Graph
 ic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/15-test-mu-pi-1-1.pdf>
 
 Underfull \vbox (badness 1226) has occurred while \output is active []
 
-[263] [264]
+[283] [284]
 File: Appunti_di_Statistica_2025_files/figure-latex/15-test-mu-pi-2-1.pdf Graph
 ic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/15-test-mu-pi-2-1.pdf>
-[265]
+[285]
 File: Appunti_di_Statistica_2025_files/figure-latex/15-test-mu-pi-16-1.pdf Grap
 hic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/15-test-mu-pi-16-1.pdf>
-[266]
+[286]
 File: Appunti_di_Statistica_2025_files/figure-latex/unnamed-chunk-12-1.pdf Grap
 hic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/unnamed-chunk-12-1.pdf>
-[267]
+[287]
 File: Appunti_di_Statistica_2025_files/figure-latex/unnamed-chunk-13-1.pdf Grap
 hic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/unnamed-chunk-13-1.pdf>
-[268]
+[288]
 File: Appunti_di_Statistica_2025_files/figure-latex/15-test-mu-pi-17-1.pdf Grap
 hic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/15-test-mu-pi-17-1.pdf>
-[269]
+
+Overfull \hbox (14.79425pt too wide) in paragraph at lines 11131--11131
+ [] 
+ []
+
+[289]
 File: Appunti_di_Statistica_2025_files/figure-latex/15-test-mu-pi-3-1.pdf Graph
 ic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/15-test-mu-pi-3-1.pdf>
-[270]
+[290]
 File: Appunti_di_Statistica_2025_files/figure-latex/15-test-mu-pi-18-1.pdf Grap
 hic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/15-test-mu-pi-18-1.pdf>
 File: Appunti_di_Statistica_2025_files/figure-latex/15-test-mu-pi-19-1.pdf Grap
 hic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/15-test-mu-pi-19-1.pdf>
-[271] [272]
+
+Overfull \hbox (14.79425pt too wide) in paragraph at lines 11225--11225
+ [] 
+ []
+
+[291] [292]
 File: Appunti_di_Statistica_2025_files/figure-latex/15-test-mu-pi-4-1.pdf Graph
 ic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/15-test-mu-pi-4-1.pdf>
 File: Appunti_di_Statistica_2025_files/figure-latex/15-test-mu-pi-20-1.pdf Grap
 hic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/15-test-mu-pi-20-1.pdf>
-[273] [274]
+[293] [294]
 File: Appunti_di_Statistica_2025_files/figure-latex/15-test-mu-pi-21-1.pdf Grap
 hic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/15-test-mu-pi-21-1.pdf>
-[275]
+[295]
 File: Appunti_di_Statistica_2025_files/figure-latex/15-test-mu-pi-22-1.pdf Grap
 hic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/15-test-mu-pi-22-1.pdf>
-[276]
+
+Overfull \hbox (14.79425pt too wide) in paragraph at lines 11402--11402
+ [] 
+ []
+
+[296]
 File: Appunti_di_Statistica_2025_files/figure-latex/15-test-mu-pi-5-1.pdf Graph
 ic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/15-test-mu-pi-5-1.pdf>
-[277]
+[297]
 File: Appunti_di_Statistica_2025_files/figure-latex/15-test-mu-pi-23-1.pdf Grap
 hic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/15-test-mu-pi-23-1.pdf>
-[278]
+[298]
 File: Appunti_di_Statistica_2025_files/figure-latex/15-test-mu-pi-6-1.pdf Graph
 ic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/15-test-mu-pi-6-1.pdf>
-[279]
+[299]
 File: Appunti_di_Statistica_2025_files/figure-latex/15-test-mu-pi-24-1.pdf Grap
 hic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/15-test-mu-pi-24-1.pdf>
-[280]
+
+Overfull \hbox (14.79425pt too wide) in paragraph at lines 11558--11558
+ [] 
+ []
+
+[300]
 File: Appunti_di_Statistica_2025_files/figure-latex/15-test-mu-pi-7-1.pdf Graph
 ic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/15-test-mu-pi-7-1.pdf>
-[281]
+[301]
 File: Appunti_di_Statistica_2025_files/figure-latex/15-test-mu-pi-8-1.pdf Graph
 ic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/15-test-mu-pi-8-1.pdf>
-[282] [283] [284]
+[302] [303] [304]
 File: Appunti_di_Statistica_2025_files/figure-latex/15-test-mu-pi-9-1.pdf Graph
 ic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/15-test-mu-pi-9-1.pdf>
-[285]
+[305]
 File: Appunti_di_Statistica_2025_files/figure-latex/15-test-mu-pi-10-1.pdf Grap
 hic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/15-test-mu-pi-10-1.pdf>
-[286]
+[306]
 File: Appunti_di_Statistica_2025_files/figure-latex/15-test-mu-pi-11-1.pdf Grap
 hic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/15-test-mu-pi-11-1.pdf>
 
 Underfull \vbox (badness 1983) has occurred while \output is active []
 
-[287] [288]
+[307] [308]
 File: Appunti_di_Statistica_2025_files/figure-latex/15-test-mu-pi-12-1.pdf Grap
 hic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/15-test-mu-pi-12-1.pdf>
-[289]
+[309]
 File: Appunti_di_Statistica_2025_files/figure-latex/15-test-mu-pi-13-1.pdf Grap
 hic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/15-test-mu-pi-13-1.pdf>
-[290]
-Overfull \hbox (0.55235pt too wide) detected at line 11890
+[310]
+Overfull \hbox (0.55235pt too wide) detected at line 11977
 []
  []
 
-[291
+[311
 
-] [292
+] [312
 
 ]
 Capitolo 16.
-[293] [294] [295]
+[313] [314] [315]
 File: Appunti_di_Statistica_2025_files/figure-latex/16-test-2C-2-1.pdf Graphic 
 file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/16-test-2C-2-1.pdf>
-[296]
+[316]
 File: Appunti_di_Statistica_2025_files/figure-latex/16-test-2C-1-1.pdf Graphic 
 file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/16-test-2C-1-1.pdf>
-[297] [298] [299]
+[317] [318] [319]
 File: Appunti_di_Statistica_2025_files/figure-latex/16-test-2C-3-1.pdf Graphic 
 file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/16-test-2C-3-1.pdf>
-[300] [301] [302
+[320] [321] [322
 
 ]
 Capitolo 17.
 File: Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-6-1.pdf Gr
 aphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-6-1.pdf>
-[303]
+[323]
 File: Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-8-1.pdf Gr
 aphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-8-1.pdf>
-[304]
+[324]
 File: Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-10-1.pdf G
 raphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-10-1.pdf>
-[305] [306]
+[325] [326]
 File: Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-1-1.pdf Gr
 aphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-1-1.pdf>
-[307]
+[327]
 File: Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-12-1.pdf G
 raphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-12-1.pdf>
@@ -2537,7 +2746,7 @@ raphic file (type pdf)
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[308]
+[328]
 File: Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-14-1.pdf G
 raphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-14-1.pdf>
@@ -2547,8 +2756,8 @@ Graphic file (type pdf)
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[309]
-Overfull \hbox (36.93124pt too wide) in paragraph at lines 12446--12452
+[329]
+Overfull \hbox (36.93124pt too wide) in paragraph at lines 12533--12539
 [][] 
  []
 
@@ -2561,28 +2770,30 @@ aphic file (type pdf)
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[310]
+[330]
 File: Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-3-1.pdf Gr
 aphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-3-1.pdf>
 
 Underfull \vbox (badness 3323) has occurred while \output is active []
 
-[311]
+[331]
 File: Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-5-1.pdf Gr
 aphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-5-1.pdf>
 File: Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-17-1.pdf G
 raphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-17-1.pdf>
-[312]
-Underfull \vbox (badness 1281) has occurred while \output is active []
 
-[313]
+Overfull \hbox (28.17532pt too wide) in paragraph at lines 12613--12613
+ [] 
+ []
+
+[332] [333]
 File: Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-18-1.pdf G
 raphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-18-1.pdf>
-[314]
+[334]
 File: Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-20-1.pdf G
 raphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-20-1.pdf>
@@ -2592,11 +2803,11 @@ raphic file (type pdf)
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[315]
+[335]
 File: Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-21-1.pdf G
 raphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-21-1.pdf>
-[316]
+[336]
 File: Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-23-1.pdf G
 raphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-23-1.pdf>
@@ -2606,34 +2817,39 @@ raphic file (type pdf)
 File: Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-26-1.pdf G
 raphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-26-1.pdf>
-[317]
+[337]
 File: Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-28-1.pdf G
 raphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-28-1.pdf>
 
+Overfull \hbox (106.12732pt too wide) in paragraph at lines 12736--12736
+ [] 
+ []
+
+
+Underfull \vbox (badness 6792) has occurred while \output is active []
+
+[338]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[318]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[319]
+[339]
 File: Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-30-1.pdf G
 raphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-30-1.pdf>
-[320]
+[340]
 File: Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-32-1.pdf G
 raphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-32-1.pdf>
-[321] [322] [323]
+[341] [342] [343]
 
 Package tcolorbox Warning: Using nobreak failed. Try to enlarge `lines before b
-reak' or set page breaks manually on input line 12821.
+reak' or set page breaks manually on input line 12908.
 
 
-LaTeX Font Warning: Command \scriptsize invalid in math mode on input line 1286
-2.
+LaTeX Font Warning: Command \scriptsize invalid in math mode on input line 1294
+9.
 
-[324]
+[344]
 File: Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-34-1.pdf G
 raphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-34-1.pdf>
@@ -2643,33 +2859,33 @@ raphic file (type pdf)
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[325]
+[345]
 File: Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-36-1.pdf G
 raphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-36-1.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[326]
+[346]
 File: Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-37-1.pdf G
 raphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-37-1.pdf>
-[327]
+[347]
 File: Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-42-1.pdf G
 raphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-42-1.pdf>
-[328]
+[348]
 File: Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-43-1.pdf G
 raphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-43-1.pdf>
-[329]
+[349]
 File: Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-45-1.pdf G
 raphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-45-1.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[330] [331]
+[350] [351]
 File: Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-47-1.pdf G
 raphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-47-1.pdf>
@@ -2679,7 +2895,7 @@ raphic file (type pdf)
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[332] [333]
+[352] [353]
 File: Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-49-1.pdf G
 raphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-49-1.pdf>
@@ -2689,7 +2905,7 @@ raphic file (type pdf)
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[334]
+[354]
 File: Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-51-1.pdf G
 raphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-51-1.pdf>
@@ -2699,22 +2915,22 @@ raphic file (type pdf)
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[335]
+[355]
 File: Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-54-1.pdf G
 raphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-54-1.pdf>
-[336] [337]
+[356] [357]
 File: Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-54b-1.pdf 
 Graphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-54b-1.pdf>
-[338]
+[358]
 File: Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-56-1.pdf G
 raphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-56-1.pdf>
 File: Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-57-1.pdf G
 raphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-57-1.pdf>
-[339]
+[359]
 File: Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-58-1.pdf G
 raphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-58-1.pdf>
@@ -2724,7 +2940,7 @@ raphic file (type pdf)
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[340] [341]
+[360] [361]
 File: Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-62-1.pdf G
 raphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/17-regressione-I-62-1.pdf>
@@ -2734,9 +2950,9 @@ raphic file (type pdf)
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[342] [343] [344]
+[362] [363] [364]
 Capitolo 18.
-[345
+[365
 
 ]
 File: Appunti_di_Statistica_2025_files/figure-latex/18-regressione-II-4-1.pdf G
@@ -2747,38 +2963,38 @@ Underfull \vbox (badness 5091) has occurred while \output is active []
 
 
 Overfull \hbox (16.7026pt too wide) has occurred while \output is active
-\TU/lmr/m/n/10.95 346 \TU/lmr/m/sl/10.95 CAPITOLO 18.  INFERENZA E DIAGNOSTICA 
+\TU/lmr/m/n/10.95 366 \TU/lmr/m/sl/10.95 CAPITOLO 18.  INFERENZA E DIAGNOSTICA 
 SUL MODELLO DI REGRESSIONE LINEARE
  []
 
-[346]
+[366]
 File: Appunti_di_Statistica_2025_files/figure-latex/18-regressione-II-5-1.pdf G
 raphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/18-regressione-II-5-1.pdf>
 File: Appunti_di_Statistica_2025_files/figure-latex/18-regressione-II-6-1.pdf G
 raphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/18-regressione-II-6-1.pdf>
-[347]
+[367]
 File: Appunti_di_Statistica_2025_files/figure-latex/18-regressione-II-8-1.pdf G
 raphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/18-regressione-II-8-1.pdf>
 
 Overfull \hbox (16.7026pt too wide) has occurred while \output is active
-\TU/lmr/m/n/10.95 348 \TU/lmr/m/sl/10.95 CAPITOLO 18.  INFERENZA E DIAGNOSTICA 
+\TU/lmr/m/n/10.95 368 \TU/lmr/m/sl/10.95 CAPITOLO 18.  INFERENZA E DIAGNOSTICA 
 SUL MODELLO DI REGRESSIONE LINEARE
  []
 
-[348] [349]
+[368] [369]
 Overfull \hbox (16.7026pt too wide) has occurred while \output is active
-\TU/lmr/m/n/10.95 350 \TU/lmr/m/sl/10.95 CAPITOLO 18.  INFERENZA E DIAGNOSTICA 
+\TU/lmr/m/n/10.95 370 \TU/lmr/m/sl/10.95 CAPITOLO 18.  INFERENZA E DIAGNOSTICA 
 SUL MODELLO DI REGRESSIONE LINEARE
  []
 
-[350]
+[370]
 File: Appunti_di_Statistica_2025_files/figure-latex/unnamed-chunk-16-1.pdf Grap
 hic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/unnamed-chunk-16-1.pdf>
-[351]
+[371]
 File: Appunti_di_Statistica_2025_files/figure-latex/18-regressione-II-11-1.pdf 
 Graphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/18-regressione-II-11-1.pdf>
@@ -2787,11 +3003,11 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 Overfull \hbox (16.7026pt too wide) has occurred while \output is active
-\TU/lmr/m/n/10.95 352 \TU/lmr/m/sl/10.95 CAPITOLO 18.  INFERENZA E DIAGNOSTICA 
+\TU/lmr/m/n/10.95 372 \TU/lmr/m/sl/10.95 CAPITOLO 18.  INFERENZA E DIAGNOSTICA 
 SUL MODELLO DI REGRESSIONE LINEARE
  []
 
-[352]
+[372]
 File: Appunti_di_Statistica_2025_files/figure-latex/18-regressione-II-12-1.pdf 
 Graphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/18-regressione-II-12-1.pdf>
@@ -2801,7 +3017,7 @@ Graphic file (type pdf)
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[353]
+[373]
 File: Appunti_di_Statistica_2025_files/figure-latex/18-regressione-II-15-1.pdf 
 Graphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/18-regressione-II-15-1.pdf>
@@ -2813,11 +3029,11 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 Overfull \hbox (16.7026pt too wide) has occurred while \output is active
-\TU/lmr/m/n/10.95 354 \TU/lmr/m/sl/10.95 CAPITOLO 18.  INFERENZA E DIAGNOSTICA 
+\TU/lmr/m/n/10.95 374 \TU/lmr/m/sl/10.95 CAPITOLO 18.  INFERENZA E DIAGNOSTICA 
 SUL MODELLO DI REGRESSIONE LINEARE
  []
 
-[354]
+[374]
 File: Appunti_di_Statistica_2025_files/figure-latex/18-regressione-II-19-1.pdf 
 Graphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/18-regressione-II-19-1.pdf>
@@ -2827,17 +3043,17 @@ Graphic file (type pdf)
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[355]
+[375]
 File: Appunti_di_Statistica_2025_files/figure-latex/18-regressione-II-22-1.pdf 
 Graphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/18-regressione-II-22-1.pdf>
 
 Overfull \hbox (16.7026pt too wide) has occurred while \output is active
-\TU/lmr/m/n/10.95 356 \TU/lmr/m/sl/10.95 CAPITOLO 18.  INFERENZA E DIAGNOSTICA 
+\TU/lmr/m/n/10.95 376 \TU/lmr/m/sl/10.95 CAPITOLO 18.  INFERENZA E DIAGNOSTICA 
 SUL MODELLO DI REGRESSIONE LINEARE
  []
 
-[356]
+[376]
 File: Appunti_di_Statistica_2025_files/figure-latex/18-regressione-II-23-1.pdf 
 Graphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/18-regressione-II-23-1.pdf>
@@ -2847,7 +3063,7 @@ Graphic file (type pdf)
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[357]
+[377]
 File: Appunti_di_Statistica_2025_files/figure-latex/18-regressione-II-25-1.pdf 
 Graphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/18-regressione-II-25-1.pdf>
@@ -2856,18 +3072,18 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 Overfull \hbox (16.7026pt too wide) has occurred while \output is active
-\TU/lmr/m/n/10.95 358 \TU/lmr/m/sl/10.95 CAPITOLO 18.  INFERENZA E DIAGNOSTICA 
+\TU/lmr/m/n/10.95 378 \TU/lmr/m/sl/10.95 CAPITOLO 18.  INFERENZA E DIAGNOSTICA 
 SUL MODELLO DI REGRESSIONE LINEARE
  []
 
-[358]
+[378]
 File: Appunti_di_Statistica_2025_files/figure-latex/18-regressione-II-26-1.pdf 
 Graphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/18-regressione-II-26-1.pdf>
 
 Underfull \vbox (badness 2662) has occurred while \output is active []
 
-[359]
+[379]
 File: Appunti_di_Statistica_2025_files/figure-latex/18-regressione-II-27-1.pdf 
 Graphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/18-regressione-II-27-1.pdf>
@@ -2879,132 +3095,145 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 Overfull \hbox (16.7026pt too wide) has occurred while \output is active
-\TU/lmr/m/n/10.95 360 \TU/lmr/m/sl/10.95 CAPITOLO 18.  INFERENZA E DIAGNOSTICA 
+\TU/lmr/m/n/10.95 380 \TU/lmr/m/sl/10.95 CAPITOLO 18.  INFERENZA E DIAGNOSTICA 
 SUL MODELLO DI REGRESSIONE LINEARE
  []
 
-[360]
+[380]
 File: Appunti_di_Statistica_2025_files/figure-latex/18-regressione-II-29-1.pdf 
 Graphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/18-regressione-II-29-1.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[361]
+[381]
 File: Appunti_di_Statistica_2025_files/figure-latex/18-regressione-II-31-1.pdf 
 Graphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/18-regressione-II-31-1.pdf>
 
 Overfull \hbox (16.7026pt too wide) has occurred while \output is active
-\TU/lmr/m/n/10.95 362 \TU/lmr/m/sl/10.95 CAPITOLO 18.  INFERENZA E DIAGNOSTICA 
+\TU/lmr/m/n/10.95 382 \TU/lmr/m/sl/10.95 CAPITOLO 18.  INFERENZA E DIAGNOSTICA 
 SUL MODELLO DI REGRESSIONE LINEARE
  []
 
-[362]
+[382]
 File: Appunti_di_Statistica_2025_files/figure-latex/18-regressione-II-32-1.pdf 
 Graphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/18-regressione-II-32-1.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[363]
+[383]
 File: Appunti_di_Statistica_2025_files/figure-latex/18-regressione-II-33-1.pdf 
 Graphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/18-regressione-II-33-1.pdf>
 
 Overfull \hbox (16.7026pt too wide) has occurred while \output is active
-\TU/lmr/m/n/10.95 364 \TU/lmr/m/sl/10.95 CAPITOLO 18.  INFERENZA E DIAGNOSTICA 
+\TU/lmr/m/n/10.95 384 \TU/lmr/m/sl/10.95 CAPITOLO 18.  INFERENZA E DIAGNOSTICA 
 SUL MODELLO DI REGRESSIONE LINEARE
  []
 
-[364]
+[384]
 Capitolo 19.
 
-LaTeX Font Warning: Command \tiny invalid in math mode on input line 14014.
+LaTeX Font Warning: Command \tiny invalid in math mode on input line 14101.
 
 
-LaTeX Font Warning: Command \tiny invalid in math mode on input line 14058.
+LaTeX Font Warning: Command \tiny invalid in math mode on input line 14145.
 
-[365
+[385
 
 ]
-Overfull \hbox (33.4938pt too wide) detected at line 14115
+Overfull \hbox (33.4938pt too wide) detected at line 14202
 []
  []
 
-[366] [367] [368] [369]
+[386] [387] [388] [389]
 
-LaTeX Font Warning: Command \tiny invalid in math mode on input line 14339.
+LaTeX Font Warning: Command \tiny invalid in math mode on input line 14426.
 
-[370]
+[390]
 
-LaTeX Font Warning: Command \tiny invalid in math mode on input line 14387.
+LaTeX Font Warning: Command \tiny invalid in math mode on input line 14474.
 
-[371] [372] [373] [374] [375] [376] [377] [378] [379
+[391] [392] [393] [394] [395] [396] [397] [398] [399
 
-] [380]
+] [400]
 Appendice A.
-[381
+[401
 
-] [382]
+] [402]
 Appendice B.
-[383
+[403
 
-] [384] [385] [386] [387] [388] [389] [390] [391]
-Overfull \hbox (72.61649pt too wide) detected at line 15675
+] [404] [405] [406] [407] [408] [409] [410] [411]
+Overfull \hbox (72.61649pt too wide) detected at line 15762
 []
  []
 
-[392] [393] [394] [395] [396] [397] [398] [399] [400] [401] [402] [403] [404] [
-405] [406]
+[412] [413] [414] [415] [416] [417] [418] [419] [420] [421] [422] [423] [424] [
+425] [426]
 Appendice C.
-[407
+[427
 
-] [408] [409] [410]
+] [428] [429] [430]
 Appendice D.
-[411
+[431
 
 ]
 File: Appunti_di_Statistica_2025_files/figure-latex/permutazioni-1.pdf Graphic 
 file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/permutazioni-1.pdf>
 
-LaTeX Font Warning: Command \scriptsize invalid in math mode on input line 1658
-6.
+Overfull \hbox (250.667pt too wide) in paragraph at lines 16663--16663
+ [] 
+ []
 
-[412] [413] [414]
+
+LaTeX Font Warning: Command \scriptsize invalid in math mode on input line 1667
+3.
+
+
+Underfull \vbox (badness 1939) has occurred while \output is active []
+
+[432] [433] [434]
 Appendice E.
-[415
+[435
 
-] [416]
+] [436]
 Appendice F.
 LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 16778.
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 16865.
 
 
 LaTeX Font Warning: Font shape `TU/lmtt/bx/it' in size <10> not available
-(Font)              Font shape `TU/lmtt/b/sl' tried instead on input line 16778
+(Font)              Font shape `TU/lmtt/b/sl' tried instead on input line 16865
 .
 
 File: Appunti_di_Statistica_2025_files/figure-latex/24-Libro-54-1.pdf Graphic f
 ile (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/24-Libro-54-1.pdf>
 
+Overfull \hbox (85.08081pt too wide) in paragraph at lines 16890--16890
+ [] 
+ []
+
+
+Underfull \vbox (badness 6316) has occurred while \output is active []
+
+[437
+
+] [438] [439] [440] [441] [442] [443]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[417
-
-] [418] [419] [420] [421] [422] [423]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[424]
+[444]
 File: Appunti_di_Statistica_2025_files/figure-latex/24-Libro-24-1.pdf Graphic f
 ile (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/24-Libro-24-1.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[425]
+[445]
 File: Appunti_di_Statistica_2025_files/figure-latex/24-Libro-25-1.pdf Graphic f
 ile (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/24-Libro-25-1.pdf>
@@ -3014,7 +3243,7 @@ ile (type pdf)
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[426]
+[446]
 File: Appunti_di_Statistica_2025_files/figure-latex/24-Libro-27-1.pdf Graphic f
 ile (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/24-Libro-27-1.pdf>
@@ -3024,15 +3253,15 @@ ile (type pdf)
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[427]
+[447]
 File: Appunti_di_Statistica_2025_files/figure-latex/24-Libro-28-1.pdf Graphic f
 ile (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/24-Libro-28-1.pdf>
 
-Overfull \vbox (1.64084pt too high) detected at line 17647
+Overfull \vbox (1.63821pt too high) detected at line 17734
  []
 
-[428]
+[448]
 File: Appunti_di_Statistica_2025_files/figure-latex/24-Libro-29-1.pdf Graphic f
 ile (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/24-Libro-29-1.pdf>
@@ -3045,7 +3274,7 @@ ile (type pdf)
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[429]
+[449]
 File: Appunti_di_Statistica_2025_files/figure-latex/24-Libro-32-1.pdf Graphic f
 ile (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/24-Libro-32-1.pdf>
@@ -3055,28 +3284,28 @@ ile (type pdf)
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[430]
+[450]
 File: Appunti_di_Statistica_2025_files/figure-latex/24-Libro-34-1.pdf Graphic f
 ile (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/24-Libro-34-1.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[431] [432]
-Overfull \vbox (0.67923pt too high) detected at line 17899
+[451] [452]
+Overfull \vbox (0.67923pt too high) detected at line 17986
  []
 
-[433]
+[453]
 File: Appunti_di_Statistica_2025_files/figure-latex/24-Libro-39-1.pdf Graphic f
 ile (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/24-Libro-39-1.pdf>
-[434]
+[454]
 Missing character: There is no ≤ (U+2264) in font [lmmono10-italic]:!
 File: Appunti_di_Statistica_2025_files/figure-latex/24-Libro-40-1.pdf Graphic f
 ile (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/24-Libro-40-1.pdf>
 Missing character: There is no ≤ (U+2264) in font [lmmono10-italic]:!
-[435]
+[455]
 File: Appunti_di_Statistica_2025_files/figure-latex/24-Libro-41-1.pdf Graphic f
 ile (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/24-Libro-41-1.pdf>
@@ -3086,15 +3315,15 @@ ile (type pdf)
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[436] [437]
+[456] [457]
 Underfull \vbox (badness 2310) has occurred while \output is active []
 
-[438] [439] [440] [441] [442
+[458] [459] [460] [461] [462
 
 ]
 Appendice G.
-[443] [444]
-Overfull \hbox (2.71814pt too wide) in paragraph at lines 18619--18631
+[463] [464]
+Overfull \hbox (2.71814pt too wide) in paragraph at lines 18706--18718
  [][] 
  []
 
@@ -3104,93 +3333,93 @@ raphic file (type pdf)
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[445] [446]
+[465] [466]
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 9.0pt on input line 18748.
+(Font)              scaled to size 9.0pt on input line 18835.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 9.00082pt on input line 18748.
+(Font)              scaled to size 9.00082pt on input line 18835.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 8.99904pt on input line 18748.
-LaTeX Font Info:    Calculating math sizes for size <6.2748> on input line 1874
-9.
+(Font)              scaled to size 8.99904pt on input line 18835.
+LaTeX Font Info:    Calculating math sizes for size <6.2748> on input line 1883
+6.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 6.2748pt on input line 18749.
+(Font)              scaled to size 6.2748pt on input line 18836.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 4.39233pt on input line 18749.
+(Font)              scaled to size 4.39233pt on input line 18836.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 3.13739pt on input line 18749.
+(Font)              scaled to size 3.13739pt on input line 18836.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 6.27536pt on input line 18749.
+(Font)              scaled to size 6.27536pt on input line 18836.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 4.39273pt on input line 18749.
+(Font)              scaled to size 4.39273pt on input line 18836.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 3.13766pt on input line 18749.
+(Font)              scaled to size 3.13766pt on input line 18836.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 6.27412pt on input line 18749.
+(Font)              scaled to size 6.27412pt on input line 18836.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 4.39186pt on input line 18749.
+(Font)              scaled to size 4.39186pt on input line 18836.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 3.13705pt on input line 18749.
+(Font)              scaled to size 3.13705pt on input line 18836.
 
 LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <4.39233> not available
-(Font)              size <5> substituted on input line 18749.
+(Font)              size <5> substituted on input line 18836.
 
 
 LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <3.13739> not available
-(Font)              size <5> substituted on input line 18749.
+(Font)              size <5> substituted on input line 18836.
 
-[447]
+[467]
 LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10.95> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 18787.
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 18874.
 
 
-Overfull \hbox (31.07884pt too wide) in alignment at lines 18821--18827
+Overfull \hbox (31.07884pt too wide) in alignment at lines 18908--18914
  [][][] []
  []
 
-[448] [449] [450] [451] [452] [453] [454] [455]
+[468] [469] [470] [471] [472] [473] [474] [475]
 File: Appunti_di_Statistica_2025_files/figure-latex/25-test-functions-10-1.pdf 
 Graphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/25-test-functions-10-1.pdf>
-[456]
+[476]
 File: Appunti_di_Statistica_2025_files/figure-latex/25-test-functions-10-2.pdf 
 Graphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/25-test-functions-10-2.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[457] [458]
+[477] [478]
 File: Appunti_di_Statistica_2025_files/figure-latex/25-test-functions-10-3.pdf 
 Graphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/25-test-functions-10-3.pdf>
-[459]
+[479]
 File: Appunti_di_Statistica_2025_files/figure-latex/25-test-functions-10-4.pdf 
 Graphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/25-test-functions-10-4.pdf>
-[460]
+[480]
 File: Appunti_di_Statistica_2025_files/figure-latex/25-test-functions-10-5.pdf 
 Graphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/25-test-functions-10-5.pdf>
-[461]
+[481]
 File: Appunti_di_Statistica_2025_files/figure-latex/25-test-functions-10-6.pdf 
 Graphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/25-test-functions-10-6.pdf>
-[462]
+[482]
 File: Appunti_di_Statistica_2025_files/figure-latex/25-test-functions-10-7.pdf 
 Graphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/25-test-functions-10-7.pdf>
 
 Underfull \vbox (badness 2753) has occurred while \output is active []
 
-[463] [464]
+[483] [484]
 File: Appunti_di_Statistica_2025_files/figure-latex/25-test-functions-10-8.pdf 
 Graphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/25-test-functions-10-8.pdf>
-[465]
+[485]
 File: Appunti_di_Statistica_2025_files/figure-latex/25-test-functions-10-9.pdf 
 Graphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/25-test-functions-10-9.pdf>
-[466]
+[486]
 File: Appunti_di_Statistica_2025_files/figure-latex/25-test-functions-10-10.pdf
  Graphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/25-test-functions-10-10.pdf>
@@ -3198,57 +3427,64 @@ File: Appunti_di_Statistica_2025_files/figure-latex/25-test-functions-10-10.pdf
 
 Underfull \vbox (badness 7595) has occurred while \output is active []
 
-[467] [468]
+[487] [488]
 File: Appunti_di_Statistica_2025_files/figure-latex/25-test-functions-10-11.pdf
  Graphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/25-test-functions-10-11.pdf>
 
-[469]
+[489]
 File: Appunti_di_Statistica_2025_files/figure-latex/25-test-functions-10-12.pdf
  Graphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/25-test-functions-10-12.pdf>
 
-[470]
+[490]
 File: Appunti_di_Statistica_2025_files/figure-latex/25-test-functions-10-13.pdf
  Graphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/25-test-functions-10-13.pdf>
 
-[471] [472] [473] [474]
+[491] [492] [493] [494]
 File: Appunti_di_Statistica_2025_files/figure-latex/25-test-functions-11-1.pdf 
 Graphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/25-test-functions-11-1.pdf>
-[475]
+[495]
 File: Appunti_di_Statistica_2025_files/figure-latex/25-test-functions-11-2.pdf 
 Graphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/25-test-functions-11-2.pdf>
-[476]
+[496]
 
 LaTeX Font Warning: Font shape `TU/lmtt/bx/it' in size <10.95> not available
-(Font)              Font shape `TU/lmtt/b/sl' tried instead on input line 19994
+(Font)              Font shape `TU/lmtt/b/sl' tried instead on input line 20081
 .
 
 
-Underfull \vbox (badness 10000) detected at line 20037
+Underfull \vbox (badness 10000) detected at line 20124
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[477]
+[497]
 File: Appunti_di_Statistica_2025_files/figure-latex/25-test-functions-18-1.pdf 
 Graphic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/25-test-functions-18-1.pdf>
 
+Overfull \hbox (28.17532pt too wide) in paragraph at lines 20167--20167
+ [] 
+ []
+
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[478] [479]
+[498] [499]
 File: Appunti_di_Statistica_2025_files/figure-latex/unnamed-chunk-22-1.pdf Grap
 hic file (type pdf)
 <use Appunti_di_Statistica_2025_files/figure-latex/unnamed-chunk-22-1.pdf>
 
-Underfull \vbox (badness 2205) has occurred while \output is active []
+Overfull \hbox (28.17532pt too wide) in paragraph at lines 20262--20262
+ [] 
+ []
 
-[480] [481] (./Appunti_di_Statistica_2025.aux)
+[500] [501] (./Appunti_di_Statistica_2025.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
@@ -3259,12 +3495,12 @@ LaTeX Font Warning: Size substitutions with differences
 
  ) 
 Here is how much of TeX's memory you used:
- 44971 strings out of 476863
- 1037728 string characters out of 5804526
- 2068627 words of memory out of 5000000
- 65752 multiletter control sequences out of 15000+600000
+ 44996 strings out of 476863
+ 1038346 string characters out of 5804526
+ 2067627 words of memory out of 5000000
+ 65776 multiletter control sequences out of 15000+600000
  599577 words of font info for 409 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  90i,19n,120p,1215b,1000s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on Appunti_di_Statistica_2025.pdf (481 pages).
+Output written on Appunti_di_Statistica_2025.pdf (501 pages).
