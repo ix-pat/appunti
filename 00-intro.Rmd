@@ -62,6 +62,8 @@ Questo materiale, che non è ancora un libro, è da considerarsi il canovaccio d
 costruisco le mie lezioni.  Non è da ritenersi alternativo alle lezioni in aula o ad un libro di testo. 
 È ancora incompleto e disseminato di errori e imprecisioni.
 
-Un ringraziamento speciale va alle mie donne e a Michele Lalla, amico, collega e maestro.
+<!-- Un ringraziamento speciale va alle mie donne e a Michele Lalla, amico, collega e maestro. -->
+
+Un ringraziamento speciale a Michele Lalla, amico, collega e maestro.
 
 Bologna, il `r format(Sys.Date(),"%d-%m-%Y")`.
