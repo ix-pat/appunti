@@ -79,7 +79,7 @@ $$ è vera se **almeno uno dei due** è vero.
 :::
 :::
 
-```{r unione,out.height="20%"}
+```{r unione,out.height="20%",fig.dpi=ifelse(html,160,600)}
 include_graphics("img/unione.png")
 ```
 
@@ -104,7 +104,7 @@ $$
 :::
 
 
-```{r intersezione,out.height="20%"}
+```{r intersezione,out.height="20%",fig.dpi=ifelse(html,160,600)}
 include_graphics("img/intersezione.png")
 ```
 
@@ -125,7 +125,7 @@ Sia $A$ un evento, si definisce $\bar A$ l'evento complementare di $A$
 :::
 :::
 
-```{r complementare,out.height="20%"}
+```{r complementare,out.height="20%",fig.dpi=ifelse(html,160,600)}
 include_graphics("img/complementare.png")
 ```
 
@@ -506,7 +506,7 @@ Nell'ordine
 <!-- grafico("img/output_page_2") -->
 <!-- ``` -->
 
-```{r demorgan,fig.cap="Regola di De Morgan per due insiemi: la probabilità dell'unione è la somma della probilità di tre eventi disgiunti",out.height="20%"}
+```{r demorgan,fig.cap="Regola di De Morgan per due insiemi: la probabilità dell'unione è la somma della probilità di tre eventi disgiunti",out.height="20%",fig.dpi=ifelse(html,160,600)}
 include_graphics("img/demorgan.png")
 ```
 
@@ -518,7 +518,7 @@ grafica.
 :::
 :::
 
-```{r incomp,fig.cap="Due eventi si dicono incompatibili se sono disgiunti",out.height="20%"}
+```{r incomp,fig.cap="Due eventi si dicono incompatibili se sono disgiunti",out.height="20%",fig.dpi=ifelse(html,160,600)}
 include_graphics("img/disgiunto.png")
 ```
 
@@ -645,7 +645,7 @@ Sia $A$ è un evento e $\bar A$ è il suo complementare, allora la coppia
 $\{A,\bar A\}$ è una *bipartizione* di $\Omega$.
 :::
 
-```{r bipartizione,out.height="20%"}
+```{r bipartizione,out.height="20%",fig.dpi=ifelse(html,160,600)}
 include_graphics("img/bipartizione.png")
 ```
 
@@ -663,7 +663,7 @@ tali che
 Allora $\{A_1,...,A_n\}$ è detta una *partizione* (finita) di $\Omega$
 :::
 
-```{r npart,out.height="20%"}
+```{r npart,out.height="20%",fig.dpi=ifelse(html,160,600)}
 include_graphics("img/npart.png")
 ```
 
@@ -683,7 +683,7 @@ P(B)&=&P(A)P(B|A)+P(\bar A)P(B|\bar A)
 :::
 :::
 
-```{r 2x2,out.height="20%"}
+```{r 2x2,out.height="20%",fig.dpi=ifelse(html,160,600)}
 include_graphics("img/2x2.png")
 ```
 
@@ -751,7 +751,7 @@ $$
 :::
 :::
 
-```{r nxm,out.height="20%"}
+```{r nxm,out.height="20%",fig.dpi=ifelse(html,160,600)}
 include_graphics("img/nxm.png")
 ```
 

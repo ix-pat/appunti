@@ -919,7 +919,8 @@ pie(conteggi, main = "Grafico a Torta", col = c(lighten(iblue,.75), lighten(iblu
 Attenzione la terza dimensione è inutile, non ha interpretazione fenomenica e
 rischi di non fare cogliere l'angolatura giusta.
 
-```{r,fig.cap="Attenzione alla terza dimensione",fig.align='left'}
+```{r,fig.cap="Attenzione alla terza dimensione",fig.align='center',fig.dpi=ifelse(html,160,320)}
+
 # Grafico a torta normale
 fig.def()
 # Grafico a torta 3D
@@ -936,13 +937,14 @@ img <- image_read("img/grafico_torta_3d.png")
 img_trimmed <- image_trim(img)  # Ritaglia automaticamente lo spazio bianco
 
 # Aggiunge un margine di 20 pixel intorno all'immagine ritagliata
-img_with_margin <- image_border(img_trimmed, color = "white", geometry = "300x50")
+img_with_margin <- image_border(img_trimmed, color = "white", geometry = "70x50")
 
 # Salva l'immagine finale con margine
 image_write(img_with_margin, "img/grafico_torta_3d_margin.png")
 
 # Includi l'immagine ritagliata con margine
 knitr::include_graphics("img/grafico_torta_3d_margin.png")
+
 ```
 :::
 :::
