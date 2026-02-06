@@ -1101,7 +1101,7 @@ di automazione, dalla creazione dei data set alla soluzione di alcuni problemi.<
 <div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb238-1"><a href="funzioni-usate-nel-libro.html#cb238-1" tabindex="-1"></a><span class="fu">histp</span>(<span class="at">axes=</span>T)         <span class="co"># Istogramma</span></span>
 <span id="cb238-2"><a href="funzioni-usate-nel-libro.html#cb238-2" tabindex="-1"></a><span class="fu">h.int</span>(<span class="dv">2</span>,<span class="dv">8</span>,<span class="at">col=</span>ared,   <span class="co"># Aree selezionate</span></span>
 <span id="cb238-3"><a href="funzioni-usate-nel-libro.html#cb238-3" tabindex="-1"></a>      <span class="at">density =</span> <span class="dv">25</span>)   </span></code></pre></div>
-<p><img src="Appunti_di_Statistica_2025_files/figure-html/25-test-functions-2-1.png" width="672" /></p>
+<p><img src="Appunti_di_Statistica_files/figure-html/25-test-functions-2-1.png" width="672" /></p>
 <div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb239-1"><a href="funzioni-usate-nel-libro.html#cb239-1" tabindex="-1"></a><span class="fu">percentile</span>(<span class="at">p =</span> <span class="fl">0.45</span>)       <span class="co"># Calcolo percentile</span></span></code></pre></div>
 <p><span class="math display">\[\begin{eqnarray*}
   p &amp;=&amp;  0.45 , \text{essendo }F_{ 3 }= 0.75  &gt; 0.45  \Rightarrow j_{ 0.45 }= 3 \\
@@ -1440,7 +1440,7 @@ allora:<span class="math display">\[\begin{eqnarray*}
 <p><span class="math inline">\(\fbox{C}\)</span> CONCLUSIONE</p>
 <p>La siginficatitività è <span class="math inline">\(\alpha=0.05\)</span>, dalle tavole osserviamo <span class="math inline">\(z_{0.025}=1.96\)</span>.</p>
 <p>Essendo <span class="math inline">\(|z_\text{obs}|=3.1623&gt;z_{0.025}=1.96\)</span> allora <strong>rifiuto</strong> <span class="math inline">\(H_0\)</span> al 5%.</p>
-<p><img src="Appunti_di_Statistica_2025_files/figure-html/25-test-functions-10-1.png" width="672" /></p>
+<p><img src="Appunti_di_Statistica_files/figure-html/25-test-functions-10-1.png" width="672" /></p>
 <p>Il <span class="math inline">\(p_{\text{value}}\)</span> è</p>
 <p><span class="math display">\[ p_{\text{value}} = P(|Z|&gt;|-3.16|)=2P(Z&gt;3.16)=0.001565 \]</span></p>
 <p><span class="math display">\[
@@ -1469,7 +1469,7 @@ anziché <span class="math inline">\(\alpha\)</span></p>
 <p><span class="math inline">\(z_{0.05}=1.6449\)</span>; <span class="math inline">\(z_{0.025}=1.96\)</span>; <span class="math inline">\(z_{0.005}=2.5758\)</span>; <span class="math inline">\(z_{0.0005}=3.2905\)</span></p>
 <p>Siccome <span class="math inline">\(2.5758&lt;|z_\text{obs}|=3.1623&lt;3.2905\)</span>, quindi <strong>rifiuto</strong> <span class="math inline">\(H_0\)</span> all’1%,</p>
 <p><span class="math inline">\(0.001&lt;p_\text{value}&lt;0.01\)</span>, <em>molto significativo</em> <span class="math inline">\(\fbox{**}\)</span>.</p>
-<p><img src="Appunti_di_Statistica_2025_files/figure-html/25-test-functions-10-2.png" width="672" /></p>
+<p><img src="Appunti_di_Statistica_files/figure-html/25-test-functions-10-2.png" width="672" /></p>
 <p>Il <span class="math inline">\(p_{\text{value}}\)</span> è</p>
 <p><span class="math display">\[ p_{\text{value}} = P(|Z|&gt;|-3.16|)=2P(Z&gt;3.16)=0.001565 \]</span></p>
 <p><span class="math display">\[
@@ -1495,7 +1495,7 @@ anziché <span class="math inline">\(\alpha\)</span></p>
 <p><span class="math display">\[ p_{\text{value}} = P(|Z|&gt;|-3.16|)=2P(Z&gt;3.16)=0.001565 \]</span></p>
 <p><span class="math display">\[
 0.001 &lt; p_\text{value}= 0.001565 \leq 0.01
-\]</span><img src="Appunti_di_Statistica_2025_files/figure-html/25-test-functions-10-3.png" width="672" /></p>
+\]</span><img src="Appunti_di_Statistica_files/figure-html/25-test-functions-10-3.png" width="672" /></p>
 <p><strong>Rifiuto</strong> <span class="math inline">\(H_0\)</span> all’1%,</p>
 <p><span class="math inline">\(0.001&lt;p_\text{value}&lt;0.01\)</span>, <em>molto significativo</em> <span class="math inline">\(\fbox{**}\)</span>.</p>
 <div class="sourceCode" id="cb273"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb273-1"><a href="funzioni-usate-nel-libro.html#cb273-1" tabindex="-1"></a><span class="fu">ttest_mu</span>(<span class="at">muh =</span> <span class="dv">0</span>,<span class="at">sh =</span> <span class="dv">1</span>,<span class="at">n =</span> <span class="dv">10</span>,<span class="at">mu0 =</span> <span class="dv">1</span>,<span class="at">h1 =</span> <span class="st">&quot;&lt;&quot;</span>,<span class="at">alpha =</span> <span class="fl">0.01</span>)</span></code></pre></div>
@@ -1518,7 +1518,7 @@ anziché <span class="math inline">\(\alpha\)</span></p>
 <p><span class="math inline">\(\fbox{C}\)</span> CONCLUSIONE</p>
 <p>La siginficatitività è <span class="math inline">\(\alpha=0.01\)</span>, dalle tavole osserviamo <span class="math inline">\(t_{10-1;0.01}=-2.8214\)</span>.</p>
 <p>Essendo <span class="math inline">\(t_\text{obs}=-3&lt;t_{10-1;0.01}=-2.8214\)</span> allora <strong>rifiuto</strong> <span class="math inline">\(H_0\)</span> al 1%.</p>
-<p><img src="Appunti_di_Statistica_2025_files/figure-html/25-test-functions-10-4.png" width="672" /></p>
+<p><img src="Appunti_di_Statistica_files/figure-html/25-test-functions-10-4.png" width="672" /></p>
 <p>Il <span class="math inline">\(p_{\text{value}}\)</span> è</p>
 <p><span class="math display">\[ p_{\text{value}} = P(T_{10-1}&lt;-3)=0.007478 \]</span></p>
 <p>Attenzione il calcolo del <span class="math inline">\(p_\text{value}\)</span> con la <span class="math inline">\(T\)</span> è puramente illustrativo e non può essere riprodotto senza una calcolatrice statistica adeguata.<span class="math display">\[
@@ -1547,7 +1547,7 @@ anziché <span class="math inline">\(\alpha\)</span></p>
 <p><span class="math inline">\(t_{10-1;0.001}=-4.2968\)</span>; <span class="math inline">\(t_{10-1;0.01}=-2.8214\)</span>; <span class="math inline">\(t_{10-1;0.05}=-1.8331\)</span>; <span class="math inline">\(t_{10-1;0.1}=-1.383\)</span></p>
 <p>Siccome <span class="math inline">\(-4.2968&lt;t_\text{obs}=-3&lt;-2.8214\)</span>, quindi <strong>rifiuto</strong> <span class="math inline">\(H_0\)</span> all’1%,</p>
 <p><span class="math inline">\(0.001&lt;p_\text{value}&lt;0.01\)</span>, <em>molto significativo</em> <span class="math inline">\(\fbox{**}\)</span>.</p>
-<p><img src="Appunti_di_Statistica_2025_files/figure-html/25-test-functions-10-5.png" width="672" /></p>
+<p><img src="Appunti_di_Statistica_files/figure-html/25-test-functions-10-5.png" width="672" /></p>
 <p>Il <span class="math inline">\(p_{\text{value}}\)</span> è</p>
 <p><span class="math display">\[ p_{\text{value}} = P(T_{10-1}&lt;-3)=0.007478 \]</span></p>
 <p>Attenzione il calcolo del <span class="math inline">\(p_\text{value}\)</span> con la <span class="math inline">\(T\)</span> è puramente illustrativo e non può essere riprodotto senza una calcolatrice statistica adeguata.<span class="math display">\[
@@ -1575,7 +1575,7 @@ anziché <span class="math inline">\(\alpha\)</span></p>
 <p><span class="math display">\[ p_{\text{value}} = P(T_{10-1}&lt;-3)=0.007478 \]</span></p>
 <p>Attenzione il calcolo del <span class="math inline">\(p_\text{value}\)</span> con la <span class="math inline">\(T\)</span> è puramente illustrativo e non può essere riprodotto senza una calcolatrice statistica adeguata.<span class="math display">\[
 0.001 &lt; p_\text{value}= 0.007478 \leq 0.01
-\]</span><img src="Appunti_di_Statistica_2025_files/figure-html/25-test-functions-10-6.png" width="672" /></p>
+\]</span><img src="Appunti_di_Statistica_files/figure-html/25-test-functions-10-6.png" width="672" /></p>
 <p><strong>Rifiuto</strong> <span class="math inline">\(H_0\)</span> all’1%,</p>
 <p><span class="math inline">\(0.001&lt;p_\text{value}&lt;0.01\)</span>, <em>molto significativo</em> <span class="math inline">\(\fbox{**}\)</span>.</p>
 <div class="sourceCode" id="cb276"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb276-1"><a href="funzioni-usate-nel-libro.html#cb276-1" tabindex="-1"></a><span class="fu">ztest_pi</span>(<span class="at">sn =</span> <span class="dv">60</span>,<span class="at">n =</span> <span class="dv">100</span>,<span class="at">p0 =</span> .<span class="dv">5</span>,<span class="at">h1 =</span> <span class="st">&quot;&gt;&quot;</span>,<span class="at">alpha =</span> <span class="fl">0.05</span>)</span></code></pre></div>
@@ -1600,7 +1600,7 @@ Test Binomiale per <span class="math inline">\(n\)</span> grande: <span class="m
 <p><span class="math display">\[ p_{\text{value}} = P(Z&gt;2)=0.022750 \]</span></p>
 <p><span class="math display">\[
 0.01 &lt; p_\text{value}= 0.022750 \leq 0.05
-\]</span><img src="Appunti_di_Statistica_2025_files/figure-html/25-test-functions-10-7.png" width="672" /></p>
+\]</span><img src="Appunti_di_Statistica_files/figure-html/25-test-functions-10-7.png" width="672" /></p>
 <p>Indecisione sul rifiuto di <span class="math inline">\(H_0\)</span> al 10%,</p>
 <p><span class="math inline">\(0.05&lt;p_\text{value}&lt;0.1\)</span>, <em>marginalmente significativo</em> <span class="math inline">\(\fbox{.}\)</span>.</p>
 <div class="sourceCode" id="cb277"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb277-1"><a href="funzioni-usate-nel-libro.html#cb277-1" tabindex="-1"></a><span class="fu">test_2c</span>(<span class="at">mu1 =</span> <span class="dv">11</span>,<span class="at">mu2 =</span> <span class="dv">12</span>,<span class="at">s1h =</span> <span class="fl">1.1</span>,<span class="at">s2h =</span> <span class="fl">1.2</span>,<span class="at">n1 =</span> <span class="dv">10</span>,<span class="at">n2 =</span> <span class="dv">12</span>,</span>
@@ -1631,7 +1631,7 @@ anziché <span class="math inline">\(\alpha\)</span></p>
 <p><span class="math inline">\(t_{22-2;0.05}=1.7247\)</span>; <span class="math inline">\(t_{22-2;0.025}=2.086\)</span>; <span class="math inline">\(t_{22-2;0.005}=2.8453\)</span>; <span class="math inline">\(t_{22-2;0.0005}=3.8495\)</span></p>
 <p>Siccome <span class="math inline">\(1.7247&lt;|t_\text{obs}|=1.9413&lt;2.086\)</span>, indecisione sul rifiuto di <span class="math inline">\(H_0\)</span> al 10%,</p>
 <p><span class="math inline">\(0.05&lt;p_\text{value}&lt;0.1\)</span>, <em>marginalmente significativo</em> <span class="math inline">\(\fbox{.}\)</span>.</p>
-<p><img src="Appunti_di_Statistica_2025_files/figure-html/25-test-functions-10-8.png" width="672" /></p>
+<p><img src="Appunti_di_Statistica_files/figure-html/25-test-functions-10-8.png" width="672" /></p>
 <p>Il <span class="math inline">\(p_{\text{value}}\)</span> è</p>
 <p><span class="math display">\[ p_{\text{value}} = P(|T_{22-2}|&gt;|-1.94|)=2P(T_{22-2}&gt;1.94)=0.066448 \]</span></p>
 <p>Attenzione il calcolo del <span class="math inline">\(p_\text{value}\)</span> con la <span class="math inline">\(T\)</span> è puramente illustrativo e non può essere riprodotto senza una calcolatrice statistica adeguata.<span class="math display">\[
@@ -1660,7 +1660,7 @@ anziché <span class="math inline">\(\alpha\)</span></p>
 <p><span class="math inline">\(\fbox{C}\)</span> CONCLUSIONE</p>
 <p>La siginficatitività è <span class="math inline">\(\alpha=0.05\)</span>, dalle tavole osserviamo <span class="math inline">\(t_{22-2;0.025}=2.086\)</span>.</p>
 <p>Essendo <span class="math inline">\(|t_\text{obs}|=1.9269&lt;t_{22-2;0.025}=2.086\)</span> allora <strong>non</strong> rifiuto <span class="math inline">\(H_0\)</span> al 5%.</p>
-<p><img src="Appunti_di_Statistica_2025_files/figure-html/25-test-functions-10-9.png" width="672" /></p>
+<p><img src="Appunti_di_Statistica_files/figure-html/25-test-functions-10-9.png" width="672" /></p>
 <p>Il <span class="math inline">\(p_{\text{value}}\)</span> è</p>
 <p><span class="math display">\[ p_{\text{value}} = P(|T_{22-2}|&gt;|-1.93|)=2P(T_{22-2}&gt;1.93)=0.068315 \]</span></p>
 <p>Attenzione il calcolo del <span class="math inline">\(p_\text{value}\)</span> con la <span class="math inline">\(T\)</span> è puramente illustrativo e non può essere riprodotto senza una calcolatrice statistica adeguata.<span class="math display">\[
@@ -1690,7 +1690,7 @@ anziché <span class="math inline">\(\alpha\)</span></p>
 <p><span class="math inline">\(\fbox{C}\)</span> CONCLUSIONE</p>
 <p>La siginficatitività è <span class="math inline">\(\alpha=0.05\)</span>, dalle tavole osserviamo <span class="math inline">\(z_{0.025}=1.96\)</span>.</p>
 <p>Essendo <span class="math inline">\(|z_\text{obs}|=0.2568&lt;z_{0.025}=1.96\)</span> allora <strong>non</strong> rifiuto <span class="math inline">\(H_0\)</span> al 5%.</p>
-<p><img src="Appunti_di_Statistica_2025_files/figure-html/25-test-functions-10-10.png" width="672" /></p>
+<p><img src="Appunti_di_Statistica_files/figure-html/25-test-functions-10-10.png" width="672" /></p>
 <p>Il <span class="math inline">\(p_{\text{value}}\)</span> è</p>
 <p><span class="math display">\[ p_{\text{value}} = P(|Z|&gt;|0.26|)=2P(Z&gt;0.26)=0.797302 \]</span></p>
 <p><span class="math display">\[
@@ -1719,7 +1719,7 @@ anziché <span class="math inline">\(\alpha\)</span></p>
 <p><span class="math inline">\(\fbox{C}\)</span> CONCLUSIONE</p>
 <p>La siginficatitività è <span class="math inline">\(\alpha=0.05\)</span>, dalle tavole osserviamo <span class="math inline">\(t_{22-2;0.025}=2.086\)</span>.</p>
 <p>Essendo <span class="math inline">\(|t_\text{obs}|=1.9413&lt;t_{22-2;0.025}=2.086\)</span> allora <strong>non</strong> rifiuto <span class="math inline">\(H_0\)</span> al 5%.</p>
-<p><img src="Appunti_di_Statistica_2025_files/figure-html/25-test-functions-10-11.png" width="672" /></p>
+<p><img src="Appunti_di_Statistica_files/figure-html/25-test-functions-10-11.png" width="672" /></p>
 <p>Il <span class="math inline">\(p_{\text{value}}\)</span> è</p>
 <p><span class="math display">\[ p_{\text{value}} = P(|T_{22-2}|&gt;|-1.94|)=2P(T_{22-2}&gt;1.94)=0.066448 \]</span></p>
 <p>Attenzione il calcolo del <span class="math inline">\(p_\text{value}\)</span> con la <span class="math inline">\(T\)</span> è puramente illustrativo e non può essere riprodotto senza una calcolatrice statistica adeguata.<span class="math display">\[
@@ -1753,7 +1753,7 @@ anziché <span class="math inline">\(\alpha\)</span></p>
 <p><span class="math inline">\(t_{22-2;0.05}=1.7247\)</span>; <span class="math inline">\(t_{22-2;0.025}=2.086\)</span>; <span class="math inline">\(t_{22-2;0.005}=2.8453\)</span>; <span class="math inline">\(t_{22-2;0.0005}=3.8495\)</span></p>
 <p>Siccome <span class="math inline">\(1.7247&lt;|t_\text{obs}|=1.9269&lt;2.086\)</span>, indecisione sul rifiuto di <span class="math inline">\(H_0\)</span> al 10%,</p>
 <p><span class="math inline">\(0.05&lt;p_\text{value}&lt;0.1\)</span>, <em>marginalmente significativo</em> <span class="math inline">\(\fbox{.}\)</span>.</p>
-<p><img src="Appunti_di_Statistica_2025_files/figure-html/25-test-functions-10-12.png" width="672" /></p>
+<p><img src="Appunti_di_Statistica_files/figure-html/25-test-functions-10-12.png" width="672" /></p>
 <p>Il <span class="math inline">\(p_{\text{value}}\)</span> è</p>
 <p><span class="math display">\[ p_{\text{value}} = P(|T_{22-2}|&gt;|-1.93|)=2P(T_{22-2}&gt;1.93)=0.068315 \]</span></p>
 <p>Attenzione il calcolo del <span class="math inline">\(p_\text{value}\)</span> con la <span class="math inline">\(T\)</span> è puramente illustrativo e non può essere riprodotto senza una calcolatrice statistica adeguata.<span class="math display">\[
@@ -1784,7 +1784,7 @@ anziché <span class="math inline">\(\alpha\)</span></p>
 <p><span class="math display">\[ p_{\text{value}} = P(Z&lt;-0.45)=0.325756 \]</span></p>
 <p><span class="math display">\[
 0.1 &lt; p_\text{value}= 0.325756 \leq 1
-\]</span><img src="Appunti_di_Statistica_2025_files/figure-html/25-test-functions-10-13.png" width="672" /></p>
+\]</span><img src="Appunti_di_Statistica_files/figure-html/25-test-functions-10-13.png" width="672" /></p>
 <p><strong>Non</strong> rifiuto <span class="math inline">\(H_0\)</span> a <strong>nessun</strong>
 livello di significatività,</p>
 <p><span class="math inline">\(p_\text{value}&gt;0.1\)</span>,
@@ -1873,7 +1873,7 @@ Test su un coefficiente di regressione: <span class="math inline">\(\Rightarrow\
 <p><span class="math inline">\(\fbox{C}\)</span> CONCLUSIONE</p>
 <p>La siginficatitività è <span class="math inline">\(\alpha=0.01\)</span>, dalle tavole osserviamo <span class="math inline">\(t_{100-2;0.01}=-2.365\)</span>.</p>
 <p>Essendo <span class="math inline">\(t_\text{obs}=-0.1488&gt;t_{100-2;0.01}=-2.365\)</span> allora <strong>rifiuto</strong> <span class="math inline">\(H_0\)</span> al 1%.</p>
-<p><img src="Appunti_di_Statistica_2025_files/figure-html/25-test-functions-11-1.png" width="672" /></p>
+<p><img src="Appunti_di_Statistica_files/figure-html/25-test-functions-11-1.png" width="672" /></p>
 <p>Il <span class="math inline">\(p_{\text{value}}\)</span> è</p>
 <p><span class="math display">\[ p_{\text{value}} = P(T_{100-2}&lt;-0.15)=0.441028 \]</span></p>
 <p>Attenzione il calcolo del <span class="math inline">\(p_\text{value}\)</span> con la <span class="math inline">\(T\)</span> è puramente illustrativo e non può essere riprodotto senza una calcolatrice statistica adeguata.<span class="math display">\[
@@ -1896,7 +1896,7 @@ Test su un coefficiente di regressione: <span class="math inline">\(\Rightarrow\
 <p><span class="math inline">\(\fbox{C}\)</span> CONCLUSIONE</p>
 <p>La siginficatitività è <span class="math inline">\(\alpha=0.01\)</span>, dalle tavole osserviamo <span class="math inline">\(t_{100-2;0.005}=2.6269\)</span>.</p>
 <p>Essendo <span class="math inline">\(|t_\text{obs}|=8.7327&gt;t_{100-2;0.005}=2.6269\)</span> allora <strong>rifiuto</strong> <span class="math inline">\(H_0\)</span> al 1%.</p>
-<p><img src="Appunti_di_Statistica_2025_files/figure-html/25-test-functions-11-2.png" width="672" /></p>
+<p><img src="Appunti_di_Statistica_files/figure-html/25-test-functions-11-2.png" width="672" /></p>
 <p>Il <span class="math inline">\(p_{\text{value}}\)</span> è</p>
 <p><span class="math display">\[ p_{\text{value}} = P(|T_{100-2}|&gt;|8.73|)=2P(T_{100-2}&gt;8.73)=7e-14 \]</span></p>
 <p>Attenzione il calcolo del <span class="math inline">\(p_\text{value}\)</span> con la <span class="math inline">\(T\)</span> è puramente illustrativo e non può essere riprodotto senza una calcolatrice statistica adeguata.<span class="math display">\[
@@ -2229,7 +2229,7 @@ la distribuzione delle frequenze relative:</p>
 </tr>
 </tbody>
 </table>
-<p><img src="Appunti_di_Statistica_2025_files/figure-html/25-test-functions-18-1.png" width="672" /></p>
+<p><img src="Appunti_di_Statistica_files/figure-html/25-test-functions-18-1.png" width="672" /></p>
 </div>
 <p>2.b <strong>(Punti 3)</strong> Qual è la percentuale di famiglie con spesa superiore a 60 euro?</p>
 <div class="sol">
@@ -2302,7 +2302,7 @@ diversi.</p>
 <p><span class="math display">\[ p_{\text{value}} = P(|Z|&gt;|0.62|)=2P(Z&gt;0.62)=0.537051 \]</span></p>
 <p><span class="math display">\[
 0.1 &lt; p_\text{value}= 0.537051 \leq 1
-\]</span><img src="Appunti_di_Statistica_2025_files/figure-html/unnamed-chunk-22-1.png" width="672" /></p>
+\]</span><img src="Appunti_di_Statistica_files/figure-html/unnamed-chunk-22-1.png" width="672" /></p>
 <p><strong>Non</strong> rifiuto <span class="math inline">\(H_0\)</span> a <strong>nessun</strong>
 livello di significatività,</p>
 <p><span class="math inline">\(p_\text{value}&gt;0.1\)</span>,
@@ -2374,7 +2374,7 @@ gitbook.start({
     "link": null,
     "text": null
   },
-  "download": ["Appunti_di_Statistica_2025.pdf"],
+  "download": ["Appunti_di_Statistica.pdf"],
   "search": {
     "engine": "fuse",
     "options": null

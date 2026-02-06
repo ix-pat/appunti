@@ -776,7 +776,7 @@ In sostanza lo stesso documento contiene:</p>
 <div class="minip">
 <p>Abbiamo analizzato <span class="math inline">\(n=250\)</span> individui, abbiamo osservato una media pari a
 <span class="math inline">\(\bar x =9.982\)</span> e una varianza pari a <span class="math inline">\(\sigma^2=0.9465\)</span>.
-<img src="Appunti_di_Statistica_2025_files/figure-html/24-Libro-54-1.png" width="672" /></p>
+<img src="Appunti_di_Statistica_files/figure-html/24-Libro-54-1.png" width="672" /></p>
 </div>
 <p>Quindi cioè che viene prodotto all’interno dei blocchi di R (chiamati R chunks),
 è utilizzabile nel testo richiamando <code>`r nome_comando`</code>
@@ -1048,7 +1048,7 @@ i punti di coordinate <code>x</code> e <code>y</code>.</p>
 <div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="comè-realizzato-il-libro.html#cb111-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>)</span>
 <span id="cb111-2"><a href="comè-realizzato-il-libro.html#cb111-2" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">3</span>)</span>
 <span id="cb111-3"><a href="comè-realizzato-il-libro.html#cb111-3" tabindex="-1"></a><span class="fu">plot</span>(x,y)</span></code></pre></div>
-<p><img src="Appunti_di_Statistica_2025_files/figure-html/24-Libro-24-1.png" width="672" /></p>
+<p><img src="Appunti_di_Statistica_files/figure-html/24-Libro-24-1.png" width="672" /></p>
 <p>La funzione <code>plot</code> è molto flessibile e può essere arricchita con molte opzioni</p>
 <div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="comè-realizzato-il-libro.html#cb112-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>)</span>
 <span id="cb112-2"><a href="comè-realizzato-il-libro.html#cb112-2" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">1.9</span>,<span class="fl">1.2</span>,<span class="fl">3.5</span>,<span class="fl">3.1</span>)</span>
@@ -1067,7 +1067,7 @@ i punti di coordinate <code>x</code> e <code>y</code>.</p>
 <span id="cb112-15"><a href="comè-realizzato-il-libro.html#cb112-15" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">2</span>,<span class="at">at =</span> y) <span class="co"># asse delle y sui punti osservati</span></span>
 <span id="cb112-16"><a href="comè-realizzato-il-libro.html#cb112-16" tabindex="-1"></a><span class="fu">text</span>(<span class="dv">2</span>,<span class="dv">3</span>,<span class="st">&quot;Nelle coordinate x=1.5 e y=3 scrivo qualcosa&quot;</span>)</span>
 <span id="cb112-17"><a href="comè-realizzato-il-libro.html#cb112-17" tabindex="-1"></a><span class="fu">text</span>(<span class="dv">3</span>,<span class="fl">1.9</span>,<span class="st">&quot;Scrivo più grande se cex = 1.5&quot;</span>,<span class="at">cex=</span><span class="fl">1.5</span>)</span></code></pre></div>
-<p><img src="Appunti_di_Statistica_2025_files/figure-html/24-Libro-25-1.png" width="672" /></p>
+<p><img src="Appunti_di_Statistica_files/figure-html/24-Libro-25-1.png" width="672" /></p>
 <p>Con le funzioni <code>points</code> e <code>lines</code> è possibile aggiungere al grafico esistente
 punti e linee, rispettivamente. Mentre per disegnare funzioni la funzione <code>curves</code>
 aiuta molto</p>
@@ -1077,20 +1077,20 @@ aiuta molto</p>
 <span id="cb113-4"><a href="comè-realizzato-il-libro.html#cb113-4" tabindex="-1"></a><span class="fu">lines</span>((<span class="sc">-</span><span class="dv">3</span>)<span class="sc">:</span><span class="dv">3</span>,<span class="fu">cos</span>((<span class="sc">-</span><span class="dv">3</span>)<span class="sc">:</span><span class="dv">3</span>),<span class="at">col=</span>iblue,<span class="at">lty=</span><span class="dv">4</span>)</span>
 <span id="cb113-5"><a href="comè-realizzato-il-libro.html#cb113-5" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">1</span>)</span>
 <span id="cb113-6"><a href="comè-realizzato-il-libro.html#cb113-6" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">2</span>)</span></code></pre></div>
-<p><img src="Appunti_di_Statistica_2025_files/figure-html/24-Libro-26-1.png" width="672" /></p>
+<p><img src="Appunti_di_Statistica_files/figure-html/24-Libro-26-1.png" width="672" /></p>
 <p>Un’altra funzione di interesse è <code>hist</code> che produce istogrammi di densità</p>
 <div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="comè-realizzato-il-libro.html#cb114-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">2.3</span>,<span class="fl">2.5</span>,<span class="fl">3.5</span>,<span class="fl">3.6</span>,<span class="fl">4.6</span>,<span class="fl">5.9</span>,<span class="fl">6.9</span>,<span class="fl">9.8</span>)</span>
 <span id="cb114-2"><a href="comè-realizzato-il-libro.html#cb114-2" tabindex="-1"></a><span class="fu">hist</span>(x)</span></code></pre></div>
-<p><img src="Appunti_di_Statistica_2025_files/figure-html/24-Libro-27-1.png" width="384" /></p>
+<p><img src="Appunti_di_Statistica_files/figure-html/24-Libro-27-1.png" width="384" /></p>
 <div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="comè-realizzato-il-libro.html#cb115-1" tabindex="-1"></a><span class="fu">hist</span>(x,<span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">6</span>,<span class="dv">10</span>),<span class="at">probability =</span> T,<span class="at">axes=</span>F,<span class="at">col=</span><span class="st">&quot;white&quot;</span>)</span>
 <span id="cb115-2"><a href="comè-realizzato-il-libro.html#cb115-2" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">1</span>,<span class="at">at =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">6</span>,<span class="dv">10</span>))</span></code></pre></div>
-<p><img src="Appunti_di_Statistica_2025_files/figure-html/24-Libro-27-2.png" width="384" /></p>
+<p><img src="Appunti_di_Statistica_files/figure-html/24-Libro-27-2.png" width="384" /></p>
 <p>Per rappresentare dati in 3D la funzione <code>persp</code> disegna superfici in 3 dimensioni</p>
 <div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="comè-realizzato-il-libro.html#cb116-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">4</span>,<span class="dv">4</span>,<span class="at">by=</span>.<span class="dv">1</span>)</span>
 <span id="cb116-2"><a href="comè-realizzato-il-libro.html#cb116-2" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">4</span>,<span class="dv">4</span>,<span class="at">by=</span>.<span class="dv">1</span>)</span>
 <span id="cb116-3"><a href="comè-realizzato-il-libro.html#cb116-3" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">outer</span>(x,y,<span class="cf">function</span>(x,y)<span class="fu">exp</span>(<span class="sc">-</span>x<span class="sc">^</span><span class="dv">2</span><span class="sc">-</span>y<span class="sc">^</span><span class="dv">2</span>))</span>
 <span id="cb116-4"><a href="comè-realizzato-il-libro.html#cb116-4" tabindex="-1"></a><span class="fu">persp</span>(x,y,z,<span class="at">theta =</span> <span class="dv">25</span>,<span class="at">phi =</span> <span class="dv">25</span>,<span class="at">ltheta =</span> <span class="dv">25</span>,<span class="at">border =</span> <span class="cn">NA</span>,<span class="at">shade =</span> <span class="fl">2.5</span>)</span></code></pre></div>
-<p><img src="Appunti_di_Statistica_2025_files/figure-html/24-Libro-28-1.png" width="672" /></p>
+<p><img src="Appunti_di_Statistica_files/figure-html/24-Libro-28-1.png" width="672" /></p>
 <p>Altre funzioni grafiche interessanti sono <code>rect</code> e <code>polyogn</code>
 che aggiungo ai grafici rettangoli e poligoni, rispettivamente</p>
 <div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="comè-realizzato-il-libro.html#cb117-1" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">10</span>),<span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">10</span>),<span class="at">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="at">ylab=</span><span class="st">&quot;&quot;</span>,<span class="at">axes=</span>F,<span class="at">type=</span><span class="st">&quot;n&quot;</span>) <span class="co"># inizia un grafico vuoto </span></span>
@@ -1099,24 +1099,24 @@ che aggiungo ai grafici rettangoli e poligoni, rispettivamente</p>
 <span id="cb117-4"><a href="comè-realizzato-il-libro.html#cb117-4" tabindex="-1"></a><span class="fu">rect</span>(<span class="at">xleft =</span> .<span class="dv">5</span>,<span class="at">ybottom =</span> <span class="fl">3.5</span>,<span class="at">xright =</span> <span class="fl">3.5</span>,<span class="at">ytop =</span> <span class="fl">4.5</span>,<span class="at">col=</span>ared)</span>
 <span id="cb117-5"><a href="comè-realizzato-il-libro.html#cb117-5" tabindex="-1"></a><span class="fu">polygon</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">6</span>,<span class="fl">6.5</span>,<span class="dv">7</span>,<span class="dv">10</span>),<span class="at">y =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">7</span>,<span class="dv">5</span>,<span class="dv">6</span>),<span class="at">density =</span> <span class="dv">10</span>,</span>
 <span id="cb117-6"><a href="comè-realizzato-il-libro.html#cb117-6" tabindex="-1"></a>        <span class="at">col=</span><span class="st">&quot;darkorange&quot;</span>,<span class="at">angle =</span> <span class="sc">-</span><span class="dv">45</span>,<span class="at">border =</span> <span class="st">&quot;gray39&quot;</span>,<span class="at">lwd=</span><span class="dv">4</span>)</span></code></pre></div>
-<p><img src="Appunti_di_Statistica_2025_files/figure-html/24-Libro-29-1.png" width="672" /></p>
+<p><img src="Appunti_di_Statistica_files/figure-html/24-Libro-29-1.png" width="672" /></p>
 <p>Le proporzioni tra <code>x</code> ed <code>y</code> si possono forzare con l’opzione <code>asp</code></p>
 <div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="comè-realizzato-il-libro.html#cb118-1" tabindex="-1"></a><span class="fu">plot</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">10</span>,<span class="dv">0</span><span class="sc">:</span><span class="dv">10</span>,<span class="at">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="at">ylab=</span><span class="st">&quot;&quot;</span>,<span class="at">axes=</span>F) <span class="co"># asp non specificato</span></span>
 <span id="cb118-2"><a href="comè-realizzato-il-libro.html#cb118-2" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">1</span>,<span class="at">pos =</span> <span class="dv">0</span>)</span>
 <span id="cb118-3"><a href="comè-realizzato-il-libro.html#cb118-3" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">2</span>,<span class="at">pos =</span> <span class="dv">0</span>,<span class="at">las=</span><span class="dv">2</span>)</span></code></pre></div>
-<p><img src="Appunti_di_Statistica_2025_files/figure-html/24-Libro-30-1.png" width="672" /></p>
+<p><img src="Appunti_di_Statistica_files/figure-html/24-Libro-30-1.png" width="672" /></p>
 <div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="comè-realizzato-il-libro.html#cb119-1" tabindex="-1"></a><span class="fu">plot</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">10</span>,<span class="dv">0</span><span class="sc">:</span><span class="dv">10</span>,<span class="at">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="at">ylab=</span><span class="st">&quot;&quot;</span>,<span class="at">axes=</span>F,<span class="at">asp=</span><span class="dv">1</span>) <span class="co"># asp=1 </span></span>
 <span id="cb119-2"><a href="comè-realizzato-il-libro.html#cb119-2" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">1</span>,<span class="at">pos =</span> <span class="dv">0</span>,<span class="at">at =</span> <span class="fu">seq</span>(<span class="dv">0</span>,<span class="dv">10</span>,<span class="at">by=</span><span class="dv">2</span>))</span>
 <span id="cb119-3"><a href="comè-realizzato-il-libro.html#cb119-3" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">2</span>,<span class="at">pos =</span> <span class="dv">0</span>,<span class="at">las=</span><span class="dv">2</span>)</span></code></pre></div>
-<p><img src="Appunti_di_Statistica_2025_files/figure-html/24-Libro-31-1.png" width="192" /></p>
+<p><img src="Appunti_di_Statistica_files/figure-html/24-Libro-31-1.png" width="192" /></p>
 <div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="comè-realizzato-il-libro.html#cb120-1" tabindex="-1"></a><span class="fu">plot</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">10</span>,<span class="dv">0</span><span class="sc">:</span><span class="dv">10</span>,<span class="at">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="at">ylab=</span><span class="st">&quot;&quot;</span>,<span class="at">axes=</span>F,<span class="at">asp=</span><span class="dv">9</span><span class="sc">/</span><span class="dv">16</span>) <span class="co"># asp=9/16 </span></span>
 <span id="cb120-2"><a href="comè-realizzato-il-libro.html#cb120-2" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">1</span>,<span class="at">pos =</span> <span class="dv">0</span>)</span>
 <span id="cb120-3"><a href="comè-realizzato-il-libro.html#cb120-3" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">2</span>,<span class="at">pos =</span> <span class="dv">0</span>,<span class="at">las=</span><span class="dv">2</span>)</span></code></pre></div>
-<p><img src="Appunti_di_Statistica_2025_files/figure-html/24-Libro-32-1.png" width="192" /></p>
+<p><img src="Appunti_di_Statistica_files/figure-html/24-Libro-32-1.png" width="192" /></p>
 <div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="comè-realizzato-il-libro.html#cb121-1" tabindex="-1"></a><span class="fu">plot</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">10</span>,<span class="dv">0</span><span class="sc">:</span><span class="dv">10</span>,<span class="at">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="at">ylab=</span><span class="st">&quot;&quot;</span>,<span class="at">axes=</span>F,<span class="at">asp=</span><span class="dv">4</span><span class="sc">/</span><span class="dv">3</span>) <span class="co"># asp=4/3 </span></span>
 <span id="cb121-2"><a href="comè-realizzato-il-libro.html#cb121-2" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">1</span>,<span class="at">pos =</span> <span class="dv">0</span>)</span>
 <span id="cb121-3"><a href="comè-realizzato-il-libro.html#cb121-3" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">2</span>,<span class="at">pos =</span> <span class="dv">0</span>,<span class="at">las=</span><span class="dv">2</span>,<span class="at">at =</span> <span class="fu">seq</span>(<span class="dv">0</span>,<span class="dv">10</span>,<span class="at">by=</span><span class="dv">2</span>))</span></code></pre></div>
-<p><img src="Appunti_di_Statistica_2025_files/figure-html/24-Libro-33-1.png" width="192" /></p>
+<p><img src="Appunti_di_Statistica_files/figure-html/24-Libro-33-1.png" width="192" /></p>
 <p>I parametri del grafico si possono settare attraverso <code>par</code></p>
 <div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="comè-realizzato-il-libro.html#cb122-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
 <span id="cb122-2"><a href="comè-realizzato-il-libro.html#cb122-2" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>),<span class="at">cex=</span><span class="fl">0.6</span>) <span class="co"># 1 riga e 2 colonne</span></span>
@@ -1130,7 +1130,7 @@ che aggiungo ai grafici rettangoli e poligoni, rispettivamente</p>
 <span id="cb122-10"><a href="comè-realizzato-il-libro.html#cb122-10" tabindex="-1"></a><span class="fu">hist</span>(</span>
 <span id="cb122-11"><a href="comè-realizzato-il-libro.html#cb122-11" tabindex="-1"></a>  dati,<span class="fu">c</span>(<span class="sc">-</span><span class="dv">4</span>,<span class="sc">-</span><span class="dv">3</span>,<span class="sc">-</span><span class="fl">1.5</span>,<span class="sc">-</span>.<span class="dv">5</span>,<span class="dv">0</span>,.<span class="dv">5</span>,<span class="fl">1.5</span>,<span class="dv">3</span>,<span class="dv">4</span>),<span class="at">main=</span><span class="st">&quot;Istogramma di densità&quot;</span>,<span class="at">col=</span><span class="st">&quot;white&quot;</span></span>
 <span id="cb122-12"><a href="comè-realizzato-il-libro.html#cb122-12" tabindex="-1"></a>  ) <span class="co"># istogramma dei dati</span></span></code></pre></div>
-<p><img src="Appunti_di_Statistica_2025_files/figure-html/24-Libro-34-1.png" width="672" /></p>
+<p><img src="Appunti_di_Statistica_files/figure-html/24-Libro-34-1.png" width="672" /></p>
 </div>
 <div id="le-funzioni-in-r" class="section level3 unnumbered hasAnchor">
 <h3>Le Funzioni in R<a href="comè-realizzato-il-libro.html#le-funzioni-in-r" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -1220,7 +1220,7 @@ di calcolare <span class="math inline">\(\hat\beta_0\)</span> e <span class="mat
 <span id="cb154-14"><a href="comè-realizzato-il-libro.html#cb154-14" tabindex="-1"></a><span class="co"># e aggiungere una retta di coefficienti beta 0 e beta 1 </span></span>
 <span id="cb154-15"><a href="comè-realizzato-il-libro.html#cb154-15" tabindex="-1"></a></span>
 <span id="cb154-16"><a href="comè-realizzato-il-libro.html#cb154-16" tabindex="-1"></a><span class="fu">abline</span>(modello<span class="sc">$</span>coefficients,<span class="at">lwd=</span><span class="dv">2</span>,<span class="at">col=</span>iblue) </span></code></pre></div>
-<p><img src="Appunti_di_Statistica_2025_files/figure-html/24-Libro-39-1.png" width="672" /></p>
+<p><img src="Appunti_di_Statistica_files/figure-html/24-Libro-39-1.png" width="672" /></p>
 </div>
 <div id="le-vc-di-maggiore-interessa" class="section level4 unnumbered hasAnchor">
 <h4>Le VC di maggiore interessa<a href="comè-realizzato-il-libro.html#le-vc-di-maggiore-interessa" class="anchor-section" aria-label="Anchor link to header"></a></h4>
@@ -1242,7 +1242,7 @@ Per esempio se <span class="math inline">\(X\sim\text{Binom}(n=5;\pi=0.3)\)</spa
 <p>[1] 2</p>
 <div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="comè-realizzato-il-libro.html#cb159-1" tabindex="-1"></a><span class="fu">rbinom</span>(<span class="at">n =</span> <span class="dv">10</span>,<span class="at">size =</span> <span class="dv">5</span>,<span class="at">prob =</span> <span class="fl">0.3</span>)  <span class="co"># simula 10 estrazioni da X</span></span></code></pre></div>
 <p>[1] 1 1 1 1 1 1 2 0 1 2
-<img src="Appunti_di_Statistica_2025_files/figure-html/24-Libro-40-1.png" width="480" /></p>
+<img src="Appunti_di_Statistica_files/figure-html/24-Libro-40-1.png" width="480" /></p>
 <p>Per esempio se <span class="math inline">\(X\sim\text{Pois}(\lambda=4.3)\)</span></p>
 <div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="comè-realizzato-il-libro.html#cb160-1" tabindex="-1"></a><span class="fu">dpois</span>(<span class="at">x =</span> <span class="dv">3</span>,<span class="at">lambda =</span> <span class="fl">4.3</span>) <span class="co"># è la probabilità che X=3</span></span></code></pre></div>
 <p>[1] 0.1798</p>
@@ -1256,7 +1256,7 @@ Per esempio se <span class="math inline">\(X\sim\text{Binom}(n=5;\pi=0.3)\)</spa
 <p>[1] 6</p>
 <div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="comè-realizzato-il-libro.html#cb164-1" tabindex="-1"></a><span class="fu">rpois</span>(<span class="at">n =</span> <span class="dv">10</span>,<span class="at">lambda =</span> <span class="fl">4.3</span>)  <span class="co"># simula 10 estrazioni da X</span></span></code></pre></div>
 <p>[1] 8 2 6 8 6 3 5 8 8 3
-<img src="Appunti_di_Statistica_2025_files/figure-html/24-Libro-41-1.png" width="480" /></p>
+<img src="Appunti_di_Statistica_files/figure-html/24-Libro-41-1.png" width="480" /></p>
 <p>Per esempio se <span class="math inline">\(X\sim N(\mu=2.5,\sigma^2=(1.5)^2)\)</span></p>
 <div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb165-1"><a href="comè-realizzato-il-libro.html#cb165-1" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>),<span class="at">cex=</span><span class="fl">0.6</span>) <span class="co"># metto una figura accanto all&#39;altra</span></span>
 <span id="cb165-2"><a href="comè-realizzato-il-libro.html#cb165-2" tabindex="-1"></a><span class="fu">curve</span>(<span class="fu">dnorm</span>(x,<span class="at">mean =</span> <span class="fl">2.5</span>,<span class="at">sd =</span> <span class="fl">1.5</span>),</span>
@@ -1279,7 +1279,7 @@ Per esempio se <span class="math inline">\(X\sim\text{Binom}(n=5;\pi=0.3)\)</spa
 <span id="cb165-19"><a href="comè-realizzato-il-libro.html#cb165-19" tabindex="-1"></a>      <span class="at">xlab =</span> <span class="fu">expression</span>(theta))</span>
 <span id="cb165-20"><a href="comè-realizzato-il-libro.html#cb165-20" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">1</span>)</span>
 <span id="cb165-21"><a href="comè-realizzato-il-libro.html#cb165-21" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">2</span>)</span></code></pre></div>
-<p><img src="Appunti_di_Statistica_2025_files/figure-html/24-Libro-42-1.png" width="672" /></p>
+<p><img src="Appunti_di_Statistica_files/figure-html/24-Libro-42-1.png" width="672" /></p>
 <div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb166-1"><a href="comè-realizzato-il-libro.html#cb166-1" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="dv">3</span>,<span class="at">mean =</span> <span class="fl">2.5</span>,<span class="at">sd =</span> <span class="fl">1.5</span>)      <span class="co"># P(X&lt;3)</span></span></code></pre></div>
 <pre><code>## [1] 0.63056</code></pre>
 <div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="comè-realizzato-il-libro.html#cb168-1" tabindex="-1"></a><span class="dv">1</span> <span class="sc">-</span> <span class="fu">pnorm</span>(<span class="dv">3</span>,<span class="at">mean =</span> <span class="fl">2.5</span>,<span class="at">sd =</span> <span class="fl">1.5</span>)  <span class="co"># P(X&gt;3)</span></span></code></pre></div>
@@ -1494,7 +1494,7 @@ gitbook.start({
     "link": null,
     "text": null
   },
-  "download": ["Appunti_di_Statistica_2025.pdf"],
+  "download": ["Appunti_di_Statistica.pdf"],
   "search": {
     "engine": "fuse",
     "options": null

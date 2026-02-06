@@ -803,10 +803,10 @@ SE(\widehat{Y}_{(X=x)}) &amp;=&amp; \sqrt{V(\widehat{Y}_{(X=x)})} \\
 </div>
 <p>Fisso <span class="math inline">\(n=10\)</span>, <span class="math inline">\(x_1=0.1,x_2=0.2,...,x_{10}=1.0\)</span>, <span class="math inline">\(\beta_0=0\)</span>, <span class="math inline">\(\beta_1=1\)</span> e <span class="math inline">\(\sigma_\varepsilon^2=0.64\)</span>. Simulo 5 volte <span class="math inline">\(n=10\)</span> punti da
 <span class="math display">\[Y_i = 0 + 1\cdot x_i + \varepsilon_i,~~\varepsilon_i\sim N(0,0.64)\]</span></p>
-<p><img src="Appunti_di_Statistica_2025_files/figure-html/18-regressione-II-4-1.png" width="672" /></p>
+<p><img src="Appunti_di_Statistica_files/figure-html/18-regressione-II-4-1.png" width="672" /></p>
 <p>E ripeto le simulazioni ripetute 500 volte:</p>
-<p><img src="Appunti_di_Statistica_2025_files/figure-html/18-regressione-II-5-1.png" width="672" /></p>
-<p><img src="Appunti_di_Statistica_2025_files/figure-html/18-regressione-II-6-1.png" width="672" /></p>
+<p><img src="Appunti_di_Statistica_files/figure-html/18-regressione-II-5-1.png" width="672" /></p>
+<p><img src="Appunti_di_Statistica_files/figure-html/18-regressione-II-6-1.png" width="672" /></p>
 <p>La varianza di <span class="math inline">\(\hat Y\)</span> è l’<em>errore di previsione</em>
 <span class="math display">\[V(\widehat{Y}_{(X=x)}) = \sigma_{\varepsilon}^{2} \left( \frac{1} {n}  +  \frac{(x - \bar{x})^{2}} {n \hat{\sigma}^{2}_{X}} \right)\]</span></p>
 <div id="interpolazione-e-estrapolazione" class="section level3 hasAnchor" number="18.4.1">
@@ -818,7 +818,7 @@ SE(\widehat{Y}_{(X=x)}) &amp;=&amp; \sqrt{V(\widehat{Y}_{(X=x)})} \\
 <span class="math display">\[x&lt;\min\{x_i\}~~~\text{oppure}~~~ x &gt;\max\{x_i\}\]</span></p>
 </div>
 <p>Voglio le vedere le previsioni per <span class="math inline">\(x&gt;1\)</span></p>
-<p><img src="Appunti_di_Statistica_2025_files/figure-html/18-regressione-II-8-1.png" width="672" /></p>
+<p><img src="Appunti_di_Statistica_files/figure-html/18-regressione-II-8-1.png" width="672" /></p>
 </div>
 <div id="intervalli-di-confidenza-per-beta_0-beta_1-e-hat-y" class="section level3 hasAnchor" number="18.4.2">
 <h3><span class="header-section-number">18.4.2</span> Intervalli di Confidenza per <span class="math inline">\(\beta_0\)</span>, <span class="math inline">\(\beta_1\)</span> e <span class="math inline">\(\hat Y\)</span><a href="inferenza-e-diagnostica-sul-modello-di-regressione-lineare.html#intervalli-di-confidenza-per-beta_0-beta_1-e-hat-y" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -953,7 +953,7 @@ Il coefficiente di determinazione lineare <span class="math inline">\(R^2\)</spa
 di <span class="math inline">\(k\)</span>.
 Per valutare quanto bene il modello si adatta ai dati si devo compiere analisi statistiche ulteriori.
 <div class="figure"><span style="display:block;" id="fig:unnamed-chunk-16"></span>
-<img src="Appunti_di_Statistica_2025_files/figure-html/unnamed-chunk-16-1.png" alt="Nube in 3D, i punti tali per cui $\hat y_i&gt;y_i$ sono colorati in blu scuro, quelli per cui $\hat y_i&lt;y_i$, sono colorati in azzuro chiaro" width="672" />
+<img src="Appunti_di_Statistica_files/figure-html/unnamed-chunk-16-1.png" alt="Nube in 3D, i punti tali per cui $\hat y_i&gt;y_i$ sono colorati in blu scuro, quelli per cui $\hat y_i&lt;y_i$, sono colorati in azzuro chiaro" width="672" />
 <p class="caption">
 Figura 18.1: Nube in 3D, i punti tali per cui <span class="math inline">\(\hat y_i&gt;y_i\)</span> sono colorati in blu scuro, quelli per cui <span class="math inline">\(\hat y_i&lt;y_i\)</span>, sono colorati in azzuro chiaro
 </p>
@@ -976,16 +976,16 @@ Per costruzione</p>
 <p>e dunque la <strong>retta dei residui</strong>, che è la retta di regressione tra <span class="math inline">\(x\)</span> e
 <span class="math inline">\(\hat\varepsilon\)</span> è parallela all’asse delle <span class="math inline">\(x\)</span> e coincide con esso.
 Esempio sui 4 punti</p>
-<p><img src="Appunti_di_Statistica_2025_files/figure-html/18-regressione-II-11-1.png" width="672" /></p>
+<p><img src="Appunti_di_Statistica_files/figure-html/18-regressione-II-11-1.png" width="672" /></p>
 <p>essendo <span class="math inline">\(\hat y_i\)</span> combinazioni lineari degli <span class="math inline">\(x_i\)</span> se mettiamo gli <span class="math inline">\(\hat y_i\)</span> in ordinata
 e gli <span class="math inline">\(\varepsilon_i\)</span> in ascissa otteniamo lo stesso grafico</p>
-<p><img src="Appunti_di_Statistica_2025_files/figure-html/18-regressione-II-12-1.png" width="672" /></p>
+<p><img src="Appunti_di_Statistica_files/figure-html/18-regressione-II-12-1.png" width="672" /></p>
 </div>
 <div id="lettura-del-diagramma-dei-residui" class="section level3 hasAnchor" number="18.6.2">
 <h3><span class="header-section-number">18.6.2</span> Lettura del Diagramma dei residui<a href="inferenza-e-diagnostica-sul-modello-di-regressione-lineare.html#lettura-del-diagramma-dei-residui" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Se tutte le assunzioni sono rispettate i residui devono essere distribuiti
 in modo uniforme intorno alla retta dei residui</p>
-<p><img src="Appunti_di_Statistica_2025_files/figure-html/18-regressione-II-13-1.png" width="672" /></p>
+<p><img src="Appunti_di_Statistica_files/figure-html/18-regressione-II-13-1.png" width="672" /></p>
 <!-- ```{r 18-regressione-II-14} -->
 <!-- par(mfrow=c(1,2),cex=cex) -->
 <!-- plot(x,ml$residuals,pch=16,axes=F,xlab="x",ylab=expression(hat(epsilon)),type="l") -->
@@ -1001,7 +1001,7 @@ in modo uniforme intorno alla retta dei residui</p>
 <!-- par(mfrow=c(1,1),cex=cex) -->
 <!-- ``` -->
 <p><strong>Violazione dell’assunto 0 (i punti provengono da una relazione lineare)</strong></p>
-<p><img src="Appunti_di_Statistica_2025_files/figure-html/18-regressione-II-15-1.png" width="672" /></p>
+<p><img src="Appunti_di_Statistica_files/figure-html/18-regressione-II-15-1.png" width="672" /></p>
 <!-- ```{r 18-regressione-II-16} -->
 <!-- par(mfrow=c(1,2),cex=cex) -->
 <!-- plot(x,ml$residuals,pch=16,axes=F,xlab="x",ylab=expression(hat(epsilon)),type="l") -->
@@ -1017,7 +1017,7 @@ in modo uniforme intorno alla retta dei residui</p>
 <!-- par(mfrow=c(1,1),cex=cex) -->
 <!-- ``` -->
 <p><strong>Violazione degli assunti 2. e 4. (omoschedasticità e indipendenza tra <span class="math inline">\(x\)</span> e <span class="math inline">\(\varepsilon\)</span>)</strong></p>
-<p><img src="Appunti_di_Statistica_2025_files/figure-html/18-regressione-II-17-1.png" width="672" /></p>
+<p><img src="Appunti_di_Statistica_files/figure-html/18-regressione-II-17-1.png" width="672" /></p>
 <!-- ```{r 18-regressione-II-18} -->
 <!-- par(mfrow=c(1,2),cex=cex) -->
 <!-- plot(x,ml$residuals,pch=16,axes=F,xlab="x",ylab=expression(hat(epsilon)),type="l") -->
@@ -1033,7 +1033,7 @@ in modo uniforme intorno alla retta dei residui</p>
 <!-- par(mfrow=c(1,1),cex=cex) -->
 <!-- ``` -->
 <p><strong>Violazione dell’assunto 3. (indipendenza gli <span class="math inline">\(\varepsilon\)</span>)</strong></p>
-<p><img src="Appunti_di_Statistica_2025_files/figure-html/18-regressione-II-19-1.png" width="672" /></p>
+<p><img src="Appunti_di_Statistica_files/figure-html/18-regressione-II-19-1.png" width="672" /></p>
 <!-- ```{r 18-regressione-II-20} -->
 <!-- par(mfrow=c(1,2),cex=cex) -->
 <!-- plot(x,ml$residuals,pch=16,axes=F,xlab="x",ylab=expression(hat(epsilon)),type="l") -->
@@ -1052,9 +1052,9 @@ in modo uniforme intorno alla retta dei residui</p>
 <p>Per diagnosticare se i residui provengono da una normale ci sono diverse tecniche.
 Per esempio l’istogramma dei residui: si costruisce l’istogramma di frequenza e lo si compara con la normale.
 Se gli assunti sono rispettati ci aspetteremmo una situazione del genere</p>
-<p><img src="Appunti_di_Statistica_2025_files/figure-html/18-regressione-II-21-1.png" width="672" /></p>
+<p><img src="Appunti_di_Statistica_files/figure-html/18-regressione-II-21-1.png" width="672" /></p>
 <p>Esempio di assunto <strong>non</strong> rispettato</p>
-<p><img src="Appunti_di_Statistica_2025_files/figure-html/18-regressione-II-22-1.png" width="672" /></p>
+<p><img src="Appunti_di_Statistica_files/figure-html/18-regressione-II-22-1.png" width="672" /></p>
 </div>
 <div id="normal-qq-plot" class="section level3 hasAnchor" number="18.6.3">
 <h3><span class="header-section-number">18.6.3</span> Normal QQ plot<a href="inferenza-e-diagnostica-sul-modello-di-regressione-lineare.html#normal-qq-plot" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -1092,7 +1092,7 @@ e in ordinata i <em>quantile</em> osservati dei residui sul campione.</p>
 <p>Se le <span class="math inline">\(z_{i/n}\)</span> e le <span class="math inline">\(\hat\varepsilon_i\)</span> giacciono su una retta,
 allora gli errori si possono assumere normali, tanto più i punti si allontanano
 tanto più l’ipotesi è violata.</p>
-<p><img src="Appunti_di_Statistica_2025_files/figure-html/18-regressione-II-23-1.png" width="672" /></p>
+<p><img src="Appunti_di_Statistica_files/figure-html/18-regressione-II-23-1.png" width="672" /></p>
 </div>
 </div>
 <div id="punti-di-leva-outliers-e-punti-influenti" class="section level2 hasAnchor" number="18.7">
@@ -1105,7 +1105,7 @@ tanto più l’ipotesi è violata.</p>
 comportamento anomalo che influenzano
 notevolmente i risultati</li>
 </ul>
-<p><img src="Appunti_di_Statistica_2025_files/figure-html/18-regressione-II-24-1.png" width="672" /></p>
+<p><img src="Appunti_di_Statistica_files/figure-html/18-regressione-II-24-1.png" width="672" /></p>
 <div id="punti-di-leva" class="section level3 hasAnchor" number="18.7.1">
 <h3><span class="header-section-number">18.7.1</span> Punti di leva<a href="inferenza-e-diagnostica-sul-modello-di-regressione-lineare.html#punti-di-leva" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Possiamo misurare la distanza di ogni singola <span class="math inline">\(x_i\)</span> dalla propria media <span class="math inline">\(\bar x\)</span> con la seguente misura
@@ -1123,7 +1123,7 @@ valori estremi della variabile esplicativa e sono potenzialmente
 influenti, nel senso che possono influenzare in misura rilevante
 la pendenza della RdR.
 Infatti, i punti di leva possono portare a risultati forvianti per esempio</p>
-<p><img src="Appunti_di_Statistica_2025_files/figure-html/18-regressione-II-25-1.png" width="672" /></p>
+<p><img src="Appunti_di_Statistica_files/figure-html/18-regressione-II-25-1.png" width="672" /></p>
 <table>
 <thead>
 <tr>
@@ -1271,7 +1271,7 @@ Infatti, i punti di leva possono portare a risultati forvianti per esempio</p>
 </tbody>
 </table>
 <p>Ma non sempre un punto a leva alta è un punto influente</p>
-<p><img src="Appunti_di_Statistica_2025_files/figure-html/18-regressione-II-26-1.png" width="672" /></p>
+<p><img src="Appunti_di_Statistica_files/figure-html/18-regressione-II-26-1.png" width="672" /></p>
 <table>
 <thead>
 <tr>
@@ -1432,8 +1432,8 @@ le leve e sono più confrontabili.
 La distribuzione è <span class="math inline">\(t\)</span> con <span class="math inline">\(n-2\)</span> gradi di libertà,
 se per qualche <span class="math inline">\(i\)</span>, <span class="math inline">\(|\tilde{\varepsilon}_{i}|&gt;t_{\alpha;n-2}\)</span> allora siamo in presenza di punti anomali che diventano <strong>punti influenti</strong> per il calcolo di <span class="math inline">\(\hat\beta_0\)</span> e<span class="math inline">\(\hat\beta_1\)</span>.</p>
 <p><strong>Esempi</strong></p>
-<p><img src="Appunti_di_Statistica_2025_files/figure-html/18-regressione-II-27-1.png" width="672" /></p>
-<p><img src="Appunti_di_Statistica_2025_files/figure-html/18-regressione-II-28-1.png" width="672" /></p>
+<p><img src="Appunti_di_Statistica_files/figure-html/18-regressione-II-27-1.png" width="672" /></p>
+<p><img src="Appunti_di_Statistica_files/figure-html/18-regressione-II-28-1.png" width="672" /></p>
 <p><strong>Esempio numerico</strong></p>
 <table>
 <thead>
@@ -1619,7 +1619,7 @@ se per qualche <span class="math inline">\(i\)</span>, <span class="math inline"
 </tr>
 </tbody>
 </table>
-<p><img src="Appunti_di_Statistica_2025_files/figure-html/18-regressione-II-29-1.png" width="672" /></p>
+<p><img src="Appunti_di_Statistica_files/figure-html/18-regressione-II-29-1.png" width="672" /></p>
 </div>
 </div>
 <div id="relazione-tra-yx-e-xy" class="section level2 hasAnchor" number="18.8">
@@ -1656,14 +1656,14 @@ se per qualche <span class="math inline">\(i\)</span>, <span class="math inline"
 \hat\alpha_1 &amp;=&amp;\frac{\hat\sigma_X}{\hat\sigma_Y}r
 \end{eqnarray*}\]</span></p>
 <p><strong>Graficamente</strong></p>
-<p><img src="Appunti_di_Statistica_2025_files/figure-html/18-regressione-II-31-1.png" width="672" /></p>
+<p><img src="Appunti_di_Statistica_files/figure-html/18-regressione-II-31-1.png" width="672" /></p>
 </div>
 <div id="regressione-sulle-variabili-standardizzate" class="section level3 hasAnchor" number="18.8.2">
 <h3><span class="header-section-number">18.8.2</span> Regressione sulle variabili standardizzate<a href="inferenza-e-diagnostica-sul-modello-di-regressione-lineare.html#regressione-sulle-variabili-standardizzate" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Se standardizziamo sia <span class="math inline">\(x\)</span> che <span class="math inline">\(y\)</span>, otteniamo
 <span class="math display">\[z_{Xi}=\frac{x_i-\bar x}{\hat\sigma_X}\qquad z_{Yi}=\frac{y_i-\bar y}{\hat\sigma_Y}\]</span></p>
 <p>Abbiamo eliminato l’unità di misura sia da <span class="math inline">\(x\)</span> che da <span class="math inline">\(y\)</span> e centrato la nube dei dati</p>
-<p><img src="Appunti_di_Statistica_2025_files/figure-html/18-regressione-II-32-1.png" width="672" /></p>
+<p><img src="Appunti_di_Statistica_files/figure-html/18-regressione-II-32-1.png" width="672" /></p>
 <p>I dati standardizzati hanno media zero e varianza 1
 <span class="math display">\[\begin{aligned}
 \frac 1 n \sum_{i=1}^n z_{Xi} &amp;=0 &amp; \frac 1 n \sum_{i=1}^n z_{Xi}^2 &amp;=1\\
@@ -1690,7 +1690,7 @@ r &amp;=\frac{\text{cov}(z_X,z_Y)}{\hat\sigma_{Z_X}\hat\sigma_{Z_Y}}\\
 \end{aligned}
 \]</span></p>
 <p><strong>Graficamente</strong></p>
-<p><img src="Appunti_di_Statistica_2025_files/figure-html/18-regressione-II-33-1.png" width="672" /></p>
+<p><img src="Appunti_di_Statistica_files/figure-html/18-regressione-II-33-1.png" width="672" /></p>
 
 </div>
 </div>
@@ -1743,7 +1743,7 @@ gitbook.start({
     "link": null,
     "text": null
   },
-  "download": ["Appunti_di_Statistica_2025.pdf"],
+  "download": ["Appunti_di_Statistica.pdf"],
   "search": {
     "engine": "fuse",
     "options": null

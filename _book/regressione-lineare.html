@@ -744,7 +744,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">17.1</span> Il modello d’errore<a href="regressione-lineare.html#il-modello-derrore" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Siano <span class="math inline">\(Y_1,...,Y_n\)</span> <span class="math inline">\(n\)</span> VC IID, replicazioni tc <span class="math inline">\(Y_i\sim N(\mu,\sigma_\varepsilon^2)\)</span>, dalle proprietà della normale possiamo riscrivere:
 <span class="math display">\[Y_i=\mu+\varepsilon_i\qquad\varepsilon_i\sim N(0,\sigma_\varepsilon^2)\]</span></p>
-<p><img src="Appunti_di_Statistica_2025_files/figure-html/17-regressione-I-6-1.png" width="672" /></p>
+<p><img src="Appunti_di_Statistica_files/figure-html/17-regressione-I-6-1.png" width="672" /></p>
 <p><span class="math display">\[Y_i\sim N(\mu,\sigma_\varepsilon^2)~~\text{ è equivalente a dire }~~Y_i=\mu+\varepsilon_i,~~\varepsilon_i\sim N(0,\sigma_\varepsilon^2)\]</span></p>
 <div id="esempi-2" class="section level3 hasAnchor" number="17.1.1">
 <h3><span class="header-section-number">17.1.1</span> Esempi<a href="regressione-lineare.html#esempi-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -772,7 +772,7 @@ S_{(X=0)}&amp;=&amp;1.048
 <p>L’intervallo di confidenza al 95% per <span class="math inline">\(\mu_{(X=0)}\)</span> è
 <span class="math display">\[\hat\mu_{(X=0)}\pm t_{n-1;\alpha/2}\frac S{\sqrt n}=28.569\pm 2.2622\frac{1.048}{10}=
 (27.8193;29.3187)\]</span></p>
-<p><img src="Appunti_di_Statistica_2025_files/figure-html/17-regressione-I-8-1.png" width="672" /></p>
+<p><img src="Appunti_di_Statistica_files/figure-html/17-regressione-I-8-1.png" width="672" /></p>
 <p>E quindi potremmo proporre la <strong>previsione</strong>:
 quanta produzione ci aspetteremo sul prossimo ettaro che pianteremo con quella varietà di riso?
 <span class="math display">\[\begin{eqnarray*}
@@ -807,7 +807,7 @@ S_{(X=1.3)}&amp;=&amp;0.952
 <p>L’intervallo di confidenza al 95% per <span class="math inline">\(\mu_{(X=1.13)}\)</span> è
 <span class="math display">\[\hat\mu_{(X=1.13)}\pm t_{n-1;\alpha/2}\frac S{\sqrt n}=28.92\pm 2.2622\frac{0.952}{10}=
 (28.239;29.601)\]</span></p>
-<p><img src="Appunti_di_Statistica_2025_files/figure-html/17-regressione-I-10-1.png" width="672" /></p>
+<p><img src="Appunti_di_Statistica_files/figure-html/17-regressione-I-10-1.png" width="672" /></p>
 <p>Se mettiamo a test, otteniamo</p>
 <p><strong>Test <span class="math inline">\(T\)</span> per due medie, (omogeneità)</strong></p>
 <p><span class="math inline">\(\fbox{A}\)</span> FORMULAZIONE DELLE IPOTESI</p>
@@ -833,7 +833,7 @@ S_{(X=1.3)}&amp;=&amp;0.952
 <p><span class="math inline">\(t_{20-2;0.1}=1.3304\)</span>; <span class="math inline">\(t_{20-2;0.05}=1.7341\)</span>; <span class="math inline">\(t_{20-2;0.01}=2.5524\)</span>; <span class="math inline">\(t_{20-2;0.001}=3.6105\)</span></p>
 <p>Siccome <span class="math inline">\(t_\text{obs}=0.784&lt;t_{20-2;0.1}=1.3304\)</span>, quindi <strong>non</strong> rifiuto <span class="math inline">\(H_0\)</span> a <strong>nessun</strong> livello di significatività,</p>
 <p><span class="math inline">\(p_\text{value}&gt;0.1\)</span>, <em>non significativo</em></p>
-<p><img src="Appunti_di_Statistica_2025_files/figure-html/17-regressione-I-1-1.png" width="672" /></p>
+<p><img src="Appunti_di_Statistica_files/figure-html/17-regressione-I-1-1.png" width="672" /></p>
 <p>Il <span class="math inline">\(p_{\text{value}}\)</span> è</p>
 <p><span class="math display">\[ p_{\text{value}} = P(T_{20-2}&gt;0.78)=0.221609 \]</span></p>
 <p>Attenzione il calcolo del <span class="math inline">\(p_\text{value}\)</span> con la <span class="math inline">\(T\)</span> è puramente illustrativo e non può essere riprodotto senza una calcolatrice statistica adeguata.<span class="math display">\[
@@ -860,18 +860,18 @@ S_{(X=2.84)}^2&amp;=&amp;\frac{n}{n-1}\hat\sigma_{(X=2.84)}^2\\
 &amp;=&amp;1\\
 S_{(X=2.84)}&amp;=&amp;1
 \end{eqnarray*}\]</span></p>
-<p><img src="Appunti_di_Statistica_2025_files/figure-html/17-regressione-I-12-1.png" width="672" /></p>
+<p><img src="Appunti_di_Statistica_files/figure-html/17-regressione-I-12-1.png" width="672" /></p>
 <p><strong>problema 1:</strong> abbiamo tre stime di <span class="math inline">\(\mu\)</span> e tre stime di <span class="math inline">\(\sigma\)</span> ottenute come se i campioni fossero separati.
 Non abbiamo tenuto conto della natura metrica della <span class="math inline">\(X\)</span>.</p>
-<p><img src="Appunti_di_Statistica_2025_files/figure-html/17-regressione-I-13-1.png" width="672" /></p>
+<p><img src="Appunti_di_Statistica_files/figure-html/17-regressione-I-13-1.png" width="672" /></p>
 <p><strong>problema 2:</strong> alla luce di questi dati cosa possiamo dire sulla produzione media se usassimo 1.9 hg di concime per ettaro?
 Potremmo proporre di congiungere le medie con una spezzata</p>
-<p><img src="Appunti_di_Statistica_2025_files/figure-html/17-regressione-I-14-1.png" width="672" /></p>
+<p><img src="Appunti_di_Statistica_files/figure-html/17-regressione-I-14-1.png" width="672" /></p>
 <p>Il problema è che dobbiamo stimare 3 coppie di parametri <span class="math inline">\(\mu_1,\sigma^2_1\)</span>, <span class="math inline">\(\mu_2,\sigma^2_2\)</span> e <span class="math inline">\(\mu_3,\sigma^2_3\)</span>
 <strong>senza</strong> tenere conto della natura metrica della <span class="math inline">\(x\)</span>.</p>
 <p>L’idea è di sostituire a <span class="math inline">\(\mu_1\)</span>, <span class="math inline">\(\mu_2\)</span> e <span class="math inline">\(\mu_3\)</span> una funzione in <span class="math inline">\(x\)</span>, <span class="math inline">\(\mu(x)\)</span> e stimarla coi dati <span class="math inline">\(\hat\mu(x)\)</span>,
 per ottenere qualcosa del tipo</p>
-<p><img src="Appunti_di_Statistica_2025_files/figure-html/17-regressione-I-14a-1.png" width="672" /></p>
+<p><img src="Appunti_di_Statistica_files/figure-html/17-regressione-I-14a-1.png" width="672" /></p>
 </div>
 <div class="example">
 <p><span id="exm:unlabeled-div-211" class="example"><strong>Esempio 17.4  </strong></span><strong>problema 3:</strong> Dobbiamo studiare un nuova varietà di riso, ma il budget è inferiore.
@@ -919,11 +919,11 @@ osserviamo 10 ettari</p>
 </tr>
 </tbody>
 </table>
-<p><img src="Appunti_di_Statistica_2025_files/figure-html/17-regressione-I-15-1.png" width="672" /></p>
+<p><img src="Appunti_di_Statistica_files/figure-html/17-regressione-I-15-1.png" width="672" /></p>
 <p>La previsione sembra più difficile,
 la suggestione di prima non sembra funzionare, dobbiamo modellare il luogo delle medie <span class="math inline">\(\mu\)</span> con
 una funzione <span class="math inline">\(\mu(x)\)</span> e stimarla coi dati <span class="math inline">\(\hat\mu(x)\)</span>.</p>
-<p><img src="Appunti_di_Statistica_2025_files/figure-html/17-regressione-I-2-1.png" width="672" /></p>
+<p><img src="Appunti_di_Statistica_files/figure-html/17-regressione-I-2-1.png" width="672" /></p>
 </div>
 </div>
 </div>
@@ -942,7 +942,7 @@ Dove si assume che l’errore abbia media zero
 <p>e varianza costante
 <span class="math display">\[V(\varepsilon_i)=\sigma^2_{\varepsilon}, ~\forall i\]</span></p>
 <p>Qui di seguito un paio di esempi grafici</p>
-<p><img src="Appunti_di_Statistica_2025_files/figure-html/17-regressione-I-3-1.png" width="672" /></p>
+<p><img src="Appunti_di_Statistica_files/figure-html/17-regressione-I-3-1.png" width="672" /></p>
 <!-- ```{r 17-regressione-I-4,results='asis'} -->
 <!-- plot(x*2.5,y,pch=16,cex=.8,xlab="x",xlim = c(2,4),ylim = c(35,48)) -->
 <!-- lines(x*2.5,15*sin(x)+28,col=ared) -->
@@ -956,7 +956,7 @@ Dove si assume che l’errore abbia media zero
 <span class="math display">\[
 y_i=\mu(x_i)+\varepsilon_i=\beta_0+\beta_1x_i+\varepsilon_i
 \]</span></p>
-<p><img src="Appunti_di_Statistica_2025_files/figure-html/17-regressione-I-5-1.png" width="672" /></p>
+<p><img src="Appunti_di_Statistica_files/figure-html/17-regressione-I-5-1.png" width="672" /></p>
 <div id="il-modello-di-regressione-lineare-semplice" class="section level3 hasAnchor" number="17.3.1">
 <h3><span class="header-section-number">17.3.1</span> Il modello di regressione lineare semplice<a href="regressione-lineare.html#il-modello-di-regressione-lineare-semplice" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Il modello di regressione (lineare semplice) è
@@ -976,7 +976,7 @@ y_i=\beta_0+\beta_1x_i+\varepsilon_i,\qquad E(\varepsilon_i)=0,~V(\varepsilon_i)
 <li><span class="math inline">\(\beta_1\)</span> è il coefficiente angolare. <span class="math inline">\(\beta_1\)</span> rappresenta quanto la media di <span class="math inline">\(y\)</span> aumenta all’aumentare unitario della <span class="math inline">\(x\)</span>.</li>
 <li><span class="math inline">\(\sigma^2_\varepsilon\)</span> è la varianza dell’errore <span class="math inline">\(\varepsilon\)</span>. <span class="math inline">\(\sigma^2_\varepsilon\)</span> rappresenta la variabilità dei punti intorno alla retta.</li>
 </ul>
-<p><img src="Appunti_di_Statistica_2025_files/figure-html/17-regressione-I-17-1.png" width="672" /></p>
+<p><img src="Appunti_di_Statistica_files/figure-html/17-regressione-I-17-1.png" width="672" /></p>
 </div>
 </div>
 <div id="la-storia-del-metodo" class="section level3 hasAnchor" number="17.3.2">
@@ -996,7 +996,7 @@ y_i = 97.1776 + 0.4477 \cdot x_i + \varepsilon_i
 <li>mentre i figli di padri molto bassi tendono a essere sì più bassi della media ma più alti dei loro padri.</li>
 </ul>
 <p>Il fenomeno fu battezzato da Galton stesso con il nome di <strong>regressione verso la media</strong>, e in seguito divenne uno dei concetti fondamentali della statistica.</p>
-<p><img src="Appunti_di_Statistica_2025_files/figure-html/17-regressione-I-18-1.png" width="672" /></p>
+<p><img src="Appunti_di_Statistica_files/figure-html/17-regressione-I-18-1.png" width="672" /></p>
 </div>
 <div id="gli-assunti-del-modello-di-regressione" class="section level3 hasAnchor" number="17.3.3">
 <h3><span class="header-section-number">17.3.3</span> Gli assunti del modello di regressione<a href="regressione-lineare.html#gli-assunti-del-modello-di-regressione" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -1021,22 +1021,22 @@ y_i = 97.1776 + 0.4477 \cdot x_i + \varepsilon_i
 Dati <span class="math inline">\((x_1,y_1),...,(x_n,y_n)\)</span>, <span class="math inline">\(n\)</span> coppie di punti, si assume che
 <span class="math display">\[y_i=\beta_0+\beta_1x_i+\varepsilon_i\]</span></p>
 <p>Situazioni in cui l’assunto 0 è violato</p>
-<p><img src="Appunti_di_Statistica_2025_files/figure-html/17-regressione-I-20-1.png" width="672" /><img src="Appunti_di_Statistica_2025_files/figure-html/17-regressione-I-20-2.png" width="672" /></p>
+<p><img src="Appunti_di_Statistica_files/figure-html/17-regressione-I-20-1.png" width="672" /><img src="Appunti_di_Statistica_files/figure-html/17-regressione-I-20-2.png" width="672" /></p>
 <p><strong>Assunto 1, il valore atteso dell’errore è nullo</strong></p>
 <p><span class="math display">\[E(\varepsilon_i)=0\]</span></p>
 <p>Inverificabile, se per esempio
 <span class="math display">\[E(\varepsilon_i)=+1,~~\forall i,~ E(Y_i|x_i)=\beta_0+\beta_1x_i+E(\varepsilon_i)=\beta_0+\beta_1x_i+1\]</span></p>
-<p><img src="Appunti_di_Statistica_2025_files/figure-html/17-regressione-I-21-1.png" width="672" /></p>
+<p><img src="Appunti_di_Statistica_files/figure-html/17-regressione-I-21-1.png" width="672" /></p>
 <p><strong>Assunti 3. e 6. Omoschedasticità e Indipendenza tra i residui e la <span class="math inline">\(X\)</span></strong></p>
 <p><span class="math display">\[V(\varepsilon_{i}) = \sigma_\varepsilon^2,\qquad \text{costante }\forall i\]</span>
 <span class="math display">\[X_i\text{ è indipendente da }\varepsilon_i~~\forall i\]</span></p>
 <p>La varianza non cambia con le osservazioni</p>
-<p><img src="Appunti_di_Statistica_2025_files/figure-html/17-regressione-I-23-1.png" width="672" />
-<img src="Appunti_di_Statistica_2025_files/figure-html/17-regressione-I-24-1.png" width="672" /></p>
+<p><img src="Appunti_di_Statistica_files/figure-html/17-regressione-I-23-1.png" width="672" />
+<img src="Appunti_di_Statistica_files/figure-html/17-regressione-I-24-1.png" width="672" /></p>
 <p><strong>4. Indipendenza dei residui</strong></p>
 <p><span class="math display">\[\varepsilon_i\text{ è indipendente da }\varepsilon_j~~\forall i\neq j\]</span></p>
 <p>L’assunto vine tipicamente violato nelle serie temporali</p>
-<p><img src="Appunti_di_Statistica_2025_files/figure-html/17-regressione-I-26-1.png" width="672" /></p>
+<p><img src="Appunti_di_Statistica_files/figure-html/17-regressione-I-26-1.png" width="672" /></p>
 <p><strong>5. Esogeneità della <span class="math inline">\(X\)</span>: la distribuzione su <span class="math inline">\(X\)</span> non è oggetto di inferenza.</strong>
 In contesto di sperimentazione la <span class="math inline">\(X\)</span> viene fissata dal ricercatore.
 In un contesto di dati sul campo la <span class="math inline">\(X\)</span> non può essere fissata, ma viene usata
@@ -1051,7 +1051,7 @@ Gli errori sono normalmente distribuiti
 <p>allora, dalle proprietà delle normali
 <span class="math display">\[Y_i\sim  N\left(\beta_0+\beta_1x_i,\sigma_\varepsilon^2\right)\]</span></p>
 <p><span class="math inline">\(Y_i\)</span> è normale con media <span class="math inline">\(\beta_0+\beta_1x_i\)</span> e varianza <span class="math inline">\(\sigma_\varepsilon^2\)</span></p>
-<p><img src="Appunti_di_Statistica_2025_files/figure-html/17-regressione-I-28-1.png" width="672" /></p>
+<p><img src="Appunti_di_Statistica_files/figure-html/17-regressione-I-28-1.png" width="672" /></p>
 </div>
 <div id="il-metodo-dei-minimi-quadrati" class="section level3 hasAnchor" number="17.3.4">
 <h3><span class="header-section-number">17.3.4</span> Il metodo dei minimi quadrati<a href="regressione-lineare.html#il-metodo-dei-minimi-quadrati" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -1089,7 +1089,7 @@ stime di massima verosimiglianza. Svilupperemo la teoria attraverso un esempio s
 </tr>
 </tbody>
 </table>
-<p><img src="Appunti_di_Statistica_2025_files/figure-html/17-regressione-I-30-1.png" width="672" /></p>
+<p><img src="Appunti_di_Statistica_files/figure-html/17-regressione-I-30-1.png" width="672" /></p>
 </div>
 <div id="la-distanza-di-una-retta-dai-punti-il-metodo-dei-minimi-quadrati" class="section level3 hasAnchor" number="17.3.5">
 <h3><span class="header-section-number">17.3.5</span> La distanza di una retta dai punti (il metodo dei minimi quadrati)<a href="regressione-lineare.html#la-distanza-di-una-retta-dai-punti-il-metodo-dei-minimi-quadrati" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -1158,7 +1158,7 @@ e quindi i residui
 </tr>
 </tbody>
 </table>
-<p><img src="Appunti_di_Statistica_2025_files/figure-html/17-regressione-I-32-1.png" width="672" /></p>
+<p><img src="Appunti_di_Statistica_files/figure-html/17-regressione-I-32-1.png" width="672" /></p>
 <table>
 <colgroup>
 <col width="3%" />
@@ -1351,8 +1351,8 @@ Come per la varianza esiste una formula semplificata:</p>
 <p>La covarianza non è direttamente leggibile perché ha un’unità di misura mista,
 prodotto della unità di misura della <span class="math inline">\(x\)</span> e quella della <span class="math inline">\(y\)</span>.</p>
 <p>È interessante il segno della covarianza perché indica la pendenza della retta se la covarianza è positiva c’è <strong>concordanza dei segni</strong>, ad <span class="math inline">\(x\)</span> maggiori del loro baricentro (<span class="math inline">\((x_i-\bar x)&gt;0\)</span>) corrispondo, <em>in media</em>, <span class="math inline">\(y\)</span> maggiori del loro baricentro <span class="math inline">\((y_i-\bar y)&gt;0\)</span>. Mentre ad <span class="math inline">\(x\)</span> minori del loro baricentro (<span class="math inline">\((x_i-\bar x)&lt;0\)</span>) corrispondo, <em>in media</em>, <span class="math inline">\(y\)</span> minori del loro baricentro <span class="math inline">\((y_i-\bar y)&lt;0\)</span>. Se invece la covarianza è negativa c’è <strong>discordanza dei segni</strong>, cioè ad <span class="math inline">\(x\)</span> maggiori del loro baricentro (<span class="math inline">\((x_i-\bar x)&gt;0\)</span>) corrispondo, <em>in media</em>, <span class="math inline">\(y\)</span> minori del loro baricentro <span class="math inline">\((y_i-\bar y)&lt;0\)</span>. Mentre ad <span class="math inline">\(x\)</span> minori del loro baricentro (<span class="math inline">\((x_i-\bar x)&lt;0\)</span>) corrispondo, <em>in media</em>, <span class="math inline">\(y\)</span> maggiori del loro baricentro <span class="math inline">\((y_i-\bar y)&gt;0\)</span>.</p>
-<p><img src="Appunti_di_Statistica_2025_files/figure-html/17-regressione-I-34-1.png" width="672" />
-<img src="Appunti_di_Statistica_2025_files/figure-html/17-regressione-I-35-1.png" width="672" /></p>
+<p><img src="Appunti_di_Statistica_files/figure-html/17-regressione-I-34-1.png" width="672" />
+<img src="Appunti_di_Statistica_files/figure-html/17-regressione-I-35-1.png" width="672" /></p>
 </div>
 <div id="altre-proprietà-della-covarianza" class="section level3 hasAnchor" number="17.4.3">
 <h3><span class="header-section-number">17.4.3</span> Altre proprietà della covarianza<a href="#altre-propriet%C3%A0-della-covarianza" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -1368,8 +1368,8 @@ La covarianza estende il concetto di varianza quando le variabili sono due.</p>
 <div id="campo-di-variazione-della-covarianza" class="section level3 hasAnchor" number="17.4.4">
 <h3><span class="header-section-number">17.4.4</span> Campo di variazione della covarianza<a href="regressione-lineare.html#campo-di-variazione-della-covarianza" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><span class="math display">\[-\hat\sigma_X\hat\sigma_Y\leq\text{cov}(x,y)\leq + \hat\sigma_X\hat\sigma_Y\]</span></p>
-<p><img src="Appunti_di_Statistica_2025_files/figure-html/17-regressione-I-36-1.png" width="672" /></p>
-<p><img src="Appunti_di_Statistica_2025_files/figure-html/17-regressione-I-37-1.png" width="672" /></p>
+<p><img src="Appunti_di_Statistica_files/figure-html/17-regressione-I-36-1.png" width="672" /></p>
+<p><img src="Appunti_di_Statistica_files/figure-html/17-regressione-I-37-1.png" width="672" /></p>
 <p>Quindi stimiamo di <span class="math inline">\(\sigma_X\)</span> e <span class="math inline">\(\sigma_Y\)</span></p>
 <p>Calcolo di <span class="math inline">\(\hat\sigma_X^2\)</span>
 <span class="math display">\[\begin{eqnarray*}
@@ -1550,7 +1550,7 @@ Totale/n
 <p>La stima dell’intercetta è
 <span class="math display">\[\hat\beta_0=\bar y-\hat\beta_1\bar x=3-0.5\cdot1.5=2.25\]</span></p>
 <p>La retta stimata</p>
-<p><img src="Appunti_di_Statistica_2025_files/figure-html/17-regressione-I-42-1.png" width="672" /></p>
+<p><img src="Appunti_di_Statistica_files/figure-html/17-regressione-I-42-1.png" width="672" /></p>
 </div>
 </div>
 <div id="proprietà-della-retta-dei-minimi-quadrati" class="section level2 hasAnchor" number="17.5">
@@ -1560,7 +1560,7 @@ Totale/n
 \hat\beta_0+\hat\beta_1\bar x &amp;=&amp;(\bar y-\hat\beta_1\bar x)+\hat\beta_1\bar x\\
        &amp;=&amp; \bar y
 \end{eqnarray*}\]</span>
-<img src="Appunti_di_Statistica_2025_files/figure-html/17-regressione-I-43-1.png" width="672" /></p>
+<img src="Appunti_di_Statistica_files/figure-html/17-regressione-I-43-1.png" width="672" /></p>
 <p>Le previsioni, sulle <span class="math inline">\(x\)</span> osservate
 <span class="math display">\[\hat y_i=\hat\beta_0+\hat\beta_1x_i\]</span></p>
 <p>Le stime degli errori
@@ -1581,7 +1581,7 @@ y_i, &amp; &amp; \text{le $y$ osservate}\\
 </div>
 <div id="calcolo-di-hat-y_i-e-hatvarepsilon_i" class="section level3 hasAnchor" number="17.5.1">
 <h3><span class="header-section-number">17.5.1</span> Calcolo di <span class="math inline">\(\hat y_i\)</span> e <span class="math inline">\(\hat\varepsilon_i\)</span><a href="regressione-lineare.html#calcolo-di-hat-y_i-e-hatvarepsilon_i" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<img src="Appunti_di_Statistica_2025_files/figure-html/17-regressione-I-45-1.png" width="672" />
+<img src="Appunti_di_Statistica_files/figure-html/17-regressione-I-45-1.png" width="672" />
 <table>
 <thead>
 <tr>
@@ -1767,8 +1767,8 @@ che si possono realizzare tra due variabili.</li>
 <p><strong>1.</strong> La prima proprietà ci dice che <span class="math inline">\(r\)</span> non può mai essere minore di <span class="math inline">\(-1\)</span> e mai
 maggiore di <span class="math inline">\(+1\)</span> per costruzione</p>
 <p><span class="math display">\[-1 \le r \le 1\]</span></p>
-<p><img src="Appunti_di_Statistica_2025_files/figure-html/17-regressione-I-47-1.png" width="672" /></p>
-<p><img src="Appunti_di_Statistica_2025_files/figure-html/17-regressione-I-48-1.png" width="672" /></p>
+<p><img src="Appunti_di_Statistica_files/figure-html/17-regressione-I-47-1.png" width="672" /></p>
+<p><img src="Appunti_di_Statistica_files/figure-html/17-regressione-I-48-1.png" width="672" /></p>
 <p><strong>2.</strong> La seconda proprietà ci dice che <span class="math inline">\(r\)</span> non dipende dalla scala di misura delle variabili
 <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span>. Mentre la covarianza ha un’unità di misura spuria, prodotto
 dell’unità di misura della <span class="math inline">\(x\)</span> (<span class="math inline">\(u_X\)</span>) e della <span class="math inline">\(y\)</span> (<span class="math inline">\(u_Y\)</span>), <span class="math inline">\(r\)</span> non
@@ -1800,8 +1800,8 @@ cambiarla non comporta alterazioni su <span class="math inline">\(r\)</span>.</p
 \begin{cases}+1, &amp;\text{se $b&gt;0$}\\
              -1, &amp;\text{se $b&lt;0$}
 \end{cases}\]</span></p>
-<p><img src="Appunti_di_Statistica_2025_files/figure-html/17-regressione-I-49-1.png" width="672" /></p>
-<p><img src="Appunti_di_Statistica_2025_files/figure-html/17-regressione-I-50-1.png" width="672" /></p>
+<p><img src="Appunti_di_Statistica_files/figure-html/17-regressione-I-49-1.png" width="672" /></p>
+<p><img src="Appunti_di_Statistica_files/figure-html/17-regressione-I-50-1.png" width="672" /></p>
 <p><strong>5.</strong> La quinta proprietà dice che <span class="math inline">\(r\)</span> misura l’associazione lineare, ovvero
 Il coefficiente di correlazione <span class="math inline">\(r\)</span> è una misura della distanza dei punti da una retta.</p>
 <ul>
@@ -1810,10 +1810,10 @@ Il coefficiente di correlazione <span class="math inline">\(r\)</span> è una mi
 <li>il valore di <span class="math inline">\(r\)</span>, da solo, non è in grado di descrivere tutte le possibili relazioni
 che si possono realizzare tra due variabili.</li>
 </ul>
-<p><img src="Appunti_di_Statistica_2025_files/figure-html/17-regressione-I-51-1.png" width="672" /></p>
-<p><img src="Appunti_di_Statistica_2025_files/figure-html/17-regressione-I-52-1.png" width="672" /></p>
+<p><img src="Appunti_di_Statistica_files/figure-html/17-regressione-I-51-1.png" width="672" /></p>
+<p><img src="Appunti_di_Statistica_files/figure-html/17-regressione-I-52-1.png" width="672" /></p>
 <p><strong>6.</strong> Infine <span class="math inline">\(r\)</span> è più elevato se i dati sono aggregati in medie o percentuali. Infatti se aggreghiamo, come nell’esempio qui sotto, i dati di tre paesi nelle loro medie, diminuiamo la variabilità.</p>
-<p><img src="Appunti_di_Statistica_2025_files/figure-html/17-regressione-I-54-1.png" width="672" /></p>
+<p><img src="Appunti_di_Statistica_files/figure-html/17-regressione-I-54-1.png" width="672" /></p>
 <p>L’indice <span class="math inline">\(r\)</span> calcolato su tutti i dati è
 <span class="math display">\[r = 0.7056\]</span></p>
 <p>L’indice <span class="math inline">\(r\)</span> calcolato sulle tre medie è
@@ -1886,7 +1886,7 @@ l’indice di determinazione lineare ed è, nel contesto della regressione linea
 <p>Se <span class="math inline">\(R^2=1\)</span>, allora <span class="math inline">\(r=-1\)</span> oppure <span class="math inline">\(r=+1\)</span>, associazione lineare perfetta, 100% della variabilità spiegata, se <span class="math inline">\(R^2=0\)</span>, allora <span class="math inline">\(r=0\)</span> associazione lineare nulla, 0% della variabilità spiegata, se <span class="math inline">\(R^2&gt;0.75\)</span>, allora considereremo l’associazione lineare <em>soddisfacente</em>.</p>
 <p>La variabilità di delle <span class="math inline">\(y\)</span> intorno ad <span class="math inline">\(\bar y\)</span> (la dispersione delle x rosse intorno alla media) viene spiegata in parte dalla retta e resta una variabilità residua intorno alla retta (le distanze verticali) come mostrato in figura <a href="regressione-lineare.html#fig:17-regressione-I-54b">17.1</a></p>
 <div class="figure"><span style="display:block;" id="fig:17-regressione-I-54b"></span>
-<img src="Appunti_di_Statistica_2025_files/figure-html/17-regressione-I-54b-1.png" alt="La variabilità della y si legge sull'asse $y$ della del modello lungo la retta." width="672" />
+<img src="Appunti_di_Statistica_files/figure-html/17-regressione-I-54b-1.png" alt="La variabilità della y si legge sull'asse $y$ della del modello lungo la retta." width="672" />
 <p class="caption">
 Figura 17.1: La variabilità della y si legge sull’asse <span class="math inline">\(y\)</span> della del modello lungo la retta.
 </p>
@@ -1897,13 +1897,13 @@ Figura 17.1: La variabilità della y si legge sull’asse <span class="math inli
 Caso limite uno: la retta spiega tutta la variabilità di <span class="math inline">\(y\)</span>:
 <span class="math display">\[TSS = ESS\Rightarrow RSS=0\Rightarrow r^2=1\]</span>
 i punti sono allineati su una retta</p>
-<p><img src="Appunti_di_Statistica_2025_files/figure-html/17-regressione-I-56-1.png" width="672" /></p>
+<p><img src="Appunti_di_Statistica_files/figure-html/17-regressione-I-56-1.png" width="672" /></p>
 <p>Se la retta è in grado di assorbire tutta la variabilità di <span class="math inline">\(y\)</span> significa che tutti
 i punti sono allineati sul di essa.</p>
 <p>Caso limite due: la retta <strong>non</strong> spiega nulla della variabilità di <span class="math inline">\(y\)</span>
 <span class="math display">\[TSS = RSS\Rightarrow ESS=0\Rightarrow r^2=0\]</span>
 la retta è orizzontale e coincide con <span class="math inline">\(\hat\mu_Y\)</span></p>
-<p><img src="Appunti_di_Statistica_2025_files/figure-html/17-regressione-I-57-1.png" width="672" /></p>
+<p><img src="Appunti_di_Statistica_files/figure-html/17-regressione-I-57-1.png" width="672" /></p>
 <p>Se la retta è parallela all’asse dell <span class="math inline">\(x\)</span> non spiega nulla della variabilità di <span class="math inline">\(y\)</span>, ma non è detto che non esista relazione tra <span class="math inline">\(x\)</span> ed <span class="math inline">\(y\)</span>.</p>
 </div>
 <div id="scomposizione-della-varianza-sui-dati-di-esempio" class="section level3 hasAnchor" number="17.8.2">
@@ -2035,8 +2035,8 @@ Totale/n
 </tbody>
 </table>
 <p>Ottenaimo</p>
-<p><img src="Appunti_di_Statistica_2025_files/figure-html/17-regressione-I-58-1.png" width="672" /></p>
-<p><img src="Appunti_di_Statistica_2025_files/figure-html/17-regressione-I-59-1.png" width="672" /></p>
+<p><img src="Appunti_di_Statistica_files/figure-html/17-regressione-I-58-1.png" width="672" /></p>
+<p><img src="Appunti_di_Statistica_files/figure-html/17-regressione-I-59-1.png" width="672" /></p>
 <table>
 <thead>
 <tr>
@@ -2229,7 +2229,7 @@ Totale
 <p>Osservo dapprima Le variabili <span class="math inline">\(y\)</span> e <span class="math inline">\(w\)</span> hanno la stessa media e la stessa varianza, infatti
 <span class="math inline">\(\sum_i y_i = \sum_i w_i=12\)</span> e <span class="math inline">\(\sum_i y_i^2=\sum_i w_i^2=38.5\)</span>.
 Se osservati rispetto ai soli valori, in ipotesi IID, sono fenomeni indistinguibili.</p>
-<p><img src="Appunti_di_Statistica_2025_files/figure-html/17-regressione-I-62-1.png" width="672" /></p>
+<p><img src="Appunti_di_Statistica_files/figure-html/17-regressione-I-62-1.png" width="672" /></p>
 <p>La varianza di <span class="math inline">\(y\)</span> è dunque
 <span class="math display">\[
 \hat\sigma_Y^2=\frac 1 n\sum_i (y_i - \bar y)^2 =\frac 1 n\sum_i y_i^2 - \bar y^2 =9.625 - (3)^2=0.625
@@ -2239,7 +2239,7 @@ e quella di <span class="math inline">\(w\)</span>
 \hat\sigma_W^2=\frac 1 n\sum_i (w_i - \bar w)^2 =\frac 1 n\sum_i w_i^2 - \bar w^2 =9.625 - (3)^2=0.625.
 \]</span></p>
 <p>Ma la variabile <span class="math inline">\(X\)</span> non spiega nello stesso modo <span class="math inline">\(Y\)</span> e <span class="math inline">\(W\)</span>. Infatti se osserviamo la relazione tra <span class="math inline">\(x\)</span> ed <span class="math inline">\(Y\)</span> e la relazione tra <span class="math inline">\(x\)</span> e <span class="math inline">\(w\)</span> ci accorgiamo che i fenomeni sono diversi.</p>
-<p><img src="Appunti_di_Statistica_2025_files/figure-html/17-regressione-I-63-1.png" width="672" /></p>
+<p><img src="Appunti_di_Statistica_files/figure-html/17-regressione-I-63-1.png" width="672" /></p>
 <ul>
 <li>La retta <span class="math inline">\(y|x\)</span> assorbe il 50% della variabilità di <span class="math inline">\(y\)</span></li>
 <li>La retta <span class="math inline">\(w|x\)</span> assorbe il 2% della variabilità di <span class="math inline">\(w\)</span></li>
@@ -2482,7 +2482,7 @@ gitbook.start({
     "link": null,
     "text": null
   },
-  "download": ["Appunti_di_Statistica_2025.pdf"],
+  "download": ["Appunti_di_Statistica.pdf"],
   "search": {
     "engine": "fuse",
     "options": null

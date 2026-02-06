@@ -44,7 +44,7 @@ La Statistica ha come oggetto di studio i dati, dalla loro definizione fino alla
 
 ## I Fenomeni Collettivi
 
-In greco fenomeno deriva da φαίνεσθαι (phaínesthai [faˈinestʰai]), che significa “apparire”, “mostrarsi”. Con questo termine si indica qualunque processo naturale o fisico che si manifesta e può essere osservato o misurato: la formazione delle nuvole, l'evaporazione dell'acqua, la combustione, la diffusione di una sostanza, l'espansione termica dei metalli, l'elettrolisi dell'acqua.
+In greco fenomeno deriva da \greekfont φαίνεσθαι (phaínesthai [faˈinestʰai]), che significa “apparire”, “mostrarsi”. Con questo termine si indica qualunque processo naturale o fisico che si manifesta e può essere osservato o misurato: la formazione delle nuvole, l'evaporazione dell'acqua, la combustione, la diffusione di una sostanza, l'espansione termica dei metalli, l'elettrolisi dell'acqua.
 
 Quando lo studio riguarda non un singolo caso, ma una pluralità di elementi simili tra loro, parliamo di fenomeno collettivo. 
 Esempi di fenomeni collettivi sono la denatalità e l'invecchiamento della popolazione, l'occupazione, la dinamica dei salari, la risposta dei pazienti a un trattamento, la diffusione di una malattia infettiva, la qualità dei prodotti in un processo industriale, la produttività agricola, il comportamento degli animali in un ecosistema, l'andamento dei flussi di traffico in un'area urbana, le preferenze dei consumatori, le prestazioni sportive di un atleta e tanti altri.

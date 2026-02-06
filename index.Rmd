@@ -1,6 +1,6 @@
 --- 
 title: "Appunti di Statistica"
-subtitle: "CLEAM AA 24/25"
+subtitle: "CLEAM AA 25/26"
 author: "Patrizio Frederic"
 date: "Aggiornato al `r format(Sys.Date(),'%d-%m-%Y')`"
 documentclass: book
