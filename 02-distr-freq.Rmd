@@ -695,7 +695,7 @@ i dati riordinati sono mostrati sotto:
 set.seed(13)   # per ottenere sempre la stessa simulazione
 n <- 45      # ampiezza campionaria
 nomex <- "Consumo"
-samp <- (round(c(runif(9,0,3),runif(16,3,5),runif(10,5,10),runif(10,10,20)),2))
+samp <- sample((round(c(runif(9,0,3),runif(16,3,5),runif(10,5,10),runif(10,10,20)),2)))
 sams <- sort(samp)
 
 samp1 <- format(samp,nsmall = 2)
