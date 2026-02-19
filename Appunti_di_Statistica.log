@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023/Debian) (preloaded format=xelatex 2025.3.3)  19 FEB 2026 09:44
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023/Debian) (preloaded format=xelatex 2025.3.3)  19 FEB 2026 09:56
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1669,53 +1669,57 @@ File: Appunti_di_Statistica_files/figure-latex/tranf-lin-gr4-1.pdf Graphic file
  (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/tranf-lin-gr4-1.pdf>
 [45] [46] [47]
-LaTeX Font Info:    Font shape `TU/LatinModernRoman(0)/m/n' will be
-(Font)              scaled to size 8.0pt on input line 1774.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 8.0pt on input line 1776.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 6.0pt on input line 1776.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 5.0pt on input line 1776.
-LaTeX Font Info:    Font shape `TU/LatinModernRoman(1)/m/n' will be
-(Font)              scaled to size 8.0pt on input line 1776.
-LaTeX Font Info:    Font shape `TU/LatinModernRoman(1)/m/n' will be
-(Font)              scaled to size 6.0pt on input line 1776.
-LaTeX Font Info:    Font shape `TU/LatinModernRoman(1)/m/n' will be
-(Font)              scaled to size 5.0pt on input line 1776.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 8.00073pt on input line 1776.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 6.00055pt on input line 1776.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 5.00046pt on input line 1776.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 7.99915pt on input line 1776.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 5.99936pt on input line 1776.
-LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 4.99947pt on input line 1776.
-LaTeX Font Info:    Font shape `TU/LatinModernRoman(1)/b/n' will be
-(Font)              scaled to size 7.76575pt on input line 1776.
-LaTeX Font Info:    Font shape `TU/LatinModernRoman(1)/b/n' will be
-(Font)              scaled to size 5.82431pt on input line 1776.
-LaTeX Font Info:    Font shape `TU/LatinModernRoman(1)/b/n' will be
-(Font)              scaled to size 4.85359pt on input line 1776.
-[48]
-Underfull \vbox (badness 10000) has occurred while \output is active []
 
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[48]
+LaTeX Font Info:    Font shape `TU/LatinModernRoman(0)/m/n' will be
+(Font)              scaled to size 8.0pt on input line 1810.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 8.0pt on input line 1812.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 6.0pt on input line 1812.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
+(Font)              scaled to size 5.0pt on input line 1812.
+LaTeX Font Info:    Font shape `TU/LatinModernRoman(1)/m/n' will be
+(Font)              scaled to size 8.0pt on input line 1812.
+LaTeX Font Info:    Font shape `TU/LatinModernRoman(1)/m/n' will be
+(Font)              scaled to size 6.0pt on input line 1812.
+LaTeX Font Info:    Font shape `TU/LatinModernRoman(1)/m/n' will be
+(Font)              scaled to size 5.0pt on input line 1812.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 8.00073pt on input line 1812.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 6.00055pt on input line 1812.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
+(Font)              scaled to size 5.00046pt on input line 1812.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 7.99915pt on input line 1812.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 5.99936pt on input line 1812.
+LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
+(Font)              scaled to size 4.99947pt on input line 1812.
+LaTeX Font Info:    Font shape `TU/LatinModernRoman(1)/b/n' will be
+(Font)              scaled to size 7.76575pt on input line 1812.
+LaTeX Font Info:    Font shape `TU/LatinModernRoman(1)/b/n' will be
+(Font)              scaled to size 5.82431pt on input line 1812.
+LaTeX Font Info:    Font shape `TU/LatinModernRoman(1)/b/n' will be
+(Font)              scaled to size 4.85359pt on input line 1812.
 [49] [50]
 File: Appunti_di_Statistica_files/figure-latex/unnamed-chunk-7-1.pdf Graphic fi
 le (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/unnamed-chunk-7-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
 [51]
 File: Appunti_di_Statistica_files/figure-latex/unnamed-chunk-8-1.pdf Graphic fi
 le (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/unnamed-chunk-8-1.pdf>
 LaTeX Font Info:    Font shape `TU/LatinModernRoman(0)/b/n' will be
-(Font)              scaled to size 10.0pt on input line 1998.
+(Font)              scaled to size 10.0pt on input line 2034.
 LaTeX Font Info:    Font shape `TU/lmss/b/n' in size <10> not available
-(Font)              Font shape `TU/lmss/bx/n' tried instead on input line 1998.
+(Font)              Font shape `TU/lmss/bx/n' tried instead on input line 2034.
 
 (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-TU-empty.cfg
 File: mt-TU-empty.cfg 2021/06/22 v1.1 microtype config. file: fonts with nonsta
@@ -1723,54 +1727,57 @@ ndard glyph set (RS)
 )
 File: img/grafico_torta_3d_margin.png Graphic file (type bmp)
 <img/grafico_torta_3d_margin.png>
+
+Underfull \vbox (badness 1688) has occurred while \output is active []
+
 [52]
 LaTeX Font Info:    Font shape `TU/NotoSerif(0)/m/n' will be
-(Font)              scaled to size 4.82465pt on input line 2032.
+(Font)              scaled to size 4.82465pt on input line 2068.
 LaTeX Font Info:    Font shape `TU/LatinModernRoman(0)/m/n' will be
-(Font)              scaled to size 6.0pt on input line 2033.
+(Font)              scaled to size 6.0pt on input line 2069.
 LaTeX Font Info:    Font shape `TU/LatinModernRoman(0)/m/n' will be
-(Font)              scaled to size 11.0pt on input line 2037.
-LaTeX Font Info:    Calculating math sizes for size <11> on input line 2038.
+(Font)              scaled to size 11.0pt on input line 2073.
+LaTeX Font Info:    Calculating math sizes for size <11> on input line 2074.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 11.0pt on input line 2038.
+(Font)              scaled to size 11.0pt on input line 2074.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 7.69997pt on input line 2038.
+(Font)              scaled to size 7.69997pt on input line 2074.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 5.5pt on input line 2038.
+(Font)              scaled to size 5.5pt on input line 2074.
 LaTeX Font Info:    Font shape `TU/LatinModernRoman(1)/m/n' will be
-(Font)              scaled to size 11.0pt on input line 2038.
+(Font)              scaled to size 11.0pt on input line 2074.
 LaTeX Font Info:    Font shape `TU/LatinModernRoman(1)/m/n' will be
-(Font)              scaled to size 7.69997pt on input line 2038.
+(Font)              scaled to size 7.69997pt on input line 2074.
 LaTeX Font Info:    Font shape `TU/LatinModernRoman(1)/m/n' will be
-(Font)              scaled to size 5.5pt on input line 2038.
+(Font)              scaled to size 5.5pt on input line 2074.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 11.001pt on input line 2038.
+(Font)              scaled to size 11.001pt on input line 2074.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 7.70067pt on input line 2038.
+(Font)              scaled to size 7.70067pt on input line 2074.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 5.5005pt on input line 2038.
+(Font)              scaled to size 5.5005pt on input line 2074.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 10.99883pt on input line 2038.
+(Font)              scaled to size 10.99883pt on input line 2074.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 7.69914pt on input line 2038.
+(Font)              scaled to size 7.69914pt on input line 2074.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 5.4994pt on input line 2038.
+(Font)              scaled to size 5.4994pt on input line 2074.
 LaTeX Font Info:    Font shape `TU/LatinModernRoman(1)/b/n' will be
-(Font)              scaled to size 10.6779pt on input line 2038.
+(Font)              scaled to size 10.6779pt on input line 2074.
 LaTeX Font Info:    Font shape `TU/LatinModernRoman(1)/b/n' will be
-(Font)              scaled to size 7.47449pt on input line 2038.
+(Font)              scaled to size 7.47449pt on input line 2074.
 LaTeX Font Info:    Font shape `TU/LatinModernRoman(1)/b/n' will be
-(Font)              scaled to size 5.33894pt on input line 2038.
+(Font)              scaled to size 5.33894pt on input line 2074.
 
 LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <5.5> not available
-(Font)              size <5> substituted on input line 2038.
+(Font)              size <5> substituted on input line 2074.
 
 LaTeX Font Info:    Font shape `TU/LatinModernRoman(0)/m/n' will be
-(Font)              scaled to size 7.69997pt on input line 2040.
+(Font)              scaled to size 7.69997pt on input line 2076.
 LaTeX Font Info:    Font shape `TU/LatinModernRoman(0)/m/n' will be
-(Font)              scaled to size 5.5pt on input line 2040.
+(Font)              scaled to size 5.5pt on input line 2076.
 
-Overfull \hbox (13.71144pt too wide) in paragraph at lines 2038--2048
+Overfull \hbox (13.71144pt too wide) in paragraph at lines 2074--2084
  [][] 
  []
 
@@ -1778,12 +1785,12 @@ File: Appunti_di_Statistica_files/figure-latex/hist-1.pdf Graphic file (type pd
 f)
 <use Appunti_di_Statistica_files/figure-latex/hist-1.pdf>
 
-Underfull \hbox (badness 10000) in paragraph at lines 2057--2058
+Underfull \hbox (badness 10000) in paragraph at lines 2093--2094
 [][]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2057--2058
+Underfull \hbox (badness 10000) in paragraph at lines 2093--2094
 
  []
 
@@ -1791,71 +1798,72 @@ Underfull \hbox (badness 10000) in paragraph at lines 2057--2058
 File: Appunti_di_Statistica_files/figure-latex/FdR-1.pdf Graphic file (type pdf
 )
 <use Appunti_di_Statistica_files/figure-latex/FdR-1.pdf>
-[54]
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[54] [55]
 File: Appunti_di_Statistica_files/figure-latex/plot FdR-1.pdf Graphic file (typ
 e pdf)
 <use Appunti_di_Statistica_files/figure-latex/plot FdR-1.pdf>
-LaTeX Font Info:    Font shape `TU/LatinModernRoman(0)/m/n' will be
-(Font)              scaled to size 14.0pt on input line 2151.
-[55]
-LaTeX Font Info:    Font shape `TU/NotoSerif(0)/m/n' will be
-(Font)              scaled to size 6.43286pt on input line 2186.
-LaTeX Font Info:    Font shape `TU/NotoSerif(0)/m/n' will be
-(Font)              scaled to size 4.02054pt on input line 2194.
 [56]
+LaTeX Font Info:    Font shape `TU/NotoSerif(0)/m/n' will be
+(Font)              scaled to size 6.43286pt on input line 2222.
+LaTeX Font Info:    Font shape `TU/NotoSerif(0)/m/n' will be
+(Font)              scaled to size 4.02054pt on input line 2230.
+[57] [58
+
+]
 Capitolo 3.
 File: Appunti_di_Statistica_files/figure-latex/03-media-varianza-2-1.pdf Graphi
 c file (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/03-media-varianza-2-1.pdf>
-[57
-
-]
+[59]
 File: Appunti_di_Statistica_files/figure-latex/medh-1.pdf Graphic file (type pd
 f)
 <use Appunti_di_Statistica_files/figure-latex/medh-1.pdf>
-[58]
+[60]
 File: Appunti_di_Statistica_files/figure-latex/medh2-1.pdf Graphic file (type p
 df)
 <use Appunti_di_Statistica_files/figure-latex/medh2-1.pdf>
-[59] [60] [61] [62] [63] [64]
+[61] [62] [63] [64] [65] [66]
 
-LaTeX Font Warning: Command \tiny invalid in math mode on input line 2617.
-
-
-LaTeX Font Warning: Command \tiny invalid in math mode on input line 2618.
+LaTeX Font Warning: Command \tiny invalid in math mode on input line 2653.
 
 
-LaTeX Font Warning: Command \small invalid in math mode on input line 2619.
+LaTeX Font Warning: Command \tiny invalid in math mode on input line 2654.
+
+
+LaTeX Font Warning: Command \small invalid in math mode on input line 2655.
 
 LaTeX Font Info:    Font shape `TU/LatinModernRoman(0)/m/n' will be
-(Font)              scaled to size 10.0pt on input line 2619.
+(Font)              scaled to size 10.0pt on input line 2655.
 
-Overfull \hbox (293.6083pt too wide) in alignment at lines 2615--2622
+Overfull \hbox (293.6083pt too wide) in alignment at lines 2651--2658
  [][][] []
  []
 
-[65] [66] [67]
+[67] [68] [69]
 
 Package tcolorbox Warning: Using nobreak failed. Try to enlarge `lines before b
-reak' or set page breaks manually on input line 2750.
+reak' or set page breaks manually on input line 2786.
 
-[68]
+[70]
 File: Appunti_di_Statistica_files/figure-latex/sd-1.pdf Graphic file (type pdf)
 
 <use Appunti_di_Statistica_files/figure-latex/sd-1.pdf>
-[69] [70] [71] [72
+[71] [72] [73] [74
 
 ]
 Capitolo 4.
-[73] [74]
+[75] [76]
 LaTeX Font Info:    Font shape `TU/lmss/b/n' in size <10.95> not available
-(Font)              Font shape `TU/lmss/bx/n' tried instead on input line 3123.
+(Font)              Font shape `TU/lmss/bx/n' tried instead on input line 3159.
 
 File: Appunti_di_Statistica_files/figure-latex/04-mediana-percentili-1-1.pdf Gr
 aphic file (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/04-mediana-percentili-1-1.pdf>
 
-Overfull \hbox (28.17532pt too wide) in paragraph at lines 3126--3126
+Overfull \hbox (28.17532pt too wide) in paragraph at lines 3162--3162
  [] 
  []
 
@@ -1863,19 +1871,19 @@ File: Appunti_di_Statistica_files/figure-latex/04-mediana-percentili-1-2.pdf Gr
 aphic file (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/04-mediana-percentili-1-2.pdf>
 
-Overfull \hbox (28.17532pt too wide) in paragraph at lines 3128--3128
+Overfull \hbox (28.17532pt too wide) in paragraph at lines 3164--3164
  [] 
  []
 
-[75]
+[77]
 Underfull \vbox (badness 5403) has occurred while \output is active []
 
-[76] [77]
+[78] [79]
 File: Appunti_di_Statistica_files/figure-latex/04-mediana-percentili-9-1.pdf Gr
 aphic file (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/04-mediana-percentili-9-1.pdf>
 
-Overfull \hbox (28.17532pt too wide) in paragraph at lines 3280--3280
+Overfull \hbox (28.17532pt too wide) in paragraph at lines 3316--3316
  [] 
  []
 
@@ -1883,24 +1891,24 @@ File: Appunti_di_Statistica_files/figure-latex/04-mediana-percentili-9-2.pdf Gr
 aphic file (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/04-mediana-percentili-9-2.pdf>
 
-Overfull \hbox (28.17532pt too wide) in paragraph at lines 3282--3282
+Overfull \hbox (28.17532pt too wide) in paragraph at lines 3318--3318
  [] 
  []
 
 
 Underfull \vbox (badness 2418) has occurred while \output is active []
 
-[78] [79]
+[80] [81]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[80]
+[82]
 File: Appunti_di_Statistica_files/figure-latex/mmm-1.pdf Graphic file (type pdf
 )
 <use Appunti_di_Statistica_files/figure-latex/mmm-1.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[81]
+[83]
 File: Appunti_di_Statistica_files/figure-latex/04a-Istogramma-2-1.pdf Graphic f
 ile (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/04a-Istogramma-2-1.pdf>
@@ -1908,37 +1916,37 @@ File: Appunti_di_Statistica_files/figure-latex/04a-Istogramma-3-1.pdf Graphic f
 ile (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/04a-Istogramma-3-1.pdf>
 
-Overfull \hbox (28.17532pt too wide) in paragraph at lines 3487--3487
+Overfull \hbox (28.17532pt too wide) in paragraph at lines 3523--3523
  [] 
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[82]
+[84]
 File: Appunti_di_Statistica_files/figure-latex/04a-Istogramma-4-1.pdf Graphic f
 ile (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/04a-Istogramma-4-1.pdf>
 
-Overfull \hbox (28.17532pt too wide) in paragraph at lines 3496--3496
+Overfull \hbox (28.17532pt too wide) in paragraph at lines 3532--3532
  [] 
  []
 
 
 Underfull \vbox (badness 5316) has occurred while \output is active []
 
-[83] [84]
+[85] [86]
 File: Appunti_di_Statistica_files/figure-latex/decili-g1-1.pdf Graphic file (ty
 pe pdf)
 <use Appunti_di_Statistica_files/figure-latex/decili-g1-1.pdf>
 File: Appunti_di_Statistica_files/figure-latex/decili-g10-1.pdf Graphic file (t
 ype pdf)
 <use Appunti_di_Statistica_files/figure-latex/decili-g10-1.pdf>
-[85]
+[87]
 File: Appunti_di_Statistica_files/figure-latex/decili-g2-1.pdf Graphic file (ty
 pe pdf)
 <use Appunti_di_Statistica_files/figure-latex/decili-g2-1.pdf>
-[86]
+[88]
 File: Appunti_di_Statistica_files/figure-latex/decili-g3-1.pdf Graphic file (ty
 pe pdf)
 <use Appunti_di_Statistica_files/figure-latex/decili-g3-1.pdf>
@@ -1948,19 +1956,19 @@ pe pdf)
 
 Underfull \vbox (badness 1424) has occurred while \output is active []
 
-[87] [88] [89
+[89] [90] [91
 
-] [90]
+] [92]
 Capitolo 5.
 File: img/unione.png Graphic file (type bmp)
 <img/unione.png>
-[91
+[93
 
 ]
 File: img/intersezione.png Graphic file (type bmp)
 <img/intersezione.png>
 
-Underfull \hbox (badness 2573) in paragraph at lines 3824--3825
+Underfull \hbox (badness 2573) in paragraph at lines 3860--3861
 [][][]\TU/lmss/bx/n/10.95 Definizione 5.1.3 \TU/lmss/m/n/10.95 (Evento Compleme
 ntare)\TU/lmss/bx/n/10.95 . [][]\TU/LatinModernRoman(0)/m/n/10.95 Sia $[]$ un e
 vento, si definisce $[]$ l’evento
@@ -1968,109 +1976,109 @@ vento, si definisce $[]$ l’evento
 
 File: img/complementare.png Graphic file (type bmp)
 <img/complementare.png>
-[92]
+[94]
 Underfull \vbox (badness 1199) has occurred while \output is active []
 
-[93] [94] [95]
-Underfull \hbox (badness 1038) in paragraph at lines 4073--4074
+[95] [96] [97]
+Underfull \hbox (badness 1038) in paragraph at lines 4109--4110
 []$ \TU/LatinModernRoman(0)/m/n/10.95 è dato da tutte le possibili combinazioni
  dei risultati di due lanci di moneta: $[] []
  []
 
-[96] [97]
+[98] [99]
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 12.0pt on input line 4146.
+(Font)              scaled to size 12.0pt on input line 4182.
 LaTeX Font Info:    Font shape `TU/LatinModernRoman(1)/m/n' will be
-(Font)              scaled to size 12.0pt on input line 4146.
+(Font)              scaled to size 12.0pt on input line 4182.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 12.0011pt on input line 4146.
+(Font)              scaled to size 12.0011pt on input line 4182.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 11.99872pt on input line 4146.
+(Font)              scaled to size 11.99872pt on input line 4182.
 LaTeX Font Info:    Font shape `TU/LatinModernRoman(1)/b/n' will be
-(Font)              scaled to size 11.64862pt on input line 4146.
-[98]
+(Font)              scaled to size 11.64862pt on input line 4182.
+[100]
 File: img/demorgan.png Graphic file (type bmp)
 <img/demorgan.png>
-[99]
+[101]
 File: img/disgiunto.png Graphic file (type bmp)
 <img/disgiunto.png>
-[100] [101]
+[102] [103]
 File: img/bipartizione.png Graphic file (type bmp)
 <img/bipartizione.png>
-[102]
+[104]
 File: img/npart.png Graphic file (type bmp)
 <img/npart.png>
 File: img/2x2.png Graphic file (type bmp)
 <img/2x2.png>
-[103]
+[105]
 File: img/nxm.png Graphic file (type bmp)
 <img/nxm.png>
 
 Underfull \vbox (badness 2426) has occurred while \output is active []
 
-[104] [105] [106] [107] [108
+[106] [107] [108] [109] [110
 
 ]
 Capitolo 6.
-[109
+[111
 
-] [110] [111] [112]
+] [112] [113] [114]
 File: Appunti_di_Statistica_files/figure-latex/06-Variabili-Casuali-1-1.pdf Gra
 phic file (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/06-Variabili-Casuali-1-1.pdf>
 File: Appunti_di_Statistica_files/figure-latex/06-Variabili-Casuali-2-1.pdf Gra
 phic file (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/06-Variabili-Casuali-2-1.pdf>
-[113]
+[115]
 LaTeX Font Info:    Font shape `TU/LatinModernRoman(0)/m/n' will be
-(Font)              scaled to size 7.63434pt on input line 4958.
-LaTeX Font Info:    Calculating math sizes for size <7.63434> on input line 495
-8.
+(Font)              scaled to size 7.63434pt on input line 4994.
+LaTeX Font Info:    Calculating math sizes for size <7.63434> on input line 499
+4.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 7.63434pt on input line 4958.
+(Font)              scaled to size 7.63434pt on input line 4994.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 5.34401pt on input line 4958.
+(Font)              scaled to size 5.34401pt on input line 4994.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 3.81717pt on input line 4958.
+(Font)              scaled to size 3.81717pt on input line 4994.
 LaTeX Font Info:    Font shape `TU/LatinModernRoman(1)/m/n' will be
-(Font)              scaled to size 7.63434pt on input line 4958.
+(Font)              scaled to size 7.63434pt on input line 4994.
 LaTeX Font Info:    Font shape `TU/LatinModernRoman(1)/m/n' will be
-(Font)              scaled to size 5.34401pt on input line 4958.
+(Font)              scaled to size 5.34401pt on input line 4994.
 LaTeX Font Info:    Font shape `TU/LatinModernRoman(1)/m/n' will be
-(Font)              scaled to size 3.81717pt on input line 4958.
+(Font)              scaled to size 3.81717pt on input line 4994.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 7.63503pt on input line 4958.
+(Font)              scaled to size 7.63503pt on input line 4994.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 5.3445pt on input line 4958.
+(Font)              scaled to size 5.3445pt on input line 4994.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 3.8175pt on input line 4958.
+(Font)              scaled to size 3.8175pt on input line 4994.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 7.63351pt on input line 4958.
+(Font)              scaled to size 7.63351pt on input line 4994.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 5.34343pt on input line 4958.
+(Font)              scaled to size 5.34343pt on input line 4994.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 3.81676pt on input line 4958.
+(Font)              scaled to size 3.81676pt on input line 4994.
 LaTeX Font Info:    Font shape `TU/LatinModernRoman(1)/b/n' will be
-(Font)              scaled to size 7.41078pt on input line 4958.
+(Font)              scaled to size 7.41078pt on input line 4994.
 LaTeX Font Info:    Font shape `TU/LatinModernRoman(1)/b/n' will be
-(Font)              scaled to size 5.18752pt on input line 4958.
+(Font)              scaled to size 5.18752pt on input line 4994.
 LaTeX Font Info:    Font shape `TU/LatinModernRoman(1)/b/n' will be
-(Font)              scaled to size 3.70538pt on input line 4958.
+(Font)              scaled to size 3.70538pt on input line 4994.
 
 LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <3.81717> not available
-(Font)              size <5> substituted on input line 4958.
+(Font)              size <5> substituted on input line 4994.
 
-[114]
+[116]
 LaTeX Font Info:    Font shape `TU/LatinModernRoman(0)/b/it' will be
-(Font)              scaled to size 10.95pt on input line 5088.
-[115] [116] [117]
+(Font)              scaled to size 10.95pt on input line 5124.
+[117] [118] [119]
 File: Appunti_di_Statistica_files/figure-latex/06-Variabili-Casuali-8-1.pdf Gra
 phic file (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/06-Variabili-Casuali-8-1.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[118
+[120
 
 ]
 File: Appunti_di_Statistica_files/figure-latex/06-Variabili-Casuali-9-1.pdf Gra
@@ -2079,7 +2087,7 @@ phic file (type pdf)
 File: Appunti_di_Statistica_files/figure-latex/06-Variabili-Casuali-10-1.pdf Gr
 aphic file (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/06-Variabili-Casuali-10-1.pdf>
-[119]
+[121]
 File: Appunti_di_Statistica_files/figure-latex/06-Variabili-Casuali-11-1.pdf Gr
 aphic file (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/06-Variabili-Casuali-11-1.pdf>
@@ -2092,7 +2100,7 @@ aphic file (type pdf)
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[120]
+[122]
 File: Appunti_di_Statistica_files/figure-latex/06-Variabili-Casuali-14-1.pdf Gr
 aphic file (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/06-Variabili-Casuali-14-1.pdf>
@@ -2102,14 +2110,14 @@ aphic file (type pdf)
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[121]
+[123]
 File: Appunti_di_Statistica_files/figure-latex/06-unif1-1.pdf Graphic file (typ
 e pdf)
 <use Appunti_di_Statistica_files/figure-latex/06-unif1-1.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[122]
+[124]
 File: Appunti_di_Statistica_files/figure-latex/06-unif2-1.pdf Graphic file (typ
 e pdf)
 <use Appunti_di_Statistica_files/figure-latex/06-unif2-1.pdf>
@@ -2119,14 +2127,14 @@ e pdf)
 
 Underfull \vbox (badness 1215) has occurred while \output is active []
 
-[123] [124]
-Overfull \hbox (19.40828pt too wide) detected at line 5417
+[125] [126]
+Overfull \hbox (19.40828pt too wide) detected at line 5453
 [][][] [] [][] [] [][][] [] [][] [] [] [] [][] [][][] [] [][] [] [][][] [] [][]
  [] [] [] [][] [] [][][] [] [][][] [] [][][] [] [][] [] [] [] [] [] []
  []
 
-[125]
-Overfull \hbox (19.40828pt too wide) detected at line 5448
+[127]
+Overfull \hbox (19.40828pt too wide) detected at line 5484
 [][][] [] [][] [] [][][] [] [][] [] [] [] [][] [][][] [] [][] [] [][][] [] [][]
  [] [] [] [][] [] [][][] [] [][][] [] [][][] [] [][] [] [] [] [] [] []
  []
@@ -2134,16 +2142,16 @@ Overfull \hbox (19.40828pt too wide) detected at line 5448
 File: Appunti_di_Statistica_files/figure-latex/06-beta-1.pdf Graphic file (type
  pdf)
 <use Appunti_di_Statistica_files/figure-latex/06-beta-1.pdf>
-[126] [127] [128
+[128] [129] [130
 
 ]
 Capitolo 7.
-[129] [130]
+[131] [132]
 
 Package tcolorbox Warning: Using nobreak failed. Try to enlarge `lines before b
-reak' or set page breaks manually on input line 5566.
+reak' or set page breaks manually on input line 5602.
 
-[131] [132] [133]
+[133] [134] [135]
 File: Appunti_di_Statistica_files/figure-latex/07a-Binomiale-1-1.pdf Graphic fi
 le (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/07a-Binomiale-1-1.pdf>
@@ -2159,64 +2167,64 @@ le (type pdf)
 
 Underfull \vbox (badness 2556) has occurred while \output is active []
 
-[134] [135]
+[136] [137]
 LaTeX Font Info:    Font shape `TU/LatinModernRoman(0)/m/it' will be
-(Font)              scaled to size 7.665pt on input line 5797.
+(Font)              scaled to size 7.665pt on input line 5833.
 LaTeX Font Info:    Font shape `TU/LatinModernRoman(0)/m/it' will be
-(Font)              scaled to size 5.475pt on input line 5797.
+(Font)              scaled to size 5.475pt on input line 5833.
 
-Underfull \hbox (badness 1490) in paragraph at lines 5809--5811
+Underfull \hbox (badness 1490) in paragraph at lines 5845--5847
 []\TU/LatinModernRoman(0)/b/it/10.95 Proprietà riproduttiva: \TU/LatinModernRom
 an(0)/m/it/10.95 Siano $[][][] [][][] [][][][] [][]$ $[]$ VC indipendenti, ognu
 na $[] []
  []
 
-[136] [137] [138
+[138] [139] [140
 
-] [139]
+] [141]
 File: Appunti_di_Statistica_files/figure-latex/07b-Poisson-1-1.pdf Graphic file
  (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/07b-Poisson-1-1.pdf>
 File: Appunti_di_Statistica_files/figure-latex/07b-Poisson-2-1.pdf Graphic file
  (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/07b-Poisson-2-1.pdf>
-[140]
+[142]
 File: Appunti_di_Statistica_files/figure-latex/07b-Poisson-3-1.pdf Graphic file
  (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/07b-Poisson-3-1.pdf>
 File: Appunti_di_Statistica_files/figure-latex/07b-Poisson-4-1.pdf Graphic file
  (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/07b-Poisson-4-1.pdf>
-[141] [142]
+[143] [144]
 File: Appunti_di_Statistica_files/figure-latex/07c-Normale-1-1.pdf Graphic file
  (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/07c-Normale-1-1.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[143]
+[145]
 File: Appunti_di_Statistica_files/figure-latex/07c-Normale-3-1.pdf Graphic file
  (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/07c-Normale-3-1.pdf>
-[144]
+[146]
 File: Appunti_di_Statistica_files/figure-latex/07c-Normale-4-1.pdf Graphic file
  (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/07c-Normale-4-1.pdf>
-[145] [146]
+[147] [148]
 File: Appunti_di_Statistica_files/figure-latex/07c-Normale-5-1.pdf Graphic file
  (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/07c-Normale-5-1.pdf>
 File: Appunti_di_Statistica_files/figure-latex/07c-Normale-6-1.pdf Graphic file
  (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/07c-Normale-6-1.pdf>
-[147]
+[149]
 File: Appunti_di_Statistica_files/figure-latex/07c-Normale-7-1.pdf Graphic file
  (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/07c-Normale-7-1.pdf>
 
 Underfull \vbox (badness 1005) has occurred while \output is active []
 
-[148]
+[150]
 File: Appunti_di_Statistica_files/figure-latex/07c-Normale-8-1.pdf Graphic file
  (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/07c-Normale-8-1.pdf>
@@ -2224,7 +2232,7 @@ File: Appunti_di_Statistica_files/figure-latex/07c-Normale-33-1.pdf Graphic fil
 e (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/07c-Normale-33-1.pdf>
 
-Overfull \hbox (612.01617pt too wide) in paragraph at lines 6229--6229
+Overfull \hbox (612.01617pt too wide) in paragraph at lines 6265--6265
  [] 
  []
 
@@ -2232,19 +2240,19 @@ File: Appunti_di_Statistica_files/figure-latex/07c-Normale-33-2.pdf Graphic fil
 e (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/07c-Normale-33-2.pdf>
 
-Overfull \hbox (612.01617pt too wide) in paragraph at lines 6231--6231
+Overfull \hbox (612.01617pt too wide) in paragraph at lines 6267--6267
  [] 
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[149]
+[151]
 File: Appunti_di_Statistica_files/figure-latex/07c-Normale-33-3.pdf Graphic fil
 e (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/07c-Normale-33-3.pdf>
 
-Overfull \hbox (612.01617pt too wide) in paragraph at lines 6233--6233
+Overfull \hbox (612.01617pt too wide) in paragraph at lines 6269--6269
  [] 
  []
 
@@ -2252,7 +2260,7 @@ File: Appunti_di_Statistica_files/figure-latex/07c-Normale-33-4.pdf Graphic fil
 e (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/07c-Normale-33-4.pdf>
 
-Overfull \hbox (612.01617pt too wide) in paragraph at lines 6235--6235
+Overfull \hbox (612.01617pt too wide) in paragraph at lines 6271--6271
  [] 
  []
 
@@ -2260,14 +2268,14 @@ File: Appunti_di_Statistica_files/figure-latex/07c-Normale-33-5.pdf Graphic fil
 e (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/07c-Normale-33-5.pdf>
 
-Overfull \hbox (612.01617pt too wide) in paragraph at lines 6237--6237
+Overfull \hbox (612.01617pt too wide) in paragraph at lines 6273--6273
  [] 
  []
 
 
 Underfull \vbox (badness 2065) has occurred while \output is active []
 
-[150]
+[152]
 File: Appunti_di_Statistica_files/figure-latex/07c-Normale-9-1.pdf Graphic file
  (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/07c-Normale-9-1.pdf>
@@ -2277,11 +2285,11 @@ e (type pdf)
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[151]
+[153]
 File: Appunti_di_Statistica_files/figure-latex/07c-Normale-11-1.pdf Graphic fil
 e (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/07c-Normale-11-1.pdf>
-[152]
+[154]
 File: Appunti_di_Statistica_files/figure-latex/07c-Normale-12-1.pdf Graphic fil
 e (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/07c-Normale-12-1.pdf>
@@ -2291,83 +2299,83 @@ e (type pdf)
 
 Underfull \vbox (badness 6775) has occurred while \output is active []
 
-[153]
+[155]
 File: Appunti_di_Statistica_files/figure-latex/07c-Normale-15-1.pdf Graphic fil
 e (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/07c-Normale-15-1.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[154]
+[156]
 File: Appunti_di_Statistica_files/figure-latex/07c-Normale-17-1.pdf Graphic fil
 e (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/07c-Normale-17-1.pdf>
-[155]
+[157]
 File: Appunti_di_Statistica_files/figure-latex/07c-Normale-19-1.pdf Graphic fil
 e (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/07c-Normale-19-1.pdf>
 File: Appunti_di_Statistica_files/figure-latex/07c-Normale-21-1.pdf Graphic fil
 e (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/07c-Normale-21-1.pdf>
-[156]
+[158]
 File: Appunti_di_Statistica_files/figure-latex/07c-Normale-23-1.pdf Graphic fil
 e (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/07c-Normale-23-1.pdf>
 File: Appunti_di_Statistica_files/figure-latex/07c-Normale-25-1.pdf Graphic fil
 e (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/07c-Normale-25-1.pdf>
-[157]
+[159]
 File: Appunti_di_Statistica_files/figure-latex/07c-Normale-26-1.pdf Graphic fil
 e (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/07c-Normale-26-1.pdf>
-[158]
+[160]
 File: Appunti_di_Statistica_files/figure-latex/07c-Normale-27-1.pdf Graphic fil
 e (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/07c-Normale-27-1.pdf>
 
-Overfull \hbox (5.72658pt too wide) in paragraph at lines 6485--6506
+Overfull \hbox (5.72658pt too wide) in paragraph at lines 6521--6542
 [][] 
  []
 
-[159]
+[161]
 File: Appunti_di_Statistica_files/figure-latex/07c-Normale-29-1.pdf Graphic fil
 e (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/07c-Normale-29-1.pdf>
 File: Appunti_di_Statistica_files/figure-latex/07c-Normale-30-1.pdf Graphic fil
 e (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/07c-Normale-30-1.pdf>
-[160] [161] [162
+[162] [163] [164
 
 ]
 File: Appunti_di_Statistica_files/figure-latex/07d-Esercizi-Normale-14-1.pdf Gr
 aphic file (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/07d-Esercizi-Normale-14-1.pdf>
-[163
+[165
 
 ]
 File: Appunti_di_Statistica_files/figure-latex/07d-Esercizi-Normale-5-1.pdf Gra
 phic file (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/07d-Esercizi-Normale-5-1.pdf>
 
-Overfull \hbox (250.667pt too wide) in paragraph at lines 6654--6654
+Overfull \hbox (250.667pt too wide) in paragraph at lines 6690--6690
  [] 
  []
 
-[164]
+[166]
 File: Appunti_di_Statistica_files/figure-latex/07d-Esercizi-Normale-7-1.pdf Gra
 phic file (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/07d-Esercizi-Normale-7-1.pdf>
 
-Overfull \hbox (106.12732pt too wide) in paragraph at lines 6686--6686
+Overfull \hbox (106.12732pt too wide) in paragraph at lines 6722--6722
  [] 
  []
 
-[165]
+[167]
 File: Appunti_di_Statistica_files/figure-latex/07d-Esercizi-Normale-17-1.pdf Gr
 aphic file (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/07d-Esercizi-Normale-17-1.pdf>
 
-Overfull \hbox (106.12732pt too wide) in paragraph at lines 6703--6703
+Overfull \hbox (106.12732pt too wide) in paragraph at lines 6739--6739
  [] 
  []
 
@@ -2375,27 +2383,27 @@ File: Appunti_di_Statistica_files/figure-latex/07d-Esercizi-Normale-18-1.pdf Gr
 aphic file (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/07d-Esercizi-Normale-18-1.pdf>
 
-Overfull \hbox (612.01617pt too wide) in paragraph at lines 6707--6707
+Overfull \hbox (612.01617pt too wide) in paragraph at lines 6743--6743
  [] 
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[166]
-Overfull \hbox (15.29297pt too wide) detected at line 6710
+[168]
+Overfull \hbox (15.29297pt too wide) detected at line 6746
 [][][][][] [] [] [] [][][] [] [][][] [] [] [] [][][][] [] [][][][][] [] [] [] [
 ][][][][][][][][] [] [] [] [][][][][]  []
  []
 
-[167] [168] [169] [170]
+[169] [170] [171] [172]
 Capitolo 8.
-[171
+[173
 
-] [172] [173] [174]
+] [174] [175] [176]
 LaTeX Font Info:    Font shape `TU/NotoSerif(0)/m/n' will be
-(Font)              scaled to size 6.13882pt on input line 7087.
-[175]
+(Font)              scaled to size 6.13882pt on input line 7123.
+[177]
 File: Appunti_di_Statistica_files/figure-latex/08-tlc-7-1.pdf Graphic file (typ
 e pdf)
 <use Appunti_di_Statistica_files/figure-latex/08-tlc-7-1.pdf>
@@ -2405,59 +2413,59 @@ e pdf)
 
 Underfull \vbox (badness 1092) has occurred while \output is active []
 
-[176]
+[178]
 File: img/tavolo-roulette.png Graphic file (type bmp)
 <img/tavolo-roulette.png>
 
-Overfull \hbox (41.8085pt too wide) in paragraph at lines 7206--7206
+Overfull \hbox (41.8085pt too wide) in paragraph at lines 7242--7242
  [] 
  []
 
-[177] [178] [179]
+[179] [180] [181]
 File: Appunti_di_Statistica_files/figure-latex/08-tlc-13-1.pdf Graphic file (ty
 pe pdf)
 <use Appunti_di_Statistica_files/figure-latex/08-tlc-13-1.pdf>
 File: Appunti_di_Statistica_files/figure-latex/08-tlc-14-1.pdf Graphic file (ty
 pe pdf)
 <use Appunti_di_Statistica_files/figure-latex/08-tlc-14-1.pdf>
-[180] [181]
+[182] [183]
 File: Appunti_di_Statistica_files/figure-latex/08-tlc-15-1.pdf Graphic file (ty
 pe pdf)
 <use Appunti_di_Statistica_files/figure-latex/08-tlc-15-1.pdf>
-[182]
+[184]
 Capitolo 9.
-LaTeX Font Info:    Calculating math sizes for size <14> on input line 7387.
+LaTeX Font Info:    Calculating math sizes for size <14> on input line 7423.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 14.0pt on input line 7387.
+(Font)              scaled to size 14.0pt on input line 7423.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 9.79996pt on input line 7387.
+(Font)              scaled to size 9.79996pt on input line 7423.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 7.0pt on input line 7387.
+(Font)              scaled to size 7.0pt on input line 7423.
 LaTeX Font Info:    Font shape `TU/LatinModernRoman(1)/m/n' will be
-(Font)              scaled to size 14.0pt on input line 7387.
+(Font)              scaled to size 14.0pt on input line 7423.
 LaTeX Font Info:    Font shape `TU/LatinModernRoman(1)/m/n' will be
-(Font)              scaled to size 9.79996pt on input line 7387.
+(Font)              scaled to size 9.79996pt on input line 7423.
 LaTeX Font Info:    Font shape `TU/LatinModernRoman(1)/m/n' will be
-(Font)              scaled to size 7.0pt on input line 7387.
+(Font)              scaled to size 7.0pt on input line 7423.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 14.00128pt on input line 7387.
+(Font)              scaled to size 14.00128pt on input line 7423.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 9.80084pt on input line 7387.
+(Font)              scaled to size 9.80084pt on input line 7423.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 7.00064pt on input line 7387.
+(Font)              scaled to size 7.00064pt on input line 7423.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 13.9985pt on input line 7387.
+(Font)              scaled to size 13.9985pt on input line 7423.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 9.7989pt on input line 7387.
+(Font)              scaled to size 9.7989pt on input line 7423.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 6.99925pt on input line 7387.
+(Font)              scaled to size 6.99925pt on input line 7423.
 LaTeX Font Info:    Font shape `TU/LatinModernRoman(1)/b/n' will be
-(Font)              scaled to size 13.59006pt on input line 7387.
+(Font)              scaled to size 13.59006pt on input line 7423.
 LaTeX Font Info:    Font shape `TU/LatinModernRoman(1)/b/n' will be
-(Font)              scaled to size 9.51299pt on input line 7387.
+(Font)              scaled to size 9.51299pt on input line 7423.
 LaTeX Font Info:    Font shape `TU/LatinModernRoman(1)/b/n' will be
-(Font)              scaled to size 6.79503pt on input line 7387.
-[183
+(Font)              scaled to size 6.79503pt on input line 7423.
+[185
 
 ]
 File: Appunti_di_Statistica_files/figure-latex/chi-quadro1-1.pdf Graphic file (
@@ -2466,7 +2474,7 @@ type pdf)
 File: Appunti_di_Statistica_files/figure-latex/chi-quadro2-1.pdf Graphic file (
 type pdf)
 <use Appunti_di_Statistica_files/figure-latex/chi-quadro2-1.pdf>
-[184]
+[186]
 File: Appunti_di_Statistica_files/figure-latex/09-Statistiche-Campionarie_3-1.p
 df Graphic file (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/09-Statistiche-Campionarie_3-1.pd
@@ -2476,22 +2484,22 @@ df Graphic file (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/09-Statistiche-Campionarie_4-1.pd
 f>
 LaTeX Font Info:    Font shape `TU/LatinModernRoman(0)/m/n' will be
-(Font)              scaled to size 7.0pt on input line 7468.
+(Font)              scaled to size 7.0pt on input line 7504.
 
 Underfull \vbox (badness 5878) has occurred while \output is active []
 
-[185]
+[187]
 File: Appunti_di_Statistica_files/figure-latex/t-student1-1.pdf Graphic file (t
 ype pdf)
 <use Appunti_di_Statistica_files/figure-latex/t-student1-1.pdf>
 
 Underfull \vbox (badness 1024) has occurred while \output is active []
 
-[186]
+[188]
 File: Appunti_di_Statistica_files/figure-latex/t-student2-1.pdf Graphic file (t
 ype pdf)
 <use Appunti_di_Statistica_files/figure-latex/t-student2-1.pdf>
-[187]
+[189]
 File: Appunti_di_Statistica_files/figure-latex/09-Statistiche-Campionarie_1-1.p
 df Graphic file (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/09-Statistiche-Campionarie_1-1.pd
@@ -2500,35 +2508,38 @@ File: Appunti_di_Statistica_files/figure-latex/09-Statistiche-Campionarie_2-1.p
 df Graphic file (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/09-Statistiche-Campionarie_2-1.pd
 f>
-[188]
-Overfull \hbox (16.64362pt too wide) in paragraph at lines 7679--7689
+[190]
+Overfull \hbox (16.64362pt too wide) in paragraph at lines 7715--7725
  [][] 
  []
 
-[189] [190] [191
+[191] [192] [193
 
-] [192]
+] [194]
 Capitolo 10.
-[193
+[195
 
-] [194] [195] [196] [197] [198] [199] [200] [201] [202
+] [196] [197] [198] [199] [200]
+LaTeX Font Info:    Font shape `TU/LatinModernRoman(0)/m/n' will be
+(Font)              scaled to size 14.0pt on input line 7979.
+[201] [202] [203] [204
 
 ]
 Capitolo 11.
-[203] [204] [205]
+[205] [206] [207]
 File: img/inferenza1-1.png Graphic file (type bmp)
 <img/inferenza1-1.png>
 File: img/inferenza2-2.png Graphic file (type bmp)
 <img/inferenza2-2.png>
-[206] [207] [208] [209] [210] [211] [212] [213]
+[208] [209] [210] [211] [212] [213] [214] [215]
 File: Appunti_di_Statistica_files/figure-latex/11-Stima-8-1.pdf Graphic file (t
 ype pdf)
 <use Appunti_di_Statistica_files/figure-latex/11-Stima-8-1.pdf>
-[214] [215] [216]
+[216] [217] [218]
 Capitolo 12.
-[217
+[219
 
-] [218] [219]
+] [220] [221]
 File: Appunti_di_Statistica_files/figure-latex/12-Verosimiglianza-4-1.pdf Graph
 ic file (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/12-Verosimiglianza-4-1.pdf>
@@ -2538,15 +2549,15 @@ ic file (type pdf)
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[220]
+[222]
 File: Appunti_di_Statistica_files/figure-latex/12-Verosimiglianza-7-1.pdf Graph
 ic file (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/12-Verosimiglianza-7-1.pdf>
 
 Underfull \vbox (badness 6094) has occurred while \output is active []
 
-[221] [222]
-Overfull \hbox (7.69553pt too wide) in paragraph at lines 8876--8883
+[223] [224]
+Overfull \hbox (7.69553pt too wide) in paragraph at lines 8912--8919
 [][] 
  []
 
@@ -2556,11 +2567,11 @@ ic file (type pdf)
 File: Appunti_di_Statistica_files/figure-latex/unnamed-chunk-11-1.pdf Graphic f
 ile (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/unnamed-chunk-11-1.pdf>
-[223]
+[225]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[224]
-Underfull \hbox (badness 3118) in paragraph at lines 8965--8966
+[226]
+Underfull \hbox (badness 3118) in paragraph at lines 9001--9002
 [][][]\TU/lmss/bx/n/10.95 Definizione 12.4.1 \TU/lmss/m/n/10.95 (Stimatore du M
 assima Verosimiglianza)\TU/lmss/bx/n/10.95 . [][]\TU/LatinModernRoman(0)/m/n/10
 .95 Lo stimatore di \TU/LatinModernRoman(0)/m/it/10.95 massima
@@ -2569,24 +2580,24 @@ assima Verosimiglianza)\TU/lmss/bx/n/10.95 . [][]\TU/LatinModernRoman(0)/m/n/10
 
 Underfull \vbox (badness 2932) has occurred while \output is active []
 
-[225] [226]
+[227] [228]
 File: Appunti_di_Statistica_files/figure-latex/12-Verosimiglianza-12-1.pdf Grap
 hic file (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/12-Verosimiglianza-12-1.pdf>
 
 Underfull \vbox (badness 2573) has occurred while \output is active []
 
-[227]
+[229]
 Underfull \vbox (badness 2478) has occurred while \output is active []
 
-[228] [229]
+[230] [231]
 File: Appunti_di_Statistica_files/figure-latex/12-Verosimiglianza-13-1.pdf Grap
 hic file (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/12-Verosimiglianza-13-1.pdf>
-[230] [231]
+[232] [233]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[232]
+[234]
 File: Appunti_di_Statistica_files/figure-latex/12-Verosimiglianza-20-1.pdf Grap
 hic file (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/12-Verosimiglianza-20-1.pdf>
@@ -2596,31 +2607,31 @@ hic file (type pdf)
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[233]
+[235]
 File: Appunti_di_Statistica_files/figure-latex/12-Verosimiglianza-24-1.pdf Grap
 hic file (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/12-Verosimiglianza-24-1.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[234] [235]
+[236] [237]
 Underfull \vbox (badness 1715) has occurred while \output is active []
 
-[236] [237]
-Overfull \hbox (83.02292pt too wide) detected at line 9414
+[238] [239]
+Overfull \hbox (83.02292pt too wide) detected at line 9450
 [][][] [] [][][][][][] [][] [] [][][][][][] [][] [] [][][][][][] [][] [] [][][]
 [][] [][] [] [][][][][] [] [][] [] [][][][][][] [][] [] [][][][][][] [][] [] []
 [][][][] [][] [] [][][][][][] [][] [] [][][][][][][]
  []
 
-[238]
-Underfull \hbox (badness 1910) in paragraph at lines 9468--9469
+[240]
+Underfull \hbox (badness 1910) in paragraph at lines 9504--9505
 [][][]\TU/lmss/bx/n/10.95 Proprietà 12.10.1 \TU/lmss/m/n/10.95 (Stimatori di ma
 ssima verosimgilianza)\TU/lmss/bx/n/10.95 . [][]\TU/LatinModernRoman(0)/m/it/10
 .95 Siano $[][][] [][][][] [][]$ $[]$ VC IID,
  []
 
-[239] [240]
+[241] [242]
 Capitolo 13.
 File: Appunti_di_Statistica_files/figure-latex/13-stima-intervallare-3-1.pdf Gr
 aphic file (type pdf)
@@ -2628,13 +2639,13 @@ aphic file (type pdf)
 
 Underfull \vbox (badness 2245) has occurred while \output is active []
 
-[241
+[243
 
 ]
 File: Appunti_di_Statistica_files/figure-latex/13-stima-intervallare-4-1.pdf Gr
 aphic file (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/13-stima-intervallare-4-1.pdf>
-[242] [243]
+[244] [245]
 File: Appunti_di_Statistica_files/figure-latex/13-stima-intervallare-9-1.pdf Gr
 aphic file (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/13-stima-intervallare-9-1.pdf>
@@ -2644,42 +2655,42 @@ raphic file (type pdf)
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[244] [245]
+[246] [247]
 File: Appunti_di_Statistica_files/figure-latex/13-stima-intervallare-12-1.pdf G
 raphic file (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/13-stima-intervallare-12-1.pdf>
-[246]
+[248]
 Underfull \vbox (badness 2334) has occurred while \output is active []
 
-[247] [248]
+[249] [250]
 File: Appunti_di_Statistica_files/figure-latex/13-stima-intervallare-1-1.pdf Gr
 aphic file (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/13-stima-intervallare-1-1.pdf>
-[249] [250] [251] [252] [253]
+[251] [252] [253] [254] [255]
 File: Appunti_di_Statistica_files/figure-latex/13-stima-intervallare-18-1.pdf G
 raphic file (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/13-stima-intervallare-18-1.pdf>
-[254] [255] [256
+[256] [257] [258
 
 ]
 Capitolo 14.
-[257] [258]
+[259] [260]
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 10.0pt on input line 10323.
+(Font)              scaled to size 10.0pt on input line 10359.
 LaTeX Font Info:    Font shape `TU/LatinModernRoman(1)/m/n' will be
-(Font)              scaled to size 10.0pt on input line 10323.
+(Font)              scaled to size 10.0pt on input line 10359.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 10.00092pt on input line 10323.
+(Font)              scaled to size 10.00092pt on input line 10359.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 9.99893pt on input line 10323.
+(Font)              scaled to size 9.99893pt on input line 10359.
 LaTeX Font Info:    Font shape `TU/LatinModernRoman(1)/b/n' will be
-(Font)              scaled to size 9.70718pt on input line 10323.
+(Font)              scaled to size 9.70718pt on input line 10359.
 
-Overfull \hbox (41.23358pt too wide) in paragraph at lines 10323--10331
+Overfull \hbox (41.23358pt too wide) in paragraph at lines 10359--10367
  [][] 
  []
 
-[259]
+[261]
 File: Appunti_di_Statistica_files/figure-latex/14-test-intro-16-1.pdf Graphic f
 ile (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/14-test-intro-16-1.pdf>
@@ -2692,48 +2703,48 @@ ile (type pdf)
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[260]
-Overfull \hbox (41.23358pt too wide) in paragraph at lines 10365--10373
+[262]
+Overfull \hbox (41.23358pt too wide) in paragraph at lines 10401--10409
  [][] 
  []
 
 
-Overfull \hbox (41.23358pt too wide) in paragraph at lines 10412--10420
+Overfull \hbox (41.23358pt too wide) in paragraph at lines 10448--10456
  [][] 
  []
 
-[261]
-Overfull \hbox (41.23358pt too wide) in paragraph at lines 10458--10466
+[263]
+Overfull \hbox (41.23358pt too wide) in paragraph at lines 10494--10502
  [][] 
  []
 
 
-LaTeX Font Warning: Command \small invalid in math mode on input line 10471.
+LaTeX Font Warning: Command \small invalid in math mode on input line 10507.
 
 LaTeX Font Info:    Font shape `TU/NotoSerif(0)/m/n' will be
-(Font)              scaled to size 8.04108pt on input line 10471.
+(Font)              scaled to size 8.04108pt on input line 10507.
 
 Underfull \vbox (badness 2662) has occurred while \output is active []
 
-[262] [263]
+[264] [265]
 File: Appunti_di_Statistica_files/figure-latex/14-test-intro-20-1.pdf Graphic f
 ile (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/14-test-intro-20-1.pdf>
-[264]
+[266]
 File: Appunti_di_Statistica_files/figure-latex/14-test-intro-21-1.pdf Graphic f
 ile (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/14-test-intro-21-1.pdf>
-[265] [266] [267] [268]
+[267] [268] [269] [270]
 Capitolo 15.
 File: Appunti_di_Statistica_files/figure-latex/15-test-mu-pi-14-1.pdf Graphic f
 ile (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/15-test-mu-pi-14-1.pdf>
 
-Overfull \hbox (14.79425pt too wide) in paragraph at lines 10867--10867
+Overfull \hbox (14.79425pt too wide) in paragraph at lines 10903--10903
  [] 
  []
 
-[269
+[271
 
 ]
 File: Appunti_di_Statistica_files/figure-latex/15-test-mu-pi-15-1.pdf Graphic f
@@ -2742,43 +2753,43 @@ ile (type pdf)
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[270]
+[272]
 File: Appunti_di_Statistica_files/figure-latex/15-test-mu-pi-1-1.pdf Graphic fi
 le (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/15-test-mu-pi-1-1.pdf>
 
 Underfull \vbox (badness 1226) has occurred while \output is active []
 
-[271] [272]
+[273] [274]
 File: Appunti_di_Statistica_files/figure-latex/15-test-mu-pi-2-1.pdf Graphic fi
 le (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/15-test-mu-pi-2-1.pdf>
-[273]
+[275]
 File: Appunti_di_Statistica_files/figure-latex/15-test-mu-pi-16-1.pdf Graphic f
 ile (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/15-test-mu-pi-16-1.pdf>
-[274]
+[276]
 File: Appunti_di_Statistica_files/figure-latex/unnamed-chunk-12-1.pdf Graphic f
 ile (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/unnamed-chunk-12-1.pdf>
-[275]
+[277]
 File: Appunti_di_Statistica_files/figure-latex/unnamed-chunk-13-1.pdf Graphic f
 ile (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/unnamed-chunk-13-1.pdf>
-[276]
+[278]
 File: Appunti_di_Statistica_files/figure-latex/15-test-mu-pi-17-1.pdf Graphic f
 ile (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/15-test-mu-pi-17-1.pdf>
 
-Overfull \hbox (14.79425pt too wide) in paragraph at lines 11152--11152
+Overfull \hbox (14.79425pt too wide) in paragraph at lines 11188--11188
  [] 
  []
 
-[277]
+[279]
 File: Appunti_di_Statistica_files/figure-latex/15-test-mu-pi-3-1.pdf Graphic fi
 le (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/15-test-mu-pi-3-1.pdf>
-[278]
+[280]
 File: Appunti_di_Statistica_files/figure-latex/15-test-mu-pi-18-1.pdf Graphic f
 ile (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/15-test-mu-pi-18-1.pdf>
@@ -2786,123 +2797,123 @@ File: Appunti_di_Statistica_files/figure-latex/15-test-mu-pi-19-1.pdf Graphic f
 ile (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/15-test-mu-pi-19-1.pdf>
 
-Overfull \hbox (14.79425pt too wide) in paragraph at lines 11246--11246
+Overfull \hbox (14.79425pt too wide) in paragraph at lines 11282--11282
  [] 
  []
 
-[279] [280]
+[281] [282]
 File: Appunti_di_Statistica_files/figure-latex/15-test-mu-pi-4-1.pdf Graphic fi
 le (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/15-test-mu-pi-4-1.pdf>
 File: Appunti_di_Statistica_files/figure-latex/15-test-mu-pi-20-1.pdf Graphic f
 ile (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/15-test-mu-pi-20-1.pdf>
-[281] [282]
+[283] [284]
 File: Appunti_di_Statistica_files/figure-latex/15-test-mu-pi-21-1.pdf Graphic f
 ile (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/15-test-mu-pi-21-1.pdf>
-[283]
+[285]
 File: Appunti_di_Statistica_files/figure-latex/15-test-mu-pi-22-1.pdf Graphic f
 ile (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/15-test-mu-pi-22-1.pdf>
 
-Overfull \hbox (14.79425pt too wide) in paragraph at lines 11423--11423
+Overfull \hbox (14.79425pt too wide) in paragraph at lines 11459--11459
  [] 
  []
 
-[284]
+[286]
 File: Appunti_di_Statistica_files/figure-latex/15-test-mu-pi-5-1.pdf Graphic fi
 le (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/15-test-mu-pi-5-1.pdf>
-[285]
+[287]
 File: Appunti_di_Statistica_files/figure-latex/15-test-mu-pi-23-1.pdf Graphic f
 ile (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/15-test-mu-pi-23-1.pdf>
-[286]
+[288]
 File: Appunti_di_Statistica_files/figure-latex/15-test-mu-pi-6-1.pdf Graphic fi
 le (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/15-test-mu-pi-6-1.pdf>
-[287]
+[289]
 File: Appunti_di_Statistica_files/figure-latex/15-test-mu-pi-24-1.pdf Graphic f
 ile (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/15-test-mu-pi-24-1.pdf>
 
-Overfull \hbox (14.79425pt too wide) in paragraph at lines 11579--11579
+Overfull \hbox (14.79425pt too wide) in paragraph at lines 11615--11615
  [] 
  []
 
-[288]
+[290]
 File: Appunti_di_Statistica_files/figure-latex/15-test-mu-pi-7-1.pdf Graphic fi
 le (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/15-test-mu-pi-7-1.pdf>
-[289]
+[291]
 File: Appunti_di_Statistica_files/figure-latex/15-test-mu-pi-8-1.pdf Graphic fi
 le (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/15-test-mu-pi-8-1.pdf>
-[290] [291] [292]
+[292] [293] [294]
 File: Appunti_di_Statistica_files/figure-latex/15-test-mu-pi-9-1.pdf Graphic fi
 le (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/15-test-mu-pi-9-1.pdf>
-[293]
+[295]
 File: Appunti_di_Statistica_files/figure-latex/15-test-mu-pi-10-1.pdf Graphic f
 ile (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/15-test-mu-pi-10-1.pdf>
-[294]
+[296]
 File: Appunti_di_Statistica_files/figure-latex/15-test-mu-pi-11-1.pdf Graphic f
 ile (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/15-test-mu-pi-11-1.pdf>
 
 Underfull \vbox (badness 1983) has occurred while \output is active []
 
-[295] [296]
+[297] [298]
 File: Appunti_di_Statistica_files/figure-latex/15-test-mu-pi-12-1.pdf Graphic f
 ile (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/15-test-mu-pi-12-1.pdf>
-[297]
+[299]
 File: Appunti_di_Statistica_files/figure-latex/15-test-mu-pi-13-1.pdf Graphic f
 ile (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/15-test-mu-pi-13-1.pdf>
-[298]
+[300]
 LaTeX Font Info:    Font shape `TU/NotoSerif(0)/m/n' will be
-(Font)              scaled to size 5.62875pt on input line 11998.
-[299
+(Font)              scaled to size 5.62875pt on input line 12034.
+[301
 
-] [300
+] [302
 
 ]
 Capitolo 16.
-[301] [302] [303]
+[303] [304] [305]
 File: Appunti_di_Statistica_files/figure-latex/16-test-2C-2-1.pdf Graphic file 
 (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/16-test-2C-2-1.pdf>
-[304]
+[306]
 File: Appunti_di_Statistica_files/figure-latex/16-test-2C-1-1.pdf Graphic file 
 (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/16-test-2C-1-1.pdf>
-[305] [306] [307]
+[307] [308] [309]
 File: Appunti_di_Statistica_files/figure-latex/16-test-2C-3-1.pdf Graphic file 
 (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/16-test-2C-3-1.pdf>
-[308] [309] [310
+[310] [311] [312
 
 ]
 Capitolo 17.
 File: Appunti_di_Statistica_files/figure-latex/17-regressione-I-6-1.pdf Graphic
  file (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/17-regressione-I-6-1.pdf>
-[311]
+[313]
 File: Appunti_di_Statistica_files/figure-latex/17-regressione-I-8-1.pdf Graphic
  file (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/17-regressione-I-8-1.pdf>
-[312]
+[314]
 File: Appunti_di_Statistica_files/figure-latex/17-regressione-I-10-1.pdf Graphi
 c file (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/17-regressione-I-10-1.pdf>
-[313] [314]
+[315] [316]
 File: Appunti_di_Statistica_files/figure-latex/17-regressione-I-1-1.pdf Graphic
  file (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/17-regressione-I-1-1.pdf>
-[315]
+[317]
 File: Appunti_di_Statistica_files/figure-latex/17-regressione-I-12-1.pdf Graphi
 c file (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/17-regressione-I-12-1.pdf>
@@ -2912,7 +2923,7 @@ c file (type pdf)
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[316]
+[318]
 File: Appunti_di_Statistica_files/figure-latex/17-regressione-I-14-1.pdf Graphi
 c file (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/17-regressione-I-14-1.pdf>
@@ -2922,8 +2933,8 @@ ic file (type pdf)
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[317]
-Overfull \hbox (36.93124pt too wide) in paragraph at lines 12554--12560
+[319]
+Overfull \hbox (36.93124pt too wide) in paragraph at lines 12590--12596
 [][] 
  []
 
@@ -2936,14 +2947,14 @@ File: Appunti_di_Statistica_files/figure-latex/17-regressione-I-2-1.pdf Graphic
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[318]
+[320]
 File: Appunti_di_Statistica_files/figure-latex/17-regressione-I-3-1.pdf Graphic
  file (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/17-regressione-I-3-1.pdf>
 
 Underfull \vbox (badness 4846) has occurred while \output is active []
 
-[319]
+[321]
 File: Appunti_di_Statistica_files/figure-latex/17-regressione-I-5-1.pdf Graphic
  file (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/17-regressione-I-5-1.pdf>
@@ -2951,15 +2962,15 @@ File: Appunti_di_Statistica_files/figure-latex/17-regressione-I-17-1.pdf Graphi
 c file (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/17-regressione-I-17-1.pdf>
 
-Overfull \hbox (28.17532pt too wide) in paragraph at lines 12634--12634
+Overfull \hbox (28.17532pt too wide) in paragraph at lines 12670--12670
  [] 
  []
 
-[320] [321]
+[322] [323]
 File: Appunti_di_Statistica_files/figure-latex/17-regressione-I-18-1.pdf Graphi
 c file (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/17-regressione-I-18-1.pdf>
-[322]
+[324]
 File: Appunti_di_Statistica_files/figure-latex/17-regressione-I-20-1.pdf Graphi
 c file (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/17-regressione-I-20-1.pdf>
@@ -2969,11 +2980,11 @@ c file (type pdf)
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[323]
+[325]
 File: Appunti_di_Statistica_files/figure-latex/17-regressione-I-21-1.pdf Graphi
 c file (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/17-regressione-I-21-1.pdf>
-[324]
+[326]
 File: Appunti_di_Statistica_files/figure-latex/17-regressione-I-23-1.pdf Graphi
 c file (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/17-regressione-I-23-1.pdf>
@@ -2983,39 +2994,39 @@ c file (type pdf)
 File: Appunti_di_Statistica_files/figure-latex/17-regressione-I-26-1.pdf Graphi
 c file (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/17-regressione-I-26-1.pdf>
-[325]
+[327]
 File: Appunti_di_Statistica_files/figure-latex/17-regressione-I-28-1.pdf Graphi
 c file (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/17-regressione-I-28-1.pdf>
 
-Overfull \hbox (106.12732pt too wide) in paragraph at lines 12757--12757
+Overfull \hbox (106.12732pt too wide) in paragraph at lines 12793--12793
  [] 
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[326]
+[328]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[327]
+[329]
 File: Appunti_di_Statistica_files/figure-latex/17-regressione-I-30-1.pdf Graphi
 c file (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/17-regressione-I-30-1.pdf>
-[328]
+[330]
 File: Appunti_di_Statistica_files/figure-latex/17-regressione-I-32-1.pdf Graphi
 c file (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/17-regressione-I-32-1.pdf>
-[329] [330] [331]
+[331] [332] [333]
 
 Package tcolorbox Warning: Using nobreak failed. Try to enlarge `lines before b
-reak' or set page breaks manually on input line 12929.
+reak' or set page breaks manually on input line 12965.
 
 
-LaTeX Font Warning: Command \scriptsize invalid in math mode on input line 1297
-0.
+LaTeX Font Warning: Command \scriptsize invalid in math mode on input line 1300
+6.
 
-[332]
+[334]
 File: Appunti_di_Statistica_files/figure-latex/17-regressione-I-34-1.pdf Graphi
 c file (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/17-regressione-I-34-1.pdf>
@@ -3025,44 +3036,44 @@ c file (type pdf)
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[333]
+[335]
 File: Appunti_di_Statistica_files/figure-latex/17-regressione-I-36-1.pdf Graphi
 c file (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/17-regressione-I-36-1.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[334]
+[336]
 File: Appunti_di_Statistica_files/figure-latex/17-regressione-I-37-1.pdf Graphi
 c file (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/17-regressione-I-37-1.pdf>
-[335]
+[337]
 File: Appunti_di_Statistica_files/figure-latex/17-regressione-I-42-1.pdf Graphi
 c file (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/17-regressione-I-42-1.pdf>
-[336]
+[338]
 File: Appunti_di_Statistica_files/figure-latex/17-regressione-I-43-1.pdf Graphi
 c file (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/17-regressione-I-43-1.pdf>
-[337]
+[339]
 File: Appunti_di_Statistica_files/figure-latex/17-regressione-I-45-1.pdf Graphi
 c file (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/17-regressione-I-45-1.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[338] [339]
+[340] [341]
 File: Appunti_di_Statistica_files/figure-latex/17-regressione-I-47-1.pdf Graphi
 c file (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/17-regressione-I-47-1.pdf>
 File: Appunti_di_Statistica_files/figure-latex/17-regressione-I-48-1.pdf Graphi
 c file (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/17-regressione-I-48-1.pdf>
-[340]
+[342]
 File: Appunti_di_Statistica_files/figure-latex/17-regressione-I-49-1.pdf Graphi
 c file (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/17-regressione-I-49-1.pdf>
-[341]
+[343]
 File: Appunti_di_Statistica_files/figure-latex/17-regressione-I-50-1.pdf Graphi
 c file (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/17-regressione-I-50-1.pdf>
@@ -3072,7 +3083,7 @@ c file (type pdf)
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[342]
+[344]
 File: Appunti_di_Statistica_files/figure-latex/17-regressione-I-52-1.pdf Graphi
 c file (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/17-regressione-I-52-1.pdf>
@@ -3082,18 +3093,18 @@ c file (type pdf)
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[343] [344]
+[345] [346]
 File: Appunti_di_Statistica_files/figure-latex/17-regressione-I-54b-1.pdf Graph
 ic file (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/17-regressione-I-54b-1.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[345]
+[347]
 File: Appunti_di_Statistica_files/figure-latex/17-regressione-I-56-1.pdf Graphi
 c file (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/17-regressione-I-56-1.pdf>
-[346]
+[348]
 File: Appunti_di_Statistica_files/figure-latex/17-regressione-I-57-1.pdf Graphi
 c file (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/17-regressione-I-57-1.pdf>
@@ -3103,23 +3114,23 @@ c file (type pdf)
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[347]
+[349]
 File: Appunti_di_Statistica_files/figure-latex/17-regressione-I-59-1.pdf Graphi
 c file (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/17-regressione-I-59-1.pdf>
-[348]
+[350]
 File: Appunti_di_Statistica_files/figure-latex/17-regressione-I-62-1.pdf Graphi
 c file (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/17-regressione-I-62-1.pdf>
-[349]
+[351]
 File: Appunti_di_Statistica_files/figure-latex/17-regressione-I-63-1.pdf Graphi
 c file (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/17-regressione-I-63-1.pdf>
-[350] [351] [352
+[352] [353] [354
 
 ]
 Capitolo 18.
-[353]
+[355]
 File: Appunti_di_Statistica_files/figure-latex/18-regressione-II-4-1.pdf Graphi
 c file (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/18-regressione-II-4-1.pdf>
@@ -3128,46 +3139,29 @@ Underfull \vbox (badness 6001) has occurred while \output is active []
 
 
 Overfull \hbox (18.07677pt too wide) has occurred while \output is active
-\TU/LatinModernRoman(0)/m/n/10.95 354 \TU/LatinModernRoman(0)/m/it/10.95 CAPITO
+\TU/LatinModernRoman(0)/m/n/10.95 356 \TU/LatinModernRoman(0)/m/it/10.95 CAPITO
 LO 18.  INFERENZA E DIAGNOSTICA SUL MODELLO DI REGRESSIONE LINEARE
  []
 
-[354]
+[356]
 File: Appunti_di_Statistica_files/figure-latex/18-regressione-II-5-1.pdf Graphi
 c file (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/18-regressione-II-5-1.pdf>
 File: Appunti_di_Statistica_files/figure-latex/18-regressione-II-6-1.pdf Graphi
 c file (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/18-regressione-II-6-1.pdf>
-[355]
+[357]
 File: Appunti_di_Statistica_files/figure-latex/18-regressione-II-8-1.pdf Graphi
 c file (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/18-regressione-II-8-1.pdf>
-
-Overfull \hbox (18.07677pt too wide) has occurred while \output is active
-\TU/LatinModernRoman(0)/m/n/10.95 356 \TU/LatinModernRoman(0)/m/it/10.95 CAPITO
-LO 18.  INFERENZA E DIAGNOSTICA SUL MODELLO DI REGRESSIONE LINEARE
- []
-
-[356] [357]
-Underfull \vbox (badness 1789) has occurred while \output is active []
-
 
 Overfull \hbox (18.07677pt too wide) has occurred while \output is active
 \TU/LatinModernRoman(0)/m/n/10.95 358 \TU/LatinModernRoman(0)/m/it/10.95 CAPITO
 LO 18.  INFERENZA E DIAGNOSTICA SUL MODELLO DI REGRESSIONE LINEARE
  []
 
-[358]
-File: Appunti_di_Statistica_files/figure-latex/unnamed-chunk-16-1.pdf Graphic f
-ile (type pdf)
-<use Appunti_di_Statistica_files/figure-latex/unnamed-chunk-16-1.pdf>
-[359]
-File: Appunti_di_Statistica_files/figure-latex/18-regressione-II-11-1.pdf Graph
-ic file (type pdf)
-<use Appunti_di_Statistica_files/figure-latex/18-regressione-II-11-1.pdf>
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
+[358] [359]
+Underfull \vbox (badness 1789) has occurred while \output is active []
 
 
 Overfull \hbox (18.07677pt too wide) has occurred while \output is active
@@ -3176,6 +3170,23 @@ LO 18.  INFERENZA E DIAGNOSTICA SUL MODELLO DI REGRESSIONE LINEARE
  []
 
 [360]
+File: Appunti_di_Statistica_files/figure-latex/unnamed-chunk-16-1.pdf Graphic f
+ile (type pdf)
+<use Appunti_di_Statistica_files/figure-latex/unnamed-chunk-16-1.pdf>
+[361]
+File: Appunti_di_Statistica_files/figure-latex/18-regressione-II-11-1.pdf Graph
+ic file (type pdf)
+<use Appunti_di_Statistica_files/figure-latex/18-regressione-II-11-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (18.07677pt too wide) has occurred while \output is active
+\TU/LatinModernRoman(0)/m/n/10.95 362 \TU/LatinModernRoman(0)/m/it/10.95 CAPITO
+LO 18.  INFERENZA E DIAGNOSTICA SUL MODELLO DI REGRESSIONE LINEARE
+ []
+
+[362]
 File: Appunti_di_Statistica_files/figure-latex/18-regressione-II-12-1.pdf Graph
 ic file (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/18-regressione-II-12-1.pdf>
@@ -3185,7 +3196,7 @@ ic file (type pdf)
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[361]
+[363]
 File: Appunti_di_Statistica_files/figure-latex/18-regressione-II-15-1.pdf Graph
 ic file (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/18-regressione-II-15-1.pdf>
@@ -3197,11 +3208,11 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 Overfull \hbox (18.07677pt too wide) has occurred while \output is active
-\TU/LatinModernRoman(0)/m/n/10.95 362 \TU/LatinModernRoman(0)/m/it/10.95 CAPITO
+\TU/LatinModernRoman(0)/m/n/10.95 364 \TU/LatinModernRoman(0)/m/it/10.95 CAPITO
 LO 18.  INFERENZA E DIAGNOSTICA SUL MODELLO DI REGRESSIONE LINEARE
  []
 
-[362]
+[364]
 File: Appunti_di_Statistica_files/figure-latex/18-regressione-II-19-1.pdf Graph
 ic file (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/18-regressione-II-19-1.pdf>
@@ -3211,17 +3222,17 @@ ic file (type pdf)
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[363]
+[365]
 File: Appunti_di_Statistica_files/figure-latex/18-regressione-II-22-1.pdf Graph
 ic file (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/18-regressione-II-22-1.pdf>
 
 Overfull \hbox (18.07677pt too wide) has occurred while \output is active
-\TU/LatinModernRoman(0)/m/n/10.95 364 \TU/LatinModernRoman(0)/m/it/10.95 CAPITO
+\TU/LatinModernRoman(0)/m/n/10.95 366 \TU/LatinModernRoman(0)/m/it/10.95 CAPITO
 LO 18.  INFERENZA E DIAGNOSTICA SUL MODELLO DI REGRESSIONE LINEARE
  []
 
-[364]
+[366]
 File: Appunti_di_Statistica_files/figure-latex/18-regressione-II-23-1.pdf Graph
 ic file (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/18-regressione-II-23-1.pdf>
@@ -3231,7 +3242,7 @@ ic file (type pdf)
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[365]
+[367]
 File: Appunti_di_Statistica_files/figure-latex/18-regressione-II-25-1.pdf Graph
 ic file (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/18-regressione-II-25-1.pdf>
@@ -3240,18 +3251,18 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 Overfull \hbox (18.07677pt too wide) has occurred while \output is active
-\TU/LatinModernRoman(0)/m/n/10.95 366 \TU/LatinModernRoman(0)/m/it/10.95 CAPITO
+\TU/LatinModernRoman(0)/m/n/10.95 368 \TU/LatinModernRoman(0)/m/it/10.95 CAPITO
 LO 18.  INFERENZA E DIAGNOSTICA SUL MODELLO DI REGRESSIONE LINEARE
  []
 
-[366]
+[368]
 File: Appunti_di_Statistica_files/figure-latex/18-regressione-II-26-1.pdf Graph
 ic file (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/18-regressione-II-26-1.pdf>
 
 Underfull \vbox (badness 3108) has occurred while \output is active []
 
-[367]
+[369]
 File: Appunti_di_Statistica_files/figure-latex/18-regressione-II-27-1.pdf Graph
 ic file (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/18-regressione-II-27-1.pdf>
@@ -3260,32 +3271,18 @@ ic file (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/18-regressione-II-28-1.pdf>
 
 Overfull \hbox (18.07677pt too wide) has occurred while \output is active
-\TU/LatinModernRoman(0)/m/n/10.95 368 \TU/LatinModernRoman(0)/m/it/10.95 CAPITO
-LO 18.  INFERENZA E DIAGNOSTICA SUL MODELLO DI REGRESSIONE LINEARE
- []
-
-[368]
-File: Appunti_di_Statistica_files/figure-latex/18-regressione-II-29-1.pdf Graph
-ic file (type pdf)
-<use Appunti_di_Statistica_files/figure-latex/18-regressione-II-29-1.pdf>
-[369]
-File: Appunti_di_Statistica_files/figure-latex/18-regressione-II-31-1.pdf Graph
-ic file (type pdf)
-<use Appunti_di_Statistica_files/figure-latex/18-regressione-II-31-1.pdf>
-
-Overfull \hbox (18.07677pt too wide) has occurred while \output is active
 \TU/LatinModernRoman(0)/m/n/10.95 370 \TU/LatinModernRoman(0)/m/it/10.95 CAPITO
 LO 18.  INFERENZA E DIAGNOSTICA SUL MODELLO DI REGRESSIONE LINEARE
  []
 
 [370]
-File: Appunti_di_Statistica_files/figure-latex/18-regressione-II-32-1.pdf Graph
+File: Appunti_di_Statistica_files/figure-latex/18-regressione-II-29-1.pdf Graph
 ic file (type pdf)
-<use Appunti_di_Statistica_files/figure-latex/18-regressione-II-32-1.pdf>
+<use Appunti_di_Statistica_files/figure-latex/18-regressione-II-29-1.pdf>
 [371]
-File: Appunti_di_Statistica_files/figure-latex/18-regressione-II-33-1.pdf Graph
+File: Appunti_di_Statistica_files/figure-latex/18-regressione-II-31-1.pdf Graph
 ic file (type pdf)
-<use Appunti_di_Statistica_files/figure-latex/18-regressione-II-33-1.pdf>
+<use Appunti_di_Statistica_files/figure-latex/18-regressione-II-31-1.pdf>
 
 Overfull \hbox (18.07677pt too wide) has occurred while \output is active
 \TU/LatinModernRoman(0)/m/n/10.95 372 \TU/LatinModernRoman(0)/m/it/10.95 CAPITO
@@ -3293,111 +3290,125 @@ LO 18.  INFERENZA E DIAGNOSTICA SUL MODELLO DI REGRESSIONE LINEARE
  []
 
 [372]
+File: Appunti_di_Statistica_files/figure-latex/18-regressione-II-32-1.pdf Graph
+ic file (type pdf)
+<use Appunti_di_Statistica_files/figure-latex/18-regressione-II-32-1.pdf>
+[373]
+File: Appunti_di_Statistica_files/figure-latex/18-regressione-II-33-1.pdf Graph
+ic file (type pdf)
+<use Appunti_di_Statistica_files/figure-latex/18-regressione-II-33-1.pdf>
+
+Overfull \hbox (18.07677pt too wide) has occurred while \output is active
+\TU/LatinModernRoman(0)/m/n/10.95 374 \TU/LatinModernRoman(0)/m/it/10.95 CAPITO
+LO 18.  INFERENZA E DIAGNOSTICA SUL MODELLO DI REGRESSIONE LINEARE
+ []
+
+[374]
 Capitolo 19.
 
-LaTeX Font Warning: Command \tiny invalid in math mode on input line 14122.
+LaTeX Font Warning: Command \tiny invalid in math mode on input line 14158.
 
 LaTeX Font Info:    Font shape `TU/LatinModernRoman(0)/m/n' will be
-(Font)              scaled to size 5.0pt on input line 14124.
+(Font)              scaled to size 5.0pt on input line 14160.
 
-LaTeX Font Warning: Command \tiny invalid in math mode on input line 14166.
+LaTeX Font Warning: Command \tiny invalid in math mode on input line 14202.
 
-[373
+[375
 
 ]
-Overfull \hbox (33.4938pt too wide) detected at line 14223
+Overfull \hbox (33.4938pt too wide) detected at line 14259
 []
  []
 
-[374] [375] [376] [377]
+[376] [377] [378] [379]
 
-LaTeX Font Warning: Command \tiny invalid in math mode on input line 14447.
+LaTeX Font Warning: Command \tiny invalid in math mode on input line 14483.
 
 
-LaTeX Font Warning: Command \tiny invalid in math mode on input line 14495.
+LaTeX Font Warning: Command \tiny invalid in math mode on input line 14531.
 
-[378] [379] [380] [381] [382] [383] [384] [385] [386] [387
-
-] [388]
-Appendice A.
-[389
+[380] [381] [382] [383] [384] [385] [386] [387] [388] [389
 
 ] [390]
-Appendice B.
+Appendice A.
 [391
 
-] [392] [393] [394] [395] [396] [397] [398] [399]
-Overfull \hbox (20.2364pt too wide) detected at line 15783
+] [392]
+Appendice B.
+[393
+
+] [394] [395] [396] [397] [398] [399] [400] [401]
+Overfull \hbox (20.2364pt too wide) detected at line 15819
 []
  []
 
-[400] [401] [402] [403] [404] [405] [406] [407] [408] [409]
+[402] [403] [404] [405] [406] [407] [408] [409] [410] [411]
 LaTeX Font Info:    Font shape `TU/NotoSerif(0)/m/it' will be
-(Font)              scaled to size 8.04108pt on input line 16259.
+(Font)              scaled to size 8.04108pt on input line 16295.
 LaTeX Font Info:    Font shape `TU/NotoSerif(0)/b/n' will be
-(Font)              scaled to size 8.04108pt on input line 16267.
-[410] [411] [412] [413] [414
+(Font)              scaled to size 8.04108pt on input line 16303.
+[412] [413] [414] [415] [416
 
 ]
 Appendice C.
-[415] [416] [417] [418]
+[417] [418] [419] [420]
 Appendice D.
 File: Appunti_di_Statistica_files/figure-latex/permutazioni-1.pdf Graphic file 
 (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/permutazioni-1.pdf>
 
-Overfull \hbox (250.667pt too wide) in paragraph at lines 16684--16684
+Overfull \hbox (250.667pt too wide) in paragraph at lines 16720--16720
  [] 
  []
 
-[419
+[421
 
 ]
 
-LaTeX Font Warning: Command \scriptsize invalid in math mode on input line 1669
-4.
+LaTeX Font Warning: Command \scriptsize invalid in math mode on input line 1673
+0.
 
 
 Underfull \vbox (badness 1275) has occurred while \output is active []
 
-[420] [421] [422]
+[422] [423] [424]
 Appendice E.
-[423
+[425
 
-] [424]
+] [426]
 Appendice F.
 LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 16886.
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 16922.
 
 
 LaTeX Font Warning: Font shape `TU/lmtt/bx/it' in size <10> not available
-(Font)              Font shape `TU/lmtt/b/sl' tried instead on input line 16886
+(Font)              Font shape `TU/lmtt/b/sl' tried instead on input line 16922
 .
 
 File: Appunti_di_Statistica_files/figure-latex/24-Libro-54-1.pdf Graphic file (
 type pdf)
 <use Appunti_di_Statistica_files/figure-latex/24-Libro-54-1.pdf>
 
-Overfull \hbox (85.08081pt too wide) in paragraph at lines 16911--16911
+Overfull \hbox (85.08081pt too wide) in paragraph at lines 16947--16947
  [] 
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[425
+[427
 
-] [426] [427] [428] [429] [430] [431]
+] [428] [429] [430] [431] [432] [433]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[432]
+[434]
 File: Appunti_di_Statistica_files/figure-latex/24-Libro-24-1.pdf Graphic file (
 type pdf)
 <use Appunti_di_Statistica_files/figure-latex/24-Libro-24-1.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[433]
+[435]
 File: Appunti_di_Statistica_files/figure-latex/24-Libro-25-1.pdf Graphic file (
 type pdf)
 <use Appunti_di_Statistica_files/figure-latex/24-Libro-25-1.pdf>
@@ -3407,7 +3418,7 @@ type pdf)
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[434]
+[436]
 File: Appunti_di_Statistica_files/figure-latex/24-Libro-27-1.pdf Graphic file (
 type pdf)
 <use Appunti_di_Statistica_files/figure-latex/24-Libro-27-1.pdf>
@@ -3417,11 +3428,11 @@ type pdf)
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[435]
+[437]
 File: Appunti_di_Statistica_files/figure-latex/24-Libro-28-1.pdf Graphic file (
 type pdf)
 <use Appunti_di_Statistica_files/figure-latex/24-Libro-28-1.pdf>
-[436]
+[438]
 File: Appunti_di_Statistica_files/figure-latex/24-Libro-29-1.pdf Graphic file (
 type pdf)
 <use Appunti_di_Statistica_files/figure-latex/24-Libro-29-1.pdf>
@@ -3434,7 +3445,7 @@ type pdf)
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[437]
+[439]
 File: Appunti_di_Statistica_files/figure-latex/24-Libro-32-1.pdf Graphic file (
 type pdf)
 <use Appunti_di_Statistica_files/figure-latex/24-Libro-32-1.pdf>
@@ -3444,24 +3455,24 @@ type pdf)
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[438]
+[440]
 File: Appunti_di_Statistica_files/figure-latex/24-Libro-34-1.pdf Graphic file (
 type pdf)
 <use Appunti_di_Statistica_files/figure-latex/24-Libro-34-1.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[439] [440] [441]
+[441] [442] [443]
 File: Appunti_di_Statistica_files/figure-latex/24-Libro-39-1.pdf Graphic file (
 type pdf)
 <use Appunti_di_Statistica_files/figure-latex/24-Libro-39-1.pdf>
-[442]
+[444]
 Missing character: There is no ≤ (U+2264) in font [lmmono10-italic]:!
 File: Appunti_di_Statistica_files/figure-latex/24-Libro-40-1.pdf Graphic file (
 type pdf)
 <use Appunti_di_Statistica_files/figure-latex/24-Libro-40-1.pdf>
 Missing character: There is no ≤ (U+2264) in font [lmmono10-italic]:!
-[443]
+[445]
 File: Appunti_di_Statistica_files/figure-latex/24-Libro-41-1.pdf Graphic file (
 type pdf)
 <use Appunti_di_Statistica_files/figure-latex/24-Libro-41-1.pdf>
@@ -3471,15 +3482,15 @@ type pdf)
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[444] [445]
+[446] [447]
 Underfull \vbox (badness 2310) has occurred while \output is active []
 
-[446] [447] [448] [449] [450
+[448] [449] [450] [451] [452
 
 ]
 Appendice G.
-[451] [452]
-Overfull \hbox (2.71814pt too wide) in paragraph at lines 18727--18739
+[453] [454]
+Overfull \hbox (2.71814pt too wide) in paragraph at lines 18763--18775
  [][] 
  []
 
@@ -3489,176 +3500,176 @@ c file (type pdf)
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[453] [454]
+[455] [456]
 LaTeX Font Info:    Font shape `TU/NotoSerif(0)/m/n' will be
-(Font)              scaled to size 7.23697pt on input line 18854.
+(Font)              scaled to size 7.23697pt on input line 18890.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 9.0pt on input line 18856.
+(Font)              scaled to size 9.0pt on input line 18892.
 LaTeX Font Info:    Font shape `TU/LatinModernRoman(1)/m/n' will be
-(Font)              scaled to size 9.0pt on input line 18856.
+(Font)              scaled to size 9.0pt on input line 18892.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 9.00082pt on input line 18856.
+(Font)              scaled to size 9.00082pt on input line 18892.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 8.99904pt on input line 18856.
+(Font)              scaled to size 8.99904pt on input line 18892.
 LaTeX Font Info:    Font shape `TU/LatinModernRoman(1)/b/n' will be
-(Font)              scaled to size 8.73647pt on input line 18856.
+(Font)              scaled to size 8.73647pt on input line 18892.
 LaTeX Font Info:    Font shape `TU/NotoSerif(0)/m/n' will be
-(Font)              scaled to size 5.04561pt on input line 18857.
-LaTeX Font Info:    Calculating math sizes for size <6.2748> on input line 1885
-7.
+(Font)              scaled to size 5.04561pt on input line 18893.
+LaTeX Font Info:    Calculating math sizes for size <6.2748> on input line 1889
+3.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 6.2748pt on input line 18857.
+(Font)              scaled to size 6.2748pt on input line 18893.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 4.39233pt on input line 18857.
+(Font)              scaled to size 4.39233pt on input line 18893.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 3.13739pt on input line 18857.
+(Font)              scaled to size 3.13739pt on input line 18893.
 LaTeX Font Info:    Font shape `TU/LatinModernRoman(1)/m/n' will be
-(Font)              scaled to size 6.2748pt on input line 18857.
+(Font)              scaled to size 6.2748pt on input line 18893.
 LaTeX Font Info:    Font shape `TU/LatinModernRoman(1)/m/n' will be
-(Font)              scaled to size 4.39233pt on input line 18857.
+(Font)              scaled to size 4.39233pt on input line 18893.
 LaTeX Font Info:    Font shape `TU/LatinModernRoman(1)/m/n' will be
-(Font)              scaled to size 3.13739pt on input line 18857.
+(Font)              scaled to size 3.13739pt on input line 18893.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 6.27536pt on input line 18857.
+(Font)              scaled to size 6.27536pt on input line 18893.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 4.39273pt on input line 18857.
+(Font)              scaled to size 4.39273pt on input line 18893.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 3.13766pt on input line 18857.
+(Font)              scaled to size 3.13766pt on input line 18893.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 6.27412pt on input line 18857.
+(Font)              scaled to size 6.27412pt on input line 18893.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 4.39186pt on input line 18857.
+(Font)              scaled to size 4.39186pt on input line 18893.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 3.13705pt on input line 18857.
+(Font)              scaled to size 3.13705pt on input line 18893.
 LaTeX Font Info:    Font shape `TU/LatinModernRoman(1)/b/n' will be
-(Font)              scaled to size 6.09105pt on input line 18857.
+(Font)              scaled to size 6.09105pt on input line 18893.
 LaTeX Font Info:    Font shape `TU/LatinModernRoman(1)/b/n' will be
-(Font)              scaled to size 4.26372pt on input line 18857.
+(Font)              scaled to size 4.26372pt on input line 18893.
 LaTeX Font Info:    Font shape `TU/LatinModernRoman(1)/b/n' will be
-(Font)              scaled to size 3.04552pt on input line 18857.
+(Font)              scaled to size 3.04552pt on input line 18893.
 
 LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <4.39233> not available
-(Font)              size <5> substituted on input line 18857.
+(Font)              size <5> substituted on input line 18893.
 
 
 LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <3.13739> not available
-(Font)              size <5> substituted on input line 18857.
+(Font)              size <5> substituted on input line 18893.
 
 LaTeX Font Info:    Font shape `TU/LatinModernRoman(0)/m/n' will be
-(Font)              scaled to size 9.0pt on input line 18889.
-[455]
+(Font)              scaled to size 9.0pt on input line 18925.
+[457]
 LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10.95> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 18895.
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 18931.
 
 
-Overfull \hbox (31.07884pt too wide) in alignment at lines 18929--18935
+Overfull \hbox (31.07884pt too wide) in alignment at lines 18965--18971
  [][][] []
  []
 
-[456] [457] [458] [459] [460] [461] [462] [463]
+[458] [459] [460] [461] [462] [463] [464] [465]
 File: Appunti_di_Statistica_files/figure-latex/25-test-functions-10-1.pdf Graph
 ic file (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/25-test-functions-10-1.pdf>
-[464]
+[466]
 File: Appunti_di_Statistica_files/figure-latex/25-test-functions-10-2.pdf Graph
 ic file (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/25-test-functions-10-2.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[465] [466]
+[467] [468]
 File: Appunti_di_Statistica_files/figure-latex/25-test-functions-10-3.pdf Graph
 ic file (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/25-test-functions-10-3.pdf>
-[467]
+[469]
 File: Appunti_di_Statistica_files/figure-latex/25-test-functions-10-4.pdf Graph
 ic file (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/25-test-functions-10-4.pdf>
-[468]
+[470]
 File: Appunti_di_Statistica_files/figure-latex/25-test-functions-10-5.pdf Graph
 ic file (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/25-test-functions-10-5.pdf>
-[469]
+[471]
 File: Appunti_di_Statistica_files/figure-latex/25-test-functions-10-6.pdf Graph
 ic file (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/25-test-functions-10-6.pdf>
-[470]
+[472]
 File: Appunti_di_Statistica_files/figure-latex/25-test-functions-10-7.pdf Graph
 ic file (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/25-test-functions-10-7.pdf>
 
 Underfull \vbox (badness 6236) has occurred while \output is active []
 
-[471] [472]
+[473] [474]
 File: Appunti_di_Statistica_files/figure-latex/25-test-functions-10-8.pdf Graph
 ic file (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/25-test-functions-10-8.pdf>
-[473]
+[475]
 File: Appunti_di_Statistica_files/figure-latex/25-test-functions-10-9.pdf Graph
 ic file (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/25-test-functions-10-9.pdf>
-[474]
+[476]
 File: Appunti_di_Statistica_files/figure-latex/25-test-functions-10-10.pdf Grap
 hic file (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/25-test-functions-10-10.pdf>
 
 Underfull \vbox (badness 7963) has occurred while \output is active []
 
-[475] [476]
+[477] [478]
 File: Appunti_di_Statistica_files/figure-latex/25-test-functions-10-11.pdf Grap
 hic file (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/25-test-functions-10-11.pdf>
-[477]
+[479]
 File: Appunti_di_Statistica_files/figure-latex/25-test-functions-10-12.pdf Grap
 hic file (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/25-test-functions-10-12.pdf>
-[478]
+[480]
 File: Appunti_di_Statistica_files/figure-latex/25-test-functions-10-13.pdf Grap
 hic file (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/25-test-functions-10-13.pdf>
-[479] [480] [481] [482]
+[481] [482] [483] [484]
 File: Appunti_di_Statistica_files/figure-latex/25-test-functions-11-1.pdf Graph
 ic file (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/25-test-functions-11-1.pdf>
-[483]
+[485]
 File: Appunti_di_Statistica_files/figure-latex/25-test-functions-11-2.pdf Graph
 ic file (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/25-test-functions-11-2.pdf>
-[484]
+[486]
 
 LaTeX Font Warning: Font shape `TU/lmtt/bx/it' in size <10.95> not available
-(Font)              Font shape `TU/lmtt/b/sl' tried instead on input line 20102
+(Font)              Font shape `TU/lmtt/b/sl' tried instead on input line 20138
 .
 
 
-Underfull \vbox (badness 10000) detected at line 20145
+Underfull \vbox (badness 10000) detected at line 20181
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[485]
+[487]
 File: Appunti_di_Statistica_files/figure-latex/25-test-functions-18-1.pdf Graph
 ic file (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/25-test-functions-18-1.pdf>
 
-Overfull \hbox (28.17532pt too wide) in paragraph at lines 20188--20188
+Overfull \hbox (28.17532pt too wide) in paragraph at lines 20224--20224
  [] 
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[486] [487]
+[488] [489]
 File: Appunti_di_Statistica_files/figure-latex/unnamed-chunk-22-1.pdf Graphic f
 ile (type pdf)
 <use Appunti_di_Statistica_files/figure-latex/unnamed-chunk-22-1.pdf>
 
-Overfull \hbox (28.17532pt too wide) in paragraph at lines 20283--20283
+Overfull \hbox (28.17532pt too wide) in paragraph at lines 20319--20319
  [] 
  []
 
-[488] [489] (./Appunti_di_Statistica.aux)
+[490] [491] (./Appunti_di_Statistica.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
@@ -3677,4 +3688,4 @@ Here is how much of TeX's memory you used:
  14 hyphenation exceptions out of 8191
  90i,19n,122p,1210b,1000s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on Appunti_di_Statistica.pdf (489 pages).
+Output written on Appunti_di_Statistica.pdf (491 pages).

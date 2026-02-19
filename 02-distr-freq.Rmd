@@ -669,6 +669,35 @@ kable(prn,booktabs=T,escape=F,linesep="",align = c("lrrr"),
 ```
 :::
 
+:::{.example name="Variabile: Numero di interventi di manutenzione giornalieri"}
+$\phantom{.}$
+ 
+- $\mathbf{x}=(x_1 = 0, x_2 =1, x_3 =0, x_4=2,x_5=1,x_6=1,
+x_7=0,x_8=1,x_9=3,x_{10}=2)$
+- $n=10$
+- $S_X=\{\mathrm{x}_1 = 0,\mathrm{x}_2 = 1,\mathrm{x}_3=2,\mathrm{x}_4=3,...\}$
+- $K=+\infty$
+
+```{r int_giorn,echo=FALSE}
+nomi<-c("$X$","$n_j$","$f_j$","$f_{\\% j}$")
+tit<-c(0:3,"Tot")
+n<-c("$3$","$4$","$2$","$1$","$10$")
+f<-c("$3/10=0.3$","$4/10=0.4$","$2/10=0.2$","$1/10=0.1$","$1.0$")
+fp<-c("$30\\%$","$40\\%$","$20\\%$","$10\\%$","$100\\%$")
+prn <- data.frame(tit,n,f,fp)
+names(prn)<- nomi
+
+kable(prn,booktabs=T,escape=F,linesep="",align = c("lrrr"),
+      #caption = "Distribuzione di frequenza del titolo di studio in un collettivo di $n=10$ individui."
+      )%>%
+  row_spec(4,hline_after = T)%>%
+  row_spec(5,hline_after = T,bold = T)%>%
+  kableExtra::kable_styling(latex_options = "hold_position")
+
+```
+:::
+
+
 ### Dati quantitativi continui
 
 Se i dati sono quantitativi continui il numero delle modalità è spesso di
